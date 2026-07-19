@@ -5,12 +5,32 @@
  "by_id": {
   "POL-0034": {
    "elevated_temp": [
-    { "temp": 25, "ys": 110, "uts": 110, "E": 3.6 },
-    { "temp": 100, "ys": 95, "uts": 95, "E": 3.4 },
-    { "temp": 150, "ys": 75, "uts": 75, "E": 3.0 },
-    { "temp": 200, "ys": 35, "uts": 35, "E": 1.5 }
+    {
+     "temp": 25,
+     "ys": 110,
+     "uts": 110,
+     "E": 3.6
+    },
+    {
+     "temp": 100,
+     "ys": 95,
+     "uts": 95,
+     "E": 3.4
+    },
+    {
+     "temp": 150,
+     "ys": 75,
+     "uts": 75,
+     "E": 3
+    },
+    {
+     "temp": 200,
+     "ys": 35,
+     "uts": 35,
+     "E": 1.5
+    }
    ],
-   "src": "Ultem 1010(PEI) 사출성형 고온 인장/모듈러스 곡선 (핸드북 PEI injection-molded, RT→200°C — Tg≈217°C 근접 급강하). build-materials ELEV_DATA 'ultem 1010' 곡선이 W9++ 23°C 앵커 게이트에서 드롭됨: entry σy 가 FDM 오염값(65)이라 곡선 RT(110) 대비 ratio 1.69>1.4. σy 교정(→105, r226-value-corrections POL-0034) 은 build-registry 단계라 build-materials 게이트(교정 前 값)보다 늦어 재부착 불가 → 교정 後 부착되는 by_id 로 이관. RT 110/3.6 은 ASTM 계열, entry SABIC ISO 105/3.2 와 방법차 범위 내."
+   "src": "Ultem 1010(PEI) 사출성형 고온 인장/모듈러스 곡선 — 핸드북 PEI injection-molded, RT→200°C (Tg≈217°C 근접 급강하). RT 110 MPa/3.6 GPa 는 ASTM 계열 측정 기준 — SABIC ISO 기준(105/3.2)과 시험법 차이 범위 내."
   },
   "MET-0239": {
    "elevated_temp": [
@@ -59,7 +79,7 @@
      "E": 102.8
     }
    ],
-   "src": "Ansys Granta MI — Carbon steel, AISI 1015, annealed (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+   "src": "Ansys Granta MI — Carbon steel, AISI 1015, annealed (Materials Data for Simulation datasheet)"
   },
   "MET-1005": {
    "elevated_temp": [
@@ -108,7 +128,7 @@
      "E": 102.8
     }
    ],
-   "src": "Ansys Granta MI — Carbon steel, AISI 1015, normalized (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+   "src": "Ansys Granta MI — Carbon steel, AISI 1015, normalized (Materials Data for Simulation datasheet)"
   },
   "MET-0245": {
    "elevated_temp": [
@@ -168,7 +188,7 @@
      "E": 102.8
     }
    ],
-   "src": "Ansys Granta MI — Carbon steel, AISI 1020, annealed (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+   "src": "Ansys Granta MI — Carbon steel, AISI 1020, annealed (Materials Data for Simulation datasheet)"
   },
   "MET-1007": {
    "elevated_temp": [
@@ -217,7 +237,7 @@
      "E": 102.8
     }
    ],
-   "src": "Ansys Granta MI — Carbon steel, AISI 1020, normalized (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+   "src": "Ansys Granta MI — Carbon steel, AISI 1020, normalized (Materials Data for Simulation datasheet)"
   },
   "MET-1006": {
    "elevated_temp": [
@@ -266,7 +286,7 @@
      "E": 102.8
     }
    ],
-   "src": "Ansys Granta MI — Carbon steel, AISI 1020, as rolled (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+   "src": "Ansys Granta MI — Carbon steel, AISI 1020, as rolled (Materials Data for Simulation datasheet)"
   },
   "MET-0047": {
    "elevated_temp": [
@@ -323,7 +343,7 @@
      "E": 100.8
     }
    ],
-   "src": "Ansys Granta MI — Low alloy steel, AISI 6150, annealed (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+   "src": "Ansys Granta MI — Low alloy steel, AISI 6150, annealed (Materials Data for Simulation datasheet)"
   },
   "MET-0970": {
    "elevated_temp": [
@@ -348,7 +368,7 @@
      "E": 180
     }
    ],
-   "src": "Ansys Granta MI — Tool steel, chromium alloy high carbon, AISI D2 (cold work) (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+   "src": "Ansys Granta MI — Tool steel, chromium alloy high carbon, AISI D2 (cold work) (Materials Data for Simulation datasheet)"
   },
   "MET-0969": {
    "elevated_temp": [
@@ -373,7 +393,7 @@
      "E": 180
     }
    ],
-   "src": "Ansys Granta MI — Tool steel, chromium alloy high carbon, AISI D2 (cold work) (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+   "src": "Ansys Granta MI — Tool steel, chromium alloy high carbon, AISI D2 (cold work) (Materials Data for Simulation datasheet)"
   },
   "MET-0847": {
    "elevated_temp": [
@@ -438,7 +458,7 @@
      "E": 102.9
     }
    ],
-   "src": "Ansys Granta MI — Structural steel, ASTM A36 (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+   "src": "Ansys Granta MI — Structural steel, ASTM A36 (Materials Data for Simulation datasheet)"
   },
   "MET-0849": {
    "elevated_temp": [
@@ -503,7 +523,7 @@
      "E": 102.9
     }
    ],
-   "src": "Ansys Granta MI — Structural steel, ASTM A36 (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+   "src": "Ansys Granta MI — Structural steel, ASTM A36 (Materials Data for Simulation datasheet)"
   },
   "MET-0848": {
    "elevated_temp": [
@@ -568,7 +588,7 @@
      "E": 102.9
     }
    ],
-   "src": "Ansys Granta MI — Structural steel, ASTM A36 (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+   "src": "Ansys Granta MI — Structural steel, ASTM A36 (Materials Data for Simulation datasheet)"
   },
   "MET-0829": {
    "elevated_temp": [
@@ -609,7 +629,7 @@
      "uts": 433
     }
    ],
-   "src": "Ansys Granta MI — Stainless steel, semi-austenitic, 17-7PH, TH1050 (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+   "src": "Ansys Granta MI — Stainless steel, semi-austenitic, 17-7PH, TH1050 (Materials Data for Simulation datasheet)"
   },
   "MET-0507": {
    "elevated_temp": [
@@ -643,7 +663,7 @@
      "E": 175.2
     }
    ],
-   "src": "Ansys Granta MI — Nickel-Mo-Cr alloy, HASTELLOY C-276 (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+   "src": "Ansys Granta MI — Nickel-Mo-Cr alloy, HASTELLOY C-276 (Materials Data for Simulation datasheet)"
   },
   "MET-1011": {
    "elevated_temp": [
@@ -696,7 +716,7 @@
      "E": 130
     }
    ],
-   "src": "Ansys Granta MI — Nickel-copper alloy, MONEL 400, hard (spring temper) (사용자 제공 datasheet R226l, 벡터 추출·23°C 앵커 검증)"
+   "src": "Ansys Granta MI — Nickel-copper alloy, MONEL 400, hard (spring temper) (Materials Data for Simulation datasheet)"
   },
   "MET-0713": {
    "elevated_temp": [
@@ -752,7 +772,7 @@
      "ys": 92
     }
    ],
-   "src": "Ansys Granta MI — Stainless steel, austenitic, AISI 304, annealed (사용자 제공 datasheet R226m, 벡터 추출·23°C 앵커 검증)"
+   "src": "Ansys Granta MI — Stainless steel, austenitic, AISI 304, annealed (Materials Data for Simulation datasheet)"
   },
   "MET-0717": {
    "elevated_temp": [
@@ -799,7 +819,7 @@
      "E": 127.1
     }
    ],
-   "src": "Ansys Granta MI — Stainless steel, austenitic, AISI 304L, annealed (사용자 제공 datasheet R226m, 벡터 추출·23°C 앵커 검증)"
+   "src": "Ansys Granta MI — Stainless steel, austenitic, AISI 304L, annealed (Materials Data for Simulation datasheet)"
   },
   "MET-0731": {
    "elevated_temp": [
@@ -853,7 +873,7 @@
      "E": 127.1
     }
    ],
-   "src": "Ansys Granta MI — Stainless steel, austenitic, AISI 316, annealed (사용자 제공 datasheet R226m, 벡터 추출·23°C 앵커 검증)"
+   "src": "Ansys Granta MI — Stainless steel, austenitic, AISI 316, annealed (Materials Data for Simulation datasheet)"
   },
   "MET-0738": {
    "elevated_temp": [
@@ -912,7 +932,7 @@
      "uts": 191
     }
    ],
-   "src": "Ansys Granta MI — Stainless steel, austenitic, AISI 316L, annealed (사용자 제공 datasheet R226m, 벡터 추출·23°C 앵커 검증)"
+   "src": "Ansys Granta MI — Stainless steel, austenitic, AISI 316L, annealed (Materials Data for Simulation datasheet)"
   },
   "MET-0699": {
    "elevated_temp": [
@@ -956,7 +976,7 @@
      "E": 122.6
     }
    ],
-   "src": "Ansys Granta MI — Stainless steel, austenitic, AISI 316LN, annealed (사용자 제공 datasheet R226m, 벡터 추출·23°C 앵커 검증)"
+   "src": "Ansys Granta MI — Stainless steel, austenitic, AISI 316LN, annealed (Materials Data for Simulation datasheet)"
   },
   "MET-0727": {
    "elevated_temp": [
@@ -1016,7 +1036,7 @@
      "ys": 121
     }
    ],
-   "src": "Ansys Granta MI — Stainless steel, austenitic, AISI 310, annealed (사용자 제공 datasheet R226m, 벡터 추출·23°C 앵커 검증)"
+   "src": "Ansys Granta MI — Stainless steel, austenitic, AISI 310, annealed (Materials Data for Simulation datasheet)"
   },
   "MET-0809": {
    "elevated_temp": [
@@ -1065,7 +1085,7 @@
      "E": 114.2
     }
    ],
-   "src": "Ansys Granta MI — Stainless steel, martensitic, AISI 410, annealed (사용자 제공 datasheet R226m, 벡터 추출·23°C 앵커 검증)"
+   "src": "Ansys Granta MI — Stainless steel, martensitic, AISI 410, annealed (Materials Data for Simulation datasheet)"
   },
   "MET-0811": {
    "elevated_temp": [
@@ -1119,7 +1139,7 @@
      "E": 114.2
     }
    ],
-   "src": "Ansys Granta MI — Stainless steel, martensitic, AISI 410, hard temper (사용자 제공 datasheet R226m, 벡터 추출·23°C 앵커 검증)"
+   "src": "Ansys Granta MI — Stainless steel, martensitic, AISI 410, hard temper (Materials Data for Simulation datasheet)"
   },
   "MET-0928": {
    "elevated_temp": [
@@ -1164,7 +1184,7 @@
      "E": 34.7
     }
    ],
-   "src": "Ansys Granta MI — Titanium, alpha-beta alloy, Ti-6Al-4V, annealed (사용자 제공 datasheet R226m, 벡터 추출·23°C 앵커 검증)"
+   "src": "Ansys Granta MI — Titanium, alpha-beta alloy, Ti-6Al-4V, annealed (Materials Data for Simulation datasheet)"
   },
   "MET-0930": {
    "elevated_temp": [
@@ -1214,7 +1234,7 @@
      "E": 34.7
     }
    ],
-   "src": "Ansys Granta MI — Titanium, alpha-beta alloy, Ti-6Al-4V ELI, annealed (사용자 제공 datasheet R226m, 벡터 추출·23°C 앵커 검증)"
+   "src": "Ansys Granta MI — Titanium, alpha-beta alloy, Ti-6Al-4V ELI, annealed (Materials Data for Simulation datasheet)"
   },
   "MET-0416": {
    "elevated_temp": [
@@ -1259,7 +1279,7 @@
      "uts": 61
     }
    ],
-   "src": "Ansys Granta MI — Copper-Cr-Zr alloy, C18100, wp (h.c. copper) (사용자 제공 datasheet R226m, 벡터 추출·23°C 앵커 검증)"
+   "src": "Ansys Granta MI — Copper-Cr-Zr alloy, C18100, wp (h.c. copper) (Materials Data for Simulation datasheet)"
   },
   "MET-0415": {
    "elevated_temp": [
@@ -1308,7 +1328,7 @@
      "uts": 11
     }
    ],
-   "src": "Ansys Granta MI — Copper-Cr-Zr alloy, C18100, whp (h.c. copper) (사용자 제공 datasheet R226m, 벡터 추출·23°C 앵커 검증)"
+   "src": "Ansys Granta MI — Copper-Cr-Zr alloy, C18100, whp (h.c. copper) (Materials Data for Simulation datasheet)"
   },
   "MET-1012": {
    "elevated_temp": [
@@ -1366,7 +1386,7 @@
      "uts": 192
     }
    ],
-   "src": "Ansys Granta MI — Stainless steel, austenitic, 316FR, annealed (사용자 제공 datasheet R226m, 벡터 추출·23°C 앵커 검증)"
+   "src": "Ansys Granta MI — Stainless steel, austenitic, 316FR, annealed (Materials Data for Simulation datasheet)"
   }
  }
 }

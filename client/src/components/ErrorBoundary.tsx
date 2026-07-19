@@ -53,7 +53,7 @@ class ErrorBoundary extends Component<Props, State> {
             <h2 className="text-xl mb-2 font-semibold">예기치 못한 오류가 발생했습니다 / Unexpected error</h2>
             <p className="text-sm text-muted-foreground mb-6 text-center">
               {isFetchError && '네트워크 연결을 확인하거나 잠시 후 다시 시도해 주세요. The data could not be loaded — check your network.'}
-              {isTDZError && 'JavaScript 초기화 순서 오류 (R54 회귀 가능). Cache 비우고 hard reload (Ctrl+F5) 권장.'}
+              {isTDZError && 'JavaScript 초기화 순서 오류. 캐시를 비우고 강력 새로고침 (Ctrl+F5) 을 권장합니다.'}
               {!isFetchError && !isTDZError && '아래 액션 중 하나로 복구를 시도해 주세요.'}
             </p>
             <div className="flex flex-wrap gap-2 mb-6">

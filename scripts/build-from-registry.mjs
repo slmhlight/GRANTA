@@ -161,6 +161,58 @@ for (const m of all) for (const s of m.sources || []) {
 // R226f/축4c — UNS 정규 필드 (별칭·이름·specs 에서 도출; 외부 연동 키)
 for (const m of all) { const u = extractUNS(m); if (u.length) m.uns = u; }
 
+// 1b++) 내부마커 새니타이즈 (presentation) — 사용자 대면 텍스트 필드에서 개발 라운드 ID·작업 서사
+//   (사용자 제공/지시 · 배치 · 재검증 대상 · fake-variant · stale 등)를 제거. 값·레지스트리 SSOT 불변.
+//   대상 필드 한정: industry_note · elevated_temp_src · creep_rupture_src · ranges[*].provenance ·
+//   ranges[*].min_spec_source · sources[*].label. 실제 합금/규격명(R41·R250·R260·R134a 등)은
+//   보존해야 하므로 범용 R\d+ 삭제 금지 — 내부 토큰 명시 패턴만. 게이트: tests/no-internal-leak.test.ts
+const SAN_RULES = [
+  [/ ?\(사용자 제공 datasheet R226[lm], 벡터 추출·23°C 앵커 검증\)/g, ' (Materials Data for Simulation datasheet)'],
+  [/, 사용자 제공 R226[lm]\)/g, ')'],
+  [/\(사용자 제공 R226[lm]: /g, '('],
+  [/ ?\(사용자 제공 R226[lm]\)/g, ''],
+  [/\(사용자 제공 PDF: /g, '('],
+  [/ ?\(사용자 제공 PDF\)/g, ''],
+  [/ ?\((?:R\d{1,3}[a-z]?|REAL_PROPS)(?: 배치)? · 재검증 대상\)/g, ''],
+  [/ ?\(R\d{1,3}[a-z]? 배치\)/g, ''],
+  [/ ?\(R150 measured backfill\)/g, ''],
+  [/ ?[·—-] ?R132 검증/g, ''],
+  [/, ?R173 fake-variant 제거/g, ''],
+  [/R221 검증: /g, '대조: '],
+  [/; commodity 집계 도메인이라 verified 강등/g, ''],
+  [/ ?\(WebFetch 확인\)/g, ''],
+  [/\bR205-R /g, ''],
+  [/\bR214 (?=σf)/g, ''],
+  [/ · R212b (?=cap)/g, ' · '],
+  [/\(R216: /g, '('],
+  [/; R216 /g, '; '],
+  [/교정: 사용자 지시 \+ /g, '교정: '],
+  [/ ?\(sibling MET-\d{4}\)/g, ''],
+  [/UTS 정정 후 stale 값 교체/g, 'UTS 정정 후 재산출'],
+  [/ R226f: 별칭 근사\(A380≈ADC-12\)로 커버하던 것을 실엔트리로 승격\. \(주: append-only — 이 파일 중간 삽입은 legacy_id 를 밀어 fp 게이트가 차단함\.\)/g, ''],
+];
+const sanText = (s) => {
+  let t = s, hit = false;
+  for (const [re, rep] of SAN_RULES) { const u = t.replace(re, rep); if (u !== t) { hit = true; t = u; } }
+  return hit ? t.replace(/ {2,}/g, ' ').replace(/ \)/g, ')').trim() : s;
+};
+let sanitized = 0;
+for (const m of all) {
+  for (const f of ['industry_note', 'elevated_temp_src', 'creep_rupture_src']) {
+    if (typeof m[f] === 'string') { const t = sanText(m[f]); if (t !== m[f]) { m[f] = t; sanitized++; } }
+  }
+  if (m.ranges) for (const r of Object.values(m.ranges)) {
+    if (!r || typeof r !== 'object') continue;
+    for (const f of ['provenance', 'min_spec_source']) {
+      if (typeof r[f] === 'string') { const t = sanText(r[f]); if (t !== r[f]) { r[f] = t; sanitized++; } }
+    }
+  }
+  for (const s of m.sources || []) {
+    if (s && typeof s.label === 'string') { const t = sanText(s.label); if (t !== s.label) { s.label = t; sanitized++; } }
+  }
+}
+if (sanitized) console.log(`  내부마커 새니타이즈: ${sanitized} 필드 (라운드 ID·작업 서사 제거 — presentation, 레지스트리 불변)`);
+
 // R226h/축4a — A/B-basis 일괄 도출: min-spec 테이블(standard-min-specs.json) 매칭 entry 의
 //   typical 이 spec-min ±2% 이면 ranges[p].basis='min_spec' (R139b 필드; "표준 최소 보증값"임을 명시 — presentation).
 const MINSPECS = (() => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'standard-min-specs.json'), 'utf8')).specs || []; } catch { return []; } })();

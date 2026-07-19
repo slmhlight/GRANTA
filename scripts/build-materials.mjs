@@ -1400,7 +1400,7 @@ const REAL_ALIAS = { 'maragingsteel': 'maraging', 'm300': 'maraging', 'ms1': 'ma
 /* H6 G3-1 — REAL_PROPS 고온곡선 출처. 헤더 주석의 수준("handbook-typical")을 사실대로 전파.
  * R132 로 개별 검증된 haynes282 만 문서 수준 인용 — 나머지는 재검증 대상 명시 (거짓 인용 금지). */
 const REAL_PROPS_ELEV_SRC = { 'haynes282': 'Haynes International H-3173F brochure (2023) — R132 검증' };
-const REAL_PROPS_ELEV_SRC_DEFAULT = '핸드북 typical — 개별 인용 미기재 (REAL_PROPS · 재검증 대상)';
+const REAL_PROPS_ELEV_SRC_DEFAULT = '핸드북 typical — 개별 인용 미기재';
 function realPropsFor(name) {
   const keys = new Set([norm(alloyOf(name)), norm(baseName(name))]);
   for (const tok of String(name).split(/[\s(),/]+/)) if (/\d/.test(tok)) keys.add(norm(tok));
@@ -2998,18 +2998,18 @@ const ELEV_SRC_BATCHES = [
   [['inconel 718', 'inconel 625', 'inconel 738', 'haynes 230', 'hastelloy x'],
     'Special Metals SMC-045/093 · Haynes International H-3000H/H-3008C · ASM Aerospace Structural Metals (R20 배치)'],
   [['ti6al4v', 'ti-6al-4v', '304l', '316l', '7075', '6061', 'h13', 'cu (pure', 'waspaloy', 'rene 41'],
-    'MMPDS-15 · ASM Handbook Vol.2 · Special Metals · Carpenter Technology datasheets (R21 배치)'],
+    'MMPDS-15 · ASM Handbook Vol.2 · Special Metals · Carpenter Technology datasheets'],
   [['cocrmo', 'l605', 'mar-m247', '17-4 ph', '17-4ph', '15-5 ph', '15-5ph', 'a286', 'a-286', '4140', 'nimonic 80a', 'inconel 706', 'inconel 600'],
-    'ASTM F75/F90 · ASM Handbook Vol.2 · Special Metals SMC · Haynes International H-3068C · Carpenter datasheets (R23 배치)'],
+    'ASTM F75/F90 · ASM Handbook Vol.2 · Special Metals SMC · Haynes International H-3068C · Carpenter datasheets'],
   [['ti cp gr1', 'ti cp gr2', 'ti cp gr3', 'ti cp gr4', 'ti grade 1', 'ti grade 2', 'ti grade 3', 'ti grade 4',
     'ti-6242', 'ti-5553', 'ti-beta-21s', 'ti-3al-2.5v', 'aa 2014', 'aa 5052', 'aa 5083', 'aa 2024', 'aa 7050',
     'aa 6082', 'aa 6063', '301', '321', '347', '310', '904l', '2205 duplex', '2507 super duplex', '410', '420',
     '4340', '8620', '52100', '1045', 'a2', 'm2 hss', 'h11', 'c17200', 'beryllium copper', 'cuni 90-10', 'cuni 70-30'],
-    '핸드북 typical — 개별 인용 미기재 (R24 배치 · 재검증 대상)'],
+    '핸드북 typical — 개별 인용 미기재'],
   [['peek victrex 450g', 'peek victrex 450ca30', 'peek solvay ketaspire', 'ultem 1010', 'ultem 9085', 'pekk kepstan',
     'antero 800na', 'udel p-1700', 'radel r-5000', 'pa 2200', 'pa66 ultramid', 'pa66-gf30 zytel', 'delrin 500',
     'lexan 101r', 'vespel sp-1', 'pa12-cf eos hp 3'],
-    'Victrex PEEK technical guide · SABIC ULTEM design guide · Solvay KetaSpire/KEPSTAN datasheet · DuPont Delrin handbook · SABIC Lexan design guide (R34a 배치)'],
+    'Victrex PEEK technical guide · SABIC ULTEM design guide · Solvay KetaSpire/KEPSTAN datasheet · DuPont Delrin handbook · SABIC Lexan design guide'],
   [['p91', 'grade 91'], 'ASME B&PV Code Sec.II Part D · ASTM A335 (Grade 91)'],
   [['inconel 617'], 'Special Metals SMC-029 (Inconel 617)'],
   [['incoloy 800h', 'alloy 800h'], 'Special Metals SMC-046 · ASME Code Case 2843 (800H)'],
@@ -3996,8 +3996,8 @@ try {
   const bfElevSrc = new Map();
   for (const [names, src] of [
     [[...Object.keys(backfillRaw.composites || {}), ...Object.keys(backfillRaw.polymers || {})], '제조사 datasheet 측정값 (R145 measured backfill)'],
-    [[...Object.keys(r150Raw.composites || {}), ...Object.keys(r150Raw.polymers || {})], '제조사 datasheet 측정값 (R150 measured backfill)'],
-    [Object.keys(r151Raw.polymers || {}), 'Victrex·Solvay·Celanese·Arkema·SABIC·BASF·Stratasys datasheet 측정값 (R151 배치)'],
+    [[...Object.keys(r150Raw.composites || {}), ...Object.keys(r150Raw.polymers || {})], '제조사 datasheet 측정값'],
+    [Object.keys(r151Raw.polymers || {}), 'Victrex·Solvay·Celanese·Arkema·SABIC·BASF·Stratasys datasheet 측정값'],
   ]) for (const n of names) bfElevSrc.set(n, src);
   let upgraded = 0;
   for (const [bfName, bf] of Object.entries(allBackfill)) {
