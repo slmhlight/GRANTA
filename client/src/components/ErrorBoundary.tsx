@@ -21,6 +21,25 @@ class ErrorBoundary extends Component<Props, State> {
     return { hasError: true, error };
   }
 
+  /* R120b — lazy 청크 로드 실패는 React 가 boundary 로 먼저 잡아 main.tsx 의 unhandledrejection
+   * 가드(R120)가 발동하지 못한다 (실사고: 새 deploy 후 stale 탭이 옛 hash 청크 fetch → 404 →
+   * "Failed to fetch dynamically imported module" 가 에러 화면으로 노출). boundary 에서도 동일한
+   * 1회 자동 새로고침 + sessionStorage 루프 가드(R120 과 키 공유)로 복구한다. */
+  componentDidCatch(error: Error) {
+    const msg = String(error?.message || '');
+    const isChunkError = /Failed to fetch dynamically imported module|Importing a module script failed|ChunkLoadError|Loading chunk \d+ failed/i.test(msg);
+    if (!isChunkError) return;
+    try {
+      const key = 'am_chunk_reload_attempt';   // R120(main.tsx)과 동일 키 — 두 경로 합산 1회 가드
+      const last = Number(sessionStorage.getItem(key) || 0);
+      const now = Date.now();
+      if (now - last < 30_000) return;   // 30초 내 재발 = 진짜 결손 — 에러 화면 유지 (무한 루프 방지)
+      sessionStorage.setItem(key, String(now));
+    } catch { /* private mode — 루프 가드 불가 시 reload 생략 */ return; }
+    console.warn('[R120b] Chunk load failed in error boundary, reloading for fresh bundle:', msg);
+    window.location.reload();
+  }
+
   render() {
     if (this.state.hasError) {
       // R71 A — 친화적 에러 메시지 + 디버그 stack collapsible + diagnostic actions.

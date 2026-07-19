@@ -797,10 +797,14 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
             {(() => {
               const cp = resolveCorrosionPlan(material);
               if (!cp) return null;
+              /* E15n — 폴리머는 전기화학 부식이 없으므로 카드 자체를 "내약품성" 으로 명명하고
+               * 금속식 매체(대기/해수/염수/강산/약산/알칼리) 축 표를 표시하지 않는다 (사용자 지시).
+               * 수지별 실판정은 개별 노트({t,src})와 재질×약품 매트릭스 원칙이 담당. */
+              const isPolymerChem = cp.groupKey === 'polymer';
               return (
                 <details className="rounded-lg border-2 border-cyan-300 bg-cyan-50/40 p-3" open={isSecOpen('corr')} onToggle={(e) => toggleSec('corr', e.currentTarget.open)}>
                   <summary className="text-[12px] font-bold flex items-center justify-between cursor-pointer select-none list-none text-cyan-900">
-                    <span className="flex items-center gap-1.5"><FlaskConical className="w-3.5 h-3.5" />Corrosion · 내식성 — {cp.group.title}</span>
+                    <span className="flex items-center gap-1.5"><FlaskConical className="w-3.5 h-3.5" />{isPolymerChem ? 'Chemical Resistance · 내약품성' : `Corrosion · 내식성 — ${cp.group.title}`}</span>
                     <span className="text-[10px] font-normal opacity-70">
                       {cp.rating ?? ''}{cp.pren ? ` · PREN ≈ ${cp.pren.value}` : ''} ▸
                     </span>
@@ -825,9 +829,10 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                       </p>
                     )}
                     <p className="text-[10px] text-foreground/75 mb-1.5 leading-relaxed">{cp.group.intro}</p>
-                    {/* E15i — 합금 보정 적용 표 (그룹 기본과 다른 축은 원값→보정값·근거 병기) */}
+                    {/* E15i — 합금 보정 적용 표 (그룹 기본과 다른 축은 원값→보정값·근거 병기).
+                        E15n — 폴리머는 축 표 비표시: 수용액 매체 축은 금속 프레임 — 수지는 노트·매트릭스 원칙으로. */}
                     <div className="space-y-0.5 mb-1.5">
-                      {cp.media.map((md, i) => {
+                      {!isPolymerChem && cp.media.map((md, i) => {
                         const v = VERDICT_LABEL[md.verdict];
                         return (
                           <p key={i} className="text-[10.5px] leading-snug">
