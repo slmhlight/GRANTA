@@ -866,7 +866,8 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                     )}
                     {cp.group.caution && <p className="text-[10px] text-amber-700 mt-1.5">⚠ {cp.group.caution}</p>}
                     {cp.conditionNotes.map((n, i) => <p key={i} className="text-[10px] text-amber-700 mt-1">⚠ {n}</p>)}
-                    <p className="text-[10px] text-foreground/60 mt-1.5">표면 대책(도금·아노다이즈 등)은 아래 <b>권장 후공정</b> 카드 참조.</p>
+                    {/* E15n' — 폴리머엔 비표시: 도금·아노다이즈는 금속 표면 대책 (역할 분리 포인터는 금속 전용) */}
+                    {!isPolymerChem && <p className="text-[10px] text-foreground/60 mt-1.5">표면 대책(도금·아노다이즈 등)은 아래 <b>권장 후공정</b> 카드 참조.</p>}
                     <p className="text-[9px] text-muted-foreground mt-1.5 pt-1 border-t border-cyan-600/15"><b>출처</b>: {cp.group.sources.join(' · ')} — 일반 관행 요약, 설계 검증 대체 불가.</p>
                   </div>
                 </details>
