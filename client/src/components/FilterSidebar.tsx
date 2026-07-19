@@ -1017,7 +1017,7 @@ function CorrosionEnvFilter({ value, onChange }: { value: Record<string, 'good' 
               </div>
             );
           })}
-          <p className="text-[9px] text-muted-foreground leading-snug pt-0.5">부식 카드와 동일한 판정(PREN·조성 규칙·개별 오버라이드 적용 후). 판정 대상 아님(복합재)은 필터 시 제외.</p>
+          <p className="text-[9px] text-muted-foreground leading-snug pt-0.5">상세 화면의 부식 카드와 같은 기준(합금별 보정 반영). 복합재는 부식 판정이 없어 제외.</p>
         </div>
       )}
     </div>
