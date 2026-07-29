@@ -153,12 +153,11 @@ describe('glossary A4 본문(articles) 무결성', () => {
     expect(bad, bad.join('\n')).toEqual([]);
   });
   /* H5 W15 → H4k — 무도표 확정 유지(사유 명문). 새 무도표 article 은 도표를 넣거나 여기 사유와 함께 등재.
-     H4k(W3-11)에서 sigma-phase·intermetallic 은 생성 이미지 도표로 해소 → 6 → 4. */
-  it('무도표 article 은 ≤4 이며 전부 사유 명문', () => {
+     H4k(W3-11) 생성 이미지 도표로 4종 해소: sigma-phase·intermetallic(2차) ·
+     residual-stress(3원인 맵)·sour-service(수소취성 3단계, SSC 절)(3차) → 6 → 2. */
+  it('무도표 article 은 ≤2 이며 전부 사유 명문', () => {
     const DOCUMENTED_NO_FIGURE: Record<string, string> = {
       pren: '수식 중심(PREN = Cr+3.3Mo+16N) — 단일 도표보다 식이 본체',
-      'sour-service': '규격 중심(NACE MR0175/ISO 15156) — 도표보다 조건표',
-      'residual-stress': '원인(용접·주조·가공·상변태) 다양 — 대표 1장으로 오도 우려',
       'zirconium-alloy': '표(세대·핵심물성)가 골격 — W12 정량 표 2종',
     };
     const noFig = Object.entries(articles)
@@ -166,7 +165,7 @@ describe('glossary A4 본문(articles) 무결성', () => {
       .map(([slug]) => slug);
     const undocumented = noFig.filter((s) => !DOCUMENTED_NO_FIGURE[s]);
     expect(undocumented, `무도표인데 사유 미등재: ${undocumented.join(', ')}`).toEqual([]);
-    expect(noFig.length, `무도표 ${noFig.length} > 4`).toBeLessThanOrEqual(4);
+    expect(noFig.length, `무도표 ${noFig.length} > 2`).toBeLessThanOrEqual(2);
   });
 });
 
