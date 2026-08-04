@@ -2730,7 +2730,133 @@ def fig_galling_mechanism():
     save(fig, "galling-mechanism")
 
 
+def fig_modulus_temperature():
+    """H6 W3-6 — 탄성계수-온도 곡선 위에 Tg·Tm·HDT 의 위치를 한 장에 얹는다.
+    비정질과 반결정이 Tg 이후 갈리는 것이 이 그림의 논지."""
+    fig, ax = plt.subplots(figsize=(9.2, 5.4))
+    T = np.linspace(0, 320, 600)
+
+    def sig(t, c, w):          # 부드러운 급락(로그 스케일용)
+        return 1.0 / (1.0 + np.exp((t - c) / w))
+
+    tg, tm = 150.0, 250.0
+    # 비정질: Tg 에서 3 decade 급락 후 계속 흐름
+    amor = 10 ** (0.5 + (-3.4) * (1 - sig(T, tg, 7)) - 1.2 * np.clip((T - tg - 25) / 120, 0, None))
+    # 반결정: Tg 에서 반 decade 만 떨어지고 결정부가 버팀 → Tm 에서 붕괴.
+    #   HDT 문턱을 Tm 직전에서 통과해야 "반결정 HDT 는 Tg 보다 훨씬 높다"는 본문과 맞는다.
+    semi = 10 ** (0.5 + (-0.55) * (1 - sig(T, tg, 9)) + (-3.6) * (1 - sig(T, tm, 6)))
+
+    ax.semilogy(T, amor, color=C_A, lw=2.6, label="비정질 (PC·PMMA·PEI)")
+    ax.semilogy(T, semi, color=C_M, lw=2.6, label="반결정 (PA·POM·PEEK)")
+
+    # Tg / Tm 세로선
+    ax.axvline(tg, color=C_MUTE, ls="--", lw=1.3)
+    ax.axvline(tm, color=C_MUTE, ls="--", lw=1.3)
+    ax.text(tg, 5.5, "$T_g$\n유리전이", ha="center", va="bottom", fontsize=10, color=C_AX, fontweight="bold")
+    ax.text(tm, 5.5, "$T_m$\n융점", ha="center", va="bottom", fontsize=10, color=C_AX, fontweight="bold")
+
+    # HDT — 규정 처짐에 이르는 강성 문턱을 가로선으로, 두 곡선과의 교점에 마커
+    thr = 0.55
+    ax.axhline(thr, color=C_G, ls=":", lw=1.8)
+    ax.text(6, thr * 1.5, "HDT 판정 문턱\n(규정 하중에서 규정 처짐)", fontsize=8.6, color=C_G, va="bottom")
+    # dx/dy 는 Tg·Tm 라벨(그래프 상단)과 겹치지 않도록 배치 — 반결정 쪽은 왼쪽 아래로 뺀다.
+    for curve, col, lab, dx, dy in ((amor, C_A, "비정질 HDT\n(Tg 직전)", -46, 7.0),
+                                    (semi, C_M, "반결정 HDT\n(Tg 훨씬 위)", -52, 0.22)):
+        idx = int(np.argmax(curve < thr))
+        if idx > 0:
+            ax.plot(T[idx], curve[idx], "o", color=col, ms=9, mec="white", mew=1.6, zorder=6)
+            ax.annotate(lab, xy=(T[idx], curve[idx]), xytext=(T[idx] + dx, curve[idx] * dy),
+                        fontsize=8.8, color=col, fontweight="bold", ha="center",
+                        arrowprops=dict(arrowstyle="-|>", color=col, lw=1.2))
+
+    # 상태 영역 음영
+    ax.axvspan(0, tg, color=C_A, alpha=0.05)
+    ax.axvspan(tg, tm, color=C_G, alpha=0.06)
+    ax.axvspan(tm, 320, color=C_M, alpha=0.05)
+    ax.text(tg / 2, 3.0e-4, "유리 상태\n(사슬 고정)", ha="center", fontsize=8.6, color=C_MUTE)
+    ax.text((tg + tm) / 2, 3.0e-4, "고무 상태\n(비정질부 유동)", ha="center", fontsize=8.6, color=C_MUTE)
+    ax.text(287, 3.0e-4, "용융", ha="center", fontsize=8.6, color=C_MUTE)
+
+    ax.set_xlabel("온도 (°C)", fontsize=10, color=C_AX)
+    ax.set_ylabel("탄성계수 (GPa, 로그 눈금)", fontsize=10, color=C_AX)
+    ax.set_xlim(0, 320); ax.set_ylim(1e-4, 12)
+    # 로그 눈금 라벨을 직접 지정 — mathtext 기본 폰트에 U+2212(−)가 없어 tofu(¤) 로 깨진다.
+    ax.set_yticks([1e-4, 1e-3, 1e-2, 1e-1, 1e0, 1e1])
+    ax.set_yticklabels(["0.0001", "0.001", "0.01", "0.1", "1", "10"])
+    ax.legend(loc="upper right", fontsize=9, framealpha=0.95, bbox_to_anchor=(0.995, 0.62))
+    ax.grid(alpha=0.25, which="both")
+    ax.set_title("Tg·Tm·HDT 는 어디에 있나 — 탄성계수가 온도에 따라 떨어지는 방식 (개략)",
+                 fontsize=11.5, color=C_AX, fontweight="bold", pad=12)
+    fig.tight_layout()
+    save(fig, "modulus-temperature")
+
+
+def fig_conductivity_strength():
+    """H6 W3-6 — %IACS ↔ 강도의 줄다리기. 석출강화가 그 상충을 깨는 예외임을 보인다."""
+    fig, (ax, ax2) = plt.subplots(1, 2, figsize=(11.6, 4.9), gridspec_kw={"width_ratios": [1.25, 1]})
+
+    # ── (좌) 전도도-강도 산점 ──
+    pts = [
+        ("순동 C11000", 101, 70, C_G, "고용 원소 없음"),
+        ("CuCrZr", 82, 400, C_M, "석출강화"),
+        ("Cu-Fe-P", 65, 420, C_M, None),
+        ("황동 C26000", 28, 105, C_A, "Zn 고용"),
+        ("인청동 C51000", 20, 140, C_A, None),
+        ("베릴륨동 C17200", 22, 1050, C_A, "고용+시효"),
+        ("양백 C75200", 9, 170, C_A, None),
+        ("알루미늄 1350", 61, 30, C_AX, "경량 도체"),
+    ]
+    # 라벨 위치를 점마다 지정 — 자동 배치는 좌하단 군집에서 겹친다(시각검수 발견).
+    LBL = {"순동 C11000": (-6, 0.72, "right"), "CuCrZr": (3, 0.80, "left"),
+           "Cu-Fe-P": (-3, 1.30, "right"), "황동 C26000": (2.5, 0.74, "left"),
+           "인청동 C51000": (2.5, 1.28, "left"), "베릴륨동 C17200": (3, 0.90, "left"),
+           "양백 C75200": (-1.5, 1.0, "right"), "알루미늄 1350": (3, 1.0, "left")}
+    for name, iacs, sy, col, note in pts:
+        ax.scatter(iacs, sy, s=110, color=col, edgecolor="white", lw=1.4, zorder=5)
+        dx, fy, ha = LBL[name]
+        ax.annotate(name, (iacs, sy), xytext=(iacs + dx, sy * fy), fontsize=8.4, color=C_AX, ha=ha)
+
+    # 상충 추세선(고용강화 경로) — 설명은 점이 없는 우하단 공백에
+    xs = np.linspace(8, 100, 100)
+    ax.plot(xs, 1400 / (xs ** 0.62), color=C_MUTE, ls="--", lw=1.5, alpha=0.8)
+    ax.text(6, 40, "고용·가공강화 경로\n— 강도를 얻으면 전도도를 잃는다",
+            fontsize=8.6, color=C_MUTE, ha="left")
+    ax.annotate("석출강화는 이 선을 벗어난다\n(격자를 비우고 석출물로 막는다)",
+                xy=(82, 400), xytext=(46, 780), fontsize=9, color=C_M, fontweight="bold",
+                arrowprops=dict(arrowstyle="-|>", color=C_M, lw=1.5,
+                                connectionstyle="arc3,rad=-0.25"))
+    ax.set_xlabel("전기전도도 (%IACS)", fontsize=10, color=C_AX)
+    ax.set_ylabel("항복강도 $σ_y$ (MPa)", fontsize=10, color=C_AX)
+    ax.set_yscale("log"); ax.set_xlim(0, 112); ax.set_ylim(20, 2000)
+    ax.grid(alpha=0.25, which="both")
+    ax.set_title("강도와 전도도의 줄다리기 (구리 합금 계열)", fontsize=10.6, color=C_AX, fontweight="bold")
+
+    # ── (우) 비데만-프란츠: 전기 ↔ 열 전도 비례 ──
+    mats = [("Cu", 101, 400), ("Al", 61, 237), ("황동", 28, 120),
+            ("Ni", 25, 91), ("탄소강", 12, 50), ("SS 304", 2.4, 16), ("Ti", 3.1, 7)]
+    xi = [m[1] for m in mats]; yi = [m[2] for m in mats]
+    ax2.scatter(xi, yi, s=105, color=C_A, edgecolor="white", lw=1.4, zorder=5)
+    for n, x, y in mats:
+        # Cu 는 우측 끝이라 라벨을 왼쪽으로 (경계 밖 잘림 방지 — 시각검수 발견)
+        ha, fx = ("right", 0.84) if n == "Cu" else ("left", 1.18)
+        ax2.annotate(n, (x, y), xytext=(x * fx, y * 0.84), fontsize=8.6, color=C_AX, ha=ha)
+    xf = np.linspace(2, 110, 50)
+    ax2.plot(xf, 4.0 * xf, color=C_MUTE, ls="--", lw=1.5)
+    ax2.text(2.6, 300, "비데만–프란츠\n전기가 잘 통하면\n열도 잘 통한다", fontsize=8.8, color=C_MUTE)
+    ax2.set_xscale("log"); ax2.set_yscale("log")
+    ax2.set_xlim(1.8, 150); ax2.set_ylim(4, 700)
+    ax2.set_xlabel("전기전도도 (%IACS)", fontsize=10, color=C_AX)
+    ax2.set_ylabel("열전도도 (W/m·K)", fontsize=10, color=C_AX)
+    ax2.grid(alpha=0.25, which="both")
+    ax2.set_title("전기전도도 ↔ 열전도도", fontsize=10.6, color=C_AX, fontweight="bold")
+
+    fig.tight_layout()
+    save(fig, "conductivity-strength")
+
+
 if __name__ == "__main__":
+    fig_modulus_temperature()
+    fig_conductivity_strength()
     fig_martensite_lattice()
     fig_fcc_bcc()
     fig_iron_carbon()
