@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 242,
-      "max": 242,
-      "typical": 242,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 345,
+      "typical": 345,
+      "max": 345,
+      "confidence": "handbook",
+      "provenance": "교정: ASTM A240 (Type 434: YS≥240 MPa / UTS≥450 MPa) · Combined Metals 434 strip datasheet (50 ksi YS / 80 ksi UTS / El 28% / 75 HRB) · eFunda AISI 434 annealed (415/545/33%) · AZoM Grade 434 (441/538/32%)"
     },
     "uts": {
-      "min": 365.2,
-      "max": 365.2,
-      "typical": 365.2,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 540,
+      "typical": 540,
+      "max": 540,
+      "confidence": "handbook",
+      "provenance": "교정: ASTM A240 (Type 434: YS≥240 MPa / UTS≥450 MPa) · Combined Metals 434 strip datasheet (50 ksi YS / 80 ksi UTS / El 28% / 75 HRB) · eFunda AISI 434 annealed (415/545/33%) · AZoM Grade 434 (441/538/32%)"
     },
     "elongation": {
-      "min": 18.6,
-      "max": 18.6,
-      "typical": 18.6,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 28,
+      "typical": 28,
+      "max": 28,
+      "confidence": "handbook",
+      "provenance": "교정: ASTM A240 (Type 434: YS≥240 MPa / UTS≥450 MPa) · Combined Metals 434 strip datasheet (50 ksi YS / 80 ksi UTS / El 28% / 75 HRB) · eFunda AISI 434 annealed (415/545/33%) · AZoM Grade 434 (441/538/32%)"
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 164.6,
-      "max": 164.6,
-      "typical": 164.6,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 180,
+      "typical": 180,
+      "max": 180,
+      "confidence": "handbook",
+      "provenance": "교정: ASTM A240 (Type 434: YS≥240 MPa / UTS≥450 MPa) · Combined Metals 434 strip datasheet (50 ksi YS / 80 ksi UTS / El 28% / 75 HRB) · eFunda AISI 434 annealed (415/545/33%) · AZoM Grade 434 (441/538/32%)"
     },
     "thermal_conductivity": {
       "min": 24.8,
@@ -207,11 +207,11 @@
   "points": [
     [
       7.75,
-      242,
-      365.2,
-      18.6,
+      345,
+      540,
+      28,
       200,
-      164.56,
+      180,
       24.8
     ]
   ],
@@ -236,11 +236,11 @@
   "fracture_toughness": 104,
   "fatigue_strength": 121,
   "density": 7.75,
-  "yield_strength": 242,
-  "uts": 365.2,
-  "elongation": 18.6,
+  "yield_strength": 345,
+  "uts": 540,
+  "elongation": 28,
   "modulus": 200,
-  "hardness": 164.6,
+  "hardness": 180,
   "thermal_conductivity": 24.8,
   "impact_strength": 140,
   "manufacturer": "Generic",
@@ -295,6 +295,69 @@
           "url": null,
           "verified": false
         }
+      ]
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 242,
+        "max": 242,
+        "typical": 242,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 242
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 365.2,
+        "max": 365.2,
+        "typical": 365.2,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 365.2
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 18.6,
+        "max": 18.6,
+        "typical": 18.6,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 18.6
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 164.6,
+        "max": 164.6,
+        "typical": 164.6,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 164.6
+    },
+    "_basis": "AISI 434 annealed — DB 242/365.2 는 **UTS 가 ASTM A240 최소 450 MPa 미달**(405·430 과 동일 오염값). typical 밴드(σy 345~441 · UTS 538~552 · El 28~33) 하한으로 보수 교정.",
+    "_src": "ASTM A240 (Type 434: YS≥240 MPa / UTS≥450 MPa) · Combined Metals 434 strip datasheet (50 ksi YS / 80 ksi UTS / El 28% / 75 HRB) · eFunda AISI 434 annealed (415/545/33%) · AZoM Grade 434 (441/538/32%)",
+    "points": {
+      "from": [
+        [
+          7.75,
+          242,
+          365.2,
+          18.6,
+          200,
+          164.56,
+          24.8
+        ]
       ]
     }
   }

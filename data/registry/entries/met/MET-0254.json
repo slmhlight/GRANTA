@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 193.5,
-      "max": 256.5,
-      "typical": 243,
-      "n": 3,
-      "confidence": "measured"
+      "min": 420,
+      "typical": 420,
+      "max": 420,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom — Cold Drawn 1025 Carbon Steel (출처 ASM Specialty Handbook: Carbon and Alloy Steels) · 냉간인발 봉 표준 제품형"
     },
     "uts": {
-      "min": 296.7,
-      "max": 393.3,
-      "typical": 372.6,
-      "n": 3,
-      "confidence": "measured"
+      "min": 500,
+      "typical": 500,
+      "max": 500,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom — Cold Drawn 1025 Carbon Steel (출처 ASM Specialty Handbook: Carbon and Alloy Steels) · 냉간인발 봉 표준 제품형"
     },
     "elongation": {
-      "min": 25.92,
-      "max": 34.88,
-      "typical": 32.96,
-      "n": 3,
-      "confidence": "measured"
+      "min": 17,
+      "typical": 17,
+      "max": 17,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom — Cold Drawn 1025 Carbon Steel (출처 ASM Specialty Handbook: Carbon and Alloy Steels) · 냉간인발 봉 표준 제품형"
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 86,
-      "max": 114,
-      "typical": 108,
-      "n": 3,
-      "confidence": "measured"
+      "min": 147,
+      "typical": 147,
+      "max": 147,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom — Cold Drawn 1025 Carbon Steel (출처 ASM Specialty Handbook: Carbon and Alloy Steels) · 냉간인발 봉 표준 제품형"
     },
     "thermal_conductivity": {
       "min": 51,
@@ -212,29 +212,11 @@
   "points": [
     [
       7.85,
-      193.5,
-      296.7,
-      25.92,
-      210,
-      86,
-      51
-    ],
-    [
-      7.85,
-      256.5,
-      393.3,
-      34.879999999999995,
-      210,
-      114,
-      51
-    ],
-    [
-      7.85,
-      243.00000000000003,
-      372.6,
-      32.96,
-      210,
-      108,
+      420,
+      500,
+      17,
+      205,
+      147,
       51
     ]
   ],
@@ -255,11 +237,11 @@
   "fracture_toughness": 44,
   "fatigue_strength": 122,
   "density": 7.85,
-  "yield_strength": 243,
-  "uts": 372.6,
-  "elongation": 32.96,
+  "yield_strength": 420,
+  "uts": 500,
+  "elongation": 17,
   "modulus": 205,
-  "hardness": 108,
+  "hardness": 147,
   "thermal_conductivity": 51,
   "impact_strength": 21,
   "manufacturer": "Generic",
@@ -320,6 +302,87 @@
     },
     "aliases": {
       "from": []
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 193.5,
+        "max": 256.5,
+        "typical": 243,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 243
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 296.7,
+        "max": 393.3,
+        "typical": 372.6,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 372.6
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 25.92,
+        "max": 34.88,
+        "typical": 32.96,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 32.96
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 86,
+        "max": 114,
+        "typical": 108,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 108
+    },
+    "_basis": "냉간인발(strain-hardened) 실제값. DB 값은 annealed × 합성배율(σy ×1.227 · El ×1.108)로 찍힌 CSV generic 값 — **냉간가공인데 연신율이 annealed 보다 높은 물리 위배**(예 1020: 33.5%→37.1%). 표준 냉간인발 봉 값으로 교정.",
+    "_src": "MakeItFrom — Cold Drawn 1025 Carbon Steel (출처 ASM Specialty Handbook: Carbon and Alloy Steels) · 냉간인발 봉 표준 제품형",
+    "points": {
+      "from": [
+        [
+          7.85,
+          193.5,
+          296.7,
+          25.92,
+          210,
+          86,
+          51
+        ],
+        [
+          7.85,
+          256.5,
+          393.3,
+          34.879999999999995,
+          210,
+          114,
+          51
+        ],
+        [
+          7.85,
+          243.00000000000003,
+          372.6,
+          32.96,
+          210,
+          108,
+          51
+        ]
+      ]
     }
   }
 }

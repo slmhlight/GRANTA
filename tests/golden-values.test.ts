@@ -12,7 +12,8 @@ import path from 'node:path';
 const all: any[] = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'client', 'public', 'materials.json'), 'utf8'));
 const V = (m: any, k: string) => m.ranges?.[k]?.typical;
 
-type G = { name: string; ht?: string; y?: [number, number]; u?: [number, number]; d?: [number, number]; e?: [number, number]; yMax?: number };
+/* y=항복 · u=인장 · d=밀도 · e=탄성계수 · el=연신율(W2-2 추가 — 조건별 연성 오염 검출) · yMax=최소 상한 */
+type G = { name: string; ht?: string; y?: [number, number]; u?: [number, number]; d?: [number, number]; e?: [number, number]; el?: [number, number]; yMax?: number };
 const GOLDEN: G[] = [
   { name: 'A588 Grade A', y: [330, 360], u: [475, 510], d: [7.75, 7.95] },   // ← A588 오염 방어 (σy 250 오기 재발 차단)
   { name: 'ASTM A36', y: [235, 270], d: [7.75, 7.95] },
@@ -110,6 +111,52 @@ const GOLDEN: G[] = [
   { name: 'Silicon Nitride', d: [3.15, 3.35], e: [290, 330] },
   { name: 'Zirconia (Y-TZP', d: [5.95, 6.15], e: [195, 215] },
   { name: 'Tungsten Carbide (WC-Co', d: [14.5, 15.3], e: [580, 660] },
+
+  /* ── H6 W2-2 tranche 4 (89 → 114) ──────────────────────────────────────────
+   * 인기 상위인데 앵커가 없던 base. 이번 확장이 **검증 스윕을 겸해** 오염 3종을 잡았다:
+   *  (a) 냉간인발 6종 — annealed × 합성배율로 찍혀 "냉간가공인데 연신율 상승"(물리 위배)
+   *  (b) 페라이트계 405·434 annealed — UTS 가 ASTM A240 최소 미달 (430 과 동일 오염값 242/365.2)
+   *  (c) 고탄소 1080·1095 냉간인발 — 구상화+인발 실제값 대비 UTS 8~19% 과대
+   * 아래 bound 는 전부 **표준·핸드북 출처**에서 온 값이며 DB 를 보고 정한 것이 아니다. */
+
+  // 냉간인발 탄소강 사다리 (MakeItFrom ← ASM Specialty Handbook: Carbon and Alloy Steels)
+  { name: 'AISI 1010', ht: 'Strain', y: [300, 360], u: [370, 430], el: [19, 25] },
+  { name: 'AISI 1020', ht: 'Strain', y: [345, 410], u: [415, 490], el: [14, 20] },
+  { name: 'AISI 1025', ht: 'Strain', y: [385, 450], u: [460, 530], el: [14, 20] },
+  { name: 'AISI 1030', ht: 'Strain', y: [450, 525], u: [545, 630], el: [11, 17] },
+  { name: 'AISI 1040', ht: 'Strain', y: [490, 570], u: [590, 690], el: [10, 16] },
+  { name: 'AISI 1050', ht: 'Strain', y: [600, 700], u: [730, 840], el: [8, 14] },
+  // 고탄소 = 구상화 어닐링 후 냉간인발(펄라이트로는 인발 불가)
+  { name: 'AISI 1080', ht: 'Strain', y: [540, 640], u: [710, 830], el: [9, 14] },
+  { name: 'AISI 1095', ht: 'Strain', y: [540, 640], u: [710, 830], el: [9, 14] },
+
+  // 페라이트계 스테인리스 — ASTM A240 최소 위 typical (min 미달 오염 재발 차단)
+  { name: 'AISI 405', ht: 'Anneal', y: [200, 320], u: [420, 500], el: [20, 30] },     // A240 min 170/415
+  { name: 'AISI 434', ht: 'Anneal', y: [280, 450], u: [455, 560], el: [25, 35] },     // A240 min 240/450
+  { name: 'AISI 302', y: [205, 280], u: [515, 640], d: [7.85, 7.95] },               // A240 min 205/515
+  { name: 'AISI 430', ht: 'Anneal', y: [270, 390], u: [455, 530], el: [22, 32] },     // A240 min 205/450 (교정 회귀 고정)
+
+  // 구리 합금 — ASTM B36/B122/B152 템퍼 사다리
+  { name: 'OFHC Copper C10100', y: [55, 90], u: [200, 245], d: [8.9, 8.98] },
+  { name: 'C21000', ht: 'Anneal', y: [60, 100], u: [220, 260], d: [8.8, 8.92] },
+  { name: 'C21000', ht: 'H (Full', y: [310, 370], u: [355, 405] },
+  { name: 'C75200', ht: 'Anneal', y: [140, 200], u: [380, 440], d: [8.65, 8.8] },
+  { name: 'C75200', ht: 'H (Full', y: [500, 580], u: [570, 640] },
+
+  // 고인기 금속 잔여
+  { name: 'AISI 52100', y: [1600, 1900], u: [1900, 2200], d: [7.75, 7.9] },          // 경화 60 HRC 급
+  { name: 'AISI 410', ht: 'Anneal', y: [250, 330], u: [480, 560], d: [7.7, 7.8] },   // A240 min 205/450
+  { name: 'P20 mold steel', y: [800, 950], u: [950, 1100], d: [7.8, 7.9] },          // 프리하든 30-34 HRC
+  { name: 'CoCrMo (ASTM F75)', y: [450, 620], u: [655, 1000], d: [8.2, 8.4] },       // F75 주조 min 450/655
+  { name: 'Maraging C300', y: [1750, 2000], u: [1850, 2050], d: [7.95, 8.1] },       // 18Ni-300 시효
+
+  // 폴리머 — 밀도는 재료 상수라 오염 검출력이 높다 (ISO 1183) + σy 는 ISO 527 datasheet 밴드
+  { name: 'PC Standard MW', y: [55, 72], u: [60, 78], d: [1.18, 1.22] },
+  { name: 'Nylon 66', y: [60, 90], u: [70, 95], d: [1.12, 1.16] },
+  { name: 'PMMA Cast acrylic', y: [65, 82], u: [65, 85], d: [1.17, 1.21] },
+  { name: 'PVC Rigid (uPVC)', y: [40, 55], u: [40, 58], d: [1.36, 1.45] },
+  { name: 'POM Homopolymer', y: [60, 75], u: [62, 80], d: [1.39, 1.44] },
+  { name: 'PET Semi-Crystalline', y: [55, 80], u: [60, 85], d: [1.33, 1.41] },
 ];
 
 describe('golden-values 회귀 (D1) — 표준값 대조', () => {
@@ -118,9 +165,9 @@ describe('golden-values 회귀 (D1) — 표준값 대조', () => {
       const matches = all.filter((m) => (m.name || '').includes(g.name) && (!g.ht || (m.heat_treatment || '').toLowerCase().includes(g.ht.toLowerCase())));
       expect(matches.length, `${g.name} 매칭 entry`).toBeGreaterThan(0);
       const inR = (v: any, r?: [number, number]) => !r || (typeof v === 'number' && v >= r[0] && v <= r[1]);
-      if (g.y || g.u || g.d || g.e) {
-        const ok = matches.some((m) => inR(V(m, 'yield_strength'), g.y) && inR(V(m, 'uts'), g.u) && inR(V(m, 'density'), g.d) && inR(V(m, 'modulus'), g.e));
-        const seen = matches.slice(0, 3).map((m) => `σy${V(m, 'yield_strength')}/uts${V(m, 'uts')}/ρ${V(m, 'density')}/E${V(m, 'modulus')}`).join(' , ');
+      if (g.y || g.u || g.d || g.e || g.el) {
+        const ok = matches.some((m) => inR(V(m, 'yield_strength'), g.y) && inR(V(m, 'uts'), g.u) && inR(V(m, 'density'), g.d) && inR(V(m, 'modulus'), g.e) && inR(V(m, 'elongation'), g.el));
+        const seen = matches.slice(0, 3).map((m) => `σy${V(m, 'yield_strength')}/uts${V(m, 'uts')}/ρ${V(m, 'density')}/E${V(m, 'modulus')}/El${V(m, 'elongation')}`).join(' , ');
         expect(ok, `${g.name}: 표준 범위 만족 조건 없음 (실제 ${seen})`).toBe(true);
       }
       if (g.yMax != null) {

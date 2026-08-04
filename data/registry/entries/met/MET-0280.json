@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 533.2,
-      "max": 706.8,
-      "typical": 669.6,
-      "n": 3,
-      "confidence": "measured"
+      "min": 590,
+      "typical": 590,
+      "max": 590,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom — Spheroidized and Cold Drawn 1095 Carbon Steel (출처 ASM Specialty Handbook: Carbon and Alloy Steels)"
     },
     "uts": {
-      "min": 731,
-      "max": 969,
-      "typical": 918,
-      "n": 3,
-      "confidence": "measured"
+      "min": 770,
+      "typical": 770,
+      "max": 770,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom — Spheroidized and Cold Drawn 1095 Carbon Steel (출처 ASM Specialty Handbook: Carbon and Alloy Steels)"
     },
     "elongation": {
-      "min": 6.48,
-      "max": 8.72,
-      "typical": 8.24,
-      "n": 3,
-      "confidence": "measured"
+      "min": 11,
+      "typical": 11,
+      "max": 11,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom — Spheroidized and Cold Drawn 1095 Carbon Steel (출처 ASM Specialty Handbook: Carbon and Alloy Steels)"
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 223.6,
-      "max": 296.4,
-      "typical": 280.8,
-      "n": 3,
-      "confidence": "measured"
+      "min": 221,
+      "typical": 221,
+      "max": 221,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom — Spheroidized and Cold Drawn 1095 Carbon Steel (출처 ASM Specialty Handbook: Carbon and Alloy Steels)"
     },
     "thermal_conductivity": {
       "min": 50,
@@ -211,29 +211,11 @@
   "points": [
     [
       7.85,
-      533.2,
-      731,
-      6.48,
-      210,
-      223.6,
-      50
-    ],
-    [
-      7.85,
-      706.8,
-      969,
-      8.719999999999999,
-      210,
-      296.4,
-      50
-    ],
-    [
-      7.85,
-      669.6,
-      918,
-      8.24,
-      210,
-      280.8,
+      590,
+      770,
+      11,
+      205,
+      221,
       50
     ]
   ],
@@ -254,11 +236,11 @@
   "fracture_toughness": 22.4,
   "fatigue_strength": 475,
   "density": 7.85,
-  "yield_strength": 669.6,
-  "uts": 918,
-  "elongation": 8.24,
+  "yield_strength": 590,
+  "uts": 770,
+  "elongation": 11,
   "modulus": 205,
-  "hardness": 280.8,
+  "hardness": 221,
   "thermal_conductivity": 50,
   "impact_strength": 4,
   "manufacturer": "Generic",
@@ -313,6 +295,87 @@
           "url": null,
           "verified": false
         }
+      ]
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 533.2,
+        "max": 706.8,
+        "typical": 669.6,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 669.6
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 731,
+        "max": 969,
+        "typical": 918,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 918
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 6.48,
+        "max": 8.72,
+        "typical": 8.24,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 8.24
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 223.6,
+        "max": 296.4,
+        "typical": 280.8,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 280.8
+    },
+    "_basis": "1095 의 냉간인발 표준 제품형은 **구상화 어닐링 후 냉간인발**(펄라이트 상태로는 인발 불가). DB 값(σy 670 · UTS 918)은 합성배율 산물로 UTS 8~19% 과대. 구상화+냉간인발 실제값으로 교정 — 이 조건은 구상화로 연성이 회복돼 연신율이 펄라이트 annealed 보다 높은 것이 정상.",
+    "_src": "MakeItFrom — Spheroidized and Cold Drawn 1095 Carbon Steel (출처 ASM Specialty Handbook: Carbon and Alloy Steels)",
+    "points": {
+      "from": [
+        [
+          7.85,
+          533.2,
+          731,
+          6.48,
+          210,
+          223.6,
+          50
+        ],
+        [
+          7.85,
+          706.8,
+          969,
+          8.719999999999999,
+          210,
+          296.4,
+          50
+        ],
+        [
+          7.85,
+          669.6,
+          918,
+          8.24,
+          210,
+          280.8,
+          50
+        ]
       ]
     }
   }

@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 290,
-      "max": 420,
-      "typical": 350,
-      "n": 3,
-      "confidence": "handbook"
+      "min": 380,
+      "typical": 380,
+      "max": 380,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom — Cold Drawn 1020 Carbon Steel (출처 ASM Specialty Handbook: Carbon and Alloy Steels) · 냉간인발 봉 표준 제품형"
     },
     "uts": {
-      "min": 440,
-      "max": 580,
-      "typical": 510,
-      "n": 3,
-      "confidence": "handbook"
+      "min": 460,
+      "typical": 460,
+      "max": 460,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom — Cold Drawn 1020 Carbon Steel (출처 ASM Specialty Handbook: Carbon and Alloy Steels) · 냉간인발 봉 표준 제품형"
     },
     "elongation": {
-      "min": 29.16,
-      "max": 39.24,
-      "typical": 37.08,
-      "n": 3,
-      "confidence": "measured"
+      "min": 17,
+      "typical": 17,
+      "max": 17,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom — Cold Drawn 1020 Carbon Steel (출처 ASM Specialty Handbook: Carbon and Alloy Steels) · 냉간인발 봉 표준 제품형"
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 81.7,
-      "max": 108.3,
-      "typical": 102.6,
-      "n": 3,
-      "confidence": "measured"
+      "min": 137,
+      "typical": 137,
+      "max": 137,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom — Cold Drawn 1020 Carbon Steel (출처 ASM Specialty Handbook: Carbon and Alloy Steels) · 냉간인발 봉 표준 제품형"
     },
     "thermal_conductivity": {
       "min": 51,
@@ -211,11 +211,11 @@
   "points": [
     [
       7.85,
-      350,
-      510,
-      37.08,
+      380,
+      460,
+      17,
       205,
-      102.6,
+      137,
       51
     ]
   ],
@@ -243,11 +243,11 @@
   "fracture_toughness": 48,
   "fatigue_strength": 200,
   "density": 7.85,
-  "yield_strength": 350,
-  "uts": 510,
-  "elongation": 37.08,
+  "yield_strength": 380,
+  "uts": 460,
+  "elongation": 17,
   "modulus": 205,
-  "hardness": 102.6,
+  "hardness": 137,
   "thermal_conductivity": 51,
   "impact_strength": 48,
   "manufacturer": "Generic",
@@ -321,6 +321,56 @@
     "aliases": {
       "from": []
     },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 290,
+        "max": 420,
+        "typical": 350,
+        "n": 3,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 350
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 440,
+        "max": 580,
+        "typical": 510,
+        "n": 3,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 510
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 29.16,
+        "max": 39.24,
+        "typical": 37.08,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 37.08
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 81.7,
+        "max": 108.3,
+        "typical": 102.6,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 102.6
+    },
+    "_basis": "냉간인발(strain-hardened) 실제값. DB 값은 annealed × 합성배율(σy ×1.227 · El ×1.108)로 찍힌 CSV generic 값 — **냉간가공인데 연신율이 annealed 보다 높은 물리 위배**(예 1020: 33.5%→37.1%). 표준 냉간인발 봉 값으로 교정.",
+    "_src": "MakeItFrom — Cold Drawn 1020 Carbon Steel (출처 ASM Specialty Handbook: Carbon and Alloy Steels) · 냉간인발 봉 표준 제품형",
     "points": {
       "from": [
         [
@@ -351,7 +401,6 @@
           51
         ]
       ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+    }
   }
 }

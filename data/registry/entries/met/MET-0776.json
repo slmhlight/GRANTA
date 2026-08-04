@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 242,
-      "max": 242,
-      "typical": 242,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 276,
+      "typical": 276,
+      "max": 276,
+      "confidence": "handbook",
+      "provenance": "교정: ASTM A240 (Type 405: YS≥170 MPa / UTS≥415 MPa) · AZoM Grade 405 datasheet (annealed 448 MPa UTS / 276 MPa YS / El 25% / 131 HB)"
     },
     "uts": {
-      "min": 365.2,
-      "max": 365.2,
-      "typical": 365.2,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 448,
+      "typical": 448,
+      "max": 448,
+      "confidence": "handbook",
+      "provenance": "교정: ASTM A240 (Type 405: YS≥170 MPa / UTS≥415 MPa) · AZoM Grade 405 datasheet (annealed 448 MPa UTS / 276 MPa YS / El 25% / 131 HB)"
     },
     "elongation": {
-      "min": 18.6,
-      "max": 18.6,
-      "typical": 18.6,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 25,
+      "typical": 25,
+      "max": 25,
+      "confidence": "handbook",
+      "provenance": "교정: ASTM A240 (Type 405: YS≥170 MPa / UTS≥415 MPa) · AZoM Grade 405 datasheet (annealed 448 MPa UTS / 276 MPa YS / El 25% / 131 HB)"
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 164.6,
-      "max": 164.6,
-      "typical": 164.6,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 138,
+      "typical": 138,
+      "max": 138,
+      "confidence": "handbook",
+      "provenance": "교정: ASTM A240 (Type 405: YS≥170 MPa / UTS≥415 MPa) · AZoM Grade 405 datasheet (annealed 448 MPa UTS / 276 MPa YS / El 25% / 131 HB)"
     },
     "thermal_conductivity": {
       "min": 24.8,
@@ -208,11 +208,11 @@
   "points": [
     [
       7.75,
-      242,
-      365.2,
-      18.6,
+      276,
+      448,
+      25,
       200,
-      164.56,
+      138,
       24.8
     ]
   ],
@@ -237,11 +237,11 @@
   "fracture_toughness": 128,
   "fatigue_strength": 121,
   "density": 7.75,
-  "yield_strength": 242,
-  "uts": 365.2,
-  "elongation": 18.6,
+  "yield_strength": 276,
+  "uts": 448,
+  "elongation": 25,
   "modulus": 200,
-  "hardness": 164.6,
+  "hardness": 138,
   "thermal_conductivity": 24.8,
   "impact_strength": 140,
   "manufacturer": "Generic",
@@ -296,6 +296,69 @@
           "url": null,
           "verified": false
         }
+      ]
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 242,
+        "max": 242,
+        "typical": 242,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 242
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 365.2,
+        "max": 365.2,
+        "typical": 365.2,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 365.2
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 18.6,
+        "max": 18.6,
+        "typical": 18.6,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 18.6
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 164.6,
+        "max": 164.6,
+        "typical": 164.6,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 164.6
+    },
+    "_basis": "AISI 405 annealed — DB 242/365.2 는 **UTS 가 ASTM A240 최소 415 MPa 미달**(430 에서 이미 교정한 것과 동일한 오염값 242/365.2). A240 min(170/415) 위 typical 로 교정.",
+    "_src": "ASTM A240 (Type 405: YS≥170 MPa / UTS≥415 MPa) · AZoM Grade 405 datasheet (annealed 448 MPa UTS / 276 MPa YS / El 25% / 131 HB)",
+    "points": {
+      "from": [
+        [
+          7.75,
+          242,
+          365.2,
+          18.6,
+          200,
+          164.56,
+          24.8
+        ]
       ]
     }
   }

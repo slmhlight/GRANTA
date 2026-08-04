@@ -187,6 +187,86 @@
    "fatigue_strength": 110,
    "basis": "pure Ta wrought annealed 기준값 (As-built→wrought; 공백 채움). fatigue=0.46·UTS (endurance 상한 ≤0.63 준수)",
    "src": "사용자 지시 + pure Ta annealed 표준 (sibling MET-0660)"
+  },
+  "MET-0238": {
+   "yield_strength": 330,
+   "uts": 400,
+   "elongation": 22,
+   "hardness": 116,
+   "basis": "냉간인발(strain-hardened) 실제값. DB 값은 annealed × 합성배율(σy ×1.227 · El ×1.108)로 찍힌 CSV generic 값 — **냉간가공인데 연신율이 annealed 보다 높은 물리 위배**(예 1020: 33.5%→37.1%). 표준 냉간인발 봉 값으로 교정.",
+   "src": "MakeItFrom — Cold Drawn 1010 Carbon Steel (출처 ASM Specialty Handbook: Carbon and Alloy Steels) · 냉간인발 봉 표준 제품형"
+  },
+  "MET-0249": {
+   "yield_strength": 380,
+   "uts": 460,
+   "elongation": 17,
+   "hardness": 137,
+   "basis": "냉간인발(strain-hardened) 실제값. DB 값은 annealed × 합성배율(σy ×1.227 · El ×1.108)로 찍힌 CSV generic 값 — **냉간가공인데 연신율이 annealed 보다 높은 물리 위배**(예 1020: 33.5%→37.1%). 표준 냉간인발 봉 값으로 교정.",
+   "src": "MakeItFrom — Cold Drawn 1020 Carbon Steel (출처 ASM Specialty Handbook: Carbon and Alloy Steels) · 냉간인발 봉 표준 제품형"
+  },
+  "MET-0254": {
+   "yield_strength": 420,
+   "uts": 500,
+   "elongation": 17,
+   "hardness": 147,
+   "basis": "냉간인발(strain-hardened) 실제값. DB 값은 annealed × 합성배율(σy ×1.227 · El ×1.108)로 찍힌 CSV generic 값 — **냉간가공인데 연신율이 annealed 보다 높은 물리 위배**(예 1020: 33.5%→37.1%). 표준 냉간인발 봉 값으로 교정.",
+   "src": "MakeItFrom — Cold Drawn 1025 Carbon Steel (출처 ASM Specialty Handbook: Carbon and Alloy Steels) · 냉간인발 봉 표준 제품형"
+  },
+  "MET-0259": {
+   "yield_strength": 490,
+   "uts": 590,
+   "elongation": 14,
+   "hardness": 168,
+   "basis": "냉간인발(strain-hardened) 실제값. DB 값은 annealed × 합성배율(σy ×1.227 · El ×1.108)로 찍힌 CSV generic 값 — **냉간가공인데 연신율이 annealed 보다 높은 물리 위배**(예 1020: 33.5%→37.1%). 표준 냉간인발 봉 값으로 교정.",
+   "src": "MakeItFrom — Cold Drawn 1030 Carbon Steel (출처 ASM Specialty Handbook: Carbon and Alloy Steels) · 냉간인발 봉 표준 제품형"
+  },
+  "MET-0264": {
+   "yield_strength": 530,
+   "uts": 640,
+   "elongation": 13,
+   "hardness": 189,
+   "basis": "냉간인발(strain-hardened) 실제값. DB 값은 annealed × 합성배율(σy ×1.227 · El ×1.108)로 찍힌 CSV generic 값 — **냉간가공인데 연신율이 annealed 보다 높은 물리 위배**(예 1020: 33.5%→37.1%). 표준 냉간인발 봉 값으로 교정.",
+   "src": "MakeItFrom — Cold Drawn 1040 Carbon Steel (출처 ASM Specialty Handbook: Carbon and Alloy Steels) · 냉간인발 봉 표준 제품형"
+  },
+  "MET-0270": {
+   "yield_strength": 650,
+   "uts": 790,
+   "elongation": 11,
+   "hardness": 231,
+   "basis": "냉간인발(strain-hardened) 실제값. DB 값은 annealed × 합성배율(σy ×1.227 · El ×1.108)로 찍힌 CSV generic 값 — **냉간가공인데 연신율이 annealed 보다 높은 물리 위배**(예 1020: 33.5%→37.1%). 표준 냉간인발 봉 값으로 교정.",
+   "src": "MakeItFrom — Cold Drawn 1050 Carbon Steel (출처 ASM Specialty Handbook: Carbon and Alloy Steels) · 냉간인발 봉 표준 제품형"
+  },
+  "MET-0275": {
+   "yield_strength": 590,
+   "uts": 770,
+   "elongation": 11,
+   "hardness": 231,
+   "basis": "1080 의 냉간인발 표준 제품형은 **구상화 어닐링 후 냉간인발**(펄라이트 상태로는 인발 불가). DB 값(σy 610 · UTS 832)은 합성배율 산물로 UTS 8~19% 과대. 구상화+냉간인발 실제값으로 교정 — 이 조건은 구상화로 연성이 회복돼 연신율이 펄라이트 annealed 보다 높은 것이 정상.",
+   "src": "MakeItFrom — Spheroidized and Cold Drawn 1080 Carbon Steel (출처 ASM Specialty Handbook: Carbon and Alloy Steels)"
+  },
+  "MET-0280": {
+   "yield_strength": 590,
+   "uts": 770,
+   "elongation": 11,
+   "hardness": 221,
+   "basis": "1095 의 냉간인발 표준 제품형은 **구상화 어닐링 후 냉간인발**(펄라이트 상태로는 인발 불가). DB 값(σy 670 · UTS 918)은 합성배율 산물로 UTS 8~19% 과대. 구상화+냉간인발 실제값으로 교정 — 이 조건은 구상화로 연성이 회복돼 연신율이 펄라이트 annealed 보다 높은 것이 정상.",
+   "src": "MakeItFrom — Spheroidized and Cold Drawn 1095 Carbon Steel (출처 ASM Specialty Handbook: Carbon and Alloy Steels)"
+  },
+  "MET-0776": {
+   "yield_strength": 276,
+   "uts": 448,
+   "elongation": 25,
+   "hardness": 138,
+   "basis": "AISI 405 annealed — DB 242/365.2 는 **UTS 가 ASTM A240 최소 415 MPa 미달**(430 에서 이미 교정한 것과 동일한 오염값 242/365.2). A240 min(170/415) 위 typical 로 교정.",
+   "src": "ASTM A240 (Type 405: YS≥170 MPa / UTS≥415 MPa) · AZoM Grade 405 datasheet (annealed 448 MPa UTS / 276 MPa YS / El 25% / 131 HB)"
+  },
+  "MET-0789": {
+   "yield_strength": 345,
+   "uts": 540,
+   "elongation": 28,
+   "hardness": 180,
+   "basis": "AISI 434 annealed — DB 242/365.2 는 **UTS 가 ASTM A240 최소 450 MPa 미달**(405·430 과 동일 오염값). typical 밴드(σy 345~441 · UTS 538~552 · El 28~33) 하한으로 보수 교정.",
+   "src": "ASTM A240 (Type 434: YS≥240 MPa / UTS≥450 MPa) · Combined Metals 434 strip datasheet (50 ksi YS / 80 ksi UTS / El 28% / 75 HRB) · eFunda AISI 434 annealed (415/545/33%) · AZoM Grade 434 (441/538/32%)"
   }
  },
  "fields": {
