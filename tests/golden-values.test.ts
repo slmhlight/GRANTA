@@ -23,14 +23,14 @@ const GOLDEN: G[] = [
   { name: 'AA 7075', ht: 'T6', y: [470, 540], u: [545, 600] },
   { name: 'AA 2024 ', ht: 'T3', y: [325, 360], u: [465, 500], d: [2.72, 2.85] },
   { name: 'AA 5052', ht: 'Anneal', y: [75, 110], u: [180, 215] },
-  { name: 'Ti-6Al-4V', ht: 'Anneal', y: [850, 1050], d: [4.35, 4.5] },
+  { name: 'Ti-6Al-4V (Gr', ht: 'Anneal', y: [850, 1050], d: [4.35, 4.5] },
   { name: 'AISI 304 ', ht: 'Anneal', y: [185, 225], u: [490, 560], d: [7.9, 8.05] },
   { name: 'AISI 316 ', ht: 'Anneal', y: [185, 225], u: [490, 560] },
   { name: '17-4 PH', ht: 'H900', y: [1120, 1230], u: [1270, 1360], d: [7.7, 7.85] },
   { name: 'C11000', y: [55, 90], u: [200, 240], d: [8.85, 8.98] },
   { name: 'AISI 1045', y: [490, 570], d: [7.75, 7.95] },
-  { name: 'Ti Grade 2', ht: 'Anneal', y: [255, 320], u: [340, 400], d: [4.4, 4.6] },
-  { name: 'Inconel 718', d: [8.1, 8.3], yMax: 1000 },       // aged 조건 σy ≥ 1000 존재
+  { name: 'Ti Grade 2 —', ht: 'Anneal', y: [255, 320], u: [340, 400], d: [4.4, 4.6] },
+  { name: 'Inconel 718 ', d: [8.1, 8.3], yMax: 1000 },       // aged 조건 σy ≥ 1000 존재
   { name: 'Inconel 625', d: [8.35, 8.5] },
   { name: 'Maraging 300', d: [7.95, 8.2], yMax: 1700 },     // aged 조건 σy ≥ 1700 존재
 
@@ -38,7 +38,7 @@ const GOLDEN: G[] = [
   { name: 'AISI 1018', y: [340, 400], u: [415, 470], d: [7.8, 7.9] },            // cold drawn 370/440
   { name: '42CrMo4', ht: 'Quench', y: [620, 820], u: [880, 1100] },              // 4140 Q&T
   { name: 'SNCM439', y: [820, 1000], u: [960, 1130] },                            // 4340 Q&T 900/1050
-  { name: 'AISI 304L', ht: 'Anneal', y: [150, 210], u: [460, 560] },             // min 170/485
+  { name: 'AISI 304L ', ht: 'Anneal', y: [150, 210], u: [460, 560] },             // min 170/485
   { name: 'AISI 316L (Wrought)', ht: 'Anneal', y: [150, 260], u: [460, 620] },    // min 170/485 · wrought bar typ 240/570
   { name: 'AISI 321', ht: 'Anneal', y: [185, 250], u: [485, 580] },
   { name: 'AISI 310', ht: 'Anneal', y: [185, 260], u: [485, 600] },
@@ -101,8 +101,8 @@ const GOLDEN: G[] = [
   { name: 'ZK60', ht: 'T5', y: [255, 320], u: [330, 380] },                       // ← 오염 교정 검증 (was 195/305)
   { name: 'Zircaloy-4', y: [480, 620], u: [620, 760], d: [6.5, 6.6] },            // CWSR 연료피복
   { name: 'Invar 36', y: [280, 420], u: [380, 500], d: [8.0, 8.2] },              // AM as-built
-  { name: 'Molybdenum', y: [340, 470], u: [470, 590], d: [10.1, 10.3] },
-  { name: 'PEEK', ht: 'As-supplied', y: [80, 105], u: [90, 115], d: [1.28, 1.34] },
+  { name: 'Molybdenum (Mo', y: [340, 470], u: [470, 590], d: [10.1, 10.3] },
+  { name: 'PEEK —', ht: 'As-supplied', y: [80, 105], u: [90, 115], d: [1.28, 1.34] },
   { name: 'Polycarbonate', y: [55, 70], u: [60, 78], d: [1.18, 1.22] },
   { name: 'PTFE', y: [8, 16], u: [18, 36], d: [2.1, 2.25] },
   { name: 'Acetal (POM)', y: [58, 75], u: [62, 82], d: [1.39, 1.44] },
@@ -132,7 +132,7 @@ const GOLDEN: G[] = [
 
   // 페라이트계 스테인리스 — ASTM A240 최소 위 typical (min 미달 오염 재발 차단)
   { name: 'AISI 405', ht: 'Anneal', y: [200, 320], u: [420, 500], el: [20, 30] },     // A240 min 170/415
-  { name: 'AISI 434', ht: 'Anneal', y: [280, 450], u: [455, 560], el: [25, 35] },     // A240 min 240/450
+  { name: 'AISI 434 —', ht: 'Anneal', y: [280, 450], u: [455, 560], el: [25, 35] },     // A240 min 240/450
   { name: 'AISI 302', y: [205, 280], u: [515, 640], d: [7.85, 7.95] },               // A240 min 205/515
   { name: 'AISI 430', ht: 'Anneal', y: [270, 390], u: [455, 530], el: [22, 32] },     // A240 min 205/450 (교정 회귀 고정)
 
@@ -160,7 +160,7 @@ const GOLDEN: G[] = [
 
   // 폴리머 — 밀도는 재료 상수라 오염 검출력이 높다 (ISO 1183) + σy 는 ISO 527 datasheet 밴드
   { name: 'PC Standard MW', y: [55, 72], u: [60, 78], d: [1.18, 1.22] },
-  { name: 'Nylon 66', y: [60, 90], u: [70, 95], d: [1.12, 1.16] },
+  { name: 'Nylon 66 —', y: [60, 90], u: [70, 95], d: [1.12, 1.16] },
   { name: 'PMMA Cast acrylic', y: [65, 82], u: [65, 85], d: [1.17, 1.21] },
   { name: 'PVC Rigid (uPVC)', y: [40, 55], u: [40, 58], d: [1.36, 1.45] },
   { name: 'POM Homopolymer', y: [60, 75], u: [62, 80], d: [1.39, 1.44] },
@@ -182,6 +182,53 @@ describe('golden-values 회귀 (D1) — 표준값 대조', () => {
         const maxY = Math.max(...matches.map((m) => V(m, 'yield_strength') || 0));
         expect(maxY, `${g.name}: max σy`).toBeGreaterThanOrEqual(g.yMax);
       }
+
     });
   }
+});
+
+/*
+ * W2 재점검 — 앵커 **정밀도** 게이트. 위 회귀는 `.some()`(한 조건만 범위에 들면 통과)이라,
+ * 앵커가 다른 합금까지 잡으면 **그 합금이 대신 통과시켜** 정작 대상의 오염을 못 잡는다.
+ * 실사고: 'AISI 434'→AISI 4340 · 'Ti-6Al-4V'→Grade 23 ELI/Cast · 'Inconel 718'→718Plus ·
+ *        'AISI 304L'→304LN · 'Molybdenum'→Mo-41Re · 'PEEK'→PEEK GF30 · 'Nylon 66'→GF30.
+ * 규칙: 앵커 하나가 잡는 base 는 하나여야 한다. 같은 합금의 표기·등급 변형만 예외.
+ */
+describe('golden 앵커 정밀도 — 한 앵커 = 한 합금 (검출력 상실 차단)', () => {
+  const SAME_ALLOY: Record<string, string> = {
+    '17-7 PH': '17-7 PH 표기 변형(UNS 병기 유무) — 동일 합금',
+    'C17200': 'C17200 표기 변형(단독 vs Beryllium Copper 접두) — 동일 합금, yMax 는 시효 조건이 만족',
+    'Invar 36': 'Invar 36 표기 변형(Fe-36Ni vs FeNi36) — 동일 합금',
+    'Silicon Carbide': 'SiC 소결법 변형(sintered · reaction-bonded) — 동일 재료, ρ/E 앵커는 공통',
+    'Silicon Nitride': 'Si₃N₄ 소결법 변형(HIP · sintered) — 동일 재료',
+    'Tungsten Carbide (WC-Co': 'WC-Co 바인더 함량 변형(6% · 12%) — 동일 재료계, ρ 앵커는 6% 가 만족',
+    'Ti-6Al-4V (Gr': 'Grade 5 표기 변형(Grade 5 · Gr5) — 동일 grade',
+    'Inconel 718 ': 'IN718 표기 변형(단독 vs UNS/AMS 병기) — 동일 합금. 718Plus 는 후행 공백으로 배제됨',
+    'AISI 304L ': '304L 표기 변형(— · (Wrought) · / STS304L · / STS304 ULC) — 동일 합금. 304LN 은 후행 공백으로 배제됨',
+  };
+  const baseOf = (m: any) => (m.name || '').split('—')[0].trim();
+
+  it('앵커가 둘 이상의 base 를 잡으면 SAME_ALLOY 에 사유가 있어야 한다', () => {
+    const bad: string[] = [];
+    for (const g of GOLDEN) {
+      const ms = all.filter((m) => (m.name || '').includes(g.name) && (!g.ht || (m.heat_treatment || '').toLowerCase().includes(g.ht.toLowerCase())));
+      const bases = [...new Set(ms.map(baseOf))];
+      if (bases.length > 1 && !SAME_ALLOY[g.name]) {
+        bad.push(`"${g.name}"${g.ht ? ` [${g.ht}]` : ''} → ${bases.length} base: ${bases.join(' | ')}`);
+      }
+    }
+    expect(bad, `앵커가 여러 합금을 잡는다 — 이름을 좁히거나(예 'AISI 434 —'), 같은 합금의 변형이면 SAME_ALLOY 에 사유 등재:\n${bad.join('\n')}`).toEqual([]);
+  });
+
+  it('SAME_ALLOY 예외는 stale 하지 않다', () => {
+    const stale: string[] = [];
+    for (const [name, why] of Object.entries(SAME_ALLOY)) {
+      const g = GOLDEN.find((x) => x.name === name);
+      if (!g) { stale.push(`${name}: 앵커가 없음`); continue; }
+      const ms = all.filter((m) => (m.name || '').includes(g.name) && (!g.ht || (m.heat_treatment || '').toLowerCase().includes(g.ht.toLowerCase())));
+      if (new Set(ms.map(baseOf)).size <= 1) stale.push(`${name}: 더는 다중 매칭 아님 — 예외 삭제 가능`);
+      expect(why.length, `${name}: 사유가 너무 짧다`).toBeGreaterThan(10);
+    }
+    expect(stale, stale.join('\n')).toEqual([]);
+  });
 });

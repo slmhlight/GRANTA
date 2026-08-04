@@ -1,5 +1,5 @@
 {
- "_note": "R226f/축2a — 표준 최소값 테이블 (A/B-basis 의 spec-min 시드, 축4a). 이름에 규격·grade 를 인용한 entry 는 적합성 주장 -> 해당 규격 min 을 충족해야 함 (tests/standard-min-specs.test.ts 가 게이트, 허용오차 -2%). A588 형 오염(σy 를 타 합금 값으로 오기)을 '인용 표준만으로' 잡는 일반해 — golden-values(entry 별 bound)와 달리 패턴 단위로 확장. 값은 각 표준의 최소 요구치(MPa). | H6 W2-1: +40 (46→86). 전건 floor probe(전 조건 ≥ min×0.98) 통과분만 채택. 다이캐스트(A380·ADC12·AZ91D)·Mg 압출(AZ31B)은 해당 규격의 기계적 최소값 보증 여부를 확인하지 못해 미채택 — 거짓 인용 금지. 패턴 \"AISI 434 —\" 는 AISI 4340 오매칭 방지용 구분자 포함.",
+ "_note": "R226f/축2a — 표준 최소값 테이블 (A/B-basis 의 spec-min 시드, 축4a). 이름에 규격·grade 를 인용한 entry 는 적합성 주장 -> 해당 규격 min 을 충족해야 함 (tests/standard-min-specs.test.ts 가 게이트, 허용오차 -2%). A588 형 오염(σy 를 타 합금 값으로 오기)을 '인용 표준만으로' 잡는 일반해 — golden-values(entry 별 bound)와 달리 패턴 단위로 확장. 값은 각 표준의 최소 요구치(MPa). | H6 W2-1: +40 (46→86). 전건 floor probe(전 조건 ≥ min×0.98) 통과분만 채택. 다이캐스트(A380·ADC12·AZ91D)·Mg 압출(AZ31B)은 해당 규격의 기계적 최소값 보증 여부를 확인하지 못해 미채택 — 거짓 인용 금지. 패턴 \"AISI 434 —\" 는 AISI 4340 오매칭 방지용 구분자 포함. | W2 재점검: 패턴 오매칭 4건 교정 — Ti Gr1→Gr11/12 · Ti Gr2→Gr23 · 304L→304LN · H900(템퍼명)→Custom 455 등 타 PH 합금. 게이트는 통과하던(오매칭 합금이 더 강해서) 거짓 인용. Custom 455 는 공개 H900 수치가 typical 이라 미등재.",
  "specs": [
   {
    "pattern": "ASTM A36",
@@ -138,16 +138,16 @@
    }
   },
   {
-   "pattern": "Ti Grade 1",
-   "std": "ASTM B265 Gr1",
+   "pattern": "Ti Grade 1 —",
+   "std": "ASTM B265 Gr1 — Gr11/Gr12 오매칭 방지 구분자",
    "min": {
     "yield_strength": 170,
     "uts": 240
    }
   },
   {
-   "pattern": "Ti Grade 2",
-   "std": "ASTM B265 Gr2",
+   "pattern": "Ti Grade 2 —",
+   "std": "ASTM B265 Gr2 — Gr23 오매칭 방지 구분자",
    "min": {
     "yield_strength": 275,
     "uts": 345
@@ -178,8 +178,8 @@
    }
   },
   {
-   "pattern": "H900",
-   "std": "ASTM A564 H900 (17-4/15-5 PH)",
+   "pattern": "17-4 PH (UNS S17400) — H900",
+   "std": "ASTM A564 / AMS 5643 H900 (17-4 PH)",
    "min": {
     "yield_strength": 1170,
     "uts": 1310
@@ -202,8 +202,8 @@
    }
   },
   {
-   "pattern": "AISI 304L",
-   "std": "ASTM A240 (304L)",
+   "pattern": "AISI 304L ",
+   "std": "ASTM A240 (304L) — 304LN 오매칭 방지(후행 공백)",
    "min": {
     "yield_strength": 170,
     "uts": 485
@@ -686,6 +686,22 @@
    "std": "ASTM A48 Class 30 (회주철은 항복점 미규정)",
    "min": {
     "uts": 207
+   }
+  },
+  {
+   "pattern": "Stainless Steel 17-4PH (CR-PH) — H900",
+   "std": "ASTM A564 H900 (17-4 PH)",
+   "min": {
+    "yield_strength": 1170,
+    "uts": 1310
+   }
+  },
+  {
+   "pattern": "AISI 304LN",
+   "std": "ASTM A240 (S30453)",
+   "min": {
+    "yield_strength": 205,
+    "uts": 515
    }
   }
  ]
