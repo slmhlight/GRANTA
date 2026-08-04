@@ -172,7 +172,11 @@ describe('buildAutolinkMap + 실제 wiki-index 정밀도', () => {
 /* ── 재료 링크 커버리지 하한 (H5-D1 W1 — 흡수 통합) ──
  * audit-link-coverage.mjs 는 진단 리포트(로직 복제)지만, 이 게이트는 위 linkify+buildAutolinkMap
  * (실제 client 매처)를 그대로 호출해 커버리지가 기준선 아래로 떨어지면 fail — mjs 복제와 TS 매처의 드리프트 차단.
- * 기준선(2026-07-12, 7a50582): article 147 · guide 251 · story 89. 하한은 여유 마진(편집 변동 허용, 구조 회귀만 차단). */
+ * 기준선(2026-07-12, 7a50582): article 147 · guide 251 · story 89. 하한은 여유 마진(편집 변동 허용, 구조 회귀만 차단).
+ * **H6 W3-1 상향**: 스토리 본문을 canonical 표기(AISI/AA)로 스윕(116 지점) + 명시링크 6.
+ *   순숫자 표기(304·6061)는 autolink 영구 봉인(연도·온도 오탐)이라, 본문이 canonical 이어야 링크된다.
+ *   실 TS 매처 기준선 article 151 · story 282(구 89) → 하한 143/238/265. mjs 리포트(166/250/282)와
+ *   소폭 다른데, **이 게이트가 실제 렌더 경로**이므로 여기 수치가 canonical 이다. */
 const COV_ROOT = process.cwd();
 const covRd = (p: string) => fs.readFileSync(path.join(COV_ROOT, p), 'utf8');
 const covRj = (p: string) => JSON.parse(covRd(p));
@@ -259,9 +263,9 @@ describe('재료 링크 커버리지 게이트 (H5-D1 — 실 linkify)', () => {
     const art = coverage(c.article, map);
     const guide = coverage(c.guide, map);
     const story = coverage(c.story, map);
-    // 기준선 147/251/89 대비 여유 하한 (편집 변동 허용, 구조 붕괴만 fail)
-    expect(art.linked, `article 링크 ${art.linked}/${art.mentions} (하한 138)`).toBeGreaterThanOrEqual(138);
+    // 실 TS 매처 기준선(mjs 리포트와 소폭 차이 — 그래서 이 게이트가 canonical) 대비 여유 하한
+    expect(art.linked, `article 링크 ${art.linked}/${art.mentions} (하한 143)`).toBeGreaterThanOrEqual(143);
     expect(guide.linked, `guide 링크 ${guide.linked}/${guide.mentions} (하한 238)`).toBeGreaterThanOrEqual(238);
-    expect(story.linked, `story 링크 ${story.linked}/${story.mentions} (하한 82)`).toBeGreaterThanOrEqual(82);
+    expect(story.linked, `story 링크 ${story.linked}/${story.mentions} (하한 265)`).toBeGreaterThanOrEqual(265);
   });
 });
