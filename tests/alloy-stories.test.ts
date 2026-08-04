@@ -70,6 +70,13 @@ describe('alloy-stories 스키마 무결성', () => {
         if (!t.year || !t.event) bad.push(`${k}: timeline year/event 누락`);
         if (t.ref != null && !(t.ref >= 1 && t.ref <= st.refs.length)) bad.push(`${k}: timeline ref ${t.ref} 범위 밖`);
       }
+      /* H6 W3-2c — 한 스토리에 같은 연도 2회 = 문구만 다른 **사실 중복**일 위험
+       * (실사고: 보강 회차가 기존 이벤트를 재서술해 8건 중복 — pp 1954×2 등).
+       * 같은 해에 실제로 다른 사건이 둘이면 SAME_YEAR_OK 에 사유와 함께 등재. */
+      const SAME_YEAR_OK: Record<string, string> = {};
+      const years = (st.timeline || []).map((t) => t.year);
+      const dup = [...new Set(years.filter((y, i) => years.indexOf(y) !== i))];
+      for (const y of dup) if (!SAME_YEAR_OK[`${k}:${y}`]) bad.push(`${k}: 연도 ${y} 중복 — 사실 중복이면 병합, 별개 사건이면 SAME_YEAR_OK 등재`);
     }
     expect(bad).toEqual([]);
   });
