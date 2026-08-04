@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 139.5,
-      "max": 163.5,
-      "typical": 151.5,
-      "n": 10,
-      "confidence": "measured"
+      "min": 103,
+      "typical": 103,
+      "max": 103,
+      "confidence": "handbook",
+      "provenance": "교정: Copper Development Association alloys.copper.org C26000 flat product OS050 (0.050 mm grain): 47 ksi UTS / 15 ksi YS / El 62% / HRB 26"
     },
     "uts": {
-      "min": 316.2,
-      "max": 370.6,
-      "typical": 343.4,
-      "n": 10,
-      "confidence": "measured"
+      "min": 324,
+      "typical": 324,
+      "max": 324,
+      "confidence": "handbook",
+      "provenance": "교정: Copper Development Association alloys.copper.org C26000 flat product OS050 (0.050 mm grain): 47 ksi UTS / 15 ksi YS / El 62% / HRB 26"
     },
     "elongation": {
-      "min": 55.08,
-      "max": 74.12,
-      "typical": 67.32,
-      "n": 10,
-      "confidence": "measured"
+      "min": 62,
+      "typical": 62,
+      "max": 62,
+      "confidence": "handbook",
+      "provenance": "교정: Copper Development Association alloys.copper.org C26000 flat product OS050 (0.050 mm grain): 47 ksi UTS / 15 ksi YS / El 62% / HRB 26"
     },
     "modulus": {
       "min": 97,
@@ -60,11 +60,11 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 69.75,
-      "max": 81.75,
-      "typical": 75.75,
-      "n": 10,
-      "confidence": "measured"
+      "min": 58,
+      "typical": 58,
+      "max": 58,
+      "confidence": "handbook",
+      "provenance": "교정: Copper Development Association alloys.copper.org C26000 flat product OS050 (0.050 mm grain): 47 ksi UTS / 15 ksi YS / El 62% / HRB 26"
     },
     "thermal_conductivity": {
       "min": 121,
@@ -210,92 +210,11 @@
   "points": [
     [
       8.53,
-      139.5,
-      316.2,
-      56.440000000000005,
+      103,
+      324,
+      62,
       97,
-      69.75,
-      121
-    ],
-    [
-      8.53,
-      157.5,
-      357,
-      71.4,
-      97,
-      78.75,
-      121
-    ],
-    [
-      8.53,
-      145.5,
-      329.8,
-      72.76,
-      97,
-      72.75,
-      121
-    ],
-    [
-      8.53,
-      151.5,
-      343.4,
-      55.080000000000005,
-      97,
-      75.75,
-      121
-    ],
-    [
-      8.53,
-      153,
-      346.8,
-      69.36,
-      97,
-      76.5,
-      121
-    ],
-    [
-      8.53,
-      148.5,
-      336.6,
-      67.32,
-      97,
-      74.25,
-      121
-    ],
-    [
-      8.53,
-      148.5,
-      336.6,
-      67.32,
-      97,
-      74.25,
-      121
-    ],
-    [
-      8.53,
-      144,
-      326.4,
-      65.28,
-      97,
-      72,
-      121
-    ],
-    [
-      8.53,
-      163.5,
-      370.6,
-      74.12,
-      97,
-      81.75,
-      121
-    ],
-    [
-      8.53,
-      153,
-      346.8,
-      62.56,
-      97,
-      76.5,
+      58,
       121
     ]
   ],
@@ -322,11 +241,11 @@
   "fracture_toughness": 82.5,
   "fatigue_strength": 56,
   "density": 8.53,
-  "yield_strength": 151.5,
-  "uts": 343.4,
-  "elongation": 67.32,
+  "yield_strength": 103,
+  "uts": 324,
+  "elongation": 62,
   "modulus": 97,
-  "hardness": 75.75,
+  "hardness": 58,
   "thermal_conductivity": 121,
   "impact_strength": 245,
   "manufacturer": "Generic",
@@ -392,6 +311,150 @@
     },
     "aliases": {
       "from": []
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 139.5,
+        "max": 163.5,
+        "typical": 151.5,
+        "n": 10,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 151.5
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 316.2,
+        "max": 370.6,
+        "typical": 343.4,
+        "n": 10,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 343.4
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 55.08,
+        "max": 74.12,
+        "typical": 67.32,
+        "n": 10,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 67.32
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 69.75,
+        "max": 81.75,
+        "typical": 75.75,
+        "n": 10,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 75.75
+    },
+    "_basis": "어닐드 황동의 물성은 결정립 크기(OS 템퍼)가 좌우하는데, DB 값은 **세 템퍼의 값이 섞여** 있었다 — σy 151.5(22 ksi = 최세립 OS015) · UTS 343.4(≈49 ksi = OS035) · El 67.3(≈최조립 OS100). 한 조건에서 동시에 성립할 수 없다(세립일수록 강하고 연신율은 낮다). 상용 표준 연질인 **OS050** 로 통일.",
+    "_src": "Copper Development Association alloys.copper.org C26000 flat product OS050 (0.050 mm grain): 47 ksi UTS / 15 ksi YS / El 62% / HRB 26",
+    "points": {
+      "from": [
+        [
+          8.53,
+          139.5,
+          316.2,
+          56.440000000000005,
+          97,
+          69.75,
+          121
+        ],
+        [
+          8.53,
+          157.5,
+          357,
+          71.4,
+          97,
+          78.75,
+          121
+        ],
+        [
+          8.53,
+          145.5,
+          329.8,
+          72.76,
+          97,
+          72.75,
+          121
+        ],
+        [
+          8.53,
+          151.5,
+          343.4,
+          55.080000000000005,
+          97,
+          75.75,
+          121
+        ],
+        [
+          8.53,
+          153,
+          346.8,
+          69.36,
+          97,
+          76.5,
+          121
+        ],
+        [
+          8.53,
+          148.5,
+          336.6,
+          67.32,
+          97,
+          74.25,
+          121
+        ],
+        [
+          8.53,
+          148.5,
+          336.6,
+          67.32,
+          97,
+          74.25,
+          121
+        ],
+        [
+          8.53,
+          144,
+          326.4,
+          65.28,
+          97,
+          72,
+          121
+        ],
+        [
+          8.53,
+          163.5,
+          370.6,
+          74.12,
+          97,
+          81.75,
+          121
+        ],
+        [
+          8.53,
+          153,
+          346.8,
+          62.56,
+          97,
+          76.5,
+          121
+        ]
+      ]
     },
     "fields": {
       "heat_treatment": {

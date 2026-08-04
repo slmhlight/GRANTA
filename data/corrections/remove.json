@@ -11,12 +11,17 @@
    "mill-annealed (astm default)",
    "as-cast / forged"
   ],
-  "_ids_note": "R226d — 특정 stable_id 제거. MET-0111(AA 2024-T351 Annealed)·MET-0113(AA 2024-T351 T81)는 'AA 2024' 그룹과 중복(동일 σy/UTS) — 고유 T351(MET-0112)만 보존. | H6 W2-2 — MET-0779(AISI 405 Strain-hardened)·MET-0792(AISI 434 Strain-hardened): 페라이트계 스테인리스의 합성 냉간가공 조건(base×1.227 배율). 405 는 비경화 설계라 템퍼 압연 제품형이 부재하고 434 도 검증 가능한 템퍼값 없음 — annealed 교정 후 사실상 중복.",
+  "_ids_note": "R226d — 특정 stable_id 제거. MET-0111(AA 2024-T351 Annealed)·MET-0113(AA 2024-T351 T81)는 'AA 2024' 그룹과 중복(동일 σy/UTS) — 고유 T351(MET-0112)만 보존. | H6 W2-2 — MET-0779(AISI 405 Strain-hardened)·MET-0792(AISI 434 Strain-hardened): 페라이트계 스테인리스의 합성 냉간가공 조건(base×1.227 배율). 405 는 비경화 설계라 템퍼 압연 제품형이 부재하고 434 도 검증 가능한 템퍼값 없음 — annealed 교정 후 사실상 중복. | H6 W2-4(a) — MET-0766(Zeron 100): MET-0769(ZERON 100 UNS S32760 solution annealed)와 동일 합금·동일값(σy 550/552·UTS 750/752·El 25). MET-0769 가 조성(Cu·Si·C·P·S 포함)·별칭 6종·ASTM A240/A276/A789/A790 F55 인용에서 우위 → 후자 보존. | H6 W2-5(A3 Cu re-verify) — MET-0365: Bronze C95400 — Cast: MET-0411(C95400 Aluminum Bronze)와 동일 합금·동일 UTS 515/El 12/HV 170. MET-0411 은 (σy 205·UTS 515)가 ASTM B148 M01 최소값 세트로 내부 정합하나 MET-0365 의 σy 240 은 근거 없는 편차 → MET-0411 보존. MET-0413: Commercial Bronze C22000: MET-0388~0391 의 4템퍼 사다리(Annealed·1/4H·1/2H·H)와 중복. 단독 entry 라 템퍼 정보가 없고 어닐드 동일값인데 HV 만 100(사다리는 60)으로 불일치 → 사다리 보존. MET-0444: OFHC Copper C10100: MET-0450(O60)·MET-0451(H04) 2템퍼 쌍과 중복. 단독 entry 는 템퍼 미상 → 사다리 보존. MET-0374: C11000 — As-supplied: MET-0414(Copper (Pure, C11000) — Wrought, Annealed)와 동일 합금·동일 σy 70/UTS 220. 어닐드 ETP 동의 연신율은 45%(CDA)인데 이 entry 는 35% → 정확한 MET-0414 보존.",
   "ids": [
    "MET-0111",
    "MET-0113",
    "MET-0779",
-   "MET-0792"
+   "MET-0792",
+   "MET-0766",
+   "MET-0365",
+   "MET-0413",
+   "MET-0444",
+   "MET-0374"
   ]
  }
 }

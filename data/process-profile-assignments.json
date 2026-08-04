@@ -1,6 +1,6 @@
 {
  "_note": "생성물: pnpm build:profiles (scripts/build-process-profiles.mjs). 직접 수정 금지 — 교정은 data/process-profile-overrides.json (stable_id + src). 키 의미: mach=절삭성 프로파일(process-profiles.json), weld=용접성 모델(ce|schaeffler|none), ht=HT family(ht-alloy-specific.ts familyName), htc=조건 클래스, insight=선택 인사이트 그룹(selection-insights.json).",
- "entries": 1141,
+ "entries": 1136,
  "ht_families_parsed": 34,
  "assignments": {
   "CER-0001": {
@@ -3459,14 +3459,6 @@
    "cg": "cu",
    "corr": "cu"
   },
-  "MET-0365": {
-   "colorf": "Copper",
-   "mach": "bronze-wrought",
-   "weld": "none",
-   "insight": "copper",
-   "cg": "cu",
-   "corr": "cu"
-  },
   "MET-0366": {
    "colorf": "Copper",
    "mach": "cu-pure",
@@ -3532,16 +3524,6 @@
    "mach": "cu-pure",
    "weld": "none",
    "htc": "cold",
-   "insight": "copper",
-   "cg": "cu",
-   "corr": "cu"
-  },
-  "MET-0374": {
-   "colorf": "Copper",
-   "mach": "cu-pure",
-   "weld": "none",
-   "htc": "soft",
-   "wg": "w50-c10",
    "insight": "copper",
    "cg": "cu",
    "corr": "cu"
@@ -3895,14 +3877,6 @@
    "cg": "cu",
    "corr": "cu"
   },
-  "MET-0413": {
-   "colorf": "Copper",
-   "mach": "brass",
-   "weld": "none",
-   "insight": "copper",
-   "cg": "cu",
-   "corr": "cu"
-  },
   "MET-0414": {
    "colorf": "Copper",
    "mach": "cu-pure",
@@ -4171,15 +4145,6 @@
    "colorf": "Copper",
    "mach": "cu-pure",
    "weld": "none",
-   "insight": "copper",
-   "cg": "cu",
-   "corr": "cu"
-  },
-  "MET-0444": {
-   "colorf": "Copper",
-   "mach": "cu-pure",
-   "weld": "none",
-   "wg": "w50-c10",
    "insight": "copper",
    "cg": "cu",
    "corr": "cu"
@@ -7108,16 +7073,6 @@
    "mach": "ss-duplex",
    "weld": "schaeffler",
    "ht": "Super-duplex SS ZERON 100 (UNS S32760, 25Cr-7Ni-3Mo-W-Cu)",
-   "insight": "stainless-highperf",
-   "cg": "ss-duplex",
-   "corr": "ss-duplex"
-  },
-  "MET-0766": {
-   "colorf": "Steel",
-   "mach": "ss-duplex",
-   "weld": "schaeffler",
-   "ht": "Super-duplex SS ZERON 100 (UNS S32760, 25Cr-7Ni-3Mo-W-Cu)",
-   "wg": "w08-duplex",
    "insight": "stainless-highperf",
    "cg": "ss-duplex",
    "corr": "ss-duplex"

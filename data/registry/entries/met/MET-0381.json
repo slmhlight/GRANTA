@@ -25,32 +25,32 @@
   "heat_treatment": "Annealed",
   "ranges": {
     "density": {
-      "min": 8.34,
-      "max": 8.38,
-      "typical": 8.36,
-      "n": 10,
-      "confidence": "handbook"
+      "min": 8.25,
+      "typical": 8.25,
+      "max": 8.25,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom — Annealed (A or TB00) C17200 Copper (480 MPa UTS / 160 MPa YS / El 37% / HRB 63) · ASTM B194 TB00"
     },
     "yield_strength": {
-      "min": 900,
-      "max": 1300,
-      "typical": 1100,
-      "n": 10,
-      "confidence": "handbook"
+      "min": 160,
+      "typical": 160,
+      "max": 160,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom — Annealed (A or TB00) C17200 Copper (480 MPa UTS / 160 MPa YS / El 37% / HRB 63) · ASTM B194 TB00"
     },
     "uts": {
-      "min": 1100,
-      "max": 1450,
-      "typical": 1300,
-      "n": 10,
-      "confidence": "handbook"
+      "min": 480,
+      "typical": 480,
+      "max": 480,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom — Annealed (A or TB00) C17200 Copper (480 MPa UTS / 160 MPa YS / El 37% / HRB 63) · ASTM B194 TB00"
     },
     "elongation": {
-      "min": 2,
-      "max": 10,
-      "typical": 5,
-      "n": 10,
-      "confidence": "handbook"
+      "min": 37,
+      "typical": 37,
+      "max": 37,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom — Annealed (A or TB00) C17200 Copper (480 MPa UTS / 160 MPa YS / El 37% / HRB 63) · ASTM B194 TB00"
     },
     "modulus": {
       "min": 124,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 340,
-      "max": 420,
-      "typical": 380,
-      "n": 10,
-      "confidence": "handbook"
+      "min": 105,
+      "typical": 105,
+      "max": 105,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom — Annealed (A or TB00) C17200 Copper (480 MPa UTS / 160 MPa YS / El 37% / HRB 63) · ASTM B194 TB00"
     },
     "thermal_conductivity": {
       "min": 111,
@@ -74,12 +74,11 @@
       "confidence": "measured"
     },
     "fatigue_strength": {
-      "min": 300,
-      "max": 450,
-      "typical": 380,
-      "n": 3,
+      "min": 170,
+      "typical": 170,
+      "max": 170,
       "confidence": "handbook",
-      "provenance": "alloy:c17200 × HT:TB00 solution annealed (f×0.35, i×3.5)"
+      "provenance": "교정: MakeItFrom — Annealed (A or TB00) C17200 Copper (480 MPa UTS / 160 MPa YS / El 37% / HRB 63) · ASTM B194 TB00"
     },
     "impact_strength": {
       "min": 53,
@@ -211,93 +210,12 @@
   ],
   "points": [
     [
-      8.26,
-      1088.1,
-      1218.3,
-      1.66,
+      8.25,
+      160,
+      480,
+      37,
       128,
-      353.40000000000003,
-      111
-    ],
-    [
-      8.26,
-      1228.5,
-      1375.5,
-      2.1,
-      128,
-      399,
-      111
-    ],
-    [
-      8.26,
-      1134.9,
-      1270.7,
-      2.14,
-      128,
-      368.6,
-      111
-    ],
-    [
-      8.26,
-      1181.7,
-      1323.1,
-      1.62,
-      128,
-      383.8,
-      111
-    ],
-    [
-      8.26,
-      1193.4,
-      1336.2,
-      2.04,
-      128,
-      387.6,
-      111
-    ],
-    [
-      8.26,
-      1158.3,
-      1296.9,
-      1.98,
-      128,
-      376.2,
-      111
-    ],
-    [
-      8.26,
-      1158.3,
-      1296.9,
-      1.98,
-      128,
-      376.2,
-      111
-    ],
-    [
-      8.26,
-      1123.2,
-      1257.6,
-      1.92,
-      128,
-      364.8,
-      111
-    ],
-    [
-      8.26,
-      1275.3000000000002,
-      1427.9,
-      2.18,
-      128,
-      414.2000000000001,
-      111
-    ],
-    [
-      8.26,
-      1193.4,
-      1336.2,
-      1.84,
-      128,
-      387.6,
+      105,
       111
     ]
   ],
@@ -324,13 +242,13 @@
     ]
   },
   "fracture_toughness": 126,
-  "fatigue_strength": 380,
-  "density": 8.36,
-  "yield_strength": 1100,
-  "uts": 1300,
-  "elongation": 5,
+  "fatigue_strength": 170,
+  "density": 8.25,
+  "yield_strength": 160,
+  "uts": 480,
+  "elongation": 37,
   "modulus": 128,
-  "hardness": 380,
+  "hardness": 105,
   "thermal_conductivity": 111,
   "impact_strength": 88,
   "manufacturer": "Generic",
@@ -428,6 +346,175 @@
         "CuBe2",
         "Alloy 25",
         "Beryllium copper"
+      ]
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 900,
+        "max": 1300,
+        "typical": 1100,
+        "n": 10,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1100
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 1100,
+        "max": 1450,
+        "typical": 1300,
+        "n": 10,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1300
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 2,
+        "max": 10,
+        "typical": 5,
+        "n": 10,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 5
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 340,
+        "max": 420,
+        "typical": 380,
+        "n": 10,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 380
+    },
+    "density": {
+      "had_range": true,
+      "val_range": {
+        "min": 8.34,
+        "max": 8.38,
+        "typical": 8.36,
+        "n": 10,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 8.36
+    },
+    "fatigue_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 300,
+        "max": 450,
+        "typical": 380,
+        "n": 3,
+        "confidence": "handbook",
+        "provenance": "alloy:c17200 × HT:TB00 solution annealed (f×0.35, i×3.5)"
+      },
+      "had_scalar": true,
+      "val_scalar": 380
+    },
+    "_basis": "heat_treatment 는 \"Annealed\" 인데 값(σy 1100 · UTS 1300 · El 5%)은 **피크 시효(TF00) 수준** — 라벨과 값이 어긋났다. 시효 조건은 이미 MET-0363(TF00)·MET-0364(TH04)가 담당하므로 이 entry 는 라벨대로 용체화 어닐링(TB00) 실제값으로 교정. 밀도도 8.36 → 8.25(C17200 실제)로 정정. 피로강도 380 도 시효 UTS 기준 파생이라 교정 후 물리 상한(0.63·UTS)을 넘어 — Cu 계열 endurance ratio(0.35·UTS, DB 내 Cu 분포와 일치)로 재유도.",
+    "_src": "MakeItFrom — Annealed (A or TB00) C17200 Copper (480 MPa UTS / 160 MPa YS / El 37% / HRB 63) · ASTM B194 TB00",
+    "points": {
+      "from": [
+        [
+          8.26,
+          1088.1,
+          1218.3,
+          1.66,
+          128,
+          353.40000000000003,
+          111
+        ],
+        [
+          8.26,
+          1228.5,
+          1375.5,
+          2.1,
+          128,
+          399,
+          111
+        ],
+        [
+          8.26,
+          1134.9,
+          1270.7,
+          2.14,
+          128,
+          368.6,
+          111
+        ],
+        [
+          8.26,
+          1181.7,
+          1323.1,
+          1.62,
+          128,
+          383.8,
+          111
+        ],
+        [
+          8.26,
+          1193.4,
+          1336.2,
+          2.04,
+          128,
+          387.6,
+          111
+        ],
+        [
+          8.26,
+          1158.3,
+          1296.9,
+          1.98,
+          128,
+          376.2,
+          111
+        ],
+        [
+          8.26,
+          1158.3,
+          1296.9,
+          1.98,
+          128,
+          376.2,
+          111
+        ],
+        [
+          8.26,
+          1123.2,
+          1257.6,
+          1.92,
+          128,
+          364.8,
+          111
+        ],
+        [
+          8.26,
+          1275.3000000000002,
+          1427.9,
+          2.18,
+          128,
+          414.2000000000001,
+          111
+        ],
+        [
+          8.26,
+          1193.4,
+          1336.2,
+          1.84,
+          128,
+          387.6,
+          111
+        ]
       ]
     },
     "fields": {

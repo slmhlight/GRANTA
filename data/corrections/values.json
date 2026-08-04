@@ -267,6 +267,29 @@
    "hardness": 180,
    "basis": "AISI 434 annealed — DB 242/365.2 는 **UTS 가 ASTM A240 최소 450 MPa 미달**(405·430 과 동일 오염값). typical 밴드(σy 345~441 · UTS 538~552 · El 28~33) 하한으로 보수 교정.",
    "src": "ASTM A240 (Type 434: YS≥240 MPa / UTS≥450 MPa) · Combined Metals 434 strip datasheet (50 ksi YS / 80 ksi UTS / El 28% / 75 HRB) · eFunda AISI 434 annealed (415/545/33%) · AZoM Grade 434 (441/538/32%)"
+  },
+  "MET-0447": {
+   "yield_strength": 103,
+   "uts": 324,
+   "elongation": 62,
+   "hardness": 58,
+   "basis": "어닐드 황동의 물성은 결정립 크기(OS 템퍼)가 좌우하는데, DB 값은 **세 템퍼의 값이 섞여** 있었다 — σy 151.5(22 ksi = 최세립 OS015) · UTS 343.4(≈49 ksi = OS035) · El 67.3(≈최조립 OS100). 한 조건에서 동시에 성립할 수 없다(세립일수록 강하고 연신율은 낮다). 상용 표준 연질인 **OS050** 로 통일.",
+   "src": "Copper Development Association alloys.copper.org C26000 flat product OS050 (0.050 mm grain): 47 ksi UTS / 15 ksi YS / El 62% / HRB 26"
+  },
+  "MET-0381": {
+   "yield_strength": 160,
+   "uts": 480,
+   "elongation": 37,
+   "hardness": 105,
+   "density": 8.25,
+   "basis": "heat_treatment 는 \"Annealed\" 인데 값(σy 1100 · UTS 1300 · El 5%)은 **피크 시효(TF00) 수준** — 라벨과 값이 어긋났다. 시효 조건은 이미 MET-0363(TF00)·MET-0364(TH04)가 담당하므로 이 entry 는 라벨대로 용체화 어닐링(TB00) 실제값으로 교정. 밀도도 8.36 → 8.25(C17200 실제)로 정정. 피로강도 380 도 시효 UTS 기준 파생이라 교정 후 물리 상한(0.63·UTS)을 넘어 — Cu 계열 endurance ratio(0.35·UTS, DB 내 Cu 분포와 일치)로 재유도.",
+   "src": "MakeItFrom — Annealed (A or TB00) C17200 Copper (480 MPa UTS / 160 MPa YS / El 37% / HRB 63) · ASTM B194 TB00",
+   "fatigue_strength": 170
+  },
+  "MET-0445": {
+   "elongation": 58,
+   "basis": "어닐드 인청동의 연신율은 50~64%(CDA OS 템퍼 전 범위)인데 DB 는 30% — 절반 수준으로 과소. σy 145·UTS 340 은 OS025~OS035 대와 정합하므로 같은 템퍼의 연신율(OS035 58%)로 맞춤.",
+   "src": "Copper Development Association alloys.copper.org C51000 OS035 (49 ksi UTS / 20 ksi YS / El 58% / HRB 75)"
   }
  },
  "fields": {

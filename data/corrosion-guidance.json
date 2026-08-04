@@ -2894,10 +2894,6 @@
    "t": "AL-6XN — 6Mo 슈퍼오스테나이트(PREN ~45) — 해수 상시·FGD(배연탈황) 표준.",
    "src": "Outokumpu Corrosion Handbook"
   },
-  "Zeron 100": {
-   "t": "ZERON 100 — 슈퍼듀플렉스(PREN ≥41 보증) — 해수 펌프·해양 플랜트 표준. σ상 석출 회피 위한 용접 열이력 관리가 시공 핵심.",
-   "src": "Outokumpu Corrosion Handbook"
-  },
   "2304 lean duplex": {
    "t": "2304 린 듀플렉스 — Mo 없이 PREN ~26(316 급 공식 저항 + 2배 강도·SCC 면역) — 316 대체 경제안.",
    "src": "Outokumpu Corrosion Handbook"
@@ -3270,14 +3266,6 @@
    "t": "C10100(OFE) — 무산소 최고 순도: 산화물이 없어 수소 분위기 어닐·브레이징에도 수소병(hydrogen sickness) 면역 — 진공·가속기 부품 표준.",
    "src": "ASTM B170 · CDA"
   },
-  "OFHC Copper C10100": {
-   "t": "C10100(OFE) — 무산소 최고 순도: 산화물이 없어 수소 분위기 어닐·브레이징에도 수소병(hydrogen sickness) 면역 — 진공·가속기 부품 표준.",
-   "src": "ASTM B170 · CDA"
-  },
-  "C11000": {
-   "t": "ETP 전기동(O 0.02~0.04%) — 산화물 함유가 약점: 환원(수소) 분위기 370°C+ 에서 수소병(입계 수증기 균열) — H₂ 어닐·브레이징 금지가 이 등급의 핵심 주의.",
-   "src": "CDA · ASM Vol.2(수소병)"
-  },
   "C12000": {
    "t": "DLP(저인 탈산) — 전도율·용접성 절충 급: 수소병 면역 — 배관·열교환 무난.",
    "src": "CDA C12000 자료"
@@ -3303,10 +3291,6 @@
    "src": "CDA · ASM Vol.13B"
   },
   "C22000": {
-   "t": "커머셜 브론즈(Zn 10%) — 탈아연 면역권: 건축 외장·장식 표준 — 암모니아 SCC 만 잔류 주의.",
-   "src": "CDA C22000 자료"
-  },
-  "Commercial Bronze C22000": {
    "t": "커머셜 브론즈(Zn 10%) — 탈아연 면역권: 건축 외장·장식 표준 — 암모니아 SCC 만 잔류 주의.",
    "src": "CDA C22000 자료"
   },
@@ -3353,10 +3337,6 @@
   "Aluminum Bronze C61400": {
    "t": "단순 Al 청동(전신재) — β상 이슈가 적은 조성: 산·해수 침식 저항 — 열교환 튜브시트 실적.",
    "src": "CDA C61400 자료"
-  },
-  "Bronze C95400": {
-   "t": "C95400 주조 Al 청동 — 기어·베어링 범용: 서랭 후육부 β상 잔류 시 탈알루미늄 부식 소지 — 템퍼 어닐(TQ50)로 방어.",
-   "src": "CDA C95400 · ASM 주조 Cu"
   },
   "C95400 Aluminum Bronze": {
    "t": "C95400 주조 Al 청동 — 기어·베어링 범용: 서랭 후육부 β상 잔류 시 탈알루미늄 부식 소지 — 템퍼 어닐(TQ50)로 방어.",
@@ -3997,6 +3977,22 @@
   "PA11 EOS PA 1101": {
    "t": "EOS PA1101 — PA11(피마자유 bio-PA): PA12 대비 인성·유연 우위, 저흡습 — SLS 다공 표면의 흡습·오염 경로 관리는 SLS 공통.",
    "src": "EOS PA 1101 MDS"
+  },
+  "ZERON 100 (UNS S32760, super-duplex stainless)": {
+   "t": "ZERON 100 — 슈퍼듀플렉스(PREN ≥41 보증) — 해수 펌프·해양 플랜트 표준. σ상 석출 회피 위한 용접 열이력 관리가 시공 핵심.",
+   "src": "Outokumpu Corrosion Handbook"
+  },
+  "OFE Copper C10100 (oxygen-free electronic)": {
+   "t": "C10100(OFE) — 무산소 최고 순도: 산화물이 없어 수소 분위기 어닐·브레이징에도 수소병(hydrogen sickness) 면역 — 진공·가속기 부품 표준.",
+   "src": "ASTM B170 · CDA"
+  },
+  "Copper (Pure, C11000)": {
+   "t": "ETP 전기동(O 0.02~0.04%) — 산화물 함유가 약점: 환원(수소) 분위기 370°C+ 에서 수소병(입계 수증기 균열) — H₂ 어닐·브레이징 금지가 이 등급의 핵심 주의.",
+   "src": "CDA · ASM Vol.2(수소병)"
+  },
+  "C22000 (Red Brass 90Cu-10Zn, Commercial Bronze)": {
+   "t": "커머셜 브론즈(Zn 10%) — 탈아연 면역권: 건축 외장·장식 표준 — 암모니아 SCC 만 잔류 주의.",
+   "src": "CDA C22000 자료"
   }
  },
  "alloy_adjust": {

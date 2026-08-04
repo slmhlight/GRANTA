@@ -46,11 +46,11 @@
       "confidence": "handbook"
     },
     "elongation": {
-      "min": 20,
-      "max": 40,
-      "typical": 30,
-      "n": 3,
-      "confidence": "measured"
+      "min": 58,
+      "typical": 58,
+      "max": 58,
+      "confidence": "handbook",
+      "provenance": "교정: Copper Development Association alloys.copper.org C51000 OS035 (49 ksi UTS / 20 ksi YS / El 58% / HRB 75)"
     },
     "modulus": {
       "min": 110,
@@ -222,7 +222,7 @@
       8.86,
       145,
       340,
-      30,
+      58,
       110,
       150,
       69
@@ -250,7 +250,7 @@
   "density": 8.86,
   "yield_strength": 145,
   "uts": 340,
-  "elongation": 30,
+  "elongation": 58,
   "modulus": 110,
   "hardness": 150,
   "thermal_conductivity": 69,
@@ -290,6 +290,20 @@
   "rohs_compliant": true,
   "confidence_tier": "high",
   "_corrections": {
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 20,
+        "max": 40,
+        "typical": 30,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 30
+    },
+    "_basis": "어닐드 인청동의 연신율은 50~64%(CDA OS 템퍼 전 범위)인데 DB 는 30% — 절반 수준으로 과소. σy 145·UTS 340 은 OS025~OS035 대와 정합하므로 같은 템퍼의 연신율(OS035 58%)로 맞춤.",
+    "_src": "Copper Development Association alloys.copper.org C51000 OS035 (49 ksi UTS / 20 ksi YS / El 58% / HRB 75)",
     "points": {
       "from": [
         [
@@ -320,7 +334,6 @@
           69
         ]
       ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+    }
   }
 }

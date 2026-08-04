@@ -151,7 +151,12 @@ describe('개별 합금 노트 (E15c — base-키 조회)', () => {
       ['AISI 4140 / 42CrMo4', '42CrMo4'], ['9% Ni Steel', 'ASTM A553 Type I'],
       ['R260 Rail Steel', 'Rail Steel R260'], ['O1', 'O1 tool steel'], ['D2', 'D2 Tool Steel'],
       ['H13', 'H13 Tool Steel', 'Tool Steel H13'], ['Maraging 300', 'Maraging C300'],
-      ['AISI 304L / STS304 ULC', 'AISI 304L / STS304L', '304L'], ['Zeron 100', 'ZERON 100'],
+      ['AISI 304L / STS304 ULC', 'AISI 304L / STS304L', '304L'],
+      /* W2-5 — Cu·듀플렉스 중복 entry 제거로 노트 키가 긴 정식명으로 이관되며 짧은 표기와 짝이 됐다(동일 합금). */
+      ['Zeron 100', 'ZERON 100', 'ZERON 100 (UNS S32760, super-duplex stainless)'],
+      ['OFE Copper C10100', 'OFHC Copper C10100', 'OFE Copper C10100 (oxygen-free electronic)'],
+      ['C22000', 'Commercial Bronze C22000', 'C22000 (Red Brass 90Cu-10Zn, Commercial Bronze)'],
+      ['C11000', 'Copper (Pure, C11000)'],
       ['A286', 'Carpenter A-286'], ['SS420', 'Stainless Steel 420'], ['15-5 PH Stainless', '15-5PH'],
       ['Nickel 200', 'CP-Nickel'], ['Hastelloy C-22', 'Hastelloy C22'], ['Allvac 718Plus', 'Inconel 718Plus'],
       ['IN-100', 'Inconel 100'], ['C10200', 'OF Copper C10200'], ['OFE Copper C10100', 'OFHC Copper C10100'],
