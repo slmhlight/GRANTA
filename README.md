@@ -35,7 +35,7 @@ Source = "GitHub Actions"**. Live URL: `https://slmhlight.github.io/GRANTA/`.
 Full instructions: [`docs/DEPLOY_GITHUB_PAGES.md`](./docs/DEPLOY_GITHUB_PAGES.md).
 
 ## Data
-**1,142 materials** across metals, polymers, ceramics & composites — curated AM alloys
+**1,136 materials** across metals, polymers, ceramics & composites — curated AM alloys
 (verified manufacturer datasheets), AM vendor data, condition-split generics, and standard
 reference alloys with cross-standard designations (UNS/EN/DIN/JIS/GB/AMS). Each property is a
 real `min · typical · max` range; fatigue limits are measured where available and otherwise

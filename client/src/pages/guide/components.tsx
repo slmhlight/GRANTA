@@ -111,7 +111,10 @@ export function Term({ word, children }: { word: string; children: React.ReactNo
  * (오탐/중첩 방지). 챕터당 첫 등장 1회(seen 공유). DOM 변형 아님 → React 재렌더 안전. */
 const GLOSSARY_SKIP_TAGS = new Set(['a', 'button', 'code', 'abbr', 'sup', 'kbd', 'pre', 'h1', 'h2', 'h3', 'h4', 'style', 'script']);
 function glossarySkip(type: unknown): boolean {
-  if (type === F || type === ExtLink || type === Term || type === H3) return true;
+  /* H6 W1-7/B-4 — wouter Link 는 함수형이라 문자열 태그 집합('a')에 안 걸린다.
+   * 재귀가 Link children 까지 내려가면 <a> 안에 TermLink/<Link> 가 중첩(불법 HTML·수화 오류) →
+   * 컴포넌트 타입으로 직접 스킵. */
+  if (type === F || type === ExtLink || type === Term || type === H3 || type === Link) return true;
   return typeof type === 'string' && GLOSSARY_SKIP_TAGS.has(type);
 }
 interface GlossaryCtx { termSeen: Set<string>; matSeen: Set<string>; matMap: AutolinkMap | null; byKey: WikiByKey | null }
