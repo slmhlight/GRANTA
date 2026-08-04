@@ -173,10 +173,12 @@ describe('buildAutolinkMap + 실제 wiki-index 정밀도', () => {
  * audit-link-coverage.mjs 는 진단 리포트(로직 복제)지만, 이 게이트는 위 linkify+buildAutolinkMap
  * (실제 client 매처)를 그대로 호출해 커버리지가 기준선 아래로 떨어지면 fail — mjs 복제와 TS 매처의 드리프트 차단.
  * 기준선(2026-07-12, 7a50582): article 147 · guide 251 · story 89. 하한은 여유 마진(편집 변동 허용, 구조 회귀만 차단).
- * **H6 W3-1 상향**: 스토리 본문을 canonical 표기(AISI/AA)로 스윕(116 지점) + 명시링크 6.
+ * **H6 W3-1 상향**: 스토리 본문을 canonical 표기(AISI/AA)로 스윕(249 지점) + 명시링크 6.
  *   순숫자 표기(304·6061)는 autolink 영구 봉인(연도·온도 오탐)이라, 본문이 canonical 이어야 링크된다.
- *   실 TS 매처 기준선 article 151 · story 282(구 89) → 하한 143/238/265. mjs 리포트(166/250/282)와
- *   소폭 다른데, **이 게이트가 실제 렌더 경로**이므로 여기 수치가 canonical 이다. */
+ * **W3-1b 측정 정합**: 코퍼스를 스토리 단위 → **섹션 단위**로 교체. 렌더러가 섹션마다
+ *   StoryLinkedText 를 호출하므로 "첫 등장만 링크"도 섹션 단위인데, 이어붙여 재던 탓에
+ *   두 번째 섹션부터의 링크가 전부 실패로 잡혀 **실제보다 낮게** 측정되고 있었다.
+ *   기준선 article 151 · story 570(구 측정 89) → 하한 143/238/520. */
 const COV_ROOT = process.cwd();
 const covRd = (p: string) => fs.readFileSync(path.join(COV_ROOT, p), 'utf8');
 const covRj = (p: string) => JSON.parse(covRd(p));
@@ -247,10 +249,14 @@ function corpusTexts(): { article: string[]; guide: string[]; story: string[] } 
     guide.push(t);
   }
   for (const m of tsx.matchAll(/\{\s*['"`]([^'"`]{8,})['"`]\s*\}/g)) if (/[가-힣]/.test(m[1])) guide.push(m[1]);
+  /* H6 W3-1b — 스토리는 **섹션마다 따로** 넣는다. MaterialDetail 이 섹션별로 StoryLinkedText 를
+     호출하므로 "첫 등장만 링크"도 섹션 단위다. 이어붙여 재면 두 번째 섹션부터가 전부 실패로
+     잡혀 실제보다 낮게 나온다(이 게이트가 실제 렌더 경로라 정합이 중요). */
   const story: string[] = [];
   for (const st of Object.values(stories)) {
-    const parts = [...(st.sections ? Object.values(st.sections) : []), ...(st.timeline || []).map((e) => e.event)];
-    story.push(parts.filter(Boolean).join(' '));
+    if (st.sections) for (const body of Object.values(st.sections)) if (body) story.push(body);
+    const tl = (st.timeline || []).map((e) => e.event).filter(Boolean).join(' ');
+    if (tl) story.push(tl);
   }
   return { article, guide, story };
 }
@@ -266,6 +272,6 @@ describe('재료 링크 커버리지 게이트 (H5-D1 — 실 linkify)', () => {
     // 실 TS 매처 기준선(mjs 리포트와 소폭 차이 — 그래서 이 게이트가 canonical) 대비 여유 하한
     expect(art.linked, `article 링크 ${art.linked}/${art.mentions} (하한 143)`).toBeGreaterThanOrEqual(143);
     expect(guide.linked, `guide 링크 ${guide.linked}/${guide.mentions} (하한 238)`).toBeGreaterThanOrEqual(238);
-    expect(story.linked, `story 링크 ${story.linked}/${story.mentions} (하한 265)`).toBeGreaterThanOrEqual(265);
+    expect(story.linked, `story 링크 ${story.linked}/${story.mentions} (하한 520)`).toBeGreaterThanOrEqual(520);
   });
 });

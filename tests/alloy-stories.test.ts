@@ -100,11 +100,13 @@ describe('산출물 parity (materials.json)', () => {
     }
     expect(bad).toEqual([]);
   });
-  it('v2 exemplar — Inconel 718: 6섹션 완비 + timeline 3 (ref 인덱스 유효)', () => {
+  /* H6 W3-2: Eiselstein 특허 계보(1958 출원·1962 등록·1963 상업화)를 검증해 추가 → 3 → 6.
+     정확한 수를 고정하면 보강할 때마다 깨지므로 **하한**으로 바꾼다(6섹션 완비는 그대로 정확 검사). */
+  it('v2 exemplar — Inconel 718: 6섹션 완비 + timeline ≥3 (ref 인덱스 유효)', () => {
     const m = all.find((x) => x.story_key === 'inconel-718');
     expect(m).toBeTruthy();
     expect(Object.keys(m!.story_v2?.sections || {}).sort()).toEqual(['adoption', 'breakthrough', 'fun_fact', 'hook', 'origin', 'today']);
-    expect(m!.story_v2?.timeline?.length).toBe(3);
+    expect(m!.story_v2?.timeline?.length).toBeGreaterThanOrEqual(3);
   });
   /* R226u 구조 2.0 — 사용자 요구: v2 는 풀 스켈레톤(6섹션) + 표준 순서 준수. */
   it('v2 전량: hook/origin/breakthrough/adoption/today/fun_fact 6섹션 완비 + 표준 순서', () => {

@@ -80,9 +80,14 @@ for (const art of Object.values(articles)) for (const s of art.sections) {
   if (s.table) corpus.article.push(...s.table.rows.flat(), ...s.table.headers);
 }
 corpus.guide = guideTexts();
+/* H6 W3-1b — 스토리는 **섹션마다 따로** 세어야 렌더러와 맞는다.
+ * MaterialDetail 은 ORDER.filter(...).map(k => <StoryLinkedText text={secs[k]} …>) 로
+ * 섹션별 linkify 를 호출하므로 "첫 등장만 링크"도 섹션 단위다. 전 섹션을 이어붙여 재면
+ * 두 번째 섹션부터의 링크가 전부 실패로 잡혀 과소평가된다. */
 for (const st of Object.values(stories)) {
-  const parts = [...(st.sections ? Object.values(st.sections) : []), ...(st.timeline || []).map((e) => e.event)];
-  corpus.story.push(parts.filter(Boolean).join(' '));
+  if (st.sections) for (const body of Object.values(st.sections)) { if (body) corpus.story.push(body); }
+  const tl = (st.timeline || []).map((e) => e.event).filter(Boolean).join(' ');
+  if (tl) corpus.story.push(tl);
 }
 
 // ── 합금-형 언급 패턴 (guidescan 계열) ──
