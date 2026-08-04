@@ -99,31 +99,25 @@
       "provenance": "class:ASM Vol.1 Duplex SS"
     },
     "electrical_conductivity": {
-      "min": 2.04,
-      "max": 2.76,
-      "typical": 2.4,
-      "n": 0,
-      "estimated": true,
-      "confidence": "subfamily",
-      "provenance": "3rd_family:Stainless Steel - Austenitic"
+      "min": 2.2,
+      "typical": 2.2,
+      "max": 2.2,
+      "confidence": "handbook",
+      "provenance": "교정: ATI 2304 Lean Duplex Technical Data Sheet (ASME Boiler and Pressure Vessel Code upper temperature limit 600°F [315°C]) · Stainless Structurals 2304 Duplex Grade datasheet (application range −50~300°C) · Tubing China S32304/1.4362 물리물성표 (열팽창 20-100°C 13×10⁻⁶/°C · 열전도 17 W/m·K@20°C · 전기저항 80 µΩ·cm@20°C · E 200 GPa@20°C · 밀도 7800 kg/m³)"
     },
     "max_service_temp": {
-      "min": 739.5,
-      "max": 1000.5,
-      "typical": 870,
-      "n": 0,
-      "estimated": true,
-      "confidence": "subfamily",
-      "provenance": "3rd_family:Stainless Steel - Austenitic"
+      "min": 300,
+      "typical": 300,
+      "max": 300,
+      "confidence": "handbook",
+      "provenance": "교정: ATI 2304 Lean Duplex Technical Data Sheet (ASME Boiler and Pressure Vessel Code upper temperature limit 600°F [315°C]) · Stainless Structurals 2304 Duplex Grade datasheet (application range −50~300°C) · Tubing China S32304/1.4362 물리물성표 (열팽창 20-100°C 13×10⁻⁶/°C · 열전도 17 W/m·K@20°C · 전기저항 80 µΩ·cm@20°C · E 200 GPa@20°C · 밀도 7800 kg/m³)"
     },
     "thermal_expansion": {
-      "min": 14.45,
-      "max": 19.55,
-      "typical": 17,
-      "n": 0,
-      "estimated": true,
-      "confidence": "subfamily",
-      "provenance": "3rd_family:Stainless Steel - Austenitic"
+      "min": 13,
+      "typical": 13,
+      "max": 13,
+      "confidence": "handbook",
+      "provenance": "교정: ATI 2304 Lean Duplex Technical Data Sheet (ASME Boiler and Pressure Vessel Code upper temperature limit 600°F [315°C]) · Stainless Structurals 2304 Duplex Grade datasheet (application range −50~300°C) · Tubing China S32304/1.4362 물리물성표 (열팽창 20-100°C 13×10⁻⁶/°C · 열전도 17 W/m·K@20°C · 전기저항 80 µΩ·cm@20°C · E 200 GPa@20°C · 밀도 7800 kg/m³)"
     },
     "poisson_ratio": {
       "min": 0.255,
@@ -217,24 +211,6 @@
       200,
       250,
       17
-    ],
-    [
-      7.8,
-      420,
-      620,
-      20,
-      200,
-      240,
-      17
-    ],
-    [
-      7.8,
-      490,
-      700,
-      30,
-      200,
-      270,
-      17
     ]
   ],
   "machinability": "Fair",
@@ -279,9 +255,9 @@
     "Stainless Steel",
     "Austenitic"
   ],
-  "electrical_conductivity": 2.4,
-  "max_service_temp": 870,
-  "thermal_expansion": 17,
+  "electrical_conductivity": 2.2,
+  "max_service_temp": 300,
+  "thermal_expansion": 13,
   "poisson_ratio": 0.3,
   "specific_heat": 500,
   "melting_point": 1450,
@@ -304,6 +280,81 @@
   "_corrections": {
     "subcategory": {
       "from": "Stainless Steel - Austenitic"
+    },
+    "max_service_temp": {
+      "had_range": true,
+      "val_range": {
+        "min": 739.5,
+        "max": 1000.5,
+        "typical": 870,
+        "n": 0,
+        "estimated": true,
+        "confidence": "subfamily",
+        "provenance": "3rd_family:Stainless Steel - Austenitic"
+      },
+      "had_scalar": true,
+      "val_scalar": 870
+    },
+    "thermal_expansion": {
+      "had_range": true,
+      "val_range": {
+        "min": 14.45,
+        "max": 19.55,
+        "typical": 17,
+        "n": 0,
+        "estimated": true,
+        "confidence": "subfamily",
+        "provenance": "3rd_family:Stainless Steel - Austenitic"
+      },
+      "had_scalar": true,
+      "val_scalar": 17
+    },
+    "electrical_conductivity": {
+      "had_range": true,
+      "val_range": {
+        "min": 2.04,
+        "max": 2.76,
+        "typical": 2.4,
+        "n": 0,
+        "estimated": true,
+        "confidence": "subfamily",
+        "provenance": "3rd_family:Stainless Steel - Austenitic"
+      },
+      "had_scalar": true,
+      "val_scalar": 2.4
+    },
+    "_basis": "870°C 는 '3rd_family:Stainless Steel - Austenitic' 계열 typical 을 상속한 오염 — 2304 는 듀플렉스라 475°C 취화(페라이트 스피노달 분해)로 300°C 부근이 상한이다. DB 내 형제 등급(2205·2507=300, ZERON 100=315)과도 어긋났다. ASME BPVC 가 2304 에 두는 상한 315°C(600°F) 아래이자 형제와 정합인 300 으로 교정. 같은 상속으로 CTE 도 오스테나이트 값 17 이 찍혀 있었다 — 듀플렉스 2304 는 13(형제 2205·2507 과 동일 대역)이고, 낮은 CTE 는 듀플렉스를 쓰는 이유 중 하나라 오차가 아니라 성격을 뒤집는 값이다. %IACS 도 저항 80 µΩ·cm(20°C)에서 2.2 로 재산출. 대조에서 일치한 열전도 17·E 200·ρ 7.8·ν 0.3·비열 500·융점 1450 은 손대지 않음.",
+    "_src": "ATI 2304 Lean Duplex Technical Data Sheet (ASME Boiler and Pressure Vessel Code upper temperature limit 600°F [315°C]) · Stainless Structurals 2304 Duplex Grade datasheet (application range −50~300°C) · Tubing China S32304/1.4362 물리물성표 (열팽창 20-100°C 13×10⁻⁶/°C · 열전도 17 W/m·K@20°C · 전기저항 80 µΩ·cm@20°C · E 200 GPa@20°C · 밀도 7800 kg/m³)",
+    "points": {
+      "from": [
+        [
+          7.8,
+          450,
+          650,
+          25,
+          200,
+          250,
+          17
+        ],
+        [
+          7.8,
+          420,
+          620,
+          20,
+          200,
+          240,
+          17
+        ],
+        [
+          7.8,
+          490,
+          700,
+          30,
+          200,
+          270,
+          17
+        ]
+      ]
     }
   }
 }
