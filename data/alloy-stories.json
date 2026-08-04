@@ -822,7 +822,8 @@
    "refs": [
     "Kern W & Cherdron H (1960) DuPont Patent (DE 1,037,705) \"Acetal Resin Production\"",
     "DuPont Delrin 150 Tech Data Sheet",
-    "Brydson J A (1999) Plastics Materials 7th ed., Butterworth-Heinemann"
+    "Brydson J A (1999) Plastics Materials 7th ed., Butterworth-Heinemann",
+    "Plastics Technology — \"Tracing the History of Polymeric Materials: Acetal\""
    ],
    "sections": {
     "hook": "금속처럼 정밀한 플라스틱 — 기어·베어링을 대신하는 엔지니어링 폴리머 아세탈(POM).",
@@ -831,7 +832,24 @@
     "adoption": "전자·자동차 산업이 소형 기어·캠·베어링을 금속에서 아세탈로 대체하며 대량 채택했고, 지퍼·버클·기구 부품으로 확산됐다.",
     "today": "소형 기어·캠·베어링·부싱, 지퍼·버클, 정밀 기구 부품, 연료계 부품에 쓰인다. 호모폴리머(Delrin)는 강성·강도가, 코폴리머(Celcon)는 열수·화학 안정성이 낫다. 더 높은 내열·강도는 PA·PBT·PEEK 로 간다.",
     "fun_fact": "작은 플라스틱 기어가 조용히 정확하게 도는 시계·프린터·자동차 부품 속에 대개 아세탈이 있다 — 기름칠 없이도 잘 미끄러지고 치수가 안 변해, 금속 기어의 소음과 급유를 없앤 재료다."
-   }
+   },
+   "timeline": [
+    {
+     "year": 1947,
+     "event": "DuPont 이 포름알데하이드 중합·안정화 연구를 시작 — 사슬 끝이 계속 풀려(unzipping) 열분해되는 것이 실용화의 벽이었다",
+     "ref": 4
+    },
+    {
+     "year": 1960,
+     "event": "DuPont 이 첫 상업 아세탈 호모폴리머를 Delrin 상표로 출시 (1월)",
+     "ref": 4
+    },
+    {
+     "year": 1962,
+     "event": "Celanese 가 Hoechst 와 합작으로 코폴리머 Celcon 출시 — 열·가수분해 안정성을 택한 다른 길",
+     "ref": 4
+    }
+   ]
   },
   "advanced-high-strength-steel": {
    "display": "Advanced High-Strength Steel (Dual-Phase DP780 / DP980)",
@@ -1410,7 +1428,9 @@
    "refs": [
     "Aboulkhair N T et al. (2019) \"3D printing of Aluminium alloys: Additive Manufacturing of Aluminium alloys using selective laser melting\", Prog Mater Sci 106",
     "EOS GmbH \"EOS Aluminium AlSi10Mg Material Data Sheet\" (2020)",
-    "Davis J R (1993) ASM Specialty Handbook: Aluminum and Aluminum Alloys"
+    "Davis J R (1993) ASM Specialty Handbook: Aluminum and Aluminum Alloys",
+    "Fockele & Schwarze (Stereolithographietechnik) · Meiners, Wissenbach, Andres (Fraunhofer ILT Aachen) — SLM 개발(1994) 및 특허(1997 출원)",
+    "Fraunhofer ILT — \"Selective Laser Melting\" 용어 도입 (1995)"
    ],
    "sections": {
     "hook": "금속 3D 프린팅의 기본 알루미늄 — 다이캐스팅 혈통에서 AM 표준 분말이 된 AlSi10Mg.",
@@ -1419,7 +1439,19 @@
     "adoption": "2010년대 금속 AM 붐과 함께 사실상 모든 장비사의 표준 알루미늄 분말이 됐다 — 모터스포츠 덕트·브래킷과 위성 구조가 초기 검증 무대였다.",
     "today": "경량 브래킷, 일체형 열교환기, 안테나 마운트, 위상최적화 구조 등 \"프린팅이 값을 하는\" 알루미늄 부품의 기본값이다. 더 높은 강도·연성은 Scalmalloy 같은 AM 전용 합금이, 대량 양산은 여전히 다이캐스팅이 맡는다.",
     "fun_fact": "AlSi10Mg 는 열처리 상식이 뒤집히는 재료다 — 응력만 풀려고 300°C 에 넣으면 나노 실리콘 네트워크가 풀려 강도가 뚝 떨어진다. as-built 가 가장 강한 상태라는 것, AM 이 만든 새 문법이다."
-   }
+   },
+   "timeline": [
+    {
+     "year": 1994,
+     "event": "Fraunhofer ILT(아헨)와 F&S 가 선택적 레이저 용융(SLM)을 개발 — 분말을 완전히 녹여 굳히는 방식",
+     "ref": 4
+    },
+    {
+     "year": 1995,
+     "event": "Fraunhofer 가 SLM 이라는 이름을 붙인다 — 소결(sintering)이 아니라 용융(melting)임을 구분한 명명",
+     "ref": 4
+    }
+   ]
   },
   "alumina": {
    "display": "Alumina",
@@ -3559,7 +3591,8 @@
    "refs": [
     "Guillaume C É (1897) \"Recherches sur les aciers au nickel\", J Phys 6 (Iron-Nickel alloy research)",
     "Special Metals Pernifer 36 (Invar) Tech Data",
-    "Nakamura Y et al. (1976) \"Invar Effect in Fe-Ni Alloys\", Physica B&C 86-88"
+    "Nakamura Y et al. (1976) \"Invar Effect in Fe-Ni Alloys\", Physica B&C 86-88",
+    "The Nobel Prize in Physics 1920 — Charles Édouard Guillaume"
    ],
    "sections": {
     "hook": "거의 늘고 줄지 않는 금속 — 온도가 변해도 크기가 안 변하는 Fe-Ni 합금 인바(Invar 36).",
@@ -3568,7 +3601,19 @@
     "adoption": "20세기 초 정밀 시계·측량기·기준자에 채택되며 계측의 표준이 됐고, 이후 LNG 탱크 멤브레인과 브라운관 섀도마스크로 확산됐다.",
     "today": "LNG 운반선 화물창 멤브레인, 정밀 계측기·기준자, 복합재 성형 몰드(탄소섬유와 열팽창 정합), 정밀 광학 벤치에 쓰인다. 유리 밀봉처럼 특정 팽창이 필요하면 코바(Kovar)로 간다.",
     "fun_fact": "LNG 운반선의 −163°C 화물창 안쪽을 감싸는 얇은 주름 금속막이 인바다 — 극저온에서도 거의 수축하지 않아, 뜨거운 여름과 극저온 화물 사이의 온도차에도 막이 찢어지지 않는다."
-   }
+   },
+   "timeline": [
+    {
+     "year": 1896,
+     "event": "샤를 기욤이 Ni 36% 부근에서 열팽창이 거의 사라지는 Fe-Ni 합금을 발견 — \"invariable\"에서 Invar",
+     "ref": 4
+    },
+    {
+     "year": 1920,
+     "event": "정밀 측정에 기여한 공로로 노벨 물리학상 — 야금 업적으로 노벨상을 받은 유일한 사례",
+     "ref": 4
+    }
+   ]
   },
   "jis-carbon-steel-sc": {
    "display": "JIS Carbon Steel (S35C / S55C)",
@@ -3821,7 +3866,8 @@
     "Bieber C (1960) US Patent 2,955,934 \"Heat treatment of maraging steels\"",
     "Floreen S (1968) \"The Physical Metallurgy of Maraging Steels\", Met Rev 13",
     "AMS 6512 (SAE 2017) \"Steel, Maraging 250\"",
-    "Sha W & Guo Z (2009) Maraging Steels, Woodhead Publishing"
+    "Sha W & Guo Z (2009) Maraging Steels, Woodhead Publishing",
+    "Decker R F et al. (1962) — Co-Mo 복합 첨가에 의한 Fe-Ni 마르텐사이트 석출강화"
    ],
    "sections": {
     "hook": "탄소 없이 니켈로 굳히는 초고강도강의 표준 grade — Aging(시효)만으로 1700MPa를 내는 마레이징 250.",
@@ -3830,7 +3876,19 @@
     "adoption": "1960~70년대 항공·우주가 로켓 모터 케이스·착륙장치·정밀 금형에 채택하며 자리 잡았다.",
     "today": "로켓 모터 케이스, 착륙장치, 정밀 금형·공구, 경주용 구동부품에 쓰인다. 더 높은 강도는 300·350 grade 로 올라가고, 값비싼 코발트·니켈 탓에 정밀·고강도가 함께 필요한 곳에 집중된다.",
     "fun_fact": "보통 강은 Quenching으로 굳히다 균열·변형이 생기지만, 마레이징은 무른 상태로 다 만든 뒤 낮은 온도에 데워 굳힌다 — 그래서 정밀 금형처럼 \"만든 형상 그대로 강해져야 하는\" 부품에 딱 맞는다."
-   }
+   },
+   "timeline": [
+    {
+     "year": 1960,
+     "event": "Inco 의 C. G. Bieber 가 개발한 Ni 20~25% 계열이 12월 상업 생산에 들어간다 (Co 없는 1세대)",
+     "ref": 5
+    },
+    {
+     "year": 1962,
+     "event": "Decker 팀이 Co+Mo 동시 첨가의 석출강화 효과를 발견 — 오늘의 18Ni 200/250/300 표준 등급이 여기서 나온다",
+     "ref": 5
+    }
+   ]
   },
   "maraging-300": {
    "display": "Maraging 300 · UNS K93120)",
@@ -3876,7 +3934,8 @@
    "refs": [
     "AMS 6520 (SAE 2017) \"Steel, Maraging 18% Ni, 350 ksi\"",
     "Decker R F (1988) \"Maraging Steels — The First 30 Years\"",
-    "ATI VascoMax C-350 datasheet"
+    "ATI VascoMax C-350 datasheet",
+    "Decker R F et al. (1962) — Co-Mo 복합 첨가에 의한 Fe-Ni 마르텐사이트 석출강화"
    ],
    "sections": {
     "hook": "마레이징 계열의 강도 정점 — 코발트·티타늄을 더 넣어 UTS 2400MPa를 낸 C350.",
@@ -3885,7 +3944,19 @@
     "adoption": "강도가 절대적으로 필요한 항공 체결·구동부품과 고성능 스포츠 장비에 제한적으로 채택됐다.",
     "today": "극한 강도가 필요한 항공 부품, 고성능 구동축, 펜싱 검·경주 부품에 쓰인다. 인성이 더 필요하면 300 으로 내려가고, 부식이 문제면 PH 스테인리스로 간다.",
     "fun_fact": "올림픽 펜싱의 에페·플뢰레 검날 상당수가 마레이징강이다 — 부러져도 날카롭게 쪼개지지 않고 무디게 휘도록, 초고강도에 인성을 갖춘 이 강이 선수 안전을 위해 규정으로 요구된다."
-   }
+   },
+   "timeline": [
+    {
+     "year": 1960,
+     "event": "Inco 의 Bieber 계열이 12월 상업 생산 — 마레이징강의 출발",
+     "ref": 4
+    },
+    {
+     "year": 1962,
+     "event": "Decker 팀의 Co+Mo 발견으로 18Ni 200/250/300 표준 등급군이 성립 — 350 은 그 위로 강도를 더 밀어올린 등급이다",
+     "ref": 4
+    }
+   ]
   },
   "martensitic-440": {
    "display": "Martensitic 440 (440A / 440B / 440C)",
@@ -4169,7 +4240,9 @@
    "refs": [
     "Schlack P (1938) German Patent 748,253 \"Process for Producing Polyamide\"",
     "Kohan M I (1995) Nylon Plastics Handbook, Hanser",
-    "BASF Ultramid B (PA6) Tech Data Sheet"
+    "BASF Ultramid B (PA6) Tech Data Sheet",
+    "Paul Schlack, DRP 748 253 (1938 출원) · US 2,241,321 (1941) — ε-카프로락탐 중합",
+    "Deutsches Kunststoff-Museum — \"1938: Polyamid\""
    ],
    "sections": {
     "hook": "스타킹에서 시작해 엔지니어링 플라스틱이 된 나일론 — 단일 단량체로 만드는 PA6.",
@@ -4178,7 +4251,19 @@
     "adoption": "2차 대전기 섬유·타이어 코드로 대량 채택된 뒤, 전후 기어·부싱 같은 기계 부품으로 확산되며 엔지니어링 플라스틱의 반열에 올랐다.",
     "today": "기어·부싱·롤러, 섬유·타이어 코드, 전동공구·가전 부품에 쓰인다. 흡습에 따른 치수 변화가 약점이라 정밀·건조 환경은 PA66·POM 으로, 고온·강성은 유리강화 나일론이나 PA46·PPA 로 간다.",
     "fun_fact": "PA6 의 옛 이름 Perlon 은 나일론에 맞선 독일판 상표였다 — 같은 시기 대서양 양편에서 두 종류의 나일론(PA6·PA66)이 거의 동시에 태어나, 스타킹 시장을 두고 경쟁했다."
-   }
+   },
+   "timeline": [
+    {
+     "year": 1938,
+     "event": "파울 슐라크가 카프로락탐 개환중합으로 폴리아미드 6 합성 (IG Farben, 1월 29일) — 나일론 66 특허를 피한 독자 경로",
+     "ref": 4
+    },
+    {
+     "year": 1939,
+     "event": "\"Perlon\" 상표로 전개 — 원료·공정이 단순해 유럽에서 주류가 된다",
+     "ref": 4
+    }
+   ]
   },
   "nylon-6-gf30": {
    "display": "Nylon 6 GF30",
@@ -4214,7 +4299,8 @@
     "Carothers W H (1938) US Patent 2,130,948 \"Diamine-dicarboxylic acid salt and process of preparing same\"",
     "Hounshell D A & Smith J K (1988) Science and Corporate Strategy: DuPont R&D, 1902-1980, Cambridge UP",
     "Kohan M I (1995) Nylon Plastics Handbook, Hanser",
-    "Smithsonian American History Museum \"Nylon: A Revolution in Textiles\" online exhibit"
+    "Smithsonian American History Museum \"Nylon: A Revolution in Textiles\" online exhibit",
+    "American Chemical Society — \"Wallace Carothers and the Development of Nylon\" (National Historic Chemical Landmark)"
    ],
    "sections": {
     "hook": "인류 최초의 합성 섬유 — 스타킹과 낙하산을 거쳐 엔지니어링 플라스틱이 된 나일론 66.",
@@ -4223,7 +4309,24 @@
     "adoption": "2차 대전에서 낙하산·타이어 코드로 대량 채택된 뒤, 전후 자동차 언더후드와 전장 부품으로 확산됐다.",
     "today": "자동차 흡기·엔진 커버(유리강화), 전장 커넥터, 섬유·카펫, 기어·부싱에 쓰인다. PA6 보다 내열·강성이 낫지만 값이 조금 높고, 더 뜨거우면 PA46·PPA·PPS 로 간다.",
     "fun_fact": "나일론이라는 이름은 \"올이 안 풀린다(no-run)\"에서 출발했다는 이야기가 유명하다 — 데뷔한 스타킹이 첫날 수백만 켤레가 팔렸다는 전설과 함께, 합성 섬유 시대를 연 상표가 됐다."
-   }
+   },
+   "timeline": [
+    {
+     "year": 1935,
+     "event": "카로더스 팀이 헥사메틸렌디아민+아디프산으로 첫 나일론 66 시료 합성 (DuPont, 2월 28일)",
+     "ref": 5
+    },
+    {
+     "year": 1938,
+     "event": "DuPont 이 칫솔모로 첫 상업화 — 최초의 인공 합성섬유 제품",
+     "ref": 5
+    },
+    {
+     "year": 1939,
+     "event": "뉴욕 세계박람회에서 나일론 스타킹 공개 — 대중적 성공의 출발점",
+     "ref": 5
+    }
+   ]
   },
   "ods-superalloys": {
    "display": "ODS Superalloys (MA754 / GRX-810)",
@@ -4494,7 +4597,9 @@
    "refs": [
     "Bonner R W (1965) US Patent 3,847,867 \"Polyetherimides\"",
     "Sabic Ultem 1000 Tech Data (verified 2024)",
-    "Brydson J A (1999) Plastics Materials 7th ed."
+    "Brydson J A (1999) Plastics Materials 7th ed.",
+    "Wirth J G & Heath D R, US Patent 3,730,946 (1973 출원) — 폴리에터이미드",
+    "UL Prospector — Polyetherimide (PEI) generic"
    ],
    "sections": {
     "hook": "호박빛의 투명한 고내열 플라스틱 — 난연·절연을 겸한 PEI(Ultem).",
@@ -4503,7 +4608,19 @@
     "adoption": "1990년대 이후 항공기 인테리어(난연 규정)와 의료 멸균 기구, 전자 커넥터에 채택되며 자리 잡았고, Ultem 9085 는 항공용 FDM 3D 프린팅 소재로 확산됐다.",
     "today": "항공 인테리어 패널, 반복 멸균 의료 기구, 전자 커넥터·소켓, 반도체 치구에 쓰이며, Ultem 1010(사출)·Ultem 9085(FDM)가 대표 grade 다. 더 높은 연속 내열·내약품은 PEEK 로, 더 극한은 PI 로 간다.",
     "fun_fact": "비행기 객실의 투명한 호박빛 부품(승무원 콜 버튼 커버·조명 렌즈 등)이 대개 PEI 다 — 불에 잘 안 타면서 투명해야 하는 항공 난연 규정을, 이 수지가 색과 함께 만족한다."
-   }
+   },
+   "timeline": [
+    {
+     "year": 1973,
+     "event": "GE 의 J. G. Wirth 팀이 폴리에터이미드를 특허 출원 (US 3,730,946) — 폴리이미드의 내열을 지키면서 **에터 결합**으로 용융가공을 가능하게 한 것이 핵심",
+     "ref": 4
+    },
+    {
+     "year": 1982,
+     "event": "GE 가 Ultem 상표로 첫 상업 PEI 출시",
+     "ref": 4
+    }
+   ]
   },
   "pekk": {
    "display": "PEKK (+ PEKK-CF)",
@@ -4543,7 +4660,9 @@
    "refs": [
     "Whinfield J R & Dickson J T (1941) UK Patent 578,079",
     "Brydson J A (1999) Plastics Materials 7th ed.",
-    "Awaja F & Pavel D (2005) \"Recycling of PET\", Eur Polym J 41"
+    "Awaja F & Pavel D (2005) \"Recycling of PET\", Eur Polym J 41",
+    "Whinfield J R & Dickson J T (1941) — Calico Printers' Association, PET 특허",
+    "Wyeth N C, US Patent 3,733,309 (1973) \"Biaxially Oriented Poly(ethylene terephthalate) Bottle\""
    ],
    "sections": {
     "hook": "음료수 병의 그 플라스틱 — 섬유에서 병까지, 세계에서 가장 많이 쓰이는 폴리에스터 PET.",
@@ -4552,7 +4671,24 @@
     "adoption": "전후 섬유·필름으로 대량 채택된 뒤, 1970년대 음료 병 채택으로 세계 최대 규모의 플라스틱 시장을 얻었다.",
     "today": "음료·식품 병과 필름, 폴리에스터 섬유, 전장 커넥터·기어(유리강화 반결정성)에 쓰인다. 결정화가 빨라야 하는 사출 부품은 PBT 로, 투명·충격이 필요하면 PETG·PC 로 간다.",
     "fun_fact": "전 세계에서 초당 수만 개씩 만들어지는 투명 음료 병이 모두 PET 다 — 얇게 불어도 안 터지고 내용물을 지키며 재활용까지 되는 조합을, 한 재료가 반세기째 감당하고 있다."
-   }
+   },
+   "timeline": [
+    {
+     "year": 1941,
+     "event": "윈필드·딕슨이 PET 를 특허 (Calico Printers' Association, 영국)",
+     "ref": 4
+    },
+    {
+     "year": 1952,
+     "event": "DuPont 이 Mylar 상표 등록 — 이축연신 PET 필름의 시작",
+     "ref": 4
+    },
+    {
+     "year": 1973,
+     "event": "너새니얼 와이어스가 이축연신 PET 병 특허 (US 3,733,309) — 탄산음료 용기를 바꿨다",
+     "ref": 4
+    }
+   ]
   },
   "petg": {
    "display": "PETG",
@@ -4632,7 +4768,9 @@
     "Carothers W H et al. (1932) J Am Chem Soc 54 \"Studies of polymerization and ring formation\"",
     "Garlotta D (2001) \"A literature review of poly(lactic acid)\", J Polym Environ 9(2)",
     "Gruber P R & O'Brien M (2002) \"Polylactides: NatureWorks PLA\", in Biopolymers Vol 4, Wiley-VCH",
-    "NatureWorks LLC corporate history (https://www.natureworksllc.com)"
+    "NatureWorks LLC corporate history (https://www.natureworksllc.com)",
+    "ACS Green Chemistry — NatureWorks business case study",
+    "Carothers W H (1932) — 락타이드 개환중합 연구"
    ],
    "sections": {
     "hook": "옥수수로 만들어 흙에서 분해되는 플라스틱 — 3D 프린팅과 친환경 포장의 PLA.",
@@ -4641,7 +4779,24 @@
     "adoption": "2000년대 친환경 포장·일회용품으로 채택이 확산됐고, 2010년대 데스크톱 3D 프린팅 붐에서 가장 쉬운 필라멘트로 대중화됐다.",
     "today": "생분해 포장·일회용 용기, 3D 프린팅 필라멘트, 농업 필름, 의료 봉합·서방에 쓰인다. 내열·내충격이 필요하면 ABS·PETG 로, 오래 견뎌야 하면 범용 열가소성으로 간다.",
     "fun_fact": "데스크톱 3D 프린터에서 가장 먼저 배우는 재료가 PLA 다 — 낮은 온도에서 잘 붙고 냄새·휘어짐이 적어, 옥수수에서 온 이 플라스틱이 개인 제작의 입문 소재가 됐다."
-   }
+   },
+   "timeline": [
+    {
+     "year": 1932,
+     "event": "카로더스가 락타이드(락트산 이량체) 개환중합으로 PLA 를 연구 — 당시엔 비용 때문에 상용화 불가",
+     "ref": 5
+    },
+    {
+     "year": 1988,
+     "event": "Cargill 이 옥수수 당 발효 → 락트산 → PLA 대량생산 연구 착수",
+     "ref": 5
+    },
+    {
+     "year": 2002,
+     "event": "NatureWorks 가 네브래스카 Blair 에 연 14만 톤 규모 PLA 공장 가동 — 바이오 폴리머의 상업 규모 진입",
+     "ref": 5
+    }
+   ]
   },
   "pmi-structural-foam": {
    "display": "PMI Structural Foam (Rohacell)",
@@ -4779,7 +4934,8 @@
    "refs": [
     "Kern W & Cherdron H (1960) Celanese Patent on POM Copolymer",
     "Celanese Hostaform Tech Data Sheet",
-    "Brydson J A (1999) Plastics Materials 7th ed."
+    "Brydson J A (1999) Plastics Materials 7th ed.",
+    "Plastics Technology — \"Tracing the History of Polymeric Materials: Acetal\""
    ],
    "sections": {
     "hook": "열수·화학에 더 강한 아세탈 — Celcon/Hostaform 으로 대표되는 POM 코폴리머.",
@@ -4788,7 +4944,14 @@
     "adoption": "온수·세제에 닿는 배관 부속과 자동차 연료계 부품이 코폴리머를 채택하며 자리 잡았고, 일반 기구 부품으로 확산됐다.",
     "today": "온수·세정 환경의 밸브·펌프 부속, 자동차 연료계 부품, 기어·부싱, 지퍼·버클에 쓰인다. 강성·강도가 우선이면 호모폴리머(Delrin)로, 더 높은 내열·강도는 PA·PBT·PEEK 로 간다.",
     "fun_fact": "같은 \"아세탈\"이라도 뜨거운 물이 닿는 자리엔 코폴리머를 고른다 — 호모폴리머는 강하지만 열수·알칼리에서 서서히 분해되기 쉬워, 세탁기·온수 밸브 부속은 대개 코폴리머다."
-   }
+   },
+   "timeline": [
+    {
+     "year": 1962,
+     "event": "Celanese 가 Celcon 을 출시 — 사슬에 공단량체를 주기적으로 넣어 열·알칼리 안정성을 얻었다",
+     "ref": 4
+    }
+   ]
   },
   "pom-homopolymer": {
    "display": "POM Homopolymer",
@@ -4801,7 +4964,8 @@
    "refs": [
     "DuPont Delrin 150 Tech Data Sheet",
     "Kern W & Cherdron H (1960) DuPont Patent on POM Homopolymer",
-    "Brydson J A (1999) Plastics Materials 7th ed."
+    "Brydson J A (1999) Plastics Materials 7th ed.",
+    "Plastics Technology — \"Tracing the History of Polymeric Materials: Acetal\""
    ],
    "sections": {
     "hook": "가장 단단하고 뻣뻣한 아세탈 — DuPont Delrin 으로 대표되는 POM 호모폴리머.",
@@ -4810,7 +4974,24 @@
     "adoption": "정밀 기어·베어링을 금속에서 대체하려는 전자·자동차 산업이 채택했고, 스냅 부속·기구 부품으로 확산됐다.",
     "today": "고하중·고정밀 기어와 캠, 축·부싱, 스냅 체결, 정밀 기구 부품에 쓰인다. 강성·강도가 필요하면 호모폴리머, 열수·화학 안정성이 필요하면 코폴리머로 갈린다. 다만 두꺼운 단면 중심부에 미세 기공(센터라인 다공)이 생길 수 있어 코폴리머를 택하기도 한다.",
     "fun_fact": "기계에서 \"델린으로 깎자\"는 말은 곧 정밀 플라스틱 부품을 뜻한다 — 상표명 Delrin 이 POM 호모폴리머의 대명사가 될 만큼, 이 재료가 소형 기어·부싱의 표준이 됐다."
-   }
+   },
+   "timeline": [
+    {
+     "year": 1947,
+     "event": "DuPont 이 포름알데하이드 중합·안정화 연구를 시작 — 사슬 끝이 계속 풀려(unzipping) 열분해되는 것이 실용화의 벽이었다",
+     "ref": 4
+    },
+    {
+     "year": 1952,
+     "event": "말단 헤미아세탈을 아세트산 무수물로 아세틸화해 막는 방법(Dal Nogare)으로 분해를 억제 — 용융가공의 문이 열린다",
+     "ref": 4
+    },
+    {
+     "year": 1960,
+     "event": "DuPont Delrin 출시 — 말단을 아세틸로 막아(end-cap) 용융가공이 가능해진 것이 열쇠였다",
+     "ref": 4
+    }
+   ]
   },
   "pp": {
    "display": "PP",
@@ -4941,7 +5122,9 @@
     "Baumann E (1872) Liebigs Ann Chem 163 \"Vorläufige Mittheilung über den Vinylchlorid\"",
     "Semon W L (1933) US Patent 1,929,453 (BF Goodrich) \"Synthetic rubber-like composition and method of making same\"",
     "Wickson E J (ed., 1993) Handbook of Polyvinyl Chloride Formulating, Wiley",
-    "Wilkes C E, Summers J W & Daniels C A (eds., 2005) PVC Handbook, Hanser"
+    "Wilkes C E, Summers J W & Daniels C A (eds., 2005) PVC Handbook, Hanser",
+    "Britannica — Waldo Semon (가소화 PVC)",
+    "National Inventors Hall of Fame — Waldo L. Semon"
    ],
    "sections": {
     "hook": "세계에서 셋째로 많이 쓰이는 플라스틱 — 파이프·창틀을 만드는 경질 PVC(uPVC).",
@@ -4950,7 +5133,24 @@
     "adoption": "20세기 중반 상하수도 배관과 건축 창틀·사이딩에 대량 채택되며 건자재의 기본 플라스틱이 됐다.",
     "today": "상하수도·배수 파이프, 창틀·사이딩, 전선 피복(연질), 바닥재, 카드에 쓰인다. 내열·강도가 더 필요하면 CPVC·ABS 로, 식품 접촉·투명 용기는 PET 로 간다.",
     "fun_fact": "땅속 상하수도관과 집집의 하얀 창틀 대부분이 경질 PVC(uPVC)다 — 값싸고 안 썩고 불에 잘 안 붙는 조합이, 눈에 잘 안 띄는 건축 인프라를 반세기째 떠받친다."
-   }
+   },
+   "timeline": [
+    {
+     "year": 1872,
+     "event": "오이겐 바우만이 염화비닐 가스 플라스크에서 흰 고체(PVC)를 관찰 — 용도는 찾지 못했다",
+     "ref": 5
+    },
+    {
+     "year": 1913,
+     "event": "프리드리히 클라테가 햇빛을 이용한 염화비닐 중합법으로 첫 특허 — 그래도 너무 단단해 쓰임이 제한적",
+     "ref": 5
+    },
+    {
+     "year": 1926,
+     "event": "월도 시먼이 가소화 PVC 를 발견 (BFGoodrich) — 유연해지면서 비로소 상업적으로 성공",
+     "ref": 5
+    }
+   ]
   },
   "pvdf": {
    "display": "PVDF (Kynar)",
@@ -5067,7 +5267,8 @@
    "refs": [
     "Kistler S S (1931) \"Coherent Expanded Aerogels and Jellies\", Nature 127",
     "Aspen Aerogels Spaceloft Tech Data",
-    "Pierre A C & Pajonk G M (2002) \"Chemistry of Aerogels and Their Applications\", Chem Rev 102"
+    "Pierre A C & Pajonk G M (2002) \"Chemistry of Aerogels and Their Applications\", Chem Rev 102",
+    "Kistler S S (1931) \"Coherent Expanded Aerogels and Jellies\", Nature 127, 741"
    ],
    "sections": {
     "hook": "고체가 된 연기 — 부피의 99%가 공기인, 가장 가벼운 고체 실리카 에어로겔.",
@@ -5076,7 +5277,14 @@
     "adoption": "우주 탐사(혜성 입자 포집)와 극한 단열재로 채택된 뒤, 건축·산업 단열 담요로 상용화가 확산됐다.",
     "today": "고성능 단열 담요·패널, 극저온·우주 단열, 흡착·촉매 담체에 쓰인다. 값과 취성이 부담이라, 얇고 가벼운 초단열이 값을 하는 곳에 집중된다.",
     "fun_fact": "NASA 의 혜성 탐사선은 초속 6km 로 날아오는 혜성 먼지를 이 에어로겔로 부드럽게 붙잡아 지구로 가져왔다 — 거의 공기로 된 고체가, 총알보다 빠른 입자를 안 부수고 멈춰 세웠다."
-   }
+   },
+   "timeline": [
+    {
+     "year": 1931,
+     "event": "새뮤얼 키슬러가 초임계 건조로 젤의 액체를 수축 없이 기체로 바꾼 에어로젤을 Nature 에 발표",
+     "ref": 4
+    }
+   ]
   },
   "silicon-carbide": {
    "display": "Silicon Carbide",
@@ -5684,7 +5892,9 @@
    "refs": [
     "Schröter K (1925) German Patent 420,689 \"Process for Making Hard Metal Alloys\"",
     "Schubert W D, Lassner E, & Böhlke W (2010) Tungsten 4th ed., Springer",
-    "Roebuck B (2018) Cemented Carbides Handbook, NPL"
+    "Roebuck B (2018) Cemented Carbides Handbook, NPL",
+    "Schröter K, DRP 420689 (1923) — Osram Studiengesellschaft, 소결 경질합금 특허",
+    "Krupp — WIDIA (WIe DIAmant) 상표, 1927"
    ],
    "sections": {
     "hook": "금속으로 굳힌 초경 세라믹 — 절삭공구와 드릴의 표준, 텅스텐 카바이드(초경합금).",
@@ -5693,7 +5903,24 @@
     "adoption": "20세기 초 고속 절삭공구로 채택되며 고속도강을 밀어냈고, 광산·유정 드릴 비트와 내마모 부품으로 확산됐다.",
     "today": "절삭공구 팁·드릴, 광산·유정 드릴 비트, 금형·노즐, 내마모 롤·다이에 쓰인다. 코발트 함량으로 절삭용(저Co)과 충격용(고Co)이 갈리며, 극한 정밀 절삭은 CBN·다이아몬드로 간다.",
     "fun_fact": "볼펜 끝의 작은 볼도, 산악 지형을 뚫는 거대 드릴 비트도 같은 초경합금이다 — WC 입자를 코발트로 붙잡는 한 가지 원리가, 크기만 달리해 세상의 마모 지점을 지킨다."
-   }
+   },
+   "timeline": [
+    {
+     "year": 1923,
+     "event": "카를 슈뢰터가 WC + 철족 금속(Co) 분말을 압축·소결하는 경질합금 특허 (Osram) — 값비싼 다이아몬드 인발 다이의 대체를 찾다 나왔다",
+     "ref": 4
+    },
+    {
+     "year": 1926,
+     "event": "Krupp 이 특허를 인수하고 4월부터 비공개 생산 시작",
+     "ref": 4
+    },
+    {
+     "year": 1927,
+     "event": "Krupp 이 \"WIDIA\"(WIe DIAmant = 다이아몬드 같은) 이름으로 세계 시장에 내놓는다",
+     "ref": 4
+    }
+   ]
   },
   "tungsten-rhenium-refractory": {
    "display": "Tungsten · Rhenium · Hafnium · Chromium · Vanadium (elemental refractories)",
