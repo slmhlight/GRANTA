@@ -2854,6 +2854,176 @@ def fig_conductivity_strength():
     save(fig, "conductivity-strength")
 
 
+def fig_binary_phase_diagram():
+    """일반 2성분 공정 상태도 — 액상선/고상선/용해도선·공정점·지렛대 법칙 (개략)."""
+    fig, ax = plt.subplots(figsize=(9.0, 5.8))
+    TA, TB, TE, CE = 700.0, 600.0, 350.0, 62.0
+    CaE, CbE = 18.0, 92.0          # 공정 온도에서 α·β 최대 고용도
+
+    xL1 = np.linspace(0, CE, 200)
+    yL1 = TA + (TE - TA) * (xL1 / CE) ** 1.15          # A 쪽 액상선
+    xL2 = np.linspace(CE, 100, 200)
+    yL2 = TE + (TB - TE) * ((xL2 - CE) / (100 - CE)) ** 1.15
+    xS1 = np.linspace(0, CaE, 120); yS1 = TA + (TE - TA) * (xS1 / CaE) ** 0.9
+    xS2 = np.linspace(CbE, 100, 120); yS2 = TE + (TB - TE) * ((xS2 - CbE) / (100 - CbE)) ** 0.9
+    ys = np.linspace(20, TE, 120)
+    xv1 = CaE * (ys / TE) ** 0.55                        # α 용해도선(solvus)
+    xv2 = 100 - (100 - CbE) * (ys / TE) ** 0.55          # β 용해도선
+
+    ax.plot(xL1, yL1, color=C_M, lw=2.4, zorder=4)
+    ax.plot(xL2, yL2, color=C_M, lw=2.4, zorder=4)
+    ax.plot(xS1, yS1, color=C_A, lw=2.2, zorder=4)
+    ax.plot(xS2, yS2, color=C_A, lw=2.2, zorder=4)
+    ax.plot(xv1, ys, color=C_G, lw=2.0, ls="--", zorder=4)
+    ax.plot(xv2, ys, color=C_G, lw=2.0, ls="--", zorder=4)
+    ax.plot([CaE, CbE], [TE, TE], color=C_AX, lw=2.6, zorder=5)
+    ax.plot(CE, TE, "o", color=C_M, ms=9, zorder=7, mec="white", mew=1.2)
+
+    ax.fill_between(np.concatenate([xL1, xL2]), np.concatenate([yL1, yL2]), 760, color="#f6dcd8", zorder=1)
+    ax.fill_betweenx(ys, 0, xv1, color="#dbe8f5", zorder=1)
+    ax.fill_betweenx(ys, xv2, 100, color="#dbe8f5", zorder=1)
+    ax.fill_betweenx(ys, xv1, xv2, color="#eef1f4", zorder=0)
+
+    lab = dict(fontsize=10.5, color=C_AX, ha="center", va="center", zorder=8)
+    ax.text(50, 715, "액체 (L)", **lab)
+    ax.text(42, 415, "L + α", fontsize=9.5, color=C_AX, ha="center", zorder=8)
+    ax.text(86, 452, "L + β", fontsize=9.5, color=C_AX, ha="center", zorder=8)
+    ax.text(6, 190, "α", fontsize=12, color=C_A, ha="center", zorder=8)
+    ax.text(96.5, 190, "β", fontsize=12, color=C_A, ha="center", zorder=8)
+    ax.text(55, 165, "α + β  (공정 조직)", fontsize=10, color=C_AX, ha="center", zorder=8)
+
+    ax.annotate("액상선 (liquidus)\n— 위는 전부 액체", xy=(34, 545), xytext=(12, 660),
+                fontsize=8, color=C_M, ha="center",
+                arrowprops=dict(arrowstyle="->", color=C_M, lw=0.9), zorder=9)
+    ax.annotate("고상선 (solidus)\n— 아래는 전부 고체", xy=(13, 480), xytext=(29, 302),
+                fontsize=8, color=C_A, ha="center",
+                arrowprops=dict(arrowstyle="->", color=C_A, lw=0.9), zorder=9)
+    ax.annotate("용해도선 (solvus)\n— 식으면 고용 한계가 줄어\n두 번째 상이 석출한다", xy=(8.5, 175), xytext=(26, 205),
+                fontsize=7.8, color=C_G, ha="center",
+                arrowprops=dict(arrowstyle="->", color=C_G, lw=0.9), zorder=9)
+    ax.annotate("공정점 (eutectic)\n액체 → α + β 가 한 온도에서 동시에", xy=(CE, TE), xytext=(78, 292),
+                fontsize=8.2, color=C_M, ha="center",
+                arrowprops=dict(arrowstyle="->", color=C_M, lw=1.0), zorder=9)
+
+    # 지렛대 법칙 — 타이라인
+    # np.interp 는 xp 가 증가해야 한다 — 액상선·고상선은 온도가 감소하므로 뒤집어 넣는다.
+    Tt = 520.0
+    xa = float(np.interp(Tt, yS1[::-1], xS1[::-1]))
+    xl = float(np.interp(Tt, yL1[::-1], xL1[::-1]))
+    Ct = xa + 0.45 * (xl - xa)          # 합금 조성은 반드시 타이라인 안쪽
+    ax.plot([xa, xl], [Tt, Tt], color="#2f8f5f", lw=1.8, ls=(0, (4, 2)), zorder=6)
+    for xx in (xa, xl):
+        ax.plot([xx], [Tt], "o", color="#2f8f5f", ms=5, zorder=7)
+    ax.plot([Ct], [Tt], "D", color="#2f8f5f", ms=6.5, zorder=7)
+    ax.plot([Ct, Ct], [20, Tt], color="#2f8f5f", lw=0.8, ls=":", zorder=3)
+    ax.annotate("지렛대 법칙 — 타이라인 위에서\n고체 비율 = 오른쪽 팔 / 전체 길이",
+                xy=(xl, Tt), xytext=(58, 612), fontsize=7.8, color="#2f8f5f", ha="center",
+                arrowprops=dict(arrowstyle="->", color="#2f8f5f", lw=0.9), zorder=9)
+
+    ax.set_xlim(0, 100); ax.set_ylim(20, 760)
+    ax.set_xlabel("조성 — B 함량 (wt%)", fontsize=10, color=C_AX)
+    ax.set_ylabel("온도 (임의 단위)", fontsize=10, color=C_AX)
+    ax.set_xticks([0, 20, 40, 60, 80, 100])
+    ax.set_xticklabels(["순수 A", "20", "40", "60", "80", "순수 B"])
+    ax.set_yticks([])
+    ax.tick_params(labelsize=8.5, colors=C_AX)
+    ax.spines[["top", "right"]].set_visible(False)
+    ax.set_title("2성분 공정 상태도 읽는 법 — 어떤 상이, 얼마나 (개략)", fontsize=11.5, color=C_AX, pad=8)
+    fig.subplots_adjust(left=0.10, right=0.97, top=0.9, bottom=0.11)
+    save(fig, "binary-phase-diagram")
+
+
+def _pren_from_db():
+    """materials.json 조성 → PREN. 앱 prenOf() 와 같은 식(Cr+3.3Mo+16N, N 결측=0 하한)."""
+    import json
+    p = os.path.join(os.path.dirname(__file__), "..", "client", "public", "materials.json")
+    with open(p, encoding="utf-8") as f:
+        raw = json.load(f)
+    mats = raw if isinstance(raw, list) else raw["materials"]
+    by = {m["name"]: m for m in mats}
+
+    def mid(s):
+        if s is None:
+            return None
+        t = str(s).replace("≤", "").replace("<", "").replace(">", "").strip()
+        if "balance" in t.lower():
+            return None
+        parts = []
+        for piece in t.split("~"):
+            try:
+                parts.append(float(piece))
+            except ValueError:
+                return None
+        return sum(parts) / len(parts) if parts else None
+
+    def pren(name):
+        m = by.get(name)
+        if m is None:
+            raise KeyError("재료 없음: " + name)          # 조용한 누락 금지
+        c = m.get("composition") or {}
+        cr = mid(c.get("Cr"))
+        if cr is None:
+            raise KeyError("Cr 없음: " + name)
+        mo = mid(c.get("Mo")) or 0.0
+        n = mid(c.get("N"))
+        return round(cr + 3.3 * mo + 16 * (n or 0.0), 1), (n is None)
+    return pren
+
+
+def fig_pren_ladder():
+    """PREN 사다리 — 등급별 공식 저항 당량과 해석 밴드 (조성 계산값)."""
+    pren = _pren_from_db()
+    rows = [
+        ("AISI 410 — Quenched / tempered (Wrought)", "410 (마르텐사이트)", C_MUTE),
+        ("AISI 430 — Annealed (Wrought)", "430 (페라이트)", C_MUTE),
+        ("17-4 PH (UNS S17400) — H900", "17-4 PH", C_MUTE),
+        ("AISI 304 — Annealed (Wrought)", "304", C_A),
+        ("AISI 440C — Quenched / tempered (Wrought)", "440C", C_MUTE),
+        ("AISI 316 — Annealed (Wrought)", "316", C_A),
+        ("2304 lean duplex", "2304 lean duplex", C_G),
+        ("904L (N08904)", "904L", C_A),
+        ("2205 Duplex Stainless", "2205 duplex", C_G),
+        ("AL-6XN", "AL-6XN", C_A),
+        ("ZERON 100 (UNS S32760, super-duplex stainless) — Solution annealed (W.Nr. 1.4501, ASTM A 240 Gr F55, PREN ≥40)", "ZERON 100", C_G),
+        ("Superduplex 2507 (UNS S32750) — Wrought", "2507 super-duplex", C_G),
+        ("254 SMO (S31254)", "254 SMO", C_A),
+        ("654 SMO", "654 SMO", C_A),
+    ]
+    data = []
+    for name, label, col in rows:
+        v, nmiss = pren(name)
+        data.append((label + (" *" if nmiss else ""), v, col))
+    data.sort(key=lambda r: r[1])
+
+    fig, ax = plt.subplots(figsize=(9.4, 6.2))
+    ys = np.arange(len(data))
+    ax.barh(ys, [d[1] for d in data], color=[d[2] for d in data], height=0.62, zorder=3, alpha=0.9)
+    for y, (label, v, _c) in zip(ys, data):
+        ax.text(v + 0.7, y, f"{v:.1f}", va="center", fontsize=8.6, color=C_AX, zorder=5)
+    ax.set_yticks(ys)
+    ax.set_yticklabels([d[0] for d in data], fontsize=9)
+
+    bands = [(0, 20, "연안·간헐 염화물 미만", "#f2f4f6"), (20, 30, "연안·간헐 염화물 급", "#e8f0f8"),
+             (30, 40, "해수·공정수 급", "#dce9f6"), (40, 62, "상시 침지·초내식 급", "#cfe1f3")]
+    for x0, x1, lab, col in bands:
+        ax.axvspan(x0, x1, color=col, zorder=0)
+        ax.text((x0 + x1) / 2, len(data) - 0.25, lab, fontsize=7.6, color=C_AX, ha="center", va="bottom", zorder=2)
+    for xb in (20, 30, 40):
+        ax.axvline(xb, color=C_MUTE, lw=0.9, ls=":", zorder=2)
+
+    ax.set_xlim(0, 62); ax.set_ylim(-1.35, len(data) + 0.35)
+    ax.set_xlabel("PREN = Cr + 3.3·Mo + 16·N  (조성에서 계산)", fontsize=10, color=C_AX)
+    ax.tick_params(labelsize=8.5, colors=C_AX)
+    ax.spines[["top", "right", "left"]].set_visible(False)
+    ax.text(0.4, -1.05, "* 조성표에 질소(N) 미표기 → N=0 으로 둔 하한값 (실제는 이보다 높을 수 있다)",
+            fontsize=7.2, color=C_MUTE)
+    ax.text(61.5, -1.05, "청=오스테나이트 · 주황=듀플렉스 · 회색=페라이트/마르텐사이트/PH",
+            fontsize=7.2, color=C_MUTE, ha="right")
+    ax.set_title("PREN 사다리 — 등급을 염화물 저항 순으로 세우면 (개략 밴드)", fontsize=11.5, color=C_AX, pad=18)
+    fig.subplots_adjust(left=0.22, right=0.97, top=0.9, bottom=0.11)
+    save(fig, "pren-ladder")
+
+
 if __name__ == "__main__":
     fig_modulus_temperature()
     fig_conductivity_strength()
@@ -2924,4 +3094,6 @@ if __name__ == "__main__":
     fig_nylon_moisture()
     fig_cfrp_laminate()
     fig_galling_mechanism()
+    fig_binary_phase_diagram()
+    fig_pren_ladder()
     print("done →", os.path.abspath(OUT))
