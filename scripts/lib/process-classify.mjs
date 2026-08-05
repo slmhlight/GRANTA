@@ -46,8 +46,13 @@ const METAL_MACH = [
   [/\bsm(275|355|420|490|570)[abc]?\b|\bss(275|315|400|490)\b|\bshn\d{3}\b|\bshp\d{3}w?\b|\bsd[4-7]00[sw]?\b|\bsg\s?325\b|\bsgcc?\b|sgc\d{3}|saph\d{3}|spfh\d{3}|\bstkm?\s?\d|spa-h|\ba588\b|weathering|zn-mg-al|hot-dip galvanized/i, 'carbon-low'],
   [/\b10[3-8]\d\b|\bs45c\b/i, 'carbon-medhigh'],   // SK 계(탄소 공구강)는 subcategory 'Tool Steel' 행이 담당
   [/\b109[05]\b|\bs[35]5c\b|\bs30c\b|music wire|\ba228\b|\b9260\b|chrome.?silicon|38mnvs6|railway wheel|rail steel|\br260\b|\br350ht?\b/i, 'carbon-medhigh'],
-  [/\b413[05]\b|41[45][05]|42crmo|scm4[1345]\d|31crmov|\b51[346]0\b|\b5155\b|\b6150\b|\bsup\s?(9|10)\b|grade\s?91|\bp91\b|\bt91\b|\bt22\b|\bf22v?\b|sa213|sa336|2\.25\s?cr/i, 'crmo'],
+  [/\b413[05]\b|41[45][05]|42crmo|scm4[1345]\d|31crmov|\b51[346]0\b|\b5155\b|\b6150\b|\bsup\s?(9|10)\b|grade\s?9[12]|\bp9[12]\b|\bt9[12]\b|\bt22\b|\bf22v?\b|sa213|sa336|2\.25\s?cr/i, 'crmo'],
   [/4340|sncm|\b8740\b|\b300m\b|d6ac|hp\s?9-?4|aermet|hy-?(80|100)\b|sa508|armox|hardox|\brha\b|9\s?%\s?ni|\ba553\b/i, 'nicrmo'],
+  /* H6 W3-4b — AHSS·PHS·전기강판: 강도가 아니라 **가공경화율·공정 형태**가 절삭성을 정하는 무리.
+     case-hard 앞에 두어 'press-harden' 이 case.hardening 에 먹히지 않게 한다. */
+  [/\bdp\s?\d{3,4}\b|\btwip\s?\d{3,4}\b|\btrip\s?\d{3,4}\b|\bcp\s?\d{3,4}\b|dual-?phase|twinning-?induced|advanced high-?strength/i, 'ahss'],
+  [/22mnb5|usibor|press-?harden|\bphs\b/i, 'phs'],
+  [/electrical steel|grain-?oriented|goss|\bcgo\b|\bhgo\b/i, 'electrical-steel'],
   [/8620|9310|carburizing|case.hardening/i, 'case-hard'],
   [/52100|100cr6|bearing steel/i, 'bearing'],
   [/maraging/i, 'maraging'],
@@ -110,6 +115,10 @@ export function classifyMachinability(category, name, subcategory) {
   const key = machiningKey(name, subcategory);
   if (category === 'Metal') {
     for (const [re, k] of METAL_MACH) if (re.test(key)) return k;
+    /* H6 W3-4b 판정 — 남는 금속은 **의도적 공백**이다(커버리지 숫자를 위해 억지 배정하지 않는다):
+       · 백주철(Ni-Hard·고Cr): HV 550-600 탄화물 덩어리라 절삭 공정이 성립하지 않는다 — 연삭 전용.
+       · Nitinol: 초탄성이라 날이 재료를 밀어내고 되튄다. 절삭보다 방전(EDM)·레이저가 표준.
+       두 경우 모두 '절삭성 등급'을 주면 오히려 잘못된 기대를 만든다. */
     return null;   // 미매칭 = 안전한 null (카드 미표시) — 커버리지 확장은 overrides 로
   }
   if (category === 'Polymer') {
@@ -156,6 +165,12 @@ export function classifyInsightGroup(category, subcategory) {
     if (/magnesium/i.test(sub)) return 'magnesium';
     if (/tool steel|maraging/i.test(sub)) return 'tool-steel';
     if (/refractory/i.test(sub)) return 'refractory';
+    /* H6 W3-4b — 구조 강도가 아니라 특정 물성·용도가 선택을 지배하는 무리.
+       'alloy steel' 포괄 규칙보다 **앞에** 둔다 (Zinc/Shape Memory/Controlled Expansion Alloy 가 먹히지 않도록). */
+    if (/cast iron/i.test(sub)) return 'cast-iron';
+    if (/controlled expansion|shape memory|electrical steel|beryllium/i.test(sub)) return 'functional-alloy';
+    if (/zirconium/i.test(sub)) return 'zirconium';
+    if (/zinc/i.test(sub)) return 'zinc-diecast';
     if (/carbon|alloy steel|spring|bearing|case|cr-mo|wear|heat-resistant|advanced high|press-harden|cryogenic/i.test(sub)) return 'carbon-alloy-steel';
     return null;
   }

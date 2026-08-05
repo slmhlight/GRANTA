@@ -32,7 +32,9 @@ const FAMILY_BAND: Array<[RegExp, [number, number]]> = [
   [/stainless.*ferritic|martensitic/i, [30, 90]],  // 416 free-mach 85 · PH-라벨 혼입 grade ~35
   [/magnesium/i, [55, 95]],
   [/aluminum/i, [30, 95]],
-  [/carbon steel|structural steel|spring steel|rail steel|pipeline steel|pressure vessel|hsla|high-strength low-alloy|microalloyed|shipbuilding|weathering|press-hardening|advanced high-strength/i, [30, 110]],
+  // H6 W3-4b — 프레스 경화강은 탄소강 잣대와 다르다: 성형 후 1500 MPa 마르텐사이트라 절삭이 아니라 레이저 영역.
+  [/press-hardening/i, [15, 40]],
+  [/carbon steel|structural steel|spring steel|rail steel|pipeline steel|pressure vessel|hsla|high-strength low-alloy|microalloyed|shipbuilding|weathering|advanced high-strength/i, [30, 110]],
   [/alloy steel|case hardening|cr-mo|low-alloy|heat-resistant steel/i, [40, 75]],
   [/copper/i, [10, 110]],         // pure Cu 20 · brass free-mach 100+
 ];

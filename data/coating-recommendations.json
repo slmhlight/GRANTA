@@ -8,7 +8,7 @@
   "ISO 1461·2081 · Ensinger/MCAM 가공·Annealing(풀림) 가이드"
  ],
  "assignment": {
-  "by_mach": {
+  "by_mach": {"pol-thermoset": "polymer", "pol-elastomer": "elastomer", 
    "fm-steel": "steel-low",
    "carbon-low": "steel-low",
    "carbon-medhigh": "steel-alloy",
@@ -53,7 +53,7 @@
    "pol-soft": "polymer",
    "pol-brittle": "polymer"
   },
-  "by_insight": {
+  "by_insight": {"zirconium": "zirconium", "functional-alloy": "functional-alloy", "zinc-diecast": "zinc-diecast", "cast-iron": "cast-iron", 
    "structural-steel": "steel-low",
    "carbon-alloy-steel": "steel-alloy",
    "stainless": "ss-general",
@@ -286,6 +286,54 @@
    "intro": "복합재 후처리는 코팅보다 보호·실링이다: ① UV 도장/클리어코트(에폭시 황변·섬유 노출 방지), ② 절단·드릴 가공부 엣지 실링(흡습 방지), ③ CFRP–금속 체결부 갈바닉 절연(글라스 플라이·실런트, 알루미늄 패스너 회피).",
    "recs": [],
    "notes": []
+  },
+  "cast-iron": {
+   "title": "주철",
+   "recs": [
+    { "coating": "phosphate", "purpose": "corrosion", "when": "실내 방청·습동 길들이기 (엔진 블록·베드·기어 하우징)", "why": "인산염 피막이 오일을 붙들어 주철 특유의 다공성 표면에서도 방청이 유지된다. 주철에 가장 흔한 기본 처리." },
+    { "coating": "nitriding", "purpose": "wear", "when": "슬라이드면·캠·라이너 내마모", "why": "주철 기지에 질화층이 잘 형성되고 흑연 구멍이 오일을 머금어 마찰 조건이 좋아진다.", "caution": "흑연 함량이 높으면 화합물층이 불연속해질 수 있어 시편 확인 후 적용." },
+    { "coating": "qpq", "purpose": "wear", "when": "내마모와 방청을 도금 없이 동시에", "why": "Nitriding(질화) + 산화 복합으로 도금 폐수 없이 내식·내마모를 함께 얻는다." },
+    { "coating": "hvof-wcco", "purpose": "wear", "when": "펌프 슬리브·라이너 등 심한 마모부 보수·강화", "why": "주철 모재를 유지한 채 표면만 초경급으로 바꾼다 — 마모 부위 교체 대신 재생에 유리." },
+    { "coating": "induction-hardening", "purpose": "wear", "when": "캠샤프트 로브·기어 치면 국부 경화", "why": "펄라이트 기지 주철은 국부 급열·급랭으로 표면만 마르텐사이트화할 수 있다. 심부 인성과 흑연의 감쇠능은 그대로 남는다." }
+   ],
+   "notes": ["주철 도금은 밀착이 어렵다 — 표면에 드러난 흑연이 도금액을 머금고 이형제처럼 작용하기 때문이다. 전기도금이 필요하면 **탈지·산세 전처리와 흑연 제거(알칼리 전해 세정)** 가 공정의 절반이며, 그래서 실무에서는 도금보다 인산염·Nitriding(질화)·도장 쪽을 먼저 검토한다."]
+  },
+  "zinc-diecast": {
+   "title": "아연 다이캐스트",
+   "recs": [
+    { "coating": "chromate-conversion", "purpose": "corrosion", "when": "경부식·도장 하지 (실내 부품)", "why": "얇은 변환 피막으로 백청을 늦추고 도장 밀착을 만든다. 가장 값싼 기본 처리." },
+    { "coating": "zinc-plating", "purpose": "corrosion", "when": "방청 강화가 필요할 때", "why": "모재와 같은 금속 계열이라 전위차 문제가 없고 후속 크로메이트와 조합이 쉽다." },
+    { "coating": "electroless-nickel", "purpose": "corrosion", "when": "치수 균일한 내식·내마모 피막 (복잡 형상)", "why": "무전해라 오목부까지 두께가 균일하다 — 다이캐스트의 복잡 형상에 유리.", "caution": "도금액 온도가 높아 저융점 아연에는 저온형 욕 사용이 전제." }
+   ],
+   "notes": ["다이캐스트 표면 바로 아래의 기공이 도금의 최대 적이다 — 도금액이 기공에 갇혔다가 나중에 배어 나오면서 부풀음(블리스터)을 만든다. 그래서 장식 도금(Cu-Ni-Cr)은 **표면 스킨층을 살린 주조**와 충분한 세정·건조가 전제이고, 연마로 스킨을 깎아내면 실패율이 급등한다."]
+  },
+  "functional-alloy": {
+   "title": "기능성 금속 (저팽창·형상기억·전기강판·베릴륨)",
+   "recs": [
+    { "coating": "electroless-nickel", "purpose": "corrosion", "when": "Invar·Kovar 부품의 산화 방지·납땜성 확보", "why": "저팽창 합금은 Fe-Ni 기지라 그대로 두면 녹슨다. 균일 두께 Ni 층이 방청과 후속 접합성을 함께 준다." },
+    { "coating": "silver-plating", "purpose": "electrical", "when": "전기 접점·고주파 부품 (Kovar 피드스루 등)", "why": "표면 전도도를 올려 접촉저항·표피효과 손실을 줄인다." },
+    { "coating": "electropolish", "purpose": "corrosion", "when": "Nitinol 의료기기 (스텐트·가이드와이어)", "why": "가공층과 표면 Ni 를 제거하고 매끈한 Ti 산화막을 남긴다 — **Ni 용출을 줄이는 것이 목적**이라 의료용에서는 사실상 필수 공정." },
+    { "coating": "passivation", "purpose": "corrosion", "when": "Nitinol·저팽창 합금의 부동태 안정화", "why": "표면 철분·오염을 제거해 부동태 산화막이 균일하게 자라도록 한다." },
+    { "coating": "electroless-nickel", "purpose": "corrosion", "when": "베릴륨 부품 표면 밀봉·산화 방지", "why": "Ni 층이 산화를 막고 **표면에서 Be 분진이 떨어져 나오는 것을 줄여** 취급 안전에도 기여한다 — Be 에서는 방식보다 이 쪽이 더 큰 채택 이유다." },
+    { "coating": "electropolish", "purpose": "corrosion", "when": "베릴륨 기계가공면의 손상층 제거", "why": "절삭으로 생긴 미세균열층이 남으면 취성 파괴의 시작점이 된다. 전해연마로 그 층을 걷어내는 것이 정밀 Be 부품의 표준 마무리." }
+   ],
+   "notes": ["이 무리는 코팅 공정의 **온도**가 기능 자체를 망칠 수 있다. Invar 는 도금 후 베이킹 온도가 높으면 저팽창을 얻기 위한 열이력이 흐트러지고, Nitinol 은 변태온도(Af)가 열처리 이력으로 움직인다. 전기강판은 이미 무기 절연 코팅이 되어 출하되며, 그 위에 다른 처리를 얹으면 층간 절연과 점적률이 함께 나빠진다."]
+  },
+  "zirconium": {
+   "title": "지르코늄 합금",
+   "recs": [
+    { "coating": "passivation", "purpose": "corrosion", "when": "화학 플랜트 부품 표면 정리", "why": "지르코늄의 방식은 스스로 만드는 치밀한 ZrO₂ 부동태막이 담당한다 — 표면 오염·철분을 제거해 그 막이 고르게 자라게 하는 것이 처리의 전부다." },
+    { "coating": "electropolish", "purpose": "corrosion", "when": "용접부·가공면의 오염층 제거", "why": "가공 중 박힌 철분이나 산소 오염층이 남으면 그 자리에서 국부 부식이 시작된다." }
+   ],
+   "notes": ["지르코늄은 원칙적으로 **코팅하지 않는 재료**다. 부동태막 자체가 방식층이고, 원자로용은 중성자 흡수·수소 흡수 관리 때문에 임의의 표면 처리가 허용되지 않는다(사고저항성 연료의 Cr 코팅은 개발 단계의 별개 주제다). 표면 처리가 필요하다면 대개 \"무엇을 씌울까\"가 아니라 \"무엇을 제거할까\"의 문제다."]
+  },
+  "elastomer": {
+   "title": "엘라스토머 (TPU · 실리콘 · 고무)",
+   "recs": [
+    { "coating": "pol-surface-activation", "purpose": "adhesion", "when": "접착·인쇄·2차 성형 전처리", "why": "실리콘·TPU 는 표면에너지가 낮아 그대로는 접착제가 젖지 않는다. 플라즈마·코로나 처리로 표면을 활성화한 뒤 접착한다." },
+    { "coating": "pol-annealing", "purpose": "stability", "when": "성형 후 잔류응력·치수 안정화 (TPU 정밀 부품)", "why": "사출 잔류응력이 남으면 사용 중 치수가 변하고 균열의 시작점이 된다." }
+   ],
+   "notes": ["엘라스토머에는 금속 도금·PVD 같은 경질 피막을 그대로 얹을 수 없다 — 모재가 크게 늘어나는데 피막은 못 늘어나 곧 갈라진다. 마찰을 줄이려면 경질 코팅이 아니라 **표면 처리(염소화·PTFE 분산 코팅)나 배합 자체**로 푸는 것이 정석이다."]
   }
  }
 }

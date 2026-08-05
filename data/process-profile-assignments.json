@@ -370,6 +370,7 @@
   },
   "MET-0001": {
    "colorf": "Steel",
+   "mach": "ahss",
    "weld": "ce",
    "htc": "soft",
    "htg": "h33-ahss",
@@ -379,6 +380,7 @@
   },
   "MET-0002": {
    "colorf": "Steel",
+   "mach": "ahss",
    "weld": "ce",
    "htg": "h33-ahss",
    "insight": "carbon-alloy-steel",
@@ -387,6 +389,7 @@
   },
   "MET-0003": {
    "colorf": "Steel",
+   "mach": "ahss",
    "weld": "ce",
    "htg": "h33-ahss",
    "insight": "carbon-alloy-steel",
@@ -395,6 +398,7 @@
   },
   "MET-0004": {
    "colorf": "Steel",
+   "mach": "ahss",
    "weld": "ce",
    "ht": "AHSS DP980 (Dual-Phase, ferrite + martensite)",
    "htg": "h33-ahss",
@@ -404,6 +408,7 @@
   },
   "MET-0005": {
    "colorf": "Steel",
+   "mach": "ahss",
    "weld": "ce",
    "ht": "AHSS DP980 (Dual-Phase, ferrite + martensite)",
    "htg": "h33-ahss",
@@ -2514,6 +2519,8 @@
    "htc": "soft",
    "htg": "h16-refractory",
    "wg": "w70-berylliumb",
+   "insight": "functional-alloy",
+   "cg": "functional-alloy",
    "corr": "be"
   },
   "MET-0232": {
@@ -3264,6 +3271,7 @@
   },
   "MET-0325": {
    "colorf": "Steel",
+   "mach": "ahss",
    "weld": "ce",
    "htc": "soft",
    "ht": "AHSS TWIP1180 (TWinning Induced Plasticity, ~22 Mn)",
@@ -3289,6 +3297,8 @@
    "weld": "none",
    "htc": "qt",
    "htg": "h35-cast-iron",
+   "insight": "cast-iron",
+   "cg": "cast-iron",
    "corr": "cast-iron"
   },
   "MET-0328": {
@@ -3296,6 +3306,8 @@
    "mach": "cast-iron-ductile",
    "weld": "none",
    "htg": "h35-cast-iron",
+   "insight": "cast-iron",
+   "cg": "cast-iron",
    "corr": "cast-iron"
   },
   "MET-0329": {
@@ -3304,6 +3316,8 @@
    "weld": "none",
    "htg": "h35-cast-iron",
    "wg": "w12-gray",
+   "insight": "cast-iron",
+   "cg": "cast-iron",
    "corr": "cast-iron"
   },
   "MET-0330": {
@@ -3312,6 +3326,8 @@
    "weld": "none",
    "htg": "h35-cast-iron",
    "wg": "w12-gray",
+   "insight": "cast-iron",
+   "cg": "cast-iron",
    "corr": "cast-iron"
   },
   "MET-0331": {
@@ -3566,6 +3582,8 @@
    "htc": "soft",
    "htg": "h30-invar",
    "wg": "w67-invar",
+   "insight": "functional-alloy",
+   "cg": "functional-alloy",
    "corr": "ni-fe-lowexp"
   },
   "MET-0356": {
@@ -3574,6 +3592,8 @@
    "weld": "none",
    "htg": "h30-invar",
    "wg": "w67-invar",
+   "insight": "functional-alloy",
+   "cg": "functional-alloy",
    "corr": "ni-fe-lowexp"
   },
   "MET-0357": {
@@ -3582,6 +3602,8 @@
    "weld": "none",
    "htg": "h30-invar",
    "wg": "w67-invar",
+   "insight": "functional-alloy",
+   "cg": "functional-alloy",
    "corr": "ni-fe-lowexp"
   },
   "MET-0358": {
@@ -3591,6 +3613,8 @@
    "htc": "as-built",
    "htg": "h30-invar",
    "wg": "w67-invar",
+   "insight": "functional-alloy",
+   "cg": "functional-alloy",
    "corr": "ni-fe-lowexp"
   },
   "MET-0359": {
@@ -3599,6 +3623,8 @@
    "weld": "none",
    "htg": "h30-invar",
    "wg": "w67-invar",
+   "insight": "functional-alloy",
+   "cg": "functional-alloy",
    "corr": "ni-fe-lowexp"
   },
   "MET-0360": {
@@ -4490,9 +4516,12 @@
   },
   "MET-0452": {
    "colorf": "Steel",
+   "mach": "electrical-steel",
    "weld": "none",
    "htc": "soft",
-   "htg": "h31-electrical-goss"
+   "htg": "h31-electrical-goss",
+   "insight": "functional-alloy",
+   "cg": "functional-alloy"
   },
   "MET-0453": {
    "colorf": "Steel",
@@ -6261,6 +6290,7 @@
   },
   "MET-0624": {
    "colorf": "Steel",
+   "mach": "phs",
    "weld": "ce",
    "htc": "qt",
    "ht": "22MnB5 / USIBOR 1500 PHS (ArcelorMittal)",
@@ -6271,6 +6301,7 @@
   },
   "MET-0625": {
    "colorf": "Steel",
+   "mach": "phs",
    "weld": "ce",
    "htc": "qt",
    "ht": "22MnB5 / USIBOR 1500 PHS (ArcelorMittal)",
@@ -6281,6 +6312,7 @@
   },
   "MET-0626": {
    "colorf": "Steel",
+   "mach": "phs",
    "weld": "ce",
    "ht": "22MnB5 / USIBOR 1500 PHS (ArcelorMittal)",
    "htg": "h33-ahss",
@@ -6768,7 +6800,9 @@
    "colorf": "Nickel",
    "weld": "none",
    "htg": "h39-nitinol",
-   "wg": "w69-nitinolb"
+   "wg": "w69-nitinolb",
+   "insight": "functional-alloy",
+   "cg": "functional-alloy"
   },
   "MET-0675": {
    "colorf": "Steel",
@@ -9612,6 +9646,8 @@
    "weld": "none",
    "htg": "h40-zinc-diecast",
    "wg": "w71-zamak",
+   "insight": "zinc-diecast",
+   "cg": "zinc-diecast",
    "corr": "zn"
   },
   "MET-0990": {
@@ -9620,6 +9656,8 @@
    "weld": "none",
    "htg": "h25-zirconium",
    "wg": "w66-zirconiumb",
+   "insight": "zirconium",
+   "cg": "zirconium",
    "corr": "zirconium"
   },
   "MET-0991": {
@@ -9629,6 +9667,8 @@
    "htc": "soft",
    "htg": "h25-zirconium",
    "wg": "w66-zirconiumb",
+   "insight": "zirconium",
+   "cg": "zirconium",
    "corr": "zirconium"
   },
   "MET-0992": {
@@ -9638,6 +9678,8 @@
    "htc": "soft",
    "htg": "h25-zirconium",
    "wg": "w66-zirconiumb",
+   "insight": "zirconium",
+   "cg": "zirconium",
    "corr": "zirconium"
   },
   "MET-0993": {
@@ -9900,6 +9942,8 @@
    "weld": "none",
    "htc": "qt",
    "htg": "h32-austemper",
+   "insight": "cast-iron",
+   "cg": "cast-iron",
    "corr": "cast-iron"
   },
   "MET-1018": {
@@ -9908,22 +9952,29 @@
    "weld": "none",
    "htc": "qt",
    "htg": "h32-austemper",
+   "insight": "cast-iron",
+   "cg": "cast-iron",
    "corr": "cast-iron"
   },
   "MET-1019": {
    "colorf": "Steel",
    "weld": "none",
    "htc": "qt",
-   "htg": "h35-cast-iron"
+   "htg": "h35-cast-iron",
+   "insight": "cast-iron",
+   "cg": "cast-iron"
   },
   "MET-1020": {
    "colorf": "Steel",
    "weld": "none",
    "htc": "qt",
-   "htg": "h35-cast-iron"
+   "htg": "h35-cast-iron",
+   "insight": "cast-iron",
+   "cg": "cast-iron"
   },
   "MET-1022": {
    "colorf": "Steel",
+   "mach": "crmo",
    "weld": "ce",
    "htc": "qt",
    "htg": "h13-fe-anneal",
@@ -10006,6 +10057,8 @@
    "mach": "zinc-diecast",
    "weld": "none",
    "htg": "h40-zinc-diecast",
+   "insight": "zinc-diecast",
+   "cg": "zinc-diecast",
    "corr": "zn"
   },
   "MET-1031": {
@@ -10058,12 +10111,14 @@
    "colorf": "Polymer",
    "mach": "pol-elastomer",
    "insight": "pol-elastomer",
+   "cg": "elastomer",
    "corr": "polymer"
   },
   "POL-0007": {
    "colorf": "Polymer",
    "mach": "pol-elastomer",
    "insight": "pol-elastomer",
+   "cg": "elastomer",
    "corr": "polymer"
   },
   "POL-0008": {
@@ -10071,6 +10126,7 @@
    "mach": "pol-thermoset",
    "htc": "qt",
    "insight": "pol-commodity",
+   "cg": "polymer",
    "corr": "polymer"
   },
   "POL-0009": {
@@ -10084,6 +10140,7 @@
    "colorf": "Polymer",
    "mach": "pol-elastomer",
    "insight": "pol-commodity",
+   "cg": "elastomer",
    "corr": "polymer"
   },
   "POL-0011": {
@@ -10618,6 +10675,7 @@
    "mach": "pol-thermoset",
    "htc": "qt",
    "insight": "pol-commodity",
+   "cg": "polymer",
    "corr": "polymer"
   },
   "POL-0088": {
@@ -10907,30 +10965,35 @@
    "colorf": "Polymer",
    "mach": "pol-elastomer",
    "insight": "pol-elastomer",
+   "cg": "elastomer",
    "corr": "polymer"
   },
   "POL-0129": {
    "colorf": "Polymer",
    "mach": "pol-elastomer",
    "insight": "pol-elastomer",
+   "cg": "elastomer",
    "corr": "polymer"
   },
   "POL-0130": {
    "colorf": "Polymer",
    "mach": "pol-elastomer",
    "insight": "pol-elastomer",
+   "cg": "elastomer",
    "corr": "polymer"
   },
   "POL-0131": {
    "colorf": "Polymer",
    "mach": "pol-elastomer",
    "insight": "pol-elastomer",
+   "cg": "elastomer",
    "corr": "polymer"
   },
   "POL-0132": {
    "colorf": "Polymer",
    "mach": "pol-elastomer",
    "insight": "pol-elastomer",
+   "cg": "elastomer",
    "corr": "polymer"
   },
   "POL-0133": {
