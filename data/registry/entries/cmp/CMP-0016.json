@@ -126,17 +126,12 @@
   ],
   "sources": [
     {
-      "label": "ASM Engineered Materials Handbook Vol.1 — Composites",
-      "url": "https://www.asminternational.org/engineered-materials-handbook-volume-1-composites",
-      "verified": false
-    },
-    {
       "label": "CoorsTek / CeramTec — CMC (Ceramic Matrix Composite) typical SiC/SiC datasheet",
       "url": "https://www.coorstek.com/english/products/",
       "verified": true
     },
     {
-      "label": "Apps: 가스 터빈 연소기 라이너 (Solar Turbines), 산업 furnace 부품",
+      "label": "Composites handbook",
       "url": null,
       "verified": false
     }
@@ -162,7 +157,7 @@
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Layup",
-  "source": "Apps: 가스 터빈 연소기 라이너 (Solar Turbines), 산업 furnace 부품",
+  "source": "Composites handbook",
   "aliases": [],
   "families": [
     "Composite",
@@ -177,21 +172,5 @@
   "price_per_cm3": 9.275,
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "industry_note": "Jet engine combustor liner (GE GEnx, Rolls-Royce Trent XWB 의 일부 hot section), 군용 missile thermal protection. Carbon-based CMC 보다 산화 환경에서 우수.",
-  "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "CoorsTek / CeramTec — CMC (Ceramic Matrix Composite) typical SiC/SiC datasheet",
-          "url": "https://www.coorstek.com/english/products/",
-          "verified": true
-        },
-        {
-          "label": "Apps: 가스 터빈 연소기 라이너 (Solar Turbines), 산업 furnace 부품",
-          "url": null,
-          "verified": false
-        }
-      ]
-    }
-  }
+  "industry_note": "Jet engine combustor liner (GE GEnx, Rolls-Royce Trent XWB 의 일부 hot section), 군용 missile thermal protection. Carbon-based CMC 보다 산화 환경에서 우수."
 }

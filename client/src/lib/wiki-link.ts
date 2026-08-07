@@ -53,6 +53,28 @@ function prefixLen(run: string, toks: string[], n: number): number {
   return idx;
 }
 
+/** authored 마커 패턴 — linkify 와 검증기가 같은 정의를 쓴다(둘이 갈라지면 게이트가 헛돈다). */
+const AUTHORED_MARK = /\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g;
+
+/**
+ * H6 W1-1 — 본문에 저작된 `[[key]]` 중 **wiki-index 에 없는 key** 를 반환하는 순수 함수.
+ *
+ * 런타임 linkify 는 미해결 key 를 라벨 평문으로 강등한다(비치명) — 즉 오타를 내면
+ * 링크만 조용히 사라지고 화면은 멀쩡해 보인다. 그래서 CI 에서 이 함수로 코퍼스를 훑는다.
+ * @returns 불량 key 배열 (정상이면 빈 배열)
+ */
+export function validateAuthoredKeys(text: string, keys: Set<string>): string[] {
+  if (!text) return [];
+  const bad: string[] = [];
+  AUTHORED_MARK.lastIndex = 0;
+  let m: RegExpExecArray | null;
+  while ((m = AUTHORED_MARK.exec(String(text))) !== null) {
+    const key = m[1].trim();
+    if (!keys.has(key)) bad.push(key);
+  }
+  return bad;
+}
+
 /**
  * 텍스트 → 링크 노드[]. authored [[key|label]] 우선 파싱 → 나머지 구간에 allowlist auto-link.
  * @param selfKey  현재 스토리 엔티티 id (자기 링크 제외)

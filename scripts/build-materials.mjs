@@ -1840,7 +1840,10 @@ function loadCeramicsAsMaterials() {
         })();
         sources.push({ label: `${vendorName} — ${c.name}`, url: c.datasheet_url, verified: true });
       }
-      sources.push({ label: c.applications ? `Applications: ${c.applications}` : 'Ceramic handbook', url: null, verified: false });
+      /* H6 W2 리뷰 — 용도 서술을 출처로 넣지 않는다. meta.applications(아래)가 이미 같은 텍스트를 담고
+         상세 패널에 'Applications' 필드로 뜬다. 출처 목록에 두면 값의 **근거**로 오해된다
+         (실측: 110 entry 가 "Applications: 베어링, 절연체…" 를 출처로 표시하고 있었다). */
+      if (!sources.length) sources.push({ label: 'Ceramic handbook', url: null, verified: false });
       return {
         id: 'CER_' + String(i).padStart(3, '0'),
         name: c.name, category: 'Ceramic', subcategory: c.subcategory || 'Oxide', tier: 'reference',
@@ -1897,7 +1900,8 @@ function loadCompositesAsMaterials() {
         })();
         sources.push({ label: `${vendorName} — ${c.name}`, url: c.datasheet_url, verified: true });
       }
-      sources.push({ label: c.applications ? `Apps: ${c.applications}` : 'Composites handbook', url: null, verified: false });
+      /* H6 W2 리뷰 — 세라믹과 같은 이유로 용도 서술은 출처에서 뺀다 (meta.applications 가 SSOT). */
+      if (!sources.length) sources.push({ label: 'Composites handbook', url: null, verified: false });
       return {
         id: 'CMP_' + String(i).padStart(3, '0'),
         name: c.name, category: 'Composite', subcategory: c.subcategory || 'Composite', tier: 'reference',
@@ -1938,7 +1942,8 @@ function loadPolymersAsMaterials() {
       setR('hdt_182', p.hdt_182);
       const sources = [];
       if (p.datasheet_url) sources.push({ label: `Datasheet — ${p.name.split(' — ')[0]}`, url: p.datasheet_url, verified: true });
-      if (p.applications) sources.push({ label: `Applications: ${p.applications}`, url: null, verified: false });
+      /* H6 W2 리뷰 — 세라믹·복합재와 같은 중복. meta.applications(아래)가 SSOT 이고 상세 패널에
+         'Applications' 필드로 뜨므로, 같은 문장을 출처로 또 넣으면 값의 근거로 오해된다. */
       return {
         id: 'POL_' + String(i).padStart(3, '0'),
         name: p.name, category: 'Polymer', subcategory: p.subcategory || 'Polymer - Other', tier: 'reference',

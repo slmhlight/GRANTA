@@ -9,7 +9,7 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
-import { linkify, buildAutolinkMap, norm, type AutolinkMap } from '@/lib/wiki-link';
+import { linkify, buildAutolinkMap, norm, validateAuthoredKeys, type AutolinkMap } from '@/lib/wiki-link';
 import { buildWikiLookups } from '@/lib/wiki-refs';
 
 const T = (id: string, repId: string | null, display = id) => ({ entityId: id, repId, display });
@@ -115,24 +115,22 @@ describe('linkify — authored [[key|label]]', () => {
 
   /* H6 W16 — 코퍼스 게이트: 콘텐츠에 저작된 모든 [[key]] 가 실제 wiki-index 엔티티로 해석돼야.
    * 런타임은 미해결 key 를 평문 강등(비치명)하므로 오타는 조용히 링크만 사라진다 — CI 에서 잡는다. */
-  it('저작된 [[key]] 전부 wiki-index 에 실재 (글로서리 article + 스토리)', () => {
+  /* H6 W1 리뷰 — 검증은 wiki-link.ts 의 validateAuthoredKeys(순수함수)를 쓴다.
+     테스트가 마커 정규식을 따로 갖고 있으면 linkify 와 갈라져 게이트가 헛돌 수 있다. */
+  it('저작된 [[key]] 전부 wiki-index 에 실재 (article·표·스토리·타임라인·가이드·용어 short)', () => {
     const idxPath = path.resolve(process.cwd(), 'client/public/wiki-index.json');
     if (!fs.existsSync(idxPath)) return; // build:wiki 선행 필요 (CI 는 항상 생성)
     const idx = JSON.parse(fs.readFileSync(idxPath, 'utf8'));
-    const keys = new Set((idx.entities || []).map((e: any) => e.id));
-    const MARK = /\[\[([^\]|]+)(?:\|[^\]]*)?\]\]/g;
+    const keys = new Set<string>((idx.entities || []).map((e: any) => e.id));
     const bad: string[] = [];
     const scan = (text: string, where: string) => {
-      let m: RegExpExecArray | null;
-      MARK.lastIndex = 0;
-      while ((m = MARK.exec(String(text))) !== null) {
-        if (!keys.has(m[1].trim())) bad.push(`${where}: [[${m[1]}]]`);
-      }
+      for (const k of validateAuthoredKeys(String(text ?? ''), keys)) bad.push(`${where}: [[${k}]]`);
     };
     const arts = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'data/glossary-articles.json'), 'utf8')).articles;
     for (const [slug, a] of Object.entries<any>(arts)) {
       for (const s of a.sections || []) {
         scan(s.body || '', `article ${slug}`);
+        scan(s.heading || '', `article ${slug} (헤딩)`);
         for (const row of s.table?.rows || []) for (const cell of row) scan(cell, `article ${slug} (표)`);
       }
     }
@@ -142,8 +140,23 @@ describe('linkify — authored [[key|label]]', () => {
       if (k.startsWith('_')) continue;
       for (const sec of Object.values<any>(st.sections || {})) scan(String(sec ?? ''), `story ${k}`);
       if (st.legacy_text) scan(st.legacy_text, `story ${k}`);
+      for (const t of st.timeline || []) scan(t.event || '', `story ${k} (timeline)`);
     }
+    /* 가이드 본문·용어 short — 현재 저작 링크는 0 이지만, 나중에 쓰면 게이트 밖에 있게 되므로 미리 포함 */
+    scan(fs.readFileSync(path.resolve(process.cwd(), 'client/src/pages/Guide.tsx'), 'utf8'), 'Guide.tsx');
+    const terms = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'data/glossary.json'), 'utf8')).terms;
+    for (const [k, t] of Object.entries<any>(terms)) scan(t.short || '', `glossary ${k}.short`);
     expect(bad, `저작 [[key]] 미해결(오타 — 평문 강등됨):\n${bad.join('\n')}`).toEqual([]);
+  });
+
+  it('validateAuthoredKeys — 정상 key 는 통과, 오타는 잡는다', () => {
+    const keys = new Set(['peek', 'aisi-316']);
+    expect(validateAuthoredKeys('[[peek|폴리이터이터케톤]] 과 [[aisi-316]]', keys)).toEqual([]);
+    expect(validateAuthoredKeys('[[peekk|오타]]', keys)).toEqual(['peekk']);
+    expect(validateAuthoredKeys('마커 없는 평문', keys)).toEqual([]);
+    /* 전역 정규식의 lastIndex 누수 — 연속 호출에서 결과가 흔들리면 안 된다 */
+    expect(validateAuthoredKeys('[[bad1]]', keys)).toEqual(['bad1']);
+    expect(validateAuthoredKeys('[[bad1]]', keys)).toEqual(['bad1']);
   });
 });
 
