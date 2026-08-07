@@ -83,6 +83,78 @@ describe('수치 정합 — 강재 인장-경도 상관 (ISO 18265)', () => {
   });
 });
 
+describe('수치 정합 — 고온곡선·크리프', () => {
+  /* 곡선은 특정 조건(소둔·T6·시효 등)을 대표한다. 그 entry 의 상온 σy 와 곡선의 23°C ys 가
+     크게 어긋나면 **다른 조건의 곡선**이 붙어 있는 것이다.
+     build-materials 의 앵커 게이트는 곡선을 붙이는 시점에만 돌아서, 이후 값 교정이 판정을
+     무효화해도 다시 보지 않았다 — C17200 이 그렇게 σy 160(소둔) 표에 1100(시효) 곡선을 달고 있었다.
+     이 검사는 **교정이 끝난 최종 데이터**를 본다. */
+  it('고온곡선의 23°C 앵커가 표의 상온 σy 와 1.4배 안에 있다', () => {
+    const bad: string[] = [];
+    for (const m of ALL) {
+      const et = (m as unknown as { elevated_temp?: Array<{ temp: number; ys?: number | null }> }).elevated_temp;
+      if (!Array.isArray(et) || !et.length) continue;
+      const rt = et.find((p) => p.temp <= 30)?.ys ?? et[0]?.ys;
+      const sy = v(m, 'yield_strength');
+      if (!rt || !sy) continue;
+      const r = Math.max(rt, sy) / Math.min(rt, sy);
+      if (r > 1.4) bad.push(`${m.id} ${m.name.slice(0, 44)} 곡선 ${rt} vs 표 ${sy} (${r.toFixed(1)}배)`);
+    }
+    expect(bad, `조건 불일치 곡선 ${bad.length}건:\n  ${bad.join('\n  ')}`).toEqual([]);
+  });
+
+  it('고온곡선의 각 온도에서 σy ≤ UTS', () => {
+    const bad: string[] = [];
+    for (const m of ALL) {
+      const et = (m as unknown as { elevated_temp?: Array<{ temp: number; ys?: number | null; uts?: number | null }> }).elevated_temp;
+      if (!Array.isArray(et)) continue;
+      for (const p of et) if (p.ys != null && p.uts != null && p.ys > p.uts * 1.02) bad.push(`${m.id} ${m.name.slice(0, 40)} ${p.temp}°C σy=${p.ys} > UTS=${p.uts}`);
+    }
+    expect(bad, `고온곡선 σy>UTS ${bad.length}건:\n  ${bad.join('\n  ')}`).toEqual([]);
+  });
+
+  it('크리프 파단: 같은 온도에서 시간이 길수록 응력이 낮다', () => {
+    const bad: string[] = [];
+    for (const m of ALL) {
+      const cr = (m as unknown as { creep_rupture?: Array<{ temp: number; hours?: number; stress?: number }> }).creep_rupture;
+      if (!Array.isArray(cr)) continue;
+      const byT = new Map<number, Array<{ hours?: number; stress?: number }>>();
+      for (const p of cr) { if (!byT.has(p.temp)) byT.set(p.temp, []); byT.get(p.temp)!.push(p); }
+      for (const [t, pts] of byT) {
+        const s = [...pts].sort((a, b) => (a.hours || 0) - (b.hours || 0));
+        for (let i = 1; i < s.length; i++)
+          if (s[i].stress != null && s[i - 1].stress != null && s[i].stress! > s[i - 1].stress! * 1.02)
+            bad.push(`${m.id} ${m.name.slice(0, 36)} ${t}°C ${s[i - 1].hours}h:${s[i - 1].stress} → ${s[i].hours}h:${s[i].stress}`);
+      }
+    }
+    expect(bad, `크리프 역전 ${bad.length}건:\n  ${bad.join('\n  ')}`).toEqual([]);
+  });
+});
+
+describe('수치 정합 — 파생 단위', () => {
+  it('부피단가 = 질량단가 × 밀도', () => {
+    const bad: string[] = [];
+    for (const m of ALL) {
+      const pk = v(m, 'price_per_kg'), pc = v(m, 'price_per_cm3'), d = v(m, 'density');
+      if (pk == null || pc == null || d == null) continue;
+      const exp = pk * d / 1000;
+      if (Math.abs(pc - exp) > Math.max(exp * 0.1, 0.005)) bad.push(`${m.id} ${m.name.slice(0, 40)} $/cm³ ${pc} vs ${exp.toFixed(4)}`);
+    }
+    expect(bad, `단가 불일치 ${bad.length}건:\n  ${bad.join('\n  ')}`).toEqual([]);
+  });
+
+  it('이름이 완전히 같은 entry 가 없다', () => {
+    const seen = new Map<string, string[]>();
+    for (const m of ALL) {
+      const k = m.name.trim().toLowerCase();
+      if (!seen.has(k)) seen.set(k, []);
+      seen.get(k)!.push(m.id);
+    }
+    const bad = [...seen.entries()].filter(([, ids]) => ids.length > 1).map(([k, ids]) => `${ids.join('/')} ${k.slice(0, 50)}`);
+    expect(bad, `중복 ${bad.length}건:\n  ${bad.join('\n  ')}`).toEqual([]);
+  });
+});
+
 describe('수치 정합 — 조건 순서', () => {
   const byBase = new Map<string, Mat[]>();
   for (const m of ALL) {

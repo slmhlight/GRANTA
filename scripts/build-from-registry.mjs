@@ -239,6 +239,31 @@ all.sort((a, b) => {
   return 0;
 });
 
+/* 1c) 고온곡선 23°C 앵커 **재검사** — 교정 후 최종 값 기준.
+ *
+ * build-materials 의 `elevAnchorOk`(비율 ≤1.4)는 곡선을 붙이는 시점에 판정한다. 그런데 값 교정은
+ * 그 뒤 build-registry 에서 적용되므로, **교정이 게이트 판정을 무효화해도 아무도 다시 보지 않는다.**
+ *
+ * 실제 사고(C17200/MET-0381): 원래 σy 1100(시효재)이라 곡선 앵커 1100 과 일치해 정상 통과했는데,
+ * 이후 교정이 σy 를 160(소둔재, ASTM B194 TB00)으로 바꿨다. 표는 소둔재인데 곡선은 시효재가 남아
+ * 23°C 앵커가 6.9배 어긋난 상태로 노출됐다.
+ *
+ * 설계 원칙은 이미 정해져 있다 — "off-peak 조건은 곡선 미표시(스케일링=합성 금지)".
+ * 같은 규칙을 최종 데이터에 한 번 더 적용한다. 값은 건드리지 않고 조건이 안 맞는 곡선만 뗀다. */
+let elevDropped = 0;
+for (const m of all) {
+  if (!Array.isArray(m.elevated_temp) || !m.elevated_temp.length) continue;
+  const rtSy = m.ranges?.yield_strength?.typical ?? m.yield_strength;
+  const c = m.elevated_temp.find(p => p.temp <= 30)?.ys ?? m.elevated_temp[0]?.ys;
+  if (!rtSy || !c) continue;                       // 판정 불가 → 기존대로 유지
+  if (Math.max(c, rtSy) / Math.min(c, rtSy) <= 1.4) continue;
+  delete m.elevated_temp;
+  delete m.elevated_temp_src;
+  elevDropped++;
+  console.log(`  고온곡선 분리: ${m.stable_id || m.id} ${String(m.name).slice(0, 44)} — 곡선 RT σy ${c} vs 표 ${rtSy}`);
+}
+if (elevDropped) console.log(`  교정 후 앵커 재검사: 조건 불일치 곡선 ${elevDropped} 분리`);
+
 // 2) anomaly 재검출 — lib/anomalies.mjs 공유 (build-materials 와 동일 로직; 최종 데이터 기준 검출이 canonical)
 const anomalies = detectAnomalies(all);
 const sevCount = { high: 0, med: 0, low: 0 };
