@@ -108,13 +108,11 @@
       "provenance": "3rd_family:Stainless Steel - Martensitic"
     },
     "max_service_temp": {
-      "min": 552.5,
-      "max": 747.5,
-      "typical": 650,
-      "n": 0,
-      "estimated": true,
-      "confidence": "subfamily",
-      "provenance": "3rd_family:Stainless Steel - Martensitic"
+      "min": 150,
+      "typical": 150,
+      "max": 150,
+      "confidence": "handbook",
+      "provenance": "교정: 열처리 일반 원칙 — 뜨임재의 사용온도는 뜨임온도를 초과할 수 없다(초과 시 재뜨임으로 경도 저하). 뜨임온도는 이 entry 의 조건 표기에서 취함."
     },
     "thermal_expansion": {
       "min": 8.67,
@@ -253,7 +251,7 @@
     "Stainless Steel"
   ],
   "electrical_conductivity": 3,
-  "max_service_temp": 650,
+  "max_service_temp": 150,
   "thermal_expansion": 10.2,
   "poisson_ratio": 0.28,
   "specific_heat": 460,
@@ -270,5 +268,36 @@
   "total_cost_estimate": 4.52,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "max_service_temp": {
+      "had_range": true,
+      "val_range": {
+        "min": 552.5,
+        "max": 747.5,
+        "typical": 650,
+        "n": 0,
+        "estimated": true,
+        "confidence": "subfamily",
+        "provenance": "3rd_family:Stainless Steel - Martensitic"
+      },
+      "had_scalar": true,
+      "val_scalar": 650
+    },
+    "_basis": "상용 최고온도가 **뜨임온도(150°C)보다 높은 650°C** 로 표기돼 있었다. 뜨임 마르텐사이트를 뜨임온도 이상에서 쓰면 추가 뜨임이 진행돼 경도·강도를 잃는다 — 이 조건이 제공하는 강도를 근거로 설계한다면 상한은 뜨임온도를 넘을 수 없다. 기존 650°C 는 조건 축이 없는 **계열 typical**(같은 합금의 고온 뜨임 조건 기준)이 조건 무관하게 상속된 값이다(백로그 A11). 새 값을 만들지 않고 이 entry 자신의 뜨임온도를 상한으로 쓴다.",
+    "_src": "열처리 일반 원칙 — 뜨임재의 사용온도는 뜨임온도를 초과할 수 없다(초과 시 재뜨임으로 경도 저하). 뜨임온도는 이 entry 의 조건 표기에서 취함.",
+    "points": {
+      "from": [
+        [
+          7.74,
+          1380,
+          1520,
+          10,
+          200,
+          480,
+          24.9
+        ]
+      ]
+    }
+  }
 }

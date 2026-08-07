@@ -108,13 +108,11 @@
       "provenance": "alloy:d2"
     },
     "max_service_temp": {
-      "min": 540,
-      "max": 540,
-      "typical": 540,
-      "n": 0,
-      "estimated": false,
+      "min": 200,
+      "typical": 200,
+      "max": 200,
       "confidence": "handbook",
-      "provenance": "alloy:d2"
+      "provenance": "교정: 열처리 일반 원칙 — 뜨임재의 사용온도는 뜨임온도를 초과할 수 없다(초과 시 재뜨임으로 경도 저하). 뜨임온도는 이 entry 의 조건 표기에서 취함."
     },
     "thermal_expansion": {
       "min": 12.2,
@@ -262,7 +260,7 @@
   ],
   "fatigue_estimated": false,
   "electrical_conductivity": 4,
-  "max_service_temp": 540,
+  "max_service_temp": 200,
   "thermal_expansion": 12.2,
   "poisson_ratio": 0.29,
   "specific_heat": 461,
@@ -284,6 +282,35 @@
     "aliases": {
       "from": [
         "AISI D2"
+      ]
+    },
+    "max_service_temp": {
+      "had_range": true,
+      "val_range": {
+        "min": 540,
+        "max": 540,
+        "typical": 540,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:d2"
+      },
+      "had_scalar": true,
+      "val_scalar": 540
+    },
+    "_basis": "상용 최고온도가 **뜨임온도(200°C)보다 높은 540°C** 로 표기돼 있었다. 뜨임 마르텐사이트를 뜨임온도 이상에서 쓰면 추가 뜨임이 진행돼 경도·강도를 잃는다 — 이 조건이 제공하는 강도를 근거로 설계한다면 상한은 뜨임온도를 넘을 수 없다. 기존 540°C 는 조건 축이 없는 **계열 typical**(같은 합금의 고온 뜨임 조건 기준)이 조건 무관하게 상속된 값이다(백로그 A11). 새 값을 만들지 않고 이 entry 자신의 뜨임온도를 상한으로 쓴다.",
+    "_src": "열처리 일반 원칙 — 뜨임재의 사용온도는 뜨임온도를 초과할 수 없다(초과 시 재뜨임으로 경도 저하). 뜨임온도는 이 entry 의 조건 표기에서 취함.",
+    "points": {
+      "from": [
+        [
+          7.7,
+          1900,
+          2100,
+          3,
+          207,
+          650,
+          20
+        ]
       ]
     }
   }

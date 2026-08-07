@@ -109,13 +109,11 @@
       "provenance": "3rd_family:Spring Steel"
     },
     "max_service_temp": {
-      "min": 408,
-      "max": 552,
-      "typical": 480,
-      "n": 0,
-      "estimated": true,
-      "confidence": "subfamily",
-      "provenance": "3rd_family:Spring Steel"
+      "min": 380,
+      "typical": 380,
+      "max": 380,
+      "confidence": "handbook",
+      "provenance": "교정: 열처리 일반 원칙 — 뜨임재의 사용온도는 뜨임온도를 초과할 수 없다(초과 시 재뜨임으로 경도 저하). 뜨임온도는 이 entry 의 조건 표기에서 취함."
     },
     "thermal_expansion": {
       "min": 10.2,
@@ -256,7 +254,7 @@
   ],
   "fatigue_estimated": true,
   "electrical_conductivity": 7.5,
-  "max_service_temp": 480,
+  "max_service_temp": 380,
   "thermal_expansion": 12,
   "poisson_ratio": 0.29,
   "specific_heat": 477,
@@ -273,5 +271,36 @@
   "total_cost_estimate": 3.87,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "max_service_temp": {
+      "had_range": true,
+      "val_range": {
+        "min": 408,
+        "max": 552,
+        "typical": 480,
+        "n": 0,
+        "estimated": true,
+        "confidence": "subfamily",
+        "provenance": "3rd_family:Spring Steel"
+      },
+      "had_scalar": true,
+      "val_scalar": 480
+    },
+    "_basis": "상용 최고온도가 **뜨임온도(380°C)보다 높은 480°C** 로 표기돼 있었다. 뜨임 마르텐사이트를 뜨임온도 이상에서 쓰면 추가 뜨임이 진행돼 경도·강도를 잃는다 — 이 조건이 제공하는 강도를 근거로 설계한다면 상한은 뜨임온도를 넘을 수 없다. 기존 480°C 는 조건 축이 없는 **계열 typical**(같은 합금의 고온 뜨임 조건 기준)이 조건 무관하게 상속된 값이다(백로그 A11). 새 값을 만들지 않고 이 entry 자신의 뜨임온도를 상한으로 쓴다.",
+    "_src": "열처리 일반 원칙 — 뜨임재의 사용온도는 뜨임온도를 초과할 수 없다(초과 시 재뜨임으로 경도 저하). 뜨임온도는 이 entry 의 조건 표기에서 취함.",
+    "points": {
+      "from": [
+        [
+          7.85,
+          1230,
+          1320,
+          7,
+          207,
+          410,
+          46
+        ]
+      ]
+    }
+  }
 }

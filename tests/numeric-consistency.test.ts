@@ -131,6 +131,40 @@ describe('수치 정합 — 고온곡선·크리프', () => {
   });
 });
 
+describe('수치 정합 — 조건 축 (A11)', () => {
+  /* 뜨임 마르텐사이트를 뜨임온도 이상에서 쓰면 추가 뜨임이 진행돼 경도·강도를 잃는다.
+     그 조건이 제공하는 강도를 근거로 설계한다면 상용 상한은 뜨임온도를 넘을 수 없다.
+     Tmax 가 계열 typical(조건 축 없음)로 상속되면 이 관계가 깨진다 — A11 의 본체다.
+     'tested at NNN°C' 는 시험온도지 뜨임온도가 아니다(H21 오탐 근절). */
+  const temperTemp = (c: string): number | null => {
+    if (/tested at/i.test(c)) return null;
+    let m = c.match(/(\d{2,4})\s*°?\s*C\s*(?:T\b|temper)/i);
+    if (m) return +m[1];
+    m = c.match(/temper(?:ed|ing)?\s*(?:at\s*)?\(?\s*(\d{2,4})\s*°?\s*C/i);
+    if (m) return +m[1];
+    m = c.match(/Q\s*\+\s*T\s*\(?\s*([^)]*)/i);
+    if (m) {
+      const t = [...m[1].matchAll(/(\d{2,4})\s*°?\s*C/gi)].map((x) => +x[1]);
+      if (t.length) return t[t.length - 1];
+    }
+    return null;
+  };
+
+  it('상용 최고온도가 조건에 명시된 뜨임온도를 넘지 않는다', () => {
+    const bad: string[] = [];
+    for (const m of ALL) {
+      if (m.category !== 'Metal') continue;
+      const c = condOf(m.name);
+      if (!c) continue;
+      const t = temperTemp(c);
+      const tmax = v(m, 'max_service_temp');
+      if (t == null || tmax == null) continue;
+      if (tmax > t) bad.push(`${m.id} ${m.name.slice(0, 50)} 뜨임 ${t}°C < Tmax ${tmax}°C`);
+    }
+    expect(bad, `뜨임온도 초과 상용온도 ${bad.length}건:\n  ${bad.join('\n  ')}`).toEqual([]);
+  });
+});
+
 describe('수치 정합 — 파생 단위', () => {
   it('부피단가 = 질량단가 × 밀도', () => {
     const bad: string[] = [];
