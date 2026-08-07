@@ -98,13 +98,11 @@
       "provenance": "class:ASM Vol.2 Refractory"
     },
     "electrical_conductivity": {
-      "min": 20,
-      "max": 60,
-      "typical": 40,
-      "n": 0,
-      "estimated": true,
-      "confidence": "class",
-      "provenance": "1st_family:Refractory Metal"
+      "min": 4.1,
+      "typical": 4.1,
+      "max": 4.1,
+      "confidence": "handbook",
+      "provenance": "교정: material-properties.org Zirconium thermal properties (융점 1855°C · 선팽창 5.7 µm/m·K) · 원소 비열 278 J/kg·K · 전기저항 421 nΩ·m → 4.1 %IACS (환산)"
     },
     "max_service_temp": {
       "min": 350,
@@ -116,40 +114,32 @@
       "provenance": "1st_family:Refractory Metal"
     },
     "thermal_expansion": {
-      "min": 11.5,
-      "max": 34.5,
-      "typical": 23,
-      "n": 0,
-      "estimated": true,
-      "confidence": "class",
-      "provenance": "1st_family:Refractory Metal"
+      "min": 5.7,
+      "typical": 5.7,
+      "max": 5.7,
+      "confidence": "handbook",
+      "provenance": "교정: material-properties.org Zirconium thermal properties (융점 1855°C · 선팽창 5.7 µm/m·K) · 원소 비열 278 J/kg·K · 전기저항 421 nΩ·m → 4.1 %IACS (환산)"
     },
     "poisson_ratio": {
-      "min": 0.165,
-      "max": 0.495,
-      "typical": 0.33,
-      "n": 0,
-      "estimated": true,
-      "confidence": "class",
-      "provenance": "1st_family:Refractory Metal"
+      "min": 0.34,
+      "typical": 0.34,
+      "max": 0.34,
+      "confidence": "handbook",
+      "provenance": "교정: material-properties.org Zirconium thermal properties (융점 1855°C · 선팽창 5.7 µm/m·K) · 원소 비열 278 J/kg·K · 전기저항 421 nΩ·m → 4.1 %IACS (환산)"
     },
     "specific_heat": {
-      "min": 450,
-      "max": 1350,
-      "typical": 900,
-      "n": 0,
-      "estimated": true,
-      "confidence": "class",
-      "provenance": "1st_family:Refractory Metal"
+      "min": 278,
+      "typical": 278,
+      "max": 278,
+      "confidence": "handbook",
+      "provenance": "교정: material-properties.org Zirconium thermal properties (융점 1855°C · 선팽창 5.7 µm/m·K) · 원소 비열 278 J/kg·K · 전기저항 421 nΩ·m → 4.1 %IACS (환산)"
     },
     "melting_point": {
-      "min": 325,
-      "max": 975,
-      "typical": 650,
-      "n": 0,
-      "estimated": true,
-      "confidence": "class",
-      "provenance": "1st_family:Refractory Metal"
+      "min": 1855,
+      "typical": 1855,
+      "max": 1855,
+      "confidence": "handbook",
+      "provenance": "교정: material-properties.org Zirconium thermal properties (융점 1855°C · 선팽창 5.7 µm/m·K) · 원소 비열 278 J/kg·K · 전기저항 421 nΩ·m → 4.1 %IACS (환산)"
     },
     "price_per_kg": {
       "min": 2,
@@ -209,182 +199,11 @@
   "points": [
     [
       6.51,
-      342,
-      405,
-      18,
-      99,
-      108,
-      22
-    ],
-    [
-      6.51,
-      387.6,
-      459,
-      18.4,
-      99,
-      122.4,
-      22
-    ],
-    [
-      6.51,
-      414.2000000000001,
-      490.50000000000006,
-      17.8,
-      99,
-      130.8,
-      22
-    ],
-    [
-      6.51,
-      376.2,
-      445.5,
-      21.8,
-      99,
-      118.8,
-      22
-    ],
-    [
-      6.51,
-      345.8,
-      409.5,
-      20.2,
-      99,
-      109.2,
-      22
-    ],
-    [
-      6.51,
-      357.20000000000005,
-      423,
-      20.8,
-      99,
-      112.8,
-      22
-    ],
-    [
-      6.51,
-      342,
-      405,
-      18,
-      99,
-      108,
-      22
-    ],
-    [
-      6.51,
-      399,
-      472.5,
-      17,
-      99,
-      126,
-      22
-    ],
-    [
-      6.51,
-      372.4,
-      441,
-      19.6,
-      99,
-      117.6,
-      22
-    ],
-    [
-      6.51,
-      395.2,
-      468,
-      18.8,
-      99,
-      124.8,
-      22
-    ],
-    [
-      6.51,
       364.8,
       432,
-      19.200000000000003,
+      19.2,
       99,
       115.2,
-      22
-    ],
-    [
-      6.51,
-      361,
-      427.50000000000006,
-      21,
-      99,
-      114,
-      22
-    ],
-    [
-      6.51,
-      357.20000000000005,
-      423,
-      18.8,
-      99,
-      112.8,
-      22
-    ],
-    [
-      6.51,
-      353.40000000000003,
-      418.5,
-      18.6,
-      99,
-      111.6,
-      22
-    ],
-    [
-      6.51,
-      399,
-      472.5,
-      21,
-      99,
-      126,
-      22
-    ],
-    [
-      6.51,
-      353.40000000000003,
-      418.5,
-      18.6,
-      99,
-      111.6,
-      22
-    ],
-    [
-      6.51,
-      410.4,
-      486.00000000000006,
-      19.6,
-      99,
-      129.60000000000002,
-      22
-    ],
-    [
-      6.51,
-      357.20000000000005,
-      423,
-      18.8,
-      99,
-      112.8,
-      22
-    ],
-    [
-      6.51,
-      345.8,
-      409.5,
-      20.2,
-      99,
-      109.2,
-      22
-    ],
-    [
-      6.51,
-      372.4,
-      441,
-      19.6,
-      99,
-      117.6,
       22
     ]
   ],
@@ -425,12 +244,12 @@
     "Metal",
     "Refractory Metal"
   ],
-  "electrical_conductivity": 40,
+  "electrical_conductivity": 4.1,
   "max_service_temp": 170,
-  "thermal_expansion": 23,
-  "poisson_ratio": 0.33,
-  "specific_heat": 900,
-  "melting_point": 650,
+  "thermal_expansion": 5.7,
+  "poisson_ratio": 0.34,
+  "specific_heat": 278,
+  "melting_point": 1855,
   "price_per_kg": 4,
   "price_per_cm3": 0.026,
   "popularity": 1.8,
@@ -482,6 +301,262 @@
           "url": "https://www.atimaterials.com/Products/Documents/datasheets/zirconium/alloy/zircadyne_702_705_1_v1.pdf",
           "verified": true
         }
+      ]
+    },
+    "electrical_conductivity": {
+      "had_range": true,
+      "val_range": {
+        "min": 20,
+        "max": 60,
+        "typical": 40,
+        "n": 0,
+        "estimated": true,
+        "confidence": "class",
+        "provenance": "1st_family:Refractory Metal"
+      },
+      "had_scalar": true,
+      "val_scalar": 40
+    },
+    "thermal_expansion": {
+      "had_range": true,
+      "val_range": {
+        "min": 11.5,
+        "max": 34.5,
+        "typical": 23,
+        "n": 0,
+        "estimated": true,
+        "confidence": "class",
+        "provenance": "1st_family:Refractory Metal"
+      },
+      "had_scalar": true,
+      "val_scalar": 23
+    },
+    "poisson_ratio": {
+      "had_range": true,
+      "val_range": {
+        "min": 0.165,
+        "max": 0.495,
+        "typical": 0.33,
+        "n": 0,
+        "estimated": true,
+        "confidence": "class",
+        "provenance": "1st_family:Refractory Metal"
+      },
+      "had_scalar": true,
+      "val_scalar": 0.33
+    },
+    "specific_heat": {
+      "had_range": true,
+      "val_range": {
+        "min": 450,
+        "max": 1350,
+        "typical": 900,
+        "n": 0,
+        "estimated": true,
+        "confidence": "class",
+        "provenance": "1st_family:Refractory Metal"
+      },
+      "had_scalar": true,
+      "val_scalar": 900
+    },
+    "melting_point": {
+      "had_range": true,
+      "val_range": {
+        "min": 325,
+        "max": 975,
+        "typical": 650,
+        "n": 0,
+        "estimated": true,
+        "confidence": "class",
+        "provenance": "1st_family:Refractory Metal"
+      },
+      "had_scalar": true,
+      "val_scalar": 650
+    },
+    "_basis": "지르코늄이 알루미늄 계열 typical 을 상속 — 융점 650(알루미늄)·CTE 23·비열 900. 지르코늄 융점은 1855°C 로 3배 차이였다.",
+    "_src": "material-properties.org Zirconium thermal properties (융점 1855°C · 선팽창 5.7 µm/m·K) · 원소 비열 278 J/kg·K · 전기저항 421 nΩ·m → 4.1 %IACS (환산)",
+    "points": {
+      "from": [
+        [
+          6.51,
+          342,
+          405,
+          18,
+          99,
+          108,
+          22
+        ],
+        [
+          6.51,
+          387.6,
+          459,
+          18.4,
+          99,
+          122.4,
+          22
+        ],
+        [
+          6.51,
+          414.2000000000001,
+          490.50000000000006,
+          17.8,
+          99,
+          130.8,
+          22
+        ],
+        [
+          6.51,
+          376.2,
+          445.5,
+          21.8,
+          99,
+          118.8,
+          22
+        ],
+        [
+          6.51,
+          345.8,
+          409.5,
+          20.2,
+          99,
+          109.2,
+          22
+        ],
+        [
+          6.51,
+          357.20000000000005,
+          423,
+          20.8,
+          99,
+          112.8,
+          22
+        ],
+        [
+          6.51,
+          342,
+          405,
+          18,
+          99,
+          108,
+          22
+        ],
+        [
+          6.51,
+          399,
+          472.5,
+          17,
+          99,
+          126,
+          22
+        ],
+        [
+          6.51,
+          372.4,
+          441,
+          19.6,
+          99,
+          117.6,
+          22
+        ],
+        [
+          6.51,
+          395.2,
+          468,
+          18.8,
+          99,
+          124.8,
+          22
+        ],
+        [
+          6.51,
+          364.8,
+          432,
+          19.200000000000003,
+          99,
+          115.2,
+          22
+        ],
+        [
+          6.51,
+          361,
+          427.50000000000006,
+          21,
+          99,
+          114,
+          22
+        ],
+        [
+          6.51,
+          357.20000000000005,
+          423,
+          18.8,
+          99,
+          112.8,
+          22
+        ],
+        [
+          6.51,
+          353.40000000000003,
+          418.5,
+          18.6,
+          99,
+          111.6,
+          22
+        ],
+        [
+          6.51,
+          399,
+          472.5,
+          21,
+          99,
+          126,
+          22
+        ],
+        [
+          6.51,
+          353.40000000000003,
+          418.5,
+          18.6,
+          99,
+          111.6,
+          22
+        ],
+        [
+          6.51,
+          410.4,
+          486.00000000000006,
+          19.6,
+          99,
+          129.60000000000002,
+          22
+        ],
+        [
+          6.51,
+          357.20000000000005,
+          423,
+          18.8,
+          99,
+          112.8,
+          22
+        ],
+        [
+          6.51,
+          345.8,
+          409.5,
+          20.2,
+          99,
+          109.2,
+          22
+        ],
+        [
+          6.51,
+          372.4,
+          441,
+          19.6,
+          99,
+          117.6,
+          22
+        ]
       ]
     },
     "fields": {

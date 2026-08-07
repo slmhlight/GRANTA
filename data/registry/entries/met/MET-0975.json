@@ -99,13 +99,11 @@
       "provenance": "alloy-specific KIC × HT:spheroidized annealed (k×2.2)"
     },
     "electrical_conductivity": {
-      "min": 31,
-      "max": 31,
-      "typical": 31,
-      "n": 0,
-      "estimated": false,
+      "min": 5,
+      "typical": 5,
+      "max": 5,
       "confidence": "handbook",
-      "provenance": "alloy:tungsten"
+      "provenance": "교정: AZoM H21 Tool Steel (Fe-0.30C-3.5Cr-9W-0.5V · 융점 1420°C) — 공구강 계열 typical(%IACS 5 · CTE 11.5 · ν 0.29 · 비열 460)"
     },
     "max_service_temp": {
       "min": 540,
@@ -117,40 +115,32 @@
       "provenance": "alloy:tungsten"
     },
     "thermal_expansion": {
-      "min": 4.5,
-      "max": 4.5,
-      "typical": 4.5,
-      "n": 0,
-      "estimated": false,
+      "min": 11.5,
+      "typical": 11.5,
+      "max": 11.5,
       "confidence": "handbook",
-      "provenance": "alloy:tungsten"
+      "provenance": "교정: AZoM H21 Tool Steel (Fe-0.30C-3.5Cr-9W-0.5V · 융점 1420°C) — 공구강 계열 typical(%IACS 5 · CTE 11.5 · ν 0.29 · 비열 460)"
     },
     "poisson_ratio": {
-      "min": 0.28,
-      "max": 0.28,
-      "typical": 0.28,
-      "n": 0,
-      "estimated": false,
+      "min": 0.29,
+      "typical": 0.29,
+      "max": 0.29,
       "confidence": "handbook",
-      "provenance": "alloy:tungsten"
+      "provenance": "교정: AZoM H21 Tool Steel (Fe-0.30C-3.5Cr-9W-0.5V · 융점 1420°C) — 공구강 계열 typical(%IACS 5 · CTE 11.5 · ν 0.29 · 비열 460)"
     },
     "specific_heat": {
-      "min": 135,
-      "max": 135,
-      "typical": 135,
-      "n": 0,
-      "estimated": false,
+      "min": 460,
+      "typical": 460,
+      "max": 460,
       "confidence": "handbook",
-      "provenance": "alloy:tungsten"
+      "provenance": "교정: AZoM H21 Tool Steel (Fe-0.30C-3.5Cr-9W-0.5V · 융점 1420°C) — 공구강 계열 typical(%IACS 5 · CTE 11.5 · ν 0.29 · 비열 460)"
     },
     "melting_point": {
-      "min": 3410,
-      "max": 3410,
-      "typical": 3410,
-      "n": 0,
-      "estimated": false,
+      "min": 1420,
+      "typical": 1420,
+      "max": 1420,
       "confidence": "handbook",
-      "provenance": "alloy:tungsten"
+      "provenance": "교정: AZoM H21 Tool Steel (Fe-0.30C-3.5Cr-9W-0.5V · 융점 1420°C) — 공구강 계열 typical(%IACS 5 · CTE 11.5 · ν 0.29 · 비열 460)"
     },
     "price_per_kg": {
       "min": 70,
@@ -258,12 +248,12 @@
     "Tool Steel"
   ],
   "fatigue_estimated": false,
-  "electrical_conductivity": 31,
+  "electrical_conductivity": 5,
   "max_service_temp": 1700,
-  "thermal_expansion": 4.5,
-  "poisson_ratio": 0.28,
-  "specific_heat": 135,
-  "melting_point": 3410,
+  "thermal_expansion": 11.5,
+  "poisson_ratio": 0.29,
+  "specific_heat": 460,
+  "melting_point": 1420,
   "price_per_kg": 70,
   "price_per_cm3": 0.581,
   "popularity": 2.9,
@@ -304,6 +294,91 @@
     },
     "aliases": {
       "from": []
+    },
+    "electrical_conductivity": {
+      "had_range": true,
+      "val_range": {
+        "min": 31,
+        "max": 31,
+        "typical": 31,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:tungsten"
+      },
+      "had_scalar": true,
+      "val_scalar": 31
+    },
+    "thermal_expansion": {
+      "had_range": true,
+      "val_range": {
+        "min": 4.5,
+        "max": 4.5,
+        "typical": 4.5,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:tungsten"
+      },
+      "had_scalar": true,
+      "val_scalar": 4.5
+    },
+    "poisson_ratio": {
+      "had_range": true,
+      "val_range": {
+        "min": 0.28,
+        "max": 0.28,
+        "typical": 0.28,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:tungsten"
+      },
+      "had_scalar": true,
+      "val_scalar": 0.28
+    },
+    "specific_heat": {
+      "had_range": true,
+      "val_range": {
+        "min": 135,
+        "max": 135,
+        "typical": 135,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:tungsten"
+      },
+      "had_scalar": true,
+      "val_scalar": 135
+    },
+    "melting_point": {
+      "had_range": true,
+      "val_range": {
+        "min": 3410,
+        "max": 3410,
+        "typical": 3410,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:tungsten"
+      },
+      "had_scalar": true,
+      "val_scalar": 3410
+    },
+    "_basis": "AISI H21 은 Cr-W 열간공구강인데 이름의 \"Tungsten\"(공구 설명어)이 합금별 표의 tungsten 키에 부분문자열 매칭돼 **텅스텐 금속**의 물성을 통째로 상속했다(융점 3410·CTE 4.5·비열 135). 공구강 계열 typical + 검증 융점으로 교정.",
+    "_src": "AZoM H21 Tool Steel (Fe-0.30C-3.5Cr-9W-0.5V · 융점 1420°C) — 공구강 계열 typical(%IACS 5 · CTE 11.5 · ν 0.29 · 비열 460)",
+    "points": {
+      "from": [
+        [
+          8.3,
+          690,
+          880,
+          16,
+          207,
+          240,
+          27
+        ]
+      ]
     }
   }
 }

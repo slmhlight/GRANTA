@@ -8,6 +8,121 @@
  },
  "_note": "값 교정 (stable_id 키). ranges: 물성 교정(basis·src 필수) — build-registry 4c 적용, 원본은 entry _corrections 보존. fields: 필드 단위 교정.",
  "ranges": {
+  "MET-0542": {
+   "electrical_conductivity": 1.3,
+   "thermal_expansion": 13,
+   "poisson_ratio": 0.3,
+   "specific_heat": 440,
+   "basis": "Inconel 100 (cast) 의 Aged/solution-treated 조건만 **티타늄** 계열 typical 을 상속했다(CTE 8.8·비열 560·ν 0.34·%IACS 1.5 — CP Ti 값). 같은 합금의 Annealed 조건은 알루미늄 계열을 상속했었다(MET-0543, 같은 회차에 교정) — 조건마다 다른 엉뚱한 계열로 갈린 것이다. 나머지 3 조건(As-supplied·Strain-hardened·AMS 5397)은 정상적으로 Ni 초합금 typical 을 갖고 있어 그 값으로 정렬한다.",
+   "src": "DB 내 Inconel 100 동일 합금 정상 조건 entry (%IACS 1.3 · CTE 13 · ν 0.30 · 비열 440) · ASM Handbook Vol.1 Ni-base superalloy family — A11 물리 밴드 게이트(tests/physical-family-sanity)가 검출"
+  },
+  "MET-0868": {
+   "electrical_conductivity": 1.5,
+   "thermal_expansion": 8.8,
+   "poisson_ratio": 0.34,
+   "specific_heat": 560,
+   "basis": "CP Ti Grade 1 가 알루미늄 계열 typical 을 상속(CTE 23·비열 900·%IACS 40 — 알루미늄 값). 조성의 주원소가 \"balance\" 문자열이라 계열 태깅에서 탈락한 결과다. 같은 CP Ti 계열의 다른 entry 들이 이미 갖고 있는 계열 typical 로 정렬 — 융점 1668 은 이미 CP Ti 실측이라 유지.",
+   "src": "Carpenter CP Titanium Grade 2 datasheet (CTE 8.6×10⁻⁶/°C 20~100°C · 비열 522 J/kg·K · 융점 1665°C) — DB CP Ti 계열 typical(8.8 / 560)이 이 범위임을 확인"
+  },
+  "MET-0883": {
+   "electrical_conductivity": 1.5,
+   "thermal_expansion": 8.8,
+   "poisson_ratio": 0.34,
+   "specific_heat": 560,
+   "basis": "CP Ti Grade 3 가 알루미늄 계열 typical 을 상속(CTE 23·비열 900·%IACS 40 — 알루미늄 값). 조성의 주원소가 \"balance\" 문자열이라 계열 태깅에서 탈락한 결과다. 같은 CP Ti 계열의 다른 entry 들이 이미 갖고 있는 계열 typical 로 정렬 — 융점 1668 은 이미 CP Ti 실측이라 유지.",
+   "src": "Carpenter CP Titanium Grade 2 datasheet (CTE 8.6×10⁻⁶/°C 20~100°C · 비열 522 J/kg·K · 융점 1665°C) — DB CP Ti 계열 typical(8.8 / 560)이 이 범위임을 확인"
+  },
+  "MET-0887": {
+   "electrical_conductivity": 1.5,
+   "thermal_expansion": 8.8,
+   "poisson_ratio": 0.34,
+   "specific_heat": 560,
+   "basis": "CP Ti Grade 4 가 알루미늄 계열 typical 을 상속(CTE 23·비열 900·%IACS 40 — 알루미늄 값). 조성의 주원소가 \"balance\" 문자열이라 계열 태깅에서 탈락한 결과다. 같은 CP Ti 계열의 다른 entry 들이 이미 갖고 있는 계열 typical 로 정렬 — 융점 1668 은 이미 CP Ti 실측이라 유지.",
+   "src": "Carpenter CP Titanium Grade 2 datasheet (CTE 8.6×10⁻⁶/°C 20~100°C · 비열 522 J/kg·K · 융점 1665°C) — DB CP Ti 계열 typical(8.8 / 560)이 이 범위임을 확인"
+  },
+  "MET-0892": {
+   "electrical_conductivity": 1.5,
+   "thermal_expansion": 8.8,
+   "poisson_ratio": 0.34,
+   "specific_heat": 560,
+   "basis": "CP Ti Grade 7 가 알루미늄 계열 typical 을 상속(CTE 23·비열 900·%IACS 40 — 알루미늄 값). 조성의 주원소가 \"balance\" 문자열이라 계열 태깅에서 탈락한 결과다. 같은 CP Ti 계열의 다른 entry 들이 이미 갖고 있는 계열 typical 로 정렬 — 융점 1668 은 이미 CP Ti 실측이라 유지.",
+   "src": "Carpenter CP Titanium Grade 2 datasheet (CTE 8.6×10⁻⁶/°C 20~100°C · 비열 522 J/kg·K · 융점 1665°C) — DB CP Ti 계열 typical(8.8 / 560)이 이 범위임을 확인"
+  },
+  "MET-0543": {
+   "electrical_conductivity": 1.3,
+   "thermal_expansion": 13,
+   "poisson_ratio": 0.3,
+   "specific_heat": 440,
+   "basis": "Inconel 100 (cast) Annealed 조건만 알루미늄 계열 typical 을 상속(CTE 23·비열 900). 같은 합금의 다른 조건(As-supplied·Strain-hardened·Aged)은 이미 Ni 초합금 typical(1.3 / 13 / 0.3 / 440)을 갖고 있어 조건 간 모순 상태였다. Ni 초합금 계열값으로 정렬.",
+   "src": "DB 내 Inconel 100 동일 합금 타 조건 entry (Ni 초합금 계열 typical) · ASM Handbook Vol.1 Ni-base superalloy family"
+  },
+  "MET-0375": {
+   "electrical_conductivity": 98,
+   "thermal_expansion": 17.3,
+   "poisson_ratio": 0.34,
+   "specific_heat": 385,
+   "melting_point": 1083,
+   "basis": "C12000(인탈산 저잔류인 구리)이 알루미늄 계열 typical 을 상속 — 융점 650(알루미늄)·CTE 23·비열 900·%IACS 40. 구리인데 융점이 알루미늄이었다. 순동 계열 정규식이 c12[12]00(C12100·C12200)만 받고 C12000 을 빠뜨린 것이 겹쳤다.",
+   "src": "KME Cu-DLP (C12000) datasheet — CTE 17.3×10⁻⁶/K (20~300°C) · Copper Development Association alloys.copper.org C12000 (annealed 98 %IACS · 융점 1083°C · 비열 385 J/kg·K)"
+  },
+  "MET-0672": {
+   "electrical_conductivity": 4.1,
+   "thermal_expansion": 5.7,
+   "poisson_ratio": 0.34,
+   "specific_heat": 278,
+   "melting_point": 1855,
+   "basis": "지르코늄이 알루미늄 계열 typical 을 상속 — 융점 650(알루미늄)·CTE 23·비열 900. 지르코늄 융점은 1855°C 로 3배 차이였다.",
+   "src": "material-properties.org Zirconium thermal properties (융점 1855°C · 선팽창 5.7 µm/m·K) · 원소 비열 278 J/kg·K · 전기저항 421 nΩ·m → 4.1 %IACS (환산)"
+  },
+  "MET-0975": {
+   "electrical_conductivity": 5,
+   "thermal_expansion": 11.5,
+   "poisson_ratio": 0.29,
+   "specific_heat": 460,
+   "melting_point": 1420,
+   "basis": "AISI H21 은 Cr-W 열간공구강인데 이름의 \"Tungsten\"(공구 설명어)이 합금별 표의 tungsten 키에 부분문자열 매칭돼 **텅스텐 금속**의 물성을 통째로 상속했다(융점 3410·CTE 4.5·비열 135). 공구강 계열 typical + 검증 융점으로 교정.",
+   "src": "AZoM H21 Tool Steel (Fe-0.30C-3.5Cr-9W-0.5V · 융점 1420°C) — 공구강 계열 typical(%IACS 5 · CTE 11.5 · ν 0.29 · 비열 460)"
+  },
+  "MET-0976": {
+   "electrical_conductivity": 5,
+   "thermal_expansion": 11.5,
+   "poisson_ratio": 0.29,
+   "specific_heat": 460,
+   "melting_point": 1420,
+   "max_service_temp": 600,
+   "basis": "MET-0975 와 같은 텅스텐 오매칭. 이 조건은 상용온도까지 1700°C(텅스텐 값)로 오염돼 있었다 — 공구강이 1700°C 면 녹는다. H21 은 600°C 초과 장시간 노출 시 산화·연화.",
+   "src": "AZoM H21 Tool Steel (융점 1420°C · \"avoid prolonged exposure above 600°C\") · SteelPRO H21 hot-work grade"
+  },
+  "MET-0977": {
+   "electrical_conductivity": 5,
+   "thermal_expansion": 11.5,
+   "poisson_ratio": 0.29,
+   "specific_heat": 460,
+   "melting_point": 1420,
+   "max_service_temp": 600,
+   "basis": "MET-0976 과 동일 근거(같은 합금의 시험온도 조건 entry).",
+   "src": "AZoM H21 Tool Steel (융점 1420°C · 600°C 초과 장시간 노출 회피)"
+  },
+  "MET-0658": {
+   "electrical_conductivity": 13,
+   "thermal_expansion": 6.5,
+   "poisson_ratio": 0.34,
+   "specific_heat": 140,
+   "melting_point": 3030,
+   "max_service_temp": 1500,
+   "basis": "Ta-2.5W 는 탄탈럼 기반(97.5Ta-2.5W)인데 이름의 \"tantalum-tungsten alloy\" 설명어가 tungsten 키에 매칭돼 **순수 텅스텐** 물성(융점 3410·CTE 4.5·비열 135)을 상속했다. 탄탈럼 계열값 + 검증 융점으로 교정.",
+   "src": "Stanford Advanced Materials Ta2.5W (UNS R05252 · ASTM B708) · Ta-W 합금 융점 약 3030°C · 탄탈럼 계열 typical(%IACS 13 · CTE 6.5 · ν 0.34 · 비열 140)"
+  },
+  "MET-0659": {
+   "electrical_conductivity": 13,
+   "thermal_expansion": 6.5,
+   "poisson_ratio": 0.34,
+   "specific_heat": 140,
+   "melting_point": 3030,
+   "max_service_temp": 1500,
+   "basis": "MET-0658 과 동일 근거(같은 합금 냉간가공 조건).",
+   "src": "Stanford Advanced Materials Ta2.5W (융점 약 3030°C) · 탄탈럼 계열 typical"
+  },
   "POL-0034": {
    "yield_strength": 105,
    "uts": 110,

@@ -99,13 +99,11 @@
       "provenance": "class:Cast Ni superalloy × HT:solution (cast, defect-capped) (k×1.2)"
     },
     "electrical_conductivity": {
-      "min": 20,
-      "max": 60,
-      "typical": 40,
-      "n": 0,
-      "estimated": true,
-      "confidence": "class",
-      "provenance": "1st_family:Nickel Superalloy"
+      "min": 1.3,
+      "typical": 1.3,
+      "max": 1.3,
+      "confidence": "handbook",
+      "provenance": "교정: DB 내 Inconel 100 동일 합금 타 조건 entry (Ni 초합금 계열 typical) · ASM Handbook Vol.1 Ni-base superalloy family"
     },
     "max_service_temp": {
       "min": 920,
@@ -117,31 +115,25 @@
       "provenance": "1st_family:Nickel Superalloy"
     },
     "thermal_expansion": {
-      "min": 11.5,
-      "max": 34.5,
-      "typical": 23,
-      "n": 0,
-      "estimated": true,
-      "confidence": "class",
-      "provenance": "1st_family:Nickel Superalloy"
+      "min": 13,
+      "typical": 13,
+      "max": 13,
+      "confidence": "handbook",
+      "provenance": "교정: DB 내 Inconel 100 동일 합금 타 조건 entry (Ni 초합금 계열 typical) · ASM Handbook Vol.1 Ni-base superalloy family"
     },
     "poisson_ratio": {
-      "min": 0.165,
-      "max": 0.495,
-      "typical": 0.33,
-      "n": 0,
-      "estimated": true,
-      "confidence": "class",
-      "provenance": "1st_family:Nickel Superalloy"
+      "min": 0.3,
+      "typical": 0.3,
+      "max": 0.3,
+      "confidence": "handbook",
+      "provenance": "교정: DB 내 Inconel 100 동일 합금 타 조건 entry (Ni 초합금 계열 typical) · ASM Handbook Vol.1 Ni-base superalloy family"
     },
     "specific_heat": {
-      "min": 450,
-      "max": 1350,
-      "typical": 900,
-      "n": 0,
-      "estimated": true,
-      "confidence": "class",
-      "provenance": "1st_family:Nickel Superalloy"
+      "min": 440,
+      "typical": 440,
+      "max": 440,
+      "confidence": "handbook",
+      "provenance": "교정: DB 내 Inconel 100 동일 합금 타 조건 entry (Ni 초합금 계열 typical) · ASM Handbook Vol.1 Ni-base superalloy family"
     },
     "melting_point": {
       "min": 1290,
@@ -252,11 +244,11 @@
     "Aluminum-based",
     "Superalloy"
   ],
-  "electrical_conductivity": 40,
+  "electrical_conductivity": 1.3,
   "max_service_temp": 980,
-  "thermal_expansion": 23,
-  "poisson_ratio": 0.33,
-  "specific_heat": 900,
+  "thermal_expansion": 13,
+  "poisson_ratio": 0.3,
+  "specific_heat": 440,
   "melting_point": 1310,
   "price_per_kg": 4,
   "price_per_cm3": 0.031,
@@ -298,6 +290,64 @@
         }
       ]
     },
+    "electrical_conductivity": {
+      "had_range": true,
+      "val_range": {
+        "min": 20,
+        "max": 60,
+        "typical": 40,
+        "n": 0,
+        "estimated": true,
+        "confidence": "class",
+        "provenance": "1st_family:Nickel Superalloy"
+      },
+      "had_scalar": true,
+      "val_scalar": 40
+    },
+    "thermal_expansion": {
+      "had_range": true,
+      "val_range": {
+        "min": 11.5,
+        "max": 34.5,
+        "typical": 23,
+        "n": 0,
+        "estimated": true,
+        "confidence": "class",
+        "provenance": "1st_family:Nickel Superalloy"
+      },
+      "had_scalar": true,
+      "val_scalar": 23
+    },
+    "poisson_ratio": {
+      "had_range": true,
+      "val_range": {
+        "min": 0.165,
+        "max": 0.495,
+        "typical": 0.33,
+        "n": 0,
+        "estimated": true,
+        "confidence": "class",
+        "provenance": "1st_family:Nickel Superalloy"
+      },
+      "had_scalar": true,
+      "val_scalar": 0.33
+    },
+    "specific_heat": {
+      "had_range": true,
+      "val_range": {
+        "min": 450,
+        "max": 1350,
+        "typical": 900,
+        "n": 0,
+        "estimated": true,
+        "confidence": "class",
+        "provenance": "1st_family:Nickel Superalloy"
+      },
+      "had_scalar": true,
+      "val_scalar": 900
+    },
+    "_basis": "Inconel 100 (cast) Annealed 조건만 알루미늄 계열 typical 을 상속(CTE 23·비열 900). 같은 합금의 다른 조건(As-supplied·Strain-hardened·Aged)은 이미 Ni 초합금 typical(1.3 / 13 / 0.3 / 440)을 갖고 있어 조건 간 모순 상태였다. Ni 초합금 계열값으로 정렬.",
+    "_src": "DB 내 Inconel 100 동일 합금 타 조건 entry (Ni 초합금 계열 typical) · ASM Handbook Vol.1 Ni-base superalloy family",
     "points": {
       "from": [
         [
@@ -310,7 +360,6 @@
           13
         ]
       ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+    }
   }
 }

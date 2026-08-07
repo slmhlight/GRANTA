@@ -99,13 +99,11 @@
       "provenance": "class:AA 2xxx Al-Cu"
     },
     "electrical_conductivity": {
-      "min": 20,
-      "max": 60,
-      "typical": 40,
-      "n": 0,
-      "estimated": true,
-      "confidence": "class",
-      "provenance": "1st_family:Copper - Pure/Other"
+      "min": 98,
+      "typical": 98,
+      "max": 98,
+      "confidence": "handbook",
+      "provenance": "교정: KME Cu-DLP (C12000) datasheet — CTE 17.3×10⁻⁶/K (20~300°C) · Copper Development Association alloys.copper.org C12000 (annealed 98 %IACS · 융점 1083°C · 비열 385 J/kg·K)"
     },
     "max_service_temp": {
       "min": 85,
@@ -117,40 +115,32 @@
       "provenance": "1st_family:Copper - Pure/Other"
     },
     "thermal_expansion": {
-      "min": 11.5,
-      "max": 34.5,
-      "typical": 23,
-      "n": 0,
-      "estimated": true,
-      "confidence": "class",
-      "provenance": "1st_family:Copper - Pure/Other"
+      "min": 17.3,
+      "typical": 17.3,
+      "max": 17.3,
+      "confidence": "handbook",
+      "provenance": "교정: KME Cu-DLP (C12000) datasheet — CTE 17.3×10⁻⁶/K (20~300°C) · Copper Development Association alloys.copper.org C12000 (annealed 98 %IACS · 융점 1083°C · 비열 385 J/kg·K)"
     },
     "poisson_ratio": {
-      "min": 0.165,
-      "max": 0.495,
-      "typical": 0.33,
-      "n": 0,
-      "estimated": true,
-      "confidence": "class",
-      "provenance": "1st_family:Copper - Pure/Other"
+      "min": 0.34,
+      "typical": 0.34,
+      "max": 0.34,
+      "confidence": "handbook",
+      "provenance": "교정: KME Cu-DLP (C12000) datasheet — CTE 17.3×10⁻⁶/K (20~300°C) · Copper Development Association alloys.copper.org C12000 (annealed 98 %IACS · 융점 1083°C · 비열 385 J/kg·K)"
     },
     "specific_heat": {
-      "min": 450,
-      "max": 1350,
-      "typical": 900,
-      "n": 0,
-      "estimated": true,
-      "confidence": "class",
-      "provenance": "1st_family:Copper - Pure/Other"
+      "min": 385,
+      "typical": 385,
+      "max": 385,
+      "confidence": "handbook",
+      "provenance": "교정: KME Cu-DLP (C12000) datasheet — CTE 17.3×10⁻⁶/K (20~300°C) · Copper Development Association alloys.copper.org C12000 (annealed 98 %IACS · 융점 1083°C · 비열 385 J/kg·K)"
     },
     "melting_point": {
-      "min": 325,
-      "max": 975,
-      "typical": 650,
-      "n": 0,
-      "estimated": true,
-      "confidence": "class",
-      "provenance": "1st_family:Copper - Pure/Other"
+      "min": 1083,
+      "typical": 1083,
+      "max": 1083,
+      "confidence": "handbook",
+      "provenance": "교정: KME Cu-DLP (C12000) datasheet — CTE 17.3×10⁻⁶/K (20~300°C) · Copper Development Association alloys.copper.org C12000 (annealed 98 %IACS · 융점 1083°C · 비열 385 J/kg·K)"
     },
     "price_per_kg": {
       "min": 2,
@@ -240,12 +230,12 @@
     "Copper - Pure/Other",
     "Aluminum-based"
   ],
-  "electrical_conductivity": 40,
+  "electrical_conductivity": 98,
   "max_service_temp": 170,
-  "thermal_expansion": 23,
-  "poisson_ratio": 0.33,
-  "specific_heat": 900,
-  "melting_point": 650,
+  "thermal_expansion": 17.3,
+  "poisson_ratio": 0.34,
+  "specific_heat": 385,
+  "melting_point": 1083,
   "price_per_kg": 4,
   "price_per_cm3": 0.0358,
   "popularity": 1.5,
@@ -287,12 +277,78 @@
     "aliases": {
       "from": []
     },
-    "fields": {
-      "heat_treatment": {
-        "from": "Mill-annealed (ASTM default)"
-      }
+    "electrical_conductivity": {
+      "had_range": true,
+      "val_range": {
+        "min": 20,
+        "max": 60,
+        "typical": 40,
+        "n": 0,
+        "estimated": true,
+        "confidence": "class",
+        "provenance": "1st_family:Copper - Pure/Other"
+      },
+      "had_scalar": true,
+      "val_scalar": 40
     },
-    "_fbasis": "mill-annealed(astm default) placeholder → Annealed (단일조건 alloy)",
+    "thermal_expansion": {
+      "had_range": true,
+      "val_range": {
+        "min": 11.5,
+        "max": 34.5,
+        "typical": 23,
+        "n": 0,
+        "estimated": true,
+        "confidence": "class",
+        "provenance": "1st_family:Copper - Pure/Other"
+      },
+      "had_scalar": true,
+      "val_scalar": 23
+    },
+    "poisson_ratio": {
+      "had_range": true,
+      "val_range": {
+        "min": 0.165,
+        "max": 0.495,
+        "typical": 0.33,
+        "n": 0,
+        "estimated": true,
+        "confidence": "class",
+        "provenance": "1st_family:Copper - Pure/Other"
+      },
+      "had_scalar": true,
+      "val_scalar": 0.33
+    },
+    "specific_heat": {
+      "had_range": true,
+      "val_range": {
+        "min": 450,
+        "max": 1350,
+        "typical": 900,
+        "n": 0,
+        "estimated": true,
+        "confidence": "class",
+        "provenance": "1st_family:Copper - Pure/Other"
+      },
+      "had_scalar": true,
+      "val_scalar": 900
+    },
+    "melting_point": {
+      "had_range": true,
+      "val_range": {
+        "min": 325,
+        "max": 975,
+        "typical": 650,
+        "n": 0,
+        "estimated": true,
+        "confidence": "class",
+        "provenance": "1st_family:Copper - Pure/Other"
+      },
+      "had_scalar": true,
+      "val_scalar": 650
+    },
+    "_basis": "C12000(인탈산 저잔류인 구리)이 알루미늄 계열 typical 을 상속 — 융점 650(알루미늄)·CTE 23·비열 900·%IACS 40. 구리인데 융점이 알루미늄이었다. 순동 계열 정규식이 c12[12]00(C12100·C12200)만 받고 C12000 을 빠뜨린 것이 겹쳤다.",
+    "_src": "KME Cu-DLP (C12000) datasheet — CTE 17.3×10⁻⁶/K (20~300°C) · Copper Development Association alloys.copper.org C12000 (annealed 98 %IACS · 융점 1083°C · 비열 385 J/kg·K)",
     "points": {
       "from": [
         [
@@ -387,6 +443,11 @@
         ]
       ]
     },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+    "fields": {
+      "heat_treatment": {
+        "from": "Mill-annealed (ASTM default)"
+      }
+    },
+    "_fbasis": "mill-annealed(astm default) placeholder → Annealed (단일조건 alloy)"
   }
 }

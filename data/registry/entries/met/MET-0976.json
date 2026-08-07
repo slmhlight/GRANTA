@@ -99,58 +99,46 @@
       "provenance": "alloy-specific KIC × HT:Q+T high-temper (softer) (k×1.3)"
     },
     "electrical_conductivity": {
-      "min": 31,
-      "max": 31,
-      "typical": 31,
-      "n": 0,
-      "estimated": false,
+      "min": 5,
+      "typical": 5,
+      "max": 5,
       "confidence": "handbook",
-      "provenance": "alloy:tungsten"
+      "provenance": "교정: AZoM H21 Tool Steel (융점 1420°C · \"avoid prolonged exposure above 600°C\") · SteelPRO H21 hot-work grade"
     },
     "max_service_temp": {
-      "min": 1700,
-      "max": 1700,
-      "typical": 1700,
-      "n": 0,
-      "estimated": false,
+      "min": 600,
+      "typical": 600,
+      "max": 600,
       "confidence": "handbook",
-      "provenance": "alloy:tungsten"
+      "provenance": "교정: AZoM H21 Tool Steel (융점 1420°C · \"avoid prolonged exposure above 600°C\") · SteelPRO H21 hot-work grade"
     },
     "thermal_expansion": {
-      "min": 4.5,
-      "max": 4.5,
-      "typical": 4.5,
-      "n": 0,
-      "estimated": false,
+      "min": 11.5,
+      "typical": 11.5,
+      "max": 11.5,
       "confidence": "handbook",
-      "provenance": "alloy:tungsten"
+      "provenance": "교정: AZoM H21 Tool Steel (융점 1420°C · \"avoid prolonged exposure above 600°C\") · SteelPRO H21 hot-work grade"
     },
     "poisson_ratio": {
-      "min": 0.28,
-      "max": 0.28,
-      "typical": 0.28,
-      "n": 0,
-      "estimated": false,
+      "min": 0.29,
+      "typical": 0.29,
+      "max": 0.29,
       "confidence": "handbook",
-      "provenance": "alloy:tungsten"
+      "provenance": "교정: AZoM H21 Tool Steel (융점 1420°C · \"avoid prolonged exposure above 600°C\") · SteelPRO H21 hot-work grade"
     },
     "specific_heat": {
-      "min": 135,
-      "max": 135,
-      "typical": 135,
-      "n": 0,
-      "estimated": false,
+      "min": 460,
+      "typical": 460,
+      "max": 460,
       "confidence": "handbook",
-      "provenance": "alloy:tungsten"
+      "provenance": "교정: AZoM H21 Tool Steel (융점 1420°C · \"avoid prolonged exposure above 600°C\") · SteelPRO H21 hot-work grade"
     },
     "melting_point": {
-      "min": 3410,
-      "max": 3410,
-      "typical": 3410,
-      "n": 0,
-      "estimated": false,
+      "min": 1420,
+      "typical": 1420,
+      "max": 1420,
       "confidence": "handbook",
-      "provenance": "alloy:tungsten"
+      "provenance": "교정: AZoM H21 Tool Steel (융점 1420°C · \"avoid prolonged exposure above 600°C\") · SteelPRO H21 hot-work grade"
     },
     "price_per_kg": {
       "min": 70,
@@ -258,12 +246,12 @@
     "Tool Steel"
   ],
   "fatigue_estimated": false,
-  "electrical_conductivity": 31,
-  "max_service_temp": 1700,
-  "thermal_expansion": 4.5,
-  "poisson_ratio": 0.28,
-  "specific_heat": 135,
-  "melting_point": 3410,
+  "electrical_conductivity": 5,
+  "max_service_temp": 600,
+  "thermal_expansion": 11.5,
+  "poisson_ratio": 0.29,
+  "specific_heat": 460,
+  "melting_point": 1420,
   "price_per_kg": 70,
   "price_per_cm3": 0.581,
   "popularity": 2.97,
@@ -304,6 +292,105 @@
     },
     "aliases": {
       "from": []
+    },
+    "electrical_conductivity": {
+      "had_range": true,
+      "val_range": {
+        "min": 31,
+        "max": 31,
+        "typical": 31,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:tungsten"
+      },
+      "had_scalar": true,
+      "val_scalar": 31
+    },
+    "thermal_expansion": {
+      "had_range": true,
+      "val_range": {
+        "min": 4.5,
+        "max": 4.5,
+        "typical": 4.5,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:tungsten"
+      },
+      "had_scalar": true,
+      "val_scalar": 4.5
+    },
+    "poisson_ratio": {
+      "had_range": true,
+      "val_range": {
+        "min": 0.28,
+        "max": 0.28,
+        "typical": 0.28,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:tungsten"
+      },
+      "had_scalar": true,
+      "val_scalar": 0.28
+    },
+    "specific_heat": {
+      "had_range": true,
+      "val_range": {
+        "min": 135,
+        "max": 135,
+        "typical": 135,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:tungsten"
+      },
+      "had_scalar": true,
+      "val_scalar": 135
+    },
+    "melting_point": {
+      "had_range": true,
+      "val_range": {
+        "min": 3410,
+        "max": 3410,
+        "typical": 3410,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:tungsten"
+      },
+      "had_scalar": true,
+      "val_scalar": 3410
+    },
+    "max_service_temp": {
+      "had_range": true,
+      "val_range": {
+        "min": 1700,
+        "max": 1700,
+        "typical": 1700,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:tungsten"
+      },
+      "had_scalar": true,
+      "val_scalar": 1700
+    },
+    "_basis": "MET-0975 와 같은 텅스텐 오매칭. 이 조건은 상용온도까지 1700°C(텅스텐 값)로 오염돼 있었다 — 공구강이 1700°C 면 녹는다. H21 은 600°C 초과 장시간 노출 시 산화·연화.",
+    "_src": "AZoM H21 Tool Steel (융점 1420°C · \"avoid prolonged exposure above 600°C\") · SteelPRO H21 hot-work grade",
+    "points": {
+      "from": [
+        [
+          8.3,
+          1380,
+          1620,
+          9,
+          207,
+          525,
+          25
+        ]
+      ]
     }
   }
 }

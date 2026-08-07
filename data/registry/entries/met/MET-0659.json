@@ -100,58 +100,46 @@
       "provenance": "alloy-specific KIC"
     },
     "electrical_conductivity": {
-      "min": 31,
-      "max": 31,
-      "typical": 31,
-      "n": 0,
-      "estimated": false,
+      "min": 13,
+      "typical": 13,
+      "max": 13,
       "confidence": "handbook",
-      "provenance": "alloy:tungsten"
+      "provenance": "교정: Stanford Advanced Materials Ta2.5W (융점 약 3030°C) · 탄탈럼 계열 typical"
     },
     "max_service_temp": {
-      "min": 1700,
-      "max": 1700,
-      "typical": 1700,
-      "n": 0,
-      "estimated": false,
+      "min": 1500,
+      "typical": 1500,
+      "max": 1500,
       "confidence": "handbook",
-      "provenance": "alloy:tungsten"
+      "provenance": "교정: Stanford Advanced Materials Ta2.5W (융점 약 3030°C) · 탄탈럼 계열 typical"
     },
     "thermal_expansion": {
-      "min": 4.5,
-      "max": 4.5,
-      "typical": 4.5,
-      "n": 0,
-      "estimated": false,
+      "min": 6.5,
+      "typical": 6.5,
+      "max": 6.5,
       "confidence": "handbook",
-      "provenance": "alloy:tungsten"
+      "provenance": "교정: Stanford Advanced Materials Ta2.5W (융점 약 3030°C) · 탄탈럼 계열 typical"
     },
     "poisson_ratio": {
-      "min": 0.28,
-      "max": 0.28,
-      "typical": 0.28,
-      "n": 0,
-      "estimated": false,
+      "min": 0.34,
+      "typical": 0.34,
+      "max": 0.34,
       "confidence": "handbook",
-      "provenance": "alloy:tungsten"
+      "provenance": "교정: Stanford Advanced Materials Ta2.5W (융점 약 3030°C) · 탄탈럼 계열 typical"
     },
     "specific_heat": {
-      "min": 135,
-      "max": 135,
-      "typical": 135,
-      "n": 0,
-      "estimated": false,
+      "min": 140,
+      "typical": 140,
+      "max": 140,
       "confidence": "handbook",
-      "provenance": "alloy:tungsten"
+      "provenance": "교정: Stanford Advanced Materials Ta2.5W (융점 약 3030°C) · 탄탈럼 계열 typical"
     },
     "melting_point": {
-      "min": 3410,
-      "max": 3410,
-      "typical": 3410,
-      "n": 0,
-      "estimated": false,
+      "min": 3030,
+      "typical": 3030,
+      "max": 3030,
       "confidence": "handbook",
-      "provenance": "alloy:tungsten"
+      "provenance": "교정: Stanford Advanced Materials Ta2.5W (융점 약 3030°C) · 탄탈럼 계열 typical"
     },
     "price_per_kg": {
       "min": 70,
@@ -251,12 +239,12 @@
     "Refractory"
   ],
   "fatigue_estimated": true,
-  "electrical_conductivity": 31,
-  "max_service_temp": 1700,
-  "thermal_expansion": 4.5,
-  "poisson_ratio": 0.28,
-  "specific_heat": 135,
-  "melting_point": 3410,
+  "electrical_conductivity": 13,
+  "max_service_temp": 1500,
+  "thermal_expansion": 6.5,
+  "poisson_ratio": 0.34,
+  "specific_heat": 140,
+  "melting_point": 3030,
   "price_per_kg": 70,
   "price_per_cm3": 1.176,
   "popularity": 2.03,
@@ -269,5 +257,106 @@
   "total_cost_estimate": 79.38,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "electrical_conductivity": {
+      "had_range": true,
+      "val_range": {
+        "min": 31,
+        "max": 31,
+        "typical": 31,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:tungsten"
+      },
+      "had_scalar": true,
+      "val_scalar": 31
+    },
+    "thermal_expansion": {
+      "had_range": true,
+      "val_range": {
+        "min": 4.5,
+        "max": 4.5,
+        "typical": 4.5,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:tungsten"
+      },
+      "had_scalar": true,
+      "val_scalar": 4.5
+    },
+    "poisson_ratio": {
+      "had_range": true,
+      "val_range": {
+        "min": 0.28,
+        "max": 0.28,
+        "typical": 0.28,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:tungsten"
+      },
+      "had_scalar": true,
+      "val_scalar": 0.28
+    },
+    "specific_heat": {
+      "had_range": true,
+      "val_range": {
+        "min": 135,
+        "max": 135,
+        "typical": 135,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:tungsten"
+      },
+      "had_scalar": true,
+      "val_scalar": 135
+    },
+    "melting_point": {
+      "had_range": true,
+      "val_range": {
+        "min": 3410,
+        "max": 3410,
+        "typical": 3410,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:tungsten"
+      },
+      "had_scalar": true,
+      "val_scalar": 3410
+    },
+    "max_service_temp": {
+      "had_range": true,
+      "val_range": {
+        "min": 1700,
+        "max": 1700,
+        "typical": 1700,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:tungsten"
+      },
+      "had_scalar": true,
+      "val_scalar": 1700
+    },
+    "_basis": "MET-0658 과 동일 근거(같은 합금 냉간가공 조건).",
+    "_src": "Stanford Advanced Materials Ta2.5W (융점 약 3030°C) · 탄탈럼 계열 typical",
+    "points": {
+      "from": [
+        [
+          16.8,
+          400,
+          480,
+          12,
+          200,
+          170,
+          54
+        ]
+      ]
+    }
+  }
 }
