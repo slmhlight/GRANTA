@@ -175,6 +175,13 @@ try {
     const ch = {};
     const compFix = corr.compositionByBase && corr.compositionByBase[baseOf(r.name)];
     if (compFix && r.category === 'Metal') { ch.composition = { from: r.composition ?? null }; r.composition = { ...compFix }; }
+    /* H6 W3-9 — 산업 노트는 조건(variation)이 아니라 **합금 단위** 정보라 base 키로 붙인다.
+       기존 노트가 있으면 덮지 않는다 — 상류 datasheet 서술이 더 구체적인 경우가 많다. */
+    const noteFix = corr.industryNoteByBase && corr.industryNoteByBase[baseOf(r.name)];
+    if (noteFix && !(r.industry_note && String(r.industry_note).trim())) {
+      ch.industry_note = { from: r.industry_note ?? null };
+      r.industry_note = noteFix.t;
+    }
     // subcategory 교정 (Ti 미세조직 재분류 등) — family tree 노드도 이동해 일관성 유지.
     const subFix = corr.subcategoryByBase && corr.subcategoryByBase[baseOf(r.name)];
     if (subFix && r.subcategory !== subFix) {

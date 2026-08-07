@@ -236,7 +236,7 @@
   "machinability": "Fair",
   "weldability": "Good",
   "corrosion_resistance": "Excellent",
-  "industry_note": null,
+  "industry_note": "고질소 오스테나이트(XM-19) — 해양 펌프 축·밸브 스템·해수 배관. 316 의 약 2배 항복강도에 비자성·내식을 함께 가져 축류 부품에서 두께를 줄인다.",
   "meta": {
     "reference": true,
     "specs": [
@@ -293,5 +293,10 @@
   "svhc_concerns": [
     "Ni 13.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "industry_note": {
+      "from": null
+    }
+  }
 }

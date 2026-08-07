@@ -226,7 +226,7 @@
   "machinability": "Excellent",
   "weldability": "Good",
   "corrosion_resistance": "Poor",
-  "industry_note": null,
+  "industry_note": "JIS/KS 기계구조용 중탄소강 — 볼트·레버·브래킷. 55C 보다 무르고 용접·성형이 쉬워 조질 없이 쓰는 부재에 흔하다.",
   "meta": {
     "reference": true,
     "condition": "Normalized",
@@ -276,5 +276,10 @@
   "total_cost_estimate": 1.19,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "industry_note": {
+      "from": null
+    }
+  }
 }

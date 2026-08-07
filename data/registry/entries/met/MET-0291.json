@@ -226,7 +226,7 @@
   "machinability": "Good",
   "weldability": "Fair",
   "corrosion_resistance": "Poor",
-  "industry_note": null,
+  "industry_note": "JIS/KS 기계구조용 중탄소강 — 축·기어·롤러. 고주파 표면경화로 표면만 굳혀 쓰는 용도가 많다.",
   "meta": {
     "reference": true,
     "condition": "Annealed",
@@ -276,5 +276,10 @@
   "total_cost_estimate": 1.16,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "industry_note": {
+      "from": null
+    }
+  }
 }

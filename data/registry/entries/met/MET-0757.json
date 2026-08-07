@@ -236,7 +236,7 @@
   "machinability": "Fair",
   "weldability": "Good",
   "corrosion_resistance": "Excellent",
-  "industry_note": null,
+  "industry_note": "갈링(소착) 저항이 스테인리스 중 최상급(S21800) — 밸브 시트·부싱·파스너처럼 금속끼리 미끄러지며 눌러붙는 자리. 경화 처리 없이 그 성질이 나온다는 것이 채택 이유다.",
   "meta": {
     "reference": true,
     "specs": [
@@ -292,5 +292,10 @@
   "svhc_concerns": [
     "Ni 9% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "industry_note": {
+      "from": null
+    }
+  }
 }

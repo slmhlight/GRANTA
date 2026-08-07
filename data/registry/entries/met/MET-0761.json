@@ -240,7 +240,7 @@
   "machinability": "Fair",
   "weldability": "Good",
   "corrosion_resistance": "Excellent",
-  "industry_note": null,
+  "industry_note": "Ti 안정화 316 — 316 의 내식성에 321 의 예민화 저항을 더한 조합. 화학 플랜트 고온 배관·팽창 조인트에서 용접부를 후열처리 없이 쓰는 자리.",
   "meta": {
     "reference": true,
     "specs": [
@@ -297,5 +297,10 @@
   "svhc_concerns": [
     "Ni 14% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "industry_note": {
+      "from": null
+    }
+  }
 }

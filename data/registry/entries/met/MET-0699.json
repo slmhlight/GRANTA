@@ -231,7 +231,7 @@
   "machinability": "Fair",
   "weldability": "Excellent",
   "corrosion_resistance": "Excellent",
-  "industry_note": null,
+  "industry_note": "저탄소 + 질소 강화 316 — 극저온(LNG·초전도 자석 구조)과 원자력 기기. 저탄소로 예민화를 막고 질소로 강도를 벌어 두께를 줄인다.",
   "meta": {
     "reference": true,
     "price_verified_date": "2026-04",
@@ -339,5 +339,10 @@
       "hours": 1000
     }
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "industry_note": {
+      "from": null
+    }
+  }
 }

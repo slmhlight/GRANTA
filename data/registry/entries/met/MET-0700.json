@@ -239,7 +239,7 @@
   "machinability": "Fair",
   "weldability": "Excellent",
   "corrosion_resistance": "Excellent",
-  "industry_note": null,
+  "industry_note": "316L 보다 Mo 를 더 넣은 등급 — 제지 표백 설비·황산/인산 취급 배관·배연탈황 설비. 316L 로 부족한 염화물·환원성 산 구간을 노린다.",
   "meta": {
     "reference": true,
     "specs": [
@@ -296,5 +296,10 @@
   "svhc_concerns": [
     "Ni 15% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "industry_note": {
+      "from": null
+    }
+  }
 }

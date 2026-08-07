@@ -240,7 +240,7 @@
   "machinability": "Excellent",
   "weldability": "Poor",
   "corrosion_resistance": "Poor",
-  "industry_note": null,
+  "industry_note": "납 첨가 쾌삭강 — 자동선반 대량 부품(니플·부싱·커넥터). 절삭성은 최상급이지만 납·황 개재물 때문에 용접과 도금이 까다롭고, 강도가 필요한 자리에는 쓰지 않는다.",
   "meta": {
     "reference": true,
     "specs": [
@@ -298,6 +298,9 @@
   ],
   "confidence_tier": "high",
   "_corrections": {
+    "industry_note": {
+      "from": null
+    },
     "aliases": {
       "from": [
         "UNS G12144",

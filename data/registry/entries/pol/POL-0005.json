@@ -196,7 +196,7 @@
   "machinability": "Good",
   "weldability": "Thermoplastic",
   "corrosion_resistance": "Moderate",
-  "industry_note": null,
+  "industry_note": "ABS 의 옥외용 대체재 — 자동차 외장 트림·루프랙·옥외 가전 하우징. 고무상을 ASA 로 바꿔 자외선 아래 황변·취화가 ABS 보다 훨씬 느리다.",
   "meta": {
     "reference": true,
     "polymer": true
@@ -238,5 +238,10 @@
   "surface_finish_typical": 1.6,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "industry_note": {
+      "from": null
+    }
+  }
 }

@@ -224,7 +224,7 @@
   "machinability": "Fair",
   "weldability": "Fair",
   "corrosion_resistance": "Poor",
-  "industry_note": null,
+  "industry_note": "Cr-V 스프링강 — 밸브 스프링·고응력 코일 스프링. SUP9 보다 소착·피로 저항이 좋아 반복 응력이 큰 자리에 쓴다.",
   "meta": {
     "reference": true,
     "condition": "Q+T (380°C)",
@@ -273,5 +273,10 @@
   "total_cost_estimate": 3.87,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "industry_note": {
+      "from": null
+    }
+  }
 }

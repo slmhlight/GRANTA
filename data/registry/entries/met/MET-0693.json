@@ -246,7 +246,7 @@
   "machinability": "Fair",
   "weldability": "Good",
   "corrosion_resistance": "Excellent",
-  "industry_note": null,
+  "industry_note": "희토류(Ce) 첨가 내산화 오스테나이트 — 공업로 부품·소각로 내부·열처리 지그. 1100°C 대 반복 가열에서 스케일 박리가 적다.",
   "meta": {
     "reference": true,
     "specs": [
@@ -302,5 +302,10 @@
   "svhc_concerns": [
     "Ni 12% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "industry_note": {
+      "from": null
+    }
+  }
 }

@@ -69,6 +69,25 @@ describe('corrections 스키마·정합 (S3)', () => {
     }
   });
 
+  /* H6 W3-9 — industryNoteByBase: base 키 + {t, src}. 오타난 base 는 조용히 무적용되므로
+     레지스트리 base 실재를 함께 검증한다(다른 *ByBase 도메인이 못 잡던 사각지대). */
+  it('industryNoteByBase: base 실재 + {t, src} 비어있지 않음', () => {
+    const bases = new Set<string>();
+    for (const cc of fs.readdirSync(REG)) {
+      for (const fn of fs.readdirSync(path.join(REG, cc))) {
+        const name = JSON.parse(fs.readFileSync(path.join(REG, cc, fn), 'utf8')).name as string;
+        bases.add(String(name).split(' — ')[0]);
+      }
+    }
+    const bad: string[] = [];
+    for (const [b, v] of Object.entries<any>(corr.industryNoteByBase || {})) {
+      if (!bases.has(b)) bad.push(`${b}: 실재하지 않는 base`);
+      if (!v || typeof v.t !== 'string' || !v.t.trim()) bad.push(`${b}: t 없음`);
+      if (!v || typeof v.src !== 'string' || !v.src.trim()) bad.push(`${b}: src 없음`);
+    }
+    expect(bad).toEqual([]);
+  });
+
   it('compositionByBase 는 객체, subcategoryByBase 는 문자열 값', () => {
     for (const v of Object.values<any>(corr.compositionByBase || {})) expect(typeof v).toBe('object');
     for (const v of Object.values<any>(corr.subcategoryByBase || {})) expect(typeof v).toBe('string');

@@ -230,7 +230,7 @@
   "machinability": "Fair",
   "weldability": "Excellent",
   "corrosion_resistance": "Excellent",
-  "industry_note": null,
+  "industry_note": "347 의 고탄소(H) 등급 — 탄소를 일부러 남겨 고온 크리프 강도를 올린 보일러·재열기용. 상온 인성보다 장기 고온 강도가 선정 기준이다.",
   "meta": {
     "reference": true,
     "specs": [
@@ -319,5 +319,10 @@
       "hours": 1000
     }
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "industry_note": {
+      "from": null
+    }
+  }
 }
