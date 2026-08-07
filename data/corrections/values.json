@@ -8,6 +8,16 @@
  },
  "_note": "값 교정 (stable_id 키). ranges: 물성 교정(basis·src 필수) — build-registry 4c 적용, 원본은 entry _corrections 보존. fields: 필드 단위 교정.",
  "ranges": {
+  "MET-0234": {
+   "elongation": 37,
+   "basis": "AISI 1010 소둔 연신율이 26.04% 로 핸드북 범위(29~45%) 아래였다. 값이 같은 합금 Quenched/tempered(28%)×0.93 과 정확히 일치 — generic CSV 의 조건별 합성 배율이 거꾸로 적용된 흔적이다(소둔은 그 합금에서 가장 연한 상태라 담금질+뜨임보다 연신율이 낮을 수 없다). 범위 중앙값으로 교정.",
+   "src": "Modulus Metal AISI 1010 Annealed (연신율 29~45% strain) · tubingchina AISI 1010 mechanical properties"
+  },
+  "MET-0260": {
+   "elongation": 30,
+   "basis": "AISI 1040 소둔 연신율이 16.74% 로 핸드북 범위(24~36%) 아래였다. Quenched/tempered(18%)×0.93 과 일치 — MET-0234 와 같은 합성 배율 역적용. 범위 중앙값으로 교정.",
+   "src": "Modulus Metal AISI 1040 Carbon Steel (Annealed) — 인장 475~575 MPa · 항복 315~390 MPa · 연신율 24~36% strain"
+  },
   "MET-0542": {
    "electrical_conductivity": 1.3,
    "thermal_expansion": 13,

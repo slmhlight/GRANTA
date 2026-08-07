@@ -46,11 +46,11 @@
       "confidence": "handbook"
     },
     "elongation": {
-      "min": 16.74,
-      "max": 16.74,
-      "typical": 16.74,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 30,
+      "typical": 30,
+      "max": 30,
+      "confidence": "handbook",
+      "provenance": "교정: Modulus Metal AISI 1040 Carbon Steel (Annealed) — 인장 475~575 MPa · 항복 315~390 MPa · 연신율 24~36% strain"
     },
     "modulus": {
       "min": 200,
@@ -209,8 +209,8 @@
       7.85,
       272.8,
       497.2,
-      16.74,
-      210,
+      30,
+      205,
       149.6,
       51
     ]
@@ -239,7 +239,7 @@
   "density": 7.85,
   "yield_strength": 272.8,
   "uts": 497.2,
-  "elongation": 16.74,
+  "elongation": 30,
   "modulus": 205,
   "hardness": 149.6,
   "thermal_conductivity": 51,
@@ -308,6 +308,33 @@
     },
     "aliases": {
       "from": []
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 16.74,
+        "max": 16.74,
+        "typical": 16.74,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 16.74
+    },
+    "_basis": "AISI 1040 소둔 연신율이 16.74% 로 핸드북 범위(24~36%) 아래였다. Quenched/tempered(18%)×0.93 과 일치 — MET-0234 와 같은 합성 배율 역적용. 범위 중앙값으로 교정.",
+    "_src": "Modulus Metal AISI 1040 Carbon Steel (Annealed) — 인장 475~575 MPa · 항복 315~390 MPa · 연신율 24~36% strain",
+    "points": {
+      "from": [
+        [
+          7.85,
+          272.8,
+          497.2,
+          16.74,
+          210,
+          149.6,
+          51
+        ]
+      ]
     }
   }
 }

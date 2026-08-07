@@ -46,11 +46,11 @@
       "confidence": "handbook"
     },
     "elongation": {
-      "min": 26.04,
-      "max": 26.04,
-      "typical": 26.04,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 37,
+      "typical": 37,
+      "max": 37,
+      "confidence": "handbook",
+      "provenance": "교정: Modulus Metal AISI 1010 Annealed (연신율 29~45% strain) · tubingchina AISI 1010 mechanical properties"
     },
     "modulus": {
       "min": 200,
@@ -219,8 +219,8 @@
       7.85,
       158.4,
       281.6,
-      26.04,
-      210,
+      37,
+      205,
       83.6,
       50
     ]
@@ -249,7 +249,7 @@
   "density": 7.85,
   "yield_strength": 158.4,
   "uts": 281.6,
-  "elongation": 26.04,
+  "elongation": 37,
   "modulus": 205,
   "hardness": 83.6,
   "thermal_conductivity": 50,
@@ -323,6 +323,33 @@
     },
     "aliases": {
       "from": []
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 26.04,
+        "max": 26.04,
+        "typical": 26.04,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 26.04
+    },
+    "_basis": "AISI 1010 소둔 연신율이 26.04% 로 핸드북 범위(29~45%) 아래였다. 값이 같은 합금 Quenched/tempered(28%)×0.93 과 정확히 일치 — generic CSV 의 조건별 합성 배율이 거꾸로 적용된 흔적이다(소둔은 그 합금에서 가장 연한 상태라 담금질+뜨임보다 연신율이 낮을 수 없다). 범위 중앙값으로 교정.",
+    "_src": "Modulus Metal AISI 1010 Annealed (연신율 29~45% strain) · tubingchina AISI 1010 mechanical properties",
+    "points": {
+      "from": [
+        [
+          7.85,
+          158.4,
+          281.6,
+          26.04,
+          210,
+          83.6,
+          50
+        ]
+      ]
     }
   }
 }
