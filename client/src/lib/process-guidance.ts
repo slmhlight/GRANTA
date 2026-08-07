@@ -131,8 +131,11 @@ const WELD_GUIDANCE = (weldGuidanceData as any).blocks as Record<string, Guidanc
 /** HT 주의사항 가이드 (R226k) — name-키(m.profiles.htg) + 조건 클래스(hip/case) 블록의 배열.
  *  구 인라인에서는 매칭 블록이 모두 연결 표시됐던 의미를 배열로 보존 (예: Ti STA + HIP). */
 /* R226w — AM(적층제조) 후처리 가이드. AM 판정은 구조 필드(process/processes)만 사용 — name regex 없음.
- * family 는 빌드 스탬프 조회: profiles.ht 접두(am_map.byHt) 우선, 없으면 profiles.mach(am_map.byMach). */
-const AM_MAP = (htGuidanceData as any).am_map as { byHt: Record<string, string>; byMach: Record<string, string> } | undefined;
+ * family 는 빌드 스탬프 조회. H6 W3-3 — 조회축을 3단으로: byHt(합금 특정) → **byHtg(열처리 가족)**
+ * → byMach(거친 폴백). mach 축만으로는 후처리를 가를 수 없어서다 — 같은 'al-cast-am' 안에
+ * AlSi10Mg(용체화+시효)와 Scalmalloy(용체화 없이 직접 시효)가 함께 있다. */
+const AM_MAP = (htGuidanceData as any).am_map as
+  { byHt: Record<string, string>; byHtg?: Record<string, string>; byMach: Record<string, string> } | undefined;
 const AM_PROC_RE = /lpbf|dmls|slm\b|ebm|binder|waam|\bded\b|direct energy|directed energy/i;
 export function isAmProcess(m: Material): boolean {
   return AM_PROC_RE.test(m.process || '') || (m.processes || []).some((p) => AM_PROC_RE.test(p));
@@ -141,6 +144,8 @@ function amGuidanceKey(m: Material): string | null {
   if (!AM_MAP || m.category !== 'Metal' || !isAmProcess(m)) return null;
   const ht = m.profiles?.ht;
   if (ht) for (const [prefix, key] of Object.entries(AM_MAP.byHt)) if (ht.startsWith(prefix)) return key;
+  const htg = m.profiles?.htg;
+  if (htg && AM_MAP.byHtg?.[htg]) return AM_MAP.byHtg[htg];
   const mach = m.profiles?.mach;
   return (mach && AM_MAP.byMach[mach]) || null;
 }

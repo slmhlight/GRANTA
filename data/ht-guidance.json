@@ -307,10 +307,56 @@
     "cucrzr": "【CuCrZr】 Solution treatment(용체화) 970-1000°C 급냉 + Aging(시효) 450-480°C / 2-4 h — 또는 as-built 직접 Aging(제조사 옵션). Aging으로 전도도·강도 동시 회복.",
     "grcop": "【GRCop-42/84】 석출이 응고 중 형성 — 별도 Aging 불필요, HIP(기공 폐쇄·연소실 기밀)가 관행 (NASA RAMPT)."
    }
+  },
+  "am-ti-alloy": {
+   "pattern": "",
+   "field": "am",
+   "text": "⚠ AM Ti 합금(α/near-α·α+β) — 후처리\n  ① Stress Relief 480-650°C / 진공·Ar (플레이트 분리 전 — 안 하면 절단 중 뒤틀린다)\n  ② HIP 900-920°C / 100-120 MPa (내부 기공·미세균열 폐쇄 — 피로 임계 부품 사실상 필수)\n  ③ 어닐 또는 Solution treatment(용체화)+Aging(시효): 온도는 합금별 **β 변태점 기준**으로 지정\n【주의】 대기 중 가열은 α-case 를 만든다 — 진공/Ar 필수, 노출됐으면 산세·가공으로 제거.\n【표준】 ASTM F3001 · F3301"
+  },
+  "am-ni-gammaprime": {
+   "pattern": "",
+   "field": "am",
+   "text": "⚠ AM γ′ 석출강화 Ni 초합금 — 후처리 (균열 관리가 먼저)\nAl+Ti 가 많을수록 적층·후속 승온에서 변형시효 균열에 민감하다:\n  ① Stress Relief / 균질화 (플레이트 분리 전, 급속 승온으로 γ′ 석출 구간을 빨리 통과)\n  ② **HIP 1180-1200°C / 100-170 MPa** — 미세균열·기공 폐쇄. 이 계열에서는 선택이 아니라 전제에 가깝다.\n  ③ Solution treatment(용체화) + 2단 Aging(시효) — 재래 사이클 눈금 준용\n【표준】 ASTM F3301 · 제조사 AM 파라미터 가이드"
+  },
+  "am-al-advanced": {
+   "pattern": "",
+   "field": "am",
+   "text": "⚠ AM 특수 Al(Sc·Zr 분산 / MMC·Al-Cu) — 계열이 다르면 절차도 반대다\n  ① Sc·Zr 분산형(Scalmalloy·Aheadd CP1): **Solution treatment(용체화) 없이 직접 Aging(시효)** ~300-400°C.\n     급속 응고로 Sc·Zr 이 이미 과포화라, 통상 T6 를 걸면 석출물이 조대해져 오히려 약해진다.\n  ② 세라믹 강화·Al-Cu 계(A20X 등): 통상 T6/T7 — 다만 급랭 잔류응력이 크므로 Stress relief(응력제거)를 함께.\n【표준】 APWorks Scalmalloy TDS · Constellium Aheadd 가이드 · 제조사 TDS"
+  },
+  "am-mart-steel": {
+   "pattern": "",
+   "field": "am",
+   "text": "⚠ AM 공구강·마르텐사이트계 스테인리스(H13·420 등) — 후처리\nas-built 가 이미 마르텐사이트 + 큰 잔류응력이라 **균열 위험이 가장 높은 조합**이다:\n  ① 빌드 직후·플레이트 분리 전 Stress Relief (지체하면 그 사이에 갈라진다)\n  ② HIP 옵션 (기공 — 금형 냉각채널 기밀·피로)\n  ③ 통상 Quenching(담금질)+Tempering(뜨임) 으로 목표 경도 — 재래 규격 눈금 그대로\n【표준】 ASTM F3301 · 제조사(Uddeholm·Böhler AM) 가이드"
+  },
+  "am-steel-qt": {
+   "pattern": "",
+   "field": "am",
+   "text": "⚠ AM 저합금강(42CrMo4·Carburizing(침탄)강 등) — 후처리\n  ① Stress Relief 즉시 (플레이트 분리 전)\n  ② HIP 옵션 (피로·기밀 임계)\n  ③ 통상 Quenching(담금질)+Tempering(뜨임), Carburizing(침탄)용 강이면 절삭 완료 후 Carburizing(침탄)\n【주의】 as-built 조직은 급랭 마르텐사이트/베이나이트라 재래 어닐재와 절삭·열처리 거동이 다르다.\n【표준】 ASTM F3301"
+  },
+  "am-duplex": {
+   "pattern": "",
+   "field": "am",
+   "text": "⚠ AM 듀플렉스·슈퍼듀플렉스 — Solution treatment(용체화)가 선택이 아니다\nLPBF 급랭은 오스테나이트가 자랄 시간을 주지 않아 **as-built 가 페라이트 과다**가 된다\n(상 균형이 깨지면 인성·내식성이 규격에 못 미친다).\n  ① Solution treatment(용체화) 1050-1120°C → 급랭 — 상 비율(대략 30-70% 페라이트) 회복\n  ② HIP 옵션 (기공)\n【주의】 서냉하면 σ상 — Solution treatment(용체화) 후 반드시 급랭.\n【표준】 ASTM F3301 · ASTM A988/A276 준용"
+  },
+  "am-refractory": {
+   "pattern": "",
+   "field": "am",
+   "text": "⚠ AM 내화금속(W·Mo·Ta·Nb) — 후처리\n  ① Stress Relief — **재결정 온도 아래**에서 (넘기면 W·Mo 는 DBTT 가 상온 위로 올라가 부서진다)\n  ② HIP (기공·미세균열 — 이 계열은 적층 균열이 흔해 효과가 크다)\n【주의】 전 공정 고진공·불활성 — W·Mo 는 산화물 휘발, Ta·Nb 는 산소·질소 고용 취화.\n【표준】 ASTM F3301 · 제조사(Plansee 등) AM 가이드"
+  },
+  "am-invar": {
+   "pattern": "",
+   "field": "am",
+   "text": "⚠ AM 저팽창 합금(Invar) — 후처리의 목적은 강도가 아니라 CTE\nas-built 는 잔류응력과 조직 이방성 때문에 열팽창이 규격을 벗어날 수 있다:\n  ① Stress Relief · 어닐로 조직 균질화 → 저팽창 회복\n  ② 정밀 부품은 가공 후 저온 안정화를 반복해 치수 드리프트를 미리 끝낸다\n【표준】 제조사 AM 데이터시트 · ASTM F3301"
+  },
+  "am-ods": {
+   "pattern": "",
+   "field": "am",
+   "text": "⚠ AM ODS 합금 — 열처리로 강화할 것이 없다\n나노 산화물은 녹지 않으므로 Solution treatment(용체화)·Aging(시효) 개념이 없다:\n  ① Stress Relief · 재결정 어닐 (조직 정리·잔류응력)\n  ② HIP 은 기공 폐쇄 목적 — 분산 상태를 바꾸지는 않는다\n【주의】 분산은 공정 파라미터의 산물이라 후처리로 회복할 수 없다.\n【표준】 ASTM F3301 · NASA GRX-810 공정 문헌"
   }
  },
  "am_map": {
-  "_note": "AM entry 판정은 런타임에서 m.process/processes(구조 필드)로. byHt 접두 매칭 우선, 실패 시 byMach.",
+  "_note": "AM entry 판정은 런타임에서 m.process/processes(구조 필드)로. 조회 순서 byHt(합금 특정) → byHtg(열처리 가족, H6 W3-3 신설) → byMach(거친 폴백). byHtg 는 mach 축이 후처리를 가르기엔 거칠어(al-cast-am 에 AlSi10Mg 와 Scalmalloy 공존) 도입.",
+  "byHtg": {"h19-ni-cast-gp": "am-ni-gammaprime", "h04-inconel": "am-ni-gammaprime", "h12-ni-solidsol": "am-ni-solidsol", "h22-ods": "am-ods", "h18-ti-general": "am-ti-alloy", "h24-al-advanced": "am-al-advanced", "h02-aa": "am-alsi", "h29-tool-general": "am-mart-steel", "h15-ss-mart": "am-mart-steel", "h01-aisi": "am-steel-qt", "h21-case-base": "am-steel-qt", "h38-duplex": "am-duplex", "h14-ss-aust": "am-316l", "h03-17": "am-ph", "h11-cu": "am-cu", "h16-refractory": "am-refractory", "h30-invar": "am-invar"},
   "byHt": {
    "Ti-6Al-4V": "am-ti64",
    "AlSi cast / AM": "am-alsi",
