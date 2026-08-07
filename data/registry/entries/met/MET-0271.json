@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 497.2,
-      "max": 497.2,
-      "typical": 497.2,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 376,
+      "typical": 376,
+      "max": 376,
+      "confidence": "handbook",
+      "provenance": "교정: AISI 1080 소둔 표준표 — 항복 54500 psi · 인장 89250 psi · 연신율 24.7% · 경도 174 HB (tubingchina AISI Steel Mechanical Characteristics, ASM 계열 소둔 표). MPa 환산 ×0.00689476"
     },
     "uts": {
-      "min": 677.6,
-      "max": 677.6,
-      "typical": 677.6,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 615,
+      "typical": 615,
+      "max": 615,
+      "confidence": "handbook",
+      "provenance": "교정: AISI 1080 소둔 표준표 — 항복 54500 psi · 인장 89250 psi · 연신율 24.7% · 경도 174 HB (tubingchina AISI Steel Mechanical Characteristics, ASM 계열 소둔 표). MPa 환산 ×0.00689476"
     },
     "elongation": {
-      "min": 9.3,
-      "max": 9.3,
-      "typical": 9.3,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 24.7,
+      "typical": 24.7,
+      "max": 24.7,
+      "confidence": "handbook",
+      "provenance": "교정: AISI 1080 소둔 표준표 — 항복 54500 psi · 인장 89250 psi · 연신율 24.7% · 경도 174 HB (tubingchina AISI Steel Mechanical Characteristics, ASM 계열 소둔 표). MPa 환산 ×0.00689476"
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 206.8,
-      "max": 206.8,
-      "typical": 206.8,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 174,
+      "typical": 174,
+      "max": 174,
+      "confidence": "handbook",
+      "provenance": "교정: AISI 1080 소둔 표준표 — 항복 54500 psi · 인장 89250 psi · 연신율 24.7% · 경도 174 HB (tubingchina AISI Steel Mechanical Characteristics, ASM 계열 소둔 표). MPa 환산 ×0.00689476"
     },
     "thermal_conductivity": {
       "min": 50,
@@ -206,11 +206,11 @@
   "points": [
     [
       7.85,
-      497.2,
-      677.6,
-      9.3,
-      210,
-      206.8,
+      376,
+      615,
+      24.7,
+      205,
+      174,
       50
     ]
   ],
@@ -236,11 +236,11 @@
   "fracture_toughness": 60.5,
   "fatigue_strength": 249,
   "density": 7.85,
-  "yield_strength": 497.2,
-  "uts": 677.6,
-  "elongation": 9.3,
+  "yield_strength": 376,
+  "uts": 615,
+  "elongation": 24.7,
   "modulus": 205,
-  "hardness": 206.8,
+  "hardness": 174,
   "thermal_conductivity": 50,
   "impact_strength": 42,
   "manufacturer": "Generic",
@@ -300,6 +300,69 @@
           "url": "https://store.astm.org/a0029_a0029m-20.html",
           "verified": false
         }
+      ]
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 497.2,
+        "max": 497.2,
+        "typical": 497.2,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 497.2
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 677.6,
+        "max": 677.6,
+        "typical": 677.6,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 677.6
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 9.3,
+        "max": 9.3,
+        "typical": 9.3,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 9.3
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 206.8,
+        "max": 206.8,
+        "typical": 206.8,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 206.8
+    },
+    "_basis": "AISI 1080 \"소둔\" 이 실제로는 소둔이 아니었다 — 강도가 소둔 기준보다 **높고**(497.2 vs 376 · 677.6 vs 615) 연신율은 **낮았다**(9.3 vs 24.7). 노멀라이즈드~압연 값에 소둔 라벨이 붙은 셈. 고탄소강 완전소둔은 구상화로 무르고 늘어난다.",
+    "_src": "AISI 1080 소둔 표준표 — 항복 54500 psi · 인장 89250 psi · 연신율 24.7% · 경도 174 HB (tubingchina AISI Steel Mechanical Characteristics, ASM 계열 소둔 표). MPa 환산 ×0.00689476",
+    "points": {
+      "from": [
+        [
+          7.85,
+          497.2,
+          677.6,
+          9.3,
+          210,
+          206.8,
+          50
+        ]
       ]
     }
   }

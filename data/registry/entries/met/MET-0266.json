@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 321.2,
-      "max": 321.2,
-      "typical": 321.2,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 365,
+      "typical": 365,
+      "max": 365,
+      "confidence": "handbook",
+      "provenance": "교정: AISI 1050 소둔 표준표 — 항복 53000 psi · 인장 92250 psi · 연신율 23.7% · 경도 187 HB (tubingchina AISI Steel Mechanical Characteristics, ASM 계열 소둔 표). MPa 환산 ×0.00689476"
     },
     "uts": {
-      "min": 550,
-      "max": 550,
-      "typical": 550,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 636,
+      "typical": 636,
+      "max": 636,
+      "confidence": "handbook",
+      "provenance": "교정: AISI 1050 소둔 표준표 — 항복 53000 psi · 인장 92250 psi · 연신율 23.7% · 경도 187 HB (tubingchina AISI Steel Mechanical Characteristics, ASM 계열 소둔 표). MPa 환산 ×0.00689476"
     },
     "elongation": {
-      "min": 13.95,
-      "max": 13.95,
-      "typical": 13.95,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 23.7,
+      "typical": 23.7,
+      "max": 23.7,
+      "confidence": "handbook",
+      "provenance": "교정: AISI 1050 소둔 표준표 — 항복 53000 psi · 인장 92250 psi · 연신율 23.7% · 경도 187 HB (tubingchina AISI Steel Mechanical Characteristics, ASM 계열 소둔 표). MPa 환산 ×0.00689476"
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 167.2,
-      "max": 167.2,
-      "typical": 167.2,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 187,
+      "typical": 187,
+      "max": 187,
+      "confidence": "handbook",
+      "provenance": "교정: AISI 1050 소둔 표준표 — 항복 53000 psi · 인장 92250 psi · 연신율 23.7% · 경도 187 HB (tubingchina AISI Steel Mechanical Characteristics, ASM 계열 소둔 표). MPa 환산 ×0.00689476"
     },
     "thermal_conductivity": {
       "min": 50,
@@ -206,11 +206,11 @@
   "points": [
     [
       7.85,
-      321.2,
-      550,
-      13.95,
-      210,
-      167.2,
+      365,
+      636,
+      23.7,
+      205,
+      187,
       50
     ]
   ],
@@ -236,11 +236,11 @@
   "fracture_toughness": 49.5,
   "fatigue_strength": 295,
   "density": 7.85,
-  "yield_strength": 321.2,
-  "uts": 550,
-  "elongation": 13.95,
+  "yield_strength": 365,
+  "uts": 636,
+  "elongation": 23.7,
   "modulus": 205,
-  "hardness": 167.2,
+  "hardness": 187,
   "thermal_conductivity": 50,
   "impact_strength": 17,
   "manufacturer": "Generic",
@@ -308,6 +308,69 @@
     },
     "aliases": {
       "from": []
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 321.2,
+        "max": 321.2,
+        "typical": 321.2,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 321.2
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 550,
+        "max": 550,
+        "typical": 550,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 550
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 13.95,
+        "max": 13.95,
+        "typical": 13.95,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 13.95
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 167.2,
+        "max": 167.2,
+        "typical": 167.2,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 167.2
+    },
+    "_basis": "AISI 1050 소둔 — 전부 저평가(321.2/550/13.95/167.2). 연신율이 실제의 59% 였다.",
+    "_src": "AISI 1050 소둔 표준표 — 항복 53000 psi · 인장 92250 psi · 연신율 23.7% · 경도 187 HB (tubingchina AISI Steel Mechanical Characteristics, ASM 계열 소둔 표). MPa 환산 ×0.00689476",
+    "points": {
+      "from": [
+        [
+          7.85,
+          321.2,
+          550,
+          13.95,
+          210,
+          167.2,
+          50
+        ]
+      ]
     }
   }
 }

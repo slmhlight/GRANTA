@@ -86,11 +86,11 @@
       "confidence": "measured"
     },
     "thermal_conductivity": {
-      "min": 14.2,
-      "max": 14.2,
-      "typical": 14.2,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 15,
+      "typical": 15,
+      "max": 15,
+      "confidence": "handbook",
+      "provenance": "교정: EOS MaragingSteel MS1 데이터시트(= \"US 18% Ni Maraging 300 · European 1.2709\" 명시 — 비열 450±20 J/kg°C · 열전도 as-built 15 / 시효 20 W/m°C) · Dörrenberg 1.2709 X3NiCoMoTi18-9-5 (선팽창 20~100°C 10.4×10⁻⁶/K) · DB 내 동일 합금 Maraging 300 (UNS K93120 / AMS 6514) 물성 정합"
     },
     "fatigue_strength": {
       "min": 600,
@@ -118,76 +118,60 @@
       "provenance": "alloy-specific KIC"
     },
     "electrical_conductivity": {
-      "min": 6.2,
-      "max": 6.2,
-      "typical": 6.2,
-      "n": 0,
-      "estimated": false,
+      "min": 3,
+      "typical": 3,
+      "max": 3,
       "confidence": "handbook",
-      "provenance": "alloy:300m"
+      "provenance": "교정: EOS MaragingSteel MS1 데이터시트(= \"US 18% Ni Maraging 300 · European 1.2709\" 명시 — 비열 450±20 J/kg°C · 열전도 as-built 15 / 시효 20 W/m°C) · Dörrenberg 1.2709 X3NiCoMoTi18-9-5 (선팽창 20~100°C 10.4×10⁻⁶/K) · DB 내 동일 합금 Maraging 300 (UNS K93120 / AMS 6514) 물성 정합"
     },
     "max_service_temp": {
-      "min": 425,
-      "max": 425,
-      "typical": 425,
-      "n": 0,
-      "estimated": false,
+      "min": 480,
+      "typical": 480,
+      "max": 480,
       "confidence": "handbook",
-      "provenance": "alloy:300m"
+      "provenance": "교정: EOS MaragingSteel MS1 데이터시트(= \"US 18% Ni Maraging 300 · European 1.2709\" 명시 — 비열 450±20 J/kg°C · 열전도 as-built 15 / 시효 20 W/m°C) · Dörrenberg 1.2709 X3NiCoMoTi18-9-5 (선팽창 20~100°C 10.4×10⁻⁶/K) · DB 내 동일 합금 Maraging 300 (UNS K93120 / AMS 6514) 물성 정합"
     },
     "thermal_expansion": {
-      "min": 12,
-      "max": 12,
-      "typical": 12,
-      "n": 0,
-      "estimated": false,
+      "min": 10.4,
+      "typical": 10.4,
+      "max": 10.4,
       "confidence": "handbook",
-      "provenance": "alloy:300m"
+      "provenance": "교정: EOS MaragingSteel MS1 데이터시트(= \"US 18% Ni Maraging 300 · European 1.2709\" 명시 — 비열 450±20 J/kg°C · 열전도 as-built 15 / 시효 20 W/m°C) · Dörrenberg 1.2709 X3NiCoMoTi18-9-5 (선팽창 20~100°C 10.4×10⁻⁶/K) · DB 내 동일 합금 Maraging 300 (UNS K93120 / AMS 6514) 물성 정합"
     },
     "poisson_ratio": {
-      "min": 0.29,
-      "max": 0.29,
-      "typical": 0.29,
-      "n": 0,
-      "estimated": false,
+      "min": 0.3,
+      "typical": 0.3,
+      "max": 0.3,
       "confidence": "handbook",
-      "provenance": "alloy:300m"
+      "provenance": "교정: EOS MaragingSteel MS1 데이터시트(= \"US 18% Ni Maraging 300 · European 1.2709\" 명시 — 비열 450±20 J/kg°C · 열전도 as-built 15 / 시효 20 W/m°C) · Dörrenberg 1.2709 X3NiCoMoTi18-9-5 (선팽창 20~100°C 10.4×10⁻⁶/K) · DB 내 동일 합금 Maraging 300 (UNS K93120 / AMS 6514) 물성 정합"
     },
     "specific_heat": {
-      "min": 472,
-      "max": 472,
-      "typical": 472,
-      "n": 0,
-      "estimated": false,
+      "min": 450,
+      "typical": 450,
+      "max": 450,
       "confidence": "handbook",
-      "provenance": "alloy:300m"
+      "provenance": "교정: EOS MaragingSteel MS1 데이터시트(= \"US 18% Ni Maraging 300 · European 1.2709\" 명시 — 비열 450±20 J/kg°C · 열전도 as-built 15 / 시효 20 W/m°C) · Dörrenberg 1.2709 X3NiCoMoTi18-9-5 (선팽창 20~100°C 10.4×10⁻⁶/K) · DB 내 동일 합금 Maraging 300 (UNS K93120 / AMS 6514) 물성 정합"
     },
     "melting_point": {
-      "min": 1425,
-      "max": 1425,
-      "typical": 1425,
-      "n": 0,
-      "estimated": false,
+      "min": 1430,
+      "typical": 1430,
+      "max": 1430,
       "confidence": "handbook",
-      "provenance": "alloy:300m"
+      "provenance": "교정: EOS MaragingSteel MS1 데이터시트(= \"US 18% Ni Maraging 300 · European 1.2709\" 명시 — 비열 450±20 J/kg°C · 열전도 as-built 15 / 시효 20 W/m°C) · Dörrenberg 1.2709 X3NiCoMoTi18-9-5 (선팽창 20~100°C 10.4×10⁻⁶/K) · DB 내 동일 합금 Maraging 300 (UNS K93120 / AMS 6514) 물성 정합"
     },
     "price_per_kg": {
-      "min": 8,
-      "max": 8,
-      "typical": 8,
-      "n": 0,
-      "estimated": false,
+      "min": 65,
+      "typical": 65,
+      "max": 65,
       "confidence": "handbook",
-      "provenance": "alloy:300m"
+      "provenance": "교정: EOS MaragingSteel MS1 데이터시트(= \"US 18% Ni Maraging 300 · European 1.2709\" 명시 — 비열 450±20 J/kg°C · 열전도 as-built 15 / 시효 20 W/m°C) · Dörrenberg 1.2709 X3NiCoMoTi18-9-5 (선팽창 20~100°C 10.4×10⁻⁶/K) · DB 내 동일 합금 Maraging 300 (UNS K93120 / AMS 6514) 물성 정합"
     },
     "price_per_cm3": {
-      "min": 0.064,
-      "max": 0.064,
-      "typical": 0.064,
-      "n": 0,
-      "estimated": false,
+      "min": 0.52,
+      "typical": 0.52,
+      "max": 0.52,
       "confidence": "handbook",
-      "provenance": "alloy:300m"
+      "provenance": "교정: EOS MaragingSteel MS1 데이터시트(= \"US 18% Ni Maraging 300 · European 1.2709\" 명시 — 비열 450±20 J/kg°C · 열전도 as-built 15 / 시효 20 W/m°C) · Dörrenberg 1.2709 X3NiCoMoTi18-9-5 (선팽창 20~100°C 10.4×10⁻⁶/K) · DB 내 동일 합금 Maraging 300 (UNS K93120 / AMS 6514) 물성 정합"
     },
     "delivered_price_per_kg": {
       "min": 25,
@@ -231,192 +215,12 @@
   "points": [
     [
       8,
-      1000,
-      1230,
-      15,
-      180,
-      347,
-      14.2
-    ],
-    [
-      8,
-      1090,
-      1220,
-      12,
-      180,
-      347,
-      14.2
-    ],
-    [
-      8,
-      1000,
-      1250,
-      16,
-      180,
-      355,
-      14.2
-    ],
-    [
-      8,
-      1055,
-      1240,
-      13,
-      180,
-      355,
-      14.2
-    ],
-    [
-      8,
-      985,
-      1175,
-      15,
-      180,
-      358,
-      14.2
-    ],
-    [
-      8,
-      977,
-      1160,
-      12,
-      180,
-      358,
-      14.2
-    ],
-    [
-      8,
-      960,
-      1190,
-      15,
-      180,
-      339,
-      14.2
-    ],
-    [
-      8,
-      915,
-      1135,
-      12,
-      180,
-      339,
-      14.2
-    ],
-    [
-      8,
-      1080,
-      1230,
-      13,
-      180,
-      null,
-      14.2
-    ],
-    [
-      8,
-      1090,
-      1220,
-      13,
-      180,
-      null,
-      14.2
-    ],
-    [
-      8,
-      2030,
-      2100,
-      3,
-      180,
-      null,
-      14.2
-    ],
-    [
-      8,
-      2000,
-      2100,
-      2,
-      180,
-      null,
-      14.2
-    ],
-    [
-      8,
-      2040,
-      2120,
-      4,
-      180,
-      null,
-      14.2
-    ],
-    [
-      8,
-      1990,
-      2110,
-      3,
-      180,
-      null,
-      14.2
-    ],
-    [
-      8,
-      2030,
-      2100,
-      2,
-      180,
-      null,
-      14.2
-    ],
-    [
-      8,
-      2000,
-      2100,
-      2,
-      180,
-      null,
-      14.2
-    ],
-    [
-      8,
-      820,
-      1115,
-      15,
-      180,
-      null,
-      14.2
-    ],
-    [
-      8,
-      1095,
+      990,
       1180,
-      13.5,
+      13,
       180,
-      null,
-      14.2
-    ],
-    [
-      8,
-      610,
-      1015,
-      15,
-      180,
-      321,
-      14.2
-    ],
-    [
-      8,
-      660,
-      1015,
-      15,
-      180,
-      321,
-      14.2
-    ],
-    [
-      8,
-      800,
-      1015,
-      18,
-      180,
-      null,
-      14.2
+      347,
+      15
     ]
   ],
   "machinability": "Good",
@@ -442,7 +246,7 @@
   "elongation": 13,
   "modulus": 180,
   "hardness": 347,
-  "thermal_conductivity": 14.2,
+  "thermal_conductivity": 15,
   "impact_strength": 20,
   "manufacturer": "Nikon SLM Solutions, 3D Systems, EOS, GE Additive, Velo3D",
   "process": "LPBF",
@@ -462,14 +266,14 @@
     "Iron-based"
   ],
   "fatigue_estimated": false,
-  "electrical_conductivity": 6.2,
-  "max_service_temp": 425,
-  "thermal_expansion": 12,
-  "poisson_ratio": 0.29,
-  "specific_heat": 472,
-  "melting_point": 1425,
-  "price_per_kg": 8,
-  "price_per_cm3": 0.064,
+  "electrical_conductivity": 3,
+  "max_service_temp": 480,
+  "thermal_expansion": 10.4,
+  "poisson_ratio": 0.3,
+  "specific_heat": 450,
+  "melting_point": 1430,
+  "price_per_kg": 65,
+  "price_per_cm3": 0.52,
   "popularity": 3.5,
   "machining_cost_factor": 1.8,
   "ht_cost_factor": 1,
@@ -510,6 +314,325 @@
           "url": "https://www.renishaw.com/en/material-datasheet-maraging-steel-m300--17862",
           "verified": true
         }
+      ]
+    },
+    "price_per_cm3": {
+      "had_range": true,
+      "val_range": {
+        "min": 0.064,
+        "max": 0.064,
+        "typical": 0.064,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:300m"
+      },
+      "had_scalar": true,
+      "val_scalar": 0.064
+    },
+    "electrical_conductivity": {
+      "had_range": true,
+      "val_range": {
+        "min": 6.2,
+        "max": 6.2,
+        "typical": 6.2,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:300m"
+      },
+      "had_scalar": true,
+      "val_scalar": 6.2
+    },
+    "thermal_expansion": {
+      "had_range": true,
+      "val_range": {
+        "min": 12,
+        "max": 12,
+        "typical": 12,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:300m"
+      },
+      "had_scalar": true,
+      "val_scalar": 12
+    },
+    "poisson_ratio": {
+      "had_range": true,
+      "val_range": {
+        "min": 0.29,
+        "max": 0.29,
+        "typical": 0.29,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:300m"
+      },
+      "had_scalar": true,
+      "val_scalar": 0.29
+    },
+    "specific_heat": {
+      "had_range": true,
+      "val_range": {
+        "min": 472,
+        "max": 472,
+        "typical": 472,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:300m"
+      },
+      "had_scalar": true,
+      "val_scalar": 472
+    },
+    "melting_point": {
+      "had_range": true,
+      "val_range": {
+        "min": 1425,
+        "max": 1425,
+        "typical": 1425,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:300m"
+      },
+      "had_scalar": true,
+      "val_scalar": 1425
+    },
+    "max_service_temp": {
+      "had_range": true,
+      "val_range": {
+        "min": 425,
+        "max": 425,
+        "typical": 425,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:300m"
+      },
+      "had_scalar": true,
+      "val_scalar": 425
+    },
+    "price_per_kg": {
+      "had_range": true,
+      "val_range": {
+        "min": 8,
+        "max": 8,
+        "typical": 8,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:300m"
+      },
+      "had_scalar": true,
+      "val_scalar": 8
+    },
+    "thermal_conductivity": {
+      "had_range": true,
+      "val_range": {
+        "min": 14.2,
+        "max": 14.2,
+        "typical": 14.2,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 14.2
+    },
+    "_basis": "물성 7개(%IACS·상용온도·선팽창·푸아송·비열·융점·가격)를 **AISI 300M**(초고장력 저합금강)에서 통째로 상속했다. 이름 \"Maraging Steel (1.2709/MS1/M300/M789)\" 의 `M300/M789` 에서 `300` + `/` + `M` 이 합금 키 `300m` 에 **구분자를 건너뛰어** 매칭됐다. **가격 $8/kg 는 DB 의 정상 Maraging 300($65/kg) 대비 8배 과소** — 비용 기반 선정을 크게 왜곡한다. Wiedemann-Franz 검사(열전도 14.2 < 전자기여 하한 26)가 드러냈고, %IACS 3 으로 바로잡으면 하한 12.4 가 되어 해소된다. As-built — 열전도는 datasheet as-built 15.",
+    "_src": "EOS MaragingSteel MS1 데이터시트(= \"US 18% Ni Maraging 300 · European 1.2709\" 명시 — 비열 450±20 J/kg°C · 열전도 as-built 15 / 시효 20 W/m°C) · Dörrenberg 1.2709 X3NiCoMoTi18-9-5 (선팽창 20~100°C 10.4×10⁻⁶/K) · DB 내 동일 합금 Maraging 300 (UNS K93120 / AMS 6514) 물성 정합",
+    "points": {
+      "from": [
+        [
+          8,
+          1000,
+          1230,
+          15,
+          180,
+          347,
+          14.2
+        ],
+        [
+          8,
+          1090,
+          1220,
+          12,
+          180,
+          347,
+          14.2
+        ],
+        [
+          8,
+          1000,
+          1250,
+          16,
+          180,
+          355,
+          14.2
+        ],
+        [
+          8,
+          1055,
+          1240,
+          13,
+          180,
+          355,
+          14.2
+        ],
+        [
+          8,
+          985,
+          1175,
+          15,
+          180,
+          358,
+          14.2
+        ],
+        [
+          8,
+          977,
+          1160,
+          12,
+          180,
+          358,
+          14.2
+        ],
+        [
+          8,
+          960,
+          1190,
+          15,
+          180,
+          339,
+          14.2
+        ],
+        [
+          8,
+          915,
+          1135,
+          12,
+          180,
+          339,
+          14.2
+        ],
+        [
+          8,
+          1080,
+          1230,
+          13,
+          180,
+          null,
+          14.2
+        ],
+        [
+          8,
+          1090,
+          1220,
+          13,
+          180,
+          null,
+          14.2
+        ],
+        [
+          8,
+          2030,
+          2100,
+          3,
+          180,
+          null,
+          14.2
+        ],
+        [
+          8,
+          2000,
+          2100,
+          2,
+          180,
+          null,
+          14.2
+        ],
+        [
+          8,
+          2040,
+          2120,
+          4,
+          180,
+          null,
+          14.2
+        ],
+        [
+          8,
+          1990,
+          2110,
+          3,
+          180,
+          null,
+          14.2
+        ],
+        [
+          8,
+          2030,
+          2100,
+          2,
+          180,
+          null,
+          14.2
+        ],
+        [
+          8,
+          2000,
+          2100,
+          2,
+          180,
+          null,
+          14.2
+        ],
+        [
+          8,
+          820,
+          1115,
+          15,
+          180,
+          null,
+          14.2
+        ],
+        [
+          8,
+          1095,
+          1180,
+          13.5,
+          180,
+          null,
+          14.2
+        ],
+        [
+          8,
+          610,
+          1015,
+          15,
+          180,
+          321,
+          14.2
+        ],
+        [
+          8,
+          660,
+          1015,
+          15,
+          180,
+          321,
+          14.2
+        ],
+        [
+          8,
+          800,
+          1015,
+          18,
+          180,
+          null,
+          14.2
+        ]
       ]
     }
   }

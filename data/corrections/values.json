@@ -8,7 +8,74 @@
  },
  "_note": "값 교정 (stable_id 키). ranges: 물성 교정(basis·src 필수) — build-registry 4c 적용, 원본은 entry _corrections 보존. fields: 필드 단위 교정.",
  "ranges": {
+  "MET-0953": {
+   "price_per_cm3": 0.52,
+   "electrical_conductivity": 3,
+   "thermal_expansion": 10.4,
+   "poisson_ratio": 0.3,
+   "specific_heat": 450,
+   "melting_point": 1430,
+   "max_service_temp": 480,
+   "price_per_kg": 65,
+   "thermal_conductivity": 15,
+   "basis": "물성 7개(%IACS·상용온도·선팽창·푸아송·비열·융점·가격)를 **AISI 300M**(초고장력 저합금강)에서 통째로 상속했다. 이름 \"Maraging Steel (1.2709/MS1/M300/M789)\" 의 `M300/M789` 에서 `300` + `/` + `M` 이 합금 키 `300m` 에 **구분자를 건너뛰어** 매칭됐다. **가격 $8/kg 는 DB 의 정상 Maraging 300($65/kg) 대비 8배 과소** — 비용 기반 선정을 크게 왜곡한다. Wiedemann-Franz 검사(열전도 14.2 < 전자기여 하한 26)가 드러냈고, %IACS 3 으로 바로잡으면 하한 12.4 가 되어 해소된다. As-built — 열전도는 datasheet as-built 15.",
+   "src": "EOS MaragingSteel MS1 데이터시트(= \"US 18% Ni Maraging 300 · European 1.2709\" 명시 — 비열 450±20 J/kg°C · 열전도 as-built 15 / 시효 20 W/m°C) · Dörrenberg 1.2709 X3NiCoMoTi18-9-5 (선팽창 20~100°C 10.4×10⁻⁶/K) · DB 내 동일 합금 Maraging 300 (UNS K93120 / AMS 6514) 물성 정합"
+  },
+  "MET-0955": {
+   "price_per_cm3": 0.52,
+   "electrical_conductivity": 3,
+   "thermal_expansion": 10.4,
+   "poisson_ratio": 0.3,
+   "specific_heat": 450,
+   "melting_point": 1430,
+   "max_service_temp": 480,
+   "price_per_kg": 65,
+   "thermal_conductivity": 20,
+   "basis": "물성 7개(%IACS·상용온도·선팽창·푸아송·비열·융점·가격)를 **AISI 300M**(초고장력 저합금강)에서 통째로 상속했다. 이름 \"Maraging Steel (1.2709/MS1/M300/M789)\" 의 `M300/M789` 에서 `300` + `/` + `M` 이 합금 키 `300m` 에 **구분자를 건너뛰어** 매칭됐다. **가격 $8/kg 는 DB 의 정상 Maraging 300($65/kg) 대비 8배 과소** — 비용 기반 선정을 크게 왜곡한다. Wiedemann-Franz 검사(열전도 14.2 < 전자기여 하한 26)가 드러냈고, %IACS 3 으로 바로잡으면 하한 12.4 가 되어 해소된다. 용체화+시효 — 열전도 age-hardened 20.",
+   "src": "EOS MaragingSteel MS1 데이터시트(= \"US 18% Ni Maraging 300 · European 1.2709\" 명시 — 비열 450±20 J/kg°C · 열전도 as-built 15 / 시효 20 W/m°C) · Dörrenberg 1.2709 X3NiCoMoTi18-9-5 (선팽창 20~100°C 10.4×10⁻⁶/K) · DB 내 동일 합금 Maraging 300 (UNS K93120 / AMS 6514) 물성 정합"
+  },
+  "MET-0255": {
+   "yield_strength": 341,
+   "uts": 464,
+   "elongation": 31.2,
+   "hardness": 126,
+   "basis": "AISI 1030 소둔 — 4개 값 전부 저평가(228.8/334.4/26.04/96.8). generic CSV 합성 조건값.",
+   "src": "AISI 1030 소둔 표준표 — 항복 49500 psi · 인장 67250 psi · 연신율 31.2% · 경도 126 HB (tubingchina AISI Steel Mechanical Characteristics, ASM 계열 소둔 표). MPa 환산 ×0.00689476"
+  },
+  "MET-0266": {
+   "yield_strength": 365,
+   "uts": 636,
+   "elongation": 23.7,
+   "hardness": 187,
+   "basis": "AISI 1050 소둔 — 전부 저평가(321.2/550/13.95/167.2). 연신율이 실제의 59% 였다.",
+   "src": "AISI 1050 소둔 표준표 — 항복 53000 psi · 인장 92250 psi · 연신율 23.7% · 경도 187 HB (tubingchina AISI Steel Mechanical Characteristics, ASM 계열 소둔 표). MPa 환산 ×0.00689476"
+  },
+  "MET-0271": {
+   "yield_strength": 376,
+   "uts": 615,
+   "elongation": 24.7,
+   "hardness": 174,
+   "basis": "AISI 1080 \"소둔\" 이 실제로는 소둔이 아니었다 — 강도가 소둔 기준보다 **높고**(497.2 vs 376 · 677.6 vs 615) 연신율은 **낮았다**(9.3 vs 24.7). 노멀라이즈드~압연 값에 소둔 라벨이 붙은 셈. 고탄소강 완전소둔은 구상화로 무르고 늘어난다.",
+   "src": "AISI 1080 소둔 표준표 — 항복 54500 psi · 인장 89250 psi · 연신율 24.7% · 경도 174 HB (tubingchina AISI Steel Mechanical Characteristics, ASM 계열 소둔 표). MPa 환산 ×0.00689476"
+  },
+  "MET-0276": {
+   "yield_strength": 380,
+   "uts": 657,
+   "elongation": 13,
+   "hardness": 192,
+   "basis": "AISI 1095 \"소둔\" 도 MET-0271 과 같은 양상 — 강도 과대(545.6 vs 379)·연신율 과소(7.44 vs 13.0).",
+   "src": "AISI 1095 소둔 표준표 — 항복 55000 psi · 인장 95250 psi · 연신율 13% · 경도 192 HB (tubingchina AISI Steel Mechanical Characteristics, ASM 계열 소둔 표). MPa 환산 ×0.00689476"
+  },
   "MET-0952": {
+   "price_per_cm3": 0.52,
+   "electrical_conductivity": 3,
+   "thermal_expansion": 10.4,
+   "poisson_ratio": 0.3,
+   "specific_heat": 450,
+   "melting_point": 1430,
+   "max_service_temp": 480,
+   "price_per_kg": 65,
+   "thermal_conductivity": 20,
    "hardness": 577,
    "basis": "마레이징강(18Ni300/1.2709) Aged 의 경도 321 이 **시효 전 경도**였다. 같은 합금 As-built(MET-0953, UTS 1180)가 347 로 더 높아 — 시효재가 미시효재보다 무른 역전. 시효 후 54 HRC.",
    "src": "Sandvik Osprey 18Ni300 datasheet (시효 후 최대 54 HRC) · ISO 18265 환산 54 HRC ≈ 577 HV"
@@ -29,6 +96,15 @@
    "src": "ASTM A666 Type 301 소둔(경도 최대 92 HRB) · ISO 18265 경도-인장 환산 (530 MPa ↔ 약 160 HB)"
   },
   "MET-0954": {
+   "price_per_cm3": 0.52,
+   "electrical_conductivity": 3,
+   "thermal_expansion": 10.4,
+   "poisson_ratio": 0.3,
+   "specific_heat": 450,
+   "melting_point": 1430,
+   "max_service_temp": 480,
+   "price_per_kg": 65,
+   "thermal_conductivity": 20,
    "hardness": 577,
    "basis": "마레이징강 Heat-Treated(시효 완료) 의 경도 358 도 MET-0952 와 같은 미시효 경도였다 — UTS 1875 에 경도 358 이면 비 5.2 (DB 강재 중앙값 3.28).",
    "src": "Sandvik Osprey 18Ni300 datasheet (시효 후 최대 54 HRC) · ISO 18265 환산 54 HRC ≈ 577 HV"
@@ -223,6 +299,8 @@
    "src": "Ansys Granta MI — Carbon steel AISI 1015 annealed (사용자 제공 R226l) · ASM Vol.1 1015 annealed (σy 284/UTS 386/El 37)"
   },
   "MET-0245": {
+   "elongation": 36.5,
+   "hardness": 111,
    "yield_strength": 295,
    "uts": 395,
    "basis": "AISI 1020 annealed — DB 350/510 은 annealed 대역(265~325/355~435) 초과 — cold-drawn 값 혼입 오염. ASM annealed typical 로 교정",

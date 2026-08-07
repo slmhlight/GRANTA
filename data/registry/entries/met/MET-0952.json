@@ -86,11 +86,11 @@
       "provenance": "교정: Sandvik Osprey 18Ni300 datasheet (시효 후 최대 54 HRC) · ISO 18265 환산 54 HRC ≈ 577 HV"
     },
     "thermal_conductivity": {
-      "min": 14.2,
-      "max": 14.2,
-      "typical": 14.2,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 20,
+      "typical": 20,
+      "max": 20,
+      "confidence": "handbook",
+      "provenance": "교정: Sandvik Osprey 18Ni300 datasheet (시효 후 최대 54 HRC) · ISO 18265 환산 54 HRC ≈ 577 HV"
     },
     "fatigue_strength": {
       "min": 600,
@@ -118,76 +118,60 @@
       "provenance": "alloy-specific KIC"
     },
     "electrical_conductivity": {
-      "min": 6.2,
-      "max": 6.2,
-      "typical": 6.2,
-      "n": 0,
-      "estimated": false,
+      "min": 3,
+      "typical": 3,
+      "max": 3,
       "confidence": "handbook",
-      "provenance": "alloy:300m"
+      "provenance": "교정: Sandvik Osprey 18Ni300 datasheet (시효 후 최대 54 HRC) · ISO 18265 환산 54 HRC ≈ 577 HV"
     },
     "max_service_temp": {
-      "min": 425,
-      "max": 425,
-      "typical": 425,
-      "n": 0,
-      "estimated": false,
+      "min": 480,
+      "typical": 480,
+      "max": 480,
       "confidence": "handbook",
-      "provenance": "alloy:300m"
+      "provenance": "교정: Sandvik Osprey 18Ni300 datasheet (시효 후 최대 54 HRC) · ISO 18265 환산 54 HRC ≈ 577 HV"
     },
     "thermal_expansion": {
-      "min": 12,
-      "max": 12,
-      "typical": 12,
-      "n": 0,
-      "estimated": false,
+      "min": 10.4,
+      "typical": 10.4,
+      "max": 10.4,
       "confidence": "handbook",
-      "provenance": "alloy:300m"
+      "provenance": "교정: Sandvik Osprey 18Ni300 datasheet (시효 후 최대 54 HRC) · ISO 18265 환산 54 HRC ≈ 577 HV"
     },
     "poisson_ratio": {
-      "min": 0.29,
-      "max": 0.29,
-      "typical": 0.29,
-      "n": 0,
-      "estimated": false,
+      "min": 0.3,
+      "typical": 0.3,
+      "max": 0.3,
       "confidence": "handbook",
-      "provenance": "alloy:300m"
+      "provenance": "교정: Sandvik Osprey 18Ni300 datasheet (시효 후 최대 54 HRC) · ISO 18265 환산 54 HRC ≈ 577 HV"
     },
     "specific_heat": {
-      "min": 472,
-      "max": 472,
-      "typical": 472,
-      "n": 0,
-      "estimated": false,
+      "min": 450,
+      "typical": 450,
+      "max": 450,
       "confidence": "handbook",
-      "provenance": "alloy:300m"
+      "provenance": "교정: Sandvik Osprey 18Ni300 datasheet (시효 후 최대 54 HRC) · ISO 18265 환산 54 HRC ≈ 577 HV"
     },
     "melting_point": {
-      "min": 1425,
-      "max": 1425,
-      "typical": 1425,
-      "n": 0,
-      "estimated": false,
+      "min": 1430,
+      "typical": 1430,
+      "max": 1430,
       "confidence": "handbook",
-      "provenance": "alloy:300m"
+      "provenance": "교정: Sandvik Osprey 18Ni300 datasheet (시효 후 최대 54 HRC) · ISO 18265 환산 54 HRC ≈ 577 HV"
     },
     "price_per_kg": {
-      "min": 8,
-      "max": 8,
-      "typical": 8,
-      "n": 0,
-      "estimated": false,
+      "min": 65,
+      "typical": 65,
+      "max": 65,
       "confidence": "handbook",
-      "provenance": "alloy:300m"
+      "provenance": "교정: Sandvik Osprey 18Ni300 datasheet (시효 후 최대 54 HRC) · ISO 18265 환산 54 HRC ≈ 577 HV"
     },
     "price_per_cm3": {
-      "min": 0.064,
-      "max": 0.064,
-      "typical": 0.064,
-      "n": 0,
-      "estimated": false,
+      "min": 0.52,
+      "typical": 0.52,
+      "max": 0.52,
       "confidence": "handbook",
-      "provenance": "alloy:300m"
+      "provenance": "교정: Sandvik Osprey 18Ni300 datasheet (시효 후 최대 54 HRC) · ISO 18265 환산 54 HRC ≈ 577 HV"
     },
     "delivered_price_per_kg": {
       "min": 25,
@@ -236,7 +220,7 @@
       12,
       180,
       577,
-      14.2
+      20
     ]
   ],
   "machinability": "Good",
@@ -262,7 +246,7 @@
   "elongation": 12,
   "modulus": 180,
   "hardness": 577,
-  "thermal_conductivity": 14.2,
+  "thermal_conductivity": 20,
   "impact_strength": 20,
   "manufacturer": "Nikon SLM Solutions, 3D Systems, EOS, GE Additive, Velo3D",
   "process": "LPBF",
@@ -300,14 +284,14 @@
     }
   ],
   "elevated_temp_src": "핸드북 typical — 개별 인용 미기재",
-  "electrical_conductivity": 6.2,
-  "max_service_temp": 425,
-  "thermal_expansion": 12,
-  "poisson_ratio": 0.29,
-  "specific_heat": 472,
-  "melting_point": 1425,
-  "price_per_kg": 8,
-  "price_per_cm3": 0.064,
+  "electrical_conductivity": 3,
+  "max_service_temp": 480,
+  "thermal_expansion": 10.4,
+  "poisson_ratio": 0.3,
+  "specific_heat": 450,
+  "melting_point": 1430,
+  "price_per_kg": 65,
+  "price_per_cm3": 0.52,
   "popularity": 3.5,
   "machining_cost_factor": 1.8,
   "ht_cost_factor": 1.35,
@@ -349,6 +333,130 @@
           "verified": true
         }
       ]
+    },
+    "price_per_cm3": {
+      "had_range": true,
+      "val_range": {
+        "min": 0.064,
+        "max": 0.064,
+        "typical": 0.064,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:300m"
+      },
+      "had_scalar": true,
+      "val_scalar": 0.064
+    },
+    "electrical_conductivity": {
+      "had_range": true,
+      "val_range": {
+        "min": 6.2,
+        "max": 6.2,
+        "typical": 6.2,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:300m"
+      },
+      "had_scalar": true,
+      "val_scalar": 6.2
+    },
+    "thermal_expansion": {
+      "had_range": true,
+      "val_range": {
+        "min": 12,
+        "max": 12,
+        "typical": 12,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:300m"
+      },
+      "had_scalar": true,
+      "val_scalar": 12
+    },
+    "poisson_ratio": {
+      "had_range": true,
+      "val_range": {
+        "min": 0.29,
+        "max": 0.29,
+        "typical": 0.29,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:300m"
+      },
+      "had_scalar": true,
+      "val_scalar": 0.29
+    },
+    "specific_heat": {
+      "had_range": true,
+      "val_range": {
+        "min": 472,
+        "max": 472,
+        "typical": 472,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:300m"
+      },
+      "had_scalar": true,
+      "val_scalar": 472
+    },
+    "melting_point": {
+      "had_range": true,
+      "val_range": {
+        "min": 1425,
+        "max": 1425,
+        "typical": 1425,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:300m"
+      },
+      "had_scalar": true,
+      "val_scalar": 1425
+    },
+    "max_service_temp": {
+      "had_range": true,
+      "val_range": {
+        "min": 425,
+        "max": 425,
+        "typical": 425,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:300m"
+      },
+      "had_scalar": true,
+      "val_scalar": 425
+    },
+    "price_per_kg": {
+      "had_range": true,
+      "val_range": {
+        "min": 8,
+        "max": 8,
+        "typical": 8,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:300m"
+      },
+      "had_scalar": true,
+      "val_scalar": 8
+    },
+    "thermal_conductivity": {
+      "had_range": true,
+      "val_range": {
+        "min": 14.2,
+        "max": 14.2,
+        "typical": 14.2,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 14.2
     },
     "hardness": {
       "had_range": true,
