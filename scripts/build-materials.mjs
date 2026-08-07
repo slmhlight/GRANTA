@@ -1244,7 +1244,20 @@ function alloySpecificPhysicals(name) {
 function assignPhysicals(m) {
   const fam = m.families || [];
   const sub = String(m.subcategory || '').toLowerCase();
-  const nm = String(m.name || '').toLowerCase();
+  /* A11 — 계열 판정에서 조건 문자열을 배제 (em-dash 앞 base name 만).
+     계열 물성(융점·CTE·비열·푸아송)은 합금의 성질이지 열처리 조건의 성질이 아니다.
+     이름 전체를 보면 열처리 용어가 계열 정규식에 매칭된다:
+       '22MnB5 (USIBOR 1500) — Austenitized + H2O quenched' → /austenit/ →
+       오스테나이트계 스테인리스 typical(tmax 870·melt 1450·cte 17.0·부식 Excellent) 상속.
+       'SA508 Grade 3 — Q+T (austenitized 880°C)' 도 같은 경로로 원자로 압력용기강이 870°C.
+     합금별 표(alloySpecificPhysicals)는 R199c 에서 이미 base name 으로 고쳤는데
+     계열 표에는 그 수정이 적용되지 않아 남아 있었다. */
+  /* A11 — 규격 '문서번호'는 합금번호가 아니다. KS D 3701 / JIS G 4801 의 4801 이
+     `\b4[0-9]{3}\b`(AISI 4xxx Cr-Mo강) 에 매칭돼 SUP9 스프링강이 Cr-Mo 물성을 받았다.
+     KS/JIS 는 '문서번호 + 별도 grade(SUP9·SK85)' 체계라 문서번호를 지워도 grade 는 남는다.
+     ASTM A36·AMS 6308 처럼 번호 자체가 grade 인 규격은 건드리지 않는다. */
+  const nm = String(m.name || '').split(/\s+[—–]\s+/)[0]
+    .replace(/\b(?:KS\s*[A-Z]|JIS\s*[A-Z])\s*\d{4}\b/gi, ' ').toLowerCase();
   const has = (re) => re.test(nm) || re.test(sub);
   if (m.category === 'Polymer') {
     const tmax = has(/peek/) ? 250 : has(/ultem|pei/) ? 170 : has(/pes/) ? 180 : has(/nylon|pa1[12]|pa6|pa2|polyamide/) ? 110
@@ -1347,7 +1360,10 @@ function assignPhysicals(m) {
     if (has(/maraging|18ni|c300|c250|c350|m300/) || sub.includes('maraging')) return { ec: 3, tmax: 400, price: 15, cte: 10.3, poisson: 0.30, cp: 450, melt: 1430, level: '3rd_family', qual: { corrosion: 'Moderate', machinability: 'Good', weldability: 'Excellent' } };
     if (sub.includes('tool') || has(/\bh13\b|\bd2\b|\bm[24]\b|\bp20\b|\bs7\b|\ba2\b|\bo1\b|cpm|skh|skd|stavax/)) return { ec: 5, tmax: 550, price: 6, cte: 11.5, poisson: 0.29, cp: 460, melt: 1430, level: '3rd_family', qual: { corrosion: 'Poor', machinability: 'Fair', weldability: 'Poor' } };
     if (has(/\b4[0-9]{3}\b|cr.?mo|chromoly|42crmo|34crmo|aisi.?4[0-9]{3}|sae.?4[0-9]{3}|scm[0-9]+|low.?alloy.?steel/)) return { ec: 7, tmax: 425, price: 3, cte: 12.3, poisson: 0.29, cp: 475, melt: 1428, level: '3rd_family', qual: { corrosion: 'Poor', machinability: 'Good', weldability: 'Good' } };
-    if (has(/\b8[6-7]\d{2}\b|\b93\d{2}\b|ni.?cr.?mo.?steel|carburiz/)) return { ec: 7, tmax: 425, price: 3.5, cte: 11.9, poisson: 0.29, cp: 477, melt: 1427, level: '3rd_family', qual: { corrosion: 'Poor', machinability: 'Good', weldability: 'Good' } };
+    /* A11 — 침탄강 판정을 조건어('Carburized')가 아니라 합금 자체(이름의 'case-hardening'·
+       subcategory)로 한다. 이전엔 조건 문자열의 'Carburized' 가 이 분기를 물어서, 같은 합금인데
+       Normalized 는 일반강(450°C)·Carburized 는 침탄강(425°C) 으로 갈렸다 — 조건이 계열을 바꿨다. */
+    if (has(/\b8[6-7]\d{2}\b|\b93\d{2}\b|ni.?cr.?mo.?steel|case.?harden/) || sub.includes('case hardening')) return { ec: 7, tmax: 425, price: 3.5, cte: 11.9, poisson: 0.29, cp: 477, melt: 1427, level: '3rd_family', qual: { corrosion: 'Poor', machinability: 'Good', weldability: 'Good' } };
     if (has(/\b10[1-5]\d\b|s[1-5][05]c|aisi.?10\d{2}|sae.?10\d{2}|carbon.?steel/) && !has(/sintered/)) return { ec: 14, tmax: 540, price: 1.2, cte: 11.5, poisson: 0.29, cp: 486, melt: 1500, level: '3rd_family', qual: { corrosion: 'Poor', machinability: 'Excellent', weldability: 'Excellent' } };
     if (has(/\b10[6-9]\d\b|\b1095\b|high.?carbon|sk[0-9]+|tool.?carbon/)) return { ec: 12, tmax: 540, price: 1.5, cte: 11.4, poisson: 0.29, cp: 486, melt: 1480, level: '3rd_family', qual: { corrosion: 'Poor', machinability: 'Fair', weldability: 'Fair' } };
     if (has(/spring.?steel|sup[0-9]+|sae.?51[0-9]{2}|sae.?6[0-1]\d{2}|5160|9260|6150/)) return { ec: 7.5, tmax: 480, price: 3, cte: 12.0, poisson: 0.29, cp: 477, melt: 1430, level: '3rd_family', qual: { corrosion: 'Poor', machinability: 'Fair', weldability: 'Fair' } };

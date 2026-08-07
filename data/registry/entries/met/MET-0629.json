@@ -100,81 +100,81 @@
       "provenance": "class:ASME SA-516 pressure vessel"
     },
     "electrical_conductivity": {
-      "min": 2.04,
-      "max": 2.76,
-      "typical": 2.4,
+      "min": 5.6,
+      "max": 10.4,
+      "typical": 8,
       "n": 0,
       "estimated": true,
-      "confidence": "subfamily",
-      "provenance": "3rd_family:Pressure Vessel Steel"
+      "confidence": "family",
+      "provenance": "2nd_family:Pressure Vessel Steel"
     },
     "max_service_temp": {
-      "min": 739.5,
-      "max": 1000.5,
-      "typical": 870,
+      "min": 315,
+      "max": 585,
+      "typical": 450,
       "n": 0,
       "estimated": true,
-      "confidence": "subfamily",
-      "provenance": "3rd_family:Pressure Vessel Steel"
+      "confidence": "family",
+      "provenance": "2nd_family:Pressure Vessel Steel"
     },
     "thermal_expansion": {
-      "min": 14.45,
-      "max": 19.55,
-      "typical": 17,
+      "min": 8.4,
+      "max": 15.6,
+      "typical": 12,
       "n": 0,
       "estimated": true,
-      "confidence": "subfamily",
-      "provenance": "3rd_family:Pressure Vessel Steel"
+      "confidence": "family",
+      "provenance": "2nd_family:Pressure Vessel Steel"
     },
     "poisson_ratio": {
-      "min": 0.255,
-      "max": 0.345,
-      "typical": 0.3,
+      "min": 0.203,
+      "max": 0.377,
+      "typical": 0.29,
       "n": 0,
       "estimated": true,
-      "confidence": "subfamily",
-      "provenance": "3rd_family:Pressure Vessel Steel"
+      "confidence": "family",
+      "provenance": "2nd_family:Pressure Vessel Steel"
     },
     "specific_heat": {
-      "min": 425,
-      "max": 575,
-      "typical": 500,
+      "min": 332.5,
+      "max": 617.5,
+      "typical": 475,
       "n": 0,
       "estimated": true,
-      "confidence": "subfamily",
-      "provenance": "3rd_family:Pressure Vessel Steel"
+      "confidence": "family",
+      "provenance": "2nd_family:Pressure Vessel Steel"
     },
     "melting_point": {
-      "min": 1232.5,
-      "max": 1667.5,
-      "typical": 1450,
+      "min": 1043,
+      "max": 1937,
+      "typical": 1490,
       "n": 0,
       "estimated": true,
-      "confidence": "subfamily",
-      "provenance": "3rd_family:Pressure Vessel Steel"
+      "confidence": "family",
+      "provenance": "2nd_family:Pressure Vessel Steel"
     },
     "price_per_kg": {
-      "min": 4.675,
-      "max": 6.325,
-      "typical": 5.5,
+      "min": 1.4,
+      "max": 2.6,
+      "typical": 2,
       "n": 0,
       "estimated": true,
-      "confidence": "subfamily",
-      "provenance": "3rd_family:Pressure Vessel Steel"
+      "confidence": "family",
+      "provenance": "2nd_family:Pressure Vessel Steel"
     },
     "price_per_cm3": {
-      "min": 0.0367,
-      "max": 0.0497,
-      "typical": 0.0432,
+      "min": 0.011,
+      "max": 0.0204,
+      "typical": 0.0157,
       "n": 0,
       "estimated": true,
-      "confidence": "subfamily",
-      "provenance": "3rd_family:Pressure Vessel Steel"
+      "confidence": "family",
+      "provenance": "2nd_family:Pressure Vessel Steel"
     },
     "delivered_price_per_kg": {
-      "min": 7.78,
-      "max": 7.78,
-      "typical": 7.78,
+      "min": 2.83,
+      "max": 2.83,
+      "typical": 2.83,
       "n": 0,
       "estimated": true,
       "confidence": "derived"
@@ -223,7 +223,7 @@
       41
     ]
   ],
-  "machinability": "Fair",
+  "machinability": "Good",
   "weldability": "Good",
   "corrosion_resistance": "Poor",
   "industry_note": "PWR reactor pressure vessel forgings (head, shell, nozzle), steam generator channel head; ASME Sec III NB; KEPIC-MN; tracks ΔRTNDT for embrittlement.",
@@ -257,22 +257,22 @@
     "Iron-based"
   ],
   "fatigue_estimated": true,
-  "electrical_conductivity": 2.4,
-  "max_service_temp": 870,
-  "thermal_expansion": 17,
-  "poisson_ratio": 0.3,
-  "specific_heat": 500,
-  "melting_point": 1450,
-  "price_per_kg": 5.5,
-  "price_per_cm3": 0.0432,
+  "electrical_conductivity": 8,
+  "max_service_temp": 450,
+  "thermal_expansion": 12,
+  "poisson_ratio": 0.29,
+  "specific_heat": 475,
+  "melting_point": 1490,
+  "price_per_kg": 2,
+  "price_per_cm3": 0.0157,
   "popularity": 1.57,
-  "machining_cost_factor": 1,
+  "machining_cost_factor": 0.9,
   "ht_cost_factor": 1.4,
   "price_condition_factor": 1.23,
   "price_form_factor": 1.15,
   "price_grade_premium": 1,
-  "delivered_price_per_kg": 7.78,
-  "total_cost_estimate": 7.78,
+  "delivered_price_per_kg": 2.83,
+  "total_cost_estimate": 2.55,
   "tolerance_class": "IT12-14",
   "rohs_compliant": true,
   "confidence_tier": "high"
