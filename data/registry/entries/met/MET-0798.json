@@ -60,11 +60,11 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 245,
-      "max": 285,
-      "typical": 260,
-      "n": 4,
-      "confidence": "handbook"
+      "min": 580,
+      "typical": 580,
+      "max": 580,
+      "confidence": "handbook",
+      "provenance": "교정: CarTech 440C datasheet (UTS max 1970)"
     },
     "thermal_conductivity": {
       "min": 25,
@@ -221,7 +221,7 @@
       1970,
       2,
       210,
-      260,
+      580,
       25
     ]
   ],
@@ -257,7 +257,7 @@
   "uts": 1970,
   "elongation": 2,
   "modulus": 210,
-  "hardness": 260,
+  "hardness": 580,
   "thermal_conductivity": 25,
   "impact_strength": 8,
   "manufacturer": "Generic",
@@ -329,6 +329,18 @@
           "verified": true
         }
       ]
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 245,
+        "max": 285,
+        "typical": 260,
+        "n": 4,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 260
     },
     "yield_strength": {
       "had_range": true,

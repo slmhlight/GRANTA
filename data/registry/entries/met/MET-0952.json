@@ -79,11 +79,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 321,
-      "max": 321,
-      "typical": 321,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 577,
+      "typical": 577,
+      "max": 577,
+      "confidence": "handbook",
+      "provenance": "교정: Sandvik Osprey 18Ni300 datasheet (시효 후 최대 54 HRC) · ISO 18265 환산 54 HRC ≈ 577 HV"
     },
     "thermal_conductivity": {
       "min": 14.2,
@@ -231,74 +231,11 @@
   "points": [
     [
       8,
-      610,
-      1015,
-      15,
-      180,
-      321,
-      14.2
-    ],
-    [
-      8,
-      660,
-      1015,
-      15,
-      180,
-      321,
-      14.2
-    ],
-    [
-      8,
-      1730,
-      1880,
-      12,
-      180,
-      null,
-      14.2
-    ],
-    [
-      8,
       1690,
       1830,
-      9,
-      180,
-      null,
-      14.2
-    ],
-    [
-      8,
-      1730,
-      1880,
       12,
       180,
-      null,
-      14.2
-    ],
-    [
-      8,
-      1690,
-      1830,
-      9,
-      180,
-      null,
-      14.2
-    ],
-    [
-      8,
-      610,
-      1015,
-      15,
-      180,
-      321,
-      14.2
-    ],
-    [
-      8,
-      660,
-      1015,
-      15,
-      180,
-      321,
+      577,
       14.2
     ]
   ],
@@ -324,7 +261,7 @@
   "uts": 1830,
   "elongation": 12,
   "modulus": 180,
-  "hardness": 321,
+  "hardness": 577,
   "thermal_conductivity": 14.2,
   "impact_strength": 20,
   "manufacturer": "Nikon SLM Solutions, 3D Systems, EOS, GE Additive, Velo3D",
@@ -411,6 +348,96 @@
           "url": "https://www.renishaw.com/en/material-datasheet-maraging-steel-m300--17862",
           "verified": true
         }
+      ]
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 321,
+        "max": 321,
+        "typical": 321,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 321
+    },
+    "_basis": "마레이징강(18Ni300/1.2709) Aged 의 경도 321 이 **시효 전 경도**였다. 같은 합금 As-built(MET-0953, UTS 1180)가 347 로 더 높아 — 시효재가 미시효재보다 무른 역전. 시효 후 54 HRC.",
+    "_src": "Sandvik Osprey 18Ni300 datasheet (시효 후 최대 54 HRC) · ISO 18265 환산 54 HRC ≈ 577 HV",
+    "points": {
+      "from": [
+        [
+          8,
+          610,
+          1015,
+          15,
+          180,
+          321,
+          14.2
+        ],
+        [
+          8,
+          660,
+          1015,
+          15,
+          180,
+          321,
+          14.2
+        ],
+        [
+          8,
+          1730,
+          1880,
+          12,
+          180,
+          null,
+          14.2
+        ],
+        [
+          8,
+          1690,
+          1830,
+          9,
+          180,
+          null,
+          14.2
+        ],
+        [
+          8,
+          1730,
+          1880,
+          12,
+          180,
+          null,
+          14.2
+        ],
+        [
+          8,
+          1690,
+          1830,
+          9,
+          180,
+          null,
+          14.2
+        ],
+        [
+          8,
+          610,
+          1015,
+          15,
+          180,
+          321,
+          14.2
+        ],
+        [
+          8,
+          660,
+          1015,
+          15,
+          180,
+          321,
+          14.2
+        ]
       ]
     }
   }

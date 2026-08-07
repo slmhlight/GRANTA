@@ -8,6 +8,44 @@
  },
  "_note": "값 교정 (stable_id 키). ranges: 물성 교정(basis·src 필수) — build-registry 4c 적용, 원본은 entry _corrections 보존. fields: 필드 단위 교정.",
  "ranges": {
+  "MET-0952": {
+   "hardness": 577,
+   "basis": "마레이징강(18Ni300/1.2709) Aged 의 경도 321 이 **시효 전 경도**였다. 같은 합금 As-built(MET-0953, UTS 1180)가 347 로 더 높아 — 시효재가 미시효재보다 무른 역전. 시효 후 54 HRC.",
+   "src": "Sandvik Osprey 18Ni300 datasheet (시효 후 최대 54 HRC) · ISO 18265 환산 54 HRC ≈ 577 HV"
+  },
+  "MET-0050": {
+   "hardness": 500,
+   "basis": "AISI 6150 Q+T 의 경도 313 이 UTS 1700 MPa 와 맞지 않았다(비 5.4 — DB 강재 418건 중앙값 3.28·p95 3.70). 같은 합금 Normalized(MET-1003)가 UTS 943/경도 276 이라, Q+T 는 UTS 1.8배인데 경도는 1.13배뿐. 소둔값(MET-0047 UTS 670/경도 200)은 출처(667 MPa/197 HB)와 일치해 정상 — Q+T 경도만 조건 미반영.",
+   "src": "ISO 18265 금속 경도 환산 — 인장 1700 MPa ↔ 약 500 HV · SteelPRO AISI 6150 (소둔 667 MPa / 197 HB, DB 소둔값 정합 확인)"
+  },
+  "MET-0666": {
+   "melting_point": 1465,
+   "basis": "Tungsten Heavy Alloy(W-Ni-Fe 액상소결 복합재) 융점이 3410°C(순수 텅스텐 입자값)로 표기돼 있었다. 복합재에서 의미 있는 온도는 **기지(binder) 초기용융점** — 그 위에서 액상이 생겨 형상을 잃는다. 앞 회차에 출처 미확보로 남겼던 항목.",
+   "src": "W-Ni-Fe 액상소결 문헌 — 공정 Ni-Fe-W 액상이 1465°C 에서 형성(소결 1460~1520°C 수행) · Total Materia W-Ni-Fe LPS"
+  },
+  "MET-0709": {
+   "hardness": 160,
+   "basis": "AISI 301 소둔의 경도 95 는 **HRB 값이 HB/HV 필드에 그대로 들어간 것**이다 — 같은 합금의 냉간압연 조건들은 320·380·430·470(HB/HV 척도)을 쓴다. 두 경로가 같은 값을 가리킨다: ① 이 entry 자신의 UTS 530 → ISO 18265 로 약 160 HB, ② 소둔 301 의 통상 경도 85 HRB ≈ 160 HB.",
+   "src": "ASTM A666 Type 301 소둔(경도 최대 92 HRB) · ISO 18265 경도-인장 환산 (530 MPa ↔ 약 160 HB)"
+  },
+  "MET-0954": {
+   "hardness": 577,
+   "basis": "마레이징강 Heat-Treated(시효 완료) 의 경도 358 도 MET-0952 와 같은 미시효 경도였다 — UTS 1875 에 경도 358 이면 비 5.2 (DB 강재 중앙값 3.28).",
+   "src": "Sandvik Osprey 18Ni300 datasheet (시효 후 최대 54 HRC) · ISO 18265 환산 54 HRC ≈ 577 HV"
+  },
+  "MET-0248": {
+   "hardness": 175,
+   "basis": "AISI 1020 Quenched/tempered 의 경도 95.95 는 UTS 590 MPa 와 맞지 않는다(비 6.1). 95.95 는 같은 CSV 계열의 1010·1015 Q+T 에도 동일하게 찍혀 있어 합금별 실측이 아니라 합성값이다(D9 부류).",
+   "src": "ISO 18265 금속 경도 환산 — 인장 590 MPa ↔ 약 175 HB"
+  },
+  "MET-0243": {
+   "yield_strength": 370,
+   "uts": 440,
+   "elongation": 20,
+   "hardness": 120,
+   "basis": "AISI 1015 Strain-hardened(냉간인발) 값이 전부 저평가였다 — σy 205.2 가 **소둔(285)보다 낮아** 냉간가공이 소둔보다 약한 물리 역전이었다. generic CSV 조건별 합성값 잔재(D9 과 같은 부류).",
+   "src": "MakeItFrom Cold Drawn AISI 1015 Carbon Steel — 인장 440 MPa · 항복 370 MPa · 연신율 20% · 경도 120 HB"
+  },
   "MET-0234": {
    "elongation": 37,
    "basis": "AISI 1010 소둔 연신율이 26.04% 로 핸드북 범위(29~45%) 아래였다. 값이 같은 합금 Quenched/tempered(28%)×0.93 과 정확히 일치 — generic CSV 의 조건별 합성 배율이 거꾸로 적용된 흔적이다(소둔은 그 합금에서 가장 연한 상태라 담금질+뜨임보다 연신율이 낮을 수 없다). 범위 중앙값으로 교정.",
@@ -287,6 +325,7 @@
    "src": "Atlas 440C"
   },
   "MET-0798": {
+   "hardness": 580,
    "yield_strength": 1900,
    "uts": 1970,
    "elongation": 2,

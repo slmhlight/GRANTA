@@ -61,7 +61,11 @@ const BAND: Record<string, { melt: [number, number]; cte: [number, number]; cp: 
   Mg: { melt: [400, 680], cte: [23, 30], cp: [900, 1150] },
   Zn: { melt: [350, 500], cte: [22, 36], cp: [370, 450] },
   Be: { melt: [1200, 1350], cte: [10, 15], cp: [1700, 2000] },
-  Refractory: { melt: [1700, 3500], cte: [3, 9], cp: [120, 300] },
+  /* Refractory 하한이 순수 내화금속(2400+)이 아니라 1400 인 이유 두 가지:
+     ① 지르코늄(1855)이 이 subcategory 에 들어 있다.
+     ② Tungsten Heavy Alloy 는 W-Ni-Fe 액상소결 **복합재**라, 의미 있는 온도는 기지 초기용융점(1465)이지
+        W 입자의 3410 이 아니다(이 회차에 교정). 복합재를 원소 밴드로 재면 안 된다는 예외. */
+  Refractory: { melt: [1400, 3500], cte: [3, 9], cp: [120, 300] },
   Fe: { melt: [1150, 1600], cte: [8, 21], cp: [400, 560] },
 };
 

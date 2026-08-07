@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 163.4,
-      "max": 216.6,
-      "typical": 205.2,
-      "n": 3,
-      "confidence": "measured"
+      "min": 370,
+      "typical": 370,
+      "max": 370,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom Cold Drawn AISI 1015 Carbon Steel — 인장 440 MPa · 항복 370 MPa · 연신율 20% · 경도 120 HB"
     },
     "uts": {
-      "min": 279.5,
-      "max": 370.5,
-      "typical": 351,
-      "n": 3,
-      "confidence": "measured"
+      "min": 440,
+      "typical": 440,
+      "max": 440,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom Cold Drawn AISI 1015 Carbon Steel — 인장 440 MPa · 항복 370 MPa · 연신율 20% · 경도 120 HB"
     },
     "elongation": {
-      "min": 22.68,
-      "max": 30.52,
-      "typical": 28.84,
-      "n": 3,
-      "confidence": "measured"
+      "min": 20,
+      "typical": 20,
+      "max": 20,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom Cold Drawn AISI 1015 Carbon Steel — 인장 440 MPa · 항복 370 MPa · 연신율 20% · 경도 120 HB"
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 81.7,
-      "max": 108.3,
-      "typical": 102.6,
-      "n": 3,
-      "confidence": "measured"
+      "min": 120,
+      "typical": 120,
+      "max": 120,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom Cold Drawn AISI 1015 Carbon Steel — 인장 440 MPa · 항복 370 MPa · 연신율 20% · 경도 120 HB"
     },
     "thermal_conductivity": {
       "min": 50,
@@ -212,29 +212,11 @@
   "points": [
     [
       7.85,
-      163.4,
-      279.5,
-      22.68,
-      210,
-      81.7,
-      50
-    ],
-    [
-      7.85,
-      216.6,
-      370.5,
-      30.52,
-      210,
-      108.3,
-      50
-    ],
-    [
-      7.85,
-      205.2,
-      351,
-      28.84,
-      210,
-      102.6,
+      370,
+      440,
+      20,
+      205,
+      120,
       50
     ]
   ],
@@ -255,11 +237,11 @@
   "fracture_toughness": 48,
   "fatigue_strength": 103,
   "density": 7.85,
-  "yield_strength": 205.2,
-  "uts": 351,
-  "elongation": 28.84,
+  "yield_strength": 370,
+  "uts": 440,
+  "elongation": 20,
   "modulus": 205,
-  "hardness": 102.6,
+  "hardness": 120,
   "thermal_conductivity": 50,
   "impact_strength": 21,
   "manufacturer": "Generic",
@@ -320,6 +302,87 @@
     },
     "aliases": {
       "from": []
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 163.4,
+        "max": 216.6,
+        "typical": 205.2,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 205.2
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 279.5,
+        "max": 370.5,
+        "typical": 351,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 351
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 22.68,
+        "max": 30.52,
+        "typical": 28.84,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 28.84
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 81.7,
+        "max": 108.3,
+        "typical": 102.6,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 102.6
+    },
+    "_basis": "AISI 1015 Strain-hardened(냉간인발) 값이 전부 저평가였다 — σy 205.2 가 **소둔(285)보다 낮아** 냉간가공이 소둔보다 약한 물리 역전이었다. generic CSV 조건별 합성값 잔재(D9 과 같은 부류).",
+    "_src": "MakeItFrom Cold Drawn AISI 1015 Carbon Steel — 인장 440 MPa · 항복 370 MPa · 연신율 20% · 경도 120 HB",
+    "points": {
+      "from": [
+        [
+          7.85,
+          163.4,
+          279.5,
+          22.68,
+          210,
+          81.7,
+          50
+        ],
+        [
+          7.85,
+          216.6,
+          370.5,
+          30.52,
+          210,
+          108.3,
+          50
+        ],
+        [
+          7.85,
+          205.2,
+          351,
+          28.84,
+          210,
+          102.6,
+          50
+        ]
+      ]
     }
   }
 }

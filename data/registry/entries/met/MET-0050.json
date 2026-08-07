@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 269.7,
-      "max": 331.7,
-      "typical": 313.1,
-      "n": 5,
-      "confidence": "measured"
+      "min": 500,
+      "typical": 500,
+      "max": 500,
+      "confidence": "handbook",
+      "provenance": "교정: ISO 18265 금속 경도 환산 — 인장 1700 MPa ↔ 약 500 HV · SteelPRO AISI 6150 (소둔 667 MPa / 197 HB, DB 소둔값 정합 확인)"
     },
     "thermal_conductivity": {
       "min": 42,
@@ -210,7 +210,7 @@
       1700,
       13,
       205,
-      313.1,
+      500,
       42
     ]
   ],
@@ -243,7 +243,7 @@
   "uts": 1700,
   "elongation": 13,
   "modulus": 205,
-  "hardness": 313.1,
+  "hardness": 500,
   "thermal_conductivity": 42,
   "impact_strength": 35,
   "manufacturer": "Generic",
@@ -305,6 +305,20 @@
         }
       ]
     },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 269.7,
+        "max": 331.7,
+        "typical": 313.1,
+        "n": 5,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 313.1
+    },
+    "_basis": "AISI 6150 Q+T 의 경도 313 이 UTS 1700 MPa 와 맞지 않았다(비 5.4 — DB 강재 418건 중앙값 3.28·p95 3.70). 같은 합금 Normalized(MET-1003)가 UTS 943/경도 276 이라, Q+T 는 UTS 1.8배인데 경도는 1.13배뿐. 소둔값(MET-0047 UTS 670/경도 200)은 출처(667 MPa/197 HB)와 일치해 정상 — Q+T 경도만 조건 미반영.",
+    "_src": "ISO 18265 금속 경도 환산 — 인장 1700 MPa ↔ 약 500 HV · SteelPRO AISI 6150 (소둔 667 MPa / 197 HB, DB 소둔값 정합 확인)",
     "points": {
       "from": [
         [
@@ -353,7 +367,6 @@
           42
         ]
       ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+    }
   }
 }
