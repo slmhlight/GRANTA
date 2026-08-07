@@ -5,8 +5,12 @@
  * 새 chapter/sub-section 추가 시 이 파일에 entry 추가 (chapter 본문 hard-coded 텍스트는 검색 대상에서 빠짐).
  * H5-D2 (W6+) — 글로서리 117용어는 GLOSSARY.terms 에서 자동 파생(termSlug → /guide/term/:slug).
  *   수동 용어 목록 이중관리 제거: 신규 용어 추가 시 무손질로 검색 편입.
+ * H6 W3-5 (H8) — 챕터 본문 H3 헤딩도 자동 파생(index-derived.ts). 위 주석의 "chapter 본문
+ *   hard-coded 텍스트는 검색 대상에서 빠짐" 제약이 이것으로 해소됐다 — 수동 엔트리는
+ *   개요·의도 설명용으로 남기고, 헤딩 커버리지는 생성기가 책임진다.
  */
 import { GLOSSARY } from '@/lib/glossary';
+import { HEADING_ENTRIES } from './index-derived';
 
 export interface GuideIndexEntry {
   ch: string;       // anchor id (e.g. 'ch10')
@@ -111,5 +115,9 @@ export function searchGuide(q: string): GuideIndexEntry[] {
   if (query.length < 2) return [];
   const match = (e: GuideIndexEntry) =>
     [e.chapterLabel, e.section || '', e.snippet, ...e.keywords].join(' ').toLowerCase().includes(query);
-  return [...GUIDE_INDEX.filter(match), ...GLOSSARY_ENTRIES.filter(match)].slice(0, 12);
+  /* H6 W3-5 — 수동 엔트리(개요) → 파생 헤딩(본문) → 글로서리 용어 순.
+     같은 챕터의 같은 섹션이 수동에도 있으면 수동을 남기고 파생은 뺀다(중복 표시 방지). */
+  const manualKey = new Set(GUIDE_INDEX.map((e) => `${e.ch}|${e.section || ''}`));
+  const derived = HEADING_ENTRIES.filter((e) => !manualKey.has(`${e.ch}|${e.section || ''}`));
+  return [...GUIDE_INDEX.filter(match), ...derived.filter(match), ...GLOSSARY_ENTRIES.filter(match)].slice(0, 12);
 }
