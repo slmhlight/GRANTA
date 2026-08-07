@@ -39,8 +39,11 @@ export function improveLabel(s) {
  */
 /* G3-3/W2-9 — 제조사·기관 명칭 사전. URL 이 없어 'other' 로 강등되던 실제 vendor/협회/기관 출처를
  *   라벨 토큰으로 승격 (표시 계층만 — 값 SSOT 불변). 근거: 감사 G3-3 (other 1098 중 264 오분류). */
-const MANUFACTURER_TOKENS = /\bHaynes\b|\bEOS\b|\bATI\b|Allegheny|\bPlansee\b|\bSSAB\b|ArcelorMittal|Special Metals|Carpenter|Uddeholm|B[öo]hler|\bDaido\b|Kennametal|Sandvik|Crucible|Evonik|ROHACELL|VESTAMID|\bBASF\b|Celanese|Solvay|Victrex|Arkema|Chemours|Covestro|\bSABIC\b|LyondellBasell|Constellium|Arconic|\bAlcoa\b|Kaiser Aluminum|APWorks|Materion|Wieland|Poongsan|POSCO|Hyundai Steel|Nippon Steel|Nikon SLM|Renishaw|GE Additive|Velo3D|Markforged|Stratasys|3D Systems|Oerlikon|TIMET|Timetal|Rolled Alloys|Elgiloy|Cannon-Muskegon|Magnesium Elektron|\bAMS \d|\bNiagara\b|\bDuPont\b|Parker|Schott|R[öo]hm|Eastman|Ingevity|NatureWorks|Danimer|CoorsTek|CeramTec|Kyocera|Element Six|Ansys Granta|\(AM vendor datasheet\)|vendor datasheet|Product Information|Brochure|Technical Data Sheet|\bTDS\b|\bMDS\b/i;
-/* H6 W2 리뷰 — 약어 표기(`Aluminum Assoc.`)도 같은 협회다. 전체 명칭만 받으면 조용히 other 로 떨어진다. */
+const MANUFACTURER_TOKENS = /\bHaynes\b|\bEOS\b|\bATI\b|Allegheny|\bPlansee\b|\bSSAB\b|ArcelorMittal|Special Metals|Carpenter|Uddeholm|B[öo]hler|\bDaido\b|Kennametal|Sandvik|Crucible|Evonik|ROHACELL|VESTAMID|\bBASF\b|Celanese|Solvay|Victrex|Arkema|Chemours|Covestro|\bSABIC\b|LyondellBasell|Constellium|Arconic|\bAlcoa\b|Kaiser Aluminum|APWorks|Materion|Wieland|Poongsan|POSCO|Hyundai Steel|Nippon Steel|\bDSM\b|Stanyl|Dyneema|\bSPS\b|Nikon SLM|Renishaw|GE Additive|Velo3D|Markforged|Stratasys|3D Systems|Oerlikon|TIMET|Timetal|Rolled Alloys|Elgiloy|Cannon-Muskegon|Magnesium Elektron|\bAMS \d|\bNiagara\b|\bDuPont\b|Parker|Schott|R[öo]hm|Eastman|Ingevity|NatureWorks|Danimer|CoorsTek|CeramTec|Kyocera|Element Six|Ansys Granta|\(AM vendor datasheet\)|vendor datasheet|Product Information|Brochure|Technical Data Sheet|\bTDS\b|\bMDS\b/i;
+/* H6 W2 리뷰 — 약어 표기(`Aluminum Assoc.`)도 같은 협회다. 전체 명칭만 받으면 조용히 other 로 떨어진다.
+ * 재점검 — 같은 함정이 제조사 쪽에도 남아 있었다. 사전이 `SPS Technologies` 전체 명칭만 갖고 있어
+ * `SPS — MP159` 표기가, `DSM`(Stanyl·Dyneema 브랜드 보유)은 아예 없어서 other 로 떨어졌다.
+ * 코퍼스 전수 확인: DSM/SPS 를 포함한 라벨 5종은 모두 이 제조사들이다(오탐 없음). */
 const INSTITUTION_TOKENS = /Aluminum Assoc|Copper Development|\bCDA\b|\bIMOA\b|WorldAutoSteel|\bAISC\b|\bAWS\b|\bNACE\b|\bAMPP\b|\bIACS\b|\bABS\b \(|\bDNV\b|Lloyd|\bKIST\b|\bFAA\b|\bDOT\/FAA|\bNIST\b|\bEPRI\b|\bTMS\b|Superalloys \d{4}/i;
 const AUTH = {
   standard: { dom: /store\.astm\.org|asme\.org|sae\.org|jisc\.go\.jp|en-standard\.eu|api\.org|aisc\.org|everyspec\.com|dinmedia\.de|beuth\.de/i,
