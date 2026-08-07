@@ -243,7 +243,7 @@
   "machinability": "Good",
   "weldability": "Excellent",
   "corrosion_resistance": "Good",
-  "industry_note": null,
+  "industry_note": "동합금 중 가장 용접하기 좋은 등급 — 해양 파스너·용접 구조물·건축 장식. Si 가 탈산제로 작용해 기공이 적고 유동이 좋다.",
   "meta": {
     "reference": true,
     "specs": [
@@ -299,5 +299,11 @@
   "total_cost_estimate": 13.86,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "industry_note": {
+      "from": null,
+      "had": true
+    }
+  }
 }

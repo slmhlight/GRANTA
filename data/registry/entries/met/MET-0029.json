@@ -230,7 +230,7 @@
   "machinability": "Good",
   "weldability": "Good",
   "corrosion_resistance": "Poor",
-  "industry_note": null,
+  "industry_note": "4140 과 4150 사이 탄소 — 유정 드릴 칼라·대형 축. API 규격 드릴 스트링 부재로 널리 쓰인다.",
   "meta": {
     "reference": true,
     "specs": [
@@ -282,5 +282,11 @@
   "total_cost_estimate": 2.86,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "industry_note": {
+      "from": null,
+      "had": true
+    }
+  }
 }

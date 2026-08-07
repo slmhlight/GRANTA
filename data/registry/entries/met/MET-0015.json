@@ -229,7 +229,7 @@
   "machinability": "Good",
   "weldability": "Good",
   "corrosion_resistance": "Poor",
-  "industry_note": null,
+  "industry_note": "질화 전용 조질강 — Al 대신 V 를 넣어 질화층 경도(1000 HV 급)와 심부 인성을 함께 얻는다. 압출 스크루·크랭크샤프트·정밀 축.",
   "meta": {
     "reference": true,
     "condition": "Q+T (600°C)",
@@ -285,5 +285,11 @@
   "total_cost_estimate": 3.83,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "industry_note": {
+      "from": null,
+      "had": true
+    }
+  }
 }

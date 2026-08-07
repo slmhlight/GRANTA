@@ -240,7 +240,7 @@
   "machinability": "Good",
   "weldability": "Good",
   "corrosion_resistance": "Poor",
-  "industry_note": null,
+  "industry_note": "잠수함 압력선체용 조질강 — 항복 80 ksi 급에 저온 인성과 용접성을 함께 요구한다. 용접 절차 인정(WPQ)이 재료 선정만큼 중요한 부재.",
   "meta": {
     "reference": true,
     "specs": [
@@ -297,5 +297,11 @@
   "svhc_concerns": [
     "Ni 3.25% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "industry_note": {
+      "from": null,
+      "had": true
+    }
+  }
 }

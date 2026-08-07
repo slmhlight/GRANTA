@@ -1,0 +1,268 @@
+{
+  "stable_id": "POL-0134",
+  "family": {
+    "category": "F-POL",
+    "subcategory": "F-POL-polymer-elastomer-epdm",
+    "alloy_base": "F-AB-epdm",
+    "element_families": []
+  },
+  "legacy_id": "R_0484",
+  "origin": "reference(supplementary)",
+  "id": "R_0484",
+  "name": "EPDM — Ethylene Propylene Diene Monomer (70 Shore A)",
+  "category": "Polymer",
+  "subcategory": "Polymer - Elastomer EPDM",
+  "tier": "reference",
+  "manufacturers": [
+    "Reference data"
+  ],
+  "machines": [],
+  "processes": [
+    "Molding"
+  ],
+  "heat_treatment": "Sulfur cured",
+  "ranges": {
+    "density": {
+      "min": 1.1,
+      "max": 1.1,
+      "typical": 1.1,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "yield_strength": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "uts": {
+      "min": 14,
+      "max": 14,
+      "typical": 14,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "elongation": {
+      "min": 300,
+      "max": 300,
+      "typical": 300,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "modulus": {
+      "min": 0.007,
+      "max": 0.007,
+      "typical": 0.007,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "hardness": null,
+    "thermal_conductivity": {
+      "min": 0.25,
+      "max": 0.25,
+      "typical": 0.25,
+      "n": 1,
+      "confidence": "handbook"
+    },
+    "fatigue_strength": null,
+    "impact_strength": null,
+    "electrical_conductivity": {
+      "min": 0,
+      "max": 0,
+      "typical": 0,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Elastomer EPDM"
+    },
+    "max_service_temp": {
+      "min": 150,
+      "typical": 150,
+      "max": 150,
+      "confidence": "handbook",
+      "provenance": "교정: Mykin RE00170 EPDM 70 기술자료 (사용 온도 −65~+300°F = −54~+149°C)"
+    },
+    "thermal_expansion": {
+      "min": 40,
+      "max": 120,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Elastomer EPDM"
+    },
+    "poisson_ratio": {
+      "min": 0.2,
+      "max": 0.6,
+      "typical": 0.4,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Elastomer EPDM"
+    },
+    "specific_heat": {
+      "min": 750,
+      "max": 2250,
+      "typical": 1500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Elastomer EPDM"
+    },
+    "glass_transition_temp": {
+      "min": -45,
+      "max": -15,
+      "typical": -30,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Elastomer EPDM"
+    },
+    "price_per_kg": {
+      "min": 12.5,
+      "max": 37.5,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Elastomer EPDM"
+    },
+    "price_per_cm3": {
+      "min": 0.0138,
+      "max": 0.0413,
+      "typical": 0.0275,
+      "n": 0,
+      "estimated": true,
+      "confidence": "class",
+      "provenance": "class:Polymer - Elastomer EPDM"
+    },
+    "delivered_price_per_kg": {
+      "min": 25,
+      "max": 25,
+      "typical": 25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived"
+    }
+  },
+  "composition": {
+    "C": "85.7",
+    "H": "14.3"
+  },
+  "sources": [
+    {
+      "label": "Mykin RE00170 EPDM 70 기술자료 (인장 2031 psi ≈ 14 MPa min · 연신 200% min · 경도 70±5 Shore A · 사용 −65~+300°F)",
+      "url": "https://mykin.com/epdm-properties",
+      "verified": true
+    },
+    {
+      "label": "TSE Industries — EPDM Rubber Material Properties (밀도·물성 범위)",
+      "url": "https://www.tse-industries.com/wp-content/uploads/Rubber-Material-Properties-EPDM.pdf",
+      "verified": true
+    }
+  ],
+  "points": [
+    [
+      1.1,
+      12,
+      14,
+      300,
+      0.007,
+      null,
+      0.25
+    ]
+  ],
+  "machinability": "Good",
+  "weldability": "Thermoplastic",
+  "corrosion_resistance": "Good",
+  "industry_note": "자동차 웨더스트립·도어/윈도 씰과 냉각수·히터 호스의 표준 엘라스토머이자 단층 지붕 방수막의 주력. 주사슬에 이중결합이 없어 오존·자외선·수증기에 압도적으로 강하고 NBR 보다 싸다. 대신 **기름·연료에는 팽윤하므로 연료 계통에는 쓰지 않는다**(그 자리는 NBR·FKM). 극성 용제·글리콜 부동액·브레이크액(Skydrol)에는 오히려 잘 견딘다.",
+  "meta": {
+    "reference": true,
+    "flame_ul94": "HB",
+    "uv_resistance": "Good",
+    "moisture_24h": 0.4,
+    "polymer": true
+  },
+  "related": [
+    "NBR — Nitrile Butadiene Rubber (medium ACN 33%)"
+  ],
+  "aliases": [
+    "EPDM",
+    "EPM",
+    "Ethylene Propylene Rubber",
+    "EPR",
+    "Nordel",
+    "Keltan",
+    "ASTM D2000 BA/CA",
+    "70 Shore A"
+  ],
+  "density": 1.1,
+  "yield_strength": 12,
+  "uts": 14,
+  "elongation": 300,
+  "modulus": 0.007,
+  "hardness": null,
+  "thermal_conductivity": 0.25,
+  "fatigue_strength": null,
+  "impact_strength": null,
+  "manufacturer": "Reference data",
+  "process": "Molding",
+  "source": "Mykin RE00170 EPDM 70 기술자료 (인장 2031 psi ≈ 14 MPa min · 연신 200% min · 경도 70±5 Shore A · 사용 −65~+300°F)",
+  "families": [
+    "Polymer",
+    "Polymer - Elastomer EPDM"
+  ],
+  "electrical_conductivity": 0,
+  "max_service_temp": 150,
+  "thermal_expansion": 80,
+  "poisson_ratio": 0.4,
+  "specific_heat": 1500,
+  "glass_transition_temp": -30,
+  "price_per_kg": 25,
+  "price_per_cm3": 0.0275,
+  "popularity": 1,
+  "machining_cost_factor": 0.7,
+  "ht_cost_factor": 1.05,
+  "price_condition_factor": 1,
+  "price_form_factor": 1,
+  "price_grade_premium": 1,
+  "delivered_price_per_kg": 25,
+  "total_cost_estimate": 17.5,
+  "min_wall_thickness": 0.8,
+  "surface_finish_typical": 1.6,
+  "tolerance_class": "IT10-12",
+  "rohs_compliant": true,
+  "confidence_tier": "high",
+  "_corrections": {
+    "max_service_temp": {
+      "had_range": true,
+      "val_range": {
+        "min": 45,
+        "max": 135,
+        "typical": 90,
+        "n": 0,
+        "estimated": true,
+        "confidence": "class",
+        "provenance": "class:Polymer - Elastomer EPDM"
+      },
+      "had_scalar": true,
+      "val_scalar": 90
+    },
+    "_basis": "폴리머 계열 typical 90°C 이 찍혔으나 EPDM 은 연속 사용 상한이 그보다 크게 높다 — 자동차 냉각수 호스·지붕 방수막처럼 상시 고온에 놓이는 용도가 본진이라 이 값이 선택을 좌우한다. 황가교 표준 배합 기준 −54~+149°C 를 반올림해 150.",
+    "_src": "Mykin RE00170 EPDM 70 기술자료 (사용 온도 −65~+300°F = −54~+149°C)",
+    "points": {
+      "from": [
+        [
+          1.1,
+          12,
+          14,
+          300,
+          0.007,
+          null,
+          0.25
+        ]
+      ]
+    }
+  }
+}

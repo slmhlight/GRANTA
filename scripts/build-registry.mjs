@@ -179,7 +179,9 @@ try {
        기존 노트가 있으면 덮지 않는다 — 상류 datasheet 서술이 더 구체적인 경우가 많다. */
     const noteFix = corr.industryNoteByBase && corr.industryNoteByBase[baseOf(r.name)];
     if (noteFix && !(r.industry_note && String(r.industry_note).trim())) {
-      ch.industry_note = { from: r.industry_note ?? null };
+      /* had: 키 자체가 없었는지 vs 있는데 null 이었는지를 구분해야 라운드트립이 무손실이다
+         (둘 다 null 로 뭉개면 복원 시 27건이 undefined≠null 로 어긋난다 — 실측으로 확인). */
+      ch.industry_note = { from: r.industry_note ?? null, had: Object.prototype.hasOwnProperty.call(r, 'industry_note') };
       r.industry_note = noteFix.t;
     }
     // subcategory 교정 (Ti 미세조직 재분류 등) — family tree 노드도 이동해 일관성 유지.
@@ -323,7 +325,7 @@ for (const cc of fs.readdirSync(entriesRoot)) {
       const c = rec._corrections;
       if (c.composition) { if (c.composition.from == null) delete rec.composition; else rec.composition = c.composition.from; }
       for (const p of Object.keys(c)) {
-        if (['composition', 'subcategory', 'points', 'sources', 'aliases', 'fields', '_basis', '_src', 'points_stale'].includes(p) || !c[p] || c[p].had_range === undefined) continue;
+        if (['composition', 'subcategory', 'points', 'sources', 'aliases', 'fields', 'industry_note', '_basis', '_src', 'points_stale'].includes(p) || !c[p] || c[p].had_range === undefined) continue;
         if (c[p].had_range) rec.ranges[p] = (c[p].val_range === undefined ? null : c[p].val_range); else delete rec.ranges[p];
         if (c[p].had_scalar) rec[p] = (c[p].val_scalar === undefined ? null : c[p].val_scalar); else delete rec[p];
       }
@@ -332,6 +334,9 @@ for (const cc of fs.readdirSync(entriesRoot)) {
       if (c.points) rec.points = c.points.from;   // 재생성된 points → 원본(CSV) 복원
       if (c.sources) rec.sources = c.sources.from;   // generic 출처 업그레이드 → 원본 복원
       if (c.aliases) { if (c.aliases.from == null) delete rec.aliases; else rec.aliases = c.aliases.from; }   // 별칭 보강 → 원본 복원
+      // H6 W3-9 — industry_note 백필(industryNoteByBase) 복원. 이 줄이 없으면 백필한 entry 수만큼
+      //   라운드트립 불일치가 난다(빌드가 82건으로 경고 → 이 누락으로 확인).
+      if (c.industry_note) { if (!c.industry_note.had) delete rec.industry_note; else rec.industry_note = c.industry_note.from; }
     }
     const stripped = Object.fromEntries(Object.entries(rec).filter(([k]) => !ADDED.has(k)));
     const clean = cleanJson.get(rec.legacy_id);

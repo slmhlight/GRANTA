@@ -222,7 +222,7 @@
   "machinability": "Good",
   "weldability": "Good",
   "corrosion_resistance": "Poor",
-  "industry_note": null,
+  "industry_note": "중소형 기어·샤프트의 침탄용 표준강 — 자동차 변속기 기어의 유럽 표준. 18CrNiMo7-6 보다 싸고 얇은 단면에 적합하다.",
   "meta": {
     "reference": true,
     "condition": "Direct-hardened",
@@ -278,5 +278,11 @@
   "total_cost_estimate": 1.89,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "industry_note": {
+      "from": null,
+      "had": true
+    }
+  }
 }

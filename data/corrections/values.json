@@ -297,6 +297,16 @@
    "src": "ATI 2304 Lean Duplex Technical Data Sheet (ASME Boiler and Pressure Vessel Code upper temperature limit 600°F [315°C]) · Stainless Structurals 2304 Duplex Grade datasheet (application range −50~300°C) · Tubing China S32304/1.4362 물리물성표 (열팽창 20-100°C 13×10⁻⁶/°C · 열전도 17 W/m·K@20°C · 전기저항 80 µΩ·cm@20°C · E 200 GPa@20°C · 밀도 7800 kg/m³)",
    "thermal_expansion": 13,
    "electrical_conductivity": 2.2
+  },
+  "POL-0134": {
+   "max_service_temp": 150,
+   "basis": "폴리머 계열 typical 90°C 이 찍혔으나 EPDM 은 연속 사용 상한이 그보다 크게 높다 — 자동차 냉각수 호스·지붕 방수막처럼 상시 고온에 놓이는 용도가 본진이라 이 값이 선택을 좌우한다. 황가교 표준 배합 기준 −54~+149°C 를 반올림해 150.",
+   "src": "Mykin RE00170 EPDM 70 기술자료 (사용 온도 −65~+300°F = −54~+149°C)"
+  },
+  "POL-0135": {
+   "max_service_temp": 200,
+   "basis": "폴리머 계열 typical 90°C 이 찍혔으나 FKM 을 고르는 이유 자체가 200°C 급 연속 사용이다(캠·크랭크 오일 씰). 카탈로그 상한 260°C 는 단기 노출 값이라, 연속 사용 기준인 200 을 쓴다.",
+   "src": "WARCO — Understanding Fluoroelastomer (FKM/Viton) (온도 범위 −29~260°C) · Chemours Viton Selection Guide (연속 사용 200-230°C)"
   }
  },
  "fields": {

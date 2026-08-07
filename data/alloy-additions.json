@@ -696,6 +696,103 @@
         }
       ],
       "industry_note": "1960년대 개발된 γ′ 고분율(~50%) Ni 초합금 — Waspaloy(γ′ ~25%)와 Udimet 720 사이의 고강도 디스크·링 합금(σy≥965·UTS≥1275MPa). Co 17%·Al+Ti ≈8%로 γ′ 를 많이 석출시켜 650~815°C 크리프·피로를 벌지만, 그만큼 단조·용접이 까다로워(Strain-Age Cracking 위험) EBW·등온단조로 다룬다. 초기엔 주조/단조였고 이후 분말야금(P/M Astroloy)으로 제트엔진 터빈 디스크에 쓰였으며, 현대는 Udimet 720Li·RR1000 로 세대교체되었다. UNS N13017 · AMS 5846."
+    },
+    {
+      "name": "EPDM — Ethylene Propylene Diene Monomer (70 Shore A)",
+      "category": "Polymer",
+      "subcategory": "Polymer - Elastomer EPDM",
+      "process": "Molding",
+      "heat_treatment": "Sulfur cured",
+      "related": [
+        "NBR — Nitrile Butadiene Rubber (medium ACN 33%)"
+      ],
+      "aliases": [
+        "EPDM",
+        "EPM",
+        "Ethylene Propylene Rubber",
+        "EPR",
+        "Nordel",
+        "Keltan",
+        "ASTM D2000 BA/CA"
+      ],
+      "composition": {
+        "C": "85.7",
+        "H": "14.3"
+      },
+      "points": [
+        [
+          1.1,
+          12,
+          14,
+          300,
+          0.007,
+          null,
+          0.25
+        ]
+      ],
+      "sources": [
+        {
+          "label": "Mykin RE00170 EPDM 70 기술자료 (인장 2031 psi ≈ 14 MPa min · 연신 200% min · 경도 70±5 Shore A · 사용 −65~+300°F)",
+          "url": "https://mykin.com/epdm-properties",
+          "verified": true
+        },
+        {
+          "label": "TSE Industries — EPDM Rubber Material Properties (밀도·물성 범위)",
+          "url": "https://www.tse-industries.com/wp-content/uploads/Rubber-Material-Properties-EPDM.pdf",
+          "verified": true
+        }
+      ],
+      "industry_note": "자동차 웨더스트립·도어/윈도 씰과 냉각수·히터 호스의 표준 엘라스토머이자 단층 지붕 방수막의 주력. 주사슬에 이중결합이 없어 오존·자외선·수증기에 압도적으로 강하고 NBR 보다 싸다. 대신 **기름·연료에는 팽윤하므로 연료 계통에는 쓰지 않는다**(그 자리는 NBR·FKM). 극성 용제·글리콜 부동액·브레이크액(Skydrol)에는 오히려 잘 견딘다."
+    },
+    {
+      "name": "FKM — Fluoroelastomer (Viton A type, 75 Shore A)",
+      "category": "Polymer",
+      "subcategory": "Polymer - Elastomer FKM",
+      "process": "Molding",
+      "heat_treatment": "Bisphenol cured + post-cure",
+      "related": [
+        "NBR — Nitrile Butadiene Rubber (medium ACN 33%)",
+        "HNBR — Hydrogenated Nitrile Butadiene Rubber"
+      ],
+      "aliases": [
+        "FKM",
+        "FPM",
+        "Viton",
+        "Viton A",
+        "Fluoroelastomer",
+        "Fluorel",
+        "Tecnoflon",
+        "ASTM D1418 FKM"
+      ],
+      "composition": {
+        "C": "31.0",
+        "H": "2.0",
+        "F": "67.0"
+      },
+      "points": [
+        [
+          1.82,
+          10,
+          12,
+          250,
+          0.01,
+          null,
+          0.2
+        ]
+      ],
+      "sources": [
+        {
+          "label": "WARCO — Understanding Fluoroelastomer (FKM/Viton) (경도 60-85 Shore A · 인장 700-1600 psi · 연신 125-400% · 사용 −29~260°C)",
+          "url": "https://warco.com/understanding-fluoroelastomer-fkm-viton-rubber/",
+          "verified": true
+        },
+        {
+          "label": "Chemours Viton Fluoroelastomers Selection Guide (비중 1.78~1.86, 타입별)",
+          "url": "https://www.viton.cn/-/media/files/viton/viton-selection-guide.pdf",
+          "verified": true
+        }
+      ],
+      "industry_note": "연료·오일·화학약품과 200°C 를 동시에 견뎌야 하는 씰의 기준 재료 — GDI 인젝터 O링, 캠·크랭크 오일 씰, 항공 연료 계통, 반도체 챔버 개스킷. 값이 NBR 의 5~10배라 \"다른 것으로 안 되는 자리\"에만 쓴다. 저온이 약점이라(표준 타입 −20°C 대) 한랭 환경은 GLT/GFLT 계 저온 타입을 지정해야 한다."
     }
   ]
 }

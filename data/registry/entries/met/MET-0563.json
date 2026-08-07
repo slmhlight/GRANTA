@@ -237,7 +237,7 @@
   "machinability": "Poor",
   "weldability": "Fair",
   "corrosion_resistance": "Excellent",
-  "industry_note": null,
+  "industry_note": "718 의 가공성 개선판 — 대형 가스터빈 디스크용으로 개발됐다. Nb 를 줄여 편석이 덜하고 대형 단조가 쉬운 대신 사용 온도가 조금 낮다.",
   "meta": {
     "reference": true,
     "specs": [
@@ -319,5 +319,11 @@
     }
   ],
   "elevated_temp_src": "ASTM F75/F90 · ASM Handbook Vol.2 · Special Metals SMC · Haynes International H-3068C · Carpenter datasheets",
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "industry_note": {
+      "from": null,
+      "had": true
+    }
+  }
 }

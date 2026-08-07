@@ -223,7 +223,7 @@
   "machinability": "Good",
   "weldability": "Good",
   "corrosion_resistance": "Poor",
-  "industry_note": null,
+  "industry_note": "4140 보다 탄소를 낮춘 Cr-Mo — 용접이 필요한 조질 부재(자전거 프레임·롤케이지·항공 튜브)에 쓴다. 4130 과 4140 사이의 절충.",
   "meta": {
     "reference": true,
     "condition": "Quenched + Tempered (600°C)",
@@ -272,5 +272,11 @@
   "total_cost_estimate": 3.97,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "industry_note": {
+      "from": null,
+      "had": true
+    }
+  }
 }

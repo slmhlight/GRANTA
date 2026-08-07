@@ -1,9 +1,9 @@
 {
-  "count": 827,
+  "count": 831,
   "kinds": {
-    "alloy-base": 682,
+    "alloy-base": 684,
     "category": 4,
-    "subcategory": 131,
+    "subcategory": 133,
     "element-family": 10
   },
   "families": [
@@ -3038,6 +3038,16 @@
       ]
     },
     {
+      "id": "F-AB-epdm",
+      "label": "EPDM",
+      "kind": "alloy-base",
+      "parent": "F-POL-polymer-elastomer-epdm",
+      "member_count": 1,
+      "members": [
+        "POL-0134"
+      ]
+    },
+    {
       "id": "F-AB-epoxy-resin",
       "label": "Epoxy Resin",
       "kind": "alloy-base",
@@ -3075,6 +3085,16 @@
       "member_count": 1,
       "members": [
         "MET-0472"
+      ]
+    },
+    {
+      "id": "F-AB-fkm",
+      "label": "FKM",
+      "kind": "alloy-base",
+      "parent": "F-POL-polymer-elastomer-fkm",
+      "member_count": 1,
+      "members": [
+        "POL-0135"
       ]
     },
     {
@@ -8901,7 +8921,7 @@
       "label": "Polymer",
       "kind": "category",
       "parent": null,
-      "member_count": 133
+      "member_count": 135
     },
     {
       "id": "F-POL-polymer-abs",
@@ -8920,6 +8940,20 @@
     {
       "id": "F-POL-polymer-asa",
       "label": "Polymer - ASA",
+      "kind": "subcategory",
+      "parent": "F-POL",
+      "member_count": 1
+    },
+    {
+      "id": "F-POL-polymer-elastomer-epdm",
+      "label": "Polymer - Elastomer EPDM",
+      "kind": "subcategory",
+      "parent": "F-POL",
+      "member_count": 1
+    },
+    {
+      "id": "F-POL-polymer-elastomer-fkm",
+      "label": "Polymer - Elastomer FKM",
       "kind": "subcategory",
       "parent": "F-POL",
       "member_count": 1

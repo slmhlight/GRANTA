@@ -223,7 +223,7 @@
   "machinability": "Good",
   "weldability": "Good",
   "corrosion_resistance": "Poor",
-  "industry_note": null,
+  "industry_note": "대형 기어의 침탄용 표준강 — 풍력 증속기·산업용 감속기. Ni-Cr-Mo 로 심부 인성과 경화능을 함께 확보해 대형 단면에서도 속까지 성질이 나온다.",
   "meta": {
     "reference": true,
     "condition": "Carburized + Q+T (case 700~800 HV)",
@@ -280,5 +280,11 @@
   "svhc_concerns": [
     "Ni 1.7% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "industry_note": {
+      "from": null,
+      "had": true
+    }
+  }
 }
