@@ -1028,7 +1028,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
             {material.aliases && material.aliases.length > 0 && (() => {
               /* E5 (H6 W4-3a) — UNS 를 다른 별칭과 분리. UNS 는 조성으로 정의된 '같은 합금' 보증이고,
                  나머지는 지역 규격명·상품명·근사대응('≈')이라 신뢰도가 다르다 — 같은 모양으로 늘어놓지 않는다. */
-              const { uns, other } = splitDesignations(material.aliases);
+              const { uns, equivalent, approx } = splitDesignations(material.aliases);
               return (
                 <Field label="Designations / a.k.a. (ISO·ASTM·JIS·DIN·KS·UNS)">
                   <div className="flex flex-col gap-1.5">
@@ -1049,10 +1049,27 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                         ))}
                       </div>
                     )}
-                    {other.length > 0 && (
+                    {equivalent.length > 0 && (
                       <div className="flex flex-wrap gap-1">
-                        {other.map((a) => (
-                          <span key={a} className="text-[10px] px-1.5 py-0.5 rounded bg-muted border border-border/40 font-mono">{a}</span>
+                        {equivalent.map((a) => (
+                          <span key={a} className="text-[10px] px-1.5 py-0.5 rounded bg-muted border border-border/40 font-mono" title="같은 합금의 다른 규격 표기">{a}</span>
+                        ))}
+                      </div>
+                    )}
+                    {/* E6 (H6 W4-3b) — '≈' 는 같은 합금이 아니다. 회색 배지로 나란히 놓으면
+                        "A36 = SS400" 으로 읽힌다 — 치환 판단이 걸린 정보라 갈라서 표기한다. */}
+                    {approx.length > 0 && (
+                      <div className="flex flex-wrap items-center gap-1 pt-0.5 border-t border-border/30">
+                        <span
+                          className="text-[9px] px-1 py-0.5 rounded font-semibold bg-orange-100 text-orange-800 border border-orange-300"
+                          title="근사 대응 — 조성·보증치가 비슷하지만 동일 규격이 아닙니다. 치환하려면 해당 규격 원문을 확인하세요."
+                        >≈ 근사</span>
+                        {approx.map((a) => (
+                          <span
+                            key={a}
+                            className="text-[10px] px-1.5 py-0.5 rounded font-mono bg-orange-50 text-orange-900 border border-orange-200"
+                            title="근사 대응 — 같은 합금이 아닙니다. 조성·보증 최소값이 다를 수 있어 그대로 치환하면 안 됩니다."
+                          >{a}</span>
                         ))}
                       </div>
                     )}

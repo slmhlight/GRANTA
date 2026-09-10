@@ -1,6 +1,6 @@
 /* R144c — Spec extractor tests. */
 import { describe, expect, it } from 'vitest';
-import { extractSpecs, specMatches, splitDesignations, isUnsDesignation, unsNumber } from '../client/src/lib/spec-matcher';
+import { extractSpecs, specMatches, splitDesignations, isUnsDesignation, unsNumber, isApproxDesignation } from '../client/src/lib/spec-matcher';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -95,15 +95,27 @@ describe('splitDesignations (E5)', () => {
       expect(isUnsDesignation(x), x).toBe(false);
   });
 
-  it('UNS 와 그 외로 가르고 순서를 유지한다', () => {
-    const r = splitDesignations(['SUS316L', 'UNS S31603', 'X2CrNiMo17-12-2', 'S31603']);
-    expect(r.uns).toEqual(['S31603']);                       // 접두어 유무 중복은 1회만
-    expect(r.other).toEqual(['SUS316L', 'X2CrNiMo17-12-2']);  // 원본 순서 유지
+  it('UNS · 동일규격명 · 근사대응 세 갈래로 가르고 순서를 유지한다', () => {
+    const r = splitDesignations(['SUS316L', 'UNS S31603', 'X2CrNiMo17-12-2', 'S31603', 'SS400 (JIS/KS ≈)']);
+    expect(r.uns).toEqual(['S31603']);                            // 접두어 유무 중복은 1회만
+    expect(r.equivalent).toEqual(['SUS316L', 'X2CrNiMo17-12-2']);  // 원본 순서 유지
+    expect(r.approx).toEqual(['SS400 (JIS/KS ≈)']);                // E6 — 같은 합금이 아니다
+  });
+
+  it('E6 — ≈ 마커를 동일 규격명과 섞지 않는다', () => {
+    expect(isApproxDesignation('SS400 (JIS/KS ≈)')).toBe(true);
+    expect(isApproxDesignation('S235 (≈)')).toBe(true);
+    expect(isApproxDesignation('JIS SUS316L')).toBe(false);
+    expect(isApproxDesignation('UNS S31603')).toBe(false);
+    /* ≈ 가 붙은 것은 UNS 로 새지 않는다 */
+    const r = splitDesignations(['S30400 (≈)']);
+    expect(r.uns).toEqual([]);
+    expect(r.approx).toEqual(['S30400 (≈)']);
   });
 
   it('빈 입력·null 을 견딘다', () => {
-    expect(splitDesignations(undefined)).toEqual({ uns: [], other: [] });
-    expect(splitDesignations([])).toEqual({ uns: [], other: [] });
+    expect(splitDesignations(undefined)).toEqual({ uns: [], equivalent: [], approx: [] });
+    expect(splitDesignations([])).toEqual({ uns: [], equivalent: [], approx: [] });
   });
 
   it('코퍼스 전량: 어떤 별칭도 사라지지 않는다', () => {
@@ -114,12 +126,15 @@ describe('splitDesignations (E5)', () => {
     for (const m of all) {
       const a = m.aliases ?? [];
       if (!a.length) continue;
-      const { uns, other } = splitDesignations(a);
+      const { uns, equivalent, approx } = splitDesignations(a);
       if (uns.length) withUns++;
       /* 분리 후 개수는 원본 이하 (UNS 중복 제거분만 줄어든다) */
-      if (uns.length + other.length > a.length) bad.push(`${m.name}: ${a.length} → ${uns.length}+${other.length}`);
-      /* other 는 원본에 실제로 있던 문자열이어야 한다 */
-      for (const o of other) if (!a.includes(o)) bad.push(`${m.name}: other 에 원본에 없는 값 ${o}`);
+      if (uns.length + equivalent.length + approx.length > a.length)
+        bad.push(`${m.name}: ${a.length} → ${uns.length}+${equivalent.length}+${approx.length}`);
+      /* equivalent·approx 는 원본에 실제로 있던 문자열이어야 한다 */
+      for (const o of [...equivalent, ...approx]) if (!a.includes(o)) bad.push(`${m.name}: 원본에 없는 값 ${o}`);
+      /* ≈ 가 동일규격명 쪽으로 새면 "같은 합금" 으로 읽힌다 — 절대 금지 */
+      for (const o of equivalent) if (/≈/.test(o)) bad.push(`${m.name}: ≈ 가 equivalent 로 샘 — ${o}`);
     }
     expect(bad, `별칭 손실/변형 ${bad.length}건 — ${bad.slice(0, 10).join(' | ')}`).toEqual([]);
     expect(withUns, 'UNS 보유 재료가 300 미만 — 분리가 동작하지 않는다').toBeGreaterThan(300);

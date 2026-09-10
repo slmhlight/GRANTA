@@ -206,20 +206,42 @@ export function unsNumber(alias: string | null | undefined): string | null {
   return m ? m[1].toUpperCase() : null;
 }
 
-/**
- * aliases[] 를 UNS 와 그 외로 가른다. 순서는 원본 유지, 중복 UNS 는 정규화 후 1회만.
- * **어떤 별칭도 버리지 않는다** — uns.length + other.length 는 입력 개수와 같거나(중복 제거분만) 작다.
+/*
+ * E6 (H6 W4-3b) — '≈' 근사대응 마커.
+ *
+ * 별칭에는 성격이 또 갈린다: `JIS SUS316L` 은 **같은 합금의 다른 규격명**이지만,
+ * `SS400 (JIS/KS ≈)` 는 **비슷하지만 같지 않은** 대응 강종이다(A36 은 SS400 과 조성·보증치가 다르다).
+ * 마커가 문자열 안에 묻혀 있어서 회색 배지로 나란히 놓이면 "A36 = SS400" 으로 읽힌다.
+ * 치환 판단이 걸린 정보라 형태로 갈라 놓는다.
  */
-export function splitDesignations(aliases: readonly string[] | null | undefined): { uns: string[]; other: string[] } {
+const APPROX_MARK = /≈/;
+
+/** 별칭이 '≈' 근사대응 표기인가. */
+export function isApproxDesignation(alias: string | null | undefined): boolean {
+  return APPROX_MARK.test(String(alias ?? ''));
+}
+
+/**
+ * aliases[] 를 세 갈래로 가른다 — 신뢰 강도 순:
+ *   uns        : 조성으로 정의된 통일 번호 (같은 합금 보증)
+ *   equivalent : 같은 합금의 다른 규격명 (JIS SUS316L · EN 1.4404 …)
+ *   approx     : '≈' 근사대응 — 비슷하지만 동일하지 않음 (치환 시 규격 원문 확인 필요)
+ *
+ * 순서는 원본 유지, 중복 UNS 는 번호 기준 1회만.
+ * **어떤 별칭도 버리지 않는다** — 세 갈래 합은 입력 개수와 같거나(UNS 중복 제거분만) 작다.
+ */
+export function splitDesignations(aliases: readonly string[] | null | undefined): { uns: string[]; equivalent: string[]; approx: string[] } {
   const uns: string[] = [];
-  const other: string[] = [];
+  const equivalent: string[] = [];
+  const approx: string[] = [];
   const seen = new Set<string>();
   for (const a of aliases ?? []) {
+    if (isApproxDesignation(a)) { approx.push(a); continue; }   // '≈' 는 UNS 형태일 수 없다 — 먼저 가른다
     const n = unsNumber(a);
-    if (n === null) { other.push(a); continue; }
+    if (n === null) { equivalent.push(a); continue; }
     if (seen.has(n)) continue;   // "UNS S30403" 과 "S30403" 은 같은 번호
     seen.add(n);
     uns.push(n);
   }
-  return { uns, other };
+  return { uns, equivalent, approx };
 }

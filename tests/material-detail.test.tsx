@@ -159,3 +159,48 @@ describe('E4 — 규격 하한(spec min) 배지', () => {
     expect([...container.querySelectorAll('span')].some((e) => e.textContent === 'spec min')).toBe(false);
   });
 });
+
+
+/*
+ * E6 (H6 W4-3b) — '≈' 근사대응은 같은 합금이 아니다. 동일 규격명과 시각적으로 갈라야 한다.
+ * 계획의 완화책("상세패널 카드 1개로 한정")에 맞춰 새 카드가 아니라 Designations 카드를 확장했다.
+ */
+describe('E6 — ≈ 근사대응 분리', () => {
+  it('≈ 별칭은 전용 그룹으로, 동일 규격명과 다른 스타일로 렌더된다', () => {
+    const m = mkMaterial({
+      name: 'ASTM A36 (structural carbon steel)', tier: 'verified',
+      ranges: { density: { typical: 7.85 } } as R,
+      aliases: ['SS400 (JIS/KS ≈)', 'S235JR (EN ≈)', 'JIS G3101'],
+    } as never);
+    const { container } = render(
+      <MaterialDetail {...baseProps} material={m} tab="process" onTabChange={vi.fn()} />
+    );
+    const txt = container.textContent || '';
+    expect(txt).toContain('≈ 근사');            // 그룹 라벨
+    expect(txt).toContain('SS400 (JIS/KS ≈)');
+    expect(txt).toContain('JIS G3101');          // 동일 규격명은 그대로
+
+    /* 근사 배지에는 "같은 합금이 아니다" 경고가 붙어야 한다 */
+    const approxBadge = [...container.querySelectorAll('span[title]')]
+      .find((e) => e.textContent === 'SS400 (JIS/KS ≈)');
+    expect(approxBadge, '근사 배지를 못 찾음').toBeTruthy();
+    expect(approxBadge!.getAttribute('title') || '').toMatch(/같은 합금이 아닙니다|치환/);
+
+    /* 동일 규격명 배지는 근사 경고를 달지 않는다 */
+    const eqBadge = [...container.querySelectorAll('span[title]')]
+      .find((e) => e.textContent === 'JIS G3101');
+    expect((eqBadge?.getAttribute('title') || '')).not.toMatch(/같은 합금이 아닙니다/);
+  });
+
+  it('≈ 가 없으면 근사 그룹을 그리지 않는다', () => {
+    const m = mkMaterial({
+      name: 'AISI 316L', tier: 'verified',
+      ranges: { density: { typical: 8.0 } } as R,
+      aliases: ['UNS S31603', 'JIS SUS316L'],
+    } as never);
+    const { container } = render(
+      <MaterialDetail {...baseProps} material={m} tab="process" onTabChange={vi.fn()} />
+    );
+    expect(container.textContent || '').not.toContain('≈ 근사');
+  });
+});
