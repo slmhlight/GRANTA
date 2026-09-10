@@ -343,17 +343,19 @@ export function ScenarioDialog({ scenarioKey, open, onOpenChange }: { scenarioKe
   const cfg = scenario?.configurator;
 
   // 입력 상태 — 사례가 바뀌면 default 로 초기화. R35b — multiselect (string[]) 도 포함.
+  // deps 는 cfg 만으로 충분 — cfg 는 scenarioKey 로 결정되는 모듈 상수라 변경 시점이 같다.
   const initialValues: Record<string, number | string | string[]> = useMemo(() => {
     const v: Record<string, number | string | string[]> = {};
     if (!cfg) return v;
     for (const f of cfg.fields) v[f.id] = f.default;
     if (cfg.sections) for (const f of cfg.sections[0].dimFields) v[f.id] = (f as any).default;
     return v;
-  }, [scenarioKey, cfg]);
+  }, [cfg]);
   const [values, setValues] = useState<Record<string, number | string | string[]>>(initialValues);
   const [sectionId, setSectionId] = useState<string>(cfg?.sections?.[0]?.id ?? '');
-  // 사례가 바뀌면 입력값을 default 로 리셋
-  useEffect(() => { setValues(initialValues); setSectionId(cfg?.sections?.[0]?.id ?? ''); }, [scenarioKey]);
+  /* 사례가 바뀌면 입력값을 default 로 리셋 — cfg·initialValues 는 scenarioKey 에 매인 값이라
+     의존성을 그것들로 적어도 발화 시점은 같다. */
+  useEffect(() => { setValues(initialValues); setSectionId(cfg?.sections?.[0]?.id ?? ''); }, [initialValues, cfg]);
 
   const section: CrossSection | undefined = cfg?.sections?.find((s) => s.id === sectionId);
 

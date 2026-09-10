@@ -224,6 +224,9 @@ function CategoryFilter({ selected, onChange, materials }: CategoryFilterProps) 
 
 
 // ── Element Range Filter (클라이언트 사이드) ──────────────────────────────────
+/* 조성 필터에 노출할 원소 — 상수라 컴포넌트 밖에 둔다.
+   안에 두면 렌더마다 새 배열이라 elementRanges memo 의 의존성이 성립하지 않는다. */
+const ELEMENTS = ['Fe', 'Al', 'Ni', 'Ti', 'Co', 'Cu', 'Cr', 'Mo', 'Mn', 'Si', 'C', 'O', 'N', 'V', 'W', 'Nb', 'Ta'] as const;
 interface ElementRangeFilterProps {
   materials: Material[];
   ranges: Record<string, [number, number] | null>;
@@ -232,7 +235,6 @@ interface ElementRangeFilterProps {
 
 function ElementRangeFilter({ materials, ranges, onChange }: ElementRangeFilterProps) {
   const [expanded, setExpanded] = useState(false);
-  const ELEMENTS = ['Fe', 'Al', 'Ni', 'Ti', 'Co', 'Cu', 'Cr', 'Mo', 'Mn', 'Si', 'C', 'O', 'N', 'V', 'W', 'Nb', 'Ta'] as const;
   
   const isActive = Object.values(ranges).some(r => r !== null);
 

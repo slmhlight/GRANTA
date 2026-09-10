@@ -27,16 +27,20 @@ function ScenarioColumn({ panelKey, label, scenarioKey, onScenarioChange, onResu
   const t = useT();
   const scenario = scenarioKey ? SCENARIO_PRESETS[scenarioKey] : null;
   const cfg = scenario?.configurator;
+  /* 사례 입력의 default 묶음. deps 는 cfg 만으로 충분하다 — cfg 는 scenarioKey 로 결정되는
+     모듈 상수(SCENARIO_PRESETS)라 scenarioKey 를 같이 적어도 재계산 시점이 달라지지 않는다. */
   const initialValues = useMemo(() => {
     const v: Record<string, number | string | string[]> = {};
     if (!cfg) return v;
     for (const f of cfg.fields) v[f.id] = f.default;
     if (cfg.sections) for (const f of cfg.sections[0].dimFields) v[f.id] = (f as any).default;
     return v;
-  }, [scenarioKey, cfg]);
+  }, [cfg]);
   const [values, setValues] = useState<Record<string, number | string | string[]>>(initialValues);
   const [sectionId, setSectionId] = useState<string>(cfg?.sections?.[0]?.id ?? '');
-  useEffect(() => { setValues(initialValues); setSectionId(cfg?.sections?.[0]?.id ?? ''); }, [scenarioKey]);
+  /* 사례가 바뀌면 입력값을 default 로 리셋. initialValues·cfg 는 scenarioKey 에 매인 값이라
+     의존성을 그것들로 적어도 발화 시점은 같고, 규칙이 요구하는 대로 정직해진다. */
+  useEffect(() => { setValues(initialValues); setSectionId(cfg?.sections?.[0]?.id ?? ''); }, [initialValues, cfg]);
   const section: CrossSection | undefined = cfg?.sections?.find((s) => s.id === sectionId);
   const result = useMemo(() => {
     if (!cfg) return null;

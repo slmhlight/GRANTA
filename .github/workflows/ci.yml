@@ -29,8 +29,10 @@ jobs:
         run: pnpm build:stats
       - name: Type check (tsc --noEmit)
         run: pnpm check
-      - name: "Lint (eslint — 정책 룰: react-hooks·TDZ·dark: 금지)"
-        # R210 — 경고는 비차단(staged 도입). error(rules-of-hooks·no-use-before-define·dark:)만 실패.
+      - name: "Lint (eslint — 정책 룰: react-hooks·TDZ·dark: 금지 · 경고 0)"
+        # R210 에서 경고를 비차단으로 두고 단계 도입했고, H6 F3(2026-09-11)에서 잔여 9건을 소진해
+        # --max-warnings 0 으로 조인다. exhaustive-deps 경고가 새로 생기면 여기서 막힌다 —
+        # 의존성 누락은 "가끔 안 갱신되는 화면" 으로 나타나 테스트로는 잘 안 잡히는 부류다.
         run: pnpm lint
       - name: Run unit tests + coverage (vitest)
         # R210 — test:cov: lib/hooks 커버리지 임계(보수적) 하향 회귀 차단. 데이터 불변식 테스트는

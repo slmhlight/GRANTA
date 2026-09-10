@@ -23,7 +23,7 @@
     "start": "NODE_ENV=production node dist/index.js",
     "preview": "vite preview --host",
     "check": "tsc --noEmit",
-    "lint": "eslint client/src",
+    "lint": "eslint client/src --max-warnings 0",
     "test": "vitest run",
     "test:cov": "vitest run --coverage",
     "test:ui": "vitest --ui",

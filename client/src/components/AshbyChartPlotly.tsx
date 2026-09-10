@@ -115,6 +115,12 @@ const INDEX_GUIDES: Record<string, { slope: number; label: string }[]> = {
 // 재료 분류별 색은 단일 진실 소스(lib/material-colors)에서 — UI 전반과 동일.
 
 const tv = (m: any, p: string): number | null => (m[p] ?? m.ranges?.[p]?.typical ?? null);
+/** 전체 재료에서 해당 물성의 typical min/max — 축 자동범위·슬라이더 도메인의 기준.
+ *  컴포넌트 밖 순수 함수로 두어 useMemo 의존성이 (materials, prop) 로 정확히 떨어지게 한다. */
+const domainOf = (materials: Material[], prop: string): [number, number] => {
+  const vs = materials.map((m) => tv(m, prop)).filter((v): v is number => v != null && v > 0);
+  return vs.length ? [Math.min(...vs), Math.max(...vs)] : [0, 1];
+};
 const loOf = (m: any, p: string): number | null => (m.ranges?.[p]?.min ?? tv(m, p));
 const hiOf = (m: any, p: string): number | null => (m.ranges?.[p]?.max ?? tv(m, p));
 const L = Math.log10;
@@ -216,7 +222,6 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
         duration: 6000,
       });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   /** 라운드 14 — forceIndexKey prop 변경 시 (사례 적용 등) 자동 axis + index 전환.
@@ -250,12 +255,8 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
   }, []);
 
   const filtered = filteredMaterials || materials;
-  const dom = (prop: string): [number, number] => {
-    const vs = materials.map((m) => tv(m, prop)).filter((v): v is number => v != null && v > 0);
-    return vs.length ? [Math.min(...vs), Math.max(...vs)] : [0, 1];
-  };
-  const xDomain = useMemo(() => dom(xProperty), [materials, xProperty]);
-  const yDomain = useMemo(() => dom(yProperty), [materials, yProperty]);
+  const xDomain = useMemo(() => domainOf(materials, xProperty), [materials, xProperty]);
+  const yDomain = useMemo(() => domainOf(materials, yProperty), [materials, yProperty]);
   useEffect(() => { setXLimit(null); }, [xProperty]);
   useEffect(() => { setYLimit(null); }, [yProperty]);
   const groupOptions = useMemo(() => {
@@ -590,7 +591,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       ...selMarker,
     ];
     return { data, layout, indexInfo, selectedIds, paretoInfo };
-  }, [materials, filtered, xProperty, yProperty, filters, groupFilter, subFilter, selectedId, showEnvelopes, xLog, yLog, compareList, xLimit, yLimit, markerSize, showContext, showGrid, showLabels, showLegend, showGuides, markerOpacity, envOpacity, showMinorGrid, showSelected, darkChart, colorByCategory, indexPreset, indexThreshold, boxedIds, constraints, showMarkers, envelopeBy, envFill, envOutline, isMobile, showPareto, resetCounter]);
+  }, [materials, filtered, xProperty, yProperty, filters, groupFilter, subFilter, selectedId, showEnvelopes, xLog, yLog, compareList, xLimit, yLimit, markerSize, showContext, showGrid, showLabels, showLegend, showGuides, markerOpacity, envOpacity, showMinorGrid, showSelected, darkChart, colorByCategory, indexPreset, indexThreshold, boxedIds, constraints, showMarkers, envelopeBy, envFill, envOutline, isMobile, showPareto, resetCounter, xDomain, yDomain]);
 
   const config = {
     responsive: true, displaylogo: false,
