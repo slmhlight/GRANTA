@@ -1,0 +1,127 @@
+{
+  "_note": "위치 기반 legacy_id 를 만드는 상류 배열의 순서 동결 (D6). growth=frozen 은 개수까지 고정 — supRaw 가 네 파일의 연결이라 앞 파일이 자라면 뒤 파일의 R_ id 가 전부 밀린다. 신규 entry 는 alloy-additions.json 끝에만 append. 게이트: tests/upstream-append-only.test.ts. 재생성: node scripts/build-upstream-freeze.mjs (의도된 변경일 때만).",
+  "sources": {
+    "AM_Materials_DB_enriched.csv": {
+      "gives": "C_ · G_",
+      "growth": "append",
+      "frozen_count": 2909,
+      "prefix_sha": "22e9124f2c4babda",
+      "first": "AISI 5130 (Aged (150°C))",
+      "last": "Waspaloy (Ni-13.5Co-19.5Cr-4.3Mo-1.4Al-3.0Ti) (T10)",
+      "checkpoints": [
+        {
+          "n": 256,
+          "sha": "692d7a2d250fa848"
+        },
+        {
+          "n": 512,
+          "sha": "2b7cc98c31a9aa14"
+        },
+        {
+          "n": 768,
+          "sha": "fab8852f09ddf421"
+        },
+        {
+          "n": 1024,
+          "sha": "e3df938df01705c0"
+        },
+        {
+          "n": 1280,
+          "sha": "627dc8699889a14b"
+        },
+        {
+          "n": 1536,
+          "sha": "6e4b5fc7c41ce1f1"
+        },
+        {
+          "n": 1792,
+          "sha": "8e7d28806fdd1c1f"
+        },
+        {
+          "n": 2048,
+          "sha": "51e0ea5a7ea8de0b"
+        },
+        {
+          "n": 2304,
+          "sha": "9f3951d70ffcecbd"
+        },
+        {
+          "n": 2560,
+          "sha": "fa0e458c3f5a7edf"
+        },
+        {
+          "n": 2816,
+          "sha": "57bf9c5a63d8e3bd"
+        }
+      ]
+    },
+    "supplementary-materials.json": {
+      "gives": "R_ (연결 1/4)",
+      "growth": "frozen",
+      "frozen_count": 451,
+      "prefix_sha": "bb2f31e0da1fe348",
+      "first": "Inconel 718",
+      "last": "AA 5454",
+      "checkpoints": [
+        {
+          "n": 256,
+          "sha": "d2d96966a60a99b7"
+        }
+      ]
+    },
+    "cast-alloys.json": {
+      "gives": "R_ (연결 2/4)",
+      "growth": "frozen",
+      "frozen_count": 8,
+      "prefix_sha": "07ea505918d0acf3",
+      "first": "CF8 (cast 304, ASTM A351)",
+      "last": "ADC12 / A383 (die-cast Al-Si-Cu)",
+      "checkpoints": []
+    },
+    "granta-datasheets.json": {
+      "gives": "R_ (연결 3/4)",
+      "growth": "frozen",
+      "frozen_count": 16,
+      "prefix_sha": "9ef4c389a284c5d3",
+      "first": "AISI 1015 — Normalized (Wrought)",
+      "last": "AISI 304 — 1/2 Hard (cold-worked)",
+      "checkpoints": []
+    },
+    "alloy-additions.json": {
+      "gives": "R_ (연결 4/4 — 신규는 여기 끝에만)",
+      "growth": "append",
+      "frozen_count": 16,
+      "prefix_sha": "9e4fa090e3171168",
+      "first": "Ni-Hard 1 (white cast iron, ASTM A532 Class I-A)",
+      "last": "FKM — Fluoroelastomer (Viton A type, 75 Shore A)",
+      "checkpoints": []
+    },
+    "ceramics-data.json": {
+      "gives": "CER_",
+      "growth": "append",
+      "frozen_count": 39,
+      "prefix_sha": "c68a251e69827487",
+      "first": "Alumina (Al₂O₃, 99.5% pure)",
+      "last": "Forsterite (Mg₂SiO₄, electronic substrate)",
+      "checkpoints": []
+    },
+    "composites-data.json": {
+      "gives": "CMP_",
+      "growth": "append",
+      "frozen_count": 32,
+      "prefix_sha": "a49aa38d02f1d609",
+      "first": "CFRP — T300/Epoxy (UD 0°)",
+      "last": "CFRP — M40J/Cyanate Ester (UD 0°, satellite dimensional)",
+      "checkpoints": []
+    },
+    "polymers-data.json": {
+      "gives": "POL_",
+      "growth": "append",
+      "frozen_count": 39,
+      "prefix_sha": "0632a3eb70831121",
+      "first": "PEEK Victrex 450G — As-supplied (Injection Molding)",
+      "last": "HNBR — Hydrogenated Nitrile Butadiene Rubber",
+      "checkpoints": []
+    }
+  }
+}

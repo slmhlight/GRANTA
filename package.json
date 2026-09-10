@@ -10,6 +10,7 @@
     "build:profiles": "node scripts/build-process-profiles.mjs",
     "build:wiki": "node scripts/build-wiki-index.mjs",
     "build:registry": "node scripts/build-materials.mjs && node scripts/build-registry.mjs",
+    "freeze:upstream": "node scripts/build-upstream-freeze.mjs",
     "audit:registry": "node scripts/audit-registry.mjs",
     "audit:sample": "node scripts/audit-random-sample.mjs",
     "audit:wiki": "node scripts/audit-wiki-coverage.mjs",
