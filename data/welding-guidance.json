@@ -2,11 +2,13 @@
  "_note": "R226k — 용접 권고 가이드 (구 MaterialDetail 인라인 71블록 이관). pattern 은 빌드 분류기가 wg 할당에 사용(런타임 미사용). nonferrous_only=CE 지표 없을 때만 표시(구 !weldWorst 가드). 출처: 각 텍스트 【표준】 + ASM Vol.6·AWS.",
  "blocks": {
   "w01-aisi": {
+   "sources": ["AWS D1.1","ASTM A36/A572"],
    "pattern": "^(?:aisi |sae )?10[012]\\d\\b|^(?:astm |sa ?)?a?(?:36|283|51[67]|537)\\b|^s2[37]5|^s3[35]5|^st37|^sm[2345]\\d\\d|^ss[23]\\d\\d|^shn\\d|^shp\\d|^sd[4-7]00|^stk\\d|^stkm|^sg\\s?325|^sgcc?|^sgc\\d|^saph|^spfh|^wc[bc]\\b|^hot-?dip|^zn-?mg-?al|^spa-?h|^38mnvs",
    "field": "name",
    "text": "✓ Plain Low-Carbon Steel — 용접의 기준점\n\nCE_IIW < 0.40 이라 어떤 fusion 공정으로도 무난히 붙는, 구조용접의 baseline 이다. 이 강이 갈라진다면 대개 재료가 아니라 수소·구속·저온의 문제다.\n\n【권장 방법】\n• Process: SMAW/GMAW/GTAW/FCAW 모두 가능\n• Filler: E7018(low-H) · ER70S-6(GMAW) · ER70S-2(GTAW)\n• Shielding: CO₂ 또는 Ar/CO₂ 75/25\n• Pre-heat: 불필요(두께<25 mm) / 100°C(>25 mm) · Inter-pass <200°C\n\n【⚠ 주의 — 두꺼운 단면의 cold crack】\n안전한 강이지만 두꺼운 판+저온+수소가 겹치면 지연균열이 올 수 있다 — 25 mm 이상은 50~100 °C 예열과 low-H 용접봉(E7018)으로 여유를 확보하는 것이 관례다.\n\n【표준】 AWS D1.1 · ASTM A36/A572 · KS D 3503"
   },
   "w02-aisi": {
+   "sources": ["AWS D1.1","ASM Vol.6"],
    "pattern": "^(?:aisi |sae )?10[3-9]\\d\\b|^s[2345]\\dc\\b|^sk\\d{1,2}\\b|^s55c",
    "field": "name",
    "text": "주의. Medium/High-Carbon Steel — 탄소가 수소균열의 연료다\n\nCE_IIW 0.50~0.60: 용접열로 HAZ 가 급랭되면 취성 마르텐사이트가 생기고, 여기에 용접 수소가 모이면 24~72시간 뒤 갈라지는 지연균열(HIC)이 온다. 그래서 이 계열의 용접은 '예열-저수소-서랭' 3원칙이 전부다.\n\n【공통 권장 방법】\n• Process: SMAW(E7018) · GTAW(ER70S-2)\n• Inter-pass 200~300°C · PWHT 580~650°C/1~2 h 노냉\n\n【⚠ Q+T 상태 용접 금지】\n조질(HRC 30~50) 부품을 용접하면 HAZ 가 국부적으로 과뜨임되어 강도가 무너진다. 순서는 절삭성과 같다 — Annealed 에서 용접, 열처리는 그 다음.\n\n【표준】 AWS D1.1 · ASM Vol.6",
@@ -17,6 +19,7 @@
    }
   },
   "w03-aisi": {
+   "sources": ["AWS D1.1","AMS 6382/6414"],
    "pattern": "^(?:aisi |sae )?41[3-6]\\d|^42crmo4|^scm4\\d\\d|^(?:aisi |sae )?43[14]0|^sncm|^(?:aisi |sae )?5[01][1-9]0\\b|^(?:aisi |sae )?61[45]0\\b|^300m\\b|^31crmov9|^18crnimo7|^20mncr5|^16mncr5|^(?:aisi |sae )?8[67]\\d\\d\\b|^(?:aisi |sae )?93\\d\\d\\b|^pyrowear|^sa ?5(?:08|33)|^hy-?\\d{2,3}\\b|^s690q|^api ?2h|^d6ac|^hp ?9-?4|^aermet",
    "field": "name",
    "text": "⚠ Cr-Mo/Ni-Cr-Mo Alloy Steel — 지연균열과의 싸움 (CE 0.65-0.80)\n\nHardenability(경화능)가 좋다는 것은 용접에서는 저주다 — HAZ 가 공랭만으로 마르텐사이트가 되고, 수소가 있으면 용접 후 1~3일 사이에 소리 없이 갈라진다(hydrogen-induced cold crack). 이 계열의 용접 규정은 전부 이 하나를 막기 위해 존재한다.\n\n【공통 권장 방법】\n• Process: GTAW root + SMAW fill\n• Filler: E11018-M(low-H) · ER80S-Ni/ER100S-1\n• Inter-pass 250~300°C\n\n【필수 — 수소 관리】\nlow-H 용접봉(H4/H8 등급)을 120 °C 건조로에 보관하고, 결로 없는 환경(RH<50%)에서 작업한다. 예열 생략은 곧 균열이다.\n\n【필수 — PWHT】\n용접 후 580~660 °C/1~2 h 로 마르텐사이트를 뜨임하고 잔류응력을 푼다. 냉각은 100 °C/h 통제 — 단 270~370 °C 뜨임취성 구간은 빠르게 통과시킨다.\n\n【순서 — Q+T 상태 용접 금지】\n① Annealed 에서 용접 ② Q+T ③ 마무리 연삭. 조질 상태 용접은 HAZ 항복강도를 30~50% 깎는다. 항공·유정용은 RT+UT+MT 100% 검사가 표준.\n\n【표준】 AWS D1.1 · AMS 6382/6414 · ASME Sec.IX",
@@ -26,11 +29,13 @@
    }
   },
   "w04-aisi": {
+   "sources": ["ASTM A295"],
    "pattern": "^(?:aisi |sae )?52100|^bearing steel|^suj2",
    "field": "name",
    "text": "⚠⚠ Bearing Steel 52100 — 용접하지 않는 강\n\n완전 경화(HRC 60+)로 쓰는 베어링강은 fusion welding 의 대상이 아니다 — 용접열이 닿는 순간 HAZ 가 과뜨임되어 베어링 수명이 끝난다(spalling). 접합이 필요하면 press-fit·snap ring 같은 기계 체결, 은납 brazing(BAg-1, 사용온도 제한), 또는 HAZ 가 극소인 friction welding 으로 우회한다. '52100 용접 절차서'를 요구받았다면 설계를 다시 봐야 한다.\n\n【표준】 ASTM A295 · JIS G 4805"
   },
   "w05-aisi": {
+   "sources": ["ASTM A262","AWS D1.6","ASTM A240"],
    "pattern": "^(?:aisi |sae )?3(?:0[12456789]|1[0678]|2[14]|47)(?:l|ln|lm|h|n|s|se)?\\b|^sts30[14]l?\\b|^sts316l?\\b|^316(?:l|n|ti|fr)?\\b|^stainless ?3\\d\\d|^cf[38]m?\\b|^nitronic|^253 ?ma\\b|^super ?30[45]h|^sae ?21-?4n|^21-?4n\\b",
    "field": "name",
    "text": "주의. Austenitic Stainless — 잘 붙지만 세 가지 함정\n\n용접 자체는 쉽다(예열 불필요). 문제는 용접 후에 온다 — ① HAZ 가 450~850 °C 를 지나며 Sensitization(예민화)(입계 Cr 탄화물→입계부식), ② 넓은 응고구간의 고온균열, ③ 큰 열팽창(CTE 17, 탄소강의 1.5배)이 만드는 변형.\n\n【공통 권장 방법】\n• Process: GTAW root + SMAW/GMAW fill\n• Shielding: Ar(GTAW) · Ar/CO₂ 98/2(GMAW)\n• Inter-pass <175°C (Sensitization 회피의 핵심)\n\n【고온균열 대응】\nlow-S/P 용접재, 입열 <1.5 kJ/mm, 그리고 용접금속에 페라이트 5~10%(DeLong)를 남기는 것이 정석 — S·P 를 페라이트가 흡수해 준다. 지문·절삭유의 황 오염도 균열 기점이 되므로 청결이 품질이다.\n\n【변형 대응】\n얇은 판은 fixture 구속 + skip 순서(1-3-2-4) + Cu backing 으로 열을 나눠 넣는다. 이미 예민화된 재료는 1050 °C solution annealing+급랭으로 복구할 수 있다(부식 critical 은 ASTM A262 로 확인).\n\n【표준】 AWS D1.6 · ASME Sec.IX · ASTM A240",
@@ -42,6 +47,7 @@
    }
   },
   "w06-aisi": {
+   "sources": ["AWS D1.6","ASTM A276"],
    "pattern": "^(?:aisi |sae )?(?:41[0456]|42[02]|431|44[024][a-c]?)\\b|^stainless steel 4[12]\\d|^sus4[12]\\d|^ss4[124]0|^l80 |^stavax|^nak ?80",
    "field": "name",
    "text": "⚠ Martensitic Stainless — 스테인리스 얼굴을 한 고탄소강\n\nCr 12~18%에 탄소까지 높아, 용접 HAZ 는 반드시 마르텐사이트가 된다 — 중탄소강의 냉균열 문제가 그대로, 더 세게 온다. 예열 250~300 °C 와 low-H 용접재, 후열처리는 선택이 아니라 전제다.\n\n【공통 권장 방법】\n• Pre-heat·Inter-pass: 250~300°C · PWHT 는 450~500 °C 취성역을 피해서 서랭\n\n【표준】 AWS D1.6 · ASTM A276",
@@ -52,11 +58,13 @@
    }
   },
   "w07-aisi": {
+   "sources": ["AWS D1.6","ASTM A240"],
    "pattern": "^(?:aisi |sae )?(?:40[59]|410s|43[0469]|44[26])\\b|^stainless steel 4[34]\\d|^sus43\\d|^ma956",
    "field": "name",
    "text": "주의. Ferritic Stainless — 결정립이 자라면 돌아오지 않는다\n\n오스테나이트 변태가 없어 용접열에 HAZ 결정립이 1~3 mm 까지 폭주 성장하고, 인성이 급락한다(Charpy 50→5 J). 미세화 열처리로 되돌릴 수도 없다 — 페라이트계 용접의 유일한 처방은 입열을 낮게, 그리고 연성 있는 오스테나이트계 필러(ER309L)로 용접금속만이라도 인성을 확보하는 것.\n\n【권장 방법】\n• Filler: ER309L(권장 overmatch) 또는 모재 매칭 필러\n• Pre-heat: 100~150°C(박판)/200°C(후판) · Inter-pass <200°C · low heat input\n\n【⚠ 475 °C 취화】\n350~525 °C 장기 노출 시 α-α′ 분리로 취화된다(550 °C+ annealing 으로 회복 가능). 사용온도를 이 창 밖으로 — Ti/Nb 안정화강이면 부담이 준다.\n\n【표준】 AWS D1.6 · ASTM A240"
   },
   "w08-duplex": {
+   "sources": ["ASTM G48","AWS D1.6","ASTM A790/A928"],
    "pattern": "^(?:duplex|super-?duplex|lean duplex|2205|2304|2507|s3(?:1803|2205|2304|2750|2760)|saf 2[57]|zeron ?100)\\b",
    "field": "name",
    "text": "⚠ Duplex/Super Duplex — 상 균형을 지키는 용접\n\n듀플렉스의 성능은 페라이트:오스테나이트 ≈50:50 균형에서 나오고, 용접은 그 균형을 흔드는 행위다. 입열이 부족하면 페라이트 과다(취성·고온균열), 과하거나 150 °C 이상에서 다층을 쌓으면 σ상(700~1000 °C 석출 — Charpy 60→5 J·내식 붕괴)이 온다. 그래서 이 계열 용접 절차의 전부는 '열의 창(0.5~2.5 kJ/mm)과 inter-pass <150 °C 를 지키는 것'이다.\n\n【공통 권장 방법】\n• Shielding: Ar+2~3% N₂ (오스테나이트 형성 지원)\n• Pre-heat 불필요 · Inter-pass <150°C 절대 · ΔT₁₂₀₀→₈₀₀ 5~15 s\n\n【검증 — 용접부가 스펙이다】\n용접금속 페라이트 35~60%(Ferritescope 측정), 해수·sour 용도는 용접부 PREN≥40 과 ASTM G48 공식시험까지 — 모재가 아니라 용접부가 성능을 결정한다.\n\n【표준】 AWS D1.6 · ASTM A790/A928 · NACE MR0175",
@@ -66,6 +74,7 @@
    }
   },
   "w09-17": {
+   "sources": ["AMS 5643/5659/5862","AWS D1.6"],
    "pattern": "^(?:stainless steel )?1[57]-?[457] ?ph|^ph ?13-?8|^custom 4(?:55|65)\\b|^cx \\(ph|^stainless steel 41[05]|^ss ?455",
    "field": "name",
    "text": "주의. PH Stainless — 용접도 'Condition A 에서'\n\n절삭과 같은 논리가 용접에도 적용된다: Solution(Condition A) 상태에서 용접하고, 강도는 마지막 Aging 한 번으로. Aged 상태(H900)를 용접하면 HAZ 가 과시효되어 피로강도를 잃고 회복이 거의 불가능하다.\n\n【공통 권장 방법】\n• Process: GTAW(DCEN) 또는 GMAW · Shielding Ar\n• Pre-heat 불필요 · Inter-pass <175°C\n• 순서: Condition A 용접 → Aging(H900~H1150 요구별) → 치수 확인\n\n【Aging 등급 선택이 곧 설계】\nH900(peak, σy 1170)은 강하지만 SCC·수소취성에 민감 — 해양은 H1075, sour service 는 H1150 처럼 낮춰 잡는 것이 규격 관행(NACE)이다. 산세·도금 후에는 280 °C/4 h 수소 베이킹을 잊지 않는다.\n\n【표준】 AMS 5643/5659/5862 · AWS D1.6",
@@ -77,6 +86,7 @@
    }
   },
   "w10-h1": {
+   "sources": ["AWS D1.1","DIN 1.2344/1.2379"],
    "pattern": "^(?:aisi )?h[12]\\d\\b|^(?:aisi )?d[236]\\b|^(?:aisi )?a[26]\\b|^(?:aisi )?o[12]\\b|^(?:aisi )?s[57]\\b|^(?:aisi )?m\\d{1,2}\\b|^(?:aisi )?t[1-5]\\b|^cpm|^tool steel|^cm55|^dc53|^skd\\d|^skh\\d|^d2 tool|^m50 \\(|^p20",
    "field": "name",
    "text": "⚠ Tool Steel — '용접'이 아니라 '수리'의 기술\n\nCE 환산 1.0 을 넘는 고탄소·고합금이라 생산 용접의 대상이 아니다 — 식는 즉시 마르텐사이트가 되어 갈라진다. 이 계열의 용접은 사실상 한 가지 용도, 금형 마모부의 정밀 수리다. 다이캐스팅·사출 금형의 국부 손상을 laser(HAZ 최소) 나 TIG 로 살을 붙이고 다시 연마하는 것.\n\n【공통 권장 방법 — 수리 절차】\n• Process: laser welding(정밀 수리 표준) 또는 GTAW\n• Pre-heat 400~500°C 필수 · Inter-pass 400°C · 노냉 50°C/h\n• 용접 직후 즉시 tempering(200~300°C/2 h) — '식기 전에 Tempering'이 균열 방지의 핵심\n\n【왜 이렇게까지 하나】\n예열·서랭·즉시 Tempering은 전부 하나의 목적 — HAZ 마르텐사이트가 취성 그대로 응력을 받지 않게 하는 것이다. 어느 하나를 생략하면 수리부가 사용 중 뜯겨 나간다. 미러 금형은 수리 후 lapping+diamond paste 로 Ra<0.05 μm 까지 복원한다.\n\n【구조 접합이 필요하면】\n용접이 아니라 기계 체결(key·dowel)이나 일체 가공으로 설계를 바꾸는 것이 정답이다.\n\n【표준】 AWS D1.1 · DIN 1.2344/1.2379 (공구강 grade별)",
@@ -87,6 +97,7 @@
    }
   },
   "w11-api": {
+   "sources": ["API 1104","API 5L"],
    "pattern": "^(?:api )?5l?\\s?x(?:42|46|52|56|60|65|70|80|100)\\b|^x[6789]0|^x100\\b|^hsla|^api ?5l|^(?:astm )?a5(?:72|88|92)|^(?:astm )?a992|^[ade]h36\\b",
    "field": "name",
    "text": "⚠ HSLA Pipeline Steel — Pcm 숫자 하나로 관리되는 용접\n\n파이프라인강은 '용접될 것'을 전제로 설계된 강이다 — 탄소를 낮추고 미세립으로 강도를 얻어, 냉균열 지표를 CE_IIW 대신 저탄소용 Pcm(=C+Si/30+Mn/20+…+5B)으로 관리한다. Pcm<0.21 이 지켜지는 한 순한 용접이고, 강도 등급이 오를수록 예열과 수소 관리가 조여진다.\n\n【공통 권장 방법】\n• Process: 현장 root 는 cellulosic E6010(전자세 용접), fill/cap 은 low-H E8018-G · 공장은 GMAW-STT root + SAW fill\n• Inter-pass <250°C\n\n【⚠ sour service (H₂S) — 경도가 규정이다】\n황화수소 환경의 SSC(황화물 응력균열)는 HAZ 경도가 지배한다 — NACE MR0175 는 HV 250 상한을 못박고 있으며, 용접부 경도시험(HV10)이 합부 판정 항목이다. sour 라인은 sour grade 를 쓰는 것이 관행.\n\n【현장 용접의 현실】\n비·바람·영하의 야외에서 예열은 induction/torch 로, 용접봉은 120 °C 건조로에서 관리한다. 검사는 100% RT+자동 UT 가 파이프라인 표준(API 1104).\n\n【표준】 API 1104 · API 5L · NACE MR0175",
@@ -98,35 +109,41 @@
    }
   },
   "w12-gray": {
+   "sources": ["AWS D11.2","ASM Vol.6"],
    "pattern": "^(?:gray|grey|ductile|malleable|nodular|compacted) ?(?:graphite )?(?:iron|cast iron)|^astm a53[26]|^class ?[2345]\\d cast iron|^ggg ?[45]\\d|^en ?gj[sl]|^adi grade|^austempered|^ni-?hard|^high-?cr white|^white cast",
    "field": "name",
    "text": "⚠⚠ Cast Iron (회주철·구상흑연·가단·백주철) — 탄소 2~4%와 협상하는 법\n\n주철 용접이 어려운 이유는 하나다: 용접열이 흑연을 녹여 탄소가 용융지로 쏟아지고, 급랭된 HAZ 는 백주철+마르텐사이트가 되어 연성이 0 에 가까워진다 — 수축응력을 받아줄 여유가 없어 즉시 갈라진다. 그래서 주철 접합의 제1 선택지는 fusion 이 아니라 브레이징(oxy-acetylene, BCu 계)이며, fusion 을 강행할 때의 규정은 전부 '탄소와 급랭을 달래는' 장치다.\n\n【Fusion 강행 시 — Ni 필러와 저입열】\n• Filler: ENi-CI(Ni 99%) 또는 ENiFe-CI(Ni 55%) — Ni 이 탄소를 흑연으로 품어 취성 탄화물 형성을 막는다\n• Pre-heat 350~450°C(주물 전체!) · Inter-pass 400°C · 노냉/버미큘라이트 서랭 50°C/h\n• 작은 비드 다층 + peening(비드 두들김)으로 응력 분산\n\n【계열별 성패】\n구상흑연(EN-GJS)은 흑연이 둥글어 회주철보다 안정적으로 붙는다. 회주철은 조건부, **백주철·ADI 는 용접 불가로 취급**한다 — 백주철은 조직 자체가 탄화물이고, ADI 는 용접열이 ausferrite 를 파괴한다(구상흑연 상태에서 용접 후 Austempering 은 가능).\n\n【현실적 판단】\n주철 용접의 대부분은 '깨진 주물 수리'다 — 구조 신뢰가 필요하면 수리 대신 교체·기계 체결·브레이징을 먼저 검토하는 것이 정석이다.\n\n【표준】 AWS D11.2 (Cast Iron Welding) · ASM Vol.6"
   },
   "w13-aa": {
+   "sources": ["AWS D1.2","ASM Vol.6"],
    "pattern": "^aa[\\s-]?[13]\\d{3}\\b|^al99|^alcoa ?1\\d{3}",
    "field": "name",
    "nonferrous_only": true,
    "text": "✓ AA 1xxx — Commercial Purity Aluminum (99% 이상)\n모든 알루미늄 합금 중 가장 weldable 한 grade 입니다.\n\n【권장 방법】\n• Welding: GTAW (DC EN with Argon shielding) 또는 GMAW (spray transfer)\n• Filler: ER1100 (matching) — 또는 base 합금 자체를 filler 로 사용 가능\n• Pre-heat: 두께 ≤ 12mm → 불필요 / 두께 > 12mm → 50~100°C\n\n【⚠ 주의 — Aluminum Oxide (Al₂O₃) Film 제거】\n알루미늄 표면에는 두께 5~10 nm 의 단단한 Al₂O₃ 산화막 (융점 2072°C, base alloy 660°C 의 3배) 이 자연 형성됩니다.\n이 산화막은 welding 열에 녹지 않으며, weld pool 내부에 inclusion 으로 들어가 강도 저하 및 균열의 원인이 됩니다.\n반드시 stainless steel wire brush 로 weld 직전 mechanical 제거 후, acetone 으로 degrease 합니다.\n• 금지: carbon steel brush (Fe 오염) 또는 ground 시 사용한 brush (오염 가능성)\n• 금지: chlorinated cleaner (HCl 가스 생성)\n\n【NDT 권장】\nVisual 검사 + Liquid Penetrant (PT)\n\n【표준】\nAWS D1.2 (Al welding) · ASM Vol.6 Chapter on Aluminum Welding"
   },
   "w14-aa": {
+   "sources": ["AWS D1.2","MMPDS 08"],
    "pattern": "^aa[\\s-]?201[14]\\b",
    "field": "name",
    "nonferrous_only": true,
    "text": "⚠ AA 2014 — Al-Cu-Si-Mg (Cu 4.4%, Si 1.0%, Mg 0.5%)\n2xxx 시리즈 중 그나마 weldable 한 grade 입니다 (Si 함량으로 인한 hot crack 완화).\n\n【권장 방법】\n• Welding: GMAW (preferred for thick section) 또는 GTAW\n• Filler: ER4043 (Si 5%, hot crack 완화) — ER5356 사용 금지 (Mg₂Si crack 형성)\n• Pre-heat: 150°C (균일 가열)\n• 인터패스 온도: < 200°C 통제\n\n【⚠ 주의 1 — Hot Crack (응고 균열)】\nCu 4.4% 가 응고 시 narrow solidification range 를 만들어 grain boundary 에 Cu-rich liquid film 이 잔류합니다.\n이 liquid film 이 응고 수축 응력을 받아 hot crack 으로 진행됩니다.\nER4043 filler 의 Si 가 eutectic 형성으로 응고 구간을 넓혀 균열을 완화합니다.\n\n【⚠ 주의 2 — HAZ Liquation Crack】\n2014 의 (Al-Cu-Mg-Si) low-melt eutectic 이 HAZ peak temperature 영역에서 grain boundary 따라 부분 용융됩니다.\n응고 수축 응력에 의해 미세 균열이 grain boundary 따라 진행되며, 일반적인 NDT 에서 검출이 어렵습니다.\n\n【권장 Post-weld 처리】\n• T62 인공 Aging(시효) (artificial aging) 필수\n• As-welded 상태에서 σy 가 약 30% 감소합니다 (T6 σy 415 → as-welded 290 MPa)\n• T62 Aging 후 강도 회복 가능 (단순 형상 한정)\n\n【NDT 권장】\nLiquid Penetrant (PT) + Radiograph (RT) — porosity 및 hot crack 검출 필수\n\n【표준】\nAWS D1.2 · MMPDS-08 (2014 mechanical property)"
   },
   "w15-aa": {
+   "sources": ["AWS D17.1","MMPDS 08"],
    "pattern": "^aa[\\s-]?2(?:0(?:17|18|24|25)|618)\\b",
    "field": "name",
    "nonferrous_only": true,
    "text": "⚠⚠ AA 2024 — Al-Cu-Mg (Cu 4.4%, Mg 1.5%)\n2xxx 시리즈 중 fusion welding 이 거의 불가능한 grade 입니다.\nPorosity, hot crack, SCC (응력 부식 균열) 의 3가지 위험이 모두 발생합니다.\n\n【권장 방법 — FSW (Friction Stir Welding)】\nBoeing 787 fuselage, Airbus A380 wing rib 의 표준 접합 방법입니다.\n• Tool rotation: 800 rpm\n• Traverse speed: 100 mm/min\n• Pin depth: 5 mm (sheet 두께 의 95%)\n• 강도 회복: as-FSW 영역 σy 가 base 의 약 80% 까지 유지\n\n【권장 방법 — Fusion 강행 시】\n• Welding: GMAW only\n• Filler: ER2319 + DC EP\n• Shielding: Ar + He mix (Ar 75% / He 25%, He 가 deeper penetration)\n\n【⚠ 주의 1 — HAZ 영역 SCC 위험 매우 높음】\n2024-T3 의 HAZ 가 over-aged condition 으로 변환되며, 잔류 인장 응력 + 습한 대기 환경에서 SCC 가 발생합니다.\n특히 short-transverse 방향이 가장 취약하며, 부품의 응력 방향 설계 시 short-transverse 가 인장 받지 않도록 합니다.\n\n【⚠ 주의 2 — As-welded 강도 손실】\n• T3 σy 345 MPa → as-welded 약 170 MPa (50% 손실)\n• 자연 Aging(시효)으로 부분 회복 (5-7 일 후 약 60% 회복)\n• T62 인공 Aging 시 회복도 제한적 (Cu segregation 영구)\n\n【NDT 권장】\nRadiograph (RT) + Ultrasonic (UT) 둘 다 필수\n\n【표준】\nAWS D17.1 (aerospace) · MMPDS-08 · NASA NSTS 08303"
   },
   "w16-aa": {
+   "sources": ["AWS D17.1"],
    "pattern": "^aa[\\s-]?2219\\b",
    "field": "name",
    "nonferrous_only": true,
    "text": "✓ AA 2219 — Al-Cu 6.3% (low Mg, ~0.02%)\n2xxx 시리즈 중 GMAW 가능한 유일한 grade 입니다.\nNASA Space Shuttle external tank (ET-1 ~ ET-135, 1981-2011) 의 GMAW 가 이 합금의 대표적인 응용입니다.\n\n【권장 방법】\n• Welding: GMAW (preferred) 또는 GTAW\n• Filler: ER2319 (matching, Cu 6.3%) + DC EP\n• Shielding: Argon (99.997% purity 이상, welding grade)\n\n【⚠ 주의 1 — Pre-heat 통제】\n• Pre-heat: 100~150°C\n• 너무 낮으면 porosity 발생 (Cu-rich 영역에서 H 가스 흡수)\n• 너무 높으면 over-aging\n\n【⚠ 주의 2 — Interpass 온도 통제】\n• Inter-pass < 200°C 유지\n• 초과 시 over-aging 진행 → 강도 영구 손실\n\n【⚠ 주의 3 — Post-weld Aging 필요】\n• T87 aging (200°C/24h)\n• As-welded σy 약 250 MPa → T87 후 약 400 MPa 회복\n\n【NDT 권장】\nRadiograph (RT) + Liquid Penetrant (LP)\nNASA Space Shuttle ET 표준: NASA NSTS 08303 100% RT inspection\n\n【표준】\nNASA NSTS 08303 (External Tank welding) · AWS D17.1"
   },
   "w17-aa": {
+   "sources": ["AWS D17.1"],
    "pattern": "^aa[\\s-]?(?:2050|2090|2099|2195|8090)\\b|\\bal-li\\b",
    "field": "name",
    "nonferrous_only": true,
@@ -140,6 +157,7 @@
    }
   },
   "w18-aa": {
+   "sources": ["ASTM G67","ASTM B928","AWS D1.2"],
    "pattern": "^aa[\\s-]?5\\d{3}\\b",
    "field": "name",
    "nonferrous_only": true,
@@ -153,6 +171,7 @@
    }
   },
   "w19-aa": {
+   "sources": ["AWS D1.2","ASM Vol.6"],
    "pattern": "^aa[\\s-]?6\\d{3}[a-z]?\\b",
    "field": "name",
    "nonferrous_only": true,
@@ -167,6 +186,7 @@
    }
   },
   "w20-aa": {
+   "sources": ["AWS D17.1","MMPDS 08"],
    "pattern": "^aa[\\s-]?7\\d{3}\\b",
    "field": "name",
    "nonferrous_only": true,
@@ -178,12 +198,14 @@
    }
   },
   "w21-alsi10mg": {
+   "sources": ["AWS D1.2","ASTM F3318","ASTM 52907"],
    "pattern": "^al\\d*si\\d*|^a3(?:19|5[67]|60|80|83)|^a41[35]|^adc\\d|^a20[15x]|^a2139|^al5x|^aheadd|^scalmalloy|^addalloy",
    "field": "name",
    "nonferrous_only": true,
    "text": "✓ Al-Si Cast / AM — Si 7~13% (eutectic 근접)\nAlSi10Mg (AM LPBF 표준), A356 (Al-Si-Mg cast), A360, A380, A413 등.\nSi 의 eutectic 효과로 hot crack 위험이 낮아 fusion welding 우수합니다.\n\n【권장 방법】\n• Welding: GTAW (AC sine) 또는 GMAW\n• Filler:\n  - ER4043 (Si 5%, 일반 cast Al)\n  - ER4047 (Si 12%, Al-Si 합금 표준, 모든 Al-Si cast 호환)\n• Pre-heat: 100~150°C\n  - Cast 의 잔류 응력 + porosity 의 trapped gas 방출\n\n【⚠ 주의 1 — Cast Porosity (Welding 시 expand)】\nCast 부품에는 다음 두 가지 porosity 가 잠재합니다:\n  ① Gas porosity — melt 의 dissolved H 가 응고 시 trapped\n  ② Shrinkage micro-void — 응고 수축에 의한 미세 공간\n\nWelding 열을 받으면 trapped gas 가 expand 하여 weld pool 로 빠져나갑니다.\nRe-weld 영역에서 새 porosity 가 발생합니다.\n\n【권장 Pre-treatment】\n• HIP (Hot Isostatic Pressing) 후처리\n• Cast 와 AM 부품 모두 권장\n• HIP 조건: Ar 1500~2000 bar + 510°C / 2시간\n• HIP 후 porosity 제거 → fatigue 강도 2~3배 향상\n\n【⚠ 주의 2 — AM As-built 의 Anisotropy】\nAM 부품의 build direction (Z 축) 에는 fusion line + lack-of-fusion 미세 defect 가 존재합니다.\nWelding 열이 이 defect 를 따라 균열 진행을 유도합니다.\nXY-plane 의 weld 는 안전하나, Z-direction (build axis) 의 weld 는 권장하지 않습니다.\n\n【⚠ 주의 3 — High-Mg Cast (A356 의 Mg 0.4%)】\nT6 처리된 cast (A356-T6) 가 welded 되면 HAZ 영역에서 Mg₂Si precipitate 가 over-aged 됩니다.\n6xxx 합금과 동일한 HAZ softening issue 가 발생합니다.\n• A356-T6 σy 200 MPa → as-welded 약 80 MPa\n• Post-weld T6 re-aging 으로 회복 가능 (단순 형상)\n\n【NDT 권장】\nRadiograph (RT) + Ultrasonic (UT) — cast porosity 검출 필수\n\n【표준】\nAWS D1.2 · ASTM F3318 (AM AlSi10Mg) · ISO/ASTM 52907"
   },
   "w22-ti": {
+   "sources": ["AWS D17.1","ASTM B265","AMS 4901-4904"],
    "pattern": "^ti[\\s-]?(?:cp )?gr(?:ade)? ?[1234]\\b|^ti ?cp ?gr\\d|^cp-?ti\\b|^titanium ?grade ?[1234]\\b|^unalloyed ti",
    "field": "name",
    "nonferrous_only": true,
@@ -196,18 +218,21 @@
    }
   },
   "w23-ti": {
+   "sources": ["AWS D17.1","ISO 10993","ASTM B348","AMS 4911","AMS 4928","AMS 4998"],
    "pattern": "^ti-?6al-?4v|^ti[\\s-]?grade ?5\\b|^ti gr5",
    "field": "name",
    "nonferrous_only": true,
    "text": "✓ Ti-6Al-4V (α+β alloy, Grade 5, R56400)\nTi 합금 시장의 약 50% 를 점하는 가장 표준적인 alloy.\n항공 엔진 fan blade, F-22 wing, 의료 implant (Gr23 ELI variant), AM LPBF 표준 (EOS Ti64).\n\n【권장 방법】\n• Welding: GTAW (DC EN), pulse mode (peak 150 A / base 50 A, 5 Hz)\n  - 두꺼운 부품: EBW (Electron Beam) 또는 LBW (Laser) 권장\n  - 항공 표준: AWS D17.1 Class A 준수\n• Filler:\n  - ERTi-5 (R56400, matching, 일반 항공/구조)\n  - ERTi-23 (R56407, ELI variant, 의료 implant — O ≤ 0.13%)\n• Shielding: CP-Ti 와 동일 (front 25 + trailing 15 + back 5 L/min, Ar 99.997%+)\n\n【⚠ 주의 1 — α-case 형성 (CP-Ti 동일, 동일 color test 적용)】\n색 판정:\n  은/밀짚 → 합격 (< 100 ppm O)\n  황금색 → 재용접 검토\n  보라/파랑/회색 → 재용접 또는 폐기\n\n【⚠ 주의 2 — Distortion (가장 빈번한 실패)】\nTi 의 물성:\n• CTE: 8.9 ppm/K (steel 12 ppm/K 보다 낮으나, low thermal conductivity 6.7 W/m·K 가 thermal gradient 를 크게 만듦)\n• Thermal conductivity 6.7 W/m·K (steel 50 W/m·K 의 14%)\n\n그 결과:\n• Heat 가 weld 영역에 집중 → 극심한 thermal gradient → 잔류 응력 큼\n• 두께 < 6mm sheet 의 distortion 일반적 (clamp 부족 시 1° 이상 휘어짐)\n\n【권장 대응】\n• 견고한 fixture clamping (4-point 이상)\n• Skip-step welding sequence (1-3-2-4 순서)\n• Pre-tack welding (10 mm 간격) 후 main weld\n• 두꺼운 부품의 경우 backing strip + chill bar 사용\n\n【⚠ 주의 3 — Post-weld 강도 회복 (선택, 필요 시)】\n• As-welded 의 σy: base metal 의 약 88% 유지\n• Solution + Aged (STA) 권장:\n  - Solution 955°C / 1 h / WQ (β-transus 1000°C 직하)\n  - Aged 540°C / 4 h / AC\n  - σy 약 950 → 880 MPa (as-welded) → 950 MPa (STA 후) 회복\n\n【NDT 권장】\nVisual + LP + RT (AWS D17.1 Class A 표준)\n의료 implant: 추가 dimensional QC + biocompatibility test (ISO 10993)\n\n【표준】\nAWS D17.1 · ASTM B348 · AMS 4911 (sheet) · AMS 4928 (bar) · AMS 4998 (Gr23 ELI)"
   },
   "w24-ti": {
+   "sources": ["ASTM F136","AWS D17.1","ISO 10993","ASTM F67","AMS 4944"],
    "pattern": "^ti.*grade ?(23|7|9|11|12)\\b|^titanium grade ?(?:7|9|11|12)\\b|^ti-?3al-?2\\.5v|^ti-?6al-?7nb|^ti-?624[26]|^ti6242|^ti-?5-?2-?5|^ti-?8-?1-?1|^ti-?6-?2-?4-?[26]|^ti-?6al-?2|^ta15\\b|^bt\\d|^imi ?\\d",
    "field": "name",
    "nonferrous_only": true,
    "text": "✓ Ti Gr9 (Ti-3Al-2.5V) / Gr12 / Gr23 ELI / Ti-6Al-7Nb\nMedical implant 및 corrosion-resistant 응용의 표준 grade.\nELI grade(Gr23)는 Extra Low Interstitial(O ≤ 0.13%)로 의료 임플란트 표준(ASTM F136).\n\n【권장 방법】\n• Welding: GTAW pulse mode (peak 100 A / base 30 A, 2 Hz) — heat input 최소화\n• Filler:\n  - ERTi-9 (Ti-3Al-2.5V matching for Gr9)\n  - ERTi-23 (R56407 ELI for Gr23 의료)\n  - ERTi-7 (Pd 함유 corrosion grade)\n• Shielding: 의료 등급은 더 엄격 — Ar 99.999% (research grade)\n\n【⚠ 주의 1 — Cleanroom Welding (의료 등급 절대 필수)】\n의료 implant 부품의 weld 는 일반 공장 환경에서 가능하지 않습니다.\n• 작업 환경:\n  - Relative humidity (RH) < 40%\n  - Particle count: ISO Class 7 이상 (< 352,000 particles/m³ at 0.5μm)\n  - 양압 환경 (positive pressure, 외부 contamination 회피)\n• 도구:\n  - 의료용 stainless steel 전용 (탈가스 처리됨)\n  - Cleanroom-grade gloves (powder-free nitrile)\n  - Pre-weld degrease: medical-grade acetone + dry IPA\n\n【⚠ 주의 2 — Pulse GTAW 권장 (heat input 통제)】\nMedical implant 의 fine cross-section (1~3 mm) 에서는 일반 GTAW 의 heat input 이 과다하여 α-case 형성 + grain growth 발생.\n• Pulse parameter:\n  - Peak current: 100 A\n  - Base current: 30 A\n  - Frequency: 2 Hz\n  - Duty cycle: 50%\n• Pulse 사용 시 평균 heat input 약 60% 감소 → α-case 형성 최소화\n\n【⚠ 주의 3 — Bend Test (의료 100% sample inspection)】\n• Test 조건: 180° bend, mandrel diameter = 4 × thickness\n• Pass criteria: 표면 또는 weld 영역 균열 없음, distortion < 5%\n• Gr23 의료 grade 는 100% lot inspection (정량 통계 X)\n\n【NDT 권장】\nVisual + LP + RT (AWS D17.1 Class A) + Bend test\n의료: 추가 ISO 10993 (biocompatibility) + dimensional QC\n\n【표준】\nAWS D17.1 · ASTM F67 (CP-Ti medical) · ASTM F136 (Gr23 ELI medical) · AMS 4944 (Gr9 bar)"
   },
   "w25-beta": {
+   "sources": ["AMS 4954/4978/4980","AWS D17.1"],
    "pattern": "^beta-?21s|^beta-?c|^ti-?13v|^ti-?15-?3|^ti-?15v|^ti-?10v|^ti-?5553",
    "field": "name",
    "nonferrous_only": true,
@@ -222,6 +247,7 @@
    }
   },
   "w26-inconel": {
+   "sources": ["AMS 5679/5837/5887/5798","ASTM B167/B443"],
    "pattern": "^inconel ?(600|601|625|617|686|690)|^in[\\s-]?(600|625|617)|^cp-?nickel|^nickel ?2\\d\\d|^hastelloy ?n\\b|^incoloy ?9\\d\\d|^alloy ?(?:20|59)\\b",
    "field": "name",
    "nonferrous_only": true,
@@ -235,6 +261,7 @@
    }
   },
   "w27-inconel": {
+   "sources": ["AMS 5832","AMS 5662","AMS 5663"],
    "pattern": "^inconel ?718\\b|^in[\\s-]?718\\b|^alloy ?718\\b",
    "field": "name",
    "nonferrous_only": true,
@@ -247,18 +274,21 @@
    "text": "✓ Inconel 718Plus (ATI Allvac, +50°C service vs 718)\nCo 9% 첨가로 γ' Vf 약간 ↑ → 718 보다 화이트 강도 + 700°C 서비스 가능.\nF135 (F-35 engine), GE9X engine 의 turbine disk 응용.\n\n【권장 방법】\n• 718 procedure 와 동일 (GTAW / EBW / LBW)\n• Filler: ER 718Plus matching (ATI / Special Metals supply)\n• Sol-T condition 에서 weld + STA (980°C SHT + 788°C/8h + 704°C/8h aging)\n\n【⚠ 주의 — 718 보다 γ' Vf 약간 ↑】\n718 의 SAC 회피 mechanism (slow γ'' aging) 이 718Plus 에서는 약간 변경:\n• Co 첨가로 γ' (Ni₃Al) 의 fast precipitation 일부 (Vf 약 5%)\n• 718 의 SAC immunity 가 partially compromised\n\n【권장 대응】\n• Sol-T condition + low heat input (linear energy < 0.8 kJ/mm)\n• 두꺼운 section weld 시 더욱 주의\n• PWHT 즉시 진행 (RT cooling 중 균열 방지)\n\n【NDT 권장】\nRT + PT (718 과 동일)\n\n【표준】\nATI Allvac proprietary spec · AMS-A-21180 (forging)"
   },
   "w29-inconel": {
+   "sources": ["AMS 5679","AMS 5667","AMS 5582","AMS 5698"],
    "pattern": "^inconel ?x-?750|^in[\\s-]?x-?750",
    "field": "name",
    "nonferrous_only": true,
    "text": "⚠ Inconel X-750 (UNS N07750)\nγ' Ni₃(Al,Ti) precipitation, Vf 약 15% — fast aging kinetics 로 SAC 위험.\n스프링 (gas turbine valve spring), CANDU reactor pressure tube spacer 응용.\n\n【권장 방법】\n• Welding: EBW (Electron Beam Welding) 강력 권장\n  - Vacuum 10⁻⁵ mbar 이하\n  - Low heat input (점 가열, beam diameter < 0.5 mm)\n  - Cooling rate 매우 빠름 → γ' precipitation 회피\n• GTAW 강행 시:\n  - Solution-treated condition (1150°C / 1 h / WQ) 에서만 weld\n  - 즉시 post-weld solution + double aging\n• Filler: ERNiCr-3 (AMS 5679, X-750 표준)\n\n【⚠ 주의 1 — Strain-Age Cracking (SAC, 가장 critical)】\nSAC 의 메커니즘:\n  ① Weld 직후 cooling 중 HAZ 영역에서 γ' (Ni₃Al, Ti) precipitation 빠르게 시작\n  ② 동시에 cooling thermal contraction stress 발생\n  ③ γ' aging 으로 인한 strengthening + thermal stress → 입계 응력 집중\n  ④ 응력 집중 영역에서 brittle crack 진행\n\n진행 속도: weld 후 RT 5-30 분 사이 가시화.\n\n【권장 대응 (Continuous Solution Treatment)】\nWeld 직후 즉시 furnace 로 이송:\n• Solution: 1150°C / 1 h / WQ\n• Double aging:\n  - 1차: 845°C / 24 h / AC\n  - 2차: 705°C / 20 h / AC\n• Cooling rate (welding → furnace 까지): 1 시간 이내\n• Idle time (RT cooling) 30 분 초과 시 SAC 진행 후 회복 불가\n\n【⚠ 주의 2 — Constraint Sensitivity】\n두꺼운 plate (> 25 mm) 또는 고정 fixture clamping:\n• 응력 집중 ↑↑ → SAC 위험 증가\n• 권장: thin section (< 10 mm) 만 weld 또는 EBW 사용\n\n【NDT 권장】\nRadiograph (RT) + Liquid Penetrant (PT) — 두 가지 모두 100% 검사\nSAC 균열은 입계 따라 진행되므로 RT 와 PT 모두 필수\n\n【표준】\nAMS 5667 (bar) · AMS 5582 (sheet) · AMS 5698 (spring temper)"
   },
   "w30-inconel": {
+   "sources": ["AMS 4778","AMS 4777","AMS 5391/5410"],
    "pattern": "^inconel ?(?:100|706|713|738|740h?|751|783|792|939)|^in[\\s-]?(?:100|738|939)|^rene ?(?:80|142)|^mar-?m|^b-?1900|^gtd-?111|^nimonic ?(?:80a?|90|105|115|263)|^allvac|^718 ?plus",
    "field": "name",
    "nonferrous_only": true,
    "text": "⚠⚠ Cast γ' high-Vf superalloys — γ' Vf 43~65% 주조 터빈 blade/vane. fusion 거의 불가(repair only).\nγ' (Ni₃Al, Ti) precipitate volume fraction 43~65% — gas turbine blade / vane equiaxed cast.\nFusion welding 거의 불가능 (γ' fast aging + cast의 grain coarsening).\n\n【권장 방법 — Repair Only】\n초기 제작 (fully welded structure) 불가, 사용 중 repair (turbine blade tip restoration) 만 commercial:\n\n• EBW (Electron Beam Welding):\n  - Vacuum 10⁻⁵ mbar\n  - Focused beam (직경 < 0.3 mm)\n  - Low heat input\n  - Repair 한도: tip restoration < 3 mm 깊이\n\n• Vacuum Brazing (가장 일반적 방법):\n  - Ni-base braze filler: BNi-1 (AMS 4778), BNi-2 (AMS 4777), BNi-7\n  - Process: 1180°C / 10 min / vacuum 10⁻⁴ mbar\n  - Joint gap: 0.05-0.1 mm (capillary action 적정)\n  - 항공 OEM (GE, RR, P&W) 의 turbine blade tip seal repair 표준\n\n• Laser Metal Deposition (LMD):\n  - Powder feed (Ni-base superalloy)\n  - Pulse mode laser (heat input 통제)\n  - 점진적 build (multi-layer)\n\n【⚠ 주의 1 — Massive Strain-Age Cracking】\nγ' Vf > 40% 이상의 cast 합금은 fusion welding 시 100% 균열 (예외 없음).\nHAZ 의 γ' precipitation 이 cooling 중 즉시 진행 → 응력 집중 → brittle crack.\n\nGTAW / GMAW 시도 시:\n• Crack 발생률: 100% (실제 commercial 데이터)\n• Cast equiaxed grain (1-5 mm) → 입계 길이 짧음 → crack initiate 빠름\n\n【⚠ 주의 2 — Repair 후 100% RT Inspection 必】\n• 사용 중 turbine blade tip clearance 손실 → repair → 100% X-ray (RT)\n• Defect 검출 시: grind out + re-repair + re-RT\n• 3회 cycle 초과 시 scrap (FAA / EASA 규정)\n• Engineering 권장: tip clearance 손실 < 1.5 mm 이면 repair, 이상이면 scrap\n\n【표준】\nAMS 5391/5410 (cast 초합금) · AMS 4778 (BNi-1 braze) · GE/RR/P&W repair spec"
   },
   "w31-hastelloy": {
+   "sources": ["AMS 5854","ASTM G28","AMS 5789/5800","ASTM B575"],
    "pattern": "^hastelloy ?c-?(22|276|2000)|^alloy c-?(22|276)",
    "field": "name",
    "nonferrous_only": true,
@@ -273,12 +303,14 @@
    }
   },
   "w32-hastelloy": {
+   "sources": ["AMS 5798","AMS 5754"],
    "pattern": "^hastelloy ?x\\b|^alloy x\\b|^un n06002",
    "field": "name",
    "nonferrous_only": true,
    "text": "✓ Hastelloy X (UNS N06002, Ni-Cr-Fe-Mo solid solution)\nJet engine combustor liner 표준 (F100, F404, F119, F135).\nSheet thickness 0.5~1.5 mm 의 GTAW 가 주된 응용.\n\n【권장 방법】\n• Welding: GTAW pulse mode (sheet 가 얇아 heat input 통제 필수)\n  - Peak current: 50 A\n  - Base current: 15 A\n  - Frequency: 5 Hz\n  - Duty cycle: 30%\n• Filler: ERNiCrMo-2 (AMS 5798) matching\n• Pre-heat: 미요\n• Sequence: Skip-step (1/3/2/4 sequence) — distortion 회피\n\n【⚠ 주의 1 — Sigma Phase (650-900°C 장기 노출)】\nCombustor liner 의 service 온도 (800-1000°C) 에서 사용 중 σ-phase 형성 → brittleness.\n• 사용 후 정기 inspection (turbo 점검 시 NDT)\n• 균열 검출 시 patch repair (동일 alloy GTAW) 또는 panel replacement\n\n【⚠ 주의 2 — Thin Sheet Distortion (가장 빈번한 issue)】\n0.5-1.0 mm sheet 의 GTAW 시 distortion 위험:\n• Heat input 0.3 kJ/mm 초과 시 1° 이상 휘어짐\n• Pulse mode + skip-step sequence 필수\n• Backing strip (Cu chill bar) 권장\n\n【권장 sequence — 4-pass skip step】\n  Pass 1 → 가장 left side\n  Pass 2 → 가장 right side\n  Pass 3 → left-center\n  Pass 4 → right-center\n각 pass 사이 cooling time 5 분 이상 (HAZ 가 RT 까지 식음).\n\n【NDT 권장】\nVisual inspection + Liquid Penetrant (PT)\nCombustor liner: 추가 RT (해당 부위 한정)\n\n【표준】\nAMS 5754 (sheet) · AMS 5798 (filler) · GE / Pratt & Whitney 항공 specs"
   },
   "w33-hastelloy": {
+   "sources": ["AMS 5854","ASTM G28","AMS 5837","ASTM B333","ASTM B335"],
    "pattern": "^hastelloy ?b-?[23]\\b",
    "field": "name",
    "nonferrous_only": true,
@@ -291,6 +323,7 @@
    }
   },
   "w34-haynes": {
+   "sources": ["AMS 5839/5891/5870"],
    "pattern": "^haynes ?(230|556|214)\\b|^alloy ?(230|556|214)\\b",
    "field": "name",
    "nonferrous_only": true,
@@ -302,12 +335,14 @@
    }
   },
   "w35-haynes": {
+   "sources": ["AMS 5951"],
    "pattern": "^haynes ?282\\b",
    "field": "name",
    "nonferrous_only": true,
    "text": "✓ Haynes 282 (γ' Vf 19%, low-SAC superalloy)\nA-USC (Advanced Ultra-Supercritical) boiler header, gas turbine disc 응용.\n고-Vf γ' 초합금보다 weldable 한 low-SAC high-strength PH Ni 합금.\n\n【권장 방법】\n• Welding: EBW 권장, GTAW 가능\n• Filler: ER 282 matching (Haynes proprietary)\n• Condition: Solution-treated state\n• Pre-heat: 미요\n\n【⚠ 주의 1 — Strain-Age Cracking (고-Vf 초합금보다는 낮음)】\nγ' Vf 19% 는 전통 고-Vf γ' 초합금(~25%)보다 약간 낮으나 SAC 위험 잔존.\n• 두꺼운 section (> 25 mm) 회피\n• 고정 fixture clamping 회피 (loose constraint)\n• Sol-T condition + low heat input (linear energy < 1 kJ/mm)\n\n【⚠ 주의 2 — Post-weld STA 필수】\n표준 STA 절차:\n• Solution: 1010°C / 2 h / AC\n• Aging: 788°C / 8 h / AC\n• 회복 후 σy 약 850 MPa\n\n두꺼운 forging 의 SHT 시 distortion 위험:\n• Fixture support 필요\n• Multi-step heating (low-T ramp) 권장\n\n【NDT 권장】\nRadiograph (RT) + Liquid Penetrant (PT)\n\n【표준】\nAMS 5951 (sheet) · Haynes 282 proprietary spec"
   },
   "w36-haynes": {
+   "sources": ["AMS 5772","AMS 5608/5891"],
    "pattern": "^haynes ?188|^l-?605|^haynes ?25",
    "field": "name",
    "nonferrous_only": true,
@@ -320,6 +355,7 @@
    }
   },
   "w37-waspaloyb": {
+   "sources": ["AMS 5707/5800"],
    "pattern": "^waspaloy\\b|^rene ?41|^rene ?88|^astroloy|^u(?:dimet)? ?720",
    "field": "name",
    "nonferrous_only": true,
@@ -332,24 +368,28 @@
    "text": "⚠⚠⚠ SX 단결정 Ni 초합금 — HPT blade. fusion 불가(epitaxial LMD/EBW repair only).\n현대 jet engine high-pressure turbine blade 의 단결정 cast 합금.\nCMSX-10 의 Re 6% + Ru 3% 로 1100°C+ 사용.\n\n특징:\n• Single crystal 구조 (전체 부품이 하나의 결정)\n• Grain boundary 없음 → creep resistance 최고급\n• Fusion welding 거의 불가능 (single crystal 이 polycrystalline weld pool 으로 변환 → blade efficiency 손실)\n\n【권장 방법 — Repair Only】\nSingle crystal 합금의 welding 은 limited repair 만 가능:\n\n• LMD (Laser Metal Deposition) + Directional Solidification 시드:\n  - Seed crystal: base 와 동일 orientation 의 single crystal piece\n  - Slow scanning speed (heat input minimum)\n  - Epitaxial solidification (base orientation 유지)\n  - Repair 한도: < 2 mm 깊이\n\n• EBW (제한적):\n  - Vacuum 10⁻⁵ mbar\n  - Focused beam (< 0.2 mm)\n  - Crack initiation 위험 높음\n\n【⚠ 주의 1 — Crystal Orientation 보존】\nSX blade 의 < 100 > orientation 보존이 critical:\n• Base blade 의 < 100 > axis 와 새 deposit 의 < 100 > axis aligned 필수\n• Misalignment 5° 이상 → blade efficiency 손실 (creep 강도 30% 손실)\n• Repair 전 X-ray Laue diffraction 으로 orientation 확인\n\n【⚠ 주의 2 — Stray Grain Formation】\nWeld pool 부피 > 5 mm³ 이상에서는:\n• Polycrystalline grain 생성 (다른 orientation 의 미세 grain)\n• 입계 형성 → creep 저항 손실\n• 균열 진행 경로 형성\n\n방지:\n• 작은 deposit volume (< 5 mm³ per pass)\n• 매우 빠른 cooling (epitaxial solidification 보장)\n\n【⚠ 주의 3 — Repair 한도】\nCommercial 기준:\n• Turbine blade tip restoration: < 3 mm 깊이 (FAA approved)\n• 깊은 repair 시도: scrap\n• Blade airfoil (main body) repair: 불가\n\n【NDT 권장】\nRadiograph (RT) + X-ray Laue diffraction (orientation 확인)\n사용 중: 매 overhaul cycle 마다 inspection\n\n【표준】\nGE / Rolls-Royce / Pratt & Whitney 항공 OEM proprietary repair specs (단결정 합금은 공개 AMS material spec 없음)"
   },
   "w39-monel": {
+   "sources": ["AMS 4831","ASTM B164"],
    "pattern": "^monel ?400\\b|^alloy ?400\\b",
    "field": "name",
    "nonferrous_only": true,
    "text": "✓ Monel 400 (UNS N04400, Ni-Cu 70/30 solid solution)\nMarine seawater service 표준 (해수 piping, propeller shaft sleeve).\nFusion welding 우수.\n\n【권장 방법】\n• Welding: GTAW (DC EN) 또는 GMAW\n• Filler: ERNiCu-7 (AMS 4831) matching\n• Pre-heat: 미요\n• Inter-pass: < 200°C\n\n【⚠ 주의 1 — Sulfur Embrittlement (가장 critical)】\nNi 의 일반적 issue — S contamination 으로 HAZ embrittlement:\n• Pre-weld degrease: acetone wipe (oil / fingerprint 제거)\n• Grit blast (Al₂O₃ media)\n• 금지: sulfur 함유 cutting oil / grinding fluid / marking crayon\n• 작업자: cotton glove 필수 (fingerprint sweat 의 S 회피)\n\n【⚠ 주의 2 — Hot Cracking (Ni-Cu Solidification)】\nNi-Cu 의 wide solidification range (1300-1350°C) 가 입계에 last-liquid film 형성:\n• Low heat input (linear energy < 1.5 kJ/mm)\n• Small bead width (3-5 mm)\n• Multi-pass 시 inter-pass < 200°C\n\n【NDT 권장】\nLiquid Penetrant (PT) + Visual inspection\nMarine pipe: 추가 RT (해당 service code 별)\n\n【표준】\nAMS 4831 (filler) · ASTM B164 (pipe) · ABS / DNV marine class"
   },
   "w40-monel": {
+   "sources": ["AMS 4676","ASTM F467"],
    "pattern": "^monel ?k-?500\\b",
    "field": "name",
    "nonferrous_only": true,
    "text": "✓ Monel K-500 (UNS N05500, γ' Ni₃(Al,Ti) precipitation)\nMarine + 강도 hybrid 합금 — marine pump shaft, propeller shaft 응용.\nNi-Cu 모합금의 corrosion 저항 + γ' aging strengthening 결합.\n\n【권장 방법】\n• Welding: GTAW 또는 GMAW\n• Filler: ERNiCuAl-1 matching\n• Condition: Solution-treated state 에서 weld\n  - Aged condition 에서 weld 절대 금지 (SAC 위험)\n• 즉시 post-weld aging\n\n【⚠ 주의 — Strain-Age Cracking 가능성】\nγ' (Ni₃Al, Ti) precipitate Vf 약 5-10%:\n• SAC 위험은 γ'' 석출형보다 ↑ (γ'' slow aging 의 advantage 없음)\n• 메커니즘: weld 직후 cooling 중 γ' precipitation 시작 → 응력 집중 → 균열\n\n【권장 대응】\n• Solution-treated (Sol-T) condition 에서만 weld\n• Weld 직후 즉시 aging (RT cooling 30 분 이내 furnace 로)\n• Aging: 595°C / 8 h / AC\n• 두꺼운 section (> 25 mm) 회피\n\n【NDT 권장】\nLiquid Penetrant (PT) + Radiograph (RT)\n\n【표준】\nAMS 4676 (Monel K-500 bar) · ASTM F467 / F468 (fastener)"
   },
   "w41-a": {
+   "sources": ["AMS 5778","AMS 5737","ASTM A453"],
    "pattern": "^(?:carpenter )?a-?286\\b|^uns s66286",
    "field": "name",
    "nonferrous_only": true,
    "text": "✓ A-286 (UNS S66286, Fe-Ni γ' precipitation austenitic)\nFe-base γ' precipitation alloy — jet engine fastener, exhaust valve.\n고가 Ni 초합금의 저가 대안 (Fe matrix 의 cost advantage).\n\n【권장 방법】\n• Welding: GTAW (DC EN)\n• Filler:\n  - ERNiFeCrMo-1 (AMS 5778) — matching for PH service\n  - ER308L — non-PH service (단순 austenitic stainless filler)\n• Condition: Solution-treated state 에서 weld\n• Pre-heat: 미요\n\n【⚠ 주의 — Strain-Age Cracking】\nγ' Vf 약 10% — SAC 위험 잔존 (Fe matrix 의 less stable γ' kinetics):\n• Solution-treated condition 에서만 weld\n• Low heat input (linear energy < 1 kJ/mm)\n• 즉시 post-weld aging:\n  - Aging: 720°C / 16 h / AC\n  - σy 약 700 MPa, UTS 1000 MPa\n\n【NDT 권장】\nLiquid Penetrant (PT) + Radiograph (RT)\n\n【표준】\nAMS 5737 (A-286 bar) · AMS 5778 (filler) · ASTM A453 (fastener)"
   },
   "w42-incoloy": {
+   "sources": ["ASTM A262","AMS 5837/5887/5895","ASTM B408/B704"],
    "pattern": "^incoloy ?(800|825|909|925)",
    "field": "name",
    "nonferrous_only": true,
@@ -363,12 +403,14 @@
    }
   },
   "w43-cocrmo": {
+   "sources": ["AMS 5797","ASTM F1377","ASTM F1537","ISO 10993","ASTM F75","ISO 5832-4","ISO 5832-12","ASTM F139"],
    "pattern": "^cocrmo|^co-?cr-?mo|^cocr \\(|^astm f75|^astm f1537|^l-?605|^haynes ?25",
    "field": "name",
    "nonferrous_only": true,
    "text": "주의. CoCrMo Medical Implant (F75 cast / F1537 wrought)\n의료 임플란트 표준 합금 — 고관절 / 무릎 implant, 치과 framework.\n\n【권장 방법】\n• Welding: GTAW (DC EN)\n• Filler: ERCoCr-A (AMS 5797) matching\n• Shielding: Ar 99.999% (의료 grade)\n• Condition: Solution-annealed state 에서만 weld\n  - SHT: 1175°C / 1 h / water quench\n  - As-cast (F75) 직접 weld 금지\n\n【⚠ 주의 1 — Carbide Reprecipitation (650-1050°C, 가장 critical)】\nCoCrMo 의 C 0.15-0.35% (F75) 또는 < 0.15% (F1537) 가 HAZ 영역에서 입계에 석출:\n• M₂₃C₆ (Cr-rich carbide) — 입계 부근 Cr depletion → 부식 저항 손실\n• M₆C (Mo-rich carbide) — brittleness 증가\n\n그 결과:\n• Welded zone 의 부식 거동 변화 → 의료 implant 으로 적합하지 않음\n• 사용 중 ion release ↑ → 알러지 / 염증 위험\n\n【권장 PWHT — Solution Annealing 必】\n• Process: 1175°C / 1 h / water quench (AMS 5797 표준)\n• Cooling: water quench 필수 (slow cool 시 carbide 재형성)\n• 검증: ASTM F1377 (extract corrosion test)\n\n【⚠ 주의 2 — Hot Cracking (Cast F75)】\nCast F75 의 dendritic segregation + Mo-rich low-melt eutectic:\n• Welding 시 hot tear 발생률 높음\n• 권장: cast → wrought (forging F1537) 변환 후 weld\n• Or HIP 처리 (cast 의 porosity + segregation 해소)\n\n【⚠ 주의 3 — 의료 임플란트 응용】\n의료 grade weld 의 추가 요구사항:\n• Cleanroom welding (ISO Class 7 이상)\n• 100% RT inspection (defect 무허용)\n• 100% LP (입계 균열 검출)\n• Dimensional QC per ASTM F1537\n• Biocompatibility test per ISO 10993\n\n【NDT 권장】\nRadiograph (RT) 100% + Liquid Penetrant (PT) 100% + Dimensional QC\n\n【표준】\nASTM F75 (cast) · ASTM F1537 (wrought) · ISO 5832-4 (cast Co-Cr-Mo) · ISO 5832-12 (wrought) · ASTM F139 (electropolish)"
   },
   "w44-stellite": {
+   "sources": ["AMS 5797","ASTM A560"],
    "pattern": "^stellite ?\\d+[a-z]?\\b|^tribaloy|^fsx-?414",
    "field": "name",
    "nonferrous_only": true,
@@ -380,12 +422,14 @@
    }
   },
   "w45-mp35n": {
+   "sources": ["AMS 5758","ASTM F562"],
    "pattern": "^mp35n|^mp159|^35n ?lt|^elgiloy|^phynox|^ultimet|^cocr\\b|^co-?cr\\b",
    "field": "name",
    "nonferrous_only": true,
    "text": "주의. MP35N (UNS R30035) / Elgiloy / Ultimet (Multi-Phase Co-Ni-Cr-Mo)\n고강도 부품 — aerospace fastener (NAS, MIL-spec), 의료 임플란트, 의료 catheter wire.\nCold-worked condition 에서 σy 1800+ MPa 달성.\n\n【권장 방법】\n• Welding: GTAW (DC EN)\n• Filler: ERCoCrMo-A matching\n• Condition: Solution-annealed state 에서만 weld\n  - Cold-worked condition 에서 weld 시 즉시 강도 손실\n• Pre-heat: 미요\n\n【⚠ 주의 1 — Cold-worked Condition 의 Weld 절대 금지】\nMP35N / Elgiloy 의 σy 1800 MPa 는 cold work (50-80% reduction) 에서 얻어진 값.\nWelding 열이 cold work 의 dislocation 을 풀어줌:\n• As-welded 영역: σy 약 1000 MPa (45% 손실)\n• HAZ 영역도 비슷한 강도 손실\n• 회복 거의 불가능 (재 cold work 어려움)\n\n【⚠ 주의 2 — Post-weld Solution + Aging (필수)】\n• Solution: 1066°C / 1 h / WQ\n• Aging: 538°C / 4 h / AC\n• σy 회복 약 1500 MPa (cold-worked 1800 MPa 대비 약 17% 손실)\n• 회복 후 부식 저항 + 강도 균형\n\n【NDT 권장】\nLiquid Penetrant (PT) + Radiograph (RT)\n\n【표준】\nAMS 5758 (MP35N bar) · ASTM F562 (Co-Ni-Cr-Mo) · Elgin Specialty Metals (Elgiloy 표준)"
   },
   "w46-az31": {
+   "sources": ["AWS D1.1","AMS 4350/4377"],
    "pattern": "^az31|^az80a?\\b",
    "field": "name",
    "nonferrous_only": true,
@@ -396,18 +440,21 @@
    }
   },
   "w47-az91d": {
+   "sources": ["AWS D1.1","ASTM B94"],
    "pattern": "^az91d?\\b|^am[56]0|^am-lite",
    "field": "name",
    "nonferrous_only": true,
    "text": "주의. Die-cast Mg (HPDC AZ/AM 계, high Al/Mn) — trapped gas porosity 로 fusion 거의 불가.\nHPDC (High-Pressure Die Casting) 부품 — 자동차 transmission case, laptop chassis, 가전 housing.\nWelding 거의 불가능 (HPDC 의 trapped gas porosity 大).\n\n【권장 방법】\n• Re-melt zone 만 weldable (cosmetic repair 한정)\n• Filler: ERAZ92A\n• HIP 후 weldable (HPDC 의 porosity 해소 후)\n\n【⚠⚠ 주의 1 — Porosity (가장 critical, weldability 제한)】\nHPDC 의 dissolved H + 진공 gas:\n• Porosity 밀도: 1 mm² 당 100+ pore (cosmetic 부품 기준)\n• Pore 크기: 0.1-0.5 mm 일반적\n• Pore 분포: surface 부근에 더 많음 (skin effect)\n\nWelding 시:\n• Trapped gas 가 weld pool 으로 expand → bubble + crack\n• Bead 표면에 large void (눈에 보이는 결함)\n• Strength + ductility 50%+ 손실\n\n【권장 대응 — HIP (Hot Isostatic Pressing)】\n• HIP 조건: Ar 1500-2000 bar / 400-450°C / 2 h\n• HIP 후 porosity 거의 제거 (95%+ density)\n• HIP 후 weld 가능 (단 cosmetic 부품 만)\n\n【⚠ 주의 2 — Mg 화재 위험 (전 Mg 합금 공통)】\ndie-cast Mg 도 Al/Mn 함량과 무관하게 Mg 발화 위험은 동일:\n• Class D extinguisher 필수\n• Mg shaving wet handling\n• 흡연 / spark 금지\n\n【NDT 권장】\nLiquid Penetrant (PT) + Visual\n\n【표준】\nAWS D1.1 · ASTM B94 (HPDC Mg)"
   },
   "w48-we43b": {
+   "sources": ["ISO 10993","ASTM B107","ASTM F3160"],
    "pattern": "^we43\\b|^we54\\b",
    "field": "name",
    "nonferrous_only": true,
    "text": "⚠ Mg-Y-Nd-RE 생체분해 합금 (WE 계, 의료 implant) — cleanroom 용접.\nMg-Y 4% - Nd 3% - RE (Rare Earth) 의 의료 등급 biodegradable 합금.\n뼈 fixation pin, 일시적 implant — 일정 기간 후 생체 흡수.\n\n【권장 방법】\n• Welding: GTAW pulse mode (heat input 통제)\n  - Peak: 80 A / Base: 20 A / Frequency: 3 Hz\n• Filler: ERWE43 matching\n• Shielding: 99.999% Ar (research grade) + vacuum 또는 leak < 10⁻⁶ Torr\n\n【⚠ 주의 1 — Cleanroom Welding (의료 등급 절대 필수)】\n• 환경:\n  - ISO Class 7 (< 352,000 particles/m³ at 0.5μm)\n  - RH < 40%\n  - 양압 환경\n• 도구:\n  - Dedicated medical tooling (다른 합금과 분리)\n  - Pre-weld cleaning: medical-grade IPA\n  - Cleanroom-grade gloves (powder-free nitrile)\n\n【⚠ 주의 2 — RE Element Burn-Off】\nWelding 열 (3000°C arc) 에서 RE element (Y, Nd) 일부 가스 발생:\n• Y / Nd oxide 가 weld bead 표면에 → bead 균질성 손실\n• 합금 조성 변경 → biodegradation rate 변동\n• Bead 외관 변색 (silver → yellow / brown)\n\n【권장 대응】\n• Pulse GTAW (heat input minimum)\n• Low Welding speed (slow + small bead)\n• Trailing shield + back-purge\n\n【⚠ 주의 3 — Biodegradation 통제】\n의료 implant 의 핵심 spec — 생체 흡수 속도:\n• 정상 WE-RE base: 0.05-0.2 mm/year corrosion rate (체내)\n• Welded zone: 부식 거동 변화 → 빠른 부식 또는 균열\n• Welded implant 의 fatigue life + degradation profile 평가 필수\n\n【NDT 권장】\nVisual (bead color) + Liquid Penetrant (PT) + Dimensional QC\n의료: ISO 10993 (biocompatibility) + custom degradation test\n\n【표준】\nASTM B107 (Mg-RE) · ASTM F3160 (biodegradable Mg) · ISO 10993 (biocompatibility)"
   },
   "w49-zk60": {
+   "sources": ["AMS 4377/4439"],
    "pattern": "^zk\\d\\d|^ze\\d\\d|^ez\\d\\d|^hk3\\d|^qe2\\d",
    "field": "name",
    "nonferrous_only": true,
@@ -420,12 +467,14 @@
    }
   },
   "w50-c10": {
+   "sources": ["AMS 4731","AMS 4770","AWS A5.7","ASTM B152"],
    "pattern": "^c1[0-2]\\d{3}\\b|^ofe ?copper|^ofhc ?copper|^of copper|^dhp copper|^cu \\(pure|^copper \\(pure|^c11000",
    "field": "name",
    "nonferrous_only": true,
    "text": "주의. 순동(OFE/OFHC/ETP 등) — 열전도 최고라 fusion 가장 어려움. 아래 등급 주의.\n순도 99.9%+ pure Copper — fusion welding 이 가장 어려운 Cu group.\nElectronics busbar, heat exchanger tube, vacuum chamber 응용.\n\n【권장 방법】\n• Welding: GTAW (DC EN)\n• Shielding: Ar + He (25/75) mix — He 가 puddle penetration 향상\n• Filler: ER Cu (AMS 4731) matching\n• 두꺼운 plate (> 25 mm): GMAW (high heat input 가능)\n\n【⚠ 주의 1 — Pre-heat 절대 필수 (가장 critical)】\nCu 의 thermal conductivity 400 W/m·K (Fe 의 8배, Al 의 1.7배).\n그 결과 weld zone 의 heat 가 base metal 으로 매우 빠르게 흡수 → puddle 형성 어려움.\n\n【권장 pre-heat 온도】\n  ┌────────────┬──────────┐\n  │ 두께       │ Pre-heat │\n  ├────────────┼──────────┤\n  │ < 3 mm     │ 100°C    │\n  │ 3-12 mm    │ 300°C    │\n  │ 12-25 mm   │ 500°C    │\n  │ > 25 mm    │ 500-600°C│\n  └────────────┴──────────┘\n\nPre-heat 가 부족하면 cold lap (penetration 부족, 표면만 melt) 발생.\n두꺼운 plate 는 specialty furnace pre-heat 필요 (workshop torch 불충분).\n\n【⚠ 주의 2 — ETP 동의 Hydrogen Embrittlement】\nETP (Electrolytic Tough Pitch) Copper 의 dissolved O 약 0.04% 와 welding 의 H₂ 분위기:\n\n메커니즘:\n  ① ETP 의 grain boundary 에 Cu₂O 분포\n  ② Welding H₂ 가 Cu 내부로 침투\n  ③ Cu₂O + 2 H₂ → 2 Cu + H₂O (steam)\n  ④ 입계의 H₂O steam pocket 이 응고 응력 받아 균열\n\n결과: 입계 따라 cracking, 강도 80% 손실.\n\n【권장 대응】\n• OFE 동(O < 5 ppm) 사용 — vacuum melt 의 oxygen-free copper\n• OFHC 동(O < 10 ppm) 사용 — hot-rolled oxygen-free\n• ETP 의 fusion welding 회피 — Ag-brazing (BAg-1, AMS 4770) 으로 대체\n\n【⚠ 주의 3 — Bead Penetration 부족】\n증상: puddle 가 빠르게 식음 → cold lap, 표면만 fusion.\n대응:\n• 높은 current: 일반 steel 의 1.5배 (예: 5 mm plate → 200 A)\n• Multiple pass (single pass 부족)\n• He shielding 비율 ↑ (75%+ He, penetration 증가)\n• Forehand technique (puddle 가 앞으로 진행)\n\n【NDT 권장】\nLiquid Penetrant (PT) + Radiograph (RT)\n\n【표준】\nAWS A5.7 (filler) · ASTM B152 (sheet) · AMS 4731 (filler)"
   },
   "w51-c1": {
+   "sources": ["AMS 4731","ASTM B927"],
    "pattern": "^c1[4789]\\d{3}\\b|^cu-?cr-?zr|^cucr1zr|^copper-?cr-?zr|^c18150|^c18000|^grcop|^narloy|^cuni2sicr",
    "field": "name",
    "nonferrous_only": true,
@@ -439,18 +488,21 @@
    }
   },
   "w52-c17200": {
+   "sources": ["AMS 4534","ASTM B194"],
    "pattern": "^c17200|^cube|^beryllium copper",
    "field": "name",
    "nonferrous_only": true,
    "text": "⚠⚠ Beryllium Copper C17200 (Be 1.8-2.0%)\nPrecision spring, spark-resistant tool (방폭 hammer / wrench), electronics contact 응용.\nBeryllium 함유로 발암성 (NIOSH 1A carcinogen) — 작업 안전성이 최고 우선.\n\n【⚠⚠⚠ 발암성 경고 (가장 중요)】\nBeryllium 의 dust / fume 흡입은 다음 질병 유발:\n• CBD (Chronic Beryllium Disease, 만성 베릴륨증): 폐 sarcoidosis 유사, 일생 unrecoverable\n• 일부에서 폐암 (lung cancer) 진행\n• Berylliosis 의 잠복기: 10-30년\n\n노출 한도:\n• OSHA PEL: 0.2 μg/m³ (1980년 기준, action level 0.1 μg/m³)\n• NIOSH REL: 0.5 μg/m³\n• Korean MOEL TLV: 0.001 mg/m³ (1.0 μg/m³)\n\n【권장 방법】\n• Welding: rarely done (Ag-brazing 또는 mechanical joining 권장)\n• 만약 필수 시: GTAW (DC EN) with full isolation booth\n• Filler: ERCuBe matching (Materion supply)\n• Condition: Solution-annealed state (TB00)\n\n【⚠⚠ 주의 1 — Full PPE + 격리 Welding Booth】\n작업자 보호:\n• Respirator: positive-pressure SCBA (Supplied Air Breathing Apparatus)\n  - PAPR (Powered Air-Purifying Respirator) 도 부족 — SCBA 필수\n• Body: Tyvek body suit (one-time use, 작업 후 폐기)\n• Hands: double-layer nitrile gloves\n• 작업 booth:\n  - HEPA → ULPA filter (99.999% efficiency @ 0.12 μm)\n  - 양압 환경 (외부 contamination 회피)\n  - Negative pressure exhaust (booth 내부 → filter)\n\n【⚠⚠ 주의 2 — Berylliosis 위험】\n만성 노출 시 진행:\n• 초기 (1-5 년): 무증상, 폐기능 정상\n• 진행 (5-15 년): dyspnea, dry cough, weight loss\n• 후기 (15-30 년): 폐 fibrosis, 호흡 부전, lung transplant 필요\n\n【권장 작업 후 처리】\n• Wet decon: shower (specialty soap + chelating agent)\n• 작업 후 medical surveillance:\n  - 매년 chest X-ray\n  - 매년 BeLPT (Beryllium Lymphocyte Proliferation Test)\n  - 의심 증상 시 lung biopsy\n\n【⚠ 주의 3 — Grinding / Sanding 절대 금지】\nWeld 후 post-weld grinding 또는 sanding 은 BeO dust 생성 → 매우 위험:\n• BeO 의 흡입은 Be 보다 더 toxic (lung 깊이 침투)\n• Spark / dust 발생하는 모든 작업 금지\n• 표면 finish 필요 시: chemical polishing (HNO₃ + H₂SO₄ 의 controlled etching)\n\n【NDT 권장】\nLiquid Penetrant (PT) + Radiograph (RT) — full booth 안에서 진행\n\n【표준】\nAMS 4534 (CuBe sheet) · ASTM B194 (CuBe bar) · OSHA 1910.1024 (Be standard)"
   },
   "w53-c2": {
+   "sources": ["AWS A5.7","ASTM B36"],
    "pattern": "^c2[1-8]\\d{3}|^red brass|^brass\\b|^muntz|^commercial bronze",
    "field": "name",
    "nonferrous_only": true,
    "text": "주의. Red Brass (Cu-Zn 5-15%)\nLow-Zn brass — plumbing fitting, architectural trim, decorative hardware.\n\n【권장 방법】\n• Welding: GTAW (DC EN)\n• Filler:\n  - ERCuSn-A (phosphor bronze, 일반)\n  - ERCuSi-A (silicon bronze, 강도 우선)\n  - 금지: ERCu-Zn matching filler (Zn evaporation 으로 inferior bead)\n• Pre-heat: 200-300°C (thermal conductivity 통제)\n• Shielding: Ar 또는 Ar + He mix\n\n【⚠ 주의 1 — Zinc Fume 위험 (가장 critical, 작업자 안전)】\nZinc 비등점 907°C — welding arc temperature (3000-5000°C) 에서 즉시 vaporize.\n생성된 ZnO 가루:\n• 즉시 흡입 시: metal fume fever (감기와 유사 증상, 1-2일 내 회복)\n• 만성 노출 시: pulmonary edema (폐 부종)\n• Visible: weld 주변 흰색 ZnO smoke\n\n【권장 안전 절차】\n• LEV (Local Exhaust Ventilation):\n  - Capture velocity > 0.5 m/s at arc location\n  - Welding fume extractor hood (vendor: Lincoln, Miller, ESAB)\n• Respirator:\n  - Full-face P100 + organic vapor cartridge\n  - 작업 시간 < 4 시간 / day\n• 노출 모니터링:\n  - Personal sampling cassette (NIOSH 7300)\n  - PEL 5 mg/m³ ZnO\n\n【⚠ 주의 2 — Dezincification (탈아연 부식)】\n일반 분위기 OK, 단 chloride 환경 (해수, salt mist) 에서 weld zone 부식:\n• Zn 가 선택적으로 leached → spongy Cu 잔류 → 강도 손실\n• 권장: marine 응용 시 dezincification 저항 grade (Sn 첨가) 사용\n\n【NDT 권장】\nVisual + Liquid Penetrant (PT)\n\n【표준】\nAWS A5.7 · ASTM B36 (red brass)"
   },
   "w54-c26000": {
+   "sources": ["ASTM B36","ASTM B21"],
    "pattern": "^c2680\\d|^c36000|^c4[46]\\d{3}|^naval brass|^admiralty",
    "field": "name",
    "nonferrous_only": true,
@@ -463,6 +515,7 @@
    }
   },
   "w55-c70": {
+   "sources": ["AMS 4715","ASTM B466","ASTM B171"],
    "pattern": "^c70[60]00|^c715[00]|^cuni|^cupronickel",
    "field": "name",
    "nonferrous_only": true,
@@ -473,42 +526,49 @@
    }
   },
   "w56-c75200": {
+   "sources": ["AMS 4715","ASTM B122"],
    "pattern": "^c75200|^nickel silver|^german silver",
    "field": "name",
    "nonferrous_only": true,
    "text": "주의. Nickel Silver C75200 (Cu 65% + Ni 18% + Zn 17%)\nCu-Ni-Zn ternary — 가전 trim, musical instrument (saxophone, trumpet), decorative hardware.\n\n【권장 방법】\n• Welding: GTAW (DC EN)\n• Filler: ERCuNi (AMS 4715) 또는 ERNiCu-7\n• Pre-heat: 200°C\n• Inter-pass: < 200°C\n\n【⚠ 주의 — Zn Fume 위험 (Zn 17%)】\n일반 brass 와 동일한 ZnO fume 위험:\n• LEV > 0.5 m/s capture velocity\n• Full-face respirator (P100 + organic vapor cartridge)\n• PEL 5 mg/m³ ZnO\n• 작업 시간 통제\n\n【NDT 권장】\nVisual + Liquid Penetrant (PT)\n\n【표준】\nASTM B122 (sheet)"
   },
   "w57-c95800": {
+   "sources": ["AMS 4870","ASTM B148"],
    "pattern": "^c9[35]\\d{3}|^c6[13]\\d{3}|^nickel[- ]alumini?um bronze|^alumin[iu]?u?m bronze|^nab\\b",
    "field": "name",
    "nonferrous_only": true,
    "text": "✓ NAB C95800 (Nickel Aluminum Bronze)\nMarine propeller 표준 — 선박 propeller blade / hub, pump impeller.\nNi-Al bronze 의 complex microstructure (α + β + κ phase) 가 cavitation erosion 저항.\n\n【권장 방법】\n• Welding: GTAW (DC EN) 또는 GMAW\n• Filler: ERCuNiAl (AMS 4870) matching\n• Pre-heat: 150-200°C\n• Inter-pass: 250°C max\n• Shielding: Ar\n\n【⚠ 주의 1 — Cu-Al β-phase + κ-phase Intermetallic】\nNAB 의 microstructure 는 β-phase (Cu-Al BCC) + κ-phase (Fe-Al intermetallic, 4 종류) + α-phase 가 cavitation erosion 저항 제공.\nWelding 열이 β-phase + κ-phase 분포 변경:\n• As-welded β-phase: brittle, cavitation 진행 빠름\n• κ-phase 재분포 필요\n\n【권장 대응 — Controlled Cooling】\n• Slow cooling (insulation wrap 또는 furnace cool)\n• Cooling rate < 50°C/min (κ-phase 재형성 시간 충분)\n• Post-weld 600°C / 2 h / FC (α + β + κ phase 균질화)\n\n【⚠ 주의 2 — Marine Propeller Surface Peening】\nProprietor blade 의 cavitation erosion 회피:\n• Post-weld surface peening (shot peening 또는 burnishing)\n• 잔류 compressive stress → cavitation 균열 진행 회피\n• Class spec: ABS / DNV / KR marine grade\n\n【NDT 권장】\nLiquid Penetrant (PT) + Radiograph (RT)\nMarine propeller: 100% RT + dimensional QC\n\n【표준】\nAMS 4870 (filler) · ASTM B148 (cast NAB) · ABS / DNV / KR marine propeller spec"
   },
   "w58-tantalumb": {
+   "sources": ["ASTM B708","AMS 7846"],
    "pattern": "^tantalum\\b|^ta\\b\\s*\\(|^ta-?\\d+(?:\\.\\d+)?w\\b",
    "field": "name",
    "nonferrous_only": true,
    "text": "✓ Tantalum (Tm 3017°C, uniquely weldable refractory metal)\n화학 plant HCl / H₂SO₄ tank, 반도체 sputtering target, capacitor anode 응용.\nRefractory 중 유일하게 RT ductile (DBTT < -200°C, BCC).\n\n【권장 방법】\n• EBW (Electron Beam Welding) — 권장\n  - Vacuum < 10⁻⁴ mbar\n  - High-power focused beam\n  - Clean atmosphere → α-case 회피\n• GTAW (DC EN) — Ar glove-box 안에서만\n  - Glove-box atmosphere: O₂ < 10 ppm, H₂O < 10 ppm, dew point < -70°C\n  - Ar: 99.999% (research grade)\n• Filler: Matching Ta filler (Plansee, ATI, Heraeus supply)\n• Ta-10W (R05252): 동일 procedure\n\n【⚠ 주의 1 — Oxygen / Nitrogen Pickup → Embrittlement (Ti 와 동일)】\nTa 는 300°C 이상의 대기 노출 시 즉시 oxide 형성:\n• Ta + O₂ → Ta₂O₅ (1880°C melting, brittle)\n• Ta + N₂ → TaN (intermetallic, brittle)\n• 침투 깊이: 노출 시간 비례 (~ 30 μm at 700°C/10s)\n\n【Color Test (Ti 와 동일)】\n  ┌──────────┬──────────────────┬─────────────────┐\n  │ 색       │ O 흡수 정도      │ 판정            │\n  ├──────────┼──────────────────┼─────────────────┤\n  │ 은색     │ < 50 ppm         │ ✓ 합격          │\n  │ 황금색   │ 50-100 ppm       │ △ 재용접 검토   │\n  │ 파란색   │ 100-300 ppm      │ ✗ 재용접 필수   │\n  │ 회색     │ > 300 ppm        │ ✗ 폐기          │\n  └──────────┴──────────────────┴─────────────────┘\n\n【⚠ 주의 2 — Fe Sensitivity (Ta-Fe Eutectic)】\nTa 의 표면에 Fe contamination 잔류 시:\n• Ta-Fe eutectic (1090°C melting, low-melt) 형성\n• 응고 시 입계 따라 균열\n\n오염원:\n• Carbon steel brush / file (절대 금지)\n• 일반 grinding wheel (Fe-bond)\n• Workshop dust\n\n【권장 도구】\n• Stainless steel wire brush (Ta 전용)\n• Diamond grinding wheel\n• Ta-dedicated workbench (다른 합금과 분리)\n\n【⚠ 주의 3 — Post-weld Stress Relief】\n• Process: 1100°C / 1 h / vacuum 10⁻⁴ mbar\n• 1100°C 이하 (recrystallization 회피)\n• Cooling: 빠른 cooling (water-cooled chamber)\n• 응용:\n  - 화학 plant HCl/H₂SO₄ 저장 tank\n  - 반도체 sputtering target\n  - Capacitor anode (electrolytic Ta capacitor)\n\n【NDT 권장】\nVisual color + Liquid Penetrant (PT) + Radiograph (RT)\n\n【표준】\nASTM B708 (Ta sheet) · AMS 7846 (Ta-10W) · Plansee TaTechnical Data Sheet"
   },
   "w59-tungstenb": {
+   "sources": ["AMS 4777","ASTM B777","ASTM F288"],
    "pattern": "^tungsten\\b|^w-la\\b|^pure tungsten",
    "field": "name",
    "nonferrous_only": true,
    "text": "⚠⚠ Tungsten (Tm 3422°C, DBTT 300°C — RT brittle, fusion welding 거의 불가)\nKE (Kinetic Energy) penetrator (armor-piercing 탄두), X-ray collimator, GTAW electrode tip 응용.\nDBTT 300°C — RT 에서 매우 brittle (high-strain rate 균열 위험).\n\n【권장 방법】\n• EBW (Electron Beam Welding) — only practical method\n  - Vacuum 10⁻⁵ mbar\n  - High-energy focused beam (점 가열)\n  - Pre-heat + slow cool 필수\n• W-La (Lanthanated W, 2% La₂O₃): 동일 procedure\n• Sintered W heavy alloy (W-Ni-Fe 90-97%W):\n  - Vacuum brazing 권장 — BNi-2 (AMS 4777) filler\n  - 1180°C / 10 min / vacuum 10⁻⁴ mbar\n  - Ni-Fe matrix 가 braze 와 bonding (W particle 자체 bonding 어려움)\n\n【⚠ 주의 1 — DBTT 300°C 위쪽에서 Stress 발산 필요】\nW 의 RT brittleness 메커니즘:\n• BCC structure 의 dislocation 운동 어려움\n• Grain boundary 에 W₂C / WO₃ 미세 석출 시 더욱 brittle\n• Cooling stress 가 DBTT 위쪽에서 plastic 변형으로 발산되어야 함\n\n【권장 대응】\n• Pre-heat 500°C 필수 (DBTT 300°C 위쪽으로 상승)\n• Slow cooling rate (< 50°C/min)\n• Post-weld stress relief: 1500°C / 1 h / vacuum\n• 두꺼운 부품: pre-heat 700°C+\n\n【⚠ 주의 2 — Recrystallization (1200-1400°C)】\nW 의 recrystallization 온도 약 1200°C:\n• Grain growth → 입계 따라 brittleness ↑\n• Welded 부품의 ductility 손실 (이미 brittle 한 RT 에서 더욱)\n\n【권장 대응】\n• Low heat input (linear energy < 0.5 kJ/mm)\n• 빠른 cooling rate (rapid solidification)\n• La₂O₃ dispersed 합금 (W-La) 사용 — grain growth pinning\n\n【⚠ 주의 3 — Cost + Criticality】\nW 가격 매우 비쌈 ($30-50/kg), 응용도 critical:\n• KE penetrator: 군용 ammunition (균열 시 폐기, 큰 손실)\n• X-ray collimator: 의료 imaging device\n• 작업 전 NDT (Ultrasonic Test) 권장 — base material defect 확인\n\n【NDT 권장】\nUltrasonic Test (UT) + Radiograph (RT)\nWelding 전 base material UT + welding 후 RT 100%\n\n【표준】\nASTM B777 (W heavy alloy) · ASTM F288 (pure W) · NASA SP-8002 (high-T material)"
   },
   "w60-molybdenumb": {
+   "sources": ["ASTM B387","AMS 7837","ASTM B386"],
    "pattern": "^molybdenum\\b|^mo-?la|^mo-?0\\.5ti|^tzm\\b|^mo-?re\\b",
    "field": "name",
    "nonferrous_only": true,
    "text": "⚠ Molybdenum / TZM / Mo-La / Mo-Re (Tm 2623°C, DBTT 0°C)\n고온 응용:\n• Pure Mo: 반도체 furnace heater, sputtering target\n• TZM (Ti-Zr 첨가, 0.5Ti-0.08Zr): high-T forging die, nuclear thermal rocket nozzle\n• Mo-La (0.5% La₂O₃): 가장 weldable Mo, grain refinement\n• Mo-Re (4-44% Re): 가장 ductile Mo (DBTT < -100°C)\n\n【권장 방법】\n• EBW (Electron Beam Welding) 강력 권장\n  - Vacuum 10⁻⁵ mbar\n  - Low heat input\n• GTAW (DC EN) — Ar glove-box 안에서만\n  - O₂ < 10 ppm, H₂O < 10 ppm\n  - Pulse mode (peak/base ratio < 0.3)\n\n【⚠ 주의 1 — Oxidation 매우 빠름 (가장 critical)】\nMo 의 oxide 형성:\n• 300°C 이상: MoO₃ formation 시작\n• 600°C 이상: MoO₃ vapor (sublimation, 비등점 1155°C 보다 훨씬 낮음)\n• Welding atmosphere 의 trace O₂ 와 즉시 반응 → 표면 burn-off\n\n【권장 대응】\n• Pre-heat 500°C (DBTT 0°C 위쪽 + thermal shock 회피)\n• 즉시 Ar shielding 또는 vacuum (no time delay)\n• Trailing shield length: weld 후 200°C 까지 cover\n• Glove-box welding: 가장 안전\n\n【⚠ 주의 2 — Recrystallization (1100-1400°C)】\nMo 의 recrystallization 온도 약 1100°C:\n• Grain growth → brittleness 증가\n• 입계의 carbon segregation → 더 brittle\n\n【권장 대응】\n• Low heat input + Pulse GTAW (peak/base ratio < 0.3)\n• 빠른 cooling rate\n• Mo-La (La₂O₃ dispersed) 사용 — grain pinning\n\n【⚠ 주의 3 — Post-weld Stress Relief 必】\n• Process: 1100°C / 1 h / vacuum\n• Residual stress 의 균열 진행 회피\n• Slow furnace cool (50°C/min)\n\n【⚠ 주의 4 — Mo-Re Welding 우수성】\nRe 첨가 효과:\n• DBTT 0°C → -100°C 이하 낮춤\n• 가장 weldable Mo alloy\n• 응용: NASA / DOE 우주 nuclear thermal rocket nozzle 표준\n  - Mo-44Re composition (NASA NTR program)\n  - Mo-Re-HfC 합금 (DOE Project Pluto)\n\nMo-La 도 비슷 (가장 weldable wrought Mo).\nTZM (Ti-Zr 첨가) 는 일반 Mo 와 유사 weldability.\n\n【NDT 권장】\nLiquid Penetrant (PT) + Radiograph (RT)\nNuclear 응용: 100% RT + UT\n\n【표준】\nASTM B387 (Mo bar) · AMS 7837 (TZM) · ASTM B386 (Mo plate)"
   },
   "w61-niobiumb": {
+   "sources": ["ASTM B393","ASTM B654","AMS 7857"],
    "pattern": "^niobium\\b|^c-?103\\b|^nb-?1zr",
    "field": "name",
    "nonferrous_only": true,
    "text": "✓ Niobium (Tm 2477°C, DBTT -200°C, ductile RT) / C-103 / Nb-1Zr\nRefractory 중 RT 에서 ductile (Ta 와 함께 우수한 weldability):\n• Pure Nb: superconductor wire (TC 9.2 K), 반도체 wafer chuck\n• C-103 (Nb-10Hf-1Ti): rocket combustion nozzle (Atlas V Centaur, SpaceX Merlin upper)\n• Nb-1Zr: nuclear reactor cladding (low neutron capture)\n\n【권장 방법】\n• EBW (Electron Beam Welding) 권장\n  - Vacuum 10⁻⁵ mbar\n  - Low heat input\n• GTAW (DC EN) — high-purity Ar (99.999%) glove-box\n  - O₂ < 10 ppm, H₂O < 10 ppm\n  - Dew point < -70°C\n• Filler: Matching Nb / C-103 / Nb-1Zr filler (Plansee, ATI supply)\n\n【⚠ 주의 1 — O / N / H Pickup → Embrittlement (Ti 와 동일)】\nNb 는 300°C 이상 빠른 oxidation:\n• 300°C: NbO₂ (1937°C melting)\n• 500°C: Nb₂O₅ (1512°C melting)\n• 600°C: NbN (2057°C melting)\n• 모두 brittle intermetallic\n\n【Color Test】\n  ┌──────────┬─────────────────┐\n  │ 색       │ 판정            │\n  ├──────────┼─────────────────┤\n  │ 은색     │ ✓ 합격          │\n  │ 밝은 파랑│ ✓ 합격          │\n  │ 황금색   │ △ 재용접 검토   │\n  │ 보라     │ ✗ 재용접 필수   │\n  │ 회색     │ ✗ 폐기          │\n  └──────────┴─────────────────┘\n\n【⚠ 주의 2 — Hf-rich C-103 의 Hafnium Oxide】\nC-103 의 Hf 10% 가 welding 중 oxide 형성:\n• HfO₂ (2758°C melting, refractory)\n• Weld zone surface 변색 (silver → yellow-brown)\n• Bead 균질성 손실\n\n【권장 대응】\n• Pickling post-clean (HF 5% + HNO₃ 30%, 30 초)\n• HfO₂ surface layer 제거\n• Glove-box atmosphere 더 엄격하게\n\n【⚠ 주의 3 — Post-weld Stress Relief】\n• Process: 1100°C / 1 h / vacuum\n• Recrystallization 회피\n• Residual stress 의 cold crack 진행 회피\n\n【NDT 권장】\nVisual color + Liquid Penetrant (PT) + Radiograph (RT)\nRocket nozzle: 100% RT (defect 무허용)\n\n【표준】\nASTM B393 (Nb sheet) · ASTM B654 (Nb-1Zr) · AMS 7857 (C-103)"
   },
   "w62-rheniumb": {
+   "sources": ["ASTM B779"],
    "pattern": "^rhenium\\b|^pure rhenium",
    "field": "name",
    "nonferrous_only": true,
@@ -521,30 +581,35 @@
    "text": "⚠⚠ Pure Chromium (Tm 1907°C, DBTT 300°C, BCC brittle at RT)\nPure Cr 의 industrial welding 사례 없음 — ingot 자체가 brittle 라 가공 어려움.\n\n【산업 응용 (Cr 의 사용 방식)】\nCr 는 산업에서 다음 방식으로만 사용:\n• Cr plating / coating (electroplating, vapor deposition)\n• Stainless steel 의 핵심 alloying element (오스테나이트계 Cr 16-18%)\n• Ni superalloy 의 핵심 alloying element (Cr 15-22%)\n• Cr-bearing intermetallic (Cr₂N 코팅, CrO₂ 자기 매체)\n\nPure Cr 의 ingot 또는 sheet 의 welding 은 commercial 응용 없음.\n\n【⚠ 주의 — Welding Impractical】\n• DBTT 300°C — RT 에서 매우 brittle\n• BCC structure 의 입계 작용 어려움\n• Cr ingot 자체가 가공 어려움 (mechanical sawing 시 균열)\n• Welding 시 100% 균열 보장\n\n【대안】\nCr 의 fusion 처리가 필요한 경우:\n• Cr-bearing alloy (stainless / superalloy) 로 대체\n• Cr coating (electroplating, sputtering) 후 base 만 welding\n• Brazing (Ag-base BAg-1) 으로 Cr-coated part 와 접합\n\n【표준】\n해당 없음 (welding spec 없음)"
   },
   "w64-hafniumb": {
+   "sources": ["ASTM B776","ASTM B777"],
    "pattern": "^hafnium\\b|^pure hf",
    "field": "name",
    "nonferrous_only": true,
    "text": "✓ Hafnium (Tm 2233°C, Zr 와 동족, 화학 성질 거의 동일)\nNuclear reactor control rod 표준 — neutron capture cross-section 600 barn (Zr 의 0.2 barn 대비 3000배).\nRefractory 중 weldable (Ti / Zr / Ta 와 유사).\n\n【권장 방법】\n• GTAW (DC EN) with Ar shielding\n  - Front: 25 L/min\n  - Back-purge: 5 L/min\n  - Trailing: 15 L/min\n• EBW (Electron Beam Welding) — 정밀 부품\n  - Vacuum 10⁻⁵ mbar\n• Filler: Matching Hf filler (Plansee, ATI supply)\n\n【⚠ 주의 1 — O / N Pickup (Zr 와 동일)】\nHf 의 oxide 형성:\n• 300°C: HfO₂ (2758°C melting, refractory)\n• 500°C: HfN (3305°C melting)\n• 모두 brittle\n• Color test: silver = OK, gold / blue = 폐기\n\n【권장 대응】\n• Front + back + trailing Ar shielding 필수\n• Glove-box welding (research grade)\n• Pre-clean: HF + HNO₃ pickling\n\n【⚠ 주의 2 — Nuclear Application (Control Rod)】\nReactor control rod 의 핵심 spec:\n• Hf 의 neutron capture cross-section 600 barn — Zr 의 3000배\n• 응용: PWR / BWR control rod cluster\n• Welding 시 dimension precision 필수 (rod 직경 ± 0.05 mm)\n• Clean atmosphere (radioactive 환경 회피)\n• Post-weld dimensional QC (laser micrometer)\n\n【⚠ 주의 3 — Hf-Zr Separation】\nHf 의 ore (zirconium ore 의 byproduct) 에서 Zr 와 분리 매우 어려움:\n• Reactor-grade Hf: Zr < 0.5%\n• Commercial-grade Hf: Zr 약 1-2%\n• Reactor-grade 사용 시 grade certificate 확인\n\n【NDT 권장】\nVisual color + Liquid Penetrant (PT) + Dimensional QC\nNuclear: 100% RT + dimensional certification\n\n【표준】\nASTM B776 (Hf rod) · ASTM B777 (Hf sheet)"
   },
   "w65-vanadiumb": {
+   "sources": ["ASTM B388"],
    "pattern": "^vanadium\\b|^pure v\\b",
    "field": "name",
    "nonferrous_only": true,
    "text": "주의. Pure Vanadium (Tm 1910°C)\nITER / fusion reactor first-wall material 후보 (low neutron activation).\nV-Cr-Ti 합금 (V-4Cr-4Ti) 이 가장 일반적인 응용.\n\n【권장 방법】\n• GTAW (DC EN) in Ar glove-box\n  - O₂ < 10 ppm, H₂O < 10 ppm\n• EBW (Electron Beam Welding) — 정밀 부품\n  - Vacuum 10⁻⁵ mbar\n\n【⚠ 주의 1 — V₂O₅ Vapor 위험 (Toxic)】\nV 의 oxide 매우 위험:\n• 300°C 이상: V₂O₅ 형성 (vapor pressure 높음, 670°C melting)\n• V₂O₅ inhalation: pulmonary edema, respiratory irritation\n• OSHA PEL: 0.05 mg/m³ (vanadium pentoxide dust)\n\n【권장 안전 절차】\n• Local exhaust ventilation (LEV) > 0.5 m/s\n• Respirator: full-face P100 + acid gas cartridge\n• 작업 booth (격리 환경)\n• 작업 후 wet decon (V₂O₅ dust 회피)\n\n【⚠ 주의 2 — Cleanliness 필수】\nFe / Ni contamination → V-Fe / V-Ni intermetallic 형성:\n• V-Fe eutectic: 1100°C — low-melt, 균열 위험\n• V-Ni intermetallic: brittle\n\n【권장 대응】\n• Pre-clean: HF + HNO₃ pickling\n• Dedicated V tools (다른 합금과 분리)\n• Glove-box atmosphere\n\n【NDT 권장】\nLiquid Penetrant (PT) + Radiograph (RT)\nFusion reactor: 100% RT + dimensional QC\n\n【표준】\nASTM B388 (V sheet) · ITER fusion reactor first-wall spec"
   },
   "w66-zirconiumb": {
+   "sources": ["ASTM B353","ASTM B350","ASTM B352"],
    "pattern": "^zirconium\\b|^zr-?2\\.5nb|^zircaloy|^zirlo|^m5 ?\\(",
    "field": "name",
    "nonferrous_only": true,
    "text": "✓ Zirconium / Zircaloy-2 / Zr-2.5Nb (Ti 와 비슷 procedure)\nNuclear fuel cladding 표준:\n• Zircaloy-2 (Sn 1.5%, Fe / Cr / Ni 미량): BWR cladding\n• Zircaloy-4 (Zircaloy-2 + Ni 제거): PWR cladding\n• Zr-2.5Nb: CANDU pressure tube\n\n【권장 방법】\n• GTAW (DC EN) with Ar shielding\n  - Front + back-purge + trailing (Ti 와 동일)\n  - Ar 99.999%\n• EBW (Electron Beam Welding) — 정밀 부품\n  - Vacuum 10⁻⁵ mbar\n• Filler: Matching Zr / Zircaloy filler (Westinghouse, Framatome supply)\n\n【⚠ 주의 1 — O / N / H 흡수 → Embrittlement (Ti 와 동일)】\nZr 의 oxide 형성:\n• 300°C: ZrO₂ (2715°C melting, refractory)\n• 500°C: ZrN (2980°C melting)\n• 모두 brittle\n\n【Color Test (Ti 와 동일)】\n  ┌──────────┬─────────────────┐\n  │ 색       │ 판정            │\n  ├──────────┼─────────────────┤\n  │ 은색     │ ✓ 합격          │\n  │ 황금색   │ △ 재용접 검토   │\n  │ 파란/보라│ ✗ 재용접 필수   │\n  │ 회색     │ ✗ 폐기          │\n  └──────────┴─────────────────┘\n\n【⚠ 주의 2 — Nuclear Cleanness】\nReactor coolant 의 neutron 흡수 회피 spec:\n• Fe / Cr / Ni contamination 회피 (low neutron absorption 요구)\n• Stainless steel tools 만 사용 (carbon steel 절대 금지)\n• Dedicated Zr welding station (다른 합금과 분리)\n\n【⚠ 주의 3 — Hot-Water Hydride Embrittlement】\nBWR / PWR coolant (260-330°C, 7-15 MPa H₂O) 의 환경:\n• 사용 중 Zr 가 coolant 의 H 흡수 → ZrH (brittle hydride) 형성\n• Cladding 의 lifetime 통제 (fuel cycle 12-24 개월)\n\n【권장 Post-clean】\n• Pickling: HF 5% + HNO₃ 30%, 30 초\n• Zr-H surface layer 제거\n• Fresh water rinse + dry\n\n【NDT 권장】\nVisual color + Liquid Penetrant (PT) + Eddy Current (cladding tube)\nNuclear: 100% inspection per ASTM B353\n\n【표준】\nASTM B350 (Zr sheet) · ASTM B353 (Zircaloy cladding) · ASTM B352 (Zr forging)"
   },
   "w67-invar": {
+   "sources": ["ASTM F15","ASTM F1684"],
    "pattern": "^invar|^kovar|^nilo|^fe-?3[56]ni|^controlled expansion",
    "field": "name",
    "nonferrous_only": true,
    "text": "✓ Invar 36 (Fe-36Ni) / Kovar (Fe-29Ni-17Co)\nLow-CTE controlled-expansion alloys:\n• Invar 36: CTE ~ 1.3 ppm/K (RT-100°C), 정밀 광학 mount / vacuum chamber\n• Kovar: CTE ~ 5.5 ppm/K (Borosilicate glass 와 match), glass-metal seal\n\n【권장 방법】\n• Welding: GTAW (DC EN)\n• Filler: Matching Invar / Kovar filler\n  - Invar: Carpenter Invar 36 wire\n  - Kovar: ASTM F15 wire (Carpenter / ATI / VDM supply)\n• Shielding: Ar\n• Pre-heat: 미요\n\n【⚠ 주의 1 — Curie Temperature 위쪽에서 CTE 증가】\nLow-CTE 특성은 Curie temperature 위 에서 소실:\n• Invar 36: Curie 230°C — 위쪽에서 CTE 12 ppm/K 까지 증가\n• Kovar: Curie 435°C — 위쪽에서 CTE 11 ppm/K 증가\n\n응용 시 service temperature 통제:\n• Invar 36: < 200°C 권장 (low-CTE 효과 유지)\n• Kovar: < 400°C 권장\n\n초과 시 dimensional drift (vacuum chamber 의 leak, optical mount 의 misalignment).\n\n【⚠ 주의 2 — PWHT Stress Relief 必】\nWelding 의 residual stress 가 CTE drift 유발:\n• Process: 800-870°C / 2 h / vacuum 또는 inert atmosphere\n• Cooling: slow furnace cool (50°C/min)\n• 권장: 모든 welded Invar / Kovar 부품에 PWHT 적용\n\n【⚠ 주의 3 — Hot Cracking (Fe-Ni Solidification)】\nFe-Ni wide solidification range (1450-1500°C, Fe-36Ni 의 eutectic point 약 1438°C):\n• 입계 last-liquid film 형성 위험\n• Low heat input (linear energy < 1 kJ/mm)\n• Small bead width (3-5 mm)\n• Multi-pass 시 inter-pass < 175°C\n\n【NDT 권장】\nLiquid Penetrant (PT) + Visual\n정밀 광학: 추가 dimensional QC (CTE 측정)\nVacuum chamber: helium leak test\n\n【표준】\nASTM F1684 (Invar 36) · ASTM F15 (Kovar) · Carpenter / ATI proprietary"
   },
   "w68-maraging": {
+   "sources": ["ASTM F3318","AMS 6463/6464/6520","ASTM A538"],
    "pattern": "^maraging|^vascomax|^18ni-?\\d",
    "field": "name",
    "nonferrous_only": true,
@@ -556,18 +621,21 @@
    }
   },
   "w69-nitinolb": {
+   "sources": ["ISO 10993","ASTM F2063","ASTM F2516"],
    "pattern": "^nitinol\\b|^niti\\b",
    "field": "name",
    "nonferrous_only": true,
    "text": "⚠ Nitinol (NiTi 50-50 atomic, Shape-Memory Alloy)\n의료 cardiovascular stent, dental orthodontic wire, eyeglass frame.\nShape-memory effect (As / Af transformation) 이 응용의 핵심.\n\n【권장 방법】\n• Welding: Laser welding (Yb-fiber laser) only\n  - Pulse mode (peak / base ratio 조정)\n  - Low heat input (< 0.1 kJ/mm)\n  - Focused beam (직경 < 0.2 mm)\n• Resistance welding (medical stent joint) — 일부 응용\n• GTAW / GMAW 절대 금지 (heat input 과다 → transformation T drift)\n\n【⚠ 주의 1 — Shape-Memory T (As / Af) Drift (가장 critical)】\nNitinol 의 transformation temperature 는 Ni / Ti 비율에 매우 sensitive:\n• Ni 50.5% 합금: Af = 0°C (cardiovascular stent, body T 에서 fully austenitic)\n• Ni 49.5% 합금: Af = 50°C (orthodontic wire)\n• Composition 0.1 atomic % 변화: Af 10°C drift\n\nWelding 열 + cooling 이 transformation T 변경:\n• Ni 미세 evaporation\n• HAZ 의 grain size 변경 (martensite nucleation 변경)\n• Stent expansion 압력 변화 (의료 device 의 성능 손실)\n\n【필수 검증 절차】\n• Pre-weld DSC (Differential Scanning Calorimetry): As / Af 측정\n• Post-weld DSC: 변화 정도 측정\n• Spec: As / Af drift < 5°C 권장\n\n【⚠ 주의 2 — Ti-Ni-O 형성 (HAZ Oxidation)】\nNitinol 의 O contamination 시:\n• TiNi → Ti₂NiOx (intermetallic, brittle) 변환\n• HAZ 영역 부서짐\n• Ni release (alergy 위험)\n\n【권장 대응】\n• Cleanroom welding (ISO Class 7 이상)\n• 99.999% Ar shielding (research grade)\n• Pre-weld: medical-grade IPA cleaning\n• 작업 booth (oxygen-free atmosphere)\n\n【⚠ 주의 3 — Medical Implant 응용】\nCardiovascular stent 의 welding spec:\n• 100% inspection (visual + dimensional)\n• Biocompatibility test per ISO 10993\n• Fatigue test (10⁷ cycles, body T)\n• 부식 test (Hank's solution, 37°C, 4 weeks)\n• Ni release 측정 (< 10 μg/cm² / day)\n\n【NDT 권장】\nVisual (microscope) + Dimensional QC + DSC verification\n의료: 추가 corrosion + fatigue + biocompatibility test\n\n【표준】\nASTM F2063 (Nitinol bar) · ASTM F2516 (Nitinol stent) · ISO 10993 (biocompatibility)"
   },
   "w70-berylliumb": {
+   "sources": ["AMS 4770","ASTM B265"],
    "pattern": "^beryllium\\b",
    "field": "name",
    "nonferrous_only": true,
    "text": "⚠⚠⚠ Pure Beryllium\n정밀 광학 mirror (NASA JWST primary mirror), X-ray window, nuclear reactor moderator.\nBeryllium 의 발암성 (NIOSH 1A carcinogen) — 작업 안전성 최고 우선.\n\n【⚠⚠⚠ 발암성 경고】\nBe 의 dust / fume 흡입:\n• CBD (Chronic Beryllium Disease): 일생 unrecoverable 폐 sarcoidosis\n• 일부에서 lung cancer 진행\n• 잠복기 10-30 년\n\n노출 한도:\n• OSHA PEL: 0.2 μg/m³ (Action level 0.1 μg/m³)\n• NIOSH REL: 0.5 μg/m³\n• Korean MOEL TLV: 0.001 mg/m³ (1.0 μg/m³)\n\n【권장 방법】\n• Welding rarely done (실용적 응용 거의 없음)\n• 권장: Ag-base brazing (BAg-1 / BAg-2 filler, AMS 4770)\n  - Process: 720-770°C / vacuum 10⁻⁴ mbar\n  - Filler: BAg-1 (45Ag-15Cu-16Zn-24Cd) 또는 BAg-2 (35Ag-26Cu-21Zn-18Cd)\n  - Cd-free alternative: BAg-7 (56Ag-22Cu-17Zn-5Sn)\n\nIf welding 강행 필수 시:\n• EBW (Electron Beam Welding) only\n• Vacuum 10⁻⁵ mbar\n• Full isolation booth\n\n【⚠⚠⚠ 주의 1 — Berylliosis (CBD)】\n만성 노출 진행:\n• 초기 (1-5 년): 무증상\n• 진행 (5-15 년): dyspnea, dry cough\n• 후기 (15-30 년): 폐 fibrosis, lung transplant 필요\n\n작업자 health surveillance:\n• Pre-employment chest X-ray\n• 매년 BeLPT (Beryllium Lymphocyte Proliferation Test)\n• 의심 증상 시 lung biopsy\n• Workplace registration (OSHA Be standard, 1910.1024)\n\n【⚠⚠ 주의 2 — Full Isolation Welding Booth】\n작업자 보호:\n• Respirator: positive-pressure SCBA (PAPR 부족)\n• Body: Tyvek body suit (one-time use)\n• Hands: double-layer nitrile gloves\n• Workshop:\n  - Negative pressure exhaust (booth 내부 → filter)\n  - HEPA → ULPA filter (99.999% @ 0.12 μm)\n  - 양압 환경 (외부 contamination 회피)\n\n작업 후 처리:\n• Wet decon shower (specialty soap + chelating agent)\n• 작업복 폐기 (incineration)\n• 도구 wet decontamination\n• Medical surveillance follow-up\n\n【⚠ 주의 3 — Grinding / Sanding 절대 금지】\nWeld 후 grinding 또는 sanding 시 BeO dust 생성:\n• BeO 의 흡입은 Be 보다 더 toxic (lung 깊이 침투)\n• 표면 finish 필요 시: chemical polishing only\n  - HNO₃ 30% + H₂SO₄ 30% etching (controlled chemistry)\n\n【응용 (산업적 specialty)】\n• 정밀 광학 mirror: NASA JWST primary mirror (Be-coated)\n• X-ray window: synchrotron beamline\n• Nuclear reactor moderator (ITER, EAST tokamak)\n• 모두 specialty supplier (Materion, NGK Insulators) 의 dedicated facility\n\n【표준】\nASTM B265 (Be sheet) · OSHA 1910.1024 (Be standard) · AMS 4770 (BAg-1 braze filler)"
   },
   "w71-zamak": {
+   "sources": ["ASTM B86","ASTM B240"],
    "pattern": "^zamak ?\\d\\b|^za-?\\d{1,2}\\b|^zn-?al\\b",
    "field": "name",
    "nonferrous_only": true,
