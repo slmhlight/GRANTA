@@ -15,13 +15,39 @@ const mats = JSON.parse(fs.readFileSync(path.join(ROOT, 'client/public/materials
 
 // wiki 엔티티 (스토리 기반 242) — 백링크 가능 여부
 let wikiIds = new Set();
+const wikiKeys = new Set();   // W4-8 — 합금(story_key) 단위 엔티티 보유 집합
 try {
   const wi = JSON.parse(fs.readFileSync(path.join(ROOT, 'client/public/wiki-index.json'), 'utf8'));
-  for (const e of wi.entities || []) if (e.rep_id) wikiIds.add(e.rep_id);
+  for (const e of wi.entities || []) { if (e.rep_id) wikiIds.add(e.rep_id); if (e.story_key) wikiKeys.add(e.story_key); }
 } catch { /* build:wiki 미실행 시 빈 셋 */ }
 
-const CORE_PROPS = ['density', 'yield_strength', 'uts', 'elongation', 'modulus', 'hardness', 'thermal_conductivity'];
-const EXT_PROPS = ['fracture_toughness', 'fatigue_strength', 'max_service_temp', 'melting_point', 'thermal_expansion', 'impact_strength'];
+/*
+ * W4-8 — 기대 물성을 **카테고리별로** 정의한다.
+ *
+ * 이전에는 7개 core / 6개 ext 를 전 카테고리에 똑같이 요구했다. 그러면 **부적용을 공백으로 센다**:
+ *   · 세라믹 연신율 — 취성 재료라 파단 연신율이 애초에 인용 대상이 아니다 (실측 보유 0%)
+ *   · 폴리머·복합재 경도 — HV 가 아니라 Shore 척도를 쓴다. 다른 축이다 (24% · 6%)
+ *   · 복합재 융점 — 적층재는 녹지 않고 기지가 분해된다 (0%)
+ *   · 복합재·폴리머 KIC — 라미네이트·플라스틱 datasheet 가 인용하지 않는다 (0% · 2%)
+ *
+ * 기준을 "현재 커버리지" 에 맞추면 순환논리가 되므로, **그 카테고리 datasheet 가 실제로 인용하는
+ * 물성 집합**으로 정의한다. 임계는 카테고리 무관하게 같은 규칙을 쓴다 —
+ * core 는 "하나 빼고 전부", ext 는 "절반 이상".
+ */
+const CORE_BY_CAT = {
+  Metal: ['density', 'yield_strength', 'uts', 'elongation', 'modulus', 'hardness', 'thermal_conductivity'],
+  Polymer: ['density', 'yield_strength', 'uts', 'elongation', 'modulus', 'thermal_conductivity'],           // 경도 제외(Shore)
+  Ceramic: ['density', 'yield_strength', 'uts', 'modulus', 'hardness', 'thermal_conductivity'],             // 연신율 제외(취성)
+  Composite: ['density', 'yield_strength', 'uts', 'elongation', 'modulus', 'thermal_conductivity'],         // 경도 제외
+};
+const EXT_BY_CAT = {
+  Metal: ['fracture_toughness', 'fatigue_strength', 'max_service_temp', 'melting_point', 'thermal_expansion', 'impact_strength'],
+  Polymer: ['max_service_temp', 'thermal_expansion'],                                                        // KIC·피로·충격 미인용
+  Ceramic: ['fracture_toughness', 'fatigue_strength', 'max_service_temp', 'thermal_expansion'],              // 융점 제외(승화·분해)
+  Composite: ['fatigue_strength', 'max_service_temp', 'thermal_expansion'],                                  // 융점·KIC 제외
+};
+const CORE_PROPS = CORE_BY_CAT.Metal;   // 하위호환 (리포트 헤더 등)
+const EXT_PROPS = EXT_BY_CAT.Metal;
 
 // ── per-entry 채점 ──────────────────────────────────────────────
 // 각 차원 0/1 (일부 부분점수). 카테고리별 기대치 차등(폴리머에 HT 라벨 요구 안 함 등).
@@ -32,16 +58,25 @@ function scoreEntry(m) {
 
   // ── P1 설명 ──
   d.composition = { ok: m.composition && Object.keys(m.composition).length >= (isMetal ? 2 : 1) };
-  const coreN = CORE_PROPS.filter((p) => m.ranges?.[p]?.typical != null || typeof m[p] === 'number').length;
-  d.core_props = { ok: coreN >= 6, note: `${coreN}/7` };
-  const extN = EXT_PROPS.filter((p) => m.ranges?.[p]?.typical != null || typeof m[p] === 'number').length;
-  d.ext_props = { ok: extN >= 3, note: `${extN}/6` };
+  const has = (p) => m.ranges?.[p]?.typical != null || typeof m[p] === 'number';
+  const coreSet = CORE_BY_CAT[m.category] || CORE_BY_CAT.Metal;
+  const coreN = coreSet.filter(has).length;
+  d.core_props = { ok: coreN >= coreSet.length - 1, note: `${coreN}/${coreSet.length}` };   // 하나 빼고 전부
+  const extSet = EXT_BY_CAT[m.category] || EXT_BY_CAT.Metal;
+  const extN = extSet.filter(has).length;
+  d.ext_props = { ok: extN >= Math.ceil(extSet.length / 2), note: `${extN}/${extSet.length}` };   // 절반 이상
   d.ht_label = { ok: !isMetal || !!(m.heat_treatment && m.heat_treatment.trim()) };
   d.industry_note = { ok: !!m.industry_note };
   d.applications = { ok: !!(m.meta && (m.meta.applications || m.meta.reference)) };
-  d.condition_points = { ok: !!(m.points && m.points.length >= 1) };
+  /* points[] 는 **조건별 값** 행이다. 세라믹·복합재는 템퍼/열처리 조건 자체가 없어(실측 0/39 · 2/34)
+     요구하면 부적용을 공백으로 세게 된다 — 금속·폴리머에만 기대한다. */
+  const wantsPoints = isMetal || m.category === 'Polymer';
+  d.condition_points = { ok: !wantsPoints || !!(m.points && m.points.length >= 1), expected: wantsPoints };
   d.aliases = { ok: !isMetal || (m.aliases && m.aliases.length >= 1) };
-  d.uns = { ok: !isMetal || !!(m.uns && m.uns.length) }; // 금속만 (비 UNS 체계 합금은 갭으로 잡히나 분포로 판단)
+  /* UNS 는 **정보성**이다(W4-8). 금속 446/930 만 보유하는데, 나머지는 우리 데이터가 빠진 게 아니라
+     JIS/KS/DIN 지정 합금·AM 벤더 합금처럼 **UNS 번호가 존재하지 않는** 경우가 대부분이다.
+     하드 실패로 세면 미국 번호체계의 커버리지를 우리 완성도로 오독하게 된다 → soft. */
+  d.uns = { ok: !isMetal || !!(m.uns && m.uns.length), soft: true };
 
   // 공정 가이드 스탬프 — 카테고리별 기대
   const p = m.profiles || {};
@@ -59,7 +94,13 @@ function scoreEntry(m) {
   d.story = { ok: !!m.story };
   d.story_v2 = { ok: !!(m.story_v2 && m.story_v2.sections) };
   d.timeline = { ok: !!(m.story_v2 && m.story_v2.timeline && m.story_v2.timeline.length) };
-  d.wiki_entity = { ok: wikiIds.size === 0 ? true : wikiIds.has(m.id), soft: true }; // 대표 entry 만 엔티티 — soft
+  /* W4-8 — 질문을 바로잡았다.
+     이전: "이 entry 가 위키 엔티티의 **대표**인가" → 245/1138(22%) 만 통과하고 893 이 '실패' 로 잡혔다.
+     엔티티는 **합금 단위**(story_key)로 하나씩 만들어지므로 조건 entry 각각이 대표일 수는 없다 —
+     설계상 구조를 완성도 공백으로 센 것이다.
+     지금: "이 재료의 합금에 위키 엔티티가 있는가"(상호참조로 도달 가능한가). 실측 1136/1138.
+     남은 2(EPDM·FKM)는 진짜 공백이고, 새 재료가 엔티티 없이 들어오면 여기서 잡힌다. */
+  d.wiki_entity = { ok: wikiKeys.size === 0 ? true : !!(m.story_key && wikiKeys.has(m.story_key)) };
   d.story_refs = { ok: !!(m.story_refs && m.story_refs.length >= 2) };
 
   // ── P3 출처 ──
