@@ -53,9 +53,15 @@ export interface FilterState {
   query?: string;
   /** R144c: 표준 spec 으로 필터 (e.g., ['AMS 5662', 'UNS S17400']). */
   specs?: string[];
+  /**
+   * E3 (H6 W4-2): 출처 권위 등급 필터. **선택한 등급의 출처를 가진** 재료를 남긴다(OR).
+   * 비어 있으면 전량 노출 — 원칙 8(구분 표시만, 저신뢰 은폐 금지)에 따라 기본값은 '전체'다.
+   */
+  authorities: string[];
 }
 
 export const DEFAULT_FILTERS: FilterState = {
+  authorities: [],
   search: '',
   categories: [],
   subcategories: [],

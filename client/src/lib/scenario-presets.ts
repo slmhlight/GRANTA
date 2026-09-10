@@ -1213,6 +1213,8 @@ const LIST_MAP: Record<string, string> = {
   heatTreatments: 'ht', machinability: 'mach', weldability: 'weld',
   // R167 share fix — spec 필터도 URL 에 (filters.specs).
   specs: 'spec',
+  // E3 (H6 W4-2) — 출처 권위 등급 필터. 다른 필터와 같은 규칙으로 URL 공유·복원된다.
+  authorities: 'auth',
 };
 
 export function encodeFiltersToParams(f: Partial<FilterState>): string {

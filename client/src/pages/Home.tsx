@@ -748,6 +748,8 @@ export default function Home() {
               resultCount={filtered.length}
               onSelectMaterial={handleSelectMaterial}
               narrowedRanges={narrowedRanges}
+              onSortByAuthority={() => toggleSort('__authority' as keyof Material)}
+              sortedByAuthority={(sortKey as string) === '__authority'}
             />
           )}
         </div>
@@ -774,6 +776,8 @@ export default function Home() {
                 activeFilterCount={activeFilterCount}
                 resultCount={filtered.length}
                 onSelectMaterial={handleSelectMaterial}
+                onSortByAuthority={() => toggleSort('__authority' as keyof Material)}
+                sortedByAuthority={(sortKey as string) === '__authority'}
               />
             </div>
             <button

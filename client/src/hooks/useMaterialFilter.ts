@@ -17,6 +17,7 @@ import { fuzzyContains } from '@/lib/fuzzy-search';
 import { matchAnyHeatTreatment } from '@/lib/ht-matcher';
 // R157b — FilterState type + DEFAULT_FILTERS 도 lib 로 이동.
 import { type FilterState, DEFAULT_FILTERS } from '@/lib/filter-state';
+import { matchesAuthority, authorityRank } from '@/lib/source-authority';
 // E15l — 환경별 내식 필터 (합금 보정 적용 후 verdict 기준, WeakMap 캐시).
 import { passesCorrosionEnv } from '@/lib/corrosion-guidance';
 
@@ -68,6 +69,12 @@ export function useMaterialFilter(materials: Material[]) {
     //   이전: name + subcategory + manufacturer + process + aliases + industry_note + heat_treatment
     //         + meta.applications + composition keys + spec id (10가지 field 검색)
     //   현재: name + aliases (2가지). 다른 field 는 filter 또는 DSL query 사용.
+    /* E3 (H6 W4-2) — 출처 권위 등급. 선택한 등급의 출처를 **가진** 재료를 남긴다(OR).
+       선택이 비면 전량 통과 — 원칙 8(구분 표시만, 저신뢰 은폐 금지). */
+    if (filters.authorities?.length) {
+      result = result.filter((m) => matchesAuthority(m, filters.authorities));
+    }
+
     if (filters.search.trim()) {
       const q = filters.search.toLowerCase().trim();
       result = result.filter(m => {
@@ -242,6 +249,12 @@ export function useMaterialFilter(materials: Material[]) {
      신뢰도 전달은 값별 confidence dot + Generic-tier 배지가 담당. */
   const filtered = useMemo(() => {
     return [...filteredUnsorted].sort((a, b) => {
+      /* E3 — '출처 권위' 정렬. Material 의 실제 필드가 아니라 sources[] 에서 도출하는 값이라
+         키를 가로채 별도 비교를 쓴다(파생 필드를 데이터에 심지 않는다). */
+      if ((sortKey as string) === '__authority') {
+        const c = authorityRank(a) - authorityRank(b) || a.name.localeCompare(b.name);
+        return sortDir === 'asc' ? c : -c;
+      }
       const av = a[sortKey];
       const bv = b[sortKey];
       if (av === null || av === undefined) return 1;

@@ -15,6 +15,7 @@ import { Slider } from '@/components/ui/slider';
 import { RangeSliderCompact } from '@/components/RangeSliderCompact';
 import { CompositionFamilyBrowser } from '@/components/CompositionFamilyBrowser';
 import type { Material } from '@/lib/materials';
+import { AUTHORITY_ORDER, AUTHORITY_META, authorityGrades, type Authority } from '@/lib/source-authority';
 import { getPropertyRange, getUniqueValues, CATEGORY_COLORS, COMPOSITION_COLORS, COMPOSITION_OPTIONS } from '@/lib/materials';
 import type { FilterState } from '@/hooks/useMaterialFilter';
 import { parseCompositionRange, getRangeValue } from '@/lib/composition-parser';
@@ -30,6 +31,10 @@ interface FilterSidebarProps {
   /** R51b — Leave-one-out narrowed ranges. 각 numeric property 의 slider min/max 를
    *  "자기 자신 제외" 한 모든 필터 적용 결과 기준으로 좁혀 표시. */
   narrowedRanges?: Record<string, [number, number] | null>;
+  /** E3 (H6 W4-2) — '출처 권위순' 정렬 토글. 표 컬럼이 아니라 sources[] 파생값이라 사이드바에 둔다. */
+  onSortByAuthority?: () => void;
+  /** 현재 정렬이 출처 권위순인가 (버튼 활성 표시). */
+  sortedByAuthority?: boolean;
 }
 
 // ── Range Slider (for numeric properties) ───────────────────────────────────
@@ -876,6 +881,7 @@ function ActiveFilterChips({ filters, updateFilter }: ActiveFilterChipsProps) {
   if (filters.hasElevatedData) chips.push({ key: 'elevData', label: '고온 데이터 보유', onRemove: () => updateFilter('hasElevatedData', false) });
   if (filters.machinability.length) chips.push({ key: 'mach', label: `Mach: ${filters.machinability.join('/')}`, onRemove: () => updateFilter('machinability', []) });
   if (filters.weldability.length) chips.push({ key: 'weld', label: `Weld: ${filters.weldability.join('/')}`, onRemove: () => updateFilter('weldability', []) });
+  if (filters.authorities?.length) chips.push({ key: 'auth', label: `출처: ${filters.authorities.map(a => AUTHORITY_META[a as Authority]?.s ?? a).join('/')}`, onRemove: () => updateFilter('authorities', []) });
   if (filters.rohsOnly) chips.push({ key: 'rohs', label: `RoHS 통과만`, onRemove: () => updateFilter('rohsOnly', false) });
 
   if (chips.length === 0) return null;
@@ -1054,6 +1060,60 @@ function QualitativeFilter({ label, options, selected, onChange }: { label: stri
   );
 }
 
+/*
+ * E3 (H6 W4-2) — 출처 권위 등급 필터.
+ *
+ * **은폐 장치가 아니다.** 선택이 비면 전량이 보이고, 선택은 "그 등급의 출처를 **가진**" 재료를
+ * 남기는 OR 조건이다. 재료 하나가 규격·제조사·애그리게이터 출처를 함께 갖는 게 정상이라
+ * '최고 등급' 으로 거르면 정보가 사라진다 — 실측상 전 재료의 최고 등급은 규격 아니면 핸드북뿐이라
+ * 그 축은 필터로서 아무 일도 하지 않는다(원칙 8).
+ */
+function AuthorityFilter({ materials, selected, onChange, onSort, sortActive }: { materials: Material[]; selected: string[]; onChange: (v: string[]) => void; onSort?: () => void; sortActive?: boolean }) {
+  const [expanded, setExpanded] = useState(false);
+  const counts = useMemo(() => {
+    const c = {} as Record<Authority, number>;
+    for (const a of AUTHORITY_ORDER) c[a] = 0;
+    /* Set 순회는 tsconfig target 제약이 있어 배열로 받는다 (downlevelIteration 미사용). */
+    for (const m of materials) authorityGrades(m).forEach((g) => { c[g] += 1; });
+    return c;
+  }, [materials]);
+  const isActive = selected.length > 0;
+  const toggle = (o: Authority) => (selected.includes(o) ? onChange(selected.filter((s) => s !== o)) : onChange([...selected, o]));
+  return (
+    <div className="border-b border-border/50">
+      <button className="w-full flex items-center justify-between px-3 py-2 text-xs font-medium text-foreground/80 hover:text-foreground hover:bg-muted/50 transition-colors" onClick={() => setExpanded((e) => !e)}>
+        <span className="flex items-center gap-1.5">출처 등급{isActive && <Badge variant="secondary" className="h-4 px-1 text-[10px] bg-accent/20 text-accent border-0">{selected.length}</Badge>}</span>
+        {expanded ? <ChevronDown className="w-3 h-3" /> : <ChevronRight className="w-3 h-3" />}
+      </button>
+      {expanded && (
+        <div className="px-3 py-2 space-y-1.5">
+          <p className="text-[10px] text-muted-foreground leading-snug">
+            선택한 등급의 <b>출처를 가진</b> 재료를 남깁니다. 선택하지 않으면 전량이 보입니다 —
+            낮은 등급을 감추는 기능이 아닙니다.
+          </p>
+          {AUTHORITY_ORDER.map((a) => (
+            <label key={a} className="flex items-center gap-2 cursor-pointer" title={AUTHORITY_META[a].title}>
+              <Checkbox checked={selected.includes(a)} onCheckedChange={() => toggle(a)} className="w-3.5 h-3.5 rounded-sm flex-shrink-0" />
+              <span className={`text-[9px] px-1 rounded border font-medium ${AUTHORITY_META[a].cls}`}>{AUTHORITY_META[a].s}</span>
+              <span className="text-[10px] text-muted-foreground">{counts[a]}</span>
+            </label>
+          ))}
+          {onSort && (
+            <button
+              className={`w-full text-[10px] mt-1 px-2 py-1 rounded border transition-colors ${sortActive ? 'bg-accent/15 text-accent border-accent/40 font-medium' : 'text-muted-foreground border-border/50 hover:bg-muted/50'}`}
+              onClick={onSort}
+              title="출처 권위가 높은 재료(규격 → 핸드북 → 제조사 → DB → 기타)부터 정렬합니다. 목록에서 아무것도 빼지 않습니다."
+            >
+              출처 권위순 정렬{sortActive ? ' ✓' : ''}
+            </button>
+          )}
+          {isActive && <button className="text-[10px] text-muted-foreground hover:text-foreground hover:underline pl-5" onClick={() => onChange([])}>Clear</button>}
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ── Main Sidebar ────────────────────────────────────────────────────────────
 export default function FilterSidebar({
   materials,
@@ -1064,6 +1124,8 @@ export default function FilterSidebar({
   resultCount,
   onSelectMaterial,
   narrowedRanges,
+  onSortByAuthority,
+  sortedByAuthority,
 }: FilterSidebarProps) {
   const t = useT();
   // R40b — Price slider unit lang/units 인식 ($/kg ↔ ₩/kg).
@@ -1277,6 +1339,7 @@ export default function FilterSidebar({
         <CorrosionEnvFilter value={filters.corrosionEnvMin || {}} onChange={v => updateFilter('corrosionEnvMin', v)} />
         <QualitativeFilter label="Machinability" options={machinabilityOpts} selected={filters.machinability} onChange={v => updateFilter('machinability', v)} />
         <QualitativeFilter label="Weldability" options={weldabilityOpts} selected={filters.weldability} onChange={v => updateFilter('weldability', v)} />
+        <AuthorityFilter materials={materials} selected={filters.authorities ?? []} onChange={v => updateFilter('authorities', v)} onSort={onSortByAuthority} sortActive={sortedByAuthority} />
         {/* E15l — 고온 데이터 보유 (승온/크리프 곡선) */}
         <label className="flex items-center gap-2 px-3 py-2 text-xs cursor-pointer select-none hover:bg-muted/40 rounded">
           <input type="checkbox" checked={!!filters.hasElevatedData} onChange={(e) => updateFilter('hasElevatedData', e.target.checked)} className="accent-accent" />

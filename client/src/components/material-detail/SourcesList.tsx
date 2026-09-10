@@ -4,14 +4,10 @@
  */
 import { ExternalLink, Check, BookText } from 'lucide-react';
 import type { MaterialSource } from '@/lib/materials';
+import { AUTHORITY_META } from '@/lib/source-authority';
 
-const AUTHORITY: Record<NonNullable<MaterialSource['authority']>, { s: string; cls: string; title: string }> = {
-  standard: { s: '규격', cls: 'bg-emerald-100 text-emerald-700 border-emerald-300', title: '공식 표준 (ASTM · ASME · SAE · JIS · EN · ISO · MIL 등)' },
-  handbook: { s: '핸드북', cls: 'bg-sky-100 text-sky-700 border-sky-300', title: '권위 핸드북 (ASM Handbook · MMPDS · NASA · ECCC)' },
-  manufacturer: { s: '제조사', cls: 'bg-slate-100 text-slate-600 border-slate-300', title: '제조사 datasheet' },
-  aggregator: { s: 'DB', cls: 'bg-amber-100 text-amber-700 border-amber-300', title: '애그리게이터 2차 출처 (MatWeb · AZoM · MakeItFrom)' },
-  other: { s: '기타', cls: 'bg-muted text-muted-foreground border-border/40', title: '인용 / 파생값 마커' },
-};
+/* E3 — 라벨 맵은 lib/source-authority 로 이동(사이드바 chip 과 같은 정의를 공유). */
+const AUTHORITY = AUTHORITY_META;
 
 function AuthorityBadge({ authority }: { authority?: MaterialSource['authority'] }) {
   if (!authority) return null;
