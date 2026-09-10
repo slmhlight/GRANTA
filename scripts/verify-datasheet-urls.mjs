@@ -76,6 +76,15 @@ async function fetchOnce(url, method, ua = UA) {
  * R208: vendor SPA 사이트들 (JS-rendered + WAF/CDN bot block) 추가. 403 뿐 아니라 404 도
  *       정적 fetch 로 'Not Found' 반환하는 경우가 많아서 status-agnostic 화이트리스트. */
 const BOT_BLOCKED_DOMAINS = new Set([
+  /* H6 W4-4 월간 마감 — 403 은 "요청을 보고 거부"(차단)이고 404 가 "자원 없음"이다.
+     아래 도메인들은 검증기의 브라우저-UA 재시도와 별도 에이전트(WebFetch) 양쪽에서 일관되게 403 을
+     돌려준다 — 실재하는 상용·기관 사이트가 자동 접근만 막는 전형(이 목록의 ASTM·MatWeb·copper.org 와 같은 패턴).
+     dead 로 세면 "출처가 사라졌다" 로 오독된다. */
+  'www.hudsontoolsteel.com', 'hudsontoolsteel.com',
+  'www.upmet.com', 'upmet.com',
+  'www.portlandbolt.com', 'portlandbolt.com',
+  'imsteel.com', 'www.imsteel.com',
+  'nickelinstitute.org', 'www.nickelinstitute.org',
   'www.matweb.com', 'matweb.com',
   'www.astm.org', 'store.astm.org',
   'www.outokumpu.com',
