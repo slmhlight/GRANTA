@@ -31,13 +31,30 @@ export interface PolymerMachResult {
 export interface InsightPick { when: string; use: string; why: string }
 export interface InsightGroup { title: string; intro: string; picks: InsightPick[]; sources: string[] }
 
-const METAL_MACH = (profilesData as any).machinability.metal as Record<string, { rating: number; band: MachinabilityResult['band']; label: string; note: string; guidance_key?: string }>;
+/* JSON 은 `as any` 로 지우지 않고 **선언한 타입에 대입**한다 — 그래야 콘텐츠 SSOT 의
+   모양이 바뀌면 tsc 가 즉시 잡는다. (W4-7 에서 machining 블록이 문자열→객체로 바뀌었을 때
+   `as any` 때문에 컴파일이 조용히 통과했던 전례.) */
+interface MetalMachEntry { rating: number; band: MachinabilityResult['band']; label: string; note: string; guidance_key?: string }
+/* band 는 JSON 에서 string 으로 추론된다(리터럴 유니온이 아니다). 캐스팅으로 덮으면 SSOT 에
+   오타가 들어가도 조용히 통과하므로, **검사해서 좁힌다**. 값이 넷 중 하나인지는
+   게이트(process-profiles.test.ts)가 따로 못박으므로 아래 예외는 실제로 발생하지 않는다. */
+const METAL_BANDS = ['easy', 'normal', 'hard', 'very_hard'] as const;
+const POLYMER_BANDS = ['easy', 'normal', 'hard'] as const;
+function narrowBand<T extends string>(allowed: readonly T[], v: string, where: string): T {
+  const hit = allowed.find((a) => a === v);
+  if (!hit) throw new Error(`process-profiles.json: ${where} 의 band "${v}" 는 ${allowed.join('|')} 중 하나여야 한다`);
+  return hit;
+}
+const METAL_MACH: Record<string, MetalMachEntry> = Object.fromEntries(
+  Object.entries(profilesData.machinability.metal).map(([k, v]) => [k, { ...v, band: narrowBand(METAL_BANDS, v.band, `machinability.metal.${k}`) }]),
+);
 /* R226r — 조건(HT)별 절삭성 보정 (process-profiles.json.machinability.condition_adjust). */
-const COND_ADJ = (profilesData as any).machinability.condition_adjust as {
+interface ConditionAdjust {
   rating_mult: Record<string, number>; cost_mult: Record<string, number>;
   band_thresholds: { easy: number; normal: number; hard: number }; ferrous_hardening: string[];
   hardness_ref_hv?: Record<string, number>; hardness_floor?: number;
-};
+}
+const COND_ADJ: ConditionAdjust = profilesData.machinability.condition_adjust;
 const FERROUS_HARDENING = new Set(COND_ADJ.ferrous_hardening);
 const BAND_LABEL: Record<MachinabilityResult['band'], string> = { easy: '우수', normal: '보통', hard: '어려움', very_hard: '매우 어려움' };
 function bandForRating(r: number): MachinabilityResult['band'] {
@@ -60,14 +77,16 @@ export function machinabilityConditionMult(m: Material): { rating: number; cost:
   }
   return { rating, cost, applies: rating !== 1 || cost !== 1, htc };
 }
-const POLYMER_MACH = (profilesData as any).machinability.polymer as Record<string, PolymerMachResult>;
-const CONDITION_NOTES = (profilesData as any).condition_notes as Record<string, string>;
-const MACH_SOURCES = (profilesData as any).machinability.sources as { metal: string[]; polymer: string[] };
+const POLYMER_MACH: Record<string, PolymerMachResult> = Object.fromEntries(
+  Object.entries(profilesData.machinability.polymer).map(([k, v]) => [k, { ...v, band: narrowBand(POLYMER_BANDS, v.band, `machinability.polymer.${k}`) }]),
+);
+const CONDITION_NOTES: Record<string, string> = profilesData.condition_notes;
+const MACH_SOURCES: { metal: string[]; polymer: string[] } = profilesData.machinability.sources;
 
 /** 가공 가이드 블록 — W4-7 에서 문자열에서 `{text, sources[]}` 로 승격했다.
  *  문자열이면 규격 인용을 담을 자리가 없어, 본문에 규격을 써 놓고도 기계가 읽지 못했다. */
 interface MachiningBlock { text: string; sources?: string[] }
-const GUIDANCE = (guidanceData as any).guidance as Record<string, MachiningBlock>;
+const GUIDANCE: Record<string, MachiningBlock> = guidanceData.guidance;
 /* GUIDANCE 선언 뒤에 둔다 — 영구 정책(use-before-define 금지, Vite minify 후 TDZ 회피). */
 function machiningGuidanceBlock(m: Material): MachiningBlock | null {
   const key = m.profiles?.mach;
@@ -75,7 +94,7 @@ function machiningGuidanceBlock(m: Material): MachiningBlock | null {
   const gk = METAL_MACH[key]?.guidance_key;
   return (gk && GUIDANCE[gk]) || null;
 }
-const INSIGHT_GROUPS = (insightsData as any).groups as Record<string, InsightGroup>;
+const INSIGHT_GROUPS: Record<string, InsightGroup> = insightsData.groups;
 
 /** R226o — 인사이트(용도) 그룹의 짧은 라벨 — 배지·비교용 (긴 title 대신). key = m.profiles.insight. */
 export const INSIGHT_GROUP_LABEL: Record<string, string> = {
@@ -142,8 +161,8 @@ export function machinabilitySources(m: Material): string[] {
 }
 
 interface GuidanceBlock { pattern: string; field: string; nonferrous_only?: boolean; text: string; by_grade?: Record<string, string> }
-const HT_GUIDANCE = (htGuidanceData as any).blocks as Record<string, GuidanceBlock>;
-const WELD_GUIDANCE = (weldGuidanceData as any).blocks as Record<string, GuidanceBlock>;
+const HT_GUIDANCE: Record<string, GuidanceBlock> = htGuidanceData.blocks;
+const WELD_GUIDANCE: Record<string, GuidanceBlock> = weldGuidanceData.blocks;
 
 /** HT 주의사항 가이드 (R226k) — name-키(m.profiles.htg) + 조건 클래스(hip/case) 블록의 배열.
  *  구 인라인에서는 매칭 블록이 모두 연결 표시됐던 의미를 배열로 보존 (예: Ti STA + HIP). */
@@ -151,8 +170,8 @@ const WELD_GUIDANCE = (weldGuidanceData as any).blocks as Record<string, Guidanc
  * family 는 빌드 스탬프 조회. H6 W3-3 — 조회축을 3단으로: byHt(합금 특정) → **byHtg(열처리 가족)**
  * → byMach(거친 폴백). mach 축만으로는 후처리를 가를 수 없어서다 — 같은 'al-cast-am' 안에
  * AlSi10Mg(용체화+시효)와 Scalmalloy(용체화 없이 직접 시효)가 함께 있다. */
-const AM_MAP = (htGuidanceData as any).am_map as
-  { byHt: Record<string, string>; byHtg?: Record<string, string>; byMach: Record<string, string> } | undefined;
+interface AmMap { byHt: Record<string, string>; byHtg?: Record<string, string>; byMach: Record<string, string> }
+const AM_MAP: AmMap | undefined = htGuidanceData.am_map;
 const AM_PROC_RE = /lpbf|dmls|slm\b|ebm|binder|waam|\bded\b|direct energy|directed energy/i;
 export function isAmProcess(m: Material): boolean {
   return AM_PROC_RE.test(m.process || '') || (m.processes || []).some((p) => AM_PROC_RE.test(p));
@@ -200,7 +219,7 @@ export function resolveWeldGuidance(m: Material, hasCeMetrics: boolean): string 
 
 /** R226r — 용접 조건(HT) 노트: 용접성 rating 은 조성기반(조건무관)이나, 경화/시효/냉간 상태는
  *  HAZ 연화를 유발 → htc(빌드 스탬프) 기준 HAZ 주의 노트. soft/hip/as-built 는 null. name-regex 없음. */
-const WELD_COND_NOTES = (profilesData as any).weld_condition_notes as Record<string, string>;
+const WELD_COND_NOTES: Record<string, string> = profilesData.weld_condition_notes;
 export function resolveWeldConditionNote(m: Material): string | null {
   if (m.category !== 'Metal') return null;
   const htc = m.profiles?.htc;

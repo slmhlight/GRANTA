@@ -72,6 +72,37 @@ describe('process-profile-assignments 무결성', () => {
   });
 });
 
+describe('F2 — 콘텐츠 SSOT 를 타입으로 읽는다', () => {
+  /* process-guidance.ts 가 JSON 을 `as any` 로 지우고 원하는 타입을 씌우던 것을 걷어내고
+     **선언한 타입에 대입**하도록 바꿨다. 그래야 SSOT 의 모양이 바뀌면 tsc 가 잡는다 —
+     W4-7 에서 machining 블록을 문자열→객체로 바꿨을 때 컴파일이 조용히 통과했던 전례가 있다.
+
+     대입 검사에는 구멍이 하나 있다: JSON 의 문자열은 리터럴 유니온이 아니라 string 으로
+     추론되므로, band 같은 필드는 tsc 가 값을 못 본다. 런타임에서 좁히되(narrowBand),
+     그 예외가 **실제로는 죽은 코드**임을 여기서 못박는다. */
+  const BANDS = { metal: ['easy', 'normal', 'hard', 'very_hard'], polymer: ['easy', 'normal', 'hard'] };
+
+  it('machinability band 는 정해진 값만 쓴다 (런타임 좁히기의 예외가 발생하지 않음)', () => {
+    const bad: string[] = [];
+    for (const kind of ['metal', 'polymer'] as const) {
+      for (const [k, v] of Object.entries(PROFILES.machinability[kind] as Record<string, any>)) {
+        if (!BANDS[kind].includes(v.band)) bad.push(`${kind}.${k}: "${v.band}"`);
+      }
+    }
+    expect(bad, `허용되지 않은 band ${bad.length}건: ${bad.join(' | ')}`).toEqual([]);
+  });
+
+  it('공정 가이드 해석기는 JSON 을 any 로 읽지 않는다', () => {
+    /* `(json as any).key as T` 는 tsc 를 두 번 우회한다 — any 로 지운 뒤 원하는 타입을 씌우므로
+       실제 모양이 달라도 통과한다. 다시 들어오면 여기서 막는다. */
+    const src = fs.readFileSync(path.join(ROOT, 'client/src/lib/process-guidance.ts'), 'utf8');
+    // 주석은 제거하고 본다 — 이 파일의 설명문이 `as any` 를 인용하고 있다.
+    const code = src.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\/\/.*/g, '');
+    const hits = code.match(/as any|:\s*any(?![A-Za-z0-9_])/g) ?? [];
+    expect(hits, `process-guidance.ts 에 any ${hits.length}건 — 콘텐츠 SSOT 는 타입으로 읽어야 한다`).toEqual([]);
+  });
+});
+
 describe('콘텐츠 내부 무결성', () => {
   it('metal 프로파일 guidance_key 는 machining-guidance 에 존재', () => {
     const bad = Object.entries(PROFILES.machinability.metal as Record<string, any>)

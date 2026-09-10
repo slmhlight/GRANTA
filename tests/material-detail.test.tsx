@@ -126,7 +126,14 @@ describe('E5 — Designations UNS 분리', () => {
     );
     const txt = container.textContent || '';
     expect(txt).toContain('JIS SS400');
-    expect(txt).not.toMatch(/UNS/);
+    /* 본문 전체에서 'UNS' 를 찾으면 안 된다 — 섹션 제목
+       "Designations / a.k.a. (ISO·ASTM·JIS·DIN·KS·UNS)" 이 항상 그 글자를 포함한다.
+       (원래 이 줄은 백슬래시-b 가 백스페이스로 깨져 아무것도 매칭하지 않는 죽은 단언이었다.)
+       위 테스트와 같은 기준 — UNS 전용 amber 배지의 유무 — 으로 본다. */
+    const amber = [...container.querySelectorAll('span[style]')].filter((e) =>
+      (e.getAttribute('style') || '').includes('253, 230, 138') ||
+      (e.getAttribute('style') || '').toLowerCase().includes('#fde68a'));
+    expect(amber.length, 'UNS 가 없는데 UNS 배지가 그려졌다').toBe(0);
   });
 });
 
