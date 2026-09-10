@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 89.3,
-      "max": 89.3,
-      "typical": 89.3,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 37,
+      "typical": 37,
+      "max": 37,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 6262-T9 Aluminum (인장 390 MPa · 경도 120 HB → 비 3.25) — 같은 합금의 공개 앵커로 비를 확인 · ISO 18265 경도-인장 환산 관계"
     },
     "thermal_conductivity": {
       "min": 167,
@@ -206,7 +206,7 @@
       120,
       25,
       69,
-      89.3,
+      37,
       167
     ]
   ],
@@ -230,7 +230,7 @@
   "uts": 120,
   "elongation": 25,
   "modulus": 69,
-  "hardness": 89.3,
+  "hardness": 37,
   "thermal_conductivity": 167,
   "impact_strength": 30,
   "manufacturer": "Generic",
@@ -292,6 +292,20 @@
         }
       ]
     },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 89.3,
+        "max": 89.3,
+        "typical": 89.3,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 89.3
+    },
+    "_basis": "AA 6262 소둔재의 경도 89.3 이 UTS 120 MPa 와 맞지 않는다(비 1.34). 같은 합금의 다른 두 조건은 비가 **3.26 으로 일치**한다(Aged 303.8/93.1 · Strain-hardened 300.7/92.15) — 소둔 entry 의 경도만 조건을 따라가지 않았다. 그 합금 자신의 비를 소둔 UTS 에 적용: 120 / 3.26 ≈ 37. 공개 6262-O 경도(약 30 HB) 와도 같은 자리다.",
+    "_src": "MakeItFrom 6262-T9 Aluminum (인장 390 MPa · 경도 120 HB → 비 3.25) — 같은 합금의 공개 앵커로 비를 확인 · ISO 18265 경도-인장 환산 관계",
     "points": {
       "from": [
         [
@@ -304,7 +318,6 @@
           167
         ]
       ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+    }
   }
 }

@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 108.1,
-      "max": 108.1,
-      "typical": 108.1,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 56,
+      "typical": 56,
+      "max": 56,
+      "confidence": "handbook",
+      "provenance": "교정: AZoM / MakeItFrom 2025-T6 Aluminum (인장 400 MPa · 경도 110 HB → 비 3.64) — 같은 합금의 공개 앵커로 비를 확인 · ISO 18265 경도-인장 환산 관계"
     },
     "thermal_conductivity": {
       "min": 121,
@@ -205,7 +205,7 @@
       220,
       18,
       73,
-      108.1,
+      56,
       121
     ]
   ],
@@ -228,7 +228,7 @@
   "uts": 220,
   "elongation": 18,
   "modulus": 73,
-  "hardness": 108.1,
+  "hardness": 56,
   "thermal_conductivity": 121,
   "impact_strength": 30,
   "manufacturer": "Generic",
@@ -290,6 +290,20 @@
         }
       ]
     },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 108.1,
+        "max": 108.1,
+        "typical": 108.1,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 108.1
+    },
+    "_basis": "AA 2025 소둔재의 경도 108.1 이 UTS 220 MPa 와 맞지 않는다(비 2.03). 같은 합금의 다른 두 조건은 비가 **3.91 로 일치**한다(Aged 441/112.7 · Strain-hardened 436.5/111.6). 그 합금 자신의 비를 소둔 UTS 에 적용: 220 / 3.91 ≈ 56. 비교로 2024-O 가 약 47 HB 다.",
+    "_src": "AZoM / MakeItFrom 2025-T6 Aluminum (인장 400 MPa · 경도 110 HB → 비 3.64) — 같은 합금의 공개 앵커로 비를 확인 · ISO 18265 경도-인장 환산 관계",
     "points": {
       "from": [
         [
@@ -302,7 +316,6 @@
           121
         ]
       ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+    }
   }
 }
