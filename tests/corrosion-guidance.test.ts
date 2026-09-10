@@ -16,6 +16,49 @@ const mats: Material[] = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 
 const byName = (n: string) => mats.find((m) => m.name === n);
 const g = guidance as any;
 
+describe('F2 — corrosion SSOT 를 타입으로 읽는다', () => {
+  /* corrosion-guidance.ts 가 JSON 을 `as any` 로 지우고 원하는 타입을 씌우던 것을 걷어냈다.
+     남은 구멍은 하나뿐이다: JSON 의 문자열은 리터럴 유니온이 아니라 string 으로 추론되므로
+     verdict·risk 는 tsc 가 값을 못 본다. 런타임에서 좁히되(narrowEnum), 그 예외가 실제로는
+     **죽은 코드**임을 여기서 못박는다 — 값이 셋/넷 중 하나라는 약속의 근거. */
+  const VERDICTS = ['excellent', 'good', 'caution', 'poor'];
+  const RISKS = ['high', 'med', 'low'];
+
+  it('groups 의 verdict·risk 는 정해진 값만 쓴다', () => {
+    const bad: string[] = [];
+    for (const [k, grp] of Object.entries<any>(g.groups)) {
+      for (const m of grp.media ?? []) if (!VERDICTS.includes(m.verdict)) bad.push(`groups.${k}.media[${m.env}]: "${m.verdict}"`);
+      for (const m of grp.modes ?? []) if (!RISKS.includes(m.risk)) bad.push(`groups.${k}.modes[${m.mode}]: "${m.risk}"`);
+    }
+    expect(bad, `허용 밖 값 ${bad.length}건: ${bad.slice(0, 8).join(' | ')}`).toEqual([]);
+  });
+
+  it('alloy_adjust 의 축 값도 verdict 여야 한다 (보정층이 그룹 기본을 덮어쓰므로)', () => {
+    const bad: string[] = [];
+    const adj = g.alloy_adjust;
+    for (const [env, bands] of Object.entries<any[]>(adj.pren.axes)) {
+      for (const [i, b] of bands.entries()) {
+        if (!Array.isArray(b) || b.length !== 2 || typeof b[0] !== 'number') bad.push(`pren.axes.${env}[${i}]: [임계, verdict] 아님`);
+        else if (!VERDICTS.includes(b[1])) bad.push(`pren.axes.${env}[${i}]: "${b[1]}"`);
+      }
+    }
+    adj.rules.forEach((r: any, i: number) => {
+      for (const [env, v] of Object.entries<string>(r.axes)) if (!VERDICTS.includes(v)) bad.push(`rules[${i}].axes.${env}: "${v}"`);
+    });
+    for (const [b, v] of Object.entries<any>(adj.by_base)) {
+      for (const [env, val] of Object.entries<string>(v.axes)) if (!VERDICTS.includes(val)) bad.push(`by_base.${b}.axes.${env}: "${val}"`);
+    }
+    expect(bad, `허용 밖 값 ${bad.length}건: ${bad.slice(0, 8).join(' | ')}`).toEqual([]);
+  });
+
+  it('메타 키(_note)는 레코드 항목처럼 생기지 않았다', () => {
+    /* 리더는 `_note` 를 rest 구조분해로 덜어낸다. 만약 실제 항목이 `_` 로 시작하면 조용히 사라진다. */
+    const leaked = Object.keys(g.alloy_notes).filter((k) => k.startsWith('_') && k !== '_note');
+    expect(leaked, `_ 로 시작하는 alloy_notes 항목: ${leaked.join(' | ')}`).toEqual([]);
+    expect(typeof g.alloy_notes._note, 'alloy_notes._note 는 설명 문자열이어야 한다').toBe('string');
+  });
+});
+
 describe('corrosion-guidance SSOT 스키마', () => {
   it('assignment 대상 그룹 전부 정의됨 (parity)', () => {
     for (const [src, tbl] of Object.entries<Record<string, string>>(g.assignment)) {

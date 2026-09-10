@@ -7,6 +7,7 @@
  * 분류 오류의 교정은 data/process-profile-overrides.json (stable_id + src) → pnpm build:profiles.
  */
 import type { Material } from '@/lib/materials';
+import { narrowEnum, compact } from './ssot-json';
 import profilesData from '../../../data/process-profiles.json';
 import guidanceData from '../../../data/machining-guidance.json';
 import insightsData from '../../../data/selection-insights.json';
@@ -36,17 +37,18 @@ export interface InsightGroup { title: string; intro: string; picks: InsightPick
    `as any` 때문에 컴파일이 조용히 통과했던 전례.) */
 interface MetalMachEntry { rating: number; band: MachinabilityResult['band']; label: string; note: string; guidance_key?: string }
 /* band 는 JSON 에서 string 으로 추론된다(리터럴 유니온이 아니다). 캐스팅으로 덮으면 SSOT 에
-   오타가 들어가도 조용히 통과하므로, **검사해서 좁힌다**. 값이 넷 중 하나인지는
-   게이트(process-profiles.test.ts)가 따로 못박으므로 아래 예외는 실제로 발생하지 않는다. */
+   오타가 들어가도 조용히 통과하므로, **검사해서 좁힌다**(narrowEnum). 값이 넷 중 하나인지는
+   게이트(process-profiles.test.ts)가 따로 못박는다. */
 const METAL_BANDS = ['easy', 'normal', 'hard', 'very_hard'] as const;
 const POLYMER_BANDS = ['easy', 'normal', 'hard'] as const;
-function narrowBand<T extends string>(allowed: readonly T[], v: string, where: string): T {
-  const hit = allowed.find((a) => a === v);
-  if (!hit) throw new Error(`process-profiles.json: ${where} 의 band "${v}" 는 ${allowed.join('|')} 중 하나여야 한다`);
-  return hit;
-}
+/* 좁히기에 실패하면 그 항목을 버린다 — 프로파일이 없으면 카드를 안 그리는 게 기존 동작이라
+   (미할당 = 카드 미표시), 잘못된 band 로 잘못된 안내를 하느니 빠지는 편이 안전하다.
+   실제로 버려지는 일이 없다는 것은 게이트(SSOT_ISSUES 빈 배열)가 보증한다. */
 const METAL_MACH: Record<string, MetalMachEntry> = Object.fromEntries(
-  Object.entries(profilesData.machinability.metal).map(([k, v]) => [k, { ...v, band: narrowBand(METAL_BANDS, v.band, `machinability.metal.${k}`) }]),
+  compact(Object.entries(profilesData.machinability.metal).map(([k, v]) => {
+    const band = narrowEnum(METAL_BANDS, v.band, `machinability.metal.${k}`);
+    return band ? ([k, { ...v, band }] as [string, MetalMachEntry]) : null;
+  })),
 );
 /* R226r — 조건(HT)별 절삭성 보정 (process-profiles.json.machinability.condition_adjust). */
 interface ConditionAdjust {
@@ -78,7 +80,10 @@ export function machinabilityConditionMult(m: Material): { rating: number; cost:
   return { rating, cost, applies: rating !== 1 || cost !== 1, htc };
 }
 const POLYMER_MACH: Record<string, PolymerMachResult> = Object.fromEntries(
-  Object.entries(profilesData.machinability.polymer).map(([k, v]) => [k, { ...v, band: narrowBand(POLYMER_BANDS, v.band, `machinability.polymer.${k}`) }]),
+  compact(Object.entries(profilesData.machinability.polymer).map(([k, v]) => {
+    const band = narrowEnum(POLYMER_BANDS, v.band, `machinability.polymer.${k}`);
+    return band ? ([k, { ...v, band }] as [string, PolymerMachResult]) : null;
+  })),
 );
 const CONDITION_NOTES: Record<string, string> = profilesData.condition_notes;
 const MACH_SOURCES: { metal: string[]; polymer: string[] } = profilesData.machinability.sources;

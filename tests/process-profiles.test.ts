@@ -82,7 +82,17 @@ describe('F2 — 콘텐츠 SSOT 를 타입으로 읽는다', () => {
      그 예외가 **실제로는 죽은 코드**임을 여기서 못박는다. */
   const BANDS = { metal: ['easy', 'normal', 'hard', 'very_hard'], polymer: ['easy', 'normal', 'hard'] };
 
-  it('machinability band 는 정해진 값만 쓴다 (런타임 좁히기의 예외가 발생하지 않음)', () => {
+  it('로드 중 버려진 SSOT 항목이 없다', async () => {
+    /* 좁히기에 실패한 항목은 예외를 던지지 않고 **미수록**된다 — 이 리더들은 useMaterialFilter 가
+       정적 import 하므로, 모듈 로드 예외는 React 가 뜨기도 전에 앱 전체를 백지로 만든다.
+       대신 SSOT_ISSUES 에 기록하고 여기서 비어 있음을 검사한다. */
+    await import('@/lib/process-guidance');
+    await import('@/lib/corrosion-guidance');
+    const { SSOT_ISSUES } = await import('@/lib/ssot-json');
+    expect(SSOT_ISSUES, `SSOT 로드 중 버려진 항목 ${SSOT_ISSUES.length}건 — ${SSOT_ISSUES.join(' | ')}`).toEqual([]);
+  });
+
+  it('machinability band 는 정해진 값만 쓴다 (버려짐 없이 전건 좁혀진다)', () => {
     const bad: string[] = [];
     for (const kind of ['metal', 'polymer'] as const) {
       for (const [k, v] of Object.entries(PROFILES.machinability[kind] as Record<string, any>)) {
@@ -92,14 +102,15 @@ describe('F2 — 콘텐츠 SSOT 를 타입으로 읽는다', () => {
     expect(bad, `허용되지 않은 band ${bad.length}건: ${bad.join(' | ')}`).toEqual([]);
   });
 
-  it('공정 가이드 해석기는 JSON 을 any 로 읽지 않는다', () => {
+  it('콘텐츠 SSOT 해석기는 JSON 을 any 로 읽지 않는다', () => {
     /* `(json as any).key as T` 는 tsc 를 두 번 우회한다 — any 로 지운 뒤 원하는 타입을 씌우므로
        실제 모양이 달라도 통과한다. 다시 들어오면 여기서 막는다. */
-    const src = fs.readFileSync(path.join(ROOT, 'client/src/lib/process-guidance.ts'), 'utf8');
+    const READERS = ['client/src/lib/process-guidance.ts', 'client/src/lib/corrosion-guidance.ts', 'client/src/lib/ssot-json.ts'];
+    const src = READERS.map((f) => fs.readFileSync(path.join(ROOT, f), 'utf8')).join('\n');
     // 주석은 제거하고 본다 — 이 파일의 설명문이 `as any` 를 인용하고 있다.
     const code = src.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\/\/.*/g, '');
     const hits = code.match(/as any|:\s*any(?![A-Za-z0-9_])/g) ?? [];
-    expect(hits, `process-guidance.ts 에 any ${hits.length}건 — 콘텐츠 SSOT 는 타입으로 읽어야 한다`).toEqual([]);
+    expect(hits, `SSOT 리더에 any ${hits.length}건 — 콘텐츠 SSOT 는 타입으로 읽어야 한다 (${READERS.join(' · ')})`).toEqual([]);
   });
 });
 

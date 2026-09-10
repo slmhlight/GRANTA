@@ -16,6 +16,7 @@
 import type { Material } from './materials';
 import { parseCompositionRange, getRangeValue } from './composition-parser';
 import guidanceData from '../../../data/corrosion-guidance.json';
+import { narrowEnum, definedEntries, compact, SSOT_ISSUES } from './ssot-json';
 
 export interface CorrosionMedia { env: string; verdict: 'excellent' | 'good' | 'caution' | 'poor'; note: string }
 export interface CorrosionMode { mode: string; risk: 'high' | 'med' | 'low'; note: string }
@@ -28,20 +29,71 @@ export interface CorrosionGroup {
   sources: string[];
 }
 
-const GROUPS = (guidanceData as any).groups as Record<string, CorrosionGroup>;
-const MODS = (guidanceData as any).condition_mods as Record<string, { corr?: string; htc?: string; text: string }>;
+/* F2 — JSON 을 `as any` 로 지우지 않고 선언한 타입에 대입한다. 그래야 SSOT 의 모양이
+   바뀌면 tsc 가 잡는다. 문자열 필드(verdict·risk)는 JSON 에서 string 으로 추론되므로
+   캐스팅 대신 narrowEnum 으로 검사해 좁힌다 — 값 제약은 게이트가 따로 못박는다. */
+type Verdict = CorrosionMedia['verdict'];
+const VERDICTS = ['excellent', 'good', 'caution', 'poor'] as const;
+const RISKS = ['high', 'med', 'low'] as const;
+
+const GROUPS: Record<string, CorrosionGroup> = Object.fromEntries(
+  Object.entries(guidanceData.groups).map(([k, g]) => [k, {
+    ...g,
+    /* 좁히기에 실패한 행은 버린다 — 검증 안 된 판정을 보여주느니 안 보여준다.
+       실제로 버려지는 일이 없다는 것은 게이트(SSOT_ISSUES 빈 배열)가 보증한다. */
+    media: compact(g.media.map((m) => {
+      const verdict = narrowEnum(VERDICTS, m.verdict, `groups.${k}.media[${m.env}]`);
+      return verdict ? { ...m, verdict } : null;
+    })),
+    modes: compact(g.modes.map((m) => {
+      const risk = narrowEnum(RISKS, m.risk, `groups.${k}.modes[${m.mode}]`);
+      return risk ? { ...m, risk } : null;
+    })),
+  }]),
+);
+const MODS: Record<string, { corr?: string; htc?: string; text: string }> = guidanceData.condition_mods;
 /* H6 E15i — 합금별 매체 verdict 보정층: ① PREN 밴드(ss-* 염화물 축) ② 조성 임계 규칙 ③ base 오버라이드. */
-interface AdjustRule { group: string; el: string; min?: number; max?: number; maxOther?: { el: string; max: number }; axes: Record<string, string>; why: string; src: string }
+interface AdjustRule { group: string; el: string; min?: number; max?: number; maxOther?: { el: string; max: number }; axes: Record<string, Verdict>; why: string; src: string }
 interface AdjustCfg {
-  pren: { groups: string[]; src: string; axes: Record<string, [number, string][]> };
+  pren: { groups: string[]; src: string; axes: Record<string, [number, Verdict][]> };
   rules: AdjustRule[];
-  by_base: Record<string, { axes: Record<string, string>; why: string; src: string }>;
+  by_base: Record<string, { axes: Record<string, Verdict>; why: string; src: string }>;
 }
-const ADJ = (guidanceData as any).alloy_adjust as AdjustCfg;
+/** 축별 verdict 표 — JSON 의 선택적 키는 `string | undefined` 로 추론되므로 값 있는 것만 좁힌다. */
+const narrowAxes = (axes: Record<string, string | undefined>, where: string): Record<string, Verdict> =>
+  Object.fromEntries(compact(definedEntries(axes).map(([env, v]) => {
+    const verdict = narrowEnum(VERDICTS, v, `${where}.${env}`);
+    return verdict ? ([env, verdict] as [string, Verdict]) : null;
+  })));
+/** PREN 밴드 한 줄 — JSON 은 `(string|number)[]` 로 추론되니 [임계, verdict] 튜플임을 확인한다.
+ *  (아래 export 된 prenBand(값→등급명)와 다른 것이라 이름을 구분한다.) */
+function prenBandRow(row: (string | number)[], where: string): [number, Verdict] | null {
+  const [thr, verdict] = row;
+  if (typeof thr !== 'number' || typeof verdict !== 'string') {
+    SSOT_ISSUES.push(`${where}: [임계값, verdict] 두 칸이 아니다`);
+    return null;
+  }
+  const v = narrowEnum(VERDICTS, verdict, where);
+  return v ? [thr, v] : null;
+}
+const { _note: _adjDoc, ...ADJ_RAW } = guidanceData.alloy_adjust;
+const ADJ: AdjustCfg = {
+  pren: {
+    ...ADJ_RAW.pren,
+    axes: Object.fromEntries(Object.entries(ADJ_RAW.pren.axes).map(([env, bands]) =>
+      [env, compact(bands.map((b, i) => prenBandRow(b, `alloy_adjust.pren.axes.${env}[${i}]`)))])),
+  },
+  rules: ADJ_RAW.rules.map((r, i) => ({ ...r, axes: narrowAxes(r.axes, `alloy_adjust.rules[${i}].axes`) })),
+  by_base: Object.fromEntries(Object.entries(ADJ_RAW.by_base).map(([b, v]) =>
+    [b, { ...v, axes: narrowAxes(v.axes, `alloy_adjust.by_base.${b}.axes`) }])),
+};
 /* H6 E15c/E15f — 개별 합금 1줄 노트 + 노트별 출처 (base-키 exact 조회 — 이 합금만의 특징적 주의사항). */
 export interface AlloyNote { t: string; src: string }
-const ALLOY_NOTES = (guidanceData as any).alloy_notes as Record<string, AlloyNote>;
-export const CORROSION_TOP_SOURCES: string[] = (guidanceData as any).sources || [];
+/* `_note` 는 사람 읽으라고 넣은 메타 키라 레코드에서 덜어낸다 — rest 구조분해로 덜면
+   타입에서도 함께 빠져서, 캐스팅 없이 Record<string, AlloyNote> 로 대입된다. */
+const { _note: _alloyNotesDoc, ...alloyNotesRest } = guidanceData.alloy_notes;
+const ALLOY_NOTES: Record<string, AlloyNote> = alloyNotesRest;
+export const CORROSION_TOP_SOURCES: string[] = guidanceData.sources ?? [];
 
 /** PREN 해석 밴드 — 관행적 사용 등급 (Outokumpu/IMOA 계열 밴딩, 개략). */
 export function prenBand(v: number): string {
@@ -85,7 +137,8 @@ export interface ResolvedMedia extends CorrosionMedia {
 /** 그룹 media → ① PREN 밴드 → ② 조성 임계 규칙 → ③ base 오버라이드 순 적용 (후순위 우선). */
 function resolveMedia(m: Material, groupKey: string, group: CorrosionGroup, pren: PrenResult | null): ResolvedMedia[] {
   const rows: ResolvedMedia[] = group.media.map((md) => ({ ...md }));
-  const apply = (env: string, verdict: string, why: string, src: string) => {
+  /* verdict 는 로드 시점에 이미 좁혀져 들어온다 — 예전에는 여기서 `as` 로 씌우고 있었다. */
+  const apply = (env: string, verdict: Verdict, why: string, src: string) => {
     const row = rows.find((r) => r.env === env);
     if (!row) return;
     if (row.verdict === verdict) {
@@ -94,7 +147,7 @@ function resolveMedia(m: Material, groupKey: string, group: CorrosionGroup, pren
       return;
     }
     row.adj = { from: row.adj?.from ?? row.verdict, why, src };
-    row.verdict = verdict as CorrosionMedia['verdict'];
+    row.verdict = verdict;
   };
   if (ADJ?.pren && pren && ADJ.pren.groups.includes(groupKey)) {
     for (const [env, bands] of Object.entries(ADJ.pren.axes)) {
