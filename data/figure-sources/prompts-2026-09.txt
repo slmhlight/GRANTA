@@ -1,0 +1,184 @@
+원화 생성 프롬프트 20종 — 붙여넣기용
+각 블록은 그 자체로 완결돼 있다. 이미지 생성 AI에 블록 하나를 통째로 붙여넣으면 된다. 공통 규약(글자 금지·팔레트·배경)은 매 블록에 이미 들어 있으므로 앞뒤로 뭘 덧붙일 필요가 없다.
+
+결과물 저장: data/figure-sources/<id>.png — 파일명은 각 항목의 id 그대로
+라벨 합성: python scripts/overlay-figure-labels.py
+위치 표현(upper-left, about 60% across, 16% down)은 라벨이 꽂힐 자리다. 그 자리에 해당 특징이 없으면 라벨이 빈 곳을 가리킨다 — 구도 지시를 빼지 말 것.
+1. fractography-plate
+Technical schematic illustration for an engineering reference book, flat vector style, wide format at least 1600px.
+ABSOLUTE RULES: no text, no letters, no numbers, no labels, no arrows, no scale bars, no legends anywhere in the image — any text is a defect. Pure white background, no frame, no shadow. Colours limited to: dark slate #4a5568 for outlines, blue #2f6fb0 for sound material, red #b4322a for damage, orange #c2621f for heat-affected, grey #8a96a3 for inert matrix, plus white and light tints of these. Clean uniform line work, diagrammatic clarity, not photorealism.
+SUBJECT: a 2x2 grid of four fracture-surface close-ups, equal quadrants separated by thin neutral divider lines.
+Upper-left quadrant — ductile fracture: a dense field of rounded cup-shaped microvoids (dimples) of varying size. About 15% across and 16% down, one clearly enlarged dimple with a smooth cup rim. About 23% across and 30% down, a dimple with a small dark angular inclusion particle sitting at its floor.
+Upper-right quadrant — brittle cleavage: flat mirror-like facets meeting at sharp steps, with fine river-line patterns converging like tributaries. About 66% across and 14% down, a prominent river pattern whose branches merge toward the right. About 88% across and 30% down, one large perfectly flat facet with no plastic deformation.
+Lower-left quadrant — fatigue: concentric curved beach marks radiating from a single origin at the surface corner. About 6% across and 86% down, the origin point with marks fanning outward. About 28% across and 70% down, coarse widely spaced beach marks. About 38% across and 80% down, a magnified patch of extremely fine parallel striations.
+Lower-right quadrant — intergranular: fracture following grain boundaries so individual polyhedral grains stand out in relief like stacked stones. About 76% across and 74% down, several complete grain facets clearly separated from each other.
+KEY: each quadrant must be distinguishable by silhouette alone — ductile = round cups, brittle = flat facets with sharp steps, fatigue = concentric curves, intergranular = polyhedral blocks.
+2. am-melt-pool
+Technical schematic illustration for an engineering reference book, flat vector style, wide format at least 1600px.
+ABSOLUTE RULES: no text, no letters, no numbers, no labels, no arrows, no scale bars, no legends anywhere in the image — any text is a defect. Pure white background, no frame, no shadow. Colours limited to: dark slate #4a5568 for outlines, blue #2f6fb0 for sound material, red #b4322a for defects, orange #c2621f for heat, grey #8a96a3 for inert powder, plus white and light tints. Clean uniform line work, diagrammatic clarity, not photorealism.
+SUBJECT: a single wide panel showing a vertical cross-section through a laser powder-bed fusion (3D printed metal) part. Build direction is upward. Stacked overlapping melt-pool arcs form a fish-scale pattern through the whole section.
+About 42% across and 4% down, at the very top: a thin layer of loose unmelted spherical powder particles resting on the finished surface.
+About 60% across and 16% down: crisp overlapping melt-pool boundary arcs, the fish-scale pattern clearly readable.
+About 36% across and 36% down: elongated columnar grains growing inward from melt-pool boundaries, drawn long enough that they visibly cross several layer lines.
+About 22% across and 38% down: one small perfectly round gas pore.
+About 41% across and 78% down: a sharp downward-pointing keyhole void at the bottom of a melt pool.
+About 72% across and 61% down: an irregular flat lack-of-fusion gap between adjacent tracks, with a few unmelted powder particles trapped inside it.
+KEY: the three void types must differ by SHAPE, not colour — round (gas), pointed teardrop (keyhole), irregular flat with trapped powder (lack of fusion). All voids red, melt-pool boundaries slate, columnar grains blue.
+3. haz-zones
+Technical schematic illustration for an engineering reference book, flat vector style, wide format at least 1600px.
+ABSOLUTE RULES: no text, no letters, no numbers, no labels, no arrows, no scale bars, no legends anywhere in the image — any text is a defect. Pure white background, no frame, no shadow. Colours limited to: dark slate #4a5568 for outlines, blue #2f6fb0 for unaffected metal, red #b4322a for the most damaged zone, orange #c2621f tints for heat intensity, grey #8a96a3, plus white and light tints. Clean uniform line work, diagrammatic clarity, not photorealism.
+SUBJECT: a single panel showing the cross-section of a butt weld in steel plate, symmetric about the vertical centreline. Concentric bands of microstructure spread outward from the weld, each band drawn with visibly different grain size.
+About 5% across and 50% down: unaffected base metal with fine elongated rolled grains.
+About 16% across and 62% down: partially transformed zone, a mix of fine new grains and unchanged original grains.
+About 26% across and 35% down: fine-grained zone, grains noticeably SMALLER than the base metal.
+About 37% across and 62% down: coarse-grained zone, grains distinctly the LARGEST in the whole image.
+About 50% across and 35% down: the weld metal itself, with columnar dendrites growing inward from the edges toward the centre.
+About 58% across and 30% down: a sharp line where the columnar dendrites meet the equiaxed grains outside.
+About 50% across and 6% down: the raised weld cap bulging above the plate surface.
+About 50% across and 95% down: the root bead protruding below the plate.
+KEY: grain SIZE must change monotonically and visibly across the bands — that gradient is the entire point of the figure. Use orange tint intensity to suggest peak temperature, most intense at the weld centre, fading to none at the base metal.
+4. graphite-forms
+Technical schematic illustration for an engineering reference book, flat vector style, wide format at least 1600px.
+ABSOLUTE RULES: no text, no letters, no numbers, no labels, no arrows, no scale bars, no legends anywhere in the image — any text is a defect. Pure white background, no frame, no shadow. Colours limited to: dark slate #4a5568 for graphite, grey #8a96a3 for matrix, blue #2f6fb0 and white for bright phases, red #b4322a sparingly, plus light tints. Clean uniform line work, diagrammatic clarity, not photorealism.
+SUBJECT: a 2x2 grid of four cast-iron microstructures, all sharing a similar light grey matrix so the graphite shape is the only variable.
+Upper-left — grey iron: long sharp-tipped graphite flakes scattered in random orientations. About 12% across and 84% down, one flake with an unmistakably needle-sharp pointed end.
+Upper-right — compacted graphite iron: stubby worm-like graphite with blunt rounded ends, visibly interconnected to each other. About 38% across and 84% down, a connected cluster of these worms.
+Lower-left — ductile iron: round graphite nodules, each surrounded by a bright halo ring. About 62% across and 84% down, one nodule with a clear bright ring around it.
+Lower-right — white iron: NO graphite anywhere; instead a continuous network of pale angular carbide surrounding darker matrix islands. About 88% across and 84% down, a clear junction in the carbide network.
+KEY: the four must read at a glance as sharp needles / blunt worms / circles with rings / angular network. Draw all four at the same magnification so shapes compare directly.
+5. polymer-morphology
+Technical schematic illustration for an engineering reference book, flat vector style, wide format at least 1600px.
+ABSOLUTE RULES: no text, no letters, no numbers, no labels, no arrows, no scale bars, no legends anywhere in the image — any text is a defect. Pure white background, no frame, no shadow. Colours limited to: dark slate #4a5568 for polymer chains, blue #2f6fb0 for crystalline lamellae, orange #c2621f for the nucleus, grey #8a96a3, plus white and light tints. Clean uniform line work, diagrammatic clarity, not photorealism.
+SUBJECT: two side-by-side panels separated by a thin vertical divider at the centre.
+LEFT panel — amorphous polymer: randomly tangled polymer chains like cooked spaghetti, with no order or direction anywhere. About 25% across and 45% down, a dense random entanglement that reads as pure disorder.
+RIGHT panel — semi-crystalline polymer: two or three spherulites, each a circular structure with lamellae radiating outward from a central nucleus like a sunburst. About 60% across and 50% down, a bright nucleus at a spherulite centre with arms radiating from it. About 70% across and 32% down, one thick straight lamella (a folded-chain crystal ribbon) drawn distinctly thicker than the surrounding chains. About 66% across and 66% down, the wispy disordered region filling the space between two lamellae. About 81% across and 60% down, a straight flattened boundary where two neighbouring spherulites collided.
+KEY: the left half must look like complete chaos and the right half must look radially organised. The contrast between the two halves IS the message — do not make the left panel partially ordered.
+6. sigma-phase-micro
+Technical schematic illustration for an engineering reference book, flat vector style, wide format at least 1600px.
+ABSOLUTE RULES: no text, no letters, no numbers, no labels, no arrows, no scale bars, no legends anywhere in the image — any text is a defect. Pure white background, no frame, no shadow. Colours limited to: dark slate #4a5568 for outlines, blue #2f6fb0 and white for bright austenite, grey #8a96a3 for ferrite, red #b4322a for the brittle sigma phase, plus light tints. Clean uniform line work, diagrammatic clarity, not photorealism.
+SUBJECT: two side-by-side panels showing the SAME duplex stainless steel microstructure before and after heat exposure — an elongated banded two-phase structure with horizontal rolling bands, bright islands in a darker matrix.
+LEFT panel — healthy duplex: about 14% across and 23% down, a bright island phase; about 29% across and 60% down, a darker matrix band. Clean boundaries, no third phase anywhere.
+RIGHT panel — after prolonged exposure at intermediate temperature: identical band layout, now with angular blocky red particles. About 62% across and 17% down, small angular particles nucleated exactly ON the boundaries between the two phases. About 73% across and 55% down, a larger angular particle visibly eating into a darker band, with the material immediately around it drawn paler than elsewhere. About 93% across and 72% down, a crack running straight through one of these angular particles.
+KEY: keep both panels recognisably the same material so the new red phase is the only difference. The new phase must look ANGULAR and blocky — never rounded — because that is what makes it brittle.
+7. gamma-prime-micro
+Technical schematic illustration for an engineering reference book, flat vector style, wide format at least 1600px.
+ABSOLUTE RULES: no text, no letters, no numbers, no labels, no arrows, no scale bars, no legends anywhere in the image — any text is a defect. Pure white background, no frame, no shadow. Colours limited to: dark slate #4a5568 for outlines, blue #2f6fb0 for the precipitate phase, grey #8a96a3 and white for the matrix, orange #c2621f sparingly, plus light tints. Clean uniform line work, diagrammatic clarity, not photorealism.
+SUBJECT: two side-by-side panels showing a nickel superalloy microstructure at two stages, same colours in both so that SHAPE is the only variable.
+LEFT panel — after ageing: a regular array of cube-shaped precipitates aligned in neat rows and columns like a checkerboard, separated by narrow straight matrix channels. About 21% across and 24% down, several crisp cuboidal precipitates in clear alignment. About 34% across and 12% down, one narrow matrix channel between cubes drawn as a clean straight corridor. About 50% across and 80% down, one precipitate-matrix interface drawn with fine lattice planes continuing unbroken across the boundary.
+RIGHT panel — after long exposure to stress at high temperature: the cubes have merged into long flat plates, all stacked horizontally and perpendicular to a vertical loading direction. About 76% across and 30% down, clearly elongated plates that are no longer cubic at all.
+KEY: left must read as ORDERED CUBES, right as STACKED PLATES, instantly and from a distance.
+8. dislocation-precipitate
+Technical schematic illustration for an engineering reference book, flat vector style, wide format at least 1600px.
+ABSOLUTE RULES: no text, no letters, no numbers, no labels, no arrows, no scale bars, no legends anywhere in the image — any text is a defect. Pure white background, no frame, no shadow. Colours limited to: dark slate #4a5568 for outlines, blue #2f6fb0 for precipitate particles, red #b4322a for the dislocation line, grey #8a96a3, plus white and light tints. Clean uniform line work, diagrammatic clarity, not photorealism.
+SUBJECT: two side-by-side panels, each showing a single wavy line (a dislocation) interacting with round particles embedded in a plain matrix.
+LEFT panel — cutting: SMALL, closely spaced particles. The line passes straight THROUGH them, and each particle it has crossed is left sheared into two halves offset from each other. About 24% across and 40% down, one particle clearly cut and offset by the passing line. About 14% across and 30% down, a size comparison with a smaller and a slightly larger particle side by side.
+RIGHT panel — bowing: LARGE, widely spaced particles. The line bows outward between them like a bent bowstring and pinches off behind. About 61% across and 47% down, the line bowed into a deep arc between two particles. About 66% across and 67% down, a closed ring left encircling a particle the line has passed. About 80% across and 27% down, two particles with a visibly WIDE gap between them.
+KEY: particle size and spacing must differ obviously between panels — small and close on the left, large and far apart on the right. That difference is the whole explanation.
+9. corrosion-morphologies
+Technical schematic illustration for an engineering reference book, flat vector style, wide format at least 1600px.
+ABSOLUTE RULES: no text, no letters, no numbers, no labels, no arrows, no scale bars, no legends anywhere in the image — any text is a defect. Pure white background, no frame, no shadow. Colours limited to: dark slate #4a5568 for outlines, blue #2f6fb0 and grey #8a96a3 for sound metal, red #b4322a for corroded material, orange #c2621f sparingly, plus white and light tints. Clean uniform line work, diagrammatic clarity, not photorealism.
+SUBJECT: a 2x3 grid (three columns, two rows) of small metal cross-sections, each showing one corrosion form.
+Top-left, uniform attack: the surface thinned evenly all across, with the original profile indicated as a faint dashed outline above it. About 17% across and 30% down, the evenly receded surface.
+Top-centre, pitting: an otherwise intact surface with cavities that have NARROW mouths and widen underneath into bulbous pockets. About 54% across and 32% down, one pit with an obviously narrow mouth and wide belly.
+Top-right, crevice: a gasket block resting on the metal surface, with attack concentrated in the tight gap under its edge and none elsewhere. About 84% across and 27% down, corrosion inside that gap.
+Bottom-left, galvanic: two dissimilar metals joined together, the less noble one dissolving at the joint. Draw the dissolving metal as a SMALL area against a LARGE noble one. About 18% across and 80% down, the attacked joint.
+Bottom-centre, intergranular: grains themselves intact but the boundaries between them etched deep into the metal, tracing a honeycomb pattern. About 54% across and 82% down, attack following boundaries only.
+Bottom-right, erosion: a pipe elbow with flow streamlines, the outer bend scoured smooth and grooved. About 80% across and 82% down, the scoured bend.
+KEY: the six must be mutually distinguishable by silhouette — evenly thinned / bulbous pits / attack under a gap / attack at a joint / honeycomb boundaries / flow-scoured bend.
+10. esc-crazing
+Technical schematic illustration for an engineering reference book, flat vector style, wide format at least 1600px.
+ABSOLUTE RULES: no text, no letters, no numbers, no labels, no arrows, no scale bars, no legends anywhere in the image — any text is a defect. Pure white background, no frame, no shadow. Colours limited to: dark slate #4a5568 for polymer chains and fibrils, red #b4322a for the true crack, orange #c2621f for chemical agent, grey #8a96a3, plus white and light tints. Clean uniform line work, diagrammatic clarity, not photorealism.
+SUBJECT: a single wide panel showing a transparent plastic bar being stretched horizontally, with a magnified view of a damage zone in its middle.
+About 6% across and 50% down, at the left end: the bar being pulled, drawn slightly elongated to show tension.
+About 47% across and 66% down: a craze — a lens-shaped whitened zone whose two faces are still BRIDGED across the gap by many fine parallel fibrils. The bridging fibrils must be drawn prominently and individually.
+About 51% across and 31% down: a region where those fibrils have snapped, leaving a genuinely open crack with nothing spanning it.
+About 78% across and 20% down: droplets of a chemical agent penetrating from the surface, with the polymer chains beneath them drawn visibly loosened and swollen apart compared to the tightly packed chains elsewhere.
+KEY: the crucial distinction is that a craze is NOT an open crack — the bridging fibrils must be unmistakable, so the viewer sees material still connecting the two faces.
+11. grain-boundary-3d
+Technical schematic illustration for an engineering reference book, flat vector style, wide format at least 1600px.
+ABSOLUTE RULES: no text, no letters, no numbers, no labels, no arrows, no scale bars, no legends anywhere in the image — any text is a defect. Pure white background, no frame, no shadow. Colours limited to: dark slate #4a5568 for outlines and boundaries, light blue #2f6fb0 tints for grain interiors, red #b4322a for a dislocation, grey #8a96a3, plus white. Clean uniform line work, diagrammatic clarity, not photorealism.
+SUBJECT: a single panel showing a cut-away three-dimensional block of polycrystalline metal. Several polyhedral grains are packed together like foam cells, and the front face is sectioned open so the interior is visible.
+About 45% across and 44% down, inside one grain: a regular lattice of atoms arranged in neat straight rows.
+About 56% across and 30% down, in the neighbouring grain: the same lattice but rotated so its rows run at a clearly different angle — at least 30 degrees different from its neighbour.
+About 65% across and 50% down: the boundary between those two grains, drawn as a thin band where the two lattices mismatch and atoms sit irregularly.
+About 84% across and 48% down: a boundary segment where a red dislocation line has piled up against it, plus a faint path traced along the boundary suggesting a route through the material.
+KEY: the orientation difference between adjacent grains must be unmistakable. If the atom rows in neighbouring grains look parallel, the figure has failed.
+12. ti-alpha-beta-micro
+Technical schematic illustration for an engineering reference book, flat vector style, wide format at least 1600px.
+ABSOLUTE RULES: no text, no letters, no numbers, no labels, no arrows, no scale bars, no legends anywhere in the image — any text is a defect. Pure white background, no frame, no shadow. Colours limited to: dark slate #4a5568 for outlines, pale blue-white for the primary phase, red #b4322a for the thin secondary phase films, grey #8a96a3, plus light tints. Clean uniform line work, diagrammatic clarity, not photorealism.
+SUBJECT: two side-by-side panels showing a titanium alloy microstructure after two different heat treatments.
+LEFT panel — equiaxed: rounded, uniformly sized grains packed together like pebbles. About 21% across and 30% down, a cluster of evenly round grains. About 34% across and 58% down, thin red films outlining the boundaries between them.
+RIGHT panel — lamellar: straight parallel needle-like plates grouped into colonies, with each colony oriented at a different angle from its neighbours, all contained inside much larger prior grains. About 70% across and 30% down, two adjacent colonies whose plates clearly run at different angles. About 84% across and 54% down, a continuous layer of the pale phase wrapping around a large prior-grain boundary.
+KEY: left reads as round and uniform, right reads as straight parallel needles in mismatched bundles. Same colours in both panels so morphology is the only difference.
+13. residual-stress-map
+Technical schematic illustration for an engineering reference book, flat vector style, wide format at least 1600px.
+ABSOLUTE RULES: no text, no letters, no numbers, no labels, no arrows, no scale bars, no legends anywhere in the image — any text is a defect. Pure white background, no frame, no shadow. Colours limited to: red #b4322a for tensile stress, blue #2f6fb0 for compressive stress, dark slate #4a5568 for outlines, grey #8a96a3 for neutral, plus white and light tints. Clean uniform line work, diagrammatic clarity, not photorealism.
+SUBJECT: three panels in a row, each a component cross-section with its internal stress state shown as colour fill — red where the material is pulled apart, blue where it is squeezed.
+LEFT panel — a butt weld: the weld and its immediate surroundings filled red, the far base metal filled blue. About 18% across and 69% down, the red weld zone. About 30% across and 76% down, the blue far field.
+CENTRE panel — a quenched round bar seen end-on: a circular cross-section with a blue rim and a red core. About 55% across and 30% down, the boundary where the blue rim meets the red core.
+RIGHT panel — shot peening: a flat surface being struck by small spheres, with a thin but distinct blue layer just beneath the surface and neutral grey below it. About 86% across and 23% down, that shallow blue surface layer.
+Beside each panel a small plain unlabelled curve may show how stress varies with depth.
+KEY: tension and compression must be readable by colour alone and consistently across all three panels. The right panel's blue layer must look deliberately thin and shallow, unlike the other two.
+14. weld-defects
+Technical schematic illustration for an engineering reference book, flat vector style, wide format at least 1600px.
+ABSOLUTE RULES: no text, no letters, no numbers, no labels, no arrows, no scale bars, no legends anywhere in the image — any text is a defect. Pure white background, no frame, no shadow. Colours limited to: dark slate #4a5568 for outlines, blue #2f6fb0 for sound weld metal, grey #8a96a3 for base metal, red #b4322a for defects, plus white and light tints. Clean uniform line work, diagrammatic clarity, not photorealism.
+SUBJECT: a 2x3 grid (three columns, two rows) of weld cross-sections. Each cell shows exactly ONE defect and is otherwise a sound weld, so the defect's LOCATION in the joint is the diagnostic clue.
+Top-left, porosity: round gas bubbles scattered inside the weld metal. About 15% across and 23% down, a cluster of round pores.
+Top-centre, slag inclusion: irregular dark angular slag trapped exactly on the line between two weld passes. About 50% across and 26% down, slag sitting on that inter-pass line.
+Top-right, lack of fusion: a flat unfused seam hugging the sloped groove face. About 91% across and 27% down, the flat gap against the bevel wall.
+Bottom-left, incomplete penetration: the root gap at the bottom of the joint left open and unfilled. About 17% across and 87% down, the open root.
+Bottom-centre, undercut: a sharp groove gouged into the base metal right where the weld meets it. About 41% across and 60% down, the notch at the weld toe.
+Bottom-right, solidification crack: a crack running along the weld centreline, with a thin liquid film drawn at the crack tip. About 84% across and 72% down, the centreline crack.
+KEY: the six defects must each sit at a DIFFERENT part of the joint — weld metal, inter-pass line, groove face, root, toe, centreline. Keep the joint geometry identical in all six cells.
+15. casting-defects
+Technical schematic illustration for an engineering reference book, flat vector style, wide format at least 1600px.
+ABSOLUTE RULES: no text, no letters, no numbers, no labels, no arrows, no scale bars, no legends anywhere in the image — any text is a defect. Pure white background, no frame, no shadow. Colours limited to: dark slate #4a5568 for outlines, grey #8a96a3 for the casting, red #b4322a for defects, blue #2f6fb0 sparingly, plus white and light tints. Clean uniform line work, diagrammatic clarity, not photorealism.
+SUBJECT: a 2x2 grid of casting cross-sections, each with one defect, drawn at similar size so shapes compare directly.
+Upper-left, shrinkage porosity: a jagged, branching, irregular cavity located at the centre of the THICKEST section of the casting. About 17% across and 30% down, the ragged cavity in the thick part.
+Upper-right, gas porosity: smooth, perfectly round bubbles. About 41% across and 20% down, a cleanly spherical pore.
+Lower-left, cold shut: two flows of metal that met but did not fuse, leaving a smooth rounded seam line running through the section. About 62% across and 34% down, that seam.
+Lower-right, inclusion: a folded oxide film or sand grain rolled into the metal, angular and layered. About 90% across and 72% down, the folded inclusion.
+KEY: the shrinkage-versus-gas pair is the central teaching contrast — JAGGED and branching versus SMOOTH and round. Draw both at the same size so shape is the only difference.
+16. surface-treatment-layers
+Technical schematic illustration for an engineering reference book, flat vector style, wide format at least 1600px.
+ABSOLUTE RULES: no text, no letters, no numbers, no labels, no arrows, no scale bars, no legends anywhere in the image — any text is a defect. Pure white background, no frame, no shadow. Colours limited to: dark slate #4a5568 for outlines, blue #2f6fb0 for coatings, grey #8a96a3 for the substrate metal, orange #c2621f for oxide, plus white and light tints. Clean uniform line work, diagrammatic clarity, not photorealism.
+SUBJECT: four panels in a row, each a magnified cross-section of a treated surface with the base metal at the bottom.
+Panel 1, electroplating: a distinct uniform deposited layer sitting ON TOP of the substrate with a sharp flat interface line between them. About 12% across and 72% down, that crisp interface.
+Panel 2, case hardening: NO separate layer at all — instead a gradual gradient within the substrate itself, drawn as a smooth fade in density or tone with depth, with no interface line anywhere. About 38% across and 72% down, the middle of that gradient.
+Panel 3, anodising: porous oxide columns grown UPWARD out of the substrate, honeycomb-like with vertical pores. About 62% across and 72% down, the columnar porous oxide.
+Panel 4, thermal spray: flattened molten splats stacked like pancakes, with thin oxide films and small voids trapped between the layers. About 88% across and 60% down, the stacked splats with trapped voids.
+KEY: the teaching contrast is panel 1 versus panel 2 — a distinct layer that could peel off, versus a gradient that has no interface to peel at. Make the presence and absence of that interface line unmistakable.
+17. powder-morphology
+Technical schematic illustration for an engineering reference book, flat vector style, wide format at least 1600px.
+ABSOLUTE RULES: no text, no letters, no numbers, no labels, no arrows, no scale bars, no legends anywhere in the image — any text is a defect. Pure white background, no frame, no shadow. Colours limited to: dark slate #4a5568 for outlines, grey #8a96a3 and light blue #2f6fb0 tints for particles, plus white. Clean uniform line work, diagrammatic clarity, not photorealism.
+SUBJECT: three panels in a row, each showing a field of metal powder particles at the same magnification, the same particle count and the same packing density, so that particle SHAPE is the only variable.
+LEFT panel, gas atomised: mostly spherical particles, but many of them have smaller satellite particles fused onto their surfaces. About 17% across and 30% down, a large sphere with two or three satellites clearly stuck to it.
+CENTRE panel, water atomised: irregular, angular, jagged particles with no sphericity at all. About 51% across and 34% down, a distinctly angular ragged particle.
+RIGHT panel, plasma atomised: nearly perfect smooth spheres of uniform size with NO satellites anywhere. About 83% across and 30% down, a flawless sphere among equally clean neighbours.
+KEY: sphericity must increase visibly from left to right, and satellites must be clearly present in the left panel and completely absent in the right.
+18. composite-failure
+Technical schematic illustration for an engineering reference book, flat vector style, wide format at least 1600px.
+ABSOLUTE RULES: no text, no letters, no numbers, no labels, no arrows, no scale bars, no legends anywhere in the image — any text is a defect. Pure white background, no frame, no shadow. Colours limited to: dark slate #4a5568 for outlines, blue #2f6fb0 for fibres, grey #8a96a3 for matrix, red #b4322a for damage, plus white and light tints. Clean uniform line work, diagrammatic clarity, not photorealism.
+SUBJECT: four panels in a row, each a cross-section of a fibre composite laminate. Ply layers are visible, alternating between plies shown as rows of dots (fibres end-on) and plies shown as straight lines (fibres in-plane).
+Panel 1, delamination: a long flat separation running BETWEEN two plies, following the interface. About 15% across and 42% down, the interply gap.
+Panel 2, fibre fracture: fibres inside one ply snapped cleanly across, their broken ends aligned in a row. About 40% across and 35% down, the row of broken fibre ends.
+Panel 3, matrix cracking: fine cracks confined WITHIN a single ply, stopping cleanly at the ply interfaces above and below. About 65% across and 42% down, cracks visibly terminating at the ply boundary.
+Panel 4, fibre pull-out: fibres withdrawn from the matrix leaving clean empty sockets, with some fibres protruding from the fracture face like bristles. About 88% across and 42% down, the protruding pulled-out fibres.
+KEY: the four geometries must be distinguishable — damage BETWEEN plies, ACROSS fibres, INSIDE one ply, and fibres OUT of their sockets.
+19. wear-mechanisms
+Technical schematic illustration for an engineering reference book, flat vector style, wide format at least 1600px.
+ABSOLUTE RULES: no text, no letters, no numbers, no labels, no arrows, no scale bars, no legends anywhere in the image — any text is a defect. Pure white background, no frame, no shadow. Colours limited to: dark slate #4a5568 for outlines, grey #8a96a3 for metal, red #b4322a for wear damage, orange #c2621f for surface films, blue #2f6fb0 sparingly, plus white and light tints. Clean uniform line work, diagrammatic clarity, not photorealism.
+SUBJECT: four panels in a row, each showing two surfaces in sliding contact, the upper one moving across the lower.
+Panel 1, adhesive wear: surface asperities welded together, with a fragment torn from one surface and transferred onto the other. About 12% across and 32% down, the transferred lump sitting on the opposite surface.
+Panel 2, abrasive wear: a hard angular particle ploughing a groove, with a raised ridge of displaced material along both edges of the groove. About 38% across and 42% down, the groove and its ridges.
+Panel 3, surface fatigue: a crack that started below the surface, grew parallel to it and then turned upward, lifting a flake away and leaving a shallow crater. About 62% across and 50% down, that subsurface crack with the flake lifting off.
+Panel 4, corrosive wear: a protective surface film being scraped away by the sliding contact, with fresh corrosion visibly restarting in the bared track. About 88% across and 42% down, the stripped track with corrosion in it.
+KEY: four different geometries — a transferred lump, a ploughed groove, a lifting subsurface flake, a stripped film. None should look like another.
+20. hydrogen-embrittlement
+Technical schematic illustration for an engineering reference book, flat vector style, wide format at least 1600px.
+ABSOLUTE RULES: no text, no letters, no numbers, no labels, no arrows, no scale bars, no legends anywhere in the image — any text is a defect. Pure white background, no frame, no shadow. Colours limited to: dark slate #4a5568 for outlines, grey-blue tints for the metal lattice, orange #c2621f for hydrogen atoms, red #b4322a for the crack, plus white. Clean uniform line work, diagrammatic clarity, not photorealism.
+SUBJECT: three panels in a row telling one sequence left to right, showing the same piece of metal at three stages. Grain boundaries are visible in all three.
+Panel 1, entry: tiny hydrogen atoms entering from the surface and slipping BETWEEN the larger metal atoms of the lattice. Draw the hydrogen atoms noticeably smaller than the metal atoms. About 17% across and 80% down, hydrogen crossing the surface into the lattice.
+Panel 2, accumulation: the same hydrogen atoms now collected at grain boundaries, inclusions and defects, visibly crowded at those sites rather than spread evenly through the metal. About 50% across and 42% down, a grain boundary crowded with hydrogen.
+Panel 3, cracking: a crack running ALONG the hydrogen-loaded grain boundaries, following the boundary network rather than cutting through grains. About 83% across and 42% down, that intergranular crack.
+KEY: the hydrogen atoms must be drawn with the same small symbol in all three panels so the viewer can follow them through the sequence. The crack in panel 3 must clearly follow boundaries, not cut across grains.
