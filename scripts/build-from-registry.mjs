@@ -17,6 +17,7 @@ import { fileURLToPath } from 'node:url';
 import { detectAnomalies } from './lib/anomalies.mjs';   // R226e — 공유 모듈 (중복 제거)
 import { improveLabel, sourceAuthority } from './lib/source-labels.mjs';   // R226e — 출처 라벨 도출 + 권위 등급
 import { extractUNS } from './lib/uns.mjs';   // R226f/축4c — UNS 정규 필드
+import { confidenceTierOf, TIER_RANK } from './lib/confidence-tier.mjs';   // C3 — 신뢰 등급 규칙 SSOT
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const REG = path.join(ROOT, 'data', 'registry', 'entries');
@@ -319,6 +320,34 @@ for (const m of all) {
   }
 }
 if (specTypeDropped) console.log(`  죽은 필드 제거: spec_type ${specTypeDropped} range (정보량 0 — 값 성격은 basis 가 담당)`);
+
+/* 1f) C3 — confidence_tier 재계산 (규칙 SSOT: lib/confidence-tier.mjs).
+ *
+ * 이 등급은 동결된 build-materials 가 찍는데, **그 시점 이후로 근거가 계속 바뀐다**:
+ *   · build-registry 가 `corrections/sources.json` 의 검증된 규격·핸드북 출처를 덧붙이고
+ *   · 바로 위 1d 가 provenance 와 안 맞는 표시 신뢰도를 하향한다
+ * 둘 다 규칙의 입력(verified 수 · range confidence)이라, 상류에서 찍은 등급은 **낡는다**.
+ * 실제로 배포 데이터에서 205 entry 가 자기 규칙과 어긋나 있었다 — 전부 medium 인데
+ * 규칙대로면 high(교정이 verified 출처를 2개 이상으로 늘린 경우)로, 증거가 좋아졌는데
+ * 등급이 따라오지 않은 쪽이었다.
+ *
+ * 값을 만드는 게 아니라 **이미 있는 근거로 규칙을 다시 적용**하는 것이므로 여기서 고친다.
+ * 상향/하향을 모두 로그로 남긴다 — 하향이 나오면 근거가 줄었다는 뜻이라 사람이 봐야 한다.
+ */
+const tierMoves = { 상향: 0, 하향: 0 };
+const tierDown = [];
+for (const m of all) {
+  const want = confidenceTierOf(m);
+  if (want === m.confidence_tier) continue;
+  const dir = TIER_RANK[want] > TIER_RANK[m.confidence_tier] ? '상향' : '하향';
+  tierMoves[dir]++;
+  if (dir === '하향') tierDown.push(`${m.stable_id || m.id} ${String(m.name).slice(0, 40)}: ${m.confidence_tier}→${want}`);
+  m.confidence_tier = want;
+}
+if (tierMoves.상향 || tierMoves.하향) {
+  console.log(`  confidence_tier 재계산: 상향 ${tierMoves.상향} · 하향 ${tierMoves.하향} (교정·정합 반영 후 규칙 재적용)`);
+  tierDown.slice(0, 10).forEach((x) => console.log(`    ↓ ${x}`));
+}
 
 // 2) anomaly 재검출 — lib/anomalies.mjs 공유 (build-materials 와 동일 로직; 최종 데이터 기준 검출이 canonical)
 const anomalies = detectAnomalies(all);

@@ -103,11 +103,18 @@ export interface Material {
   ranges?: Record<string, PropertyRange | null>;
   sources?: MaterialSource[];
   tier?: 'curated' | 'am_vendor' | 'generic' | 'reference';
-  /** R133b — overall confidence tier (build pipeline 자동 부여, verified source + measured/handbook props 기반).
-      high: verified ≥2 OR (measured ≥4 + verified ≥1) — 안전 임계 사용 가능
-      medium: verified ≥1 OR (handbook ≥6 + safety props 신뢰 OK) — 표준 의사결정 사용 가능
-      medium-low: verified=0 + handbook ≥4 — sanity check 용
-      low: verified=0 + safety props 거의 fallback — UI 기본 hide (filter toggle 로 노출). */
+  /** R133b — overall confidence tier. 규칙 SSOT 는 `scripts/lib/confidence-tier.mjs` 이고,
+      build-from-registry 가 **교정·정합이 끝난 뒤** 재계산한다 (C3 — 모놀리스가 찍는 시점은
+      교정이 검증 출처를 덧붙이기 전이라 등급이 낡았다. 배포본에서 205 entry 가 어긋나 있었다).
+
+      핵심 물성(density·σy·UTS·El·E·경도·열전도)은 measured/handbook **개수**를 세고,
+      안전 물성(fatigue·impact·KIC)은 가중치 합(measured 4 · handbook 3 · subfamily 1.5 ·
+      family 0.5 · class 0.2 · derived 0.1)을 safetyScore 로 쓴다.
+
+      high:       verified ≥2 OR (measured ≥4 AND verified ≥1) — 안전 임계 사용 가능
+      medium:     verified ≥1 OR (handbook ≥6 AND safetyScore ≥3) — 표준 의사결정 사용 가능
+      medium-low: verified=0 AND (handbook ≥4 OR safetyScore ≥1.5) — sanity check 용
+      low:        그 외 — 안전 물성이 거의 fallback. UI 기본 hide (filter toggle 로 노출). */
   confidence_tier?: 'high' | 'medium' | 'medium-low' | 'low';
   manufacturers?: string[];
   machines?: string[];
