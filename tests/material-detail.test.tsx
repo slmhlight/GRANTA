@@ -253,3 +253,30 @@ describe('W4-2b — meta 미노출 데이터', () => {
     expect(txt).not.toContain('Layup');
   });
 });
+
+
+/*
+ * W4-5 — 물성 라벨이 글로서리 용어로 연결된다 (Properties 탭 = 기본 탭).
+ */
+describe('W4-5 — 물성 라벨 → 용어 링크', () => {
+  it('대응 용어가 있는 물성은 라벨이 /guide/term 링크가 된다', () => {
+    const m = mkMaterial({
+      name: 'AISI 304', tier: 'verified',
+      ranges: { yield_strength: { typical: 205, min: 205, max: 205 } } as unknown as R,
+    } as never);
+    const { container } = render(<MaterialDetail {...baseProps} material={m} />);
+    const a = [...container.querySelectorAll('a')].find((e) => /guide\/term\/yield-strength/.test(e.getAttribute('href') || ''));
+    expect(a, 'yield_strength 라벨이 용어로 연결되지 않았다').toBeTruthy();
+  });
+
+  it('대응 용어가 없는 물성은 링크하지 않는다', () => {
+    const m = mkMaterial({
+      name: 'AISI 304', tier: 'verified',
+      ranges: { density: { typical: 8.0, min: 8.0, max: 8.0 } } as unknown as R,
+    } as never);
+    const { container } = render(<MaterialDetail {...baseProps} material={m} />);
+    const bad = [...container.querySelectorAll('a')].filter((e) => /guide\/term\//.test(e.getAttribute('href') || ''));
+    /* density 는 대응 용어가 없다 — 다른 행이 없으므로 용어 링크가 하나도 없어야 한다 */
+    expect(bad.map((e) => e.getAttribute('href')), '대응 용어 없는 물성에 링크가 생겼다').toEqual([]);
+  });
+});

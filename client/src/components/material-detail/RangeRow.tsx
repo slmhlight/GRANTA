@@ -8,6 +8,8 @@ import type { PropertyRange } from '@/lib/materials';
 import { useLang } from '@/lib/i18n';
 import { formatPrice, loadUnitSystem } from '@/lib/unit-convert';
 import { CONFIDENCE, type ConfidenceLevel } from '@/lib/material-colors';
+import { Link } from 'wouter';
+import { glossarySlugFor } from '@/lib/property-glossary';
 
 /** 숫자 포맷 helper — 10 미만은 소수 2자리, 10 이상은 1자리, integer 그대로. */
 export const fmt = (v: number) => (Number.isInteger(v) ? String(v) : v.toFixed(Math.abs(v) < 10 ? 2 : 1));
@@ -40,14 +42,18 @@ export function RangeRow({
   range,
   fallback,
   unit,
+  propKey,
 }: {
   label: string;
   range?: PropertyRange | null;
   fallback?: number | string | null;
   unit: string;
+  /** W4-5 — 물성 키. 글로서리 용어가 있는 물성이면 라벨이 그 문서로 가는 링크가 된다. */
+  propKey?: string;
 }) {
   // R40b — price 표시 시 lang/unitSystem 에 따라 USD/KRW + kg/lb 자동 변환.
   const { lang } = useLang();
+  const termSlug = glossarySlugFor(propKey);
   const isPrice = /USD\//.test(unit);
   const priceUnit: 'kg' | 'cm3' = unit.includes('cm³') || unit.includes('cm3') ? 'cm3' : 'kg';
   const sys = isPrice ? loadUnitSystem() : null;
@@ -124,7 +130,14 @@ export function RangeRow({
             title={prov ? `${badge.tip}\n출처: ${prov}` : badge.tip}
           />
         )}
-        {label}
+        {/* W4-5 — 대응 용어가 있으면 라벨을 글로서리로 연결. 없으면 그냥 텍스트(억지 링크 금지). */}
+        {termSlug ? (
+          <Link
+            href={`/guide/term/${termSlug}`}
+            className="border-b border-dotted border-muted-foreground/50 hover:text-accent hover:border-accent"
+            title={`'${label}' 이(가) 무엇인지 — 용어 설명 보기`}
+          >{label}</Link>
+        ) : label}
       </span>
       <div className="text-right">
         <span className="font-mono text-xs font-medium text-foreground">{typicalStr}</span>

@@ -363,7 +363,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                     <h3 className="text-xs font-semibold text-foreground/70 mb-2 flex items-center gap-1">{icon}{title}</h3>
                     <div className="space-y-1">
                       {present.map((prop) => (
-                        <RangeRow key={prop.key} label={prop.label} unit={prop.unit} range={ranges[prop.key as string]} fallback={material[prop.key as keyof Material] as number | string | null} />
+                        <RangeRow key={prop.key} propKey={String(prop.key)} label={prop.label} unit={prop.unit} range={ranges[prop.key as string]} fallback={material[prop.key as keyof Material] as number | string | null} />
                       ))}
                     </div>
                     {empty.length > 0 && (
@@ -404,7 +404,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                 </h3>
                 <div className="space-y-1">
                   {COST_PROPERTIES.map(prop => (
-                    <RangeRow key={prop.key} label={prop.label} unit={prop.unit} range={ranges[prop.key as string]} fallback={material[prop.key as keyof Material] as number | string | null} />
+                    <RangeRow key={prop.key} propKey={String(prop.key)} label={prop.label} unit={prop.unit} range={ranges[prop.key as string]} fallback={material[prop.key as keyof Material] as number | string | null} />
                   ))}
                 </div>
               </div>
