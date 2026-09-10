@@ -63,7 +63,18 @@ export function machinabilityConditionMult(m: Material): { rating: number; cost:
 const POLYMER_MACH = (profilesData as any).machinability.polymer as Record<string, PolymerMachResult>;
 const CONDITION_NOTES = (profilesData as any).condition_notes as Record<string, string>;
 const MACH_SOURCES = (profilesData as any).machinability.sources as { metal: string[]; polymer: string[] };
-const GUIDANCE = (guidanceData as any).guidance as Record<string, string>;
+
+/** 가공 가이드 블록 — W4-7 에서 문자열에서 `{text, sources[]}` 로 승격했다.
+ *  문자열이면 규격 인용을 담을 자리가 없어, 본문에 규격을 써 놓고도 기계가 읽지 못했다. */
+interface MachiningBlock { text: string; sources?: string[] }
+const GUIDANCE = (guidanceData as any).guidance as Record<string, MachiningBlock>;
+/* GUIDANCE 선언 뒤에 둔다 — 영구 정책(use-before-define 금지, Vite minify 후 TDZ 회피). */
+function machiningGuidanceBlock(m: Material): MachiningBlock | null {
+  const key = m.profiles?.mach;
+  if (!key) return null;
+  const gk = METAL_MACH[key]?.guidance_key;
+  return (gk && GUIDANCE[gk]) || null;
+}
 const INSIGHT_GROUPS = (insightsData as any).groups as Record<string, InsightGroup>;
 
 /** R226o — 인사이트(용도) 그룹의 짧은 라벨 — 배지·비교용 (긴 title 대신). key = m.profiles.insight. */
@@ -113,15 +124,21 @@ export function resolveConditionNote(m: Material): string | null {
 
 /** 가족별 가공 주의사항/권장 방법 (구 R176 인라인 — machining-guidance.json). */
 export function resolveMachiningGuidance(m: Material): string | null {
-  const key = m.profiles?.mach;
-  if (!key) return null;
-  const gk = METAL_MACH[key]?.guidance_key;
-  return (gk && GUIDANCE[gk]) || null;
+  return machiningGuidanceBlock(m)?.text || null;
 }
 
-/** 절삭성 출처 라벨 (카테고리별). */
+/** 절삭성 출처 라벨 — 카테고리 기준(process-profiles) + 그 가공 블록이 근거로 든 규격.
+ *  W4-7: 블록 본문 말미의 【표준】 줄을 `sources[]` 로 승격해 둔 것을 여기서 합친다.
+ *  카테고리 기준은 '무엇으로 rating 을 매겼나', 블록 규격은 '이 족의 권고가 어느 규격에
+ *  근거하나' 로 층이 다르므로 겹치는 것만 걸러 이어 붙인다. */
 export function machinabilitySources(m: Material): string[] {
-  return m.category === 'Polymer' ? MACH_SOURCES.polymer : MACH_SOURCES.metal;
+  const base = m.category === 'Polymer' ? MACH_SOURCES.polymer : MACH_SOURCES.metal;
+  const block = machiningGuidanceBlock(m)?.sources ?? [];
+  /* 같은 규격이 표기만 달리 두 번 나오지 않게 정규화해 비교한다 —
+     기준 목록의 "ASM Handbook Vol.16 Machining" 과 블록의 "ASM Vol.16" 은 같은 문서다. */
+  const norm = (s: string) => s.toUpperCase().replace(/HANDBOOK/g, '').replace(/[^A-Z0-9]/g, '');
+  const baseKeys = base.map(norm);
+  return [...base, ...block.filter((s) => !baseKeys.some((b) => b.includes(norm(s))))];
 }
 
 interface GuidanceBlock { pattern: string; field: string; nonferrous_only?: boolean; text: string; by_grade?: Record<string, string> }

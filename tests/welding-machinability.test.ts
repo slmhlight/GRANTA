@@ -176,4 +176,24 @@ describe('조건(variation)별 노트 + 가이드 + 인사이트 (R226j)', () =>
     expect(polySrc).not.toMatch(/ISO 3685|1212/);
     expect(machinabilitySources(mk({})).join(' ')).toContain('Machining Data Handbook');
   });
+  /* W4-7 — 가공 블록이 문자열에서 {text, sources[]} 로 승격되며, 카테고리 기준(rating 근거)
+     아래에 **그 족의 권고가 근거로 든 규격**이 붙는다. 두 층은 성격이 달라 함께 보여야 한다. */
+  it('출처 — 블록별 규격이 카테고리 기준에 덧붙는다', () => {
+    const mg = machinabilitySources(mk({ profiles: { mach: 'magnesium' } }));
+    expect(mg.join(' '), 'Mg 는 발화 때문에 NFPA 484 가 진짜 근거다').toContain('NFPA 484');
+    expect(mg.join(' ')).toContain('Machining Data Handbook');   // 카테고리 기준도 남는다
+    const be = machinabilitySources(mk({ profiles: { mach: 'becu' } })).join(' ');
+    expect(be, 'BeCu 는 분진 노출 한도가 핵심').toContain('OSHA 1910.1024');
+  });
+  it('출처 — 같은 규격이 표기만 달리 두 번 나오지 않는다', () => {
+    /* 카테고리 기준의 "ASM Handbook Vol.16 Machining" 과 블록의 "ASM Vol.16" 은 같은 문서다. */
+    const src = machinabilitySources(mk({ profiles: { mach: 'ni-super' } }));
+    const asm = src.filter((s) => /ASM(?![A-Z]).*Vol\.?\s*16/i.test(s));
+    expect(asm.length, `ASM Vol.16 이 ${asm.length}번 나온다: ${asm.join(' | ')}`).toBe(1);
+    const iso = src.filter((s) => /ISO 3685/.test(s));
+    expect(iso.length, `ISO 3685 이 ${iso.length}번: ${iso.join(' | ')}`).toBeLessThanOrEqual(1);
+  });
+  it('출처 — 가공 블록이 없는 재료는 카테고리 기준만 (없는 인용을 만들지 않는다)', () => {
+    expect(machinabilitySources(mk({}))).toEqual(machinabilitySources(mk({ profiles: {} })));
+  });
 });

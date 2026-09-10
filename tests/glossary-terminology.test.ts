@@ -198,8 +198,9 @@ describe('§3.1 확장 — 공정노트·인사이트·코팅·프로파일·스
     };
     for (const [k, b] of Object.entries<any>(readJSON('data/ht-guidance.json').blocks)) scanBlock(b, `ht:${k}`);
     for (const [k, b] of Object.entries<any>(readJSON('data/welding-guidance.json').blocks)) scanBlock(b, `weld:${k}`);
+    // W4-7 — 블록이 {text, sources[]} 로 승격됐다. 검사 대상은 본문 프로즈.
     for (const [k, v] of Object.entries<any>(readJSON('data/machining-guidance.json').guidance)) {
-      bad.push(...violations(String(v), `mach:${k}`));
+      bad.push(...violations(String(v.text ?? v), `mach:${k}`));
     }
     expect(bad, bad.slice(0, 30).join('\n')).toEqual([]);
   });

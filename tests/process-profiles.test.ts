@@ -17,7 +17,7 @@ const readJ = (p: string) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf
 
 const ASSIGN = readJ('data/process-profile-assignments.json');
 const PROFILES = readJ('data/process-profiles.json');
-const GUIDANCE = readJ('data/machining-guidance.json').guidance as Record<string, string>;
+const GUIDANCE = readJ('data/machining-guidance.json').guidance as Record<string, { text: string; sources?: string[] }>;
 const INSIGHTS = readJ('data/selection-insights.json').groups as Record<string, any>;
 const OVERRIDES = readJ('data/process-profile-overrides.json').overrides as Record<string, any>;
 

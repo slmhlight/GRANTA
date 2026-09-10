@@ -17,17 +17,26 @@ import path from 'node:path';
 type Block = { text?: string; note?: string; title?: string; sources?: unknown };
 const load = (f: string) => JSON.parse(fs.readFileSync(path.resolve(`data/${f}.json`), 'utf8'));
 
-const FILES = ['ht-guidance', 'welding-guidance'];
-const ORG = /^(ASTM|ASME|SAE|AMS|AWS|ISO|EN|DIN|JIS|KS|MIL|API|NACE|AMPP|MMPDS|ASM)\b/;
+/* machining-guidance 는 컨테이너 키가 `guidance` 이고, 값이 원래 **문자열**이라
+   sources 를 담을 자리 자체가 없었다(W4-7 잔여). 2026-09-11 에 `{text, sources[]}` 로
+   승격하며 여기 대상에 합류시킨다. */
+const FILES = [
+  { f: 'ht-guidance', container: 'blocks', min: 20 },
+  { f: 'welding-guidance', container: 'blocks', min: 20 },
+  { f: 'machining-guidance', container: 'guidance', min: 20 },
+];
+/* NFPA(가연성 금속 화재)·OSHA(노출 한도)는 규격기관은 아니지만 번호가 붙은 강제 문서이고,
+   Mg 발화·BeCu 분진처럼 '이 권고의 진짜 근거'가 그쪽인 블록이 있어 기관 목록에 넣는다. */
+const ORG = /^(ASTM|ASME|SAE|AMS|AWS|ISO|EN|DIN|JIS|KS|MIL|API|NACE|AMPP|MMPDS|ASM|NFPA|OSHA)\b/;
 
-for (const f of FILES) {
+for (const { f, container, min } of FILES) {
   describe(`W4-7 — ${f}.sources`, () => {
-    const blocks: Record<string, Block> = load(f).blocks ?? {};
+    const blocks: Record<string, Block> = load(f)[container] ?? {};
     const entries = Object.entries(blocks).filter(([k, b]) => !k.startsWith('_') && b && typeof b === 'object');
     const withSrc = entries.filter(([, b]) => b.sources !== undefined);
 
     it('출처를 가진 블록이 실제로 존재한다 (파이프 회귀 검출)', () => {
-      expect(withSrc.length, `${f}: sources 보유 블록 0 — 승격이 사라졌다`).toBeGreaterThan(20);
+      expect(withSrc.length, `${f}: sources 보유 블록이 ${min} 이하 — 승격이 사라졌다`).toBeGreaterThan(min);
     });
 
     it('형태 — 비어있지 않은 문자열 배열이고 각 인용이 기관+번호 꼴이다', () => {
@@ -60,7 +69,7 @@ for (const f of FILES) {
 
     it('본문에 규격명이 있는 블록은 빠짐없이 출처를 갖는다', () => {
       /* 추출을 돌린 뒤 새 블록이 추가되면 여기서 잡힌다 — 규격을 써 놓고 필드를 안 채운 상태. */
-      const STD = /\b(ASTM|ASME|SAE|AMS|AWS|ISO|EN|DIN|JIS|KS|MIL|API|NACE|AMPP|MMPDS|ASM)\b[\s-]?(?:Vol\.|Sec\.)?[A-Z]?\d/;
+      const STD = /\b(ASTM|ASME|SAE|AMS|AWS|ISO|EN|DIN|JIS|KS|MIL|API|NACE|AMPP|MMPDS|ASM|NFPA|OSHA)\b[\s-]?(?:Vol\.|Sec\.)?[A-Z]?\d/;
       const bad = entries
         .filter(([, b]) => b.sources === undefined)
         .filter(([, b]) => STD.test([b.text, b.note, b.title].filter(Boolean).join(' ')))
