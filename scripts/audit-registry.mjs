@@ -70,10 +70,16 @@ const REVIEWED = {
   'Ti Grade 7': 'CP Ti+Pd 비석출경화 — aged≈annealed; SH 가공률 의존',
   'AISI 440C': '마르텐사이트 — 경화 교정(1900/1970); SH 냉간가공 안 함 → annealed',
   'AISI 6150': '스프링강 — SH 냉간가공률 의존; 경화조건은 데이터 공백(별도)',
-  'AISI 1020': '탄소강 — SH=cold-drawn≈annealed; 라벨 아티팩트',
+  /* 'AISI 1020' 은 2026-09-11 제거 — H6 D9 에서 1020 소둔값을 ASM 표로 교정하며 SOFT≡HARD
+     충돌 자체가 사라져 이 예외가 죽은 키가 됐다. 예외는 필요가 없어지면 지운다(A13 교훈). */
   'Inconel 100': '주조 Ni superalloy — 주조+시효 단일조건; annealed/as-forged 라벨 합성(값 정상)',
   'CuNi2SiCr': 'Cu-Ni-Si Corson — Heat-Treated/Solution-Age/Aged 모두 peak-aged 동일조건(정상); solution-only 200/275 별도',
 };
+/* 어떤 REVIEWED 예외가 실제로 발화했는지 — 발화하지 않는 예외는 '죽은 키'다.
+   값을 고쳐 충돌이 사라지면 예외도 같이 지워야 하는데, 안 지우면 다음 사람이 "여긴 원래
+   예외 처리된 곳" 으로 오해한다. A13(위키 엔티티)에서 낡은 하드코딩 제외로 재료 2종이
+   통째로 빠졌던 것과 같은 부류라, 여기서는 수를 세어 게이트가 보게 한다. */
+const reviewedUsed = new Set();
 for (const [b, arr] of Object.entries(byBase)) {
   if (arr.length < 2) continue;
   const byVal = {}; for (const m of arr) { const k = `${rng(m, 'yield_strength')}|${rng(m, 'uts')}`; (byVal[k] = byVal[k] || []).push(m); }
@@ -83,7 +89,7 @@ for (const [b, arr] of Object.entries(byBase)) {
     if (states.size < 2) continue; // 같은 상태끼리 같은 값 = 정상
     const byState = { SOFT: [], HARD: [] }; for (const m of grp) byState[stateOf(m.heat_treatment)].push((m.heat_treatment || '?').slice(0, 20));
     const desc = `σy${rng(grp[0], 'yield_strength')}/UTS${rng(grp[0], 'uts')} — SOFT[${byState.SOFT.join(',')}] ≡ HARD[${byState.HARD.join(',')}]`;
-    if (REVIEWED[b]) add('I2_reviewed', { name: b }, `${desc} → ${REVIEWED[b]}`);
+    if (REVIEWED[b]) { reviewedUsed.add(b); add('I2_reviewed', { name: b }, `${desc} → ${REVIEWED[b]}`); }
     else add('I2_fake_variant', { name: b }, `${desc} (강화상태가 연화값 — 미해결)`);
   }
 }
@@ -107,5 +113,7 @@ fs.writeFileSync('data/registry/audit-report.md', lines.join('\n') + '\n');
 console.log('총 오류:', total, '건 · 검토완료(아티팩트):', rev.length, '건');
 for (const k of order) console.log(`  ${k.padEnd(24)} ${(findings[k] || []).length}`);
 console.log(`  ${'I2_reviewed(비오류)'.padEnd(24)} ${rev.length}`);
+const deadReviewed = Object.keys(REVIEWED).filter((k) => !reviewedUsed.has(k));
+console.log(`죽은 REVIEWED 키: ${deadReviewed.length} 건${deadReviewed.length ? ' — ' + deadReviewed.join(', ') : ''}`);
 // R226f/축2b — 게이트화: 오류 존재 시 exit 1 (HT↔값 공정상태 교차충돌 I2 포함). tests/audit-registry-gate 가 CI 상설화.
 if (total > 0) { console.error(`❌ audit:registry 오류 ${total}건 — data/registry/audit-report.md 확인`); process.exit(1); }
