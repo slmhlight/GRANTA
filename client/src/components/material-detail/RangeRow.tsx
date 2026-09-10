@@ -93,6 +93,14 @@ export function RangeRow({
             vendor minimum 이 typical 과 다를 때 별표 표시 + tooltip 에 출처 명시. */
   const minSpec = (range as { min_spec_value?: number })?.min_spec_value;
   const minSpecSrc = (range as { min_spec_source?: string })?.min_spec_source;
+  /* E4 (H6 W4-1) — 위 min_spec_value 와 다른 축이다.
+     저쪽은 "평균은 따로 있고 보증 최소가 이것"(두 숫자 병기)이고,
+     이쪽 basis='min_spec' 은 **표에 실린 숫자 하나가 곧 규격 하한**이다.
+     표기하지 않으면 한 표 안에서 어떤 행은 평균·어떤 행은 하한이라 비교가 성립하지 않는다. */
+  const isSpecFloor = (range as { basis?: string })?.basis === 'min_spec';
+  /* 인용은 두 경로로 들어온다: min-spec 표 매칭은 basis_source(규격명), 교정 경로는
+     provenance("교정: AMS 5662 RT 최소 …"). 둘 중 있는 것을 쓴다 — 인용 없는 floor 는 없어야 한다. */
+  const specFloorSrc = (range as { basis_source?: string })?.basis_source ?? prov;
   // R48c — price 표시는 formatPrice 사용 — typical 만 항상 평가. range min/max 는 hasRange 조건 안에서만
   //        (이전: range null 인 5 flat-only properties 클릭 시 range!.min eager 평가로 crash).
   const typicalStr = isPrice && sys ? formatPrice(typical, lang, sys, priceUnit) : `${fmt(typical)}`;
@@ -124,6 +132,18 @@ export function RangeRow({
         )}
         {badge && !isFactorRow && (
           <span className={`ml-1 text-[10px] ${badge.cls}`} title={prov ? `${badge.tip}\n출처: ${prov}` : badge.tip}>{badge.label}</span>
+        )}
+        {/* E4 — 이 값 자체가 규격 하한임을 명시 (평균값 행과 섞이지 않도록) */}
+        {isSpecFloor && (
+          <span
+            className="ml-1 text-[10px] px-1 py-px rounded bg-sky-100 text-sky-800 border border-sky-300 font-medium"
+            title={`이 값은 평균이 아니라 **규격 보증 최소값(floor)** 입니다.${specFloorSrc ? `
+근거 규격: ${specFloorSrc}` : ''}
+
+실제 재료는 대개 이보다 높습니다. 평균값 행과 직접 비교하지 마세요 — 안전 임계 설계에는 이 값을 쓰는 것이 맞습니다.`}
+          >
+            spec min
+          </span>
         )}
         {/* R139b — min spec (vendor 보증) vs typical (ASM) 차이 표시 */}
         {minSpec != null && typeof typical === 'number' && Math.abs(minSpec - typical) > typical * 0.15 && (

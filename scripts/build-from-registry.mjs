@@ -222,7 +222,14 @@ for (const m of all) {
   if (!sp) continue;
   for (const [prop, min] of Object.entries(sp.min)) {
     const r = m.ranges?.[prop];
-    if (r && typeof r.typical === 'number' && Math.abs(r.typical - min) <= min * 0.02 && !r.basis) { r.basis = 'min_spec'; basisStamped++; }
+    /* E4 (H6 W4-1) — 규격 인용(std)도 같이 스탬프. 이전엔 basis 만 찍어서 UI 가
+       "이 값은 규격 최소값" 이라고 말할 수는 있어도 **어느 규격인지** 댈 수 없었다
+       (실측: basis='min_spec' 116건 중 113건이 provenance 없음). std 는 min-spec 표에 전건 존재. */
+    if (r && typeof r.typical === 'number' && Math.abs(r.typical - min) <= min * 0.02 && !r.basis) {
+      r.basis = 'min_spec';
+      if (sp.std) r.basis_source = sp.std;
+      basisStamped++;
+    }
   }
 }
 

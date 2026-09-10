@@ -129,3 +129,33 @@ describe('E5 — Designations UNS 분리', () => {
     expect(txt).not.toMatch(/UNS/);
   });
 });
+
+
+/*
+ * E4 (H6 W4-1) — 규격 하한 배지. RangeRow 는 Properties 탭(기본 탭)에서 렌더된다.
+ */
+describe('E4 — 규격 하한(spec min) 배지', () => {
+  it('basis=min_spec 행에 배지가 뜨고 툴팁이 규격을 인용한다', () => {
+    const m = mkMaterial({
+      name: 'AISI 304 — Annealed', tier: 'verified',
+      ranges: {
+        yield_strength: { typical: 205, min: 205, max: 205, basis: 'min_spec', basis_source: 'ASTM A240/A240M' },
+      } as unknown as R,
+    } as never);
+    const { container } = render(<MaterialDetail {...baseProps} material={m} />);
+    const badge = [...container.querySelectorAll('span')].find((e) => e.textContent === 'spec min');
+    expect(badge, 'spec min 배지가 렌더되지 않았다').toBeTruthy();
+    const tip = badge!.getAttribute('title') || '';
+    expect(tip).toContain('ASTM A240/A240M');
+    expect(tip).toMatch(/최소값|floor/);
+  });
+
+  it('평균값 행에는 배지를 그리지 않는다', () => {
+    const m = mkMaterial({
+      name: 'Plain', tier: 'verified',
+      ranges: { yield_strength: { typical: 290, min: 250, max: 330 } } as unknown as R,
+    } as never);
+    const { container } = render(<MaterialDetail {...baseProps} material={m} />);
+    expect([...container.querySelectorAll('span')].some((e) => e.textContent === 'spec min')).toBe(false);
+  });
+});

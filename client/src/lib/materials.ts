@@ -180,6 +180,17 @@ export interface PropertyRange {
   min_spec_value?: number;
   /** R139b — min_spec 출처 (예: "AMS 6512", "EN 10025-2", "ASTM A553"). */
   min_spec_source?: string;
+  /**
+   * R226h/축4a · E4 — **typical 값 자체의 성격**. 'min_spec' = 이 값이 평균이 아니라
+   * 규격이 보증하는 **최소값(floor)** 이다(min-spec 표 매칭 + typical 이 spec-min ±2%).
+   *
+   * `min_spec_value` 와 다르다: 저쪽은 "평균은 따로 있고 보증 최소가 이것" 이라 두 숫자를 병기하지만,
+   * 이쪽은 **표에 실린 숫자 하나가 곧 하한**이다. 표기하지 않으면 같은 표 안에서 어떤 행은 평균,
+   * 어떤 행은 하한이 되어 재료 간 비교가 성립하지 않는다.
+   */
+  basis?: 'min_spec';
+  /** E4 — basis 의 근거 규격 (예: "ASTM A240/A240M", "EN 10025-2"). min-spec 표의 std. */
+  basis_source?: string;
 }
 
 /** A provenance entry — verified datasheet URL or honest generic reference. */
