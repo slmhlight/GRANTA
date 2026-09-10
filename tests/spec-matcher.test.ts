@@ -1,6 +1,8 @@
 /* R144c — Spec extractor tests. */
 import { describe, expect, it } from 'vitest';
-import { extractSpecs, specMatches } from '../client/src/lib/spec-matcher';
+import { extractSpecs, specMatches, splitDesignations, isUnsDesignation, unsNumber } from '../client/src/lib/spec-matcher';
+import fs from 'node:fs';
+import path from 'node:path';
 
 describe('extractSpecs', () => {
   it('extracts AMS', () => {
@@ -70,5 +72,56 @@ describe('specMatches', () => {
   it('handles empty', () => {
     expect(specMatches(undefined, 'AMS 5662')).toBe(false);
     expect(specMatches([], 'AMS 5662')).toBe(false);
+  });
+});
+
+
+/*
+ * E5 (H6 W4-3a) — Designations 분리.
+ * UNS 는 조성으로 정의된 합금 통일 번호라 "같은 합금"을 보증하고, 나머지 별칭은
+ * 지역 규격명·상품명·근사대응이라 신뢰도가 다르다. 형태로 가르는 순수함수를 고정한다.
+ */
+describe('splitDesignations (E5)', () => {
+  it('UNS 형태를 접두어 유무와 무관하게 인식한다', () => {
+    expect(isUnsDesignation('UNS S30403')).toBe(true);
+    expect(isUnsDesignation('S30403')).toBe(true);
+    expect(isUnsDesignation('uns n07718')).toBe(true);
+    expect(unsNumber('UNS S30403')).toBe('S30403');
+    expect(unsNumber('s30403')).toBe('S30403');
+  });
+
+  it('다른 규격 표기를 UNS 로 오인하지 않는다', () => {
+    for (const x of ['SUS316L', 'X5CrNi18-10', '1.4301', 'S45C', 'SM490', 'A36', '≈ SS400', 'ADC12', 'AMS 5662'])
+      expect(isUnsDesignation(x), x).toBe(false);
+  });
+
+  it('UNS 와 그 외로 가르고 순서를 유지한다', () => {
+    const r = splitDesignations(['SUS316L', 'UNS S31603', 'X2CrNiMo17-12-2', 'S31603']);
+    expect(r.uns).toEqual(['S31603']);                       // 접두어 유무 중복은 1회만
+    expect(r.other).toEqual(['SUS316L', 'X2CrNiMo17-12-2']);  // 원본 순서 유지
+  });
+
+  it('빈 입력·null 을 견딘다', () => {
+    expect(splitDesignations(undefined)).toEqual({ uns: [], other: [] });
+    expect(splitDesignations([])).toEqual({ uns: [], other: [] });
+  });
+
+  it('코퍼스 전량: 어떤 별칭도 사라지지 않는다', () => {
+    const raw = JSON.parse(fs.readFileSync(path.resolve('client/public/materials.json'), 'utf8'));
+    const all: Array<{ name: string; aliases?: string[] }> = Array.isArray(raw) ? raw : raw.materials;
+    const bad: string[] = [];
+    let withUns = 0;
+    for (const m of all) {
+      const a = m.aliases ?? [];
+      if (!a.length) continue;
+      const { uns, other } = splitDesignations(a);
+      if (uns.length) withUns++;
+      /* 분리 후 개수는 원본 이하 (UNS 중복 제거분만 줄어든다) */
+      if (uns.length + other.length > a.length) bad.push(`${m.name}: ${a.length} → ${uns.length}+${other.length}`);
+      /* other 는 원본에 실제로 있던 문자열이어야 한다 */
+      for (const o of other) if (!a.includes(o)) bad.push(`${m.name}: other 에 원본에 없는 값 ${o}`);
+    }
+    expect(bad, `별칭 손실/변형 ${bad.length}건 — ${bad.slice(0, 10).join(' | ')}`).toEqual([]);
+    expect(withUns, 'UNS 보유 재료가 300 미만 — 분리가 동작하지 않는다').toBeGreaterThan(300);
   });
 });

@@ -84,3 +84,48 @@ describe('MaterialDetail — generic 경고 & 빈 행 정리 (C-9 / C-16 / C-11)
     expect(container.textContent).toContain('기계적 물성');
   });
 });
+
+
+/*
+ * E5 (H6 W4-3a) — Designations 카드에서 UNS 를 다른 별칭과 분리 렌더.
+ * Designations 카드는 Process 탭에 있고 radix 가 기본으로 마운트하지 않으므로 controlled prop(tab)으로 직접 연다.
+ */
+describe('E5 — Designations UNS 분리', () => {
+  const m = mkMaterial({
+    name: 'AISI 316L (AM)', tier: 'verified',
+    ranges: { density: { typical: 8.0 } } as R,
+    aliases: ['UNS S31603', 'EN 1.4404', 'JIS SUS316L', 'S31603'],
+  } as never);
+
+  it('UNS 는 전용 그룹 라벨 + 정규화된 번호로, 나머지는 별도 줄로 렌더된다', () => {
+    const { container } = render(
+      <MaterialDetail {...baseProps} material={m} tab="process" onTabChange={vi.fn()} />
+    );
+    const txt = container.textContent || '';
+    expect(txt).toContain('Designations');
+    // UNS 그룹 라벨 + 번호 (접두어 중복 'UNS S31603'/'S31603' 은 하나로)
+    expect((txt.match(/S31603/g) || []).length).toBe(1);
+    // 나머지 별칭은 그대로 남는다
+    expect(txt).toContain('EN 1.4404');
+    expect(txt).toContain('JIS SUS316L');
+    // UNS 번호가 UNS 배지 색으로 렌더 (다른 별칭의 중립 배지와 구분)
+    const amber = [...container.querySelectorAll('span[style]')].filter((e) =>
+      (e.getAttribute('style') || '').includes('253, 230, 138') ||       // #fde68a rgb
+      (e.getAttribute('style') || '').toLowerCase().includes('#fde68a'));
+    expect(amber.length, 'UNS 전용 스타일 배지가 없다').toBeGreaterThan(0);
+  });
+
+  it('UNS 가 없는 재료는 UNS 그룹을 그리지 않는다', () => {
+    const noUns = mkMaterial({
+      name: 'Plain', tier: 'verified',
+      ranges: { density: { typical: 7.8 } } as R,
+      aliases: ['JIS SS400', '≈ A36'],
+    } as never);
+    const { container } = render(
+      <MaterialDetail {...baseProps} material={noUns} tab="process" onTabChange={vi.fn()} />
+    );
+    const txt = container.textContent || '';
+    expect(txt).toContain('JIS SS400');
+    expect(txt).not.toMatch(/UNS/);
+  });
+});

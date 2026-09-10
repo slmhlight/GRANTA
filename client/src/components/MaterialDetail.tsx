@@ -38,6 +38,7 @@ import { RecText, joinRecs } from '@/components/material-detail/RecText';
 import { useT, useLang } from '@/lib/i18n';
 import { familyColor, CONFIDENCE, CONFIDENCE_ORDER } from '@/lib/material-colors';
 import { formatPrice, loadUnitSystem } from '@/lib/unit-convert';
+import { splitDesignations, SPEC_ORG_META } from '@/lib/spec-matcher';
 import { useState as useStateRD, useEffect as useEffectRD, useMemo as useMemoRD, useRef as useRefRD, lazy as lazyRD, Suspense as SuspenseRD, type PointerEvent as ReactPointerEvent, type ReactNode } from 'react';
 import { RadarChart, RadarConfig, DEFAULT_RADAR_AXES, type RadarAxis, type NormalizeBase } from '@/components/RadarChart';
 
@@ -1024,15 +1025,41 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
               />
             )}
             {/* R148 / R161 — 유사 · 대체 재료 추천 Composition tab 으로 이동. 여기는 빈 자리. */}
-            {material.aliases && material.aliases.length > 0 && (
-              <Field label="Designations / a.k.a. (ISO·ASTM·JIS·DIN·KS·UNS)">
-                <div className="flex flex-wrap gap-1">
-                  {material.aliases.map((a) => (
-                    <span key={a} className="text-[10px] px-1.5 py-0.5 rounded bg-muted border border-border/40 font-mono">{a}</span>
-                  ))}
-                </div>
-              </Field>
-            )}
+            {material.aliases && material.aliases.length > 0 && (() => {
+              /* E5 (H6 W4-3a) — UNS 를 다른 별칭과 분리. UNS 는 조성으로 정의된 '같은 합금' 보증이고,
+                 나머지는 지역 규격명·상품명·근사대응('≈')이라 신뢰도가 다르다 — 같은 모양으로 늘어놓지 않는다. */
+              const { uns, other } = splitDesignations(material.aliases);
+              return (
+                <Field label="Designations / a.k.a. (ISO·ASTM·JIS·DIN·KS·UNS)">
+                  <div className="flex flex-col gap-1.5">
+                    {uns.length > 0 && (
+                      <div className="flex flex-wrap items-center gap-1">
+                        <span
+                          className="text-[9px] px-1 py-0.5 rounded font-semibold tracking-wide"
+                          style={{ color: SPEC_ORG_META.UNS.color, background: SPEC_ORG_META.UNS.bg }}
+                          title={SPEC_ORG_META.UNS.description}
+                        >UNS</span>
+                        {uns.map((u) => (
+                          <span
+                            key={u}
+                            className="text-[10px] px-1.5 py-0.5 rounded font-mono border"
+                            style={{ color: SPEC_ORG_META.UNS.color, background: SPEC_ORG_META.UNS.bg, borderColor: SPEC_ORG_META.UNS.color + '55' }}
+                            title="Unified Numbering System — 조성으로 정의된 합금 통일 번호"
+                          >{u}</span>
+                        ))}
+                      </div>
+                    )}
+                    {other.length > 0 && (
+                      <div className="flex flex-wrap gap-1">
+                        {other.map((a) => (
+                          <span key={a} className="text-[10px] px-1.5 py-0.5 rounded bg-muted border border-border/40 font-mono">{a}</span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </Field>
+              );
+            })()}
             {material.families && material.families.length > 0 && (
               <Field label="Families">
                 <div className="flex flex-wrap gap-1">

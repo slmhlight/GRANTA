@@ -179,3 +179,47 @@ export function specMatches(specs: SpecRef[] | undefined, query: string): boolea
   }
   return false;
 }
+
+/*
+ * E5 (H6 W4-3a) — Designations 카드에서 UNS 를 다른 별칭과 시각적으로 분리.
+ *
+ * aliases[] 에는 성격이 다른 두 가지가 섞여 있다:
+ *   · UNS 번호 — 조성으로 정의된 **통일 합금 번호**(S30403 = 304L). 전 세계 단일 키.
+ *   · 그 외 별칭 — 지역 규격명(SUS316L·X5CrNi18-10)·상품명·근사대응('≈ SS400').
+ * 앞의 것은 "같은 합금임을 보증"하고 뒤의 것은 "비슷하거나 대응한다"라서, 한 줄에 같은
+ * 모양으로 늘어놓으면 신뢰도가 다른 정보가 같아 보인다. 형태로 갈라서 표시한다.
+ *
+ * UNS 형태 = 문자 1 + 숫자 5 (S30400·N07718·A96061·C11000). 'UNS ' 접두어는 선택 —
+ * 코퍼스 실측상 접두어 없는 24종(C11000·S30100 등)도 전부 실제 UNS 번호였다.
+ * 이 형태는 다른 규격과 충돌하지 않는다(JIS SUS304·DIN 1.4301·JIS S45C 모두 불일치).
+ */
+const UNS_DESIGNATION = /^(?:UNS\s*)?([A-Z]\d{5})$/i;
+
+/** 별칭 하나가 UNS 번호 형태인가. */
+export function isUnsDesignation(alias: string | null | undefined): boolean {
+  return UNS_DESIGNATION.test(String(alias ?? '').trim());
+}
+
+/** UNS 번호 부분만 정규화해 돌려준다("UNS S30403" → "S30403"). UNS 가 아니면 null. */
+export function unsNumber(alias: string | null | undefined): string | null {
+  const m = UNS_DESIGNATION.exec(String(alias ?? '').trim());
+  return m ? m[1].toUpperCase() : null;
+}
+
+/**
+ * aliases[] 를 UNS 와 그 외로 가른다. 순서는 원본 유지, 중복 UNS 는 정규화 후 1회만.
+ * **어떤 별칭도 버리지 않는다** — uns.length + other.length 는 입력 개수와 같거나(중복 제거분만) 작다.
+ */
+export function splitDesignations(aliases: readonly string[] | null | undefined): { uns: string[]; other: string[] } {
+  const uns: string[] = [];
+  const other: string[] = [];
+  const seen = new Set<string>();
+  for (const a of aliases ?? []) {
+    const n = unsNumber(a);
+    if (n === null) { other.push(a); continue; }
+    if (seen.has(n)) continue;   // "UNS S30403" 과 "S30403" 은 같은 번호
+    seen.add(n);
+    uns.push(n);
+  }
+  return { uns, other };
+}
