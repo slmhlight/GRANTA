@@ -302,6 +302,24 @@ for (const m of all) {
 }
 if (confDowngraded) console.log(`  신뢰도 하향(provenance 정합): ${confDowngraded} range — 계열 폴백 값에 붙어 있던 handbook/measured 라벨`);
 
+/* 1e) W4-2b (C-1) — 죽은 필드 `spec_type` 제거.
+ *
+ * R139b 는 값의 성격을 typical/min_spec/max_spec 로 나누려던 설계였는데, 실제로 찍힌 것은
+ * **47 range 전부 'typical'** 한 값뿐이고 읽는 코드가 없다(쓰는 곳은 동결된 build-materials 1곳).
+ * 정보량이 0 인 필드가 산출물에 실려 나가고 있었다.
+ *
+ * 값의 성격은 E4 에서 도입한 `basis`('min_spec' = 이 숫자가 곧 규격 하한)가 담당한다 —
+ * 그쪽은 실제로 116 range 에 붙고 UI 가 배지로 읽는다. spec_type 은 그 역할을 넘기고 은퇴한다.
+ * 레지스트리(SSOT)는 건드리지 않는다 — 산출물에서만 뺀다.
+ */
+let specTypeDropped = 0;
+for (const m of all) {
+  for (const r of Object.values(m.ranges || {})) {
+    if (r && typeof r === 'object' && 'spec_type' in r) { delete r.spec_type; specTypeDropped++; }
+  }
+}
+if (specTypeDropped) console.log(`  죽은 필드 제거: spec_type ${specTypeDropped} range (정보량 0 — 값 성격은 basis 가 담당)`);
+
 // 2) anomaly 재검출 — lib/anomalies.mjs 공유 (build-materials 와 동일 로직; 최종 데이터 기준 검출이 canonical)
 const anomalies = detectAnomalies(all);
 const sevCount = { high: 0, med: 0, low: 0 };

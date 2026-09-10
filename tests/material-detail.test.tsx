@@ -204,3 +204,52 @@ describe('E6 — ≈ 근사대응 분리', () => {
     expect(container.textContent || '').not.toContain('≈ 근사');
   });
 });
+
+
+/*
+ * W4-2b — 미노출 데이터 렌더. 둘 다 Process 탭(meta 영역)에 있다.
+ */
+describe('W4-2b — meta 미노출 데이터', () => {
+  it('meta.limitations 가 주의 카드로 렌더된다', () => {
+    const m = mkMaterial({
+      name: 'Zirconia (Y-TZP)', tier: 'verified', category: 'Ceramic',
+      ranges: { density: { typical: 6.0 } } as R,
+      meta: { limitations: '200-300°C 저온 열화(LTD) 가능 — 수증기 노출 시 t→m 변환' },
+    } as never);
+    const { container } = render(
+      <MaterialDetail {...baseProps} material={m} tab="process" onTabChange={vi.fn()} />
+    );
+    const txt = container.textContent || '';
+    expect(txt).toContain('사용 한계');
+    expect(txt).toContain('저온 열화');
+  });
+
+  it('복합재 적층 정보(Vf · 적층 방향)가 렌더된다', () => {
+    const m = mkMaterial({
+      name: 'CFRP — T300/Epoxy (UD 0°)', tier: 'verified', category: 'Composite',
+      ranges: { density: { typical: 1.58 } } as R,
+      meta: { fiber_vf: 0.6, ply_direction: 'UD 0°' },
+    } as never);
+    const { container } = render(
+      <MaterialDetail {...baseProps} material={m} tab="process" onTabChange={vi.fn()} />
+    );
+    const txt = container.textContent || '';
+    expect(txt).toContain('Vf');
+    expect(txt).toContain('60%');          // 0.6 → 60%
+    expect(txt).toContain('UD 0°');
+  });
+
+  it('해당 데이터가 없으면 카드를 그리지 않는다', () => {
+    const m = mkMaterial({
+      name: 'Plain', tier: 'verified',
+      ranges: { density: { typical: 7.8 } } as R,
+      meta: {},
+    } as never);
+    const { container } = render(
+      <MaterialDetail {...baseProps} material={m} tab="process" onTabChange={vi.fn()} />
+    );
+    const txt = container.textContent || '';
+    expect(txt).not.toContain('사용 한계');
+    expect(txt).not.toContain('Layup');
+  });
+});

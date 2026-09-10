@@ -1140,6 +1140,32 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
               </Field>
             )}
             {meta.applications && <Field label="Applications">{String(meta.applications)}</Field>}
+            {/* W4-2b (C-4) — 복합재 적층 정보. 섬유 체적분율·적층 방향이 바뀌면 같은 소재라도
+                물성이 통째로 달라진다(UD 0° 와 quasi-iso 는 다른 재료에 가깝다). 데이터는 있는데
+                표시가 없어서, 표의 숫자가 **어느 적층 기준인지** 알 수 없었다. */}
+            {(meta.fiber_vf != null || meta.ply_direction) && (
+              <Field label="Layup / 적층">
+                <span className="flex flex-wrap items-center gap-2">
+                  {meta.fiber_vf != null && (
+                    <span className="text-[11px]" title="섬유 체적분율 (Vf) — 이 값이 다르면 강성·강도가 비례해 달라집니다.">
+                      Vf <b className="font-mono">{(Number(meta.fiber_vf) * 100).toFixed(0)}%</b>
+                    </span>
+                  )}
+                  {meta.ply_direction && (
+                    <span className="text-[10px] px-1.5 py-0.5 rounded bg-indigo-50 text-indigo-800 border border-indigo-200 font-mono" title="적층 방향 — 표의 물성은 이 방향 기준입니다. 방향이 다르면 값이 크게 달라집니다.">
+                      {String(meta.ply_direction)}
+                    </span>
+                  )}
+                </span>
+              </Field>
+            )}
+            {/* W4-2b (C-3) — 재료 자체의 한계·주의. 세라믹의 열충격 한계·지르코니아 저온열화처럼
+                "이 값을 쓸 때 걸리는 조건" 이라, 물성표만 보고 고르면 놓치는 정보다. */}
+            {meta.limitations && (
+              <div className="mt-2 rounded border border-amber-400/40 bg-amber-50/60 p-2 text-[11px] leading-relaxed">
+                <b className="text-amber-700">⚠ 사용 한계 · 주의:</b> {String(meta.limitations)}
+              </div>
+            )}
             {(meta.anisotropy || meta.anisotropic) && (
               <div className={`mt-2 rounded border p-2 text-[12px] leading-relaxed ${meta.anisotropy_reduced ? 'border-emerald-400/40 bg-emerald-50/60' : 'border-amber-400/40 bg-amber-50/60'}`}>
                 <b className={meta.anisotropy_reduced ? 'text-emerald-700' : 'text-amber-700'}>{meta.anisotropy_reduced ? 'ℹ HIP 처리 — 이방성 감소:' : '⚠ AM 이방성 주의:'}</b> {String(meta.anisotropy_note || 'AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로가 ~10–30% 차이날 수 있습니다. 데이터시트의 방향·후처리(HIP·열처리) 조건을 반드시 확인하세요.')}
