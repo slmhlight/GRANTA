@@ -21,7 +21,8 @@ const articles = rd('data/glossary-articles.json').articles;
  * H4f-D: P7a/P7c/H4e-B 신설 계열 페이지(carbon-steel·alloy-steel·aluminum-alloy·copper-alloy·
  * titanium-alloy·refractory-metal·cobalt-alloy·magnesium-alloy·gray-cast-iron 등) 반영 —
  * 매핑 누락으로 '미커버 126' 과다집계되던 버그 수정. */
-const SUBCAT_TO_SLUG = {
+/* A13 — 게이트가 같은 정의를 쓰도록 export. 테스트가 매핑을 재구현하면 두 정의가 갈라진다. */
+export const SUBCAT_TO_SLUG = {
   'Stainless Steel - Austenitic': 'stainless-steel',
   'Stainless Steel - Ferritic/Martensitic': 'stainless-steel',
   'Stainless Steel - Duplex': 'duplex-stainless-steel',
@@ -141,6 +142,11 @@ const SUBCAT_TO_SLUG = {
   'Polymer - PP (FDM)': 'commodity-polymer',
   'Polymer - Elastomer NBR': 'elastomer',
   'Polymer - Elastomer HNBR': 'elastomer',
+  /* A13 — H6 W3-10 에서 추가한 두 종. NBR·HNBR 과 같은 자리다.
+     FKM 은 불소계지만 `fluoropolymer`(PTFE·PVDF·ETFE — 단단한 불소수지)가 아니라 `elastomer` 로 둔다:
+     같은 불소라도 거동은 고무이고, 강성 기준으로 PTFE 옆에 놓으면 오해가 생긴다. */
+  'Polymer - Elastomer EPDM': 'elastomer',
+  'Polymer - Elastomer FKM': 'elastomer',
   'Glass-ceramic': 'oxide-ceramic',
   'Glass': 'oxide-ceramic',
   'UHTC': 'non-oxide-ceramic',
@@ -160,49 +166,55 @@ const SUBCAT_TO_SLUG = {
   'Carbon-Cyanate': 'cfrp',
 };
 
-const bySubcat = new Map();
-for (const m of materials) {
-  const sc = `${m.category} / ${m.subcategory || '(none)'}`;
-  if (!bySubcat.has(sc)) bySubcat.set(sc, []);
-  bySubcat.get(sc).push(m);
-}
+/* 테스트는 SUBCAT_TO_SLUG 만 import 한다 — 직접 실행일 때만 리포트를 쓴다(import 부수효과 금지,
+   scripts/gen-guide-index.mjs 와 같은 규약). */
+const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (isMain) {
+  const bySubcat = new Map();
+  for (const m of materials) {
+    const sc = `${m.category} / ${m.subcategory || '(none)'}`;
+    if (!bySubcat.has(sc)) bySubcat.set(sc, []);
+    bySubcat.get(sc).push(m);
+  }
 
-const famTerms = Object.entries(glossary.terms).filter(([, t]) => t.category === 'alloy-family');
+  const famTerms = Object.entries(glossary.terms).filter(([, t]) => t.category === 'alloy-family');
 
-const md = [];
-md.push('# 분류 완결 감사 리포트 (자동 생성 — audit-family-coverage.mjs)');
-md.push('');
-md.push(`> DB subcategory ${bySubcat.size} ↔ 글로서리 alloy-family ${famTerms.length}. (a)=페이지 없는 계열(후보), (b)=글로서리만 있고 DB 빈약.`);
-md.push('');
-md.push('## (a) DB subcategory 전수 — 글로서리 계열 페이지 유무');
-md.push('');
-md.push('| subcategory | entry 수 | 글로서리 | A4 문서 |');
-md.push('|---|---|---|---|');
-const rows = [...bySubcat.entries()].sort((a, b) => b[1].length - a[1].length);
-// subcategory 에 ' / ' 가 포함될 수 있어(예: 'Titanium - Pure / CP Grades') 첫 구분자만 소비
-const subOf = (sc) => sc.slice(sc.indexOf(' / ') + 3);
-for (const [sc, list] of rows) {
-  const sub = subOf(sc);
-  const slug = SUBCAT_TO_SLUG[sub] || null;
-  const hasTerm = slug && glossary.terms[slug] ? slug : '';
-  const hasArt = slug && articles[slug] ? '✓' : '';
-  md.push(`| ${sc} | ${list.length} | ${hasTerm || '**—**'} | ${hasArt} |`);
-}
-md.push('');
-md.push('## (b) 글로서리 alloy-family 용어별 DB 근거');
-md.push('');
-md.push('| slug | display | A4 | 비고 |');
-md.push('|---|---|---|---|');
-for (const [slug, t] of famTerms) {
-  md.push(`| ${slug} | ${t.display} | ${articles[slug] ? '✓' : '—'} |  |`);
-}
-md.push('');
-md.push('> 후보 판단 기준: entry 수가 많은 미커버 subcategory(상단 — 표) 순으로 alloy-family 용어·문서 신설 검토.');
-md.push('> 백주철(white cast iron)·ADI 는 §5 확정 — Cast Iron subcat 하위로 추가 예정.');
+  const md = [];
+  md.push('# 분류 완결 감사 리포트 (자동 생성 — audit-family-coverage.mjs)');
+  md.push('');
+  md.push(`> DB subcategory ${bySubcat.size} ↔ 글로서리 alloy-family ${famTerms.length}. (a)=페이지 없는 계열(후보), (b)=글로서리만 있고 DB 빈약.`);
+  md.push('');
+  md.push('## (a) DB subcategory 전수 — 글로서리 계열 페이지 유무');
+  md.push('');
+  md.push('| subcategory | entry 수 | 글로서리 | A4 문서 |');
+  md.push('|---|---|---|---|');
+  const rows = [...bySubcat.entries()].sort((a, b) => b[1].length - a[1].length);
+  // subcategory 에 ' / ' 가 포함될 수 있어(예: 'Titanium - Pure / CP Grades') 첫 구분자만 소비
+  const subOf = (sc) => sc.slice(sc.indexOf(' / ') + 3);
+  for (const [sc, list] of rows) {
+    const sub = subOf(sc);
+    const slug = SUBCAT_TO_SLUG[sub] || null;
+    const hasTerm = slug && glossary.terms[slug] ? slug : '';
+    const hasArt = slug && articles[slug] ? '✓' : '';
+    md.push(`| ${sc} | ${list.length} | ${hasTerm || '**—**'} | ${hasArt} |`);
+  }
+  md.push('');
+  md.push('## (b) 글로서리 alloy-family 용어별 DB 근거');
+  md.push('');
+  md.push('| slug | display | A4 | 비고 |');
+  md.push('|---|---|---|---|');
+  for (const [slug, t] of famTerms) {
+    md.push(`| ${slug} | ${t.display} | ${articles[slug] ? '✓' : '—'} |  |`);
+  }
+  md.push('');
+  md.push('> 후보 판단 기준: entry 수가 많은 미커버 subcategory(상단 — 표) 순으로 alloy-family 용어·문서 신설 검토.');
+  md.push('> 백주철(white cast iron)·ADI 는 §5 확정 — Cast Iron subcat 하위로 추가 예정.');
 
-fs.mkdirSync(path.join(ROOT, 'docs/audits'), { recursive: true });
-fs.writeFileSync(path.join(ROOT, 'docs/audits/family-coverage.md'), md.join('\n') + '\n');
-const uncovered = rows.filter(([sc]) => !SUBCAT_TO_SLUG[subOf(sc)]);
-console.log(`audit-family-coverage: subcat ${bySubcat.size} · alloy-family 용어 ${famTerms.length} · 미커버 subcat ${uncovered.length}`);
-console.log('미커버 상위:', uncovered.slice(0, 10).map(([sc, l]) => `${subOf(sc)}(${l.length})`).join(' · '));
-console.log('→ docs/audits/family-coverage.md');
+  fs.mkdirSync(path.join(ROOT, 'docs/audits'), { recursive: true });
+  fs.writeFileSync(path.join(ROOT, 'docs/audits/family-coverage.md'), md.join('\n') + '\n');
+  const uncovered = rows.filter(([sc]) => !SUBCAT_TO_SLUG[subOf(sc)]);
+  console.log(`audit-family-coverage: subcat ${bySubcat.size} · alloy-family 용어 ${famTerms.length} · 미커버 subcat ${uncovered.length}`);
+  console.log('미커버 상위:', uncovered.slice(0, 10).map(([sc, l]) => `${subOf(sc)}(${l.length})`).join(' · '));
+  console.log('→ docs/audits/family-coverage.md');
+
+}

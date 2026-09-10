@@ -58,9 +58,15 @@ function memberForms(entry) {
 
 // 1) 엔티티(스토리 단위) 조립
 const entities = [];
-const DEAD = new Set(['epdm', 'fkm']); // 멤버 0 (문서화된 dead)
+/* A13 — 하드코딩 제외 목록(구 `DEAD = {epdm, fkm}`)을 제거했다.
+ *
+ * 그 목록은 "멤버 0" 이라 넣은 것인데, H6 W3-10 에서 두 스토리를 v2 로 격상하며 **재료에 연결**했다
+ * (epdm→POL-0134 · fkm→POL-0135). 목록만 그대로 남아 두 재료가 위키 상호참조에서 통째로 빠졌고,
+ * wiki_entity·family-coverage 두 감사에 동시에 잡혔다.
+ *
+ * 바로 아래 `if (!members.length) continue` 가 같은 판정을 **데이터로** 한다 — 하드코딩은 중복이면서
+ * 낡을 수 있는 쪽이었다. 멤버가 생기면 자동으로 엔티티가 만들어진다. */
 for (const [key, st] of Object.entries(doc.stories)) {
-  if (DEAD.has(key)) continue;
   const members = st.stable_ids.map((sid) => ({ sid, entry: by[rev[sid]] })).filter((x) => x.entry);
   if (!members.length) continue;
   const rep = pickRep(members);
@@ -141,11 +147,14 @@ for (const e of entities) for (const sf of e.surface_forms) if (sf.autolink) {
   if (!autolinkForms.has(sf.form)) autolinkForms.set(sf.form, e.id);
 }
 const SPLIT = /[\s,.;:()/·\[\]{}"'“”‘’—–…?!°%×+=<>|~]+/;
+const entityIds = new Set(entities.map((e) => e.id));   // A13 — 하드코딩 제외 대신 실제 엔티티 집합
 const backlinks = {}; // entityId → Set(storyKey that mention)
 const sampleEdges = [];
 let edgeCount = 0;
 for (const [key, st] of Object.entries(doc.stories)) {
-  if (DEAD.has(key)) continue;
+  /* A13 — 구 DEAD 제외 제거(위 엔티티 조립부 주석 참조). 백링크는 **엔티티가 만들어진 스토리**만
+     대상으로 하면 되므로, 하드코딩 대신 실제 엔티티 집합으로 판정한다. */
+  if (!entityIds.has(key)) continue;
   const body = [st.display || '', ...(st.sections ? Object.values(st.sections) : []), st.legacy_text || '',
     ...(st.timeline || []).map((e) => e.event)].join(' ');
   const seen = new Set(); // 스토리당 엔티티 1회
