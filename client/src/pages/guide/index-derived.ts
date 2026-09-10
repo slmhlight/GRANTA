@@ -684,3 +684,738 @@ export const HEADING_ENTRIES: GuideIndexEntry[] = [
     "snippet": "Ch.14 재료 family 기본론 (Steel · Al · Ti · Ni · Cu + MMPDS basis + KS grades) › 14.9 MMPDS-08 Steel allowables (AISI 4130, AISI 4340, 8740, 300M, D6AC)"
   }
 ];
+
+/** W4-5 — 용어 slug → 그 용어를 다루는 가이드 챕터. Guide.tsx 본문에서 파생(손으로 적지 않는다). */
+export interface TermChapterRef { ch: string; chapterN: number; chapterLabel: string }
+export const TERM_CHAPTERS: Record<string, TermChapterRef[]> = {
+  "austenite": [
+    {
+      "ch": "ch7",
+      "chapterN": 1,
+      "chapterLabel": "실전 사례 16선"
+    }
+  ],
+  "precipitation-hardening": [
+    {
+      "ch": "ch15",
+      "chapterN": 14,
+      "chapterLabel": "재료 family 기본론 (Steel · Al · Ti · Ni · Cu + MMPDS basis + KS grades)"
+    }
+  ],
+  "work-hardening": [
+    {
+      "ch": "ch15",
+      "chapterN": 14,
+      "chapterLabel": "재료 family 기본론 (Steel · Al · Ti · Ni · Cu + MMPDS basis + KS grades)"
+    }
+  ],
+  "dispersion-strengthening": [
+    {
+      "ch": "ch14",
+      "chapterN": 12,
+      "chapterLabel": "산업 case study 5선"
+    }
+  ],
+  "quenching": [
+    {
+      "ch": "ch1",
+      "chapterN": 4,
+      "chapterLabel": "물성 사전"
+    }
+  ],
+  "tempering": [
+    {
+      "ch": "ch1",
+      "chapterN": 4,
+      "chapterLabel": "물성 사전"
+    }
+  ],
+  "annealing": [
+    {
+      "ch": "ch7",
+      "chapterN": 1,
+      "chapterLabel": "실전 사례 16선"
+    },
+    {
+      "ch": "ch15",
+      "chapterN": 14,
+      "chapterLabel": "재료 family 기본론 (Steel · Al · Ti · Ni · Cu + MMPDS basis + KS grades)"
+    }
+  ],
+  "aging": [
+    {
+      "ch": "ch1",
+      "chapterN": 4,
+      "chapterLabel": "물성 사전"
+    },
+    {
+      "ch": "ch9",
+      "chapterN": 10,
+      "chapterLabel": "AM (적층제조) 특화 주의사항"
+    },
+    {
+      "ch": "ch15",
+      "chapterN": 14,
+      "chapterLabel": "재료 family 기본론 (Steel · Al · Ti · Ni · Cu + MMPDS basis + KS grades)"
+    }
+  ],
+  "carburizing": [
+    {
+      "ch": "ch7",
+      "chapterN": 1,
+      "chapterLabel": "실전 사례 16선"
+    }
+  ],
+  "nitriding": [
+    {
+      "ch": "ch7",
+      "chapterN": 1,
+      "chapterLabel": "실전 사례 16선"
+    },
+    {
+      "ch": "ch1",
+      "chapterN": 4,
+      "chapterLabel": "물성 사전"
+    }
+  ],
+  "toughness": [
+    {
+      "ch": "ch7",
+      "chapterN": 1,
+      "chapterLabel": "실전 사례 16선"
+    },
+    {
+      "ch": "ch1",
+      "chapterN": 4,
+      "chapterLabel": "물성 사전"
+    },
+    {
+      "ch": "ch11",
+      "chapterN": 9,
+      "chapterLabel": "흔한 설계 실수 10선"
+    },
+    {
+      "ch": "ch12",
+      "chapterN": 11,
+      "chapterLabel": "인증·가공·시제품 시험"
+    },
+    {
+      "ch": "ch15",
+      "chapterN": 14,
+      "chapterLabel": "재료 family 기본론 (Steel · Al · Ti · Ni · Cu + MMPDS basis + KS grades)"
+    }
+  ],
+  "ductility": [
+    {
+      "ch": "ch7",
+      "chapterN": 1,
+      "chapterLabel": "실전 사례 16선"
+    },
+    {
+      "ch": "ch1",
+      "chapterN": 4,
+      "chapterLabel": "물성 사전"
+    },
+    {
+      "ch": "ch2",
+      "chapterN": 5,
+      "chapterLabel": "설계 요구를 숫자로 바꾸기 + 안전계수 사전"
+    }
+  ],
+  "brittleness": [
+    {
+      "ch": "ch7",
+      "chapterN": 1,
+      "chapterLabel": "실전 사례 16선"
+    },
+    {
+      "ch": "ch10",
+      "chapterN": 3,
+      "chapterLabel": "합금 family 빠른 매핑 + 환경 조건별 선택"
+    },
+    {
+      "ch": "ch1",
+      "chapterN": 4,
+      "chapterLabel": "물성 사전"
+    },
+    {
+      "ch": "ch2",
+      "chapterN": 5,
+      "chapterLabel": "설계 요구를 숫자로 바꾸기 + 안전계수 사전"
+    },
+    {
+      "ch": "ch11",
+      "chapterN": 9,
+      "chapterLabel": "흔한 설계 실수 10선"
+    },
+    {
+      "ch": "ch9",
+      "chapterN": 10,
+      "chapterLabel": "AM (적층제조) 특화 주의사항"
+    },
+    {
+      "ch": "ch12",
+      "chapterN": 11,
+      "chapterLabel": "인증·가공·시제품 시험"
+    },
+    {
+      "ch": "ch14",
+      "chapterN": 12,
+      "chapterLabel": "산업 case study 5선"
+    }
+  ],
+  "fatigue": [
+    {
+      "ch": "ch7",
+      "chapterN": 1,
+      "chapterLabel": "실전 사례 16선"
+    },
+    {
+      "ch": "ch1",
+      "chapterN": 4,
+      "chapterLabel": "물성 사전"
+    },
+    {
+      "ch": "ch2",
+      "chapterN": 5,
+      "chapterLabel": "설계 요구를 숫자로 바꾸기 + 안전계수 사전"
+    },
+    {
+      "ch": "ch5",
+      "chapterN": 8,
+      "chapterLabel": "응용"
+    },
+    {
+      "ch": "ch11",
+      "chapterN": 9,
+      "chapterLabel": "흔한 설계 실수 10선"
+    },
+    {
+      "ch": "ch9",
+      "chapterN": 10,
+      "chapterLabel": "AM (적층제조) 특화 주의사항"
+    },
+    {
+      "ch": "ch12",
+      "chapterN": 11,
+      "chapterLabel": "인증·가공·시제품 시험"
+    },
+    {
+      "ch": "ch14",
+      "chapterN": 12,
+      "chapterLabel": "산업 case study 5선"
+    },
+    {
+      "ch": "ch8",
+      "chapterN": 13,
+      "chapterLabel": "데이터 해석·datasheet 읽기·출처·단위·FAQ"
+    },
+    {
+      "ch": "ch15",
+      "chapterN": 14,
+      "chapterLabel": "재료 family 기본론 (Steel · Al · Ti · Ni · Cu + MMPDS basis + KS grades)"
+    }
+  ],
+  "creep": [
+    {
+      "ch": "ch14",
+      "chapterN": 12,
+      "chapterLabel": "산업 case study 5선"
+    }
+  ],
+  "fracture-toughness": [
+    {
+      "ch": "ch12",
+      "chapterN": 11,
+      "chapterLabel": "인증·가공·시제품 시험"
+    }
+  ],
+  "hardness": [
+    {
+      "ch": "ch7",
+      "chapterN": 1,
+      "chapterLabel": "실전 사례 16선"
+    },
+    {
+      "ch": "ch1",
+      "chapterN": 4,
+      "chapterLabel": "물성 사전"
+    },
+    {
+      "ch": "ch12",
+      "chapterN": 11,
+      "chapterLabel": "인증·가공·시제품 시험"
+    },
+    {
+      "ch": "ch15",
+      "chapterN": 14,
+      "chapterLabel": "재료 family 기본론 (Steel · Al · Ti · Ni · Cu + MMPDS basis + KS grades)"
+    }
+  ],
+  "yield-strength": [
+    {
+      "ch": "ch1",
+      "chapterN": 4,
+      "chapterLabel": "물성 사전"
+    },
+    {
+      "ch": "ch2",
+      "chapterN": 5,
+      "chapterLabel": "설계 요구를 숫자로 바꾸기 + 안전계수 사전"
+    }
+  ],
+  "tensile-strength": [
+    {
+      "ch": "ch1",
+      "chapterN": 4,
+      "chapterLabel": "물성 사전"
+    },
+    {
+      "ch": "ch9",
+      "chapterN": 10,
+      "chapterLabel": "AM (적층제조) 특화 주의사항"
+    }
+  ],
+  "elastic-modulus": [
+    {
+      "ch": "ch1",
+      "chapterN": 4,
+      "chapterLabel": "물성 사전"
+    },
+    {
+      "ch": "ch2",
+      "chapterN": 5,
+      "chapterLabel": "설계 요구를 숫자로 바꾸기 + 안전계수 사전"
+    },
+    {
+      "ch": "ch9",
+      "chapterN": 10,
+      "chapterLabel": "AM (적층제조) 특화 주의사항"
+    }
+  ],
+  "corrosion-resistance": [
+    {
+      "ch": "ch7",
+      "chapterN": 1,
+      "chapterLabel": "실전 사례 16선"
+    },
+    {
+      "ch": "ch2",
+      "chapterN": 5,
+      "chapterLabel": "설계 요구를 숫자로 바꾸기 + 안전계수 사전"
+    }
+  ],
+  "galvanic": [
+    {
+      "ch": "ch7",
+      "chapterN": 1,
+      "chapterLabel": "실전 사례 16선"
+    },
+    {
+      "ch": "ch10",
+      "chapterN": 3,
+      "chapterLabel": "합금 family 빠른 매핑 + 환경 조건별 선택"
+    },
+    {
+      "ch": "ch11",
+      "chapterN": 9,
+      "chapterLabel": "흔한 설계 실수 10선"
+    }
+  ],
+  "hydrogen-embrittlement": [
+    {
+      "ch": "ch7",
+      "chapterN": 1,
+      "chapterLabel": "실전 사례 16선"
+    }
+  ],
+  "rolling": [
+    {
+      "ch": "ch9",
+      "chapterN": 10,
+      "chapterLabel": "AM (적층제조) 특화 주의사항"
+    }
+  ],
+  "forging": [
+    {
+      "ch": "ch7",
+      "chapterN": 1,
+      "chapterLabel": "실전 사례 16선"
+    },
+    {
+      "ch": "ch9",
+      "chapterN": 10,
+      "chapterLabel": "AM (적층제조) 특화 주의사항"
+    },
+    {
+      "ch": "ch12",
+      "chapterN": 11,
+      "chapterLabel": "인증·가공·시제품 시험"
+    }
+  ],
+  "casting": [
+    {
+      "ch": "ch1",
+      "chapterN": 4,
+      "chapterLabel": "물성 사전"
+    },
+    {
+      "ch": "ch12",
+      "chapterN": 11,
+      "chapterLabel": "인증·가공·시제품 시험"
+    }
+  ],
+  "sintering": [
+    {
+      "ch": "ch9",
+      "chapterN": 10,
+      "chapterLabel": "AM (적층제조) 특화 주의사항"
+    }
+  ],
+  "extrusion": [
+    {
+      "ch": "ch7",
+      "chapterN": 1,
+      "chapterLabel": "실전 사례 16선"
+    },
+    {
+      "ch": "ch15",
+      "chapterN": 14,
+      "chapterLabel": "재료 family 기본론 (Steel · Al · Ti · Ni · Cu + MMPDS basis + KS grades)"
+    }
+  ],
+  "anisotropy": [
+    {
+      "ch": "ch11",
+      "chapterN": 9,
+      "chapterLabel": "흔한 설계 실수 10선"
+    },
+    {
+      "ch": "ch9",
+      "chapterN": 10,
+      "chapterLabel": "AM (적층제조) 특화 주의사항"
+    },
+    {
+      "ch": "ch8",
+      "chapterN": 13,
+      "chapterLabel": "데이터 해석·datasheet 읽기·출처·단위·FAQ"
+    }
+  ],
+  "residual-stress": [
+    {
+      "ch": "ch1",
+      "chapterN": 4,
+      "chapterLabel": "물성 사전"
+    },
+    {
+      "ch": "ch9",
+      "chapterN": 10,
+      "chapterLabel": "AM (적층제조) 특화 주의사항"
+    }
+  ],
+  "porosity": [
+    {
+      "ch": "ch1",
+      "chapterN": 4,
+      "chapterLabel": "물성 사전"
+    },
+    {
+      "ch": "ch11",
+      "chapterN": 9,
+      "chapterLabel": "흔한 설계 실수 10선"
+    },
+    {
+      "ch": "ch9",
+      "chapterN": 10,
+      "chapterLabel": "AM (적층제조) 특화 주의사항"
+    },
+    {
+      "ch": "ch12",
+      "chapterN": 11,
+      "chapterLabel": "인증·가공·시제품 시험"
+    },
+    {
+      "ch": "ch8",
+      "chapterN": 13,
+      "chapterLabel": "데이터 해석·datasheet 읽기·출처·단위·FAQ"
+    }
+  ],
+  "elongation": [
+    {
+      "ch": "ch7",
+      "chapterN": 1,
+      "chapterLabel": "실전 사례 16선"
+    },
+    {
+      "ch": "ch1",
+      "chapterN": 4,
+      "chapterLabel": "물성 사전"
+    },
+    {
+      "ch": "ch2",
+      "chapterN": 5,
+      "chapterLabel": "설계 요구를 숫자로 바꾸기 + 안전계수 사전"
+    },
+    {
+      "ch": "ch9",
+      "chapterN": 10,
+      "chapterLabel": "AM (적층제조) 특화 주의사항"
+    }
+  ],
+  "tool-steel": [
+    {
+      "ch": "ch7",
+      "chapterN": 1,
+      "chapterLabel": "실전 사례 16선"
+    },
+    {
+      "ch": "ch10",
+      "chapterN": 3,
+      "chapterLabel": "합금 family 빠른 매핑 + 환경 조건별 선택"
+    },
+    {
+      "ch": "ch1",
+      "chapterN": 4,
+      "chapterLabel": "물성 사전"
+    }
+  ],
+  "maraging-steel": [
+    {
+      "ch": "ch10",
+      "chapterN": 3,
+      "chapterLabel": "합금 family 빠른 매핑 + 환경 조건별 선택"
+    }
+  ],
+  "tensile-stress": [
+    {
+      "ch": "ch3",
+      "chapterN": 6,
+      "chapterLabel": "단면 모양 도감"
+    }
+  ],
+  "stress-concentration": [
+    {
+      "ch": "ch11",
+      "chapterN": 9,
+      "chapterLabel": "흔한 설계 실수 10선"
+    }
+  ],
+  "duplex-stainless-steel": [
+    {
+      "ch": "ch7",
+      "chapterN": 1,
+      "chapterLabel": "실전 사례 16선"
+    }
+  ],
+  "nickel-superalloy": [
+    {
+      "ch": "ch7",
+      "chapterN": 1,
+      "chapterLabel": "실전 사례 16선"
+    },
+    {
+      "ch": "ch10",
+      "chapterN": 3,
+      "chapterLabel": "합금 family 빠른 매핑 + 환경 조건별 선택"
+    },
+    {
+      "ch": "ch1",
+      "chapterN": 4,
+      "chapterLabel": "물성 사전"
+    },
+    {
+      "ch": "ch9",
+      "chapterN": 10,
+      "chapterLabel": "AM (적층제조) 특화 주의사항"
+    }
+  ],
+  "carbon-steel": [
+    {
+      "ch": "ch7",
+      "chapterN": 1,
+      "chapterLabel": "실전 사례 16선"
+    },
+    {
+      "ch": "ch10",
+      "chapterN": 3,
+      "chapterLabel": "합금 family 빠른 매핑 + 환경 조건별 선택"
+    },
+    {
+      "ch": "ch11",
+      "chapterN": 9,
+      "chapterLabel": "흔한 설계 실수 10선"
+    },
+    {
+      "ch": "ch12",
+      "chapterN": 11,
+      "chapterLabel": "인증·가공·시제품 시험"
+    },
+    {
+      "ch": "ch15",
+      "chapterN": 14,
+      "chapterLabel": "재료 family 기본론 (Steel · Al · Ti · Ni · Cu + MMPDS basis + KS grades)"
+    }
+  ],
+  "alloy-steel": [
+    {
+      "ch": "ch7",
+      "chapterN": 1,
+      "chapterLabel": "실전 사례 16선"
+    },
+    {
+      "ch": "ch1",
+      "chapterN": 4,
+      "chapterLabel": "물성 사전"
+    },
+    {
+      "ch": "ch8",
+      "chapterN": 13,
+      "chapterLabel": "데이터 해석·datasheet 읽기·출처·단위·FAQ"
+    },
+    {
+      "ch": "ch15",
+      "chapterN": 14,
+      "chapterLabel": "재료 family 기본론 (Steel · Al · Ti · Ni · Cu + MMPDS basis + KS grades)"
+    }
+  ],
+  "aluminum-alloy": [
+    {
+      "ch": "ch1",
+      "chapterN": 4,
+      "chapterLabel": "물성 사전"
+    }
+  ],
+  "cobalt-alloy": [
+    {
+      "ch": "ch7",
+      "chapterN": 1,
+      "chapterLabel": "실전 사례 16선"
+    }
+  ],
+  "magnesium-alloy": [
+    {
+      "ch": "ch7",
+      "chapterN": 1,
+      "chapterLabel": "실전 사례 16선"
+    }
+  ],
+  "galling": [
+    {
+      "ch": "ch15",
+      "chapterN": 14,
+      "chapterLabel": "재료 family 기본론 (Steel · Al · Ti · Ni · Cu + MMPDS basis + KS grades)"
+    }
+  ],
+  "graphite": [
+    {
+      "ch": "ch7",
+      "chapterN": 1,
+      "chapterLabel": "실전 사례 16선"
+    },
+    {
+      "ch": "ch10",
+      "chapterN": 3,
+      "chapterLabel": "합금 family 빠른 매핑 + 환경 조건별 선택"
+    }
+  ],
+  "hardenability": [
+    {
+      "ch": "ch15",
+      "chapterN": 14,
+      "chapterLabel": "재료 family 기본론 (Steel · Al · Ti · Ni · Cu + MMPDS basis + KS grades)"
+    }
+  ],
+  "polyamide": [
+    {
+      "ch": "ch11",
+      "chapterN": 9,
+      "chapterLabel": "흔한 설계 실수 10선"
+    }
+  ],
+  "oxide-ceramic": [
+    {
+      "ch": "ch10",
+      "chapterN": 3,
+      "chapterLabel": "합금 family 빠른 매핑 + 환경 조건별 선택"
+    }
+  ],
+  "electrical-conductivity": [
+    {
+      "ch": "ch7",
+      "chapterN": 1,
+      "chapterLabel": "실전 사례 16선"
+    },
+    {
+      "ch": "ch1",
+      "chapterN": 4,
+      "chapterLabel": "물성 사전"
+    }
+  ],
+  "impact-strength": [
+    {
+      "ch": "ch1",
+      "chapterN": 4,
+      "chapterLabel": "물성 사전"
+    }
+  ],
+  "glass-transition": [
+    {
+      "ch": "ch1",
+      "chapterN": 4,
+      "chapterLabel": "물성 사전"
+    }
+  ],
+  "hdt": [
+    {
+      "ch": "ch1",
+      "chapterN": 4,
+      "chapterLabel": "물성 사전"
+    }
+  ],
+  "thermal-conductivity": [
+    {
+      "ch": "ch7",
+      "chapterN": 1,
+      "chapterLabel": "실전 사례 16선"
+    },
+    {
+      "ch": "ch1",
+      "chapterN": 4,
+      "chapterLabel": "물성 사전"
+    },
+    {
+      "ch": "ch2",
+      "chapterN": 5,
+      "chapterLabel": "설계 요구를 숫자로 바꾸기 + 안전계수 사전"
+    },
+    {
+      "ch": "ch14",
+      "chapterN": 12,
+      "chapterLabel": "산업 case study 5선"
+    }
+  ],
+  "crystallinity": [
+    {
+      "ch": "ch1",
+      "chapterN": 4,
+      "chapterLabel": "물성 사전"
+    }
+  ],
+  "thermal-expansion": [
+    {
+      "ch": "ch7",
+      "chapterN": 1,
+      "chapterLabel": "실전 사례 16선"
+    },
+    {
+      "ch": "ch1",
+      "chapterN": 4,
+      "chapterLabel": "물성 사전"
+    },
+    {
+      "ch": "ch11",
+      "chapterN": 9,
+      "chapterLabel": "흔한 설계 실수 10선"
+    }
+  ]
+};

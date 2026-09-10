@@ -46,6 +46,49 @@ export function deriveHeadings(src) {
   return out;
 }
 
+/**
+ * W4-5 (2/3) — 용어 → **그 용어를 실제로 다루는 가이드 챕터** 파생.
+ *
+ * 용어 페이지에서 "더 배우려면 어디로" 가 없었다. 매핑을 127개 손으로 적으면 본문이 바뀔 때
+ * 조용히 낡는다 — 그래서 **본문에서 뽑는다**.
+ *
+ * 표기는 `autolink`(글로서리가 이미 검증한 보수적 목록)만 쓴다. `surface_forms` 에는
+ * 'plate'·'BCT' 같은 일반어가 섞여 있어 아무 챕터에나 걸린다.
+ * 한글은 경계가 없어 그대로 찾고, 영문은 단어 경계를 요구한다.
+ */
+export function deriveTermChapters(src, terms) {
+  const chapRe = /<Chapter\s+n=\{(\d+)\}\s+id="([^"]+)"\s+title="([^"]+)"/g;
+  const chaps = [];
+  let m;
+  while ((m = chapRe.exec(src))) chaps.push({ n: Number(m[1]), id: m[2], title: m[3], at: m.index });
+  const bodies = chaps.map((c, i) => ({
+    ch: c.id,
+    chapterN: c.n,
+    chapterLabel: c.title.split(' — ')[0].trim(),
+    body: src.slice(c.at, i + 1 < chaps.length ? chaps[i + 1].at : src.length),
+  }));
+
+  const esc = (t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const out = {};
+  for (const [slug, t] of Object.entries(terms)) {
+    if (slug.startsWith('_')) continue;
+    const forms = (t && t.autolink) || [];
+    if (!forms.length) continue;
+    const hits = [];
+    for (const b of bodies) {
+      const found = forms.some((f) => {
+        const s2 = String(f).trim();
+        if (s2.length < 2) return false;
+        const re = /^[A-Za-z]/.test(s2) ? new RegExp('\b' + esc(s2) + '\b', 'i') : new RegExp(esc(s2));
+        return re.test(b.body);
+      });
+      if (found) hits.push({ ch: b.ch, chapterN: b.chapterN, chapterLabel: b.chapterLabel });
+    }
+    if (hits.length) out[slug] = hits;
+  }
+  return out;
+}
+
 /** 헤딩 → 검색 키워드. 번호·구분자를 떼고 토큰화하며, 영문 단어는 소문자도 함께 넣는다. */
 function keywordsOf(heading) {
   const stripped = heading.replace(/^\d+(?:\.\d+)*\s*/, '');
@@ -63,16 +106,24 @@ const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPat
 if (!isMain) { /* 모듈로 불러온 경우 여기서 끝 */ } else {
 const src = fs.readFileSync(GUIDE, 'utf8');
 const entries = deriveHeadings(src);
+const glossary = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'glossary.json'), 'utf8'));
+const termChapters = deriveTermChapters(src, glossary.terms || glossary);
 const banner = `/* 자동 생성 — 수정하지 말 것. 재생성: node scripts/gen-guide-index.mjs
  * SSOT 는 client/src/pages/Guide.tsx 의 <Chapter> · <H3> 구조이며,
  * tests/guide-index.test.ts 가 재파생 대조로 stale 을 막는다. */
 import type { GuideIndexEntry } from './index-entries';
 
 export const HEADING_ENTRIES: GuideIndexEntry[] = ${JSON.stringify(entries, null, 2)};
+
+/** W4-5 — 용어 slug → 그 용어를 다루는 가이드 챕터. Guide.tsx 본문에서 파생(손으로 적지 않는다). */
+export interface TermChapterRef { ch: string; chapterN: number; chapterLabel: string }
+export const TERM_CHAPTERS: Record<string, TermChapterRef[]> = ${JSON.stringify(termChapters, null, 2)};
 `;
 fs.writeFileSync(OUT, banner, 'utf8');
 console.log(`가이드 헤딩 파생 ${entries.length}건 → ${path.relative(ROOT, OUT)}`);
 const byCh = {};
 for (const e of entries) byCh[e.ch] = (byCh[e.ch] || 0) + 1;
 console.log('챕터별:', Object.entries(byCh).map(([k, v]) => `${k}:${v}`).join(' · '));
+const tc = Object.keys(termChapters).length;
+console.log(`용어→챕터 파생: ${tc} 용어 (평균 ${(Object.values(termChapters).reduce((a, b) => a + b.length, 0) / (tc || 1)).toFixed(1)} 챕터)`);
 }

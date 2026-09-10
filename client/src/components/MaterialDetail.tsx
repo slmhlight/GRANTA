@@ -1115,10 +1115,17 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
               </Field>
             )}
             <Field label="Process">
-              <div className="flex flex-wrap gap-1">
+              <div className="flex flex-wrap items-center gap-1">
                 {processes.length ? processes.map(p => (
                   <Badge key={p} variant="secondary" className="bg-accent/10 text-accent border-accent/30">{p}</Badge>
                 )) : <span className="text-muted-foreground italic">Not available</span>}
+                {/* W4-5 — 공정을 알려주고 끝내지 않는다. AM 은 방향·후처리에 따라 물성이 갈리므로
+                    "무엇을 조심해야 하는지" 로 가는 길을 붙인다. */}
+                {processes.length > 0 && (
+                  <Link href="/guide/ch9" className="text-[10px] text-accent hover:underline whitespace-nowrap" title="AM(적층제조) 특화 주의사항 — 빌드 방향·후처리·이방성">
+                    공정 주의사항 →
+                  </Link>
+                )}
               </div>
             </Field>
             <Field label="Manufacturer / Vendor">{manufacturers.length ? manufacturers.join(', ') : '—'}</Field>
@@ -1178,7 +1185,11 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                 <ul className="list-disc pl-4 space-y-0.5 text-rose-900">
                   {(material.svhc_concerns || []).map((c, i) => <li key={i}>{c}</li>)}
                 </ul>
-                <p className="text-[10px] text-muted-foreground mt-1">{t('detail.regulated.note')}</p>
+                <p className="text-[10px] text-muted-foreground mt-1">
+                  {t('detail.regulated.note')}{' '}
+                  {/* W4-5 — 규제 표시만으로는 무엇을 해야 하는지 알 수 없다. 인증·시험 챕터로 잇는다. */}
+                  <Link href="/guide/ch12" className="text-accent hover:underline whitespace-nowrap" title="인증·가공·시제품 시험 — 규제 대응과 인증 절차">인증·시험 가이드 →</Link>
+                </p>
               </div>
             )}
             {/* R226s/E10: 권장 후공정 — 합금 그룹별 목적·근거 기반 추천 (빌드 스탬프 profiles.cg → coating-recommendations.json) */}

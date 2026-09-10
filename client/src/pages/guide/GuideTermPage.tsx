@@ -5,6 +5,7 @@
  */
 import { useMemo } from 'react';
 import { RefText } from '@/lib/ref-link';
+import { TERM_CHAPTERS } from './index-derived';
 import { Link, useParams } from 'wouter';
 import { ArrowLeft, GraduationCap, BookMarked, ChevronRight, Calculator } from 'lucide-react';
 import { GLOSSARY, glossaryArticle } from '@/lib/glossary';
@@ -132,6 +133,24 @@ export default function GuideTermPage() {
                         ))}
                       </div>
                       <p className="text-[10.5px] text-muted-foreground/70 mt-1.5 italic">칩을 누르면 탐색기에서 해당 합금 상세가 열립니다.</p>
+                    </div>
+                  )}
+                  {/* W4-5 (2/3) — 이 용어를 실제로 다루는 가이드 챕터로 잇는다.
+                      매핑은 손으로 적지 않고 Guide.tsx 본문에서 파생한다(gen-guide-index.mjs) —
+                      본문이 바뀌면 재생성 게이트가 stale 을 잡는다. */}
+                  {(TERM_CHAPTERS[slug] ?? []).length > 0 && (
+                    <div className="pt-3 border-t border-border">
+                      <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground mb-1.5">가이드에서 더 보기</p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {(TERM_CHAPTERS[slug] ?? []).map((c) => (
+                          <Link
+                            key={c.ch}
+                            href={`/guide/${c.ch}`}
+                            className="text-[11px] px-2 py-1 rounded border border-accent/30 bg-accent/5 text-accent hover:bg-accent/10"
+                            title={`Ch.${c.chapterN} ${c.chapterLabel} 에서 이 용어를 다룹니다`}
+                          >Ch.{c.chapterN} {c.chapterLabel}</Link>
+                        ))}
+                      </div>
                     </div>
                   )}
                   {article.refs && article.refs.length > 0 && (
