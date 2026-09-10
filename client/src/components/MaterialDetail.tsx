@@ -39,6 +39,7 @@ import { useT, useLang } from '@/lib/i18n';
 import { familyColor, CONFIDENCE, CONFIDENCE_ORDER } from '@/lib/material-colors';
 import { formatPrice, loadUnitSystem } from '@/lib/unit-convert';
 import { splitDesignations, SPEC_ORG_META } from '@/lib/spec-matcher';
+import { RefText } from '@/lib/ref-link';
 import { useState as useStateRD, useEffect as useEffectRD, useMemo as useMemoRD, useRef as useRefRD, lazy as lazyRD, Suspense as SuspenseRD, type PointerEvent as ReactPointerEvent, type ReactNode } from 'react';
 import { RadarChart, RadarConfig, DEFAULT_RADAR_AXES, type RadarAxis, type NormalizeBase } from '@/components/RadarChart';
 
@@ -1008,7 +1009,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                     <p className="text-[10px] font-semibold mb-1" style={{ color: famColor }}>출처 · References</p>
                     <ul className="text-[10px] text-foreground/65 space-y-0.5 leading-snug list-disc list-inside">
                       {material.story_refs.map((r, i) => (
-                        <li key={i} className="whitespace-pre-wrap">{r}</li>
+                        <li key={i} className="whitespace-pre-wrap"><RefText text={String(r)} /></li>
                       ))}
                     </ul>
                   </div>

@@ -97,6 +97,11 @@ export function RangeRow({
      저쪽은 "평균은 따로 있고 보증 최소가 이것"(두 숫자 병기)이고,
      이쪽 basis='min_spec' 은 **표에 실린 숫자 하나가 곧 규격 하한**이다.
      표기하지 않으면 한 표 안에서 어떤 행은 평균·어떤 행은 하한이라 비교가 성립하지 않는다. */
+  /* W4-6 — `estimated` 표기.
+     confidence 배지가 이미 'class/family/subfamily/derived' 라고 말하는 값에는 붙이지 않는다(중복 소음).
+     문제는 배지가 **직접 증거**를 시사하는데(measured) 값은 추정인 경우다 — 예: 벤더 견적 기반 가격.
+     실측 19건이 여기 해당하고, 계열 폴백에 handbook 이 붙어 있던 80건은 빌드에서 이미 등급을 맞췄다. */
+  const isEstimated = !!(range as { estimated?: boolean })?.estimated && (conf === 'measured' || conf === 'handbook');
   const isSpecFloor = (range as { basis?: string })?.basis === 'min_spec';
   /* 인용은 두 경로로 들어온다: min-spec 표 매칭은 basis_source(규격명), 교정 경로는
      provenance("교정: AMS 5662 RT 최소 …"). 둘 중 있는 것을 쓴다 — 인용 없는 floor 는 없어야 한다. */
@@ -132,6 +137,16 @@ export function RangeRow({
         )}
         {badge && !isFactorRow && (
           <span className={`ml-1 text-[10px] ${badge.cls}`} title={prov ? `${badge.tip}\n출처: ${prov}` : badge.tip}>{badge.label}</span>
+        )}
+        {/* W4-6 — 출처는 실재하지만 값은 추정 (배지가 직접 증거를 시사할 때만) */}
+        {isEstimated && (
+          <span
+            className="ml-1 text-[10px] px-1 py-px rounded bg-amber-100 text-amber-800 border border-amber-300 font-medium"
+            title={`추정값 — 출처는 있으나 직접 측정치가 아닙니다.${prov ? `
+근거: ${prov}` : ''}`}
+          >
+            추정
+          </span>
         )}
         {/* E4 — 이 값 자체가 규격 하한임을 명시 (평균값 행과 섞이지 않도록) */}
         {isSpecFloor && (

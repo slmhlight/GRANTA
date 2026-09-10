@@ -4,6 +4,7 @@
  * 가이드 사이드바 재사용으로 챕터 네비 일관 유지.
  */
 import { useMemo } from 'react';
+import { RefText } from '@/lib/ref-link';
 import { Link, useParams } from 'wouter';
 import { ArrowLeft, GraduationCap, BookMarked, ChevronRight, Calculator } from 'lucide-react';
 import { GLOSSARY, glossaryArticle } from '@/lib/glossary';
@@ -137,7 +138,7 @@ export default function GuideTermPage() {
                     <div className="pt-3 border-t border-border">
                       <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground mb-1.5">참고 문헌</p>
                       <ul className="text-[12px] text-foreground/70 space-y-0.5 list-disc list-inside">
-                        {article.refs.map((r) => <li key={r}>{r}</li>)}
+                        {article.refs.map((r) => <li key={r}><RefText text={String(r)} /></li>)}
                       </ul>
                       <p className="text-[10.5px] text-muted-foreground/70 mt-1.5 italic">표준 교과서·핸드북 기반 개념 설명이며 특정 재료의 측정값이 아닙니다. 도표는 개략(schematic)입니다.</p>
                     </div>

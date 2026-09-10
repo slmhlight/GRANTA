@@ -271,6 +271,37 @@ for (const m of all) {
 }
 if (elevDropped) console.log(`  교정 후 앵커 재검사: 조건 불일치 곡선 ${elevDropped} 분리`);
 
+/* 1d) W4-6 — confidence ↔ provenance 정합 (표시 신뢰도 하향만).
+ *
+ * 실측: `confidence: 'handbook'|'measured'` 인데 `provenance` 는 계열 폴백(`2nd_family:…`)인 range 가 107건.
+ * 예) CP-Nickel max_service_temp = 315 · n=0 · estimated=true · confidence='handbook' · provenance='2nd_family:Nickel Superalloy'.
+ * 값은 계열 typical 인데 UI 는 "핸드북" 배지를 단다 — 둘 중 낙관적인 쪽이 표시되고 있었다.
+ *
+ * 근본 원인은 동결된 build-materials 안에 있어(레지스트리에 이미 그렇게 박혀 있고 교정 소산이 아니다)
+ * 여기서는 **표시 신뢰도만** provenance 가 말하는 등급으로 맞춘다. 값은 건드리지 않고, **하향만** 한다 —
+ * 어떤 경우에도 신뢰도를 올리지 않는다(원칙 8: 숨기지도 부풀리지도 않는다).
+ */
+const FALLBACK_CONF = [
+  [/^3rd_family:/, 'subfamily'],
+  [/^2nd_family:/, 'family'],
+  [/^1st_family:/, 'class'],
+  [/^subfamily:/, 'subfamily'],
+  [/^family:/, 'family'],
+  [/^class:/, 'class'],
+];
+const OPTIMISTIC = new Set(['handbook', 'measured']);
+let confDowngraded = 0;
+for (const m of all) {
+  for (const r of Object.values(m.ranges || {})) {
+    if (!r || typeof r !== 'object' || !r.provenance || !OPTIMISTIC.has(r.confidence)) continue;
+    const hit = FALLBACK_CONF.find(([re]) => re.test(r.provenance));
+    if (!hit) continue;
+    r.confidence = hit[1];
+    confDowngraded++;
+  }
+}
+if (confDowngraded) console.log(`  신뢰도 하향(provenance 정합): ${confDowngraded} range — 계열 폴백 값에 붙어 있던 handbook/measured 라벨`);
+
 // 2) anomaly 재검출 — lib/anomalies.mjs 공유 (build-materials 와 동일 로직; 최종 데이터 기준 검출이 canonical)
 const anomalies = detectAnomalies(all);
 const sevCount = { high: 0, med: 0, low: 0 };
