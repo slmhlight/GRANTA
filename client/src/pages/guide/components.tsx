@@ -213,7 +213,15 @@ export function useReadChapters(): { read: Set<string>; toggle: (id: string) => 
 /** R61 #11 — 모바일 (<sm) 에서는 chapter 가 collapsed 시작, 데스크탑은 항상 펼쳐짐.
  *  hash navigation (#ch6 등) 시 해당 챕터 자동 펼침.
  *  R187 — 학습 진행률 tracking: 'Mark as read' 버튼 + ✓ badge. */
-export function Chapter({ n, id, title, learn, prereq, children }: { n: number; id: string; title: string; learn: string[]; prereq?: React.ReactNode; children?: React.ReactNode }) {
+/* children 이 **함수**로 올 수 있다 (F1).
+   이 컴포넌트는 라우트가 다른 챕터면 아래에서 `return null` 하는데, JSX 로 받으면 본문 트리는
+   부모가 **이미 다 만들어서** 넘긴 뒤다 — /guide/ch1 한 페이지에 15 챕터 본문이 전부 구성되고
+   14 개는 그대로 버려졌다. 함수로 받으면 early return 이후에만 호출하므로 그 낭비가 사라진다.
+   **트리로 받아야 하는 이유도 같이 있다**: 아래 GlossaryText 가 완성된 element 트리를 걸어가며
+   문자열 잎을 용어·합금 링크로 바꾼다. 그래서 본문은 컴포넌트(<Body/>)가 아니라 **호출하면
+   트리를 돌려주는 순수 함수**여야 한다 — 컴포넌트로 감싸면 walker 가 children 을 못 봐서
+   자동링크가 통째로 사라진다(실제로 한 번 그렇게 깨뜨려 보고 확인했다). */
+export function Chapter({ n, id, title, learn, prereq, children }: { n: number; id: string; title: string; learn: string[]; prereq?: React.ReactNode; children?: React.ReactNode | (() => React.ReactNode) }) {
   /* R227/E14/H7 — 멀티페이지 라우팅. /guide/:section 이면 매칭 챕터만 렌더(나머지 null).
      section 미설정(/guide 랜딩)이면 종전대로 전부 렌더 → 하위호환. */
   const routeParams = useParams<{ section?: string }>();
@@ -247,6 +255,7 @@ export function Chapter({ n, id, title, learn, prereq, children }: { n: number; 
   const learnVisible = !read || reviewOpen;
   // R227/E14/H7 — 라우팅: 다른 섹션이면 이 챕터는 렌더 안 함 (모든 hook 호출 이후이므로 안전).
   if (routedSection && routedSection !== id) return null;
+  const body = typeof children === 'function' ? children() : children;
   return (
     <section id={id} className="scroll-mt-24 mt-14">
       <div className="border-b-2 border-accent/30 pb-4 mb-5">
@@ -311,7 +320,7 @@ export function Chapter({ n, id, title, learn, prereq, children }: { n: number; 
           </>
         )}
       </div>
-      {effectiveOpen && (routedSection ? <GlossaryText>{children}</GlossaryText> : children)}
+      {effectiveOpen && (routedSection ? <GlossaryText>{body}</GlossaryText> : body)}
     </section>
   );
 }

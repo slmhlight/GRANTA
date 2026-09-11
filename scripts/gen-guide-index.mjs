@@ -15,20 +15,16 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const GUIDE = path.join(ROOT, 'client', 'src', 'pages', 'Guide.tsx');
+import { guideChapters } from './lib/guide-sources.mjs';
 const OUT = path.join(ROOT, 'client', 'src', 'pages', 'guide', 'index-derived.ts');
 
 /** Guide.tsx → [{ ch, chapterN, chapterLabel, section, keywords, snippet }] */
-export function deriveHeadings(src) {
+export function deriveHeadings() {
   const out = [];
-  /* <Chapter n={N} id="chX" title="..." 를 순서대로 찾고, 다음 Chapter 시작 전까지를 그 챕터 본문으로 본다. */
-  const chapRe = /<Chapter\s+n=\{(\d+)\}\s+id="([^"]+)"\s+title="([^"]+)"/g;
-  const chaps = [];
-  let m;
-  while ((m = chapRe.exec(src))) chaps.push({ n: Number(m[1]), id: m[2], title: m[3], at: m.index });
-  for (const [i, c] of chaps.entries()) {
-    const end = i + 1 < chaps.length ? chaps[i + 1].at : src.length;
-    const body = src.slice(c.at, end);
+  /* F1 — 챕터 메타데이터는 Guide.tsx 의 <Chapter> 태그, 본문은 chapters/<id>.tsx.
+     통짜 텍스트로 자르면 챕터 경계가 사라진다(헤딩이 전부 마지막 챕터로 귀속됐다). */
+  for (const c of guideChapters()) {
+    const body = c.body;
     /* 텍스트만 있는 H3 만 취한다 — JSX 가 섞인 헤딩은 신뢰할 수 없어 건너뛴다. */
     for (const h of body.matchAll(/<H3>([^<>{}]{2,90})<\/H3>/g)) {
       const raw = h[1].trim().replace(/\s+/g, ' ');
@@ -56,16 +52,12 @@ export function deriveHeadings(src) {
  * 'plate'·'BCT' 같은 일반어가 섞여 있어 아무 챕터에나 걸린다.
  * 한글은 경계가 없어 그대로 찾고, 영문은 단어 경계를 요구한다.
  */
-export function deriveTermChapters(src, terms) {
-  const chapRe = /<Chapter\s+n=\{(\d+)\}\s+id="([^"]+)"\s+title="([^"]+)"/g;
-  const chaps = [];
-  let m;
-  while ((m = chapRe.exec(src))) chaps.push({ n: Number(m[1]), id: m[2], title: m[3], at: m.index });
-  const bodies = chaps.map((c, i) => ({
+export function deriveTermChapters(terms) {
+  const bodies = guideChapters().map((c) => ({
     ch: c.id,
     chapterN: c.n,
     chapterLabel: c.title.split(' — ')[0].trim(),
-    body: src.slice(c.at, i + 1 < chaps.length ? chaps[i + 1].at : src.length),
+    body: c.body,
   }));
 
   const esc = (t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -104,10 +96,9 @@ function keywordsOf(heading) {
 /* 테스트는 deriveHeadings 만 import 한다 — 직접 실행일 때만 파일을 쓴다(import 부수효과 금지). */
 const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 if (!isMain) { /* 모듈로 불러온 경우 여기서 끝 */ } else {
-const src = fs.readFileSync(GUIDE, 'utf8');
-const entries = deriveHeadings(src);
+const entries = deriveHeadings();
 const glossary = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'glossary.json'), 'utf8'));
-const termChapters = deriveTermChapters(src, glossary.terms || glossary);
+const termChapters = deriveTermChapters(glossary.terms || glossary);
 const banner = `/* 자동 생성 — 수정하지 말 것. 재생성: node scripts/gen-guide-index.mjs
  * SSOT 는 client/src/pages/Guide.tsx 의 <Chapter> · <H3> 구조이며,
  * tests/guide-index.test.ts 가 재파생 대조로 stale 을 막는다. */

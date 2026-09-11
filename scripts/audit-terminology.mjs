@@ -9,6 +9,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { guideSourceFiles } from './lib/guide-sources.mjs';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -49,7 +50,9 @@ const SOURCES = [
   { p: 'data/coating-recommendations.json', label: '코팅 추천' },
   { p: 'client/src/lib/ht-glossary.ts', label: 'HT 글로서리(UI)' },
   { p: 'client/src/lib/ht-alloy-specific.ts', label: 'HT 합금별(UI)' },
-  { p: 'client/src/pages/Guide.tsx', label: '가이드 프로즈(UI)' },
+  /* F1 — 챕터 본문은 pages/guide/chapters/* 로 분리됐다. 아래 루프가 guideSourceFiles() 를
+     펼쳐 넣으므로 새 챕터 파일이 생겨도 자동 포함된다. */
+  ...guideSourceFiles().map((f) => ({ p: f, label: '가이드 프로즈(UI)' })),
   { p: 'client/src/pages/guide/components.tsx', label: '가이드 컴포넌트(UI)' },
 ];
 

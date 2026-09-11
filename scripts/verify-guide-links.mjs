@@ -10,16 +10,16 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { readGuideSource } from './lib/guide-sources.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const GUIDE = path.join(ROOT, 'client', 'src', 'pages', 'Guide.tsx');
 
 const args = process.argv.slice(2);
 const concurrentIdx = args.indexOf('--concurrent');
 const CONCURRENT = concurrentIdx >= 0 ? parseInt(args[concurrentIdx + 1], 10) : 4;
 const TIMEOUT_MS = 20000;
 
-const content = fs.readFileSync(GUIDE, 'utf8');
+const content = readGuideSource();   // F1 — Guide.tsx + chapters/*
 
 // 모든 href="..." (ExtLink + a 둘 다) 의 https 만 추출
 const urlSet = new Set();

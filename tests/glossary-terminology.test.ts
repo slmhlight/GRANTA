@@ -13,6 +13,7 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { readGuideProse } from '../scripts/lib/guide-sources.mjs';
 
 const ROOT = resolve(__dirname, '..');
 const articles = JSON.parse(readFileSync(resolve(ROOT, 'data/glossary-articles.json'), 'utf8')).articles as Record<
@@ -237,7 +238,7 @@ describe('§3.1 확장 — 공정노트·인사이트·코팅·프로파일·스
   });
 
   it('Guide.tsx 본문 (JSX 텍스트 + 한글 문자열 리터럴)', () => {
-    const tsx = readFileSync(resolve(ROOT, 'client/src/pages/Guide.tsx'), 'utf8');
+    const tsx = readGuideProse();   // F1 — Guide.tsx + chapters/*
     const bad: string[] = [];
     for (const m of tsx.matchAll(/>([^<>{}]{6,})</g)) {
       const t = m[1].trim();

@@ -9,6 +9,7 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
+import { readGuideProse } from '../scripts/lib/guide-sources.mjs';
 import { linkify, buildAutolinkMap, norm, validateAuthoredKeys, type AutolinkMap } from '@/lib/wiki-link';
 import { buildWikiLookups } from '@/lib/wiki-refs';
 
@@ -143,7 +144,7 @@ describe('linkify — authored [[key|label]]', () => {
       for (const t of st.timeline || []) scan(t.event || '', `story ${k} (timeline)`);
     }
     /* 가이드 본문·용어 short — 현재 저작 링크는 0 이지만, 나중에 쓰면 게이트 밖에 있게 되므로 미리 포함 */
-    scan(fs.readFileSync(path.resolve(process.cwd(), 'client/src/pages/Guide.tsx'), 'utf8'), 'Guide.tsx');
+    scan(readGuideProse(), 'Guide.tsx + chapters/*');   // F1 — 목록 SSOT
     const terms = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'data/glossary.json'), 'utf8')).terms;
     for (const [k, t] of Object.entries<any>(terms)) scan(t.short || '', `glossary ${k}.short`);
     expect(bad, `저작 [[key]] 미해결(오타 — 평문 강등됨):\n${bad.join('\n')}`).toEqual([]);
@@ -253,7 +254,7 @@ function corpusTexts(): { article: string[]; guide: string[]; story: string[] } 
     article.push(s.body || '');
     if (s.table) article.push(...s.table.rows.flat(), ...s.table.headers);
   }
-  const tsx = covRd('client/src/pages/Guide.tsx');
+  const tsx = readGuideProse();   // F1 — Guide.tsx + chapters/*
   const guide: string[] = [];
   for (const m of tsx.matchAll(/>([^<>{}]{6,})</g)) {
     const t = m[1].trim();

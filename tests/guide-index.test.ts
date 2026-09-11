@@ -9,15 +9,19 @@ import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import { deriveHeadings, deriveTermChapters } from '../scripts/gen-guide-index.mjs';
+import { readGuideSource } from '../scripts/lib/guide-sources.mjs';
 import { HEADING_ENTRIES, TERM_CHAPTERS } from '../client/src/pages/guide/index-derived';
 import { GUIDE_INDEX, GLOSSARY_ENTRIES, searchGuide } from '../client/src/pages/guide/index-entries';
 
 const ROOT = path.resolve(__dirname, '..');
-const guideSrc = fs.readFileSync(path.join(ROOT, 'client', 'src', 'pages', 'Guide.tsx'), 'utf8');
+/* F1 — 챕터 본문이 pages/guide/chapters/* 로 분리됐다. 파생 함수는 목록 SSOT
+   (scripts/lib/guide-sources)에서 직접 읽으므로 인자를 받지 않는다. 헤딩·챕터 수를
+   직접 세는 아래 두 검사는 같은 SSOT 에서 전문을 받아 쓴다. */
+const guideSrc = readGuideSource();
 
 describe('가이드 검색 인덱스 — 헤딩 자동 파생 (H8)', () => {
   it('staleness — index-derived.ts 가 현재 Guide.tsx 와 일치', () => {
-    const fresh = deriveHeadings(guideSrc);
+    const fresh = deriveHeadings();
     expect(fresh.length).toBe(HEADING_ENTRIES.length);
     expect(fresh).toEqual(HEADING_ENTRIES);
   });
@@ -66,7 +70,7 @@ describe('W4-5 — 용어 → 가이드 챕터 파생', () => {
   const TERMS = glossary.terms ?? glossary;
 
   it('staleness — TERM_CHAPTERS 가 현재 Guide.tsx·글로서리와 일치', () => {
-    const fresh = deriveTermChapters(guideSrc, TERMS);
+    const fresh = deriveTermChapters(TERMS);
     expect(fresh).toEqual(TERM_CHAPTERS);
   });
 

@@ -14,6 +14,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { readGuideProse } from './lib/guide-sources.mjs';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -39,7 +40,7 @@ for (const e of WI.entities) {
 // ── 코퍼스 (audit-link-coverage 동일) ──
 function guideTexts() {
   const out = [];
-  const tsx = rd('client/src/pages/Guide.tsx');
+  const tsx = readGuideProse();   // F1 — Guide.tsx + chapters/* (목록 SSOT, 주석 제외)
   for (const m of tsx.matchAll(/>([^<>{}]{6,})</g)) {
     const t = m[1].trim();
     if (!t || /^https?:|className|^\w+=/.test(t)) continue;

@@ -13,6 +13,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { tokensOf, norm } from './lib/name-tokens.mjs';
+import { readGuideProse } from './lib/guide-sources.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const rd = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
@@ -77,7 +78,7 @@ for (const [srcFile, label] of [
 // (H4g) 가이드 14챕터 프로즈 — Guide.tsx 의 JSX 텍스트 노드·한글 문자열 리터럴.
 // 이전까지 감사 사각지대(합금명·용어 언급이 코퍼스 밖) → 편입.
 try {
-  const tsx = fs.readFileSync(path.join(ROOT, 'client/src/pages/Guide.tsx'), 'utf8');
+  const tsx = readGuideProse();   // F1 — Guide.tsx + chapters/* (목록 SSOT)
   let gi = 0;
   for (const m of tsx.matchAll(/>([^<>{}]{6,})</g)) {
     const t = m[1].trim();
