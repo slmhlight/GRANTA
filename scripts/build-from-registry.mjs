@@ -349,6 +349,42 @@ if (tierMoves.상향 || tierMoves.하향) {
   tierDown.slice(0, 10).forEach((x) => console.log(`    ↓ ${x}`));
 }
 
+/* 1g) A14 — 실증 근거를 얻은 물성의 **폴백 출처 라벨 제거**.
+ *
+ * KIC·피로강도는 값이 없을 때 계열 typical 로 채운다(C1/C2). 그때 "이 숫자가 어디서 왔나" 를
+ * 밝히려고 `KIC fallback: <계열>` 같은 출처 줄을 함께 붙인다 — 거기까지는 정직하다.
+ *
+ * 문제는 그 뒤다. 나중에 datasheet 교정이 들어와 값이 실측/핸드북 근거로 바뀌어도 **폴백 줄은
+ * 그대로 남는다.** 그러면 출처가 이미 쓰이지 않는 계열 폴백을 가리켜, 사용자에게 "이 값은
+ * 계열 추정" 이라고 잘못 말한다(A12 와 같은 표현 계층 문제 — 값은 맞는데 근거 표시가 어긋남).
+ * 실측 기준 321 건이 그 상태였다.
+ *
+ * 지우는 조건을 **"값이 더 이상 추정이 아닐 때"** 로 좁힌다 — confidence 가 measured/handbook
+ * 이면 폴백이 그 값을 설명하지 못하므로 제거. class·derived·family·subfamily 로 남아 있으면
+ * 여전히 추정이라 그 줄이 유일한 설명이므로 **건드리지 않는다**.
+ * 출처는 material 단위라, 라벨이 가리키는 물성만 보고 판정한다(다른 물성의 폴백은 보존).
+ */
+const FALLBACK_SRC = [
+  { prefix: 'KIC fallback', prop: 'fracture_toughness' },
+  { prefix: 'Fatigue fallback', prop: 'fatigue_strength' },
+];
+const EVIDENCED_CONF = new Set(['measured', 'handbook']);
+let fallbackSrcDropped = 0;
+for (const m of all) {
+  if (!Array.isArray(m.sources) || !m.sources.length) continue;
+  const keep = m.sources.filter((s) => {
+    const hit = FALLBACK_SRC.find((f) => String(s?.label || '').startsWith(f.prefix));
+    if (!hit) return true;
+    const r = m.ranges?.[hit.prop];
+    return !(r && EVIDENCED_CONF.has(r.confidence));
+  });
+  if (keep.length && keep.length !== m.sources.length) {
+    fallbackSrcDropped += m.sources.length - keep.length;
+    m.sources = keep;
+  }
+}
+if (fallbackSrcDropped) console.log(`  폴백 출처 정리: ${fallbackSrcDropped} 줄 (교정으로 실측·핸드북 근거를 얻은 물성 — 계열 폴백이 더는 그 값을 설명하지 않는다)`);
+
 // 2) anomaly 재검출 — lib/anomalies.mjs 공유 (build-materials 와 동일 로직; 최종 데이터 기준 검출이 canonical)
 const anomalies = detectAnomalies(all);
 const sevCount = { high: 0, med: 0, low: 0 };
