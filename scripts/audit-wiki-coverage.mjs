@@ -377,7 +377,7 @@ if (FA) {
   fam.push('', '## DOCUMENTED_UNDEFINED 항목별 (0건 = 사문화)', '', '| 항목 | 차단 |', '|---|---|');
   for (const k of DOCUMENTED_UNDEFINED.keys()) fam.push(`| ${k} | ${DU_HITS.get(k) || 0} |`);
   console.log(`DU_AUDIT: 용어화 보류 ${DOCUMENTED_UNDEFINED.size} · 사문화 ${deadDU.length}${deadDU.length ? ' — ' + deadDU.join(', ') : ''}`);
-  console.log(`FILTER_AUDIT: STOP 사문화 ${deadStop}/${STOP_RE.length} · NON_MATERIAL 사문화 ${deadNM}/${NON_MATERIAL.size} · EN_STOP 사문화 ${deadEN}/${EN_STOP.size} → docs/audits/filter-audit.md`);
+  console.log(`FILTER_AUDIT(가드 미발화 — 유지가 정상): STOP ${deadStop}/${STOP_RE.length} · NON_MATERIAL ${deadNM}/${NON_MATERIAL.size} · EN_STOP ${deadEN}/${EN_STOP.size} → docs/audits/filter-audit.md`);
 }
 fs.writeFileSync(path.join(ROOT, 'docs/audits/wiki-coverage.md'), md.join('\n') + '\n');
 fs.writeFileSync(path.join(ROOT, 'docs/audits/wiki-coverage.json'), JSON.stringify({
