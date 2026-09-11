@@ -8,6 +8,7 @@
  * 추가 가정 없음. 안전계수·사용 조건은 사용자가 명시.
  */
 import type { FilterState } from '@/hooks/useMaterialFilter';
+import type { FilterRangeKey, FilterListKey } from '@/lib/filter-state';
 
 export type ScenarioPreset = {
   label: string;
@@ -41,6 +42,14 @@ export type CrossSection = {
   hasAxes?: boolean;
 };
 
+/** 사례 계산 결과 — 필터 오버라이드 + 산출 요약 + (NB14) 필드별 인라인 검증 메시지.
+ *  fieldErrors 는 field.id → 한 줄 경고. ScenarioDialog 가 해당 입력 옆에 빨간 메시지로 표시. */
+export type ScenarioResult = {
+  filters: Partial<FilterState>;
+  summary: { label: string; value: string }[];
+  fieldErrors?: Record<string, string>;
+};
+
 export type ScenarioConfigurator = {
   description: string;
   fields: ConfigField[];
@@ -48,7 +57,7 @@ export type ScenarioConfigurator = {
   sections?: CrossSection[];
   /** 입력값 + 선택 단면 ID → 필터 오버라이드 + 산출 요약 + (NB14) 필드별 인라인 검증 메시지.
    *  fieldErrors 는 field.id → 한 줄 경고. ScenarioDialog 가 해당 입력 옆에 빨간 메시지/테두리로 표시. */
-  compute: (v: Record<string, number | string | string[]>, section?: CrossSection) => { filters: Partial<FilterState>; summary: { label: string; value: string }[]; fieldErrors?: Record<string, string> };
+  compute: (v: Record<string, number | string | string[]>, section?: CrossSection) => ScenarioResult;
 };
 
 /* ──────────────────────────────────────────────────────────────────────────
@@ -1193,7 +1202,7 @@ export function indexKeyFromHint(hint?: string): string | null {
  *  processes           → proc (comma-sep)
  *  corrosion           → corr (comma-sep)
  * ─────────────────────────────────────────────────────────────────────── */
-const RANGE_MAP: Record<string, [string, string]> = {
+const RANGE_MAP: Record<FilterRangeKey, [string, string]> = {
   yieldStrengthRange: ['ysm', 'ysx'], modulusRange: ['mdm', 'mdx'], fatigueStrengthRange: ['fsm', 'fsx'],
   maxServiceTempRange: ['tmm', 'tmx'], thermalExpansionRange: ['ctem', 'ctex'], thermalConductivityRange: ['tcm', 'tcx'],
   elongationRange: ['elm', 'elx'], pricePerKgRange: ['prm', 'prx'], densityRange: ['dnm', 'dnx'],
@@ -1207,7 +1216,14 @@ const RANGE_MAP: Record<string, [string, string]> = {
   htCostFactorRange: ['htcm', 'htcx'], specificHeatRange: ['shm', 'shx'],
   poissonRatioRange: ['num', 'nux'], meltingPointRange: ['mpm', 'mpx'],
 };
-const LIST_MAP: Record<string, string> = {
+/* 두 맵의 키는 **FilterState 의 실제 필드**여야 한다. 예전에는 `Record<string, …>` 라 오타가
+   나도 양쪽 모두 조용했다 — 인코딩은 undefined 를 읽어 아무것도 안 쓰고, 디코딩은 필터가
+   읽지 않는 필드를 만든다. 키 타입을 FilterState 에서 뽑아 Record 로 쓰면, 필드가 늘었는데
+   URL 공유에서 빠지는 것까지 컴파일이 잡는다(실제로 manufacturers·compositions 가 빠져
+   있었다 — 아직 UI 로 도달할 수 없는 필터라 증상은 없었지만, 생기면 공유 링크에서 조용히
+   사라졌을 자리다). */
+
+const LIST_MAP: Record<FilterListKey, string> = {
   processes: 'proc', corrosion: 'corr', categories: 'cat', subcategories: 'sub',
   // R49b — heat treatments / machinability / weldability 도 동기화.
   heatTreatments: 'ht', machinability: 'mach', weldability: 'weld',
@@ -1215,7 +1231,13 @@ const LIST_MAP: Record<string, string> = {
   specs: 'spec',
   // E3 (H6 W4-2) — 출처 권위 등급 필터. 다른 필터와 같은 규칙으로 URL 공유·복원된다.
   authorities: 'auth',
+  // F2 — 타입이 강제해 드러난 누락. 시나리오 프리셋이 쓰면 그때부터 공유가 된다.
+  manufacturers: 'mfr', compositions: 'pcomp',
 };
+
+/* 위 두 Record 는 타입상 **전수**다 — 키 배열을 여기서 뽑으면 필터가 늘어도 같이 늘어난다. */
+export const FILTER_RANGE_KEYS = Object.keys(RANGE_MAP) as FilterRangeKey[];
+export const FILTER_LIST_KEYS = Object.keys(LIST_MAP) as FilterListKey[];
 
 export function encodeFiltersToParams(f: Partial<FilterState>): string {
   const p = new URLSearchParams();
@@ -1223,13 +1245,14 @@ export function encodeFiltersToParams(f: Partial<FilterState>): string {
   if (f.search && f.search.trim()) p.set('q', f.search.trim());
   // R167 share fix — QueryBar DSL (filters.query) 도 URL 에 (?dsl=...).
   if (f.query && f.query.trim()) p.set('dsl', f.query.trim());
-  for (const [k, [m, x]] of Object.entries(RANGE_MAP)) {
-    const r = (f as any)[k] as [number, number] | null | undefined;
+  for (const k of Object.keys(RANGE_MAP) as FilterRangeKey[]) {
+    const [m, x] = RANGE_MAP[k];
+    const r = f[k];
     if (Array.isArray(r)) { p.set(m, String(r[0])); p.set(x, String(r[1])); }
   }
-  for (const [k, qk] of Object.entries(LIST_MAP)) {
-    const arr = (f as any)[k] as string[] | undefined;
-    if (Array.isArray(arr) && arr.length) p.set(qk, arr.join(','));
+  for (const k of Object.keys(LIST_MAP) as FilterListKey[]) {
+    const arr = f[k];
+    if (Array.isArray(arr) && arr.length) p.set(LIST_MAP[k], arr.join(','));
   }
   // R49b — boolean toggles
   if (f.rohsOnly) p.set('rohs', '1');
@@ -1245,17 +1268,18 @@ export function encodeFiltersToParams(f: Partial<FilterState>): string {
 
 export function decodeFiltersFromParams(qs: URLSearchParams): Partial<FilterState> {
   const out: Partial<FilterState> = {};
-  if (qs.has('q')) (out as any).search = qs.get('q') || '';
+  if (qs.has('q')) out.search = qs.get('q') || '';
   // R167 share fix — DSL query 디코드 (?dsl=...).
-  if (qs.has('dsl')) (out as any).query = qs.get('dsl') || '';
-  for (const [k, [m, x]] of Object.entries(RANGE_MAP)) {
-    if (qs.has(m) && qs.has(x)) (out as any)[k] = [Number(qs.get(m)), Number(qs.get(x))];
+  if (qs.has('dsl')) out.query = qs.get('dsl') || '';
+  for (const k of Object.keys(RANGE_MAP) as FilterRangeKey[]) {
+    const [m, x] = RANGE_MAP[k];
+    if (qs.has(m) && qs.has(x)) out[k] = [Number(qs.get(m)), Number(qs.get(x))];
   }
-  for (const [k, qk] of Object.entries(LIST_MAP)) {
-    const raw = qs.get(qk);
-    if (raw) (out as any)[k] = raw.split(',').filter(Boolean);
+  for (const k of Object.keys(LIST_MAP) as FilterListKey[]) {
+    const raw = qs.get(LIST_MAP[k]);
+    if (raw) out[k] = raw.split(',').filter(Boolean);
   }
-  if (qs.get('rohs') === '1') (out as any).rohsOnly = true;
+  if (qs.get('rohs') === '1') out.rohsOnly = true;
   // R210 B4 — comp=El:min-max,... → compositionRanges 복원.
   const comp = qs.get('comp');
   if (comp) {
@@ -1266,7 +1290,7 @@ export function decodeFiltersFromParams(qs: URLSearchParams): Partial<FilterStat
       const [lo, hi] = span.split('-').map(Number);
       if (isFinite(lo) && isFinite(hi)) ranges[el] = [lo, hi];
     }
-    if (Object.keys(ranges).length) (out as any).compositionRanges = ranges;
+    if (Object.keys(ranges).length) out.compositionRanges = ranges;
   }
   return out;
 }

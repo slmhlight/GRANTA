@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { Link } from 'wouter';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { Search, SlidersHorizontal, MousePointerClick, GitCompareArrows, Rocket, Sparkles, ChevronLeft, ChevronRight, GraduationCap } from 'lucide-react';
+import { Search, SlidersHorizontal, MousePointerClick, GitCompareArrows, Rocket, Sparkles, ChevronLeft, ChevronRight, GraduationCap , type LucideIcon } from 'lucide-react';
 import { useLang } from '@/lib/i18n';
 import type { ScenarioKey } from '@/lib/scenario-presets';
 
@@ -146,7 +146,7 @@ function IllustQuickStart() {
 }
 
 interface StepEntry {
-  icon: any;
+  icon: LucideIcon;
   illust: () => React.ReactElement;
   title: string;
   body: string;

@@ -66,7 +66,7 @@ export default function GoodmanChart({ materials, series }: Props) {
         </div>
         <div>
           <label className="text-[10px] font-semibold text-muted-foreground block">기준</label>
-          <select value={criterion} onChange={(e) => setCriterion(e.target.value as any)} className="h-7 px-2 text-xs rounded border border-border">
+          <select value={criterion} onChange={(e) => setCriterion(e.target.value === 'soderberg' ? 'soderberg' : 'goodman')} className="h-7 px-2 text-xs rounded border border-border">
             <option value="goodman">Goodman (σ_u 기준)</option>
             <option value="soderberg">Soderberg (σ_y 기준, 보수적)</option>
           </select>

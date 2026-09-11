@@ -8,7 +8,7 @@ import type { Material } from './materials';
 /**
  * Escape CSV field values
  */
-export function escapeCSVField(value: any): string {
+export function escapeCSVField(value: unknown): string {
   if (value === null || value === undefined) return '';
   const str = String(value);
   if (str.includes(',') || str.includes('"') || str.includes('\n')) {
@@ -55,8 +55,10 @@ function materialToCSVRow(m: Material): string {
     
     // If composition is a numeric dict format
     if (typeof comp === 'object' && comp !== null) {
-      const value = (comp as any)[element];
-      return value ?? '';
+      /* 값은 숫자(%) 또는 범위 문자열("16.0~18.0", "≤2.0", "balance")로 온다 — CSV 는 문자열이다.
+         예전에는 any 라 `value ?? ''` 가 숫자를 그대로 내보내도 타입이 통과했다. */
+      const value = (comp as Record<string, unknown>)[element];
+      return value == null ? '' : String(value);
     }
     
     return '';

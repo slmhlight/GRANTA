@@ -348,7 +348,7 @@ export function ScenarioDialog({ scenarioKey, open, onOpenChange }: { scenarioKe
     const v: Record<string, number | string | string[]> = {};
     if (!cfg) return v;
     for (const f of cfg.fields) v[f.id] = f.default;
-    if (cfg.sections) for (const f of cfg.sections[0].dimFields) v[f.id] = (f as any).default;
+    if (cfg.sections) for (const f of cfg.sections[0].dimFields) v[f.id] = f.default;
     return v;
   }, [cfg]);
   const [values, setValues] = useState<Record<string, number | string | string[]>>(initialValues);
@@ -425,8 +425,10 @@ export function ScenarioDialog({ scenarioKey, open, onOpenChange }: { scenarioKe
                         setSectionId(s.id);
                         // 단면 전환 시 그 단면의 dimField default 적용 + axis 도 strong 으로 리셋
                         setValues((p) => {
-                          const np: Record<string, number | string> = { ...p, _axis: 'strong' };
-                          for (const f of s.dimFields) np[f.id] = (f as any).default;
+                          /* 상태와 **같은** 타입이어야 한다 — 좁게 적어 두면 multiselect 필드가
+                             담긴 `...p` 를 담지 못한다고 말하는 셈이다(런타임엔 그대로 살아 있다). */
+                          const np: Record<string, number | string | string[]> = { ...p, _axis: 'strong' };
+                          for (const f of s.dimFields) np[f.id] = f.default;
                           return np;
                         });
                       }}
@@ -464,11 +466,11 @@ export function ScenarioDialog({ scenarioKey, open, onOpenChange }: { scenarioKe
                     )}
                     {/* 선택된 단면의 큰 미리보기 — 입력 치수 + 하중 방향이 변하면 그림도 갱신 */}
                     <div className="mt-2 bg-muted/30 rounded-lg border border-border h-[160px] p-1">
-                      <SectionPreview id={section.id} dims={Object.fromEntries(section.dimFields.map((f) => [f.id, Number(values[f.id] ?? (f as any).default)]))} axis={String(values._axis ?? 'strong') as 'strong' | 'weak'} hasAxes={!!section.hasAxes} />
+                      <SectionPreview id={section.id} dims={Object.fromEntries(section.dimFields.map((f) => [f.id, Number(values[f.id] ?? f.default)]))} axis={String(values._axis ?? 'strong') as 'strong' | 'weak'} hasAxes={!!section.hasAxes} />
                     </div>
                     <div className="mt-2 space-y-2">
                       {section.dimFields.map((f) => f.type === 'number'
-                        ? <NumberInput key={f.id} field={f} value={Number(values[f.id] ?? (f as any).default)} onChange={(v) => setValues((p) => ({ ...p, [f.id]: v }))} />
+                        ? <NumberInput key={f.id} field={f} value={Number(values[f.id] ?? f.default)} onChange={(v) => setValues((p) => ({ ...p, [f.id]: v }))} />
                         : null)}
                     </div>
                   </>
@@ -510,7 +512,7 @@ export function ScenarioDialog({ scenarioKey, open, onOpenChange }: { scenarioKe
                       };
                       return map[key] || key;
                     };
-                    const fmt = (val: any): string => {
+                    const fmt = (val: unknown): string => {
                       if (Array.isArray(val)) {
                         if (val.length === 2 && typeof val[0] === 'number') return `${val[0]} – ${val[1]}`;
                         return val.slice(0, 2).join(', ') + (val.length > 2 ? ` +${val.length - 2}` : '');

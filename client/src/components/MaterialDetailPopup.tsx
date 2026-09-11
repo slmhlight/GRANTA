@@ -64,10 +64,10 @@ export function MaterialDetailPopup({
     return () => mq.removeEventListener('change', on);
   }, []);
 
-  const startDrag = (e: any) => {
-    if (e.target?.closest?.('button, a')) return; // ignore clicks on close button / links
+  const startDrag = (e: React.PointerEvent<HTMLElement> | React.MouseEvent<HTMLElement>) => {
+    if ((e.target as HTMLElement | null)?.closest?.('button, a')) return; // ignore clicks on close button / links
     e.preventDefault();
-    const shell = e.currentTarget?.closest?.('[data-detail-popup]') as HTMLElement | null;
+    const shell = (e.currentTarget as HTMLElement | null)?.closest?.('[data-detail-popup]') as HTMLElement | null;
     const rect = shell?.getBoundingClientRect();
     const startX = e.clientX, startY = e.clientY;
     const baseX = rect ? rect.left : 0, baseY = rect ? rect.top : 0;

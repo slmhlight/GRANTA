@@ -69,7 +69,7 @@ export function TempCurveChart({
       const row: Record<string, number | null> = { temp: t };
       valid.forEach((s, i) => {
         const pt = s.points.find((p) => p.temp === t);
-        row['s' + i] = pt ? ((pt as any)[field] ?? null) : null;
+        row['s' + i] = pt ? (pt[field] ?? null) : null;
       });
       return row;
     });

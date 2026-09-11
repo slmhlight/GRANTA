@@ -14,8 +14,12 @@ import "./index.css";
    - 'TypeError: Failed to fetch dynamically imported module': 일반 dynamic import 실패
    sessionStorage 로 무한 reload 루프 방지. */
 const handleChunkError = (event: Event | PromiseRejectionEvent) => {
-  const err = (event as any).reason || (event as any).message || (event as any).error;
-  const msg = String(err?.message || err || '');
+  /* 세 종류의 이벤트가 한 핸들러로 들어온다 — unhandledrejection(reason) · ErrorEvent(message·error) ·
+     vite:preloadError(payload). 각각을 **있을 때만** 꺼내도록 좁힌다(예전엔 event 를 통째로 any 로
+     캐스팅해, 오타가 나도 undefined 가 돼서 조용히 복구가 안 됐을 자리다). */
+  const pick = (k: string): unknown => (k in event ? (event as unknown as Record<string, unknown>)[k] : undefined);
+  const err = pick('reason') || pick('message') || pick('error');
+  const msg = String((err as { message?: unknown } | null)?.message || err || '');
   const isChunkError = /Failed to fetch dynamically imported module|Importing a module script failed|ChunkLoadError|Loading chunk \d+ failed/i.test(msg);
   if (!isChunkError) return;
   try {

@@ -1,14 +1,14 @@
 /*
  * R227/E14/H7 — 가이드 챕터 목차(TOC) SSOT. Guide 본문·사이드바·용어 페이지가 공유.
  */
-import { LineChart, ListChecks, Compass, BookOpen, Target, Sigma, AlertTriangle, Lightbulb, BookText, BookMarked } from 'lucide-react';
+import { LineChart, ListChecks, Compass, BookOpen, Target, Sigma, AlertTriangle, Lightbulb, BookText, BookMarked , type LucideIcon } from 'lucide-react';
 import { GLOSSARY } from '@/lib/glossary';
 
 export interface TocItem {
   id: string;
   n: number;
   label: string;
-  icon: any;
+  icon: LucideIcon;
 }
 
 // 글로서리 용어 수는 데이터에서 산출 — 용어 추가 시 라벨이 자동 갱신(하드코딩 staleness 방지).

@@ -5,13 +5,13 @@
  */
 import { useState } from 'react';
 import { Link } from 'wouter';
-import { Menu, X, BookMarked, Home as HomeIcon } from 'lucide-react';
+import { Menu, X, BookMarked, Home as HomeIcon , type LucideIcon } from 'lucide-react';
 
 export interface TocItem {
   id: string;
   n: number;
   label: string;
-  icon: any;
+  icon: LucideIcon;
 }
 
 export function GuideSidebar({ toc, section, isRead }: { toc: TocItem[]; section?: string; isRead: (id: string) => boolean }) {

@@ -11,7 +11,26 @@ import {
   ktFactor, galvanicDeltaV, galvanicBand, buckling, thermalMismatchStress,
   hardnessConvert, pressureVesselThickness, larsonMiller, larsonMillerInverseTime,
   mohrCircle, schaefflerEq,
+  KT_SHAPES, HARDNESS_SCALES, VESSEL_SHAPES,
+  type KtShape, type HardnessScale, type VesselShape,
 } from '@/lib/engineering-calcs';
+
+/* <select> 의 value 는 string 이다. 예전에는 `as any` 로 상태에 그대로 밀어 넣었는데,
+   그러면 목록에 없는 값이 들어와도 컴파일도 런타임도 아무 말을 안 한다. 허용 목록에서
+   찾아서 넣고, 못 찾으면 상태를 바꾸지 않는다. */
+function onPick<T extends string>(allowed: readonly T[], set: (v: T) => void) {
+  return (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const v = allowed.find((a) => a === e.target.value);
+    if (v !== undefined) set(v);
+  };
+}
+
+/* Record<유니온, string> 이라 선택지가 늘면 라벨을 빠뜨릴 수 없다. */
+const KT_SHAPE_LABEL: Record<KtShape, string> = {
+  hole: '중앙 구멍 (판)', fillet: '필렛 라운드 (계단축)', sharpCorner: 'Sharp corner (위험)', shoulderCut: 'Shoulder cut',
+};
+const HARDNESS_LABEL: Record<HardnessScale, string> = { HV: 'Vickers HV', HRC: 'Rockwell HRC', HB: 'Brinell HB' };
+const VESSEL_LABEL: Record<VesselShape, string> = { cyl: '원통 (후프 응력)', sph: '구형' };
 
 const W = 'rounded-lg border border-border bg-card p-4';
 const In = 'h-7 px-2 text-[12px] rounded border border-border bg-background focus:outline-none focus:border-accent';
@@ -340,7 +359,7 @@ function PVIllust({ shape }: { shape: string }) {
 
 /* ───────── #3 Stress concentration Kt ───────── */
 function KtCalc() {
-  const [shape, setShape] = useState<'hole' | 'fillet' | 'sharpCorner' | 'shoulderCut'>('hole');
+  const [shape, setShape] = useState<KtShape>('hole');
   const [d, setD] = useState(10);
   const [w, setW] = useState(40);
   const [r, setR] = useState(2);
@@ -356,11 +375,8 @@ function KtCalc() {
       <div className="grid grid-cols-2 gap-2 mb-3">
         <div>
           <label className={Lab}>형상</label>
-          <select className={In + ' w-full'} value={shape} onChange={(e) => setShape(e.target.value as any)}>
-            <option value="hole">중앙 구멍 (판)</option>
-            <option value="fillet">필렛 라운드 (계단축)</option>
-            <option value="sharpCorner">Sharp corner (위험)</option>
-            <option value="shoulderCut">Shoulder cut</option>
+          <select className={In + ' w-full'} value={shape} onChange={onPick(KT_SHAPES, setShape)}>
+            {KT_SHAPES.map((s) => <option key={s} value={s}>{KT_SHAPE_LABEL[s]}</option>)}
           </select>
         </div>
         {shape === 'hole' ? (
@@ -501,7 +517,7 @@ function CTEMismatch() {
 
 /* ───────── #7 Hardness conversion (HV ↔ HRC ↔ HB ↔ UTS) ───────── */
 function HardnessConv() {
-  const [scale, setScale] = useState<'HV' | 'HRC' | 'HB'>('HV');
+  const [scale, setScale] = useState<HardnessScale>('HV');
   const [val, setVal] = useState(300);
   // ASTM E140/A370 근사 (탄소·합금강) — lib/engineering-calcs.
   const { HV, HRC, HB, UTS } = hardnessConvert(scale, val);
@@ -511,7 +527,7 @@ function HardnessConv() {
       <p className="text-[11px] text-muted-foreground mb-3">ASTM E140 근사 — 탄소·합금강에 가장 정확, 다른 합금은 ±10%.</p>
       <HardnessIllust />
       <div className="grid grid-cols-2 gap-2 mb-3 text-[12px]">
-        <div><label className={Lab}>입력 scale</label><select className={In + ' w-full'} value={scale} onChange={(e) => setScale(e.target.value as any)}><option value="HV">Vickers HV</option><option value="HRC">Rockwell HRC</option><option value="HB">Brinell HB</option></select></div>
+        <div><label className={Lab}>입력 scale</label><select className={In + ' w-full'} value={scale} onChange={onPick(HARDNESS_SCALES, setScale)}>{HARDNESS_SCALES.map((s) => <option key={s} value={s}>{HARDNESS_LABEL[s]}</option>)}</select></div>
         <div><label className={Lab}>값</label><input type="number" className={In + ' w-full'} value={val} onChange={(e) => setVal(+e.target.value || 0)} /></div>
       </div>
       <div className="rounded bg-muted/30 p-2 text-sm font-mono space-y-0.5">
@@ -532,7 +548,7 @@ function PressureVessel() {
   const [r, setR] = useState(150); // mm (inner radius)
   const [sy, setSy] = useState(250); // MPa
   const [SF, setSF] = useState(3);
-  const [shape, setShape] = useState<'cyl' | 'sph'>('cyl');
+  const [shape, setShape] = useState<VesselShape>('cyl');
   // 얇은 벽 가정 — lib/engineering-calcs. t/r>0.1 이면 두꺼운 벽(Lame) 경고.
   const { t, thick } = pressureVesselThickness({ p, r, sy, SF, shape });
   return (
@@ -541,7 +557,7 @@ function PressureVessel() {
       <p className="text-[11px] text-muted-foreground mb-3">얇은 벽 가정 — 원통 σ = p·r/t (후프), 구형 σ = p·r/(2t). 두꺼운 벽 (t/r &gt; 0.1) 은 Lame 식 필요.</p>
       <PVIllust shape={shape} />
       <div className="grid grid-cols-2 gap-2 mb-3 text-[12px]">
-        <div><label className={Lab}>형상</label><select className={In + ' w-full'} value={shape} onChange={(e) => setShape(e.target.value as any)}><option value="cyl">원통 (후프 응력)</option><option value="sph">구형</option></select></div>
+        <div><label className={Lab}>형상</label><select className={In + ' w-full'} value={shape} onChange={onPick(VESSEL_SHAPES, setShape)}>{VESSEL_SHAPES.map((s) => <option key={s} value={s}>{VESSEL_LABEL[s]}</option>)}</select></div>
         <div><label className={Lab}>내압 p (MPa)</label><input type="number" className={In + ' w-full'} value={p} onChange={(e) => setP(+e.target.value || 0)} /></div>
         <div><label className={Lab}>내반경 r (mm)</label><input type="number" className={In + ' w-full'} value={r} onChange={(e) => setR(+e.target.value || 1)} /></div>
         <div><label className={Lab}>σy (MPa)</label><input type="number" className={In + ' w-full'} value={sy} onChange={(e) => setSy(+e.target.value || 1)} /></div>

@@ -32,6 +32,13 @@ interface ComparePanelProps {
 
 const DEFAULT_COLS = ['density', 'yield_strength', 'uts', 'elongation', 'modulus', 'hardness', 'price_per_kg', 'total_cost_estimate', 'popularity'];
 /* R209 C-1 — '작을수록 우수' 물성 (AshbyChartPlotly PROP_DIR 과 동일). 인-셀 막대를 역전. */
+type WeightKey = 'strength' | 'stiffness' | 'light' | 'cheap';
+const WEIGHT_FACTORS: { key: WeightKey; label: string }[] = [
+  { key: 'strength', label: '강도 σy' },
+  { key: 'stiffness', label: '강성 E' },
+  { key: 'light', label: '경량 1/ρ' },
+  { key: 'cheap', label: '저가 1/$' },
+];
 const LOWER_IS_BETTER = new Set(['density', 'price_per_kg', 'price_per_cm3', 'delivered_price_per_kg', 'total_cost_estimate', 'machining_cost_factor', 'ht_cost_factor']);
 const fmt = (v: number) => (Number.isInteger(v) ? String(v) : v.toFixed(Math.abs(v) < 10 ? 2 : 1));
 /* 물성 읽기는 lib/materials 의 공용 리더 하나로 — 구현이 갈라져 있던 동안 표·카드는
@@ -49,6 +56,9 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
   /* R69 G — 사용자 가중치 score. R113: 기본 비활성화 + 체크박스로 항목별 활성화. score = Σ(w_i · normalized).
      사용자 정책: "기본 비활성화, 기본 collapse, 버튼으로 활성화 및 체크박스로 가중치 활성화". */
   const [weightActive, setWeightActive] = useState(false);  // 전체 가중치 시스템 활성화 toggle
+  /* 가중 점수 factor — 키를 상태 객체에서 뽑아 라벨과 한 쌍으로 둔다. 예전에는 라벨 배열이
+     따로 있고 `(weights as any)[s.key]` 로 읽어서, 키 오타가 나면 슬라이더가 조용히 0 이
+     됐다(NaN 도 아니고 그냥 undefined → 0). */
   const [enabledFactors, setEnabledFactors] = useState({ strength: true, stiffness: true, light: true, cheap: true });
   const [weights, setWeights] = useState({ strength: 40, stiffness: 20, light: 20, cheap: 20 });
   /* R99 — 가중치·Best-pick 섹션 접기 (모바일 세로 절약). 기본 접힘. */
@@ -470,13 +480,8 @@ ${panel.outerHTML}
                 </button>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-1.5">
-                {[
-                  { key: 'strength', label: '강도 σy' },
-                  { key: 'stiffness', label: '강성 E' },
-                  { key: 'light', label: '경량 1/ρ' },
-                  { key: 'cheap', label: '저가 1/$' },
-                ].map(s => {
-                  const en = (enabledFactors as any)[s.key];
+                {WEIGHT_FACTORS.map(s => {
+                  const en = enabledFactors[s.key];
                   return (
                     <div key={s.key} className={`text-[10px] min-w-0 ${weightActive && en ? 'text-foreground/80' : 'text-foreground/40'}`}>
                       <label className="flex items-center gap-1 mb-0.5 cursor-pointer">
@@ -488,11 +493,11 @@ ${panel.outerHTML}
                           className="accent-sky-600 disabled:opacity-30"
                         />
                         <span className="truncate flex-1">{s.label}</span>
-                        <span className="font-mono flex-shrink-0">{en ? (weights as any)[s.key] : 0}%</span>
+                        <span className="font-mono flex-shrink-0">{en ? weights[s.key] : 0}%</span>
                       </label>
                       <input
                         type="range" min={0} max={100} step={5}
-                        value={(weights as any)[s.key]}
+                        value={weights[s.key]}
                         disabled={!weightActive || !en}
                         onChange={(e) => setWeights(w => ({ ...w, [s.key]: +e.target.value }))}
                         className="w-full h-1 disabled:opacity-30"

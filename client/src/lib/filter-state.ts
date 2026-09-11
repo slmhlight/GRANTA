@@ -60,6 +60,13 @@ export interface FilterState {
   authorities: string[];
 }
 
+/* 필드 **종류별 키 집합**. 필터를 키로 순회하는 코드(URL 인·디코딩, 두 사례의 교집합)가
+   예전에는 `Record<string, …>` 와 `as any` 로 돌아서, 오타든 새 필드 누락이든 아무 말이
+   없었다. 타입을 FilterState 에서 뽑아 두면 그 순회들이 컴파일 검사를 받는다. */
+type KeysOfType<T> = { [K in keyof FilterState]-?: NonNullable<FilterState[K]> extends T ? K : never }[keyof FilterState];
+export type FilterRangeKey = KeysOfType<[number, number]>;
+export type FilterListKey = KeysOfType<string[]>;
+
 export const DEFAULT_FILTERS: FilterState = {
   authorities: [],
   search: '',

@@ -21,6 +21,9 @@ export interface CompositionRange {
   max: number | 'balance';
   isExact: boolean; // true if single value
   isBalance: boolean; // true if contains "balance"
+  /** 상한이 **명시되지 않았다**("≥0.15" 처럼). max 의 100 은 측정값이 아니라 자리표시자다 —
+   *  이걸 구성분 합에 그대로 더하면 balance 역산이 0 으로 무너진다(실제로 12 재료가 그랬다). */
+  openMax?: boolean;
   original: string;
 }
 
@@ -33,9 +36,32 @@ export function parseCompositionRange(input: string): CompositionRange | null {
   }
 
   const original = input.trim();
-  
-  // Handle "balance" notation
-  if (original.toLowerCase() === 'balance' || original === 'bal.') {
+
+  /* 표기 정규화 — 이 단계가 없어서 아래 패턴들이 줄줄이 빗나가고 **맨 아래 숫자 추출
+     폴백이 값을 지어내고** 있었다(실데이터 기준):
+        "≤0.50%"   → 0.5 **exact** (상한인데 정확값으로)   … 6 건
+        "1.50 max" → 1.5 **exact** (역시 상한인데)          … 4 건
+        "~3.3 (4 at%)" → 3.3–4 (wt% 와 at% 는 같은 값의 다른 단위인데 범위로)
+     그래서 (a) 끝에 붙은 괄호 주석 하나와 (b) 숫자 뒤 단위(% · wt% · vol% · at%)를 떼고 본다.
+     "5.5 (typ)" → "5.5" 처럼 기존 폴백이 맞히던 것도 이제 패턴 단계에서 잡힌다. */
+  const norm = original
+    .replace(/\s*\([^()]*\)\s*$/, '')
+    .replace(/([\d.])\s*(?:wt|vol|at)?\s*%/gi, '$1')
+    .trim();
+
+  /* 규격에 **공식**으로 적히는 값이 있다("Mn ≥ 2.5×C"). 숫자 2.5 는 Mn 함량이 아니라
+     계수다 — 폴백이 그걸 2.5% 로 읽고 있었다. 값을 모르는 것이 사실이므로 지어내지 않는다. */
+  const FORMULA = /[\d.]+\s*[x×*]\s*[A-Za-z]/;
+  if (FORMULA.test(norm)) {
+    const tail = norm.split(/~|-(?![\d.])|\s+to\s+/i).filter((t) => t && !FORMULA.test(t));
+    const only = tail.length === 1 ? tail[0].match(/^[\d.]+$/) : null;
+    // "5×C~0.8" 처럼 한쪽만 공식이면 **확실한 쪽만** 경계로 쓴다. 양쪽 다 공식이면 미수록.
+    if (only) return { min: 0, max: parseFloat(only[0]), isExact: false, isBalance: false, original };
+    return null;
+  }
+
+  // Handle "balance" notation — "balance (substrate)" 같은 괄호 주석 포함 (정규화 후 비교)
+  if (norm.toLowerCase() === 'balance' || norm.toLowerCase() === 'bal.' || norm === 'bal') {
     return {
       min: 'balance',
       max: 'balance',
@@ -59,12 +85,15 @@ export function parseCompositionRange(input: string): CompositionRange | null {
     //   기존 named regex는 숫자를 match[1]에 둬서 "max 5"/"min 50"이 NaN을 반환하던 버그.
     { regex: /^(max)\s+([\d.]+)$/i, type: 'max' },
     { regex: /^(min)\s+([\d.]+)$/i, type: 'min' },
-    // Single value: "50"
-    { regex: /^([\d.]+)$/, type: 'exact' },
+    // R226/A16 — 접미 표기 "1.50 max" · "0.20 min" (실데이터 4 건이 여기서 exact 로 새고 있었다)
+    { regex: /^([\d.]+)\s+(max)$/i, type: 'maxSuffix' },
+    { regex: /^([\d.]+)\s+(min)$/i, type: 'minSuffix' },
+    // Single value: "50" · 근사 표기 "~5"
+    { regex: /^~?\s*([\d.]+)$/, type: 'exact' },
   ];
 
   for (const pattern of patterns) {
-    const match = original.match(pattern.regex);
+    const match = norm.match(pattern.regex);
     if (match) {
       if (pattern.type === 'range') {
         const min = parseFloat(match[1]);
@@ -85,6 +114,10 @@ export function parseCompositionRange(input: string): CompositionRange | null {
           isBalance: false,
           original,
         };
+      } else if (pattern.type === 'maxSuffix') {
+        return { min: 0, max: parseFloat(match[1]), isExact: false, isBalance: false, original };
+      } else if (pattern.type === 'minSuffix') {
+        return { min: parseFloat(match[1]), max: 100, isExact: false, isBalance: false, openMax: true, original };
       } else if (pattern.type === 'min') {
         const min = parseFloat(match[2]);
         return {
@@ -92,6 +125,7 @@ export function parseCompositionRange(input: string): CompositionRange | null {
           max: 100,
           isExact: false,
           isBalance: false,
+          openMax: true,
           original,
         };
       } else if (pattern.type === 'exact') {
@@ -108,7 +142,7 @@ export function parseCompositionRange(input: string): CompositionRange | null {
   }
 
   // If no pattern matched, try to extract any numbers
-  const numbers = original.match(/[\d.]+/g);
+  const numbers = norm.match(/[\d.]+/g);
   if (numbers && numbers.length > 0) {
     const values = numbers.map(n => parseFloat(n)).filter(n => !isNaN(n));
     if (values.length === 2) {

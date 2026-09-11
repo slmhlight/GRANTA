@@ -33,8 +33,12 @@ import type { Material } from './materials';
 
 /* ───────── CET 계산 ───────── */
 
-function pctOf(comp: any, el: string): number {
-  const v = comp?.[el];
+/* 조성은 원소 딕셔너리 또는 [원소, 값] 목록으로 온다. 키가 런타임 문자열이라 조회 한 번은
+   타입을 벗어나지만, 매개변수를 any 로 받으면 comp 의 **나머지 접근까지** 무검사가 된다. */
+function pctOf(comp: Material['composition'] | null | undefined, el: string): number {
+  const v = Array.isArray(comp)
+    ? comp.find((it) => it[0] === el)?.[1]
+    : (comp as Record<string, unknown> | null | undefined)?.[el];
   if (v == null) return 0;
   if (v === 'balance') return 0; // balance 는 base 가정, CET 에 반영 안 함
   // 'min~max' 또는 '0.5' 또는 '≤0.08' 형식

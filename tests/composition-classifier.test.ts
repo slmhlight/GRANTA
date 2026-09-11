@@ -7,7 +7,9 @@
  * 조성은 client/public/materials.json 실제 값에서 채록.
  */
 import { describe, it, expect } from 'vitest';
-import { classifyMaterialByComposition } from '@/lib/composition-classifier';
+import { classifyMaterialByComposition, getElementConcentration, NON_CONSTITUENT } from '@/lib/composition-classifier';
+import fs from 'node:fs';
+import path from 'node:path';
 import type { Material } from '@/lib/materials';
 
 const mat = (composition: Record<string, string>, subcategory = 'X') =>
@@ -21,7 +23,10 @@ describe('composition-classifier — balance 잔부 시맨틱 (H6 A-2)', () => {
     }, 'Carbon/Low-alloy Steel'));
     // 철강 분기 내부 판정(휴리스틱) — fallback('Carbon/Low-alloy Steel')이 아니면 게이트 통과
     expect(r).not.toBe('Carbon/Low-alloy Steel');
-    expect(r).toBe('Carbon Steel');
+    /* A16 — 기대값을 'Carbon Steel' 에서 교정. 42CrMo4 는 Cr-Mo **합금강**이다. 옛 분기가
+       Ni≥3 || Mo≥0.5 만 합금강으로 봐서 여기로 떨어졌고, 이 테스트가 그 결과를 그대로
+       박제하고 있었다(원래 의도는 "폴백이 아니다" 였다 — 그 단언은 위에 그대로 남는다). */
+    expect(r).toBe('Alloy Steel');
   });
 
   it('2205 duplex (Fe balance·Cr 22~23·Mo 3+) → Duplex', () => {
@@ -53,5 +58,70 @@ describe('composition-classifier — balance 잔부 시맨틱 (H6 A-2)', () => {
     expect(classifyMaterialByComposition(mat({
       C: '0.08', Fe: '70.5', Cr: '18', Ni: '8', Mn: '2', Si: '1',
     }))).toBe('Stainless Steel - Austenitic');
+  });
+});
+
+/*
+ * A16 — balance 역산이 **구성분이 아닌 키**에 오염돼 있었다.
+ *
+ * balance 원소는 "100 − 나머지 합" 으로 역산한다. 그런데 조성 딕셔너리에는 원소가 아닌
+ * 주석 키가 섞여 들어온다 — 그것까지 구성분으로 더하고 있었다:
+ *
+ *   Coating "Zn ~93% · Mg 3% · Al 4%" → 93 을 빼서 도금강판의 Fe 가 **7–97%**
+ *     → isElementHigh(Fe, 50) 가 false → 철강 분기를 통째로 건너뛰고 subcategory 로 추락
+ *   CE "≤0.50%" (탄소당량 — 조성이 아니라 조성에서 유도한 지표) → 철근 6종 Fe 가 0.5%p 낮게
+ *
+ * 반대로 ceramic "~5%"(MMC 세라믹 강화상)는 **실제 구성분**이라 계속 뺀다. 원소 화이트리스트로
+ * 거르면 이런 비원소 구성분까지 잃는다(복합재 조성은 상 이름으로 적힌다).
+ */
+describe('A16 — balance 역산은 구성분만 더한다', () => {
+  it('도금강판: Coating 문자열이 Fe balance 를 먹지 않는다', () => {
+    const m = mat({ Fe: 'balance (substrate)', Coating: 'Zn ~93% · Mg 3% · Al 4% (PosMAC 3.0)' }, 'Carbon Steel');
+    const fe = getElementConcentration(m, 'Fe');
+    expect(fe, 'Fe balance 를 못 읽으면 이 검사가 무의미하다').not.toBeNull();
+    expect(fe!.min, `Fe min ${fe?.min} — Coating 93% 를 구성분으로 빼면 7 이 된다`).toBeGreaterThan(90);
+    expect(classifyMaterialByComposition(m).toLowerCase()).toContain('steel');
+  });
+
+  it('철근: CE(탄소당량)는 구성분이 아니다', () => {
+    const withCE = mat({ Fe: 'balance', C: '≤0.30', Si: '≤0.60', Mn: '≤1.60', P: '≤0.040', S: '≤0.040', CE: '≤0.50%' });
+    const without = mat({ Fe: 'balance', C: '≤0.30', Si: '≤0.60', Mn: '≤1.60', P: '≤0.040', S: '≤0.040' });
+    expect(getElementConcentration(withCE, 'Fe')).toEqual(getElementConcentration(without, 'Fe'));
+  });
+
+  it('MMC 의 ceramic 은 실제 구성분이라 계속 뺀다', () => {
+    const fe = getElementConcentration(mat({ Al: 'balance', Cu: '4.5', Mg: '0.3', Mn: '0.3', ceramic: '~5%' }), 'Al');
+    expect(fe!.max, 'ceramic 5% 를 빼지 않으면 Al 이 100 이 된다').toBeLessThan(96);
+  });
+
+  it('제외 목록이 사문화되지 않았다 — 실제 데이터에 아직 그 키가 있다', () => {
+    const p = path.join(process.cwd(), 'client', 'public', 'materials.json');
+    const all: { composition?: unknown }[] = JSON.parse(fs.readFileSync(p, 'utf8'));
+    const seen = new Set<string>();
+    for (const m of all) {
+      const c = m.composition;
+      if (!c || Array.isArray(c)) continue;
+      for (const k of Object.keys(c as Record<string, unknown>)) seen.add(k);
+    }
+    const dead = [...NON_CONSTITUENT].filter((k) => !seen.has(k));
+    expect(dead, `데이터에 없는 제외 키 ${dead.join(', ')} — 사문화된 제외는 지울 것(낡으면 오탐이 된다)`).toEqual([]);
+  });
+
+  it('산출물 전체에서 balance 범위가 비상식적으로 벌어진 재료가 없다', () => {
+    const p = path.join(process.cwd(), 'client', 'public', 'materials.json');
+    const all: { id?: string; name?: string; composition?: unknown; subcategory?: string }[] = JSON.parse(fs.readFileSync(p, 'utf8'));
+    const bad: string[] = [];
+    for (const m of all) {
+      const c = m.composition;
+      if (!c || Array.isArray(c)) continue;
+      const dict = c as Record<string, unknown>;
+      const base = Object.keys(dict).find((k) => String(dict[k]).toLowerCase().startsWith('balance'));
+      if (!base) continue;
+      const r = getElementConcentration(m as never, base);
+      /* 폭 50%p 이상 = "나머지 합" 의 min/max 가 크게 벌어진 것 — 규격 범위가 아니라 잘못
+         파싱된 키가 섞였을 때 나타나는 모양이다(도금강판이 7–97 이었다). */
+      if (r && r.max - r.min > 50) bad.push(`${m.id} ${m.name} · ${base} ${r.min}–${r.max}%`);
+    }
+    expect(bad, `balance 범위가 50%p 넘게 벌어진 재료 ${bad.length}건: ${bad.join(' · ')}`).toEqual([]);
   });
 });

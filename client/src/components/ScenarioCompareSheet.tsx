@@ -11,7 +11,8 @@ import { Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetT
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Play, Sigma, GitCompareArrows } from 'lucide-react';
-import { SCENARIO_PRESETS, encodeFiltersToParams, type ScenarioKey, type ConfigField, type CrossSection } from '@/lib/scenario-presets';
+import { SCENARIO_PRESETS, encodeFiltersToParams, FILTER_RANGE_KEYS, FILTER_LIST_KEYS, type ScenarioKey, type ConfigField, type CrossSection, type ScenarioResult } from '@/lib/scenario-presets';
+import type { FilterRangeKey, FilterListKey } from '@/lib/filter-state';
 import type { FilterState } from '@/hooks/useMaterialFilter';
 import { useT } from '@/lib/i18n';
 
@@ -22,7 +23,7 @@ function ScenarioColumn({ panelKey, label, scenarioKey, onScenarioChange, onResu
   label: string;
   scenarioKey: ScenarioKey | null;
   onScenarioChange: (k: ScenarioKey | null) => void;
-  onResultChange?: (r: { filters: Partial<FilterState>; summary: any[] } | null) => void;
+  onResultChange?: (r: ScenarioResult | null) => void;
 }) {
   const t = useT();
   const scenario = scenarioKey ? SCENARIO_PRESETS[scenarioKey] : null;
@@ -33,7 +34,7 @@ function ScenarioColumn({ panelKey, label, scenarioKey, onScenarioChange, onResu
     const v: Record<string, number | string | string[]> = {};
     if (!cfg) return v;
     for (const f of cfg.fields) v[f.id] = f.default;
-    if (cfg.sections) for (const f of cfg.sections[0].dimFields) v[f.id] = (f as any).default;
+    if (cfg.sections) for (const f of cfg.sections[0].dimFields) v[f.id] = f.default;
     return v;
   }, [cfg]);
   const [values, setValues] = useState<Record<string, number | string | string[]>>(initialValues);
@@ -86,7 +87,7 @@ function ScenarioColumn({ panelKey, label, scenarioKey, onScenarioChange, onResu
                   setValues((p) => {
                     const np: Record<string, number | string | string[]> = { ...p, _axis: 'strong' };
                     const s = cfg.sections!.find((x) => x.id === v);
-                    if (s) for (const f of s.dimFields) np[f.id] = (f as any).default;
+                    if (s) for (const f of s.dimFields) np[f.id] = f.default;
                     return np;
                   });
                 }}>
@@ -189,16 +190,23 @@ function CompactInput({ field, value, error, onChange }: { field: ConfigField; v
 /** 두 filter 의 교집합 — 두 사례 모두 만족하는 후보만 남기기 위해 더 엄격한 쪽을 채택. */
 function intersectFilters(a: Partial<FilterState>, b: Partial<FilterState>): Partial<FilterState> {
   const out: Partial<FilterState> = { ...a };
+  /* 키가 런타임 문자열이라 값 이동 한 번은 타입을 벗어나야 하는데, **그 한 줄에만** 좁힌다.
+     제네릭 K 로 받으면 양쪽이 같은 필드 타입이라 캐스트 없이 통과한다. */
+  const copy = <K extends keyof FilterState>(k: K) => { out[k] = b[k]; };
+  const isRange = (k: keyof FilterState): k is FilterRangeKey => (FILTER_RANGE_KEYS as readonly string[]).includes(k);
+  const isList = (k: keyof FilterState): k is FilterListKey => (FILTER_LIST_KEYS as readonly string[]).includes(k);
+
   for (const k of Object.keys(b) as (keyof FilterState)[]) {
-    const av = (a as any)[k], bv = (b as any)[k];
-    if (!av) { (out as any)[k] = bv; continue; }
-    if (!bv) continue;
-    // 범위 [min, max] 교집합 — 더 큰 min, 더 작은 max
-    if (Array.isArray(av) && av.length === 2 && typeof av[0] === 'number') {
-      (out as any)[k] = [Math.max(av[0], bv[0]), Math.min(av[1], bv[1])];
-    } else if (Array.isArray(av) && Array.isArray(bv)) {
+    if (!a[k]) { copy(k); continue; }
+    if (!b[k]) continue;
+    if (isRange(k)) {
+      // 범위 [min, max] 교집합 — 더 큰 min, 더 작은 max
+      const av = a[k], bv = b[k];
+      if (av && bv) out[k] = [Math.max(av[0], bv[0]), Math.min(av[1], bv[1])];
+    } else if (isList(k)) {
       // 문자열 배열 (categories/processes/corrosion) — 교집합
-      (out as any)[k] = av.filter((x: string) => bv.includes(x));
+      const av = a[k], bv = b[k];
+      if (av && bv) out[k] = av.filter((x) => bv.includes(x));
     }
   }
   return out;
@@ -210,8 +218,8 @@ export function ScenarioCompareSheet({ open, onOpenChange }: { open: boolean; on
   const [leftKey, setLeftKey] = useState<ScenarioKey | null>(null);
   const [rightKey, setRightKey] = useState<ScenarioKey | null>(null);
   /** R19 — 라이브 compute 결과를 부모에서 보관해 교집합 적용 시 정확한 filters 사용. */
-  const [leftResult, setLeftResult] = useState<{ filters: Partial<FilterState>; summary: any[] } | null>(null);
-  const [rightResult, setRightResult] = useState<{ filters: Partial<FilterState>; summary: any[] } | null>(null);
+  const [leftResult, setLeftResult] = useState<ScenarioResult | null>(null);
+  const [rightResult, setRightResult] = useState<ScenarioResult | null>(null);
 
   const applyOne = (key: ScenarioKey | null, result: { filters: Partial<FilterState> } | null) => {
     if (!key) return;
@@ -235,7 +243,7 @@ export function ScenarioCompareSheet({ open, onOpenChange }: { open: boolean; on
   const intersectEmpty = useMemo(() => {
     if (!intersectedFilters) return false;
     for (const k of ['categories', 'processes', 'corrosion', 'subcategories'] as const) {
-      const v = (intersectedFilters as any)[k];
+      const v = intersectedFilters[k];
       if (Array.isArray(v) && v.length === 0) return k;
     }
     return false;

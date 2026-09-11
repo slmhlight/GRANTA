@@ -6,7 +6,11 @@
  */
 
 /* ── #3 응력 집중 계수 Kt (Pilkey 근사) ── */
-export type KtShape = 'hole' | 'fillet' | 'sharpCorner' | 'shoulderCut';
+/* 선택지는 **런타임 배열이 SSOT** 고 타입은 거기서 파생한다 — UI 의 <option> 목록을 이
+   배열로 렌더하면 선택지와 상태 타입이 어긋날 수 없다(어긋나면 예전처럼 `as any` 로만
+   넘어간다). 새 항목을 추가하면 라벨 Record 와 아래 계산식이 함께 걸린다. */
+export const KT_SHAPES = ['hole', 'fillet', 'sharpCorner', 'shoulderCut'] as const;
+export type KtShape = typeof KT_SHAPES[number];
 export function ktFactor(shape: KtShape, { d = 10, w = 40, r = 2 }: { d?: number; w?: number; r?: number }): number {
   if (shape === 'hole') {
     const ratio = Math.min(0.95, d / w);
@@ -17,7 +21,11 @@ export function ktFactor(shape: KtShape, { d = 10, w = 40, r = 2 }: { d?: number
     return Math.max(1.05, Math.min(4.5, 1 + 0.65 * Math.pow(rd, -0.4)));
   }
   if (shape === 'sharpCorner') return 5.5;
-  return 1.8 + 0.3 * Math.max(0, 1 - r / d); // shoulderCut
+  if (shape === 'shoulderCut') return 1.8 + 0.3 * Math.max(0, 1 - r / d);
+  /* KtShape 에 항목을 추가하고 식을 안 쓰면 여기서 컴파일이 깨진다 — 예전에는 마지막 식이
+     조용히 모든 미처리 형상의 답이 됐다. */
+  const _exhaustive: never = shape;
+  return _exhaustive;
 }
 
 /* ── #4 갈바닉 전위차 ── */
@@ -51,7 +59,8 @@ export function thermalMismatchStress(cteA: number, cteB: number, dT: number, E:
 }
 
 /* ── #7 경도 변환 HV↔HRC↔HB + UTS (ASTM E140/A370 근사, 탄소·합금강) ── */
-export type HardnessScale = 'HV' | 'HRC' | 'HB';
+export const HARDNESS_SCALES = ['HV', 'HRC', 'HB'] as const;
+export type HardnessScale = typeof HARDNESS_SCALES[number];
 export interface HardnessResult { HV: number; HRC: number; HB: number; UTS: number; }
 export function hardnessConvert(scale: HardnessScale, val: number): HardnessResult {
   let HV = val;
@@ -62,7 +71,8 @@ export function hardnessConvert(scale: HardnessScale, val: number): HardnessResu
 }
 
 /* ── #9 압력 용기 두께 (얇은 벽) ── */
-export type VesselShape = 'cyl' | 'sph';
+export const VESSEL_SHAPES = ['cyl', 'sph'] as const;
+export type VesselShape = typeof VESSEL_SHAPES[number];
 export function pressureVesselThickness({ p, r, sy, SF, shape }: { p: number; r: number; sy: number; SF: number; shape: VesselShape }): { t: number; thick: boolean } {
   const t = shape === 'cyl' ? (p * r * SF) / sy : (p * r * SF) / (2 * sy);
   return { t, thick: t / r > 0.1 };
