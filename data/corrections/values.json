@@ -694,6 +694,11 @@
    "max_service_temp": 200,
    "basis": "폴리머 계열 typical 90°C 이 찍혔으나 FKM 을 고르는 이유 자체가 200°C 급 연속 사용이다(캠·크랭크 오일 씰). 카탈로그 상한 260°C 는 단기 노출 값이라, 연속 사용 기준인 200 을 쓴다.",
    "src": "WARCO — Understanding Fluoroelastomer (FKM/Viton) (온도 범위 −29~260°C) · Chemours Viton Selection Guide (연속 사용 200-230°C)"
+  },
+  "MET-1032": {
+   "fracture_toughness": 165,
+   "basis": "C2 계열 폴백이 class 신뢰도로 75 MPa√m(AMS 6415 일반 합금강 기준)를 붙였는데, AF1410 은 \"같은 강도급에서 파괴인성이 유난히 높은 것\" 이 존재 이유인 합금이라 폴백값이 성격을 정반대로 전한다. 제조사 데이터시트의 실측 165 MPa√m(=150 ksi√in)로 교정. 특허 문헌의 \"AF1410 은 KIC ≥ 100 ksi√in\" 서술, 같은 데이터시트 17 in 판의 값과도 정합한다.",
+   "src": "Latrobe Lescalloy AF1410 VIM-VAR 데이터시트 (6 in 봉재, KIC 165 MPa√m · Charpy V 76~84 J)"
   }
  },
  "fields": {

@@ -793,6 +793,61 @@
         }
       ],
       "industry_note": "연료·오일·화학약품과 200°C 를 동시에 견뎌야 하는 씰의 기준 재료 — GDI 인젝터 O링, 캠·크랭크 오일 씰, 항공 연료 계통, 반도체 챔버 개스킷. 값이 NBR 의 5~10배라 \"다른 것으로 안 되는 자리\"에만 쓴다. 저온이 약점이라(표준 타입 −20°C 대) 한랭 환경은 GLT/GFLT 계 저온 타입을 지정해야 한다."
+    },
+    {
+      "name": "AF1410 (Ni-Co secondary hardening UHS steel)",
+      "category": "Metal",
+      "subcategory": "Alloy Steel",
+      "process": "Wrought",
+      "heat_treatment": "Solution 857°C OQ + Cryo -73°C + Aged 510°C/5h",
+      "related": [
+        "AerMet 100"
+      ],
+      "aliases": [
+        "AF 1410",
+        "UNS K92571",
+        "K92571",
+        "Lescalloy AF1410",
+        "AMS 6527",
+        "AMS 6522"
+      ],
+      "composition": {
+        "C": "0.15",
+        "Si": "0.10",
+        "Mn": "0.10",
+        "Cr": "2.0",
+        "Ni": "10.0",
+        "Mo": "1.0",
+        "Co": "14.0",
+        "Fe": "balance"
+      },
+      "points": [
+        [
+          7.83,
+          1517,
+          1670,
+          17,
+          203,
+          null,
+          null
+        ]
+      ],
+      "impact": [
+        76
+      ],
+      "sources": [
+        {
+          "label": "Latrobe Lescalloy AF1410 VIM-VAR 데이터시트 (6 in 봉재) — UTS 1670 MPa · σy 1517 MPa · 연신 17% · 단면감소 70~73% · E 203 GPa · KIC 165 MPa√m · Charpy V 76~84 J · 밀도 7.83 g/cc",
+          "url": "https://www.matweb.com/search/datasheet.aspx?matguid=b5a2b726fb3a4cde861bb11e539047d2",
+          "verified": true
+        },
+        {
+          "label": "SAE AMS 6527 — Steel Bars and Forgings 2.0Cr-10Ni-14Co-1.0Mo (0.13-0.17C), Vacuum Melted, Normalized and Overaged (조성 규격 · UNS K92571)",
+          "url": "https://www.sae.org/standards/content/ams6527/",
+          "verified": true
+        }
+      ],
+      "industry_note": "AerMet 100 과 같은 Ni-Co 2차경화 계열. 잠수함 선체용으로 개발돼 항공기 구조·착륙장치로 퍼졌다. 같은 급 강도에서 파괴인성이 매우 높은 것이 특징이라(KIC 165 MPa√m) 결함 허용 설계에 쓰인다."
     }
   ]
 }
