@@ -114,15 +114,22 @@ const INDEX_GUIDES: Record<string, { slope: number; label: string }[]> = {
 
 // 재료 분류별 색은 단일 진실 소스(lib/material-colors)에서 — UI 전반과 동일.
 
-const tv = (m: any, p: string): number | null => (m[p] ?? m.ranges?.[p]?.typical ?? null);
+/* 물성은 top-level 평면값 또는 ranges[p].typical 로 온다(스키마 v1/v2 공존).
+   p 가 런타임 문자열이라 인덱싱 한 번은 타입을 벗어날 수밖에 없는데, **그 연산에만** 좁혀
+   둔다 — 예전처럼 `m: any` 로 받으면 m 의 나머지 접근까지 전부 무검사가 된다. */
+const flatProp = (m: Material, p: string): number | null => {
+  const v = (m as unknown as Record<string, unknown>)[p];
+  return typeof v === 'number' ? v : null;
+};
+const tv = (m: Material, p: string): number | null => (flatProp(m, p) ?? m.ranges?.[p]?.typical ?? null);
 /** 전체 재료에서 해당 물성의 typical min/max — 축 자동범위·슬라이더 도메인의 기준.
  *  컴포넌트 밖 순수 함수로 두어 useMemo 의존성이 (materials, prop) 로 정확히 떨어지게 한다. */
 const domainOf = (materials: Material[], prop: string): [number, number] => {
   const vs = materials.map((m) => tv(m, prop)).filter((v): v is number => v != null && v > 0);
   return vs.length ? [Math.min(...vs), Math.max(...vs)] : [0, 1];
 };
-const loOf = (m: any, p: string): number | null => (m.ranges?.[p]?.min ?? tv(m, p));
-const hiOf = (m: any, p: string): number | null => (m.ranges?.[p]?.max ?? tv(m, p));
+const loOf = (m: Material, p: string): number | null => (m.ranges?.[p]?.min ?? tv(m, p));
+const hiOf = (m: Material, p: string): number | null => (m.ranges?.[p]?.max ?? tv(m, p));
 const L = Math.log10;
 const PROP_ORDER = ['density', 'yield_strength', 'uts', 'elongation', 'modulus', 'hardness', 'thermal_conductivity'];
 // convex hull (Andrew's monotone chain) → real, slightly-irregular data envelope
@@ -272,10 +279,10 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
   }, [materials, groupFilter]);
 
   const { data, layout, indexInfo, selectedIds, paretoInfo } = useMemo(() => {
-    const inGroup = (m: any) => groupFilter === 'all' || classOf(m).key === groupFilter;
-    const inSub = (m: any) => subFilter === 'all' || m.subcategory === subFilter;
-    const valid = (m: any) => (tv(m, xProperty) ?? 0) > 0 && (tv(m, yProperty) ?? 0) > 0;
-    const inLim = (m: any) => (!xLimit || (tv(m, xProperty)! >= xLimit[0] && tv(m, xProperty)! <= xLimit[1]))
+    const inGroup = (m: Material) => groupFilter === 'all' || classOf(m).key === groupFilter;
+    const inSub = (m: Material) => subFilter === 'all' || m.subcategory === subFilter;
+    const valid = (m: Material) => (tv(m, xProperty) ?? 0) > 0 && (tv(m, yProperty) ?? 0) > 0;
+    const inLim = (m: Material) => (!xLimit || (tv(m, xProperty)! >= xLimit[0] && tv(m, xProperty)! <= xLimit[1]))
       && (!yLimit || (tv(m, yProperty)! >= yLimit[0] && tv(m, yProperty)! <= yLimit[1]));
     // R88 — X/Y range slider 를 hard filter (AND) 로 적용. 이전엔 'selection window' 였으나 사이드바 family
     //       checkbox 와 직관적으로 일관되지 않아 envelope/marker 가 범위 밖에서 계속 보임.
@@ -288,7 +295,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
 
     // ── selection precedence: chart box-select > material-index preset(s) > Compare list ──
     const idx = MATERIAL_INDICES.find((i) => i.key === indexPreset) || null;
-    const Mof = (ix: { x: string; y: string; p: number } | null, m: any) => { if (!ix) return null; const xv = tv(m, ix.x), yv = tv(m, ix.y); return xv && yv && xv > 0 && yv > 0 ? Math.pow(yv, ix.p) / xv : null; };
+    const Mof = (ix: { x: string; y: string; p: number } | null, m: Material) => { if (!ix) return null; const xv = tv(m, ix.x), yv = tv(m, ix.y); return xv && yv && xv > 0 && yv > 0 ? Math.pow(yv, ix.p) / xv : null; };
     // resolve every additional index constraint to its preset + auto/median threshold + range (multi-index, ANDed)
     const consInfo = (idx ? constraints : []).map((c) => {
       const cidx = MATERIAL_INDICES.find((i) => i.key === c.key);
@@ -309,7 +316,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       const Ms = fset.map((m) => Mof(idx, m)).filter((v): v is number => v != null && isFinite(v)).sort((a, b) => a - b);
       minM = Ms[0] ?? 0; maxM = Ms[Ms.length - 1] ?? 0;
       indexThr = indexThreshold ?? (Ms.length ? Ms[Math.floor(Ms.length / 2)] : 0); // default ≈ median → ~half pass
-      const pass = (m: any) => {
+      const pass = (m: Material) => {
         const M = Mof(idx, m); if (!(M != null && M >= indexThr!)) return false;
         for (const c of consInfo) { const Mc = Mof(c.idx, m); if (!(Mc != null && Mc >= c.thr)) return false; }
         return true;
@@ -334,8 +341,8 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     const selectedIds = colorMode ? colored.map((m) => m.id) : [];
 
     // markers grouped by colour key (material class, or category when colour-by-category is on)
-    const colKey = (m: any) => (colorByCategory ? m.category : classOf(m).key);
-    const colColor = (m: any) => (colorByCategory ? (CATEGORY_COLORS[m.category] || '#64748b') : classOf(m).color);
+    const colKey = (m: Material) => (colorByCategory ? m.category : classOf(m).key);
+    const colColor = (m: Material) => (colorByCategory ? (CATEGORY_COLORS[m.category] || '#64748b') : classOf(m).color);
     const byClass = new Map<string, { color: string; ms: Material[] }>();
     for (const m of colored) {
       const ck = colKey(m), cc = colColor(m);
@@ -349,7 +356,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     //   shortLabel) 가 모두 xMeta/yMeta 를 직접 사용 → 단일 변수만 유지.
     const xMeta = ALL_NUMERIC_PROPERTIES.find((p) => p.key === xProperty);
     const yMeta = ALL_NUMERIC_PROPERTIES.find((p) => p.key === yProperty);
-    const verifiedOf = (m: Material) => (m.sources && m.sources.some((s: any) => s.verified)) ? '✓' : '';
+    const verifiedOf = (m: Material) => (m.sources && m.sources.some((s) => s.verified)) ? '✓' : '';
     const markerTraces = Array.from(byClass.entries()).sort((a, b) => b[1].ms.length - a[1].ms.length).map(([key, { color, ms }]) => ({
       x: ms.map((m) => tv(m, xProperty)), y: ms.map((m) => tv(m, yProperty)),
       mode: showLabels ? 'markers+text' : 'markers', type: 'scatter', name: `${key} (${ms.length})`,
@@ -411,7 +418,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     }).filter(Boolean);
 
     // smooth filled envelope from a set of materials' data points (spline-curved hull)
-    const envFromPoints = (ms: any[], color: string, alpha: number, width: number) => {
+    const envFromPoints = (ms: Material[], color: string, alpha: number, width: number) => {
       const pts: number[][] = [];
       for (const m of ms) for (const t of ((m.points || []) as number[][])) { const x = t[xi], y = t[yi]; if (xi >= 0 && yi >= 0 && x > 0 && y > 0) pts.push([L(x), L(y)]); }
       const uq = Array.from(new Map(pts.map((p) => [`${p[0].toFixed(4)},${p[1].toFixed(4)}`, p])).values());
@@ -614,12 +621,12 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     const ids = new Set(selectedIds);
     const rows = materials.filter((m) => ids.has(m.id));
     if (!rows.length) return;
-    const esc = (v: any) => `"${String(v ?? '').replace(/"/g, '""')}"`;
+    const esc = (v: unknown) => `"${String(v ?? '').replace(/"/g, '""')}"`;
     const header = ['name', 'category', 'subcategory', 'process', ...ALL_NUMERIC_PROPERTIES.map((p) => `${p.label} (${p.unit})`), 'aliases'];
     const lines = [header.map(esc).join(',')];
     for (const m of rows) {
       const cells = [m.name, m.category, m.subcategory, (m.processes || (m.process ? [m.process] : [])).join(' / '),
-        ...ALL_NUMERIC_PROPERTIES.map((p) => { const r = (m.ranges || {})[p.key as string]; return r?.typical ?? (m as any)[p.key] ?? ''; }),
+        ...ALL_NUMERIC_PROPERTIES.map((p) => { const r = (m.ranges || {})[p.key]; return r?.typical ?? flatProp(m, p.key) ?? ''; }),
         (m.aliases || []).join('; ')];
       lines.push(cells.map(esc).join(','));
     }

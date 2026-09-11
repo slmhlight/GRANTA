@@ -862,13 +862,13 @@ function ActiveFilterChips({ filters, updateFilter }: ActiveFilterChipsProps) {
   if (filters.subcategories.length) chips.push({ key: 'subs', label: `Family: ${filters.subcategories.length}개`, onRemove: () => updateFilter('subcategories', []) });
   if (filters.processes.length) chips.push({ key: 'processes', label: `Proc: ${filters.processes.join(' / ')}`, onRemove: () => updateFilter('processes', []) });
   // R38e — heat_treatment (added later in this round)
-  const ht = (filters as any).heatTreatments as string[] | undefined;
-  if (ht && ht.length) chips.push({ key: 'ht', label: `HT: ${ht.length}개`, onRemove: () => (updateFilter as any)('heatTreatments', []) });
+  const ht = filters.heatTreatments;
+  if (ht && ht.length) chips.push({ key: 'ht', label: `HT: ${ht.length}개`, onRemove: () => updateFilter('heatTreatments', []) });
   for (const [key, label, unit] of rangeFields) {
     const v = filters[key] as [number, number] | null;
     if (v) {
       const fmtN = (n: number) => Math.abs(n) >= 100 ? n.toFixed(0) : n.toFixed(1);
-      chips.push({ key: String(key), label: `${label} ${fmtN(v[0])}–${fmtN(v[1])}${unit ? ' ' + unit : ''}`, onRemove: () => updateFilter(key, null as any) });
+      chips.push({ key: String(key), label: `${label} ${fmtN(v[0])}–${fmtN(v[1])}${unit ? ' ' + unit : ''}`, onRemove: () => updateFilter(key, null) });
     }
   }
   if (Object.values(filters.compositionRanges || {}).some(r => r !== null)) {
