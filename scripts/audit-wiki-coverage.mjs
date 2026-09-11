@@ -155,11 +155,19 @@ const DOCUMENTED_ABSENT = new Map([
   ['unsr58210', 'Beta-21S(R58210) — DB entry 수록(UNS 필드)'],
   ['unsm16600', 'ZK60A UNS — ZK60 별칭으로 검색 가능(H5 W8)'],
   ['unsk93160', 'Maraging 350(K93160) — C350 별칭으로 검색 가능(H5 W8)'],
+  /* H6 마감(2026-09-11) — ② 잔여 전건 판정. */
+  ['a276', 'ASTM 규격번호(스테인리스 봉) — 재료가 아니다. "판은 A240, 봉은 A276" 처럼 '
+           + '앞 문장의 ASTM 을 승계하는 표기라 기관명 lookbehind 가 닿지 않는다'],
+  ['a182', 'ASTM 규격번호(단조 부속) — 위와 같은 승계 표기'],
+  ['scc100', '오탐 — 본문은 "SCC 100배↑"(내SCC 성능이 100배)이고, 숫자가 붙어 합금명처럼 잡혔다'],
+  ['af1410', 'Carpenter 2차경화 초고강도강 — 같은 계열 대표로 AerMet 100 이 이미 등재돼 있다. '
+             + '검증된 datasheet 확보 시 entry 추가(백로그) — 미검증 값은 수록하지 않는다'],
 ]);
 // 항공기·엔진·무기 호칭 — 합금 아님 (실재 합금과 겹치지 않는 것만: A380 다이캐스트 합금 등은 제외)
 const NON_MATERIAL = new Set([
   'a320', 'a350', 'b47', 'b52', 'b58', 'f15', 'f16', 'f86', 'a18', 'p47', 'p51',
   'sr71', 'm16', 'j57', 'j79', 'f404', 'cfm56',
+  'f104', 'f105',   // H6 마감 — FKM 스토리의 초기 적용처(Starfighter·Thunderchief)
 ]);
 // H5-D1 (W3) — 필터 계측(env FILTER_AUDIT): 항목별 차단 실적 → 사문화(0건)·과차단 검출용.
 const FA = !!process.env.FILTER_AUDIT;
@@ -240,7 +248,45 @@ const EN_STOP = new Set(['si', 'iso', 'astm', 'ams', 'ks', 'jis', 'en', 'din', '
   'norun', 'hard', 'metalreplacement', 'rubbing', 'welding', 'chipping', 'diecut', 'cryo',
   'cbnwheel', 'induction', 'acsr', 'rohs', 'citric', 'hepa', 'oemproprietary', 'xyvsz',
   'materialindex', 'osteoconductive', 'ferrotic',
+  /* H6 마감(2026-09-11) — ③ 잔여 전건 판정.
+     인명·제품명·표기법은 용어가 아니다. 여기 넣는 근거를 각 항목 옆에 남긴다. */
+  'keithmillis',   // 인명 — 구상흑연주철을 발견한 사람
+  'dalnogare',     // 인명 — POM 말단봉지 연구자
+  'nasaet',        // 제품명 — NASA External Tank
+  'cunicr',        // 도금 적층 표기(Cu/Ni/Cr 3층)이지 개념명이 아니다
+  'classiii',      // ASTM A532 백주철 '등급' 표기
+  'converter',     // 일반 명사(반응 용기) — 본문이 그 자리에서 풀어 쓴다
+  'melting',       // 일반 명사 — 한글 캡처가 "아니라 용융"으로 잘린 오탐
+  'dendron',       // 어원 설명(나뭇가지) — 수지상정 문서가 이름의 유래로 한 번 쓴다
 ]);
+/* 개념이긴 하나 **그 문서 안에서 이미 풀어 설명하고, 그 문서에서만 쓰이는** 것들.
+   따로 용어 페이지를 만들면 한 문단짜리 빈 껍데기가 되고, 독자는 이미 그 자리에서 배웠다.
+   ("1학년이 그 문장을 읽고 이해하는가" 가 판정 기준 — 전건 원문 확인함.)
+   나중에 다른 문서에서도 쓰이기 시작하면 그때 용어로 승격한다. */
+const DOCUMENTED_UNDEFINED = new Map([
+  ['notch', '충격강도·주철 문서가 "날카로운 끝이 응력을 모은다"로 그 자리에서 설명'],
+  ['fading', '구상흑연주철 #2 가 "Mg 가 증발해 흑연이 편상으로 되돌아간다"로 완결 설명'],
+  ['sinkmark', '사출성형 #1 이 "두꺼운 부위가 늦게 굳어 표면이 꺼진다"로 설명'],
+  ['shrinkfit', '열팽창 #2 가 "가열해 끼우고 식혀서 조인다"로 설명 — 조립 기법'],
+  ['endcap', 'POM 스토리 전용 — 말단을 아세틸로 막는 화학 처리, 그 자리에서 설명'],
+  ['unzipping', 'POM 스토리 전용 — 해지 반응, 말단봉지와 한 쌍으로 설명됨'],
+  ['gouging', '백주철 스토리 전용 — 큰 입자가 파내는 마모 형태'],
+  ['incipientmelting', 'Ni 주조 열처리 블록 전용 — 용체화 온도 초과 시 입계 초기 용융'],
+  ['strainagecracking', 'Ni 주조 열처리 블록 전용 — 시효 중 변형시효 균열'],
+  ['rejuvenation', 'Ni 주조 열처리 블록 전용 — 사용 후 조직 회복 재열처리'],
+  ['bakehardening', 'AHSS 블록이 온도·시간과 함께 도장 건조로에서 일어남을 설명'],
+  ['watertoughening', 'Hadfield 블록이 "탄화물을 녹여 오스테나이트로 얼린다"로 설명'],
+  ['explosionhardening', 'Hadfield 블록 전용 — 폭발로 표면만 가공경화'],
+  ['shapesetting', 'Nitinol 블록 전용 — 형상기억 합금에 모양을 기억시키는 열처리'],
+  ['lamellartearing', '단련재 #2 가 두께 방향 성질 저하와 함께 설명 — 용접 설계 주의'],
+  /* 아래 둘은 이번에 새로 쓴 수지상정 문서가 도입한 것 — 그 문서가 정의와 함께 설명한다.
+     둘 다 나중에 다른 문서에서도 쓰이면 용어로 승격할 후보다. */
+  ['homogenization', '수지상정 #4 — "녹는점 아래에서 오래 유지해 편석을 펴는 열처리"로 정의와 함께 설명'],
+  ['inoculant', '수지상정 #3 — 등축정을 얻는 방법(핵 공급)으로 그 자리에서 설명'],
+]);
+const DU_HITS = new Map();
+const documentedUndef = new Map();
+
 for (const { src, key, text } of corpus) {
   INTRO_RE.lastIndex = 0;
   for (const m of text.matchAll(INTRO_RE)) {
@@ -250,6 +296,14 @@ for (const { src, key, text } of corpus) {
     if (EN_STOP.has(ne)) { if (FA) EN_HITS.set(ne, (EN_HITS.get(ne) || 0) + 1); continue; }
     if (termForms.has(ne) || termForms.has(norm(ko))) continue; // 이미 글로서리
     if (wikiForms.has(ne) || dbForms.has(ne)) continue; // 재료명
+    if (DOCUMENTED_UNDEFINED.has(ne)) {                 // 판정 기록 — 미정의 집계 제외
+      DU_HITS.set(ne, (DU_HITS.get(ne) || 0) + 1);
+      let d = documentedUndef.get(ne);
+      if (!d) { d = { ko, en, count: 0, srcs: new Set(), reason: DOCUMENTED_UNDEFINED.get(ne) }; documentedUndef.set(ne, d); }
+      d.count++;
+      if (d.srcs.size < 3) d.srcs.add(`${src}:${key.slice(0, 40)}`);
+      continue;
+    }
     let rec = termIntro.get(ne);
     if (!rec) { rec = { ko, en, count: 0, srcs: new Set() }; termIntro.set(ne, rec); }
     rec.count++;
@@ -289,6 +343,13 @@ md.push('| 한글 | English | 횟수 | 출처(샘플) |');
 md.push('|---|---|---|---|');
 for (const t of terms.slice(0, 100)) md.push(`| ${t.ko} | ${t.en} | ${t.count} | ${[...t.srcs].slice(0, 2).join(' · ')} |`);
 md.push('');
+md.push('## ⑤ 용어화 보류 (문서 내 설명 완결 — 미정의 집계 제외)');
+md.push('');
+md.push('| English | 횟수 | 사유 | 출처(샘플) |');
+md.push('|---|---|---|---|');
+for (const d of [...documentedUndef.values()].sort((a, b) => b.count - a.count))
+  md.push(`| ${d.en} | ${d.count} | ${d.reason} | ${[...d.srcs].slice(0, 2).join(' · ')} |`);
+md.push('');
 md.push('## ④ 등재 보류 (실재 확인·사유 기록 — absent 집계 제외)');
 md.push('');
 md.push('| 언급 | 횟수 | 보류 사유 |');
@@ -312,6 +373,10 @@ if (FA) {
   const deadStop = STOP_HITS.filter((h) => h.n === 0).length;
   const deadNM = [...NON_MATERIAL].filter((x) => !(NM_HITS.get(x) > 0)).length;
   const deadEN = [...EN_STOP].filter((x) => !(EN_HITS.get(x) > 0)).length;
+  const deadDU = [...DOCUMENTED_UNDEFINED.keys()].filter((x) => !(DU_HITS.get(x) > 0));
+  fam.push('', '## DOCUMENTED_UNDEFINED 항목별 (0건 = 사문화)', '', '| 항목 | 차단 |', '|---|---|');
+  for (const k of DOCUMENTED_UNDEFINED.keys()) fam.push(`| ${k} | ${DU_HITS.get(k) || 0} |`);
+  console.log(`DU_AUDIT: 용어화 보류 ${DOCUMENTED_UNDEFINED.size} · 사문화 ${deadDU.length}${deadDU.length ? ' — ' + deadDU.join(', ') : ''}`);
   console.log(`FILTER_AUDIT: STOP 사문화 ${deadStop}/${STOP_RE.length} · NON_MATERIAL 사문화 ${deadNM}/${NON_MATERIAL.size} · EN_STOP 사문화 ${deadEN}/${EN_STOP.size} → docs/audits/filter-audit.md`);
 }
 fs.writeFileSync(path.join(ROOT, 'docs/audits/wiki-coverage.md'), md.join('\n') + '\n');

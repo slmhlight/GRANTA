@@ -265,7 +265,8 @@
     "석출 경화",
     "precipitation hardening",
     "age hardening",
-    "시효경화"
+    "시효경화",
+    "precipitation-hardened"
    ],
    "autolink": [
     "석출경화",
@@ -797,7 +798,8 @@
     "크리프",
     "creep",
     "single-crystal",
-    "단결정"
+    "단결정",
+    "cold flow"
    ],
    "autolink": [
     "크리프",
@@ -1098,7 +1100,9 @@
     "응력부식균열",
     "응력 부식 균열",
     "stress corrosion cracking",
-    "SCC"
+    "SCC",
+    "season cracking",
+    "계절균열"
    ],
    "autolink": [
     "응력부식균열",
@@ -1945,7 +1949,9 @@
     "white cast iron",
     "white iron",
     "Ni-Hard",
-    "니하드"
+    "니하드",
+    "chill",
+    "칠드"
    ],
    "autolink": [
     "백주철",
@@ -1971,7 +1977,9 @@
     "ADI",
     "austempered ductile iron",
     "오스템퍼 구상흑연주철",
-    "오스템퍼드 덕타일"
+    "오스템퍼드 덕타일",
+    "ausferrite",
+    "오스페라이트"
    ],
    "autolink": [
     "austempered ductile iron",
@@ -2527,7 +2535,9 @@
     "편상",
     "구상",
     "graphitic corrosion",
-    "흑연화 부식"
+    "흑연화 부식",
+    "chunky graphite",
+    "청키 흑연"
    ],
    "autolink": [
     "흑연"
@@ -2697,7 +2707,9 @@
     "PA66",
     "PA12",
     "conditioned",
-    "조습"
+    "조습",
+    "dry as molded",
+    "DAM"
    ],
    "autolink": [
     "폴리아마이드",
@@ -3457,6 +3469,38 @@
     "controlled-expansion-alloy",
     "residual-stress",
     "hot-cracking"
+   ]
+  },
+  "dendrite": {
+   "display": "수지상정 (Dendrite)",
+   "category": "microstructure",
+   "surface_forms": [
+    "수지상정",
+    "수지상",
+    "dendrite",
+    "dendritic",
+    "주상정",
+    "columnar dendrite",
+    "등축정",
+    "equiaxed grain",
+    "미세편석",
+    "microsegregation"
+   ],
+   "autolink": [
+    "수지상정",
+    "수지상",
+    "dendrite"
+   ],
+   "short": "액체가 굳을 때 나무가지처럼 뻗으며 자라는 결정. 가지 사이에 불순물이 몰려 편석이 생기고, 마지막에 굳는 부위에 수축공이 남는다.",
+   "sources": [
+    "Campbell, Castings (2nd ed.)",
+    "Kurz & Fisher, Fundamentals of Solidification",
+    "ASM Handbook Vol.15 Casting"
+   ],
+   "related": [
+    "casting",
+    "grain-refinement",
+    "wrought"
    ]
   }
  }
