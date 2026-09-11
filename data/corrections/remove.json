@@ -11,7 +11,7 @@
    "mill-annealed (astm default)",
    "as-cast / forged"
   ],
-  "_ids_note": "R226d — 특정 stable_id 제거. MET-0111(AA 2024-T351 Annealed)·MET-0113(AA 2024-T351 T81)는 'AA 2024' 그룹과 중복(동일 σy/UTS) — 고유 T351(MET-0112)만 보존. | H6 W2-2 — MET-0779(AISI 405 Strain-hardened)·MET-0792(AISI 434 Strain-hardened): 페라이트계 스테인리스의 합성 냉간가공 조건(base×1.227 배율). 405 는 비경화 설계라 템퍼 압연 제품형이 부재하고 434 도 검증 가능한 템퍼값 없음 — annealed 교정 후 사실상 중복. | H6 W2-4(a) — MET-0766(Zeron 100): MET-0769(ZERON 100 UNS S32760 solution annealed)와 동일 합금·동일값(σy 550/552·UTS 750/752·El 25). MET-0769 가 조성(Cu·Si·C·P·S 포함)·별칭 6종·ASTM A240/A276/A789/A790 F55 인용에서 우위 → 후자 보존. | H6 W2-5(A3 Cu re-verify) — MET-0365: Bronze C95400 — Cast: MET-0411(C95400 Aluminum Bronze)와 동일 합금·동일 UTS 515/El 12/HV 170. MET-0411 은 (σy 205·UTS 515)가 ASTM B148 M01 최소값 세트로 내부 정합하나 MET-0365 의 σy 240 은 근거 없는 편차 → MET-0411 보존. MET-0413: Commercial Bronze C22000: MET-0388~0391 의 4템퍼 사다리(Annealed·1/4H·1/2H·H)와 중복. 단독 entry 라 템퍼 정보가 없고 어닐드 동일값인데 HV 만 100(사다리는 60)으로 불일치 → 사다리 보존. MET-0444: OFHC Copper C10100: MET-0450(O60)·MET-0451(H04) 2템퍼 쌍과 중복. 단독 entry 는 템퍼 미상 → 사다리 보존. MET-0374: C11000 — As-supplied: MET-0414(Copper (Pure, C11000) — Wrought, Annealed)와 동일 합금·동일 σy 70/UTS 220. 어닐드 ETP 동의 연신율은 45%(CDA)인데 이 entry 는 35% → 정확한 MET-0414 보존.",
+  "_ids_note": "R226d — 특정 stable_id 제거. MET-0111(AA 2024-T351 Annealed)·MET-0113(AA 2024-T351 T81)는 'AA 2024' 그룹과 중복(동일 σy/UTS) — 고유 T351(MET-0112)만 보존. | H6 W2-2 — MET-0779(AISI 405 Strain-hardened)·MET-0792(AISI 434 Strain-hardened): 페라이트계 스테인리스의 합성 냉간가공 조건(base×1.227 배율). 405 는 비경화 설계라 템퍼 압연 제품형이 부재하고 434 도 검증 가능한 템퍼값 없음 — annealed 교정 후 사실상 중복. | H6 W2-4(a) — MET-0766(Zeron 100): MET-0769(ZERON 100 UNS S32760 solution annealed)와 동일 합금·동일값(σy 550/552·UTS 750/752·El 25). MET-0769 가 조성(Cu·Si·C·P·S 포함)·별칭 6종·ASTM A240/A276/A789/A790 F55 인용에서 우위 → 후자 보존. | **A17 (2026-09-11, 사용자 승인)** — 합성 Strain-hardened 11 entry: MET-0051(AISI 6150)·MET-0803(AISI 440C)·MET-0871/0877/0882/0886/0890/0895(Ti Gr 1·2·23·3·4·7)·MET-0908(Ti-5-2-5)·MET-0914(Ti-6-2-4-6)·MET-0937(Ti-8-1-1). **σy·UTS·HV 가 같은 base 의 Annealed entry 와 완전 동일**하고, 10 건은 연신율까지 같아 라벨만 다른 복제였다(6150 만 연신율 23→13.39 로 배율 적용). 발견 경로: A16 조성 분류 교정 중 AISI 6150 의 조성이 6150 이 아닌 것(Cr·V 없음, C 0.3/Fe 98.5 — 합성 generic 행)을 보고 같은 패턴을 전수 조사 → Strain-hardened 50 중 11. **제거 전 검증(사용자 지시 '검증 후 선별')**: 11 건 전부 인용 가능한 변형경화 대표값이 없음. CP Ti(Gr 1·2·3·4·7·23) — ASTM B348 은 봉재를 **소둔 상태**로 규정하고 'cold drawn' 은 치수·표면 등급이지 강도 조건이 아니다. Ti-5-2-5(all-α)·Ti-8-1-1·Ti-6-2-4-6(near-α/α-β) — 소둔·이중소둔·STA 만, 냉간가공 봉재 제품형 부재. AISI 440C — ASTM A276 에 'annealed and cold drawn' 조건은 **실재하나** 규정값은 경도 **상한**(285 HB vs 소둔 269 HB)뿐이고 인장·항복 대표값이 없다. AISI 6150 — 냉간마무리 합금강 봉재 규격 ASTM A331 은 **2004 폐지**였고 등급별 기계적 성질을 규정한 적이 없다; 공개 데이터시트(AZoM·MakeItFrom)는 소둔·불림·Q+T 만 수록. → 값을 지어내지 않는 한 교정 불가(원칙: 미검증 근사는 미수록). H6 W2-2 의 MET-0779·MET-0792(AISI 405·434) 와 동일한 처리. | H6 W2-5(A3 Cu re-verify) — MET-0365: Bronze C95400 — Cast: MET-0411(C95400 Aluminum Bronze)와 동일 합금·동일 UTS 515/El 12/HV 170. MET-0411 은 (σy 205·UTS 515)가 ASTM B148 M01 최소값 세트로 내부 정합하나 MET-0365 의 σy 240 은 근거 없는 편차 → MET-0411 보존. MET-0413: Commercial Bronze C22000: MET-0388~0391 의 4템퍼 사다리(Annealed·1/4H·1/2H·H)와 중복. 단독 entry 라 템퍼 정보가 없고 어닐드 동일값인데 HV 만 100(사다리는 60)으로 불일치 → 사다리 보존. MET-0444: OFHC Copper C10100: MET-0450(O60)·MET-0451(H04) 2템퍼 쌍과 중복. 단독 entry 는 템퍼 미상 → 사다리 보존. MET-0374: C11000 — As-supplied: MET-0414(Copper (Pure, C11000) — Wrought, Annealed)와 동일 합금·동일 σy 70/UTS 220. 어닐드 ETP 동의 연신율은 45%(CDA)인데 이 entry 는 35% → 정확한 MET-0414 보존.",
   "ids": [
    "MET-0111",
    "MET-0113",
@@ -21,7 +21,18 @@
    "MET-0365",
    "MET-0413",
    "MET-0444",
-   "MET-0374"
+   "MET-0374",
+   "MET-0051",
+   "MET-0803",
+   "MET-0871",
+   "MET-0877",
+   "MET-0882",
+   "MET-0886",
+   "MET-0890",
+   "MET-0895",
+   "MET-0908",
+   "MET-0914",
+   "MET-0937"
   ]
  }
 }

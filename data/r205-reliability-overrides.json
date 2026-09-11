@@ -196,8 +196,7 @@
    "reason": "C17 CRITICAL: Grade 23 = Ti-6Al-4V ELI 인데 CP-Ti 값 (275/345) 박힘. 2.8× 오차. [ASTM F136 / AMS 4931]",
    "stableIds": [
     "MET-0878",
-    "MET-0879",
-    "MET-0882"
+    "MET-0879"
    ],
    "_namePattern_ref": "^Ti Grade 23 — "
   },
@@ -236,8 +235,7 @@
    },
    "reason": "C16: R201 이 Grade 2 값으로 flatten. Gr1 = 최연질 CP-Ti. + Tmax 170/300 불일치 통일. [ASTM B265]",
    "stableIds": [
-    "MET-0868",
-    "MET-0871"
+    "MET-0868"
    ],
    "_namePattern_ref": "^Ti Grade 1 — "
   },
@@ -252,8 +250,7 @@
    },
    "reason": "E12: Tmax 통일.",
    "stableIds": [
-    "MET-0874",
-    "MET-0877"
+    "MET-0874"
    ],
    "_namePattern_ref": "^Ti Grade 2 — "
   },
@@ -292,8 +289,7 @@
    },
    "reason": "C16: Grade 2 값 flatten 정정. [ASTM B265]",
    "stableIds": [
-    "MET-0883",
-    "MET-0886"
+    "MET-0883"
    ],
    "_namePattern_ref": "^Ti Grade 3 — "
   },
@@ -332,8 +328,7 @@
    },
    "reason": "C16: Grade 2 값 flatten 정정. [ASTM B265]",
    "stableIds": [
-    "MET-0887",
-    "MET-0890"
+    "MET-0887"
    ],
    "_namePattern_ref": "^Ti Grade 4 — "
   },
@@ -353,8 +348,7 @@
    "reason": "E12+C: Tmax 170/300 불일치 + 2 conds mach=Exce/corr=Good mock 통일. [ASTM B265 Gr7]",
    "stableIds": [
     "MET-0891",
-    "MET-0892",
-    "MET-0895"
+    "MET-0892"
    ],
    "_namePattern_ref": "^Ti Grade 7 — "
   },
@@ -386,8 +380,7 @@
    "reason": "C18: σy flatten 후 HV mock (294-338) 잔존 통일.",
    "stableIds": [
     "MET-0904",
-    "MET-0905",
-    "MET-0908"
+    "MET-0905"
    ],
    "_namePattern_ref": "^Ti-5-2-5 — "
   },
@@ -407,8 +400,7 @@
    "reason": "C18: HV mock + 2 conds mach=Exce/corr=Good 불일치 통일.",
    "stableIds": [
     "MET-0910",
-    "MET-0911",
-    "MET-0914"
+    "MET-0911"
    ],
    "_namePattern_ref": "^Ti-6-2-4-6 — "
   },
@@ -424,8 +416,7 @@
    "reason": "C18: HV mock 통일.",
    "stableIds": [
     "MET-0933",
-    "MET-0934",
-    "MET-0937"
+    "MET-0934"
    ],
    "_namePattern_ref": "^Ti-8-1-1 — "
   },
@@ -753,33 +744,6 @@
     "MET-0038"
    ],
    "_namePattern_ref": "^AISI 5130 — Quenched / tempered"
-  },
-  {
-   "ranges": {
-    "yield_strength": {
-     "typical": 480,
-     "min": 410,
-     "max": 620,
-     "confidence": "handbook"
-    },
-    "uts": {
-     "typical": 670,
-     "min": 620,
-     "max": 760,
-     "confidence": "handbook"
-    },
-    "hardness": {
-     "typical": 200,
-     "min": 180,
-     "max": 230,
-     "confidence": "handbook"
-    }
-   },
-   "reason": "C7: R201 부작용 — σy 정정됐지만 HV mock (334-341) 잔존 + Strain-hardened 미정정. annealed 급 통일. [SAE J404]",
-   "stableIds": [
-    "MET-0051"
-   ],
-   "_namePattern_ref": "^AISI 6150 — (As-cast / forged|Strain-hardened)"
   },
   {
    "ranges": {

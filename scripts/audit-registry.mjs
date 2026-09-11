@@ -77,18 +77,15 @@ const stateOf = (h) => {
 //   값은 정상 — 해당 합금이 냉간가공/석출경화 안 하거나(α·near-α·CP·마르텐사이트), 가공률 의존이라 단일표준 없음.
 const REVIEWED = {
   'Ti-5-2-5': 'Ti-5Al-2.5Sn Grade6 α 비열처리 — aged/SH ≈ annealed (교정 827/861)',
-  'Ti-6-2-4-6': 'α/β — STA 교정(1105/1200); SH은 Ti 냉간가공 비표준 → annealed',
   'Ti-8-1-1': 'near-α 시효응답 미미 — 라벨 아티팩트 (교정 910/937)',
-  'Ti Grade 23': 'Ti-6Al-4V ELI — STA 교정(900/965); SH 비표준 → annealed',
-  'Ti Grade 1': 'CP Ti — SH 냉간가공률 의존(단일표준 없음), annealed 유지',
-  'Ti Grade 2': 'CP Ti — SH 냉간가공률 의존, annealed 유지',
-  'Ti Grade 3': 'CP Ti — SH 냉간가공률 의존, annealed 유지',
-  'Ti Grade 4': 'CP Ti — SH 냉간가공률 의존, annealed 유지',
   'Ti Grade 7': 'CP Ti+Pd 비석출경화 — aged≈annealed; SH 가공률 의존',
-  'AISI 440C': '마르텐사이트 — 경화 교정(1900/1970); SH 냉간가공 안 함 → annealed',
-  'AISI 6150': '스프링강 — SH 냉간가공률 의존; 경화조건은 데이터 공백(별도)',
   /* 'AISI 1020' 은 2026-09-11 제거 — H6 D9 에서 1020 소둔값을 ASM 표로 교정하며 SOFT≡HARD
      충돌 자체가 사라져 이 예외가 죽은 키가 됐다. 예외는 필요가 없어지면 지운다(A13 교훈). */
+  /* A17(2026-09-11) — 아래 8 키를 제거했다: Ti-6-2-4-6 · Ti Grade 1·2·3·4·23 · AISI 440C ·
+     AISI 6150. 예외가 봐주던 합성 Strain-hardened entry 자체를 제거했기 때문이다(remove.json).
+     여기 남아 있던 설명("SH 은 Ti 냉간가공 비표준" · "SH 냉간가공 안 함" · "가공률 의존이라
+     단일표준 없음")이 바로 제거 근거였고, 규격 재확인(ASTM B348·A276·A331 폐지)도 같은 결론이었다.
+     Ti-5-2-5·Ti-8-1-1·Ti Grade 7 은 **aged 라벨**까지 함께 덮고 있어 아직 발화한다 — 남긴다. */
   'Inconel 100': '주조 Ni superalloy — 주조+시효 단일조건; annealed/as-forged 라벨 합성(값 정상)',
   /* 'CuNi2SiCr' 은 2026-09-11 제거 — 충돌의 한 축이 'Heat-Treated'(상태 불명)였고,
      A6 에서 그것을 UNKNOWN 으로 빼면서 충돌 자체가 사라졌다. 필요 없어진 예외는 지운다. */
