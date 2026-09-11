@@ -78,3 +78,9 @@ data/registry/audit-report.md
 # R226p — build-materials 의 R226P_CAPTURE=1 모드 산출(구 name-regex→stable_id 재캡처용). 일회성.
 r226p-captured.json
 __pycache__/
+
+# F4 — Playwright 산출물(리포트·trace)은 커밋하지 않는다
+/test-results/
+/playwright-report/
+/blob-report/
+/.playwright/

@@ -40,3 +40,50 @@ jobs:
         run: pnpm test:cov
       - name: Build production bundle
         run: pnpm build
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # F4 — E2E 스모크 1 flow. **별도 job** 이다: 스모크가 흔들려도 위 단위 게이트
+  # 1,215 건의 결과를 가리지 않는다.
+  #
+  # 맡는 범위가 다르다 — 값의 정확성은 단위·게이트가 보고, 여기서는 "배포 산출물이 실제로
+  # 서빙되어 앱이 부팅하는가" 만 본다. 이 프로젝트의 실사고(배포에서 build:wiki 누락 →
+  # wiki-index.json 404 → 자동링크 전멸)가 정확히 그 부류였고, 기존 게이트는 워크플로
+  # **텍스트**만 검사해 잡지 못하는 자리였다.
+  #
+  # flake 예산(백로그 F4 도입 조건): 재시도 0 · 외부 네트워크 차단 · 고정 sleep 금지.
+  # 코드 원인이 아닌 실패가 최근 20 회 중 2 회를 넘으면 즉시 continue-on-error 로 격리하고
+  # 원인을 고치거나 폐기한다 — 방치하지 않는다.
+  # ──────────────────────────────────────────────────────────────────────────
+  e2e-smoke:
+    runs-on: ubuntu-latest
+    env:
+      # 배포(deploy-pages.yml)와 **같은 base** 로 빌드해야 경로 어긋남도 검사 범위에 들어온다.
+      VITE_BASE: /GRANTA/
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Generate materials.json (data pipeline)
+        run: pnpm build:data
+      - name: Generate wiki index (build:data 선행 필요)
+        run: pnpm build:wiki
+      - name: Generate property stats
+        run: pnpm build:stats
+      - name: Build static site (deploy 와 동일 base)
+        run: pnpm exec vite build
+      - name: Install Playwright chromium
+        run: pnpm exec playwright install --with-deps chromium
+      - name: E2E smoke
+        run: pnpm test:e2e
+      - name: Upload trace on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-trace
+          path: test-results/
+          retention-days: 7
