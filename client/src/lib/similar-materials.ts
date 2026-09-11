@@ -15,7 +15,7 @@
  * R226m — 인기도(popularity) 대신 순수 물성 거리로 순위. 다른 용도(인사이트) 그룹이라도
  * 물성이 가까우면 상위에 노출 → 대체 후보 탐색이 본질. 그룹 구분은 UI 배지로 명시.
  */
-import type { Material } from './materials';
+import { propValue, type Material } from './materials';
 
 export interface SimilarMaterial {
   material: Material;
@@ -88,17 +88,6 @@ const ALL_PROP_KEYS = Array.from(new Set([
   ...PROPS_METAL, ...PROPS_POLYMER, ...PROPS_CERAMIC, ...PROPS_COMPOSITE,
 ].map(p => p.key)));
 
-/* R157 — `as unknown as` 우회 marker 제거: Material.ranges + flat property 접근을 명시적으로. */
-function propValue(m: Material, key: string): number | null {
-  const r = m.ranges?.[key];
-  if (r) {
-    if (typeof r.typical === 'number') return r.typical;
-    if (typeof r.min === 'number' && typeof r.max === 'number') return (r.min + r.max) / 2;
-  }
-  // Fallback to flat property (typed via index signature)
-  const v = (m as Material & Record<string, unknown>)[key];
-  return typeof v === 'number' ? v : null;
-}
 
 /** Pre-compute property ranges across the whole material set for normalization. */
 function computeNorms(materials: Material[]): Record<string, { logMin: number; logMax: number }> {

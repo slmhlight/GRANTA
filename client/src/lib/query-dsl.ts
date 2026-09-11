@@ -29,7 +29,7 @@
  *   cat:metal / cat:polymer / cat:ceramic / cat:composite → category
  *   "name fragment" 또는 그냥 (대소문자 무관) name 단어 → free-text 매칭
  */
-import type { Material } from './materials';
+import { propValue, propBound, type Material } from './materials';
 
 type Op = '>' | '<' | '>=' | '<=' | '=' | '~';
 
@@ -264,22 +264,15 @@ export function parseQuery(input: string): ParsedQuery {
 /* ───────── Matching ───────── */
 /* R157 — `as unknown as` 우회 marker 제거: Material.ranges 의 PropertyRange type 사용. */
 
-function getNumericProp(m: Material, key: string): number | null {
-  const r = m.ranges?.[key];
-  if (!r) return null;
-  if (typeof r.typical === 'number') return r.typical;
-  if (typeof r.min === 'number' && typeof r.max === 'number') return (r.min + r.max) / 2;
-  if (typeof r.min === 'number') return r.min;
-  if (typeof r.max === 'number') return r.max;
-  return null;
-}
+/* 공용 리더(lib/materials)로 통일 — 여기만 ranges 전용이라, 평면값으로만 실려 나오는 물성
+   (slim 단계의 연신율·경도, popularity·총비용 등)에 건 질의가 조용히 0 건이 됐다. */
+const getNumericProp = propValue;
 
 function matchNumeric(value: number, op: Op, target: number, key: string, m: Material): boolean {
   // For range-typed properties, "<" should check against MIN (most permissive) — material's minimum
   // value must be < target — vs default which uses typical.
   // We use a smarter check: any range value can satisfy the constraint.
-  const r = m.ranges?.[key];
-  const minV = r?.min ?? value, maxV = r?.max ?? value, typV = r?.typical ?? value;
+  const minV = propBound(m, key, 'min') ?? value, maxV = propBound(m, key, 'max') ?? value, typV = propValue(m, key) ?? value;
   switch (op) {
     case '>': return maxV > target;          // max can exceed
     case '>=': return maxV >= target;

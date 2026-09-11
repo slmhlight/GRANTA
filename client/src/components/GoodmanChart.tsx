@@ -6,6 +6,7 @@
  */
 import { useState } from 'react';
 import { Link } from 'wouter';
+import { propValue } from '@/lib/materials';
 import type { Material } from '@/lib/materials';
 
 interface Props {
@@ -13,12 +14,8 @@ interface Props {
   series?: { id: string; name: string; color: string; material: Material }[];
 }
 
-function tv(m: Material, key: string): number | null {
-  const r = (m.ranges as any)?.[key];
-  if (r && r.typical != null) return r.typical;
-  const flat = (m as any)[key];
-  return typeof flat === 'number' ? flat : null;
-}
+/* 물성 읽기는 lib/materials 의 공용 리더 하나로 통일(구현 5벌이 갈라져 있었다). */
+const tv = propValue;
 
 export default function GoodmanChart({ materials, series }: Props) {
   const [sigmaM, setSigmaM] = useState(100); // MPa

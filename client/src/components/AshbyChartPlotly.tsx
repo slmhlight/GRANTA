@@ -9,7 +9,7 @@ import Plot from '@/lib/plotly-scatter'; // R210 B9 — scatter-only 번들 (전
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Slider } from '@/components/ui/slider';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { Material, ALL_NUMERIC_PROPERTIES, CATEGORY_COLORS } from '@/lib/materials';
+import { Material, ALL_NUMERIC_PROPERTIES, CATEGORY_COLORS, propValue, propBound } from '@/lib/materials';
 import { classOf } from '@/lib/material-colors';
 import { toast } from 'sonner';
 import type { FilterState } from '@/hooks/useMaterialFilter';
@@ -114,22 +114,18 @@ const INDEX_GUIDES: Record<string, { slope: number; label: string }[]> = {
 
 // 재료 분류별 색은 단일 진실 소스(lib/material-colors)에서 — UI 전반과 동일.
 
-/* 물성은 top-level 평면값 또는 ranges[p].typical 로 온다(스키마 v1/v2 공존).
-   p 가 런타임 문자열이라 인덱싱 한 번은 타입을 벗어날 수밖에 없는데, **그 연산에만** 좁혀
-   둔다 — 예전처럼 `m: any` 로 받으면 m 의 나머지 접근까지 전부 무검사가 된다. */
-const flatProp = (m: Material, p: string): number | null => {
-  const v = (m as unknown as Record<string, unknown>)[p];
-  return typeof v === 'number' ? v : null;
-};
-const tv = (m: Material, p: string): number | null => (flatProp(m, p) ?? m.ranges?.[p]?.typical ?? null);
+/* 물성 읽기는 lib/materials 의 propValue/propBound 하나로 통일한다 — 예전에는 여기서
+   flat 을 먼저 봤는데, 교정·인용이 붙는 곳은 ranges 라 같은 재료가 표·카드와 다른 숫자로
+   보였다(248 재료×물성). 우선순위 설명은 그 함수 주석 참조. */
+const tv = propValue;
 /** 전체 재료에서 해당 물성의 typical min/max — 축 자동범위·슬라이더 도메인의 기준.
  *  컴포넌트 밖 순수 함수로 두어 useMemo 의존성이 (materials, prop) 로 정확히 떨어지게 한다. */
 const domainOf = (materials: Material[], prop: string): [number, number] => {
   const vs = materials.map((m) => tv(m, prop)).filter((v): v is number => v != null && v > 0);
   return vs.length ? [Math.min(...vs), Math.max(...vs)] : [0, 1];
 };
-const loOf = (m: Material, p: string): number | null => (m.ranges?.[p]?.min ?? tv(m, p));
-const hiOf = (m: Material, p: string): number | null => (m.ranges?.[p]?.max ?? tv(m, p));
+const loOf = (m: Material, p: string): number | null => propBound(m, p, 'min');
+const hiOf = (m: Material, p: string): number | null => propBound(m, p, 'max');
 const L = Math.log10;
 const PROP_ORDER = ['density', 'yield_strength', 'uts', 'elongation', 'modulus', 'hardness', 'thermal_conductivity'];
 // convex hull (Andrew's monotone chain) → real, slightly-irregular data envelope
@@ -626,7 +622,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     const lines = [header.map(esc).join(',')];
     for (const m of rows) {
       const cells = [m.name, m.category, m.subcategory, (m.processes || (m.process ? [m.process] : [])).join(' / '),
-        ...ALL_NUMERIC_PROPERTIES.map((p) => { const r = (m.ranges || {})[p.key]; return r?.typical ?? flatProp(m, p.key) ?? ''; }),
+        ...ALL_NUMERIC_PROPERTIES.map((p) => { return propValue(m, p.key) ?? ''; }),
         (m.aliases || []).join('; ')];
       lines.push(cells.map(esc).join(','));
     }

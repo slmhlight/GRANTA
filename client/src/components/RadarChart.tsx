@@ -7,6 +7,7 @@
  * Focus mode: legend 에서 한 alloy 클릭 → 그것만 1.0 opacity, 나머지 0.15.
  */
 import { useMemo, useState } from 'react';
+import { propValue } from '@/lib/materials';
 import type { Material } from '@/lib/materials';
 
 export interface RadarAxis {
@@ -43,14 +44,10 @@ const getProp = (m: Material, key: string): number | null => {
   // 같은 alloy 의 HT variants 가 raw price 동일하더라도 처리 후 cost 는 다름 — 사용자가
   // 1/$ axis 에서 condition 별 차이 보이도록.
   if (key === 'price_per_kg') {
-    const d = (m.ranges as any)?.delivered_price_per_kg;
-    if (d && typeof d.typical === 'number' && d.typical > 0) return d.typical;
-    if (typeof (m as any).delivered_price_per_kg === 'number' && (m as any).delivered_price_per_kg > 0) return (m as any).delivered_price_per_kg;
+    const d = propValue(m, 'delivered_price_per_kg');
+    if (d !== null && d > 0) return d;
   }
-  const r = (m.ranges as any)?.[key];
-  if (r && typeof r.typical === 'number') return r.typical;
-  const v = (m as any)[key];
-  return typeof v === 'number' ? v : null;
+  return propValue(m, key);
 };
 
 export function RadarChart({

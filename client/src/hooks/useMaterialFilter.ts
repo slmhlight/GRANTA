@@ -8,7 +8,7 @@
  */
 
 import { useState, useMemo, useCallback } from 'react';
-import type { Material } from '@/lib/materials';
+import { propValue, type Material } from '@/lib/materials';
 import { parseCompositionRange, getRangeValue } from '@/lib/composition-parser';
 import { applyQuery, parseQuery, type ParsedQuery } from '@/lib/query-dsl';
 // R157b — fuzzyContains → lib/fuzzy-search.ts 로 이동.
@@ -215,11 +215,15 @@ export function useMaterialFilter(materials: Material[]) {
       { range: filters.htCostFactorRange, key: 'ht_cost_factor' as keyof Material },
     ];
 
+    /* 값 읽기는 공용 리더(propValue) — 평면값만 보면 **ranges 에만 값이 있는 503 (재료x물성)**
+       이 "값 없음" 으로 탈락했다(Tmax 129 · 가격 105 · KIC 39 · 열팽창 105 ...). 인용된 값을
+       가진 재료를 필터가 숨기고 있던 것이고, 표는 그 값을 표시하고 있었으므로 화면끼리도
+       어긋났다. 판정과 표시는 같은 리더를 써야 한다. */
     for (const { range, key } of rangeFilters) {
       if (range) {
         result = result.filter(m => {
-          const v = m[key] as number | null;
-          if (v === null || v === undefined) return false;
+          const v = propValue(m, key as string);
+          if (v === null) return false;
           return v >= range[0] && v <= range[1];
         });
       }
@@ -255,16 +259,20 @@ export function useMaterialFilter(materials: Material[]) {
         const c = authorityRank(a) - authorityRank(b) || a.name.localeCompare(b.name);
         return sortDir === 'asc' ? c : -c;
       }
+      /* 숫자 물성도 같은 리더로 읽는다 — 평면값만 보면 ranges 에만 값이 있는 재료가
+         정렬 방향과 무관하게 바닥(값 없음)으로 밀렸다. 값 없음이 마지막인 규칙은 유지. */
+      const an = propValue(a, sortKey as string);
+      const bn = propValue(b, sortKey as string);
+      if (an !== null || bn !== null) {
+        if (an === null) return 1;
+        if (bn === null) return -1;
+        return sortDir === 'asc' ? an - bn : bn - an;
+      }
       const av = a[sortKey];
       const bv = b[sortKey];
       if (av === null || av === undefined) return 1;
       if (bv === null || bv === undefined) return -1;
-      let cmp = 0;
-      if (typeof av === 'number' && typeof bv === 'number') {
-        cmp = av - bv;
-      } else {
-        cmp = String(av).localeCompare(String(bv));
-      }
+      const cmp = String(av).localeCompare(String(bv));
       return sortDir === 'asc' ? cmp : -cmp;
     });
   }, [filteredUnsorted, sortKey, sortDir]);

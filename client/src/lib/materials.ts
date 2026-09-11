@@ -471,6 +471,47 @@ export const SUBCATEGORY_COLORS: Record<string, string> = {
   'Polymer - Epoxy/Thermoset Resin': '#059669',
 };
 
+/* ── 물성 읽기 (단일 정의) ────────────────────────────────────────────────
+ *
+ * 재료 한 건에 같은 물성이 두 군데 있다: **top-level 평면값**(v1 스키마의 잔재)과
+ * **ranges[key].typical**(v2 파이프라인 산출). 레지스트리에는 둘이 다른 쌍이 248 (재료×물성)
+ * 있고, 그럴 때 **ranges 쪽이 정본**이다 — 교정·인용이 붙는 곳이 ranges 이기 때문이다.
+ * (산출 단계 build-from-registry 1h 가 평면값을 ranges 에 맞춰 내보내지만, 리더는 그것과
+ *  무관하게 ranges 를 먼저 본다 — 한쪽이 무너져도 화면 숫자는 정본을 따르도록.)
+ *
+ *   AlSi10Mg 주조   가격  flat 8      ← ranges 1   (measured, "HRC MetalMiner 2026-Q2 $700-900/ton")
+ *   Tungsten Heavy  사용온도 flat 1700 ← ranges 600 (flat 은 순텅스텐 값이 물려 온 것)
+ *   AFK Twaron      UTS   flat 1100   ← ranges 525 (measured)
+ *
+ * 그런데 화면마다 우선순위가 달랐다 — 표·카드·Ashby 는 flat 먼저, Compare·Radar·Goodman 은
+ * ranges 먼저. 같은 재료의 같은 물성이 화면에 따라 다른 숫자로 보였다는 뜻이다.
+ * 산출 파이프(build-from-registry 의 slim index)도 ranges 를 먼저 본다 — 그 순서로 통일한다.
+ *
+ * 동적 키 인덱싱은 여기 한 번만 하고, 호출부는 Material 타입을 그대로 유지한다.
+ */
+function flatNumber(m: Material, key: string): number | null {
+  const v = (m as unknown as Record<string, unknown>)[key];
+  return typeof v === 'number' && isFinite(v) ? v : null;
+}
+
+/** 물성 대표값 — ranges.typical 우선, 없으면 top-level 평면값. */
+export function propValue(m: Material, key: string): number | null {
+  const t = m.ranges?.[key]?.typical;
+  return (typeof t === 'number' && isFinite(t)) ? t : flatNumber(m, key);
+}
+
+/** 범위 객체 자체 — 신뢰도·n·provenance 를 **표시**하는 곳만 쓴다(값 해석은 propValue).
+ *  동적 키 인덱싱을 여기 한 번으로 몰아, 호출부가 `(m.ranges as any)[k]` 를 다시 쓰지 않게 한다. */
+export function propRange(m: Material, key: string): PropertyRange | null {
+  return m.ranges?.[key] ?? null;
+}
+
+/** 물성 하한/상한 — 범위가 없으면 대표값으로 무너진다(점 하나로 취급). */
+export function propBound(m: Material, key: string, side: 'min' | 'max'): number | null {
+  const b = m.ranges?.[key]?.[side];
+  return (typeof b === 'number' && isFinite(b)) ? b : propValue(m, key);
+}
+
 export function formatValue(val: number | string | null | undefined, decimals = 1): string {
   if (val === null || val === undefined) return '—';
   if (typeof val === 'string') return val;

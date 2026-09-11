@@ -9,6 +9,7 @@ import { useT, useLang } from '@/lib/i18n';
 import { X, SlidersHorizontal, ArrowUp, ArrowDown, Download, FileImage, Hexagon, Table as TableIcon, ChevronDown, ChevronUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuCheckboxItem, DropdownMenuLabel } from '@/components/ui/dropdown-menu';
+import { propValue, propBound, propRange } from '@/lib/materials';
 import type { Material, PropertyRange } from '@/lib/materials';
 import { ALL_NUMERIC_PROPERTIES } from '@/lib/materials';
 import { familyColor, propColor, CONFIDENCE, CONFIDENCE_ORDER, type ConfidenceLevel } from '@/lib/material-colors';
@@ -33,10 +34,9 @@ const DEFAULT_COLS = ['density', 'yield_strength', 'uts', 'elongation', 'modulus
 /* R209 C-1 — '작을수록 우수' 물성 (AshbyChartPlotly PROP_DIR 과 동일). 인-셀 막대를 역전. */
 const LOWER_IS_BETTER = new Set(['density', 'price_per_kg', 'price_per_cm3', 'delivered_price_per_kg', 'total_cost_estimate', 'machining_cost_factor', 'ht_cost_factor']);
 const fmt = (v: number) => (Number.isInteger(v) ? String(v) : v.toFixed(Math.abs(v) < 10 ? 2 : 1));
-const typOf = (m: Material, key: string): number | null => {
-  const r = (m.ranges || {})[key] as PropertyRange | null | undefined;
-  return r?.typical ?? (typeof (m as any)[key] === 'number' ? ((m as any)[key] as number) : null);
-};
+/* 물성 읽기는 lib/materials 의 공용 리더 하나로 — 구현이 갈라져 있던 동안 표·카드는
+   평면값을, 이 비교판은 ranges 를 읽어 같은 재료가 화면마다 다른 숫자로 보였다. */
+const typOf = propValue;
 
 type Sort = { key: string; dir: 'asc' | 'desc' } | null;
 
@@ -148,9 +148,9 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
       for (const p of selected) {
         const k = p.key as string;
         const v = typOf(m, k);
-        const r = (m.ranges || {})[k] as PropertyRange | null | undefined;
+        const lo = propBound(m, k, 'min'), hi = propBound(m, k, 'max');
         if (v == null) row.push('');
-        else if (r && r.max > r.min) row.push(`${fmt(v)} [${fmt(r.min)}-${fmt(r.max)}]`);
+        else if (lo != null && hi != null && hi > lo) row.push(`${fmt(v)} [${fmt(lo)}-${fmt(hi)}]`);
         else row.push(fmt(v));
       }
       return row;
@@ -728,9 +728,11 @@ ${panel.outerHTML}
                   </td>
                   {selected.map((p) => {
                     const k = p.key as string;
-                    const r = (m.ranges || {})[k] as PropertyRange | null | undefined;
+                    /* 하한·상한도 공용 리더(propBound)로 — 범위가 없으면 대표값으로 무너져
+                       hasRange 가 false 가 된다(기존 `!!r && max>min` 과 동치). */
+                    const lo = propBound(m, k, 'min'), hi = propBound(m, k, 'max');
                     const typical = typOf(m, k);
-                    const hasRange = !!r && r.max > r.min;
+                    const hasRange = lo != null && hi != null && hi > lo;
                     /* R209 C-1 — 'lower-is-better' 물성 (밀도·가격·원가)은 막대를 역전.
                        AshbyChartPlotly PROP_DIR 과 동일 기준. 안 하면 제일 무겁고 비싼 재료가 가장 긴 막대로 보임. */
                     const colMin = colMinMap[k] ?? 0;
@@ -740,15 +742,15 @@ ${panel.outerHTML}
                     const pct = typical != null && colMax[k] > 0
                       ? Math.max(3, Math.min(100, LOWER_IS_BETTER.has(k) ? invPct : rawPct)) : 0;
                     const barColor = propColor(k);
-                    const conf = r?.confidence;
+                    const conf = propRange(m, k)?.confidence;
                     /* R210 B5 — 6단계 신뢰도 점 색상은 material-colors.ts CONFIDENCE 단일 소스에서. */
                     const dotColor = conf ? (CONFIDENCE[conf as ConfidenceLevel]?.hex ?? null) : null;
                     // R40b — price 셀은 formatPrice 로 USD/KRW + kg/lb 자동 변환.
                     const isPrice = /USD\//.test(p.unit || '') || /price/.test(k);
                     const priceUnit: 'kg' | 'cm3' = (p.unit || '').includes('cm³') || (p.unit || '').includes('cm3') || k.includes('cm3') ? 'cm3' : 'kg';
                     const typStr = isPrice && typical != null ? formatPrice(typical, lang, sysUnits, priceUnit) : (typical != null ? fmt(typical) : null);
-                    const minStr = isPrice && r ? formatPrice(r.min, lang, sysUnits, priceUnit) : (r ? fmt(r.min) : null);
-                    const maxStr = isPrice && r ? formatPrice(r.max, lang, sysUnits, priceUnit) : (r ? fmt(r.max) : null);
+                    const minStr = lo == null ? null : (isPrice ? formatPrice(lo, lang, sysUnits, priceUnit) : fmt(lo));
+                    const maxStr = hi == null ? null : (isPrice ? formatPrice(hi, lang, sysUnits, priceUnit) : fmt(hi));
                     return (
                       <td key={k} className="px-3 py-2 align-top">
                         {typical == null ? (

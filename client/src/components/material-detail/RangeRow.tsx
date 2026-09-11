@@ -58,6 +58,9 @@ export function RangeRow({
   const priceUnit: 'kg' | 'cm3' = unit.includes('cm³') || unit.includes('cm3') ? 'cm3' : 'kg';
   const sys = isPrice ? loadUnitSystem() : null;
 
+  /* 호출부가 fallback 으로 propValue(material, key) 를 넘긴다 — range.typical 이 있으면
+     양쪽이 같은 값이고, 없으면 fallback 이 곧 propValue 다. 즉 이 줄은 공용 리더와 동치이며,
+     그래서 이 컴포넌트만 range 객체(신뢰도·n·min/max·provenance)를 따로 받아도 값은 안 갈라진다. */
   const typical = range?.typical ?? (typeof fallback === 'number' ? fallback : null);
   const hasRange = !!range && range.max > range.min;
   if (typical == null) {

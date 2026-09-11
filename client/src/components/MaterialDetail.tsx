@@ -10,7 +10,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import type { Material, PropertyRange, MaterialSource } from '@/lib/materials';
-import { MECHANICAL_PROPERTIES, PHYSICAL_PROPERTIES, COST_PROPERTIES } from '@/lib/materials';
+import { MECHANICAL_PROPERTIES, PHYSICAL_PROPERTIES, COST_PROPERTIES, propValue, propRange } from '@/lib/materials';
 import { htGlossaryFor } from '@/lib/ht-glossary';
 import { htAlloySpecificFor } from '@/lib/ht-alloy-specific';
 import { computeCET, computeCEIIW, computePcm, computeSchaeffler, machiningCostBand, htCostBand } from '@/lib/welding-machinability';
@@ -349,12 +349,9 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
               const physProps = PHYSICAL_PROPERTIES.filter(filterByCat);
               /* R209 C-16 — 데이터 있는 행 우선, 빈 항목은 접이식 요약으로 묶어 정보 위계 정리.
                  RangeRow 의 typical 판정과 동일 로직으로 partition. */
-              const hasData = (key: string) => {
-                const r = ranges[key];
-                const fb = material[key as keyof Material];
-                const tv = r?.typical ?? (typeof fb === 'number' ? fb : null);
-                return tv != null;
-              };
+              /* 값 유무 판정은 공용 리더(propValue) — 이 판정이 RangeRow 의 typical 판정과
+                 갈라지면 "빈 항목" 으로 접힌 행에 값이 표시되는 모순이 생긴다. */
+              const hasData = (key: string) => propValue(material, key) != null;
               const renderSection = (icon: ReactNode, title: string, props: typeof mechProps) => {
                 const present = props.filter((p) => hasData(p.key as string));
                 const empty = props.filter((p) => !hasData(p.key as string));
@@ -363,7 +360,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                     <h3 className="text-xs font-semibold text-foreground/70 mb-2 flex items-center gap-1">{icon}{title}</h3>
                     <div className="space-y-1">
                       {present.map((prop) => (
-                        <RangeRow key={prop.key} propKey={String(prop.key)} label={prop.label} unit={prop.unit} range={ranges[prop.key as string]} fallback={material[prop.key as keyof Material] as number | string | null} />
+                        <RangeRow key={prop.key} propKey={String(prop.key)} label={prop.label} unit={prop.unit} range={propRange(material, prop.key as string)} fallback={propValue(material, prop.key as string)} />
                       ))}
                     </div>
                     {empty.length > 0 && (
@@ -404,7 +401,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                 </h3>
                 <div className="space-y-1">
                   {COST_PROPERTIES.map(prop => (
-                    <RangeRow key={prop.key} propKey={String(prop.key)} label={prop.label} unit={prop.unit} range={ranges[prop.key as string]} fallback={material[prop.key as keyof Material] as number | string | null} />
+                    <RangeRow key={prop.key} propKey={String(prop.key)} label={prop.label} unit={prop.unit} range={propRange(material, prop.key as string)} fallback={propValue(material, prop.key as string)} />
                   ))}
                 </div>
               </div>

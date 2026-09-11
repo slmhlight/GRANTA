@@ -7,6 +7,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { ChevronUp, ChevronDown, ChevronsUpDown, Plus, Check, Minus, BookText } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { propValue } from '@/lib/materials';
 import type { Material } from '@/lib/materials';
 import { formatValue, CATEGORY_COLORS, SUBCATEGORY_COLORS } from '@/lib/materials';
 import { familyColor } from '@/lib/material-colors';
@@ -292,13 +293,14 @@ export function MaterialTable({
                   {/* Manufacturer */}
                   <td className="px-3 py-1.5 text-muted-foreground">{m.manufacturer}</td>
 
-                  {/* Numeric columns — R203 fix: slim (index.json) 단계에선 top-level 값 없음 → ranges.X.typical fallback */}
-                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(m.density ?? m.ranges?.density?.typical ?? null, 2)}</td>
-                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(m.yield_strength ?? m.ranges?.yield_strength?.typical ?? null, 0)}</td>
-                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(m.uts ?? m.ranges?.uts?.typical ?? null, 0)}</td>
-                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(m.elongation ?? m.ranges?.elongation?.typical ?? null, 1)}</td>
-                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(m.modulus ?? m.ranges?.modulus?.typical ?? null, 0)}</td>
-                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(m.hardness ?? m.ranges?.hardness?.typical ?? null, 0)}</td>
+                  {/* 숫자 열 — 공용 리더(propValue). 교정·인용은 ranges 에 붙으므로 ranges 가 우선이고,
+                      평면값만 있는 slim 단계·flat-only 물성은 그대로 읽힌다. */}
+                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(propValue(m, 'density'), 2)}</td>
+                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(propValue(m, 'yield_strength'), 0)}</td>
+                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(propValue(m, 'uts'), 0)}</td>
+                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(propValue(m, 'elongation'), 1)}</td>
+                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(propValue(m, 'modulus'), 0)}</td>
+                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(propValue(m, 'hardness'), 0)}</td>
                 </tr>
               );
             })}

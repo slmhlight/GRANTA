@@ -385,6 +385,42 @@ for (const m of all) {
 }
 if (fallbackSrcDropped) console.log(`  폴백 출처 정리: ${fallbackSrcDropped} 줄 (교정으로 실측·핸드북 근거를 얻은 물성 — 계열 폴백이 더는 그 값을 설명하지 않는다)`);
 
+/* 1h) A15 — top-level 평면값을 ranges.typical 에 맞춘다 (같은 재료가 화면마다 다른 숫자로 보이던 원인).
+ *
+ * 물성은 두 자리에 실려 나간다: 평면값 `m.uts` 와 범위 객체 `m.ranges.uts`. 교정·인용·신뢰도는
+ * **ranges 쪽에만** 붙는다(corrections 로더가 거기에 쓴다). 그래서 datasheet 교정이 들어오면
+ * ranges 는 새 값이 되고 평면값은 **교정 전 숫자 그대로** 남는다.
+ *
+ * slim 인덱스는 이미 ranges 를 기준으로 평면값을 찍는다(아래 SLIM_PROPS 루프의 `slim[p] = v`).
+ * 파이프라인은 이미 ranges 를 정본으로 선언해 둔 것이다 — 전체 파일과 카테고리 샤드만 그 규칙
+ * 밖에 있었다. 앱은 slim 을 먼저 읽고 샤드로 hydrate 하므로 **hydrate 된 뒤에야** 값이 갈라졌다.
+ *
+ * 측정: 248 (재료×물성) · ranges 쪽 230 이 measured|handbook · 165 는 provenance 문자열 보유.
+ *   예) WC-Co 6% Tmax 1700 → 800 · ZTA Tmax 540 → 1500 · AlSi10Mg Cast $8 → $1/kg
+ * 산출 단계 보정이라 레지스트리 SSOT 는 불변(1f·1g 와 같은 계층). anomaly 재검출(2) **앞**에
+ * 두어, 보정된 값으로 이상치를 찾게 한다.
+ */
+let flatSynced = 0;
+const flatSyncBy = {};
+const flatSyncTop = [];
+for (const m of all) {
+  if (!m.ranges) continue;
+  for (const [k, pr] of Object.entries(m.ranges)) {
+    const t = pr?.typical;
+    if (typeof t !== 'number' || !isFinite(t)) continue;
+    const v = m[k];
+    if (typeof v !== 'number' || !isFinite(v) || Math.abs(v - t) < 1e-9) continue;
+    flatSyncTop.push({ dev: v === 0 ? Infinity : Math.abs(t - v) / Math.abs(v), s: `${m.name} · ${k}: ${v} -> ${t} [${pr.confidence || '-'}]` });
+    m[k] = t;
+    flatSynced++;
+    flatSyncBy[k] = (flatSyncBy[k] || 0) + 1;
+  }
+}
+if (flatSynced) {
+  console.log(`  평면값<->ranges 정합: ${flatSynced} (재료x물성) — ${Object.entries(flatSyncBy).sort((a, b) => b[1] - a[1]).map(([k, n]) => `${k} ${n}`).join(' · ')}`);
+  for (const e of flatSyncTop.sort((a, b) => b.dev - a.dev).slice(0, 5)) console.log(`    편차 상위: ${e.s}`);
+}
+
 // 2) anomaly 재검출 — lib/anomalies.mjs 공유 (build-materials 와 동일 로직; 최종 데이터 기준 검출이 canonical)
 const anomalies = detectAnomalies(all);
 const sevCount = { high: 0, med: 0, low: 0 };
