@@ -8,16 +8,6 @@
  },
  "_note": "값 교정 (stable_id 키). ranges: 물성 교정(basis·src 필수) — build-registry 4c 적용, 원본은 entry _corrections 보존. fields: 필드 단위 교정.",
  "ranges": {
-  "MET-0198": {
-   "hardness": 37,
-   "basis": "AA 6262 소둔재의 경도 89.3 이 UTS 120 MPa 와 맞지 않는다(비 1.34). 같은 합금의 다른 두 조건은 비가 **3.26 으로 일치**한다(Aged 303.8/93.1 · Strain-hardened 300.7/92.15) — 소둔 entry 의 경도만 조건을 따라가지 않았다. 그 합금 자신의 비를 소둔 UTS 에 적용: 120 / 3.26 ≈ 37. 공개 6262-O 경도(약 30 HB) 와도 같은 자리다.",
-   "src": "MakeItFrom 6262-T9 Aluminum (인장 390 MPa · 경도 120 HB → 비 3.25) — 같은 합금의 공개 앵커로 비를 확인 · ISO 18265 경도-인장 환산 관계"
-  },
-  "MET-0115": {
-   "hardness": 56,
-   "basis": "AA 2025 소둔재의 경도 108.1 이 UTS 220 MPa 와 맞지 않는다(비 2.03). 같은 합금의 다른 두 조건은 비가 **3.91 로 일치**한다(Aged 441/112.7 · Strain-hardened 436.5/111.6). 그 합금 자신의 비를 소둔 UTS 에 적용: 220 / 3.91 ≈ 56. 비교로 2024-O 가 약 47 HB 다.",
-   "src": "AZoM / MakeItFrom 2025-T6 Aluminum (인장 400 MPa · 경도 110 HB → 비 3.64) — 같은 합금의 공개 앵커로 비를 확인 · ISO 18265 경도-인장 환산 관계"
-  },
   "MET-0283": {
    "max_service_temp": 425,
    "basis": "상용 최고온도가 **뜨임온도(425°C)보다 높은 540°C** 로 표기돼 있었다. 뜨임 마르텐사이트를 뜨임온도 이상에서 쓰면 추가 뜨임이 진행돼 경도·강도를 잃는다 — 이 조건이 제공하는 강도를 근거로 설계한다면 상한은 뜨임온도를 넘을 수 없다. 기존 540°C 는 조건 축이 없는 **계열 typical**(같은 합금의 고온 뜨임 조건 기준)이 조건 무관하게 상속된 값이다(백로그 A11). 새 값을 만들지 않고 이 entry 자신의 뜨임온도를 상한으로 쓴다.",
@@ -671,6 +661,200 @@
    "fracture_toughness": 165,
    "basis": "C2 계열 폴백이 class 신뢰도로 75 MPa√m(AMS 6415 일반 합금강 기준)를 붙였는데, AF1410 은 \"같은 강도급에서 파괴인성이 유난히 높은 것\" 이 존재 이유인 합금이라 폴백값이 성격을 정반대로 전한다. 제조사 데이터시트의 실측 165 MPa√m(=150 ksi√in)로 교정. 특허 문헌의 \"AF1410 은 KIC ≥ 100 ksi√in\" 서술, 같은 데이터시트 17 in 판의 값과도 정합한다.",
    "src": "Latrobe Lescalloy AF1410 VIM-VAR 데이터시트 (6 in 봉재, KIC 165 MPa√m · Charpy V 76~84 J)"
+  },
+  "MET-0165": {
+   "yield_strength": 28,
+   "uts": 76,
+   "elongation": 39,
+   "basis": "AA 1050-O. generic CSV 층의 값(σy 32.9/UTS 79.9/El 32.9)은 base×배율 합성. 1050-O 대표값(11/4 ksi, El 40)으로 교정. 경도: 공개 O-템퍼 HB 미확보 → D10 방식(합금·자매합금 앵커 비). 1100-O 90/23 = 3.9 · 1050-H14 110/34 = 3.2 → 3.5 로 76/3.5 ≈ 22 HB (파생, 문서화).",
+   "src": "United Aluminum — Aluminum 1050 alloy typical mechanical properties (1050-O: 11 ksi / 4 ksi / 40%) · MakeItFrom 1050-O (76 / 25 / 37%) · D10 비례법 — 앵커 MakeItFrom 1100-O (HB 23) · Aalco 1050A-H14 (HB 34)",
+   "hardness": 22
+  },
+  "MET-0166": {
+   "yield_strength": 103,
+   "uts": 110,
+   "elongation": 8,
+   "basis": "라벨 'Strain-hardened' 의 합성값(σy 33.95/UTS 82.45 = 소둔 ×1.03)을 실제 냉간가공 템퍼 H14 로 교체. 경도 34 HB 는 Aalco 1050A-H14 시트 데이터시트 typical.",
+   "src": "United Aluminum — Aluminum 1050 typical (1050-H14: 16 ksi / 15 ksi / 7%) · MakeItFrom 1050-H14 (110 / 94 / 8.4%) · Aalco Aluminium Alloy 1050A H14 Sheet datasheet (HB 34)",
+   "hardness": 34
+  },
+  "MET-0167": {
+   "yield_strength": 34,
+   "uts": 90,
+   "elongation": 35,
+   "hardness": 23,
+   "basis": "AA 1100-O. 합성값(σy 32.9/UTS 84.6/El 32.9/HV 28.2) → AA 대표값 13/5 ksi, El 35, HB 23.",
+   "src": "EMJ Metals Aluminum catalog — 1100-O typical 13,000/5,000 psi, El 35 · United Aluminum 1100-O 13/5 ksi · MakeItFrom 1100-O (88 / 29 / 32% / HB 23)"
+  },
+  "MET-0168": {
+   "yield_strength": 117,
+   "uts": 125,
+   "elongation": 9,
+   "hardness": 32,
+   "basis": "'Strain-hardened' 합성값(σy 33.95/UTS 87.3 = 소둔 ×1.03 — 냉간가공인데 소둔과 같은 강도)을 실제 템퍼 H14 로 교체.",
+   "src": "EMJ Metals Aluminum catalog — 1100-H14 typical 18,000/17,000 psi, El 9 · United Aluminum 1100-H14 18/14 ksi · MakeItFrom 1100-H14 (130 / 110 / 8.2% / HB 32)"
+  },
+  "MET-0099": {
+   "yield_strength": 296,
+   "uts": 379,
+   "elongation": 15,
+   "hardness": 95,
+   "basis": "'Strain-hardened' 합성값(σy 339.5/UTS 465.6 — 2011 의 어떤 템퍼보다 높음)을 실제 템퍼 T3(용체화+냉간가공+자연시효; 2011 의 표준 쾌삭 봉재 템퍼)로 교체.",
+   "src": "Alro Steel Metals Guide — Typical Mechanical Properties, Rod/Bar (2011-T3: 55/43 ksi, El 15, HB 95) · EMJ Metals catalog 2011-T3 55,000/43,000 psi · MakeItFrom 2011-T3 (360 / 280 / 12% / HB 95)"
+  },
+  "MET-0097": {
+   "yield_strength": 310,
+   "uts": 407,
+   "elongation": 12,
+   "hardness": 100,
+   "basis": "'Aged / solution-treated' 합성값(σy 343/UTS 470.4)을 실제 템퍼 T8(용체화+냉간가공+인공시효)로 교체.",
+   "src": "Alro Steel Metals Guide — Rod/Bar typical (2011-T8: 59/45 ksi, El 12, HB 100) · EMJ Metals catalog 2011-T8 59,000/45,000 psi · MakeItFrom 2011-T8 (410 / 310 / 9.8% / HB 100)"
+  },
+  "MET-0105": {
+   "yield_strength": 228,
+   "uts": 241,
+   "elongation": 10,
+   "basis": "'Strain-hardened' 합성값(σy 261.9/UTS 368.6 = T4 ×0.95)을 실재하는 냉간가공 템퍼 H13 으로 교체. 경도: Alro 표에 H13 경도 미기재 → 같은 합금의 앵커 비(2017-T4 427/105 = 4.07)로 241/4.07 ≈ 59 HB (파생, 문서화).",
+   "src": "Alro Steel Metals Guide — Rod/Bar typical (2017-H13: 35/33 ksi, El 10) · D10 비례법 — 앵커 Alro 2017-T4 (62 ksi / HB 105)",
+   "hardness": 59
+  },
+  "MET-0103": {
+   "yield_strength": 276,
+   "uts": 427,
+   "elongation": 22,
+   "hardness": 105,
+   "basis": "'Aged / solution-treated' 합성값(σy 264.6/UTS 372.4)을 실제 템퍼 T4 로 교체.",
+   "src": "Alro Steel Metals Guide — Rod/Bar typical (2017-T4, T451: 62/40 ksi, El 22, HB 105) · EMJ Metals catalog 2017-T4 62,000/40,000 psi · MakeItFrom 2017-T4 (420 / 260 / 18% / HB 110)"
+  },
+  "MET-0114": {
+   "yield_strength": 260,
+   "uts": 400,
+   "elongation": 15,
+   "hardness": 110,
+   "basis": "'Aged / solution-treated' 합성값(σy 303.8/UTS 441/El 19.6/HV 112.7)을 실제 템퍼 T6(2025 단조재의 표준 템퍼)로 교체.",
+   "src": "MakeItFrom 2025 (2025-T6) Aluminum — 400 / 260 / 15% / HB 110 ('cited properties are appropriate for the T6 temper')"
+  },
+  "MET-0153": {
+   "yield_strength": 41,
+   "uts": 110,
+   "elongation": 30,
+   "hardness": 28,
+   "basis": "AA 3003-O. 합성값(σy 37.6/UTS 103.4/El 28.2/HV 32.9) → AA 대표값 16/6 ksi, El 30, HB 28.",
+   "src": "United Aluminum — Aluminum 3003 typical (3003-O: 16/6 ksi, El 30) · tubingchina ASM typical table (3003-O 16/6 ksi, El 40, HB 28) · MakeItFrom 3003-O (110 / 40 / 28% / HB 28)"
+  },
+  "MET-0154": {
+   "yield_strength": 145,
+   "uts": 150,
+   "elongation": 8,
+   "hardness": 40,
+   "basis": "'Strain-hardened' 합성값(σy 38.8/UTS 106.7 = 소둔 ×1.03 — 냉간가공인데 소둔과 같은 강도)을 실제 템퍼 H14 로 교체.",
+   "src": "United Aluminum — 3003-H14 typical 22/21 ksi · tubingchina ASM typical table (3003-H14 22/20 ksi, HB 40) · MakeItFrom 3003-H14 (160 / 130 / 8.3% / HB 42) · Alro sheet 3003-H14 ASTM B209 min 20–26 ksi / 17 ksi"
+  },
+  "MET-0155": {
+   "yield_strength": 69,
+   "uts": 180,
+   "elongation": 20,
+   "hardness": 45,
+   "basis": "AA 3004-O. 합성값의 항복 117.5 는 O 템퍼의 두 배(대표 69) — H32 급 항복이 소둔에 실려 있었다.",
+   "src": "United Aluminum — 3004-O typical 26/10 ksi, El 19 · tubingchina ASM typical table (3004-O 26/10 ksi, El 25, HB 45) · MakeItFrom 3004-O (170 / 69 / 19% / HB 45)"
+  },
+  "MET-0156": {
+   "yield_strength": 200,
+   "uts": 240,
+   "elongation": 9,
+   "hardness": 63,
+   "basis": "'Strain-hardened' 합성값(σy 121.3/UTS 179.5 = 소둔 ×1.03)을 실제 템퍼 H34 로 교체.",
+   "src": "tubingchina ASM typical table (3004-H34 34/27 ksi, El 12, HB 63) · MakeItFrom 3004-H34 (240 / 200 / 5.8% / HB 64) · United Aluminum 3004-H34 39/29 ksi, El 5 (스트립 상한 산포)"
+  },
+  "MET-0157": {
+   "yield_strength": 55,
+   "uts": 138,
+   "elongation": 22,
+   "hardness": 33,
+   "basis": "AA 3005-O. 합성값의 항복 89.3 은 O 템퍼 대표(55)의 1.6배.",
+   "src": "United Aluminum — Aluminum 3005 typical (3005-O: 20/8 ksi, El 22) · MakeItFrom 3005-O (140 / 51 / 16% / HB 33)"
+  },
+  "MET-0158": {
+   "yield_strength": 193,
+   "uts": 200,
+   "elongation": 4,
+   "hardness": 54,
+   "basis": "'Strain-hardened' 합성값(σy 92.15/UTS 140.7 = 소둔 ×1.03)을 실제 템퍼 H14 로 교체. 산포: 제조사 스트립 200/193 · ASM 계열 180/165(AZoM 요약) — 제조사값 채택, 경도는 MakeItFrom.",
+   "src": "United Aluminum — 3005-H14 typical 29/28 ksi, El 4 · MakeItFrom 3005-H14 (190 / 170 / HB 54)"
+  },
+  "MET-0159": {
+   "yield_strength": 48,
+   "uts": 120,
+   "elongation": 20,
+   "hardness": 29,
+   "basis": "AA 3105-O. 합성값의 항복 75.2 는 O 템퍼 대표(48~55)보다 높다. 파생 피로가 SS 규칙(0.42·σy, 이름 regex 오분류)으로 찍혀 있어 인용값으로 교체.",
+   "src": "MakeItFrom 3105-O Aluminum (120 / 48 / 20% / HB 29) · 피로 52 MPa(MakeItFrom 3105-O)",
+   "fatigue_strength": 52
+  },
+  "MET-0160": {
+   "yield_strength": 160,
+   "uts": 180,
+   "elongation": 6.4,
+   "basis": "'Strain-hardened' 합성값(σy 77.6/UTS 126.1 = 소둔 ×1.03)을 실제 템퍼 H25 로 교체. 파생 피로(SS 규칙 오분류) → 인용값. 경도: 3105-H25 공개 HB 미확보 → 같은 합금의 앵커 비(3105-O 120/29 = 4.1)로 180/4.1 ≈ 44 HB (파생, 문서화).",
+   "src": "MakeItFrom 3105-H25 Aluminum (180 / 160 / 6.4%) · 피로 87 MPa(MakeItFrom 3105-H25) · D10 비례법 — 앵커 MakeItFrom 3105-O (120 MPa / HB 29)",
+   "fatigue_strength": 87,
+   "hardness": 44
+  },
+  "MET-0140": {
+   "yield_strength": 120,
+   "uts": 260,
+   "elongation": 22,
+   "hardness": 65,
+   "basis": "AA 5086-O. 합성값의 항복 202.1 은 H32 급(205) — 소둔 대표는 115~120.",
+   "src": "ASM Handbook Vol.2 (1990) p.93-4 '5086, Alclad 5086' — 5086-O 260 / 120 / 22% (Wikipedia 5086 aluminium alloy 인용) · MakeItFrom 5086-O (270 / 110 / 20% / HB 65)"
+  },
+  "MET-0141": {
+   "yield_strength": 210,
+   "uts": 300,
+   "elongation": 11,
+   "hardness": 80,
+   "basis": "'Strain-hardened' 합성값(σy 208.6/UTS 295.9 = 소둔 ×1.03 — 소둔 자체가 H32 급이라 우연히 근접)을 실제 템퍼 H32 로 교체.",
+   "src": "MakeItFrom 5086-H32 Aluminum (300 / 210 / 11% / HB 80) · Alro sheet 5086-H32 ASTM B209 min 40–47 ksi / 28 ksi"
+  },
+  "MET-0195": {
+   "yield_strength": 75,
+   "uts": 95,
+   "elongation": 25,
+   "basis": "'Strain-hardened' 합성값(σy 232.8/UTS 271.6 — T6 보다 높은 냉간가공값은 6101 에 없다)을 실재하는 도체 템퍼 H111 로 교체. 경도: 6101-H111 공개 HB 미확보 → 같은 합금의 앵커 비(6101-T6 220/71 = 3.1)로 95/3.1 ≈ 31 HB (파생, 문서화). 합성값 82.45 는 UTS 95 의 0.87 배로 물리적으로 불가.",
+   "src": "MakeItFrom 6101-H111 Aluminum (95 / 75 / 25%, 57 %IACS) · D10 비례법 — 앵커 MakeItFrom 6101-T6 (220 MPa / HB 71)",
+   "hardness": 31
+  },
+  "MET-0193": {
+   "yield_strength": 200,
+   "uts": 220,
+   "elongation": 15,
+   "hardness": 71,
+   "basis": "'Aged / solution-treated' 합성값(σy 235.2/UTS 274.4)을 실제 템퍼 T6 로 교체.",
+   "src": "MakeItFrom 6101-T6 Aluminum (220 / 200 / 15% / HB 71, 57 %IACS)"
+  },
+  "MET-0199": {
+   "yield_strength": 379,
+   "uts": 400,
+   "elongation": 10,
+   "hardness": 120,
+   "basis": "'Strain-hardened' 합성값(σy 267.7/UTS 300.7)을 실제 템퍼 T9(용체화+인공시효+냉간가공 — 6262 의 최고강도 템퍼)로 교체.",
+   "src": "Alro Steel Metals Guide — Rod/Bar typical (6262-T9: 58/55 ksi, El 10, HB 120) · eFunda AA 6262 T9 (400 / 380 / HB 120) · MakeItFrom 6262-T9 (390 / 360 / HB 120)"
+  },
+  "MET-0197": {
+   "yield_strength": 276,
+   "uts": 310,
+   "elongation": 17,
+   "hardness": 95,
+   "basis": "'Aged / solution-treated' 합성값(σy 270.5/UTS 303.8)을 실제 템퍼 T6 로 교체.",
+   "src": "Alro Steel Metals Guide — Rod/Bar typical (6262-T6, T651: 45/40 ksi, El 17, HB 95) · Alro 6262-T6511 extrusion min 38/35 ksi"
+  },
+  "MET-0214": {
+   "yield_strength": 435,
+   "uts": 505,
+   "elongation": 13,
+   "hardness": 135,
+   "basis": "AA 7075-T7351 의 540/470 은 T76(538/469) 값이다. T7351 은 T73 의 응력제거판이라 대표값이 T73(505/435)과 같다 — 같은 base 의 T73 entry(505/430/13/135)와 정합.",
+   "src": "Alro Steel Metals Guide — Rod/Bar typical ('7075-T73, T7351': 73/63 ksi, El 13) · MakeItFrom 7075-T7351 (510 / 410 / HB 140)"
   }
  },
  "fields": {
@@ -696,6 +880,157 @@
    "process": "SLS",
    "basis": "EOS PA 1101 은 PA12 가 아니라 PA11(피마자유 기반 bio-PA) — 제조사 MDS 가 'PA 11 based powder' 명기. 공정도 Injection Molding 오기 → SLS (수록값 48MPa/1600MPa/45% 는 EOS laser-sintered typical 과 일치). H6 E15f 노트 재작성 검증 중 적발.",
    "src": "EOS PA 1101 Material Data Sheet (Polyamide 11)"
+  },
+  "MET-0165": {
+   "name": "AA 1050 — Annealed",
+   "basis": "합성 조건 3종 정리 후 base 사다리 표기 통일('(Wrought)' 접미 제거 — 6061 사다리와 같은 형식).",
+   "src": "A3 Al re-verify 2026Q4"
+  },
+  "MET-0166": {
+   "name": "AA 1050 — H14",
+   "heat_treatment": "H14",
+   "basis": "합성 'Strain-hardened' → 실제 템퍼 H14 (값 교정과 세트).",
+   "src": "United Aluminum 1050 typical · MakeItFrom 1050-H14"
+  },
+  "MET-0167": {
+   "name": "AA 1100 — Annealed",
+   "basis": "표기 통일.",
+   "src": "A3 Al re-verify 2026Q4"
+  },
+  "MET-0168": {
+   "name": "AA 1100 — H14",
+   "heat_treatment": "H14",
+   "basis": "합성 'Strain-hardened' → 실제 템퍼 H14.",
+   "src": "EMJ Metals catalog 1100-H14 · United Aluminum · MakeItFrom"
+  },
+  "MET-0099": {
+   "name": "AA 2011 — T3",
+   "heat_treatment": "T3",
+   "basis": "합성 'Strain-hardened' → 실제 템퍼 T3 (2011 표준 쾌삭 봉재 템퍼).",
+   "src": "Alro Metals Guide 2011-T3 · EMJ · MakeItFrom"
+  },
+  "MET-0097": {
+   "name": "AA 2011 — T8",
+   "heat_treatment": "T8",
+   "basis": "합성 'Aged / solution-treated' → 실제 템퍼 T8.",
+   "src": "Alro Metals Guide 2011-T8 · EMJ · MakeItFrom"
+  },
+  "MET-0104": {
+   "name": "AA 2017 — Annealed",
+   "basis": "표기 통일 (값은 Alro 2017-O 26/10 ksi, El 22, HB 45 와 정확히 일치 — 미교정).",
+   "src": "A3 Al re-verify 2026Q4"
+  },
+  "MET-0105": {
+   "name": "AA 2017 — H13",
+   "heat_treatment": "H13",
+   "basis": "합성 'Strain-hardened' → 실재 냉간가공 템퍼 H13.",
+   "src": "Alro Metals Guide 2017-H13"
+  },
+  "MET-0103": {
+   "name": "AA 2017 — T4",
+   "heat_treatment": "T4",
+   "basis": "합성 'Aged / solution-treated' → 실제 템퍼 T4.",
+   "src": "Alro Metals Guide 2017-T4 · EMJ · MakeItFrom"
+  },
+  "MET-0114": {
+   "name": "AA 2025 — T6",
+   "heat_treatment": "T6",
+   "basis": "합성 'Aged / solution-treated' → 실제 템퍼 T6 (2025 단조재의 유일한 상용 템퍼).",
+   "src": "MakeItFrom 2025-T6"
+  },
+  "MET-0153": {
+   "name": "AA 3003 — Annealed",
+   "basis": "표기 통일.",
+   "src": "A3 Al re-verify 2026Q4"
+  },
+  "MET-0154": {
+   "name": "AA 3003 — H14",
+   "heat_treatment": "H14",
+   "basis": "합성 'Strain-hardened' → 실제 템퍼 H14.",
+   "src": "United Aluminum · tubingchina ASM table · MakeItFrom"
+  },
+  "MET-0155": {
+   "name": "AA 3004 — Annealed",
+   "basis": "표기 통일.",
+   "src": "A3 Al re-verify 2026Q4"
+  },
+  "MET-0156": {
+   "name": "AA 3004 — H34",
+   "heat_treatment": "H34",
+   "basis": "합성 'Strain-hardened' → 실제 템퍼 H34.",
+   "src": "tubingchina ASM table · MakeItFrom · United Aluminum"
+  },
+  "MET-0157": {
+   "name": "AA 3005 — Annealed",
+   "basis": "표기 통일.",
+   "src": "A3 Al re-verify 2026Q4"
+  },
+  "MET-0158": {
+   "name": "AA 3005 — H14",
+   "heat_treatment": "H14",
+   "basis": "합성 'Strain-hardened' → 실제 템퍼 H14.",
+   "src": "United Aluminum 3005 · MakeItFrom"
+  },
+  "MET-0159": {
+   "name": "AA 3105 — Annealed",
+   "basis": "표기 통일.",
+   "src": "A3 Al re-verify 2026Q4"
+  },
+  "MET-0160": {
+   "name": "AA 3105 — H25",
+   "heat_treatment": "H25",
+   "basis": "합성 'Strain-hardened' → 실제 템퍼 H25 (3105 의 통용 냉간가공 템퍼).",
+   "src": "MakeItFrom 3105-H25"
+  },
+  "MET-0140": {
+   "name": "AA 5086 — Annealed",
+   "basis": "표기 통일.",
+   "src": "A3 Al re-verify 2026Q4"
+  },
+  "MET-0141": {
+   "name": "AA 5086 — H32",
+   "heat_treatment": "H32",
+   "basis": "합성 'Strain-hardened' → 실제 템퍼 H32.",
+   "src": "MakeItFrom 5086-H32 · Alro sheet 5086-H32"
+  },
+  "MET-0195": {
+   "name": "AA 6101 — H111",
+   "heat_treatment": "H111",
+   "basis": "합성 'Strain-hardened' → 실재 도체(버스바) 템퍼 H111.",
+   "src": "MakeItFrom 6101-H111"
+  },
+  "MET-0193": {
+   "name": "AA 6101 — T6",
+   "heat_treatment": "T6",
+   "basis": "합성 'Aged / solution-treated' → 실제 템퍼 T6.",
+   "src": "MakeItFrom 6101-T6"
+  },
+  "MET-0199": {
+   "name": "AA 6262 — T9",
+   "heat_treatment": "T9",
+   "basis": "합성 'Strain-hardened' → 실제 템퍼 T9.",
+   "src": "Alro Metals Guide 6262-T9 · eFunda · MakeItFrom"
+  },
+  "MET-0197": {
+   "name": "AA 6262 — T6",
+   "heat_treatment": "T6",
+   "basis": "합성 'Aged / solution-treated' → 실제 템퍼 T6.",
+   "src": "Alro Metals Guide 6262-T6"
+  },
+  "MET-0206": {
+   "name": "AA 7050 — Annealed",
+   "basis": "합성 AA 7050 3조건(중복) 제거 후, 템퍼명이 base 에 박혀 있던 AA 7050-T7451 (aerospace thick plate) 를 표준 base 명으로 통일 — 부식 노트·위키 엔티티가 AA 7050 키를 쓴다. 값 불변(Kaiser 7050 plate datasheet 판독분).",
+   "src": "A3 Al re-verify 2026Q4"
+  },
+  "MET-0208": {
+   "name": "AA 7050 — T7451",
+   "basis": "합성 AA 7050 3조건(중복) 제거 후, 템퍼명이 base 에 박혀 있던 AA 7050-T7451 (aerospace thick plate) 를 표준 base 명으로 통일 — 부식 노트·위키 엔티티가 AA 7050 키를 쓴다. 값 불변(Kaiser 7050 plate datasheet 판독분).",
+   "src": "A3 Al re-verify 2026Q4"
+  },
+  "MET-0207": {
+   "name": "AA 7050 — T74",
+   "basis": "합성 AA 7050 3조건(중복) 제거 후, 템퍼명이 base 에 박혀 있던 AA 7050-T7451 (aerospace thick plate) 를 표준 base 명으로 통일 — 부식 노트·위키 엔티티가 AA 7050 키를 쓴다. 값 불변(Kaiser 7050 plate datasheet 판독분).",
+   "src": "A3 Al re-verify 2026Q4"
   }
  }
 }

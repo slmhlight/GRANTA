@@ -11,7 +11,7 @@
   "legacy_id": "G_0051",
   "origin": "generic(csv)",
   "id": "G_0051",
-  "name": "AA 1050 — Strain-hardened (Wrought)",
+  "name": "AA 1050 — H14",
   "category": "Metal",
   "subcategory": "Aluminum - Pure/Other",
   "tier": "generic",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Strain-hardened",
+  "heat_treatment": "H14",
   "ranges": {
     "density": {
       "min": 2.71,
@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 31.5,
-      "max": 38.15,
-      "typical": 33.95,
-      "n": 9,
-      "confidence": "measured"
+      "min": 103,
+      "typical": 103,
+      "max": 103,
+      "confidence": "handbook",
+      "provenance": "교정: United Aluminum — Aluminum 1050 typical (1050-H14: 16 ksi / 15 ksi / 7%) · MakeItFrom 1050-H14 (110 / 94 / 8.4%) · Aalco Aluminium Alloy 1050A H14 Sheet datasheet (HB 34)"
     },
     "uts": {
-      "min": 76.5,
-      "max": 92.65,
-      "typical": 82.45,
-      "n": 9,
-      "confidence": "measured"
+      "min": 110,
+      "typical": 110,
+      "max": 110,
+      "confidence": "handbook",
+      "provenance": "교정: United Aluminum — Aluminum 1050 typical (1050-H14: 16 ksi / 15 ksi / 7%) · MakeItFrom 1050-H14 (110 / 94 / 8.4%) · Aalco Aluminium Alloy 1050A H14 Sheet datasheet (HB 34)"
     },
     "elongation": {
-      "min": 28,
-      "max": 33.6,
-      "typical": 31.15,
-      "n": 9,
-      "confidence": "measured"
+      "min": 8,
+      "typical": 8,
+      "max": 8,
+      "confidence": "handbook",
+      "provenance": "교정: United Aluminum — Aluminum 1050 typical (1050-H14: 16 ksi / 15 ksi / 7%) · MakeItFrom 1050-H14 (110 / 94 / 8.4%) · Aalco Aluminium Alloy 1050A H14 Sheet datasheet (HB 34)"
     },
     "modulus": {
       "min": 69,
@@ -60,11 +60,11 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 25.2,
-      "max": 30.52,
-      "typical": 27.16,
-      "n": 9,
-      "confidence": "measured"
+      "min": 34,
+      "typical": 34,
+      "max": 34,
+      "confidence": "handbook",
+      "provenance": "교정: United Aluminum — Aluminum 1050 typical (1050-H14: 16 ksi / 15 ksi / 7%) · MakeItFrom 1050-H14 (110 / 94 / 8.4%) · Aalco Aluminium Alloy 1050A H14 Sheet datasheet (HB 34)"
     },
     "thermal_conductivity": {
       "min": 222,
@@ -201,83 +201,11 @@
   "points": [
     [
       2.71,
-      31.5,
-      76.5,
-      31.5,
+      103,
+      110,
+      8,
       69,
-      25.2,
-      222
-    ],
-    [
-      2.71,
-      38.150000000000006,
-      92.65,
-      31.15,
-      69,
-      30.520000000000003,
-      222
-    ],
-    [
-      2.71,
-      31.5,
-      76.5,
-      28,
-      69,
-      25.2,
-      222
-    ],
-    [
-      2.71,
-      36.75,
-      89.25,
-      29.750000000000004,
-      69,
-      29.4,
-      222
-    ],
-    [
-      2.71,
-      33.25,
-      80.75,
-      33.25,
-      69,
-      26.6,
-      222
-    ],
-    [
-      2.71,
-      33.6,
-      81.6,
-      33.6,
-      69,
-      26.88,
-      222
-    ],
-    [
-      2.71,
-      33.95,
-      82.45,
-      30.450000000000003,
-      69,
-      27.16,
-      222
-    ],
-    [
-      2.71,
-      35.7,
-      86.7,
-      32.2,
-      69,
-      28.56,
-      222
-    ],
-    [
-      2.71,
-      36.75,
-      89.25,
-      29.750000000000004,
-      69,
-      29.4,
+      34,
       222
     ]
   ],
@@ -305,11 +233,11 @@
   "fracture_toughness": 60,
   "fatigue_strength": 35,
   "density": 2.71,
-  "yield_strength": 33.95,
-  "uts": 82.45,
-  "elongation": 31.15,
+  "yield_strength": 103,
+  "uts": 110,
+  "elongation": 8,
   "modulus": 69,
-  "hardness": 27.16,
+  "hardness": 34,
   "thermal_conductivity": 222,
   "impact_strength": 55,
   "manufacturer": "Generic",
@@ -383,6 +311,151 @@
         "EN AW-1050A",
         "Al99.5"
       ]
-    }
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 31.5,
+        "max": 38.15,
+        "typical": 33.95,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 33.95
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 76.5,
+        "max": 92.65,
+        "typical": 82.45,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 82.45
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 28,
+        "max": 33.6,
+        "typical": 31.15,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 31.15
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 25.2,
+        "max": 30.52,
+        "typical": 27.16,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 27.16
+    },
+    "_basis": "라벨 'Strain-hardened' 의 합성값(σy 33.95/UTS 82.45 = 소둔 ×1.03)을 실제 냉간가공 템퍼 H14 로 교체. 경도 34 HB 는 Aalco 1050A-H14 시트 데이터시트 typical.",
+    "_src": "United Aluminum — Aluminum 1050 typical (1050-H14: 16 ksi / 15 ksi / 7%) · MakeItFrom 1050-H14 (110 / 94 / 8.4%) · Aalco Aluminium Alloy 1050A H14 Sheet datasheet (HB 34)",
+    "points": {
+      "from": [
+        [
+          2.71,
+          31.5,
+          76.5,
+          31.5,
+          69,
+          25.2,
+          222
+        ],
+        [
+          2.71,
+          38.150000000000006,
+          92.65,
+          31.15,
+          69,
+          30.520000000000003,
+          222
+        ],
+        [
+          2.71,
+          31.5,
+          76.5,
+          28,
+          69,
+          25.2,
+          222
+        ],
+        [
+          2.71,
+          36.75,
+          89.25,
+          29.750000000000004,
+          69,
+          29.4,
+          222
+        ],
+        [
+          2.71,
+          33.25,
+          80.75,
+          33.25,
+          69,
+          26.6,
+          222
+        ],
+        [
+          2.71,
+          33.6,
+          81.6,
+          33.6,
+          69,
+          26.88,
+          222
+        ],
+        [
+          2.71,
+          33.95,
+          82.45,
+          30.450000000000003,
+          69,
+          27.16,
+          222
+        ],
+        [
+          2.71,
+          35.7,
+          86.7,
+          32.2,
+          69,
+          28.56,
+          222
+        ],
+        [
+          2.71,
+          36.75,
+          89.25,
+          29.750000000000004,
+          69,
+          29.4,
+          222
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "AA 1050 — Strain-hardened (Wrought)"
+      },
+      "heat_treatment": {
+        "from": "Strain-hardened"
+      }
+    },
+    "_fbasis": "합성 'Strain-hardened' → 실제 템퍼 H14 (값 교정과 세트).",
+    "_fsrc": "United Aluminum 1050 typical · MakeItFrom 1050-H14"
   }
 }

@@ -11,7 +11,7 @@
   "legacy_id": "G_0040",
   "origin": "generic(csv)",
   "id": "G_0040",
-  "name": "AA 3004 — Annealed (Wrought)",
+  "name": "AA 3004 — Annealed",
   "category": "Metal",
   "subcategory": "Aluminum - Mn Alloys (3xxx)",
   "tier": "generic",
@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 117.5,
-      "max": 117.5,
-      "typical": 117.5,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 69,
+      "typical": 69,
+      "max": 69,
+      "confidence": "handbook",
+      "provenance": "교정: United Aluminum — 3004-O typical 26/10 ksi, El 19 · tubingchina ASM typical table (3004-O 26/10 ksi, El 25, HB 45) · MakeItFrom 3004-O (170 / 69 / 19% / HB 45)"
     },
     "uts": {
-      "min": 173.9,
-      "max": 173.9,
-      "typical": 173.9,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 180,
+      "typical": 180,
+      "max": 180,
+      "confidence": "handbook",
+      "provenance": "교정: United Aluminum — 3004-O typical 26/10 ksi, El 19 · tubingchina ASM typical table (3004-O 26/10 ksi, El 25, HB 45) · MakeItFrom 3004-O (170 / 69 / 19% / HB 45)"
     },
     "elongation": {
-      "min": 18.8,
-      "max": 18.8,
-      "typical": 18.8,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 20,
+      "typical": 20,
+      "max": 20,
+      "confidence": "handbook",
+      "provenance": "교정: United Aluminum — 3004-O typical 26/10 ksi, El 19 · tubingchina ASM typical table (3004-O 26/10 ksi, El 25, HB 45) · MakeItFrom 3004-O (170 / 69 / 19% / HB 45)"
     },
     "modulus": {
       "min": 70,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 51.7,
-      "max": 51.7,
-      "typical": 51.7,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 45,
+      "typical": 45,
+      "max": 45,
+      "confidence": "handbook",
+      "provenance": "교정: United Aluminum — 3004-O typical 26/10 ksi, El 19 · tubingchina ASM typical table (3004-O 26/10 ksi, El 25, HB 45) · MakeItFrom 3004-O (170 / 69 / 19% / HB 45)"
     },
     "thermal_conductivity": {
       "min": 191,
@@ -200,11 +200,11 @@
   "points": [
     [
       2.72,
-      117.5,
-      173.9,
-      18.8,
+      69,
+      180,
+      20,
       70,
-      51.7,
+      45,
       191
     ]
   ],
@@ -223,11 +223,11 @@
   "fracture_toughness": 60,
   "fatigue_strength": 45,
   "density": 2.72,
-  "yield_strength": 117.5,
-  "uts": 173.9,
-  "elongation": 18.8,
+  "yield_strength": 69,
+  "uts": 180,
+  "elongation": 20,
   "modulus": 70,
-  "hardness": 51.7,
+  "hardness": 45,
   "thermal_conductivity": 191,
   "impact_strength": 30,
   "manufacturer": "Generic",
@@ -287,6 +287,76 @@
     },
     "aliases": {
       "from": []
-    }
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 117.5,
+        "max": 117.5,
+        "typical": 117.5,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 117.5
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 173.9,
+        "max": 173.9,
+        "typical": 173.9,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 173.9
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 18.8,
+        "max": 18.8,
+        "typical": 18.8,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 18.8
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 51.7,
+        "max": 51.7,
+        "typical": 51.7,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 51.7
+    },
+    "_basis": "AA 3004-O. 합성값의 항복 117.5 는 O 템퍼의 두 배(대표 69) — H32 급 항복이 소둔에 실려 있었다.",
+    "_src": "United Aluminum — 3004-O typical 26/10 ksi, El 19 · tubingchina ASM typical table (3004-O 26/10 ksi, El 25, HB 45) · MakeItFrom 3004-O (170 / 69 / 19% / HB 45)",
+    "points": {
+      "from": [
+        [
+          2.72,
+          117.5,
+          173.9,
+          18.8,
+          70,
+          51.7,
+          191
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "AA 3004 — Annealed (Wrought)"
+      }
+    },
+    "_fbasis": "표기 통일.",
+    "_fsrc": "A3 Al re-verify 2026Q4"
   }
 }

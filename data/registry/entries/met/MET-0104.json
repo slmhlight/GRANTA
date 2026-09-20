@@ -11,7 +11,7 @@
   "legacy_id": "G_0022",
   "origin": "generic(csv)",
   "id": "G_0022",
-  "name": "AA 2017 — Annealed (Wrought)",
+  "name": "AA 2017 — Annealed",
   "category": "Metal",
   "subcategory": "Aluminum - Cu Alloys (2xxx)",
   "tier": "generic",
@@ -295,6 +295,13 @@
     "aliases": {
       "from": []
     },
+    "fields": {
+      "name": {
+        "from": "AA 2017 — Annealed (Wrought)"
+      }
+    },
+    "_fbasis": "표기 통일 (값은 Alro 2017-O 26/10 ksi, El 22, HB 45 와 정확히 일치 — 미교정).",
+    "_fsrc": "A3 Al re-verify 2026Q4",
     "points": {
       "from": [
         [

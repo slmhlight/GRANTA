@@ -11,7 +11,7 @@
   "legacy_id": "G_0027",
   "origin": "generic(csv)",
   "id": "G_0027",
-  "name": "AA 6101 — Strain-hardened (Wrought)",
+  "name": "AA 6101 — H111",
   "category": "Metal",
   "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
   "tier": "generic",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Strain-hardened",
+  "heat_treatment": "H111",
   "ranges": {
     "density": {
       "min": 2.7,
@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 216,
-      "max": 261.6,
-      "typical": 232.8,
-      "n": 9,
-      "confidence": "measured"
+      "min": 75,
+      "typical": 75,
+      "max": 75,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 6101-H111 Aluminum (95 / 75 / 25%, 57 %IACS) · D10 비례법 — 앵커 MakeItFrom 6101-T6 (220 MPa / HB 71)"
     },
     "uts": {
-      "min": 252,
-      "max": 305.2,
-      "typical": 271.6,
-      "n": 9,
-      "confidence": "measured"
+      "min": 95,
+      "typical": 95,
+      "max": 95,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 6101-H111 Aluminum (95 / 75 / 25%, 57 %IACS) · D10 비례법 — 앵커 MakeItFrom 6101-T6 (220 MPa / HB 71)"
     },
     "elongation": {
-      "min": 11.2,
-      "max": 13.44,
-      "typical": 12.46,
-      "n": 9,
-      "confidence": "measured"
+      "min": 25,
+      "typical": 25,
+      "max": 25,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 6101-H111 Aluminum (95 / 75 / 25%, 57 %IACS) · D10 비례법 — 앵커 MakeItFrom 6101-T6 (220 MPa / HB 71)"
     },
     "modulus": {
       "min": 69,
@@ -60,11 +60,11 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 76.5,
-      "max": 92.65,
-      "typical": 82.45,
-      "n": 9,
-      "confidence": "measured"
+      "min": 31,
+      "typical": 31,
+      "max": 31,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 6101-H111 Aluminum (95 / 75 / 25%, 57 %IACS) · D10 비례법 — 앵커 MakeItFrom 6101-T6 (220 MPa / HB 71)"
     },
     "thermal_conductivity": {
       "min": 205,
@@ -193,11 +193,11 @@
   "points": [
     [
       2.7,
-      232.8,
-      271.6,
-      12.46,
+      75,
+      95,
+      25,
       69,
-      82.45,
+      31,
       218
     ]
   ],
@@ -224,11 +224,11 @@
   "fracture_toughness": 31.5,
   "fatigue_strength": 88,
   "density": 2.7,
-  "yield_strength": 232.8,
-  "uts": 271.6,
-  "elongation": 12.46,
+  "yield_strength": 75,
+  "uts": 95,
+  "elongation": 25,
   "modulus": 69,
-  "hardness": 82.45,
+  "hardness": 31,
   "thermal_conductivity": 218,
   "impact_strength": null,
   "manufacturer": "Generic",
@@ -296,6 +296,56 @@
     "aliases": {
       "from": []
     },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 216,
+        "max": 261.6,
+        "typical": 232.8,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 232.8
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 252,
+        "max": 305.2,
+        "typical": 271.6,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 271.6
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 11.2,
+        "max": 13.44,
+        "typical": 12.46,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 12.46
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 76.5,
+        "max": 92.65,
+        "typical": 82.45,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 82.45
+    },
+    "_basis": "'Strain-hardened' 합성값(σy 232.8/UTS 271.6 — T6 보다 높은 냉간가공값은 6101 에 없다)을 실재하는 도체 템퍼 H111 로 교체. 경도: 6101-H111 공개 HB 미확보 → 같은 합금의 앵커 비(6101-T6 220/71 = 3.1)로 95/3.1 ≈ 31 HB (파생, 문서화). 합성값 82.45 는 UTS 95 의 0.87 배로 물리적으로 불가.",
+    "_src": "MakeItFrom 6101-H111 Aluminum (95 / 75 / 25%, 57 %IACS) · D10 비례법 — 앵커 MakeItFrom 6101-T6 (220 MPa / HB 71)",
     "points": {
       "from": [
         [
@@ -381,6 +431,15 @@
         ]
       ]
     },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+    "fields": {
+      "name": {
+        "from": "AA 6101 — Strain-hardened (Wrought)"
+      },
+      "heat_treatment": {
+        "from": "Strain-hardened"
+      }
+    },
+    "_fbasis": "합성 'Strain-hardened' → 실재 도체(버스바) 템퍼 H111.",
+    "_fsrc": "MakeItFrom 6101-H111"
   }
 }

@@ -2,6 +2,20 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## 2026-09-20 — A3 Al 족보 re-verify (2026Q4) · A19 (Al 131 entry 전건 판정 — 합성 조건 13 base 가 살아 있었다)
+
+Cu(Q3) 다음 로테이션. 판정 대장 `docs/audits/al-reverify-2026Q4.md`(로컬). 대조: Alro·EMJ 카탈로그(AA 대표값 표, ksi) · United Aluminum(제조사 typical) · tubingchina ASM 표 · MakeItFrom · eFunda · Aalco — MatWeb·ASM 원문은 자동 접근 불가.
+
+- **합성 3조건 13 base·32 entry** — generic CSV 층의 base×1.03 배율값(3003 "Strain-hardened" σy 38.8 vs 소둔 37.6, n=9 가짜 측정, confidence 'measured'). A17(09-11)은 '완전 동일' 복제만 걷어내 이들은 남았다. 실재·인용 가능한 템퍼로 **재라벨+대표값 교정 24**: 1050/1100/3003 **H14** · 3004 **H34** · 3105 **H25** · 5086 **H32** · 2011 **T3/T8** · 2017 **H13/T4** · 2025 **T6** · 6101 **H111/T6** · 6262 **T6/T9** + 소둔 8(3xxx·5086 소둔 항복이 H-템퍼 급으로 높았다: 3004 117.5→69 · 5086 202→120). 경도 인용이 없는 4건은 D10 비례법(같은 합금 앵커 비, basis 명기).
+- **제거 13**: 상용 O 템퍼가 없는 합성 소둔 5(2011·2025·6101·6262 — R205 C12 의 '[AA Teal Sheets]' 출처는 조성 규격이라 불성립) · 중복 base 7(합성 'AA 7050' 3 → Kaiser 판독 base 를 'AA 7050' 으로 개명 · 열등 'AA 5454' 3 · 'AA 6063 (Al-Mg-Si)') · 존재하지 않는 **6061-T73**. 재료 **1,128 → 1,115**. stale 참조(스토리 13·override 5파일·부식 키·위키·D10 게이트)는 게이트가 전부 잡아 정리.
+- **7075-T7351** 540/470 → 505/435: T76 값이 실려 있었다(T7351 = T73 응력제거판, Alro 표가 한 행).
+- REVIEWED: 6061·7075·2024·2014·6063 사다리는 Alro/EMJ 표와 정확 일치(HB 까지) · 5052/5083/5454/2219/6082/1200/2618/주조/Al-Li/AM. 잔여 8건(7050-O 근거 · 2024-T4 최소값 · 6082-T651 · 5182-H19 · 5456 · 6463 두 base · 2195/2050 중복 조건 · 파생 경도 4)은 대장 ⑤.
+- **A19 — 파생 피로강도 재계산 시점**: 교정 entry 의 피로가 옛 σy 로 계산된 `family:σf≈0.38·σy` 그대로였다(6101-H111 88 = UTS 의 0.93, 상한 0.63 초과로 게이트 발화). 전수: 파생 피로 487 중 **금속 43** 불일치(D9 탄소강·Ti·Inconel 100 포함 — AISI 1040 Q+T 157 vs 295). 규칙 표를 `scripts/lib/fatigue-fallback.mjs` 로 추출(모놀리스 import — 재생성 diff 0), build-from-registry **1i** 가 같은 규칙을 바뀐 입력에 재적용(41). 감사기 stateOf 에 T9 추가(6262-T9 를 SOFT 로 보던 헛것) · 별칭 매칭이 name 교정 후 이름을 보도록(A7050).
+- 게이트: `derived-fatigue.test.ts`(5, 1i 끄면 2건 발화) · `hardness-condition.test` D10 검사를 Al 사다리 7 base 비 정합으로 대체 · `registry-integrity` +0(기존 게이트가 제거 연쇄 전부 검출).
+- 검증: build:registry 라운드트립 0 · build:data anomaly high 0 · vitest **1236/1236(80)** · tsc 0 · lint 0.
+
+---
+
 ## 2026-09-20 — F2 완료 (any 잔여 — 백로그 숫자가 틀렸고, 게이트가 못 보는 자리가 있었다)
 
 - **집계 정정**: 백로그의 "잔여 22 (scenario-presets 8 · ScenarioCompareSheet 10 · ComparePanel 4)" 는 세 파일의 타입 any 가 **0** 인데 `'any'` 문자열 리터럴("제약 없음" 옵션)과 주석 단어를 센 숫자였다.

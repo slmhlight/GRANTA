@@ -15,6 +15,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { detectAnomalies } from './lib/anomalies.mjs';   // R226e — 공유 모듈 (중복 제거)
+import { fatigueRule, deriveFatigueRange, parseDerivedFatigue } from './lib/fatigue-fallback.mjs';   // A19 — 파생 피로 재유도(1i)
 import { improveLabel, sourceAuthority } from './lib/source-labels.mjs';   // R226e — 출처 라벨 도출 + 권위 등급
 import { extractUNS } from './lib/uns.mjs';   // R226f/축4c — UNS 정규 필드
 import { confidenceTierOf, TIER_RANK } from './lib/confidence-tier.mjs';   // C3 — 신뢰 등급 규칙 SSOT
@@ -419,6 +420,45 @@ for (const m of all) {
 if (flatSynced) {
   console.log(`  평면값<->ranges 정합: ${flatSynced} (재료x물성) — ${Object.entries(flatSyncBy).sort((a, b) => b[1] - a[1]).map(([k, n]) => `${k} ${n}`).join(' · ')}`);
   for (const e of flatSyncTop.sort((a, b) => b.dev - a.dev).slice(0, 5)) console.log(`    편차 상위: ${e.s}`);
+}
+
+/* 1i) A19 — 파생 피로강도 재유도 (규칙 SSOT: lib/fatigue-fallback.mjs).
+ *
+ * C1 폴백(σf ≈ k·σy)과 R205-R 재유도(σf ≈ r·UTS)는 **모놀리스가 값을 찍는 시점의 σy·UTS** 로 계산된다.
+ * 그 뒤 build-registry 4c 의 datasheet 교정이 σy 를 바꾸면 파생값은 옛 입력으로 계산된 채 남는다 — C3 의
+ * confidence_tier 와 같은 '재계산 시점' 문제. 실측(2026-09-20): 파생 피로 487 중 금속 43 이 현재 σy 와
+ * 불일치. 예) AISI 1040 Q+T 157 (규칙대로면 295) · AA 6101-H111 88 = UTS 95 의 0.93 (물리 상한 0.63 초과).
+ * 규칙의 계수는 provenance 문자열에 박혀 있으므로(σf≈0.5·σy) 그것을 읽어 현재 값으로 다시 계산한다 —
+ * 새 규칙을 만드는 것이 아니라 같은 규칙을 **바뀐 입력에** 다시 적용하는 것. 값이 datasheet(measured/handbook)
+ * 인 entry 는 손대지 않는다. 산출 단계 보정이라 레지스트리 SSOT 불변(1f·1h 와 같은 계층).
+ */
+let fatRederived = 0;
+const fatRederivedTop = [];
+for (const m of all) {
+  if (m.category !== 'Metal' || !m.ranges) continue;
+  const fr = m.ranges.fatigue_strength;
+  if (!fr || fr.confidence !== 'derived') continue;
+  const parsed = parseDerivedFatigue(fr.provenance);
+  if (!parsed) continue;
+  const base = parsed.base === 'σy' ? m.ranges.yield_strength?.typical : m.ranges.uts?.typical;
+  if (typeof base !== 'number' || !(base > 0)) continue;
+  let next;
+  if (parsed.base === 'σy') {
+    const rule = fatigueRule(m);
+    if (!rule || Math.abs(rule.kTyp - parsed.k) > 1e-9) continue;   // 규칙 표와 어긋난 provenance 는 건드리지 않는다(게이트가 보고)
+    next = deriveFatigueRange(rule, base);
+  } else {
+    const nv = Math.round(base * parsed.k);
+    next = { ...fr, min: Math.round(nv * 0.85), max: Math.round(nv * 1.15), typical: nv };
+  }
+  if (Math.abs(next.typical - fr.typical) <= 1) continue;
+  fatRederivedTop.push(`${m.name} · σf ${fr.typical} -> ${next.typical} (${parsed.base} ${base})`);
+  m.ranges.fatigue_strength = { ...fr, ...next, provenance: `${fr.provenance} · 교정된 ${parsed.base} 로 재유도` };
+  m.fatigue_strength = next.typical;
+  fatRederived++;
+}
+if (fatRederived) {
+  console.log(`  파생 피로강도 재유도(1i): ${fatRederived} — ${fatRederivedTop.slice(0, 4).join(' · ')}`);
 }
 
 // 2) anomaly 재검출 — lib/anomalies.mjs 공유 (build-materials 와 동일 로직; 최종 데이터 기준 검출이 canonical)

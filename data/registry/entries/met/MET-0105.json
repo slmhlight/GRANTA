@@ -11,7 +11,7 @@
   "legacy_id": "G_0021",
   "origin": "generic(csv)",
   "id": "G_0021",
-  "name": "AA 2017 — Strain-hardened (Wrought)",
+  "name": "AA 2017 — H13",
   "category": "Metal",
   "subcategory": "Aluminum - Cu Alloys (2xxx)",
   "tier": "generic",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Strain-hardened",
+  "heat_treatment": "H13",
   "ranges": {
     "density": {
       "min": 2.77,
@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 243,
-      "max": 294.3,
-      "typical": 261.9,
-      "n": 9,
-      "confidence": "measured"
+      "min": 228,
+      "typical": 228,
+      "max": 228,
+      "confidence": "handbook",
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2017-H13: 35/33 ksi, El 10) · D10 비례법 — 앵커 Alro 2017-T4 (62 ksi / HB 105)"
     },
     "uts": {
-      "min": 342,
-      "max": 414.2,
-      "typical": 368.6,
-      "n": 9,
-      "confidence": "measured"
+      "min": 241,
+      "typical": 241,
+      "max": 241,
+      "confidence": "handbook",
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2017-H13: 35/33 ksi, El 10) · D10 비례법 — 앵커 Alro 2017-T4 (62 ksi / HB 105)"
     },
     "elongation": {
-      "min": 17.6,
-      "max": 21.12,
-      "typical": 19.58,
-      "n": 9,
-      "confidence": "measured"
+      "min": 10,
+      "typical": 10,
+      "max": 10,
+      "confidence": "handbook",
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2017-H13: 35/33 ksi, El 10) · D10 비례법 — 앵커 Alro 2017-T4 (62 ksi / HB 105)"
     },
     "modulus": {
       "min": 72,
@@ -60,11 +60,11 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 94.5,
-      "max": 114.5,
-      "typical": 101.9,
-      "n": 9,
-      "confidence": "measured"
+      "min": 59,
+      "typical": 59,
+      "max": 59,
+      "confidence": "handbook",
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2017-H13: 35/33 ksi, El 10) · D10 비례법 — 앵커 Alro 2017-T4 (62 ksi / HB 105)"
     },
     "thermal_conductivity": {
       "min": 121,
@@ -200,83 +200,11 @@
   "points": [
     [
       2.77,
-      243,
-      342,
-      19.8,
+      228,
+      241,
+      10,
       72,
-      94.5,
-      121
-    ],
-    [
-      2.77,
-      294.3,
-      414.2000000000001,
-      19.58,
-      72,
-      114.45,
-      121
-    ],
-    [
-      2.77,
-      243,
-      342,
-      17.6,
-      72,
-      94.5,
-      121
-    ],
-    [
-      2.77,
-      283.5,
-      399,
-      18.700000000000003,
-      72,
-      110.25,
-      121
-    ],
-    [
-      2.77,
-      256.5,
-      361,
-      20.9,
-      72,
-      99.75,
-      121
-    ],
-    [
-      2.77,
-      259.2,
-      364.8,
-      21.12,
-      72,
-      100.8,
-      121
-    ],
-    [
-      2.77,
-      261.9,
-      368.6,
-      19.14,
-      72,
-      101.85,
-      121
-    ],
-    [
-      2.77,
-      275.4,
-      387.6,
-      20.24,
-      72,
-      107.1,
-      121
-    ],
-    [
-      2.77,
-      283.5,
-      399,
-      18.700000000000003,
-      72,
-      110.25,
+      59,
       121
     ]
   ],
@@ -303,11 +231,11 @@
   "fracture_toughness": 25.2,
   "fatigue_strength": 100,
   "density": 2.77,
-  "yield_strength": 261.9,
-  "uts": 368.6,
-  "elongation": 19.58,
+  "yield_strength": 228,
+  "uts": 241,
+  "elongation": 10,
   "modulus": 72,
-  "hardness": 101.9,
+  "hardness": 59,
   "thermal_conductivity": 121,
   "impact_strength": 11,
   "manufacturer": "Generic",
@@ -372,6 +300,151 @@
     },
     "aliases": {
       "from": []
-    }
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 243,
+        "max": 294.3,
+        "typical": 261.9,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 261.9
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 342,
+        "max": 414.2,
+        "typical": 368.6,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 368.6
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 17.6,
+        "max": 21.12,
+        "typical": 19.58,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 19.58
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 94.5,
+        "max": 114.5,
+        "typical": 101.9,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 101.9
+    },
+    "_basis": "'Strain-hardened' 합성값(σy 261.9/UTS 368.6 = T4 ×0.95)을 실재하는 냉간가공 템퍼 H13 으로 교체. 경도: Alro 표에 H13 경도 미기재 → 같은 합금의 앵커 비(2017-T4 427/105 = 4.07)로 241/4.07 ≈ 59 HB (파생, 문서화).",
+    "_src": "Alro Steel Metals Guide — Rod/Bar typical (2017-H13: 35/33 ksi, El 10) · D10 비례법 — 앵커 Alro 2017-T4 (62 ksi / HB 105)",
+    "points": {
+      "from": [
+        [
+          2.77,
+          243,
+          342,
+          19.8,
+          72,
+          94.5,
+          121
+        ],
+        [
+          2.77,
+          294.3,
+          414.2000000000001,
+          19.58,
+          72,
+          114.45,
+          121
+        ],
+        [
+          2.77,
+          243,
+          342,
+          17.6,
+          72,
+          94.5,
+          121
+        ],
+        [
+          2.77,
+          283.5,
+          399,
+          18.700000000000003,
+          72,
+          110.25,
+          121
+        ],
+        [
+          2.77,
+          256.5,
+          361,
+          20.9,
+          72,
+          99.75,
+          121
+        ],
+        [
+          2.77,
+          259.2,
+          364.8,
+          21.12,
+          72,
+          100.8,
+          121
+        ],
+        [
+          2.77,
+          261.9,
+          368.6,
+          19.14,
+          72,
+          101.85,
+          121
+        ],
+        [
+          2.77,
+          275.4,
+          387.6,
+          20.24,
+          72,
+          107.1,
+          121
+        ],
+        [
+          2.77,
+          283.5,
+          399,
+          18.700000000000003,
+          72,
+          110.25,
+          121
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "AA 2017 — Strain-hardened (Wrought)"
+      },
+      "heat_treatment": {
+        "from": "Strain-hardened"
+      }
+    },
+    "_fbasis": "합성 'Strain-hardened' → 실재 냉간가공 템퍼 H13.",
+    "_fsrc": "Alro Metals Guide 2017-H13"
   }
 }

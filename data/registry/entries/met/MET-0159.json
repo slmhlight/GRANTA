@@ -11,7 +11,7 @@
   "legacy_id": "G_0046",
   "origin": "generic(csv)",
   "id": "G_0046",
-  "name": "AA 3105 — Annealed (Wrought)",
+  "name": "AA 3105 — Annealed",
   "category": "Metal",
   "subcategory": "Aluminum - Mn Alloys (3xxx)",
   "tier": "generic",
@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 75.2,
-      "max": 75.2,
-      "typical": 75.2,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 48,
+      "typical": 48,
+      "max": 48,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 3105-O Aluminum (120 / 48 / 20% / HB 29) · 피로 52 MPa(MakeItFrom 3105-O)"
     },
     "uts": {
-      "min": 122.2,
-      "max": 122.2,
-      "typical": 122.2,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 120,
+      "typical": 120,
+      "max": 120,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 3105-O Aluminum (120 / 48 / 20% / HB 29) · 피로 52 MPa(MakeItFrom 3105-O)"
     },
     "elongation": {
-      "min": 26.32,
-      "max": 26.32,
-      "typical": 26.32,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 20,
+      "typical": 20,
+      "max": 20,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 3105-O Aluminum (120 / 48 / 20% / HB 29) · 피로 52 MPa(MakeItFrom 3105-O)"
     },
     "modulus": {
       "min": 70,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 37.6,
-      "max": 37.6,
-      "typical": 37.6,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 29,
+      "typical": 29,
+      "max": 29,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 3105-O Aluminum (120 / 48 / 20% / HB 29) · 피로 52 MPa(MakeItFrom 3105-O)"
     },
     "thermal_conductivity": {
       "min": 191,
@@ -74,12 +74,11 @@
       "confidence": "handbook"
     },
     "fatigue_strength": {
-      "min": 26,
-      "max": 38,
-      "typical": 32,
-      "n": 0,
-      "confidence": "derived",
-      "provenance": "family:σf≈0.42·σy (ASM Vol.19 SS fatigue)"
+      "min": 52,
+      "typical": 52,
+      "max": 52,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 3105-O Aluminum (120 / 48 / 20% / HB 29) · 피로 52 MPa(MakeItFrom 3105-O)"
     },
     "impact_strength": {
       "min": 80,
@@ -200,11 +199,11 @@
   "points": [
     [
       2.71,
-      75.2,
-      122.2,
-      26.32,
+      48,
+      120,
+      20,
       70,
-      37.6,
+      29,
       191
     ]
   ],
@@ -221,13 +220,13 @@
     ]
   },
   "fracture_toughness": 140,
-  "fatigue_strength": 32,
+  "fatigue_strength": 52,
   "density": 2.71,
-  "yield_strength": 75.2,
-  "uts": 122.2,
-  "elongation": 26.32,
+  "yield_strength": 48,
+  "uts": 120,
+  "elongation": 20,
   "modulus": 70,
-  "hardness": 37.6,
+  "hardness": 29,
   "thermal_conductivity": 191,
   "impact_strength": 130,
   "manufacturer": "Generic",
@@ -284,6 +283,89 @@
           "verified": false
         }
       ]
-    }
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 75.2,
+        "max": 75.2,
+        "typical": 75.2,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 75.2
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 122.2,
+        "max": 122.2,
+        "typical": 122.2,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 122.2
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 26.32,
+        "max": 26.32,
+        "typical": 26.32,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 26.32
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 37.6,
+        "max": 37.6,
+        "typical": 37.6,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 37.6
+    },
+    "fatigue_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 26,
+        "max": 38,
+        "typical": 32,
+        "n": 0,
+        "confidence": "derived",
+        "provenance": "family:σf≈0.42·σy (ASM Vol.19 SS fatigue)"
+      },
+      "had_scalar": true,
+      "val_scalar": 32
+    },
+    "_basis": "AA 3105-O. 합성값의 항복 75.2 는 O 템퍼 대표(48~55)보다 높다. 파생 피로가 SS 규칙(0.42·σy, 이름 regex 오분류)으로 찍혀 있어 인용값으로 교체.",
+    "_src": "MakeItFrom 3105-O Aluminum (120 / 48 / 20% / HB 29) · 피로 52 MPa(MakeItFrom 3105-O)",
+    "points": {
+      "from": [
+        [
+          2.71,
+          75.2,
+          122.2,
+          26.32,
+          70,
+          37.6,
+          191
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "AA 3105 — Annealed (Wrought)"
+      }
+    },
+    "_fbasis": "표기 통일.",
+    "_fsrc": "A3 Al re-verify 2026Q4"
   }
 }

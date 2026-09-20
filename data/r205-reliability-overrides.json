@@ -763,39 +763,6 @@
   {
    "ranges": {
     "yield_strength": {
-     "typical": 97,
-     "min": 85,
-     "max": 125,
-     "confidence": "handbook"
-    },
-    "uts": {
-     "typical": 165,
-     "min": 150,
-     "max": 200,
-     "confidence": "handbook"
-    },
-    "elongation": {
-     "typical": 18,
-     "min": 15,
-     "max": 25,
-     "confidence": "handbook"
-    },
-    "hardness": {
-     "typical": 45,
-     "min": 40,
-     "max": 60,
-     "confidence": "handbook"
-    }
-   },
-   "reason": "C12: Annealed 에 T-temper 급 (329/451). 2011-O. [AA Teal Sheets]",
-   "stableIds": [
-    "MET-0098"
-   ],
-   "_namePattern_ref": "^AA 2011 — Annealed"
-  },
-  {
-   "ranges": {
-    "yield_strength": {
      "typical": 70,
      "min": 60,
      "max": 95,
@@ -828,126 +795,6 @@
   },
   {
    "ranges": {
-    "yield_strength": {
-     "typical": 110,
-     "min": 95,
-     "max": 140,
-     "confidence": "handbook"
-    },
-    "uts": {
-     "typical": 220,
-     "min": 200,
-     "max": 260,
-     "confidence": "handbook"
-    },
-    "elongation": {
-     "typical": 18,
-     "min": 15,
-     "max": 24,
-     "confidence": "handbook"
-    }
-   },
-   "reason": "C12: 2025-O. [AA]",
-   "stableIds": [
-    "MET-0115"
-   ],
-   "_namePattern_ref": "^AA 2025 — Annealed"
-  },
-  {
-   "ranges": {
-    "yield_strength": {
-     "typical": 120,
-     "min": 100,
-     "max": 160,
-     "confidence": "handbook"
-    },
-    "uts": {
-     "typical": 220,
-     "min": 200,
-     "max": 260,
-     "confidence": "handbook"
-    },
-    "elongation": {
-     "typical": 14,
-     "min": 12,
-     "max": 18,
-     "confidence": "handbook"
-    },
-    "hardness": {
-     "typical": 60,
-     "min": 50,
-     "max": 75,
-     "confidence": "handbook"
-    }
-   },
-   "reason": "C12: 7050-O (DB 421/479 = T74 급). [AA]",
-   "stableIds": [
-    "MET-0204"
-   ],
-   "_namePattern_ref": "^AA 7050 — Annealed"
-  },
-  {
-   "ranges": {
-    "yield_strength": {
-     "typical": 28,
-     "min": 25,
-     "max": 40,
-     "confidence": "handbook"
-    },
-    "uts": {
-     "typical": 89,
-     "min": 80,
-     "max": 110,
-     "confidence": "handbook"
-    },
-    "elongation": {
-     "typical": 30,
-     "min": 25,
-     "max": 35,
-     "confidence": "handbook"
-    },
-    "hardness": {
-     "typical": 25,
-     "min": 22,
-     "max": 32,
-     "confidence": "handbook"
-    }
-   },
-   "reason": "C12: 6101-O. [AA]",
-   "stableIds": [
-    "MET-0194"
-   ],
-   "_namePattern_ref": "^AA 6101 — Annealed"
-  },
-  {
-   "ranges": {
-    "yield_strength": {
-     "typical": 60,
-     "min": 50,
-     "max": 85,
-     "confidence": "handbook"
-    },
-    "uts": {
-     "typical": 120,
-     "min": 105,
-     "max": 150,
-     "confidence": "handbook"
-    },
-    "elongation": {
-     "typical": 25,
-     "min": 20,
-     "max": 30,
-     "confidence": "handbook"
-    }
-   },
-   "reason": "C12: 6262-O. [AA]",
-   "stableIds": [
-    "MET-0198"
-   ],
-   "_namePattern_ref": "^AA 6262 — Annealed"
-  },
-  {
-   "ranges": {
     "thermal_conductivity": {
      "typical": 218,
      "min": 205,
@@ -958,7 +805,6 @@
    "reason": "E23: 전기 bus bar 합금 (57% IACS) k 167 → 218. [AA 6101-T61]",
    "stableIds": [
     "MET-0193",
-    "MET-0194",
     "MET-0195"
    ],
    "_namePattern_ref": "^AA 6101"
@@ -1310,7 +1156,6 @@
    "reason": "D18 CRITICAL: Pb-Bi free-machining Al — 용접성 최악. [AA]",
    "stableIds": [
     "MET-0097",
-    "MET-0098",
     "MET-0099"
    ],
    "_namePattern_ref": "^AA 2011 — "
@@ -1324,9 +1169,7 @@
     "MET-0103",
     "MET-0104",
     "MET-0105",
-    "MET-0114",
-    "MET-0115",
-    "MET-0116"
+    "MET-0114"
    ],
    "_namePattern_ref": "^AA 20(17|25) — "
   },

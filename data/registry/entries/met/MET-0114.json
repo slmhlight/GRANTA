@@ -11,7 +11,7 @@
   "legacy_id": "G_0026",
   "origin": "generic(csv)",
   "id": "G_0026",
-  "name": "AA 2025 — Aged / solution-treated (Wrought)",
+  "name": "AA 2025 — T6",
   "category": "Metal",
   "subcategory": "Aluminum - Cu Alloys (2xxx)",
   "tier": "generic",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Aged / solution-treated",
+  "heat_treatment": "T6",
   "ranges": {
     "density": {
       "min": 2.78,
@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 279,
-      "max": 328.6,
-      "typical": 303.8,
-      "n": 10,
-      "confidence": "measured"
+      "min": 260,
+      "typical": 260,
+      "max": 260,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 2025 (2025-T6) Aluminum — 400 / 260 / 15% / HB 110 ('cited properties are appropriate for the T6 temper')"
     },
     "uts": {
-      "min": 405,
-      "max": 477,
-      "typical": 441,
-      "n": 10,
-      "confidence": "measured"
+      "min": 400,
+      "typical": 400,
+      "max": 400,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 2025 (2025-T6) Aluminum — 400 / 260 / 15% / HB 110 ('cited properties are appropriate for the T6 temper')"
     },
     "elongation": {
-      "min": 16,
-      "max": 20.4,
-      "typical": 19.6,
-      "n": 10,
-      "confidence": "measured"
+      "min": 15,
+      "typical": 15,
+      "max": 15,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 2025 (2025-T6) Aluminum — 400 / 260 / 15% / HB 110 ('cited properties are appropriate for the T6 temper')"
     },
     "modulus": {
       "min": 73,
@@ -60,11 +60,11 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 103.5,
-      "max": 121.9,
-      "typical": 112.7,
-      "n": 10,
-      "confidence": "measured"
+      "min": 110,
+      "typical": 110,
+      "max": 110,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 2025 (2025-T6) Aluminum — 400 / 260 / 15% / HB 110 ('cited properties are appropriate for the T6 temper')"
     },
     "thermal_conductivity": {
       "min": 121,
@@ -200,92 +200,11 @@
   "points": [
     [
       2.78,
-      313.1,
-      454.5,
-      18.2,
+      260,
+      400,
+      15,
       73,
-      116.15,
-      121
-    ],
-    [
-      2.78,
-      306.9,
-      445.5,
-      19.8,
-      73,
-      113.85,
-      121
-    ],
-    [
-      2.78,
-      291.40000000000003,
-      423,
-      16.8,
-      73,
-      108.1,
-      121
-    ],
-    [
-      2.78,
-      294.5,
-      427.50000000000006,
-      17,
-      73,
-      109.25,
-      121
-    ],
-    [
-      2.78,
-      282.1,
-      409.5,
-      20.2,
-      73,
-      104.65,
-      121
-    ],
-    [
-      2.78,
-      303.8,
-      441,
-      19.6,
-      73,
-      112.7,
-      121
-    ],
-    [
-      2.78,
-      316.2,
-      459,
-      20.4,
-      73,
-      117.3,
-      121
-    ],
-    [
-      2.78,
-      285.2,
-      414,
-      20.4,
-      73,
-      105.8,
-      121
-    ],
-    [
-      2.78,
-      328.6,
-      477,
-      19.200000000000003,
-      73,
-      121.9,
-      121
-    ],
-    [
-      2.78,
-      279,
-      405,
-      16,
-      73,
-      103.5,
+      110,
       121
     ]
   ],
@@ -313,11 +232,11 @@
   "fracture_toughness": 26.4,
   "fatigue_strength": 115,
   "density": 2.78,
-  "yield_strength": 303.8,
-  "uts": 441,
-  "elongation": 19.6,
+  "yield_strength": 260,
+  "uts": 400,
+  "elongation": 15,
   "modulus": 73,
-  "hardness": 112.7,
+  "hardness": 110,
   "thermal_conductivity": 121,
   "impact_strength": 11,
   "manufacturer": "Generic",
@@ -377,6 +296,160 @@
           "verified": false
         }
       ]
-    }
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 279,
+        "max": 328.6,
+        "typical": 303.8,
+        "n": 10,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 303.8
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 405,
+        "max": 477,
+        "typical": 441,
+        "n": 10,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 441
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 16,
+        "max": 20.4,
+        "typical": 19.6,
+        "n": 10,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 19.6
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 103.5,
+        "max": 121.9,
+        "typical": 112.7,
+        "n": 10,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 112.7
+    },
+    "_basis": "'Aged / solution-treated' 합성값(σy 303.8/UTS 441/El 19.6/HV 112.7)을 실제 템퍼 T6(2025 단조재의 표준 템퍼)로 교체.",
+    "_src": "MakeItFrom 2025 (2025-T6) Aluminum — 400 / 260 / 15% / HB 110 ('cited properties are appropriate for the T6 temper')",
+    "points": {
+      "from": [
+        [
+          2.78,
+          313.1,
+          454.5,
+          18.2,
+          73,
+          116.15,
+          121
+        ],
+        [
+          2.78,
+          306.9,
+          445.5,
+          19.8,
+          73,
+          113.85,
+          121
+        ],
+        [
+          2.78,
+          291.40000000000003,
+          423,
+          16.8,
+          73,
+          108.1,
+          121
+        ],
+        [
+          2.78,
+          294.5,
+          427.50000000000006,
+          17,
+          73,
+          109.25,
+          121
+        ],
+        [
+          2.78,
+          282.1,
+          409.5,
+          20.2,
+          73,
+          104.65,
+          121
+        ],
+        [
+          2.78,
+          303.8,
+          441,
+          19.6,
+          73,
+          112.7,
+          121
+        ],
+        [
+          2.78,
+          316.2,
+          459,
+          20.4,
+          73,
+          117.3,
+          121
+        ],
+        [
+          2.78,
+          285.2,
+          414,
+          20.4,
+          73,
+          105.8,
+          121
+        ],
+        [
+          2.78,
+          328.6,
+          477,
+          19.200000000000003,
+          73,
+          121.9,
+          121
+        ],
+        [
+          2.78,
+          279,
+          405,
+          16,
+          73,
+          103.5,
+          121
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "AA 2025 — Aged / solution-treated (Wrought)"
+      },
+      "heat_treatment": {
+        "from": "Aged / solution-treated"
+      }
+    },
+    "_fbasis": "합성 'Aged / solution-treated' → 실제 템퍼 T6 (2025 단조재의 유일한 상용 템퍼).",
+    "_fsrc": "MakeItFrom 2025-T6"
   }
 }

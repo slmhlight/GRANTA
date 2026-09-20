@@ -215,7 +215,10 @@ try {
     }
     // 별칭 보강 (R226d 대응합금) — cross-standard 지역명(JIS ADC 등) 추가 → 검색성. aliasesByBase.
     //   baseOf 는 " — " 만 분리하므로 "A380 (die-cast Al)" 같은 base 도 primary designation("A380")으로 매칭.
-    const al = corr.aliasesByBase && (corr.aliasesByBase[baseOf(r.name)] || corr.aliasesByBase[baseOf(r.name).split(' (')[0].trim()]);
+    //   A3(2026-09-20): name 교정(fields.name)이 뒤(4c)에 적용되므로 별칭 매칭은 **교정 후 이름**으로 본다 —
+    //   'AA 7050-T7451 (aerospace thick plate)' → 'AA 7050' 통일 뒤 A7050 별칭이 붙지 않던 것(게이트 발화).
+    const nameForAlias = (corr.fields && corr.fields[r.stable_id] && corr.fields[r.stable_id].name) || r.name;
+    const al = corr.aliasesByBase && (corr.aliasesByBase[baseOf(nameForAlias)] || corr.aliasesByBase[baseOf(nameForAlias).split(' (')[0].trim()]);
     if (al) {
       const existing = r.aliases || [];
       const merged = [...existing, ...al.filter(a => !existing.includes(a))];

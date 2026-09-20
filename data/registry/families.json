@@ -1,7 +1,7 @@
 {
-  "count": 832,
+  "count": 829,
   "kinds": {
-    "alloy-base": 685,
+    "alloy-base": 682,
     "category": 4,
     "subcategory": 133,
     "element-family": 10
@@ -534,10 +534,9 @@
       "label": "AA 2011",
       "kind": "alloy-base",
       "parent": "F-MET-aluminum-cu-alloys-2xxx",
-      "member_count": 3,
+      "member_count": 2,
       "members": [
         "MET-0097",
-        "MET-0098",
         "MET-0099"
       ]
     },
@@ -594,11 +593,9 @@
       "label": "AA 2025",
       "kind": "alloy-base",
       "parent": "F-MET-aluminum-cu-alloys-2xxx",
-      "member_count": 3,
+      "member_count": 1,
       "members": [
-        "MET-0114",
-        "MET-0115",
-        "MET-0116"
+        "MET-0114"
       ]
     },
     {
@@ -780,18 +777,6 @@
       ]
     },
     {
-      "id": "F-AB-aa-5454",
-      "label": "AA 5454",
-      "kind": "alloy-base",
-      "parent": "F-MET-aluminum-mg-alloys-5xxx",
-      "member_count": 3,
-      "members": [
-        "MET-0145",
-        "MET-0146",
-        "MET-0147"
-      ]
-    },
-    {
       "id": "F-AB-aa-5454-marine",
       "label": "AA 5454 (marine)",
       "kind": "alloy-base",
@@ -829,13 +814,12 @@
       "label": "AA 6061",
       "kind": "alloy-base",
       "parent": "F-MET-aluminum-si-alloys-6xxx-7xxx",
-      "member_count": 5,
+      "member_count": 4,
       "members": [
         "MET-0181",
         "MET-0182",
         "MET-0183",
-        "MET-0184",
-        "MET-0185"
+        "MET-0184"
       ]
     },
     {
@@ -848,16 +832,6 @@
         "MET-0186",
         "MET-0187",
         "MET-0188"
-      ]
-    },
-    {
-      "id": "F-AB-aa-6063-al-mg-si",
-      "label": "AA 6063 (Al-Mg-Si)",
-      "kind": "alloy-base",
-      "parent": "F-MET-aluminum-si-alloys-6xxx-7xxx",
-      "member_count": 1,
-      "members": [
-        "MET-0189"
       ]
     },
     {
@@ -877,10 +851,9 @@
       "label": "AA 6101",
       "kind": "alloy-base",
       "parent": "F-MET-aluminum-si-alloys-6xxx-7xxx",
-      "member_count": 3,
+      "member_count": 2,
       "members": [
         "MET-0193",
-        "MET-0194",
         "MET-0195"
       ]
     },
@@ -899,10 +872,9 @@
       "label": "AA 6262",
       "kind": "alloy-base",
       "parent": "F-MET-aluminum-si-alloys-6xxx-7xxx",
-      "member_count": 3,
+      "member_count": 2,
       "members": [
         "MET-0197",
-        "MET-0198",
         "MET-0199"
       ]
     },
@@ -925,18 +897,6 @@
       "members": [
         "MET-0201",
         "MET-0202"
-      ]
-    },
-    {
-      "id": "F-AB-aa-7050",
-      "label": "AA 7050",
-      "kind": "alloy-base",
-      "parent": "F-MET-aluminum-si-alloys-6xxx-7xxx",
-      "member_count": 3,
-      "members": [
-        "MET-0203",
-        "MET-0204",
-        "MET-0205"
       ]
     },
     {
@@ -7487,12 +7447,11 @@
       "label": "Aluminum-based",
       "kind": "element-family",
       "parent": null,
-      "member_count": 131,
+      "member_count": 118,
       "members": [
         "MET-0096",
         "MET-1023",
         "MET-0097",
-        "MET-0098",
         "MET-0099",
         "MET-0100",
         "MET-0101",
@@ -7507,8 +7466,6 @@
         "MET-0110",
         "MET-0112",
         "MET-0114",
-        "MET-0115",
-        "MET-0116",
         "MET-0117",
         "MET-0118",
         "MET-0119",
@@ -7537,9 +7494,6 @@
         "MET-0142",
         "MET-0143",
         "MET-0144",
-        "MET-0145",
-        "MET-0146",
-        "MET-0147",
         "MET-0148",
         "MET-0149",
         "MET-0150",
@@ -7578,27 +7532,20 @@
         "MET-0182",
         "MET-0183",
         "MET-0184",
-        "MET-0185",
         "MET-0186",
         "MET-0187",
         "MET-0188",
-        "MET-0189",
         "MET-0190",
         "MET-0191",
         "MET-0192",
         "MET-0193",
-        "MET-0194",
         "MET-0195",
         "MET-0196",
         "MET-0197",
-        "MET-0198",
         "MET-0199",
         "MET-0200",
         "MET-0201",
         "MET-0202",
-        "MET-0203",
-        "MET-0204",
-        "MET-0205",
         "MET-0206",
         "MET-0207",
         "MET-0208",
@@ -8497,7 +8444,7 @@
       "label": "Metal",
       "kind": "category",
       "parent": null,
-      "member_count": 920
+      "member_count": 907
     },
     {
       "id": "F-MET-advanced-high-strength-steel",
@@ -8539,7 +8486,7 @@
       "label": "Aluminum - Cu Alloys (2xxx)",
       "kind": "subcategory",
       "parent": "F-MET",
-      "member_count": 23
+      "member_count": 20
     },
     {
       "id": "F-MET-aluminum-lithium",
@@ -8553,7 +8500,7 @@
       "label": "Aluminum - Mg Alloys (5xxx)",
       "kind": "subcategory",
       "parent": "F-MET",
-      "member_count": 20
+      "member_count": 17
     },
     {
       "id": "F-MET-aluminum-mn-alloys-3xxx",
@@ -8574,7 +8521,7 @@
       "label": "Aluminum - Si Alloys (6xxx/7xxx)",
       "kind": "subcategory",
       "parent": "F-MET",
-      "member_count": 50
+      "member_count": 43
     },
     {
       "id": "F-MET-armor-steel",

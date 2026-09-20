@@ -11,7 +11,7 @@
   "legacy_id": "G_0023",
   "origin": "generic(csv)",
   "id": "G_0023",
-  "name": "AA 2017 — Aged / solution-treated (Wrought)",
+  "name": "AA 2017 — T4",
   "category": "Metal",
   "subcategory": "Aluminum - Cu Alloys (2xxx)",
   "tier": "generic",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Aged / solution-treated",
+  "heat_treatment": "T4",
   "ranges": {
     "density": {
       "min": 2.77,
@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 243,
-      "max": 286.2,
-      "typical": 264.6,
-      "n": 10,
-      "confidence": "measured"
+      "min": 276,
+      "typical": 276,
+      "max": 276,
+      "confidence": "handbook",
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2017-T4, T451: 62/40 ksi, El 22, HB 105) · EMJ Metals catalog 2017-T4 62,000/40,000 psi · MakeItFrom 2017-T4 (420 / 260 / 18% / HB 110)"
     },
     "uts": {
-      "min": 342,
-      "max": 402.8,
-      "typical": 372.4,
-      "n": 10,
-      "confidence": "measured"
+      "min": 427,
+      "typical": 427,
+      "max": 427,
+      "confidence": "handbook",
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2017-T4, T451: 62/40 ksi, El 22, HB 105) · EMJ Metals catalog 2017-T4 62,000/40,000 psi · MakeItFrom 2017-T4 (420 / 260 / 18% / HB 110)"
     },
     "elongation": {
-      "min": 17.6,
-      "max": 22.44,
-      "typical": 21.56,
-      "n": 10,
-      "confidence": "measured"
+      "min": 22,
+      "typical": 22,
+      "max": 22,
+      "confidence": "handbook",
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2017-T4, T451: 62/40 ksi, El 22, HB 105) · EMJ Metals catalog 2017-T4 62,000/40,000 psi · MakeItFrom 2017-T4 (420 / 260 / 18% / HB 110)"
     },
     "modulus": {
       "min": 72,
@@ -60,11 +60,11 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 94.5,
-      "max": 111.3,
-      "typical": 102.9,
-      "n": 10,
-      "confidence": "measured"
+      "min": 105,
+      "typical": 105,
+      "max": 105,
+      "confidence": "handbook",
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2017-T4, T451: 62/40 ksi, El 22, HB 105) · EMJ Metals catalog 2017-T4 62,000/40,000 psi · MakeItFrom 2017-T4 (420 / 260 / 18% / HB 110)"
     },
     "thermal_conductivity": {
       "min": 121,
@@ -200,92 +200,11 @@
   "points": [
     [
       2.77,
-      272.7,
-      383.8,
-      20.02,
+      276,
+      427,
+      22,
       72,
-      106.05,
-      121
-    ],
-    [
-      2.77,
-      267.3,
-      376.2,
-      21.78,
-      72,
-      103.95,
-      121
-    ],
-    [
-      2.77,
-      253.8,
-      357.20000000000005,
-      18.48,
-      72,
-      98.7,
-      121
-    ],
-    [
-      2.77,
-      256.5,
-      361,
-      18.700000000000003,
-      72,
-      99.75,
-      121
-    ],
-    [
-      2.77,
-      245.7,
-      345.8,
-      22.22,
-      72,
-      95.55,
-      121
-    ],
-    [
-      2.77,
-      264.6,
-      372.4,
-      21.56,
-      72,
-      102.9,
-      121
-    ],
-    [
-      2.77,
-      275.4,
-      387.6,
-      22.44,
-      72,
-      107.1,
-      121
-    ],
-    [
-      2.77,
-      248.4,
-      349.6,
-      22.44,
-      72,
-      96.6,
-      121
-    ],
-    [
-      2.77,
-      286.2,
-      402.8,
-      21.12,
-      72,
-      111.3,
-      121
-    ],
-    [
-      2.77,
-      243,
-      342,
-      17.6,
-      72,
-      94.5,
+      105,
       121
     ]
   ],
@@ -313,11 +232,11 @@
   "fracture_toughness": 26.4,
   "fatigue_strength": 101,
   "density": 2.77,
-  "yield_strength": 264.6,
-  "uts": 372.4,
-  "elongation": 21.56,
+  "yield_strength": 276,
+  "uts": 427,
+  "elongation": 22,
   "modulus": 72,
-  "hardness": 102.9,
+  "hardness": 105,
   "thermal_conductivity": 121,
   "impact_strength": 11,
   "manufacturer": "Generic",
@@ -382,6 +301,160 @@
     },
     "aliases": {
       "from": []
-    }
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 243,
+        "max": 286.2,
+        "typical": 264.6,
+        "n": 10,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 264.6
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 342,
+        "max": 402.8,
+        "typical": 372.4,
+        "n": 10,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 372.4
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 17.6,
+        "max": 22.44,
+        "typical": 21.56,
+        "n": 10,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 21.56
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 94.5,
+        "max": 111.3,
+        "typical": 102.9,
+        "n": 10,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 102.9
+    },
+    "_basis": "'Aged / solution-treated' 합성값(σy 264.6/UTS 372.4)을 실제 템퍼 T4 로 교체.",
+    "_src": "Alro Steel Metals Guide — Rod/Bar typical (2017-T4, T451: 62/40 ksi, El 22, HB 105) · EMJ Metals catalog 2017-T4 62,000/40,000 psi · MakeItFrom 2017-T4 (420 / 260 / 18% / HB 110)",
+    "points": {
+      "from": [
+        [
+          2.77,
+          272.7,
+          383.8,
+          20.02,
+          72,
+          106.05,
+          121
+        ],
+        [
+          2.77,
+          267.3,
+          376.2,
+          21.78,
+          72,
+          103.95,
+          121
+        ],
+        [
+          2.77,
+          253.8,
+          357.20000000000005,
+          18.48,
+          72,
+          98.7,
+          121
+        ],
+        [
+          2.77,
+          256.5,
+          361,
+          18.700000000000003,
+          72,
+          99.75,
+          121
+        ],
+        [
+          2.77,
+          245.7,
+          345.8,
+          22.22,
+          72,
+          95.55,
+          121
+        ],
+        [
+          2.77,
+          264.6,
+          372.4,
+          21.56,
+          72,
+          102.9,
+          121
+        ],
+        [
+          2.77,
+          275.4,
+          387.6,
+          22.44,
+          72,
+          107.1,
+          121
+        ],
+        [
+          2.77,
+          248.4,
+          349.6,
+          22.44,
+          72,
+          96.6,
+          121
+        ],
+        [
+          2.77,
+          286.2,
+          402.8,
+          21.12,
+          72,
+          111.3,
+          121
+        ],
+        [
+          2.77,
+          243,
+          342,
+          17.6,
+          72,
+          94.5,
+          121
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "AA 2017 — Aged / solution-treated (Wrought)"
+      },
+      "heat_treatment": {
+        "from": "Aged / solution-treated"
+      }
+    },
+    "_fbasis": "합성 'Aged / solution-treated' → 실제 템퍼 T4.",
+    "_fsrc": "Alro Metals Guide 2017-T4 · EMJ · MakeItFrom"
   }
 }

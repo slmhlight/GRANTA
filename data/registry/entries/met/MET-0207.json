@@ -11,7 +11,7 @@
   "legacy_id": "R_0363_2",
   "origin": "reference(supplementary)",
   "id": "R_0363_2",
-  "name": "AA 7050-T7451 (aerospace thick plate) — T74",
+  "name": "AA 7050 — T74",
   "category": "Metal",
   "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
   "tier": "reference",
@@ -249,7 +249,8 @@
   "source": "MatWeb — Aluminum 7050 (aerospace)",
   "aliases": [
     "UNS A97050",
-    "EN AW-7050"
+    "EN AW-7050",
+    "A7050"
   ],
   "families": [
     "Metal",
@@ -321,6 +322,19 @@
           "verified": true
         }
       ]
-    }
+    },
+    "aliases": {
+      "from": [
+        "UNS A97050",
+        "EN AW-7050"
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "AA 7050-T7451 (aerospace thick plate) — T74"
+      }
+    },
+    "_fbasis": "합성 AA 7050 3조건(중복) 제거 후, 템퍼명이 base 에 박혀 있던 AA 7050-T7451 (aerospace thick plate) 를 표준 base 명으로 통일 — 부식 노트·위키 엔티티가 AA 7050 키를 쓴다. 값 불변(Kaiser 7050 plate datasheet 판독분).",
+    "_fsrc": "A3 Al re-verify 2026Q4"
   }
 }

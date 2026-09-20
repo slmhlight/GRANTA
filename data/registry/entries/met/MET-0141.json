@@ -11,7 +11,7 @@
   "legacy_id": "G_0048",
   "origin": "generic(csv)",
   "id": "G_0048",
-  "name": "AA 5086 — Strain-hardened (Wrought)",
+  "name": "AA 5086 — H32",
   "category": "Metal",
   "subcategory": "Aluminum - Mg Alloys (5xxx)",
   "tier": "generic",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Strain-hardened",
+  "heat_treatment": "H32",
   "ranges": {
     "density": {
       "min": 2.66,
@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 193.5,
-      "max": 234.4,
-      "typical": 208.6,
-      "n": 9,
-      "confidence": "measured"
+      "min": 210,
+      "typical": 210,
+      "max": 210,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 5086-H32 Aluminum (300 / 210 / 11% / HB 80) · Alro sheet 5086-H32 ASTM B209 min 40–47 ksi / 28 ksi"
     },
     "uts": {
-      "min": 274.5,
-      "max": 332.5,
-      "typical": 295.9,
-      "n": 9,
-      "confidence": "measured"
+      "min": 300,
+      "typical": 300,
+      "max": 300,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 5086-H32 Aluminum (300 / 210 / 11% / HB 80) · Alro sheet 5086-H32 ASTM B209 min 40–47 ksi / 28 ksi"
     },
     "elongation": {
-      "min": 14.4,
-      "max": 17.28,
-      "typical": 16.02,
-      "n": 9,
-      "confidence": "measured"
+      "min": 11,
+      "typical": 11,
+      "max": 11,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 5086-H32 Aluminum (300 / 210 / 11% / HB 80) · Alro sheet 5086-H32 ASTM B209 min 40–47 ksi / 28 ksi"
     },
     "modulus": {
       "min": 72,
@@ -60,11 +60,11 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 67.5,
-      "max": 81.75,
-      "typical": 72.75,
-      "n": 9,
-      "confidence": "measured"
+      "min": 80,
+      "typical": 80,
+      "max": 80,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 5086-H32 Aluminum (300 / 210 / 11% / HB 80) · Alro sheet 5086-H32 ASTM B209 min 40–47 ksi / 28 ksi"
     },
     "thermal_conductivity": {
       "min": 121,
@@ -199,83 +199,11 @@
   "points": [
     [
       2.66,
-      193.5,
-      274.5,
-      16.2,
+      210,
+      300,
+      11,
       72,
-      67.5,
-      121
-    ],
-    [
-      2.66,
-      234.35,
-      332.45000000000005,
-      16.02,
-      72,
-      81.75,
-      121
-    ],
-    [
-      2.66,
-      193.5,
-      274.5,
-      14.4,
-      72,
-      67.5,
-      121
-    ],
-    [
-      2.66,
-      225.75,
-      320.25,
-      15.3,
-      72,
-      78.75,
-      121
-    ],
-    [
-      2.66,
-      204.25000000000003,
-      289.75,
-      17.1,
-      72,
-      71.25,
-      121
-    ],
-    [
-      2.66,
-      206.4,
-      292.8,
-      17.28,
-      72,
-      72,
-      121
-    ],
-    [
-      2.66,
-      208.55,
-      295.85,
-      15.660000000000002,
-      72,
-      72.75,
-      121
-    ],
-    [
-      2.66,
-      219.3,
-      311.1,
-      16.560000000000002,
-      72,
-      76.5,
-      121
-    ],
-    [
-      2.66,
-      225.75,
-      320.25,
-      15.3,
-      72,
-      78.75,
+      80,
       121
     ]
   ],
@@ -302,11 +230,11 @@
   "fracture_toughness": 38,
   "fatigue_strength": 115,
   "density": 2.66,
-  "yield_strength": 208.6,
-  "uts": 295.9,
-  "elongation": 16.02,
+  "yield_strength": 210,
+  "uts": 300,
+  "elongation": 11,
   "modulus": 72,
-  "hardness": 72.75,
+  "hardness": 80,
   "thermal_conductivity": 121,
   "impact_strength": 17,
   "manufacturer": "Generic",
@@ -372,6 +300,151 @@
     },
     "aliases": {
       "from": []
-    }
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 193.5,
+        "max": 234.4,
+        "typical": 208.6,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 208.6
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 274.5,
+        "max": 332.5,
+        "typical": 295.9,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 295.9
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 14.4,
+        "max": 17.28,
+        "typical": 16.02,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 16.02
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 67.5,
+        "max": 81.75,
+        "typical": 72.75,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 72.75
+    },
+    "_basis": "'Strain-hardened' 합성값(σy 208.6/UTS 295.9 = 소둔 ×1.03 — 소둔 자체가 H32 급이라 우연히 근접)을 실제 템퍼 H32 로 교체.",
+    "_src": "MakeItFrom 5086-H32 Aluminum (300 / 210 / 11% / HB 80) · Alro sheet 5086-H32 ASTM B209 min 40–47 ksi / 28 ksi",
+    "points": {
+      "from": [
+        [
+          2.66,
+          193.5,
+          274.5,
+          16.2,
+          72,
+          67.5,
+          121
+        ],
+        [
+          2.66,
+          234.35,
+          332.45000000000005,
+          16.02,
+          72,
+          81.75,
+          121
+        ],
+        [
+          2.66,
+          193.5,
+          274.5,
+          14.4,
+          72,
+          67.5,
+          121
+        ],
+        [
+          2.66,
+          225.75,
+          320.25,
+          15.3,
+          72,
+          78.75,
+          121
+        ],
+        [
+          2.66,
+          204.25000000000003,
+          289.75,
+          17.1,
+          72,
+          71.25,
+          121
+        ],
+        [
+          2.66,
+          206.4,
+          292.8,
+          17.28,
+          72,
+          72,
+          121
+        ],
+        [
+          2.66,
+          208.55,
+          295.85,
+          15.660000000000002,
+          72,
+          72.75,
+          121
+        ],
+        [
+          2.66,
+          219.3,
+          311.1,
+          16.560000000000002,
+          72,
+          76.5,
+          121
+        ],
+        [
+          2.66,
+          225.75,
+          320.25,
+          15.3,
+          72,
+          78.75,
+          121
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "AA 5086 — Strain-hardened (Wrought)"
+      },
+      "heat_treatment": {
+        "from": "Strain-hardened"
+      }
+    },
+    "_fbasis": "합성 'Strain-hardened' → 실제 템퍼 H32.",
+    "_fsrc": "MakeItFrom 5086-H32 · Alro sheet 5086-H32"
   }
 }

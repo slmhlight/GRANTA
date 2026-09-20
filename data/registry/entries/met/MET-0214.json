@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 470,
-      "max": 470,
-      "typical": 470,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 435,
+      "typical": 435,
+      "max": 435,
+      "confidence": "handbook",
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical ('7075-T73, T7351': 73/63 ksi, El 13) · MakeItFrom 7075-T7351 (510 / 410 / HB 140)"
     },
     "uts": {
-      "min": 540,
-      "max": 540,
-      "typical": 540,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 505,
+      "typical": 505,
+      "max": 505,
+      "confidence": "handbook",
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical ('7075-T73, T7351': 73/63 ksi, El 13) · MakeItFrom 7075-T7351 (510 / 410 / HB 140)"
     },
     "elongation": {
       "min": 13,
-      "max": 13,
       "typical": 13,
-      "n": 1,
-      "confidence": "handbook"
+      "max": 13,
+      "confidence": "handbook",
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical ('7075-T73, T7351': 73/63 ksi, El 13) · MakeItFrom 7075-T7351 (510 / 410 / HB 140)"
     },
     "modulus": {
       "min": 72,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 145,
-      "max": 145,
-      "typical": 145,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 135,
+      "typical": 135,
+      "max": 135,
+      "confidence": "handbook",
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical ('7075-T73, T7351': 73/63 ksi, El 13) · MakeItFrom 7075-T7351 (510 / 410 / HB 140)"
     },
     "thermal_conductivity": {
       "min": 130,
@@ -223,11 +223,11 @@
   "points": [
     [
       2.81,
-      470,
-      540,
+      435,
+      505,
       13,
       72,
-      145,
+      135,
       130
     ]
   ],
@@ -243,11 +243,11 @@
   "fracture_toughness": 36.4,
   "fatigue_strength": 124,
   "density": 2.81,
-  "yield_strength": 470,
-  "uts": 540,
+  "yield_strength": 435,
+  "uts": 505,
   "elongation": 13,
   "modulus": 72,
-  "hardness": 145,
+  "hardness": 135,
   "thermal_conductivity": 130,
   "impact_strength": 12,
   "manufacturer": "Reference data",
@@ -313,6 +313,69 @@
         "EN AW-7075",
         "AlZn5.5MgCu",
         "DIN 3.4365"
+      ]
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 470,
+        "max": 470,
+        "typical": 470,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 470
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 540,
+        "max": 540,
+        "typical": 540,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 540
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 13,
+        "max": 13,
+        "typical": 13,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 13
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 145,
+        "max": 145,
+        "typical": 145,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 145
+    },
+    "_basis": "AA 7075-T7351 의 540/470 은 T76(538/469) 값이다. T7351 은 T73 의 응력제거판이라 대표값이 T73(505/435)과 같다 — 같은 base 의 T73 entry(505/430/13/135)와 정합.",
+    "_src": "Alro Steel Metals Guide — Rod/Bar typical ('7075-T73, T7351': 73/63 ksi, El 13) · MakeItFrom 7075-T7351 (510 / 410 / HB 140)",
+    "points": {
+      "from": [
+        [
+          2.81,
+          470,
+          540,
+          13,
+          72,
+          145,
+          130
+        ]
       ]
     }
   }

@@ -59,17 +59,19 @@ describe('D10 — 경도가 조건을 따라가지 않는 합금', () => {
     expect(stale, `고쳐졌는데 예외 목록에 남아 있다: ${stale.join(' | ')} — KNOWN_OPEN 에서 제거할 것`).toEqual([]);
   });
 
-  it('교정한 Al 2종은 합금 내 비가 정합한다', () => {
-    /* AA 6262·AA 2025 는 소둔재 경도만 어긋나 있었다. 그 합금 자신의 비로 맞췄다. */
+  it('A3(2026-09-20) 이후 — Al 사다리는 조건마다 인용된 경도를 갖고 합금 내 비가 정합한다', () => {
+    /* D10 이 비례교정했던 AA 6262·AA 2025 의 소둔 entry 는 A3 Al re-verify 에서 인용 불가로 제거됐다(합성 조건).
+       남은 조건들(6262 T6/T9 · 2025 T6 · 2011 T3/T8 · 3003 O/H14 …)은 각각 대표값 표에서 인용한 경도를 갖는다.
+       같은 검사를 '경도가 있는 조건이 둘 이상인' Al 상용 사다리에 적용한다 — 비 산포 1.35 이내(HB 환산 편차 허용). */
     const bad: string[] = [];
-    for (const base of ['AA 6262', 'AA 2025']) {
+    for (const base of ['AA 6262', 'AA 2011', 'AA 3003', 'AA 3004', 'AA 1100', 'AA 6061', 'AA 7075']) {
       const rows = ALL.filter((m) => baseOf(m.name) === base)
         .map((m) => ({ m, u: v(m, 'uts'), h: v(m, 'hardness') }))
         .filter((r) => r.u != null && r.h != null) as Array<{ m: Mat; u: number; h: number }>;
       expect(rows.length, `${base}: 비교할 조건이 없다`).toBeGreaterThan(1);
       const ratios = rows.map((r) => r.u / r.h);
       const spread = Math.max(...ratios) / Math.min(...ratios);
-      if (spread > 1.1) bad.push(`${base}: 비 산포 ${spread.toFixed(2)}배 (${ratios.map((x) => x.toFixed(2)).join(' / ')})`);
+      if (spread > 1.35) bad.push(`${base}: 비 산포 ${spread.toFixed(2)}배 (${ratios.map((x) => x.toFixed(2)).join(' / ')})`);
     }
     expect(bad, `합금 내 비가 어긋난다 — ${bad.join(' | ')}`).toEqual([]);
   });

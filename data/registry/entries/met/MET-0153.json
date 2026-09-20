@@ -11,7 +11,7 @@
   "legacy_id": "G_0037",
   "origin": "generic(csv)",
   "id": "G_0037",
-  "name": "AA 3003 — Annealed (Wrought)",
+  "name": "AA 3003 — Annealed",
   "category": "Metal",
   "subcategory": "Aluminum - Mn Alloys (3xxx)",
   "tier": "generic",
@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 37.6,
-      "max": 37.6,
-      "typical": 37.6,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 41,
+      "typical": 41,
+      "max": 41,
+      "confidence": "handbook",
+      "provenance": "교정: United Aluminum — Aluminum 3003 typical (3003-O: 16/6 ksi, El 30) · tubingchina ASM typical table (3003-O 16/6 ksi, El 40, HB 28) · MakeItFrom 3003-O (110 / 40 / 28% / HB 28)"
     },
     "uts": {
-      "min": 103.4,
-      "max": 103.4,
-      "typical": 103.4,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 110,
+      "typical": 110,
+      "max": 110,
+      "confidence": "handbook",
+      "provenance": "교정: United Aluminum — Aluminum 3003 typical (3003-O: 16/6 ksi, El 30) · tubingchina ASM typical table (3003-O 16/6 ksi, El 40, HB 28) · MakeItFrom 3003-O (110 / 40 / 28% / HB 28)"
     },
     "elongation": {
-      "min": 28.2,
-      "max": 28.2,
-      "typical": 28.2,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 30,
+      "typical": 30,
+      "max": 30,
+      "confidence": "handbook",
+      "provenance": "교정: United Aluminum — Aluminum 3003 typical (3003-O: 16/6 ksi, El 30) · tubingchina ASM typical table (3003-O 16/6 ksi, El 40, HB 28) · MakeItFrom 3003-O (110 / 40 / 28% / HB 28)"
     },
     "modulus": {
       "min": 70,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 32.9,
-      "max": 32.9,
-      "typical": 32.9,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 28,
+      "typical": 28,
+      "max": 28,
+      "confidence": "handbook",
+      "provenance": "교정: United Aluminum — Aluminum 3003 typical (3003-O: 16/6 ksi, El 30) · tubingchina ASM typical table (3003-O 16/6 ksi, El 40, HB 28) · MakeItFrom 3003-O (110 / 40 / 28% / HB 28)"
     },
     "thermal_conductivity": {
       "min": 191,
@@ -199,11 +199,11 @@
   "points": [
     [
       2.73,
-      37.6,
-      103.4,
-      28.200000000000003,
+      41,
+      110,
+      30,
       70,
-      32.9,
+      28,
       191
     ]
   ],
@@ -222,11 +222,11 @@
   "fracture_toughness": 100,
   "fatigue_strength": 20,
   "density": 2.73,
-  "yield_strength": 37.6,
-  "uts": 103.4,
-  "elongation": 28.2,
+  "yield_strength": 41,
+  "uts": 110,
+  "elongation": 30,
   "modulus": 70,
-  "hardness": 32.9,
+  "hardness": 28,
   "thermal_conductivity": 191,
   "impact_strength": 120,
   "manufacturer": "Generic",
@@ -294,6 +294,76 @@
         "EN AW-3003",
         "AlMn1Cu"
       ]
-    }
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 37.6,
+        "max": 37.6,
+        "typical": 37.6,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 37.6
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 103.4,
+        "max": 103.4,
+        "typical": 103.4,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 103.4
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 28.2,
+        "max": 28.2,
+        "typical": 28.2,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 28.2
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 32.9,
+        "max": 32.9,
+        "typical": 32.9,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 32.9
+    },
+    "_basis": "AA 3003-O. 합성값(σy 37.6/UTS 103.4/El 28.2/HV 32.9) → AA 대표값 16/6 ksi, El 30, HB 28.",
+    "_src": "United Aluminum — Aluminum 3003 typical (3003-O: 16/6 ksi, El 30) · tubingchina ASM typical table (3003-O 16/6 ksi, El 40, HB 28) · MakeItFrom 3003-O (110 / 40 / 28% / HB 28)",
+    "points": {
+      "from": [
+        [
+          2.73,
+          37.6,
+          103.4,
+          28.200000000000003,
+          70,
+          32.9,
+          191
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "AA 3003 — Annealed (Wrought)"
+      }
+    },
+    "_fbasis": "표기 통일.",
+    "_fsrc": "A3 Al re-verify 2026Q4"
   }
 }

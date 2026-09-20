@@ -11,7 +11,7 @@
   "legacy_id": "G_0045",
   "origin": "generic(csv)",
   "id": "G_0045",
-  "name": "AA 3105 — Strain-hardened (Wrought)",
+  "name": "AA 3105 — H25",
   "category": "Metal",
   "subcategory": "Aluminum - Mn Alloys (3xxx)",
   "tier": "generic",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Strain-hardened",
+  "heat_treatment": "H25",
   "ranges": {
     "density": {
       "min": 2.71,
@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 72,
-      "max": 87.2,
-      "typical": 77.6,
-      "n": 9,
-      "confidence": "measured"
+      "min": 160,
+      "typical": 160,
+      "max": 160,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 3105-H25 Aluminum (180 / 160 / 6.4%) · 피로 87 MPa(MakeItFrom 3105-H25) · D10 비례법 — 앵커 MakeItFrom 3105-O (120 MPa / HB 29)"
     },
     "uts": {
-      "min": 117,
-      "max": 141.7,
-      "typical": 126.1,
-      "n": 9,
-      "confidence": "measured"
+      "min": 180,
+      "typical": 180,
+      "max": 180,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 3105-H25 Aluminum (180 / 160 / 6.4%) · 피로 87 MPa(MakeItFrom 3105-H25) · D10 비례법 — 앵커 MakeItFrom 3105-O (120 MPa / HB 29)"
     },
     "elongation": {
-      "min": 22.4,
-      "max": 26.88,
-      "typical": 24.92,
-      "n": 9,
-      "confidence": "measured"
+      "min": 6.4,
+      "typical": 6.4,
+      "max": 6.4,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 3105-H25 Aluminum (180 / 160 / 6.4%) · 피로 87 MPa(MakeItFrom 3105-H25) · D10 비례법 — 앵커 MakeItFrom 3105-O (120 MPa / HB 29)"
     },
     "modulus": {
       "min": 70,
@@ -60,11 +60,11 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 36,
-      "max": 43.6,
-      "typical": 38.8,
-      "n": 9,
-      "confidence": "measured"
+      "min": 44,
+      "typical": 44,
+      "max": 44,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 3105-H25 Aluminum (180 / 160 / 6.4%) · 피로 87 MPa(MakeItFrom 3105-H25) · D10 비례법 — 앵커 MakeItFrom 3105-O (120 MPa / HB 29)"
     },
     "thermal_conductivity": {
       "min": 191,
@@ -74,12 +74,11 @@
       "confidence": "measured"
     },
     "fatigue_strength": {
-      "min": 27,
-      "max": 39,
-      "typical": 33,
-      "n": 0,
-      "confidence": "derived",
-      "provenance": "family:σf≈0.42·σy (ASM Vol.19 SS fatigue)"
+      "min": 87,
+      "typical": 87,
+      "max": 87,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 3105-H25 Aluminum (180 / 160 / 6.4%) · 피로 87 MPa(MakeItFrom 3105-H25) · D10 비례법 — 앵커 MakeItFrom 3105-O (120 MPa / HB 29)"
     },
     "impact_strength": {
       "min": 40,
@@ -200,83 +199,11 @@
   "points": [
     [
       2.71,
-      72,
-      117,
-      25.2,
+      160,
+      180,
+      6.4,
       70,
-      36,
-      191
-    ],
-    [
-      2.71,
-      87.2,
-      141.70000000000002,
-      24.92,
-      70,
-      43.6,
-      191
-    ],
-    [
-      2.71,
-      72,
-      117,
-      22.4,
-      70,
-      36,
-      191
-    ],
-    [
-      2.71,
-      84,
-      136.5,
-      23.800000000000004,
-      70,
-      42,
-      191
-    ],
-    [
-      2.71,
-      76,
-      123.5,
-      26.6,
-      70,
-      38,
-      191
-    ],
-    [
-      2.71,
-      76.8,
-      124.8,
-      26.880000000000003,
-      70,
-      38.4,
-      191
-    ],
-    [
-      2.71,
-      77.6,
-      126.1,
-      24.360000000000003,
-      70,
-      38.8,
-      191
-    ],
-    [
-      2.71,
-      81.6,
-      132.6,
-      25.76,
-      70,
-      40.8,
-      191
-    ],
-    [
-      2.71,
-      84,
-      136.5,
-      23.800000000000004,
-      70,
-      42,
+      44,
       191
     ]
   ],
@@ -301,13 +228,13 @@
     ]
   },
   "fracture_toughness": 91,
-  "fatigue_strength": 33,
+  "fatigue_strength": 87,
   "density": 2.71,
-  "yield_strength": 77.6,
-  "uts": 126.1,
-  "elongation": 24.92,
+  "yield_strength": 160,
+  "uts": 180,
+  "elongation": 6.4,
   "modulus": 70,
-  "hardness": 38.8,
+  "hardness": 44,
   "thermal_conductivity": 191,
   "impact_strength": 65,
   "manufacturer": "Generic",
@@ -364,6 +291,164 @@
           "verified": false
         }
       ]
-    }
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 72,
+        "max": 87.2,
+        "typical": 77.6,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 77.6
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 117,
+        "max": 141.7,
+        "typical": 126.1,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 126.1
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 22.4,
+        "max": 26.88,
+        "typical": 24.92,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 24.92
+    },
+    "fatigue_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 27,
+        "max": 39,
+        "typical": 33,
+        "n": 0,
+        "confidence": "derived",
+        "provenance": "family:σf≈0.42·σy (ASM Vol.19 SS fatigue)"
+      },
+      "had_scalar": true,
+      "val_scalar": 33
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 36,
+        "max": 43.6,
+        "typical": 38.8,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 38.8
+    },
+    "_basis": "'Strain-hardened' 합성값(σy 77.6/UTS 126.1 = 소둔 ×1.03)을 실제 템퍼 H25 로 교체. 파생 피로(SS 규칙 오분류) → 인용값. 경도: 3105-H25 공개 HB 미확보 → 같은 합금의 앵커 비(3105-O 120/29 = 4.1)로 180/4.1 ≈ 44 HB (파생, 문서화).",
+    "_src": "MakeItFrom 3105-H25 Aluminum (180 / 160 / 6.4%) · 피로 87 MPa(MakeItFrom 3105-H25) · D10 비례법 — 앵커 MakeItFrom 3105-O (120 MPa / HB 29)",
+    "points": {
+      "from": [
+        [
+          2.71,
+          72,
+          117,
+          25.2,
+          70,
+          36,
+          191
+        ],
+        [
+          2.71,
+          87.2,
+          141.70000000000002,
+          24.92,
+          70,
+          43.6,
+          191
+        ],
+        [
+          2.71,
+          72,
+          117,
+          22.4,
+          70,
+          36,
+          191
+        ],
+        [
+          2.71,
+          84,
+          136.5,
+          23.800000000000004,
+          70,
+          42,
+          191
+        ],
+        [
+          2.71,
+          76,
+          123.5,
+          26.6,
+          70,
+          38,
+          191
+        ],
+        [
+          2.71,
+          76.8,
+          124.8,
+          26.880000000000003,
+          70,
+          38.4,
+          191
+        ],
+        [
+          2.71,
+          77.6,
+          126.1,
+          24.360000000000003,
+          70,
+          38.8,
+          191
+        ],
+        [
+          2.71,
+          81.6,
+          132.6,
+          25.76,
+          70,
+          40.8,
+          191
+        ],
+        [
+          2.71,
+          84,
+          136.5,
+          23.800000000000004,
+          70,
+          42,
+          191
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "AA 3105 — Strain-hardened (Wrought)"
+      },
+      "heat_treatment": {
+        "from": "Strain-hardened"
+      }
+    },
+    "_fbasis": "합성 'Strain-hardened' → 실제 템퍼 H25 (3105 의 통용 냉간가공 템퍼).",
+    "_fsrc": "MakeItFrom 3105-H25"
   }
 }

@@ -11,7 +11,7 @@
   "legacy_id": "G_0036",
   "origin": "generic(csv)",
   "id": "G_0036",
-  "name": "AA 3003 — Strain-hardened (Wrought)",
+  "name": "AA 3003 — H14",
   "category": "Metal",
   "subcategory": "Aluminum - Mn Alloys (3xxx)",
   "tier": "generic",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Strain-hardened",
+  "heat_treatment": "H14",
   "ranges": {
     "density": {
       "min": 2.73,
@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 36,
-      "max": 43.6,
-      "typical": 38.8,
-      "n": 9,
-      "confidence": "measured"
+      "min": 145,
+      "typical": 145,
+      "max": 145,
+      "confidence": "handbook",
+      "provenance": "교정: United Aluminum — 3003-H14 typical 22/21 ksi · tubingchina ASM typical table (3003-H14 22/20 ksi, HB 40) · MakeItFrom 3003-H14 (160 / 130 / 8.3% / HB 42) · Alro sheet 3003-H14 ASTM B209 min 20–26 ksi / 17 ksi"
     },
     "uts": {
-      "min": 99,
-      "max": 119.9,
-      "typical": 106.7,
-      "n": 9,
-      "confidence": "measured"
+      "min": 150,
+      "typical": 150,
+      "max": 150,
+      "confidence": "handbook",
+      "provenance": "교정: United Aluminum — 3003-H14 typical 22/21 ksi · tubingchina ASM typical table (3003-H14 22/20 ksi, HB 40) · MakeItFrom 3003-H14 (160 / 130 / 8.3% / HB 42) · Alro sheet 3003-H14 ASTM B209 min 20–26 ksi / 17 ksi"
     },
     "elongation": {
-      "min": 24,
-      "max": 28.8,
-      "typical": 26.7,
-      "n": 9,
-      "confidence": "measured"
+      "min": 8,
+      "typical": 8,
+      "max": 8,
+      "confidence": "handbook",
+      "provenance": "교정: United Aluminum — 3003-H14 typical 22/21 ksi · tubingchina ASM typical table (3003-H14 22/20 ksi, HB 40) · MakeItFrom 3003-H14 (160 / 130 / 8.3% / HB 42) · Alro sheet 3003-H14 ASTM B209 min 20–26 ksi / 17 ksi"
     },
     "modulus": {
       "min": 70,
@@ -60,11 +60,11 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 31.5,
-      "max": 38.15,
-      "typical": 33.95,
-      "n": 9,
-      "confidence": "measured"
+      "min": 40,
+      "typical": 40,
+      "max": 40,
+      "confidence": "handbook",
+      "provenance": "교정: United Aluminum — 3003-H14 typical 22/21 ksi · tubingchina ASM typical table (3003-H14 22/20 ksi, HB 40) · MakeItFrom 3003-H14 (160 / 130 / 8.3% / HB 42) · Alro sheet 3003-H14 ASTM B209 min 20–26 ksi / 17 ksi"
     },
     "thermal_conductivity": {
       "min": 191,
@@ -199,83 +199,11 @@
   "points": [
     [
       2.73,
-      36,
-      99,
-      27,
+      145,
+      150,
+      8,
       70,
-      31.5,
-      191
-    ],
-    [
-      2.73,
-      43.6,
-      119.9,
-      26.7,
-      70,
-      38.150000000000006,
-      191
-    ],
-    [
-      2.73,
-      36,
-      99,
-      24,
-      70,
-      31.5,
-      191
-    ],
-    [
-      2.73,
-      42,
-      115.5,
-      25.500000000000004,
-      70,
-      36.75,
-      191
-    ],
-    [
-      2.73,
-      38,
-      104.5,
-      28.500000000000004,
-      70,
-      33.25,
-      191
-    ],
-    [
-      2.73,
-      38.4,
-      105.6,
-      28.8,
-      70,
-      33.6,
-      191
-    ],
-    [
-      2.73,
-      38.8,
-      106.7,
-      26.1,
-      70,
-      33.95,
-      191
-    ],
-    [
-      2.73,
-      40.8,
-      112.2,
-      27.6,
-      70,
-      35.7,
-      191
-    ],
-    [
-      2.73,
-      42,
-      115.5,
-      25.500000000000004,
-      70,
-      36.75,
+      40,
       191
     ]
   ],
@@ -302,11 +230,11 @@
   "fracture_toughness": 52.5,
   "fatigue_strength": 48,
   "density": 2.73,
-  "yield_strength": 38.8,
-  "uts": 106.7,
-  "elongation": 26.7,
+  "yield_strength": 145,
+  "uts": 150,
+  "elongation": 8,
   "modulus": 70,
-  "hardness": 33.95,
+  "hardness": 40,
   "thermal_conductivity": 191,
   "impact_strength": 44,
   "manufacturer": "Generic",
@@ -374,6 +302,151 @@
         "EN AW-3003",
         "AlMn1Cu"
       ]
-    }
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 36,
+        "max": 43.6,
+        "typical": 38.8,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 38.8
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 99,
+        "max": 119.9,
+        "typical": 106.7,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 106.7
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 24,
+        "max": 28.8,
+        "typical": 26.7,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 26.7
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 31.5,
+        "max": 38.15,
+        "typical": 33.95,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 33.95
+    },
+    "_basis": "'Strain-hardened' 합성값(σy 38.8/UTS 106.7 = 소둔 ×1.03 — 냉간가공인데 소둔과 같은 강도)을 실제 템퍼 H14 로 교체.",
+    "_src": "United Aluminum — 3003-H14 typical 22/21 ksi · tubingchina ASM typical table (3003-H14 22/20 ksi, HB 40) · MakeItFrom 3003-H14 (160 / 130 / 8.3% / HB 42) · Alro sheet 3003-H14 ASTM B209 min 20–26 ksi / 17 ksi",
+    "points": {
+      "from": [
+        [
+          2.73,
+          36,
+          99,
+          27,
+          70,
+          31.5,
+          191
+        ],
+        [
+          2.73,
+          43.6,
+          119.9,
+          26.7,
+          70,
+          38.150000000000006,
+          191
+        ],
+        [
+          2.73,
+          36,
+          99,
+          24,
+          70,
+          31.5,
+          191
+        ],
+        [
+          2.73,
+          42,
+          115.5,
+          25.500000000000004,
+          70,
+          36.75,
+          191
+        ],
+        [
+          2.73,
+          38,
+          104.5,
+          28.500000000000004,
+          70,
+          33.25,
+          191
+        ],
+        [
+          2.73,
+          38.4,
+          105.6,
+          28.8,
+          70,
+          33.6,
+          191
+        ],
+        [
+          2.73,
+          38.8,
+          106.7,
+          26.1,
+          70,
+          33.95,
+          191
+        ],
+        [
+          2.73,
+          40.8,
+          112.2,
+          27.6,
+          70,
+          35.7,
+          191
+        ],
+        [
+          2.73,
+          42,
+          115.5,
+          25.500000000000004,
+          70,
+          36.75,
+          191
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "AA 3003 — Strain-hardened (Wrought)"
+      },
+      "heat_treatment": {
+        "from": "Strain-hardened"
+      }
+    },
+    "_fbasis": "합성 'Strain-hardened' → 실제 템퍼 H14.",
+    "_fsrc": "United Aluminum · tubingchina ASM table · MakeItFrom"
   }
 }

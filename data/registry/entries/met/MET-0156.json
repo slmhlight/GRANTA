@@ -11,7 +11,7 @@
   "legacy_id": "G_0039",
   "origin": "generic(csv)",
   "id": "G_0039",
-  "name": "AA 3004 — Strain-hardened (Wrought)",
+  "name": "AA 3004 — H34",
   "category": "Metal",
   "subcategory": "Aluminum - Mn Alloys (3xxx)",
   "tier": "generic",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Strain-hardened",
+  "heat_treatment": "H34",
   "ranges": {
     "density": {
       "min": 2.72,
@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 112.5,
-      "max": 136.3,
-      "typical": 121.3,
-      "n": 9,
-      "confidence": "measured"
+      "min": 200,
+      "typical": 200,
+      "max": 200,
+      "confidence": "handbook",
+      "provenance": "교정: tubingchina ASM typical table (3004-H34 34/27 ksi, El 12, HB 63) · MakeItFrom 3004-H34 (240 / 200 / 5.8% / HB 64) · United Aluminum 3004-H34 39/29 ksi, El 5 (스트립 상한 산포)"
     },
     "uts": {
-      "min": 166.5,
-      "max": 201.7,
-      "typical": 179.5,
-      "n": 9,
-      "confidence": "measured"
+      "min": 240,
+      "typical": 240,
+      "max": 240,
+      "confidence": "handbook",
+      "provenance": "교정: tubingchina ASM typical table (3004-H34 34/27 ksi, El 12, HB 63) · MakeItFrom 3004-H34 (240 / 200 / 5.8% / HB 64) · United Aluminum 3004-H34 39/29 ksi, El 5 (스트립 상한 산포)"
     },
     "elongation": {
-      "min": 16,
-      "max": 19.2,
-      "typical": 17.8,
-      "n": 9,
-      "confidence": "measured"
+      "min": 9,
+      "typical": 9,
+      "max": 9,
+      "confidence": "handbook",
+      "provenance": "교정: tubingchina ASM typical table (3004-H34 34/27 ksi, El 12, HB 63) · MakeItFrom 3004-H34 (240 / 200 / 5.8% / HB 64) · United Aluminum 3004-H34 39/29 ksi, El 5 (스트립 상한 산포)"
     },
     "modulus": {
       "min": 70,
@@ -60,11 +60,11 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 49.5,
-      "max": 59.95,
-      "typical": 53.35,
-      "n": 9,
-      "confidence": "measured"
+      "min": 63,
+      "typical": 63,
+      "max": 63,
+      "confidence": "handbook",
+      "provenance": "교정: tubingchina ASM typical table (3004-H34 34/27 ksi, El 12, HB 63) · MakeItFrom 3004-H34 (240 / 200 / 5.8% / HB 64) · United Aluminum 3004-H34 39/29 ksi, El 5 (스트립 상한 산포)"
     },
     "thermal_conductivity": {
       "min": 191,
@@ -200,83 +200,11 @@
   "points": [
     [
       2.72,
-      112.5,
-      166.5,
-      18,
+      200,
+      240,
+      9,
       70,
-      49.5,
-      191
-    ],
-    [
-      2.72,
-      136.25,
-      201.65,
-      17.8,
-      70,
-      59.95,
-      191
-    ],
-    [
-      2.72,
-      112.5,
-      166.5,
-      16,
-      70,
-      49.5,
-      191
-    ],
-    [
-      2.72,
-      131.25,
-      194.25,
-      17,
-      70,
-      57.75,
-      191
-    ],
-    [
-      2.72,
-      118.75,
-      175.75,
-      19,
-      70,
-      52.25000000000001,
-      191
-    ],
-    [
-      2.72,
-      120,
-      177.6,
-      19.200000000000003,
-      70,
-      52.8,
-      191
-    ],
-    [
-      2.72,
-      121.25,
-      179.45,
-      17.400000000000002,
-      70,
-      53.35,
-      191
-    ],
-    [
-      2.72,
-      127.5,
-      188.7,
-      18.4,
-      70,
-      56.1,
-      191
-    ],
-    [
-      2.72,
-      131.25,
-      194.25,
-      17,
-      70,
-      57.75,
+      63,
       191
     ]
   ],
@@ -303,11 +231,11 @@
   "fracture_toughness": 31.5,
   "fatigue_strength": 46,
   "density": 2.72,
-  "yield_strength": 121.3,
-  "uts": 179.5,
-  "elongation": 17.8,
+  "yield_strength": 200,
+  "uts": 240,
+  "elongation": 9,
   "modulus": 70,
-  "hardness": 53.35,
+  "hardness": 63,
   "thermal_conductivity": 191,
   "impact_strength": 11,
   "manufacturer": "Generic",
@@ -367,6 +295,151 @@
     },
     "aliases": {
       "from": []
-    }
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 112.5,
+        "max": 136.3,
+        "typical": 121.3,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 121.3
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 166.5,
+        "max": 201.7,
+        "typical": 179.5,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 179.5
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 16,
+        "max": 19.2,
+        "typical": 17.8,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 17.8
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 49.5,
+        "max": 59.95,
+        "typical": 53.35,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 53.35
+    },
+    "_basis": "'Strain-hardened' 합성값(σy 121.3/UTS 179.5 = 소둔 ×1.03)을 실제 템퍼 H34 로 교체.",
+    "_src": "tubingchina ASM typical table (3004-H34 34/27 ksi, El 12, HB 63) · MakeItFrom 3004-H34 (240 / 200 / 5.8% / HB 64) · United Aluminum 3004-H34 39/29 ksi, El 5 (스트립 상한 산포)",
+    "points": {
+      "from": [
+        [
+          2.72,
+          112.5,
+          166.5,
+          18,
+          70,
+          49.5,
+          191
+        ],
+        [
+          2.72,
+          136.25,
+          201.65,
+          17.8,
+          70,
+          59.95,
+          191
+        ],
+        [
+          2.72,
+          112.5,
+          166.5,
+          16,
+          70,
+          49.5,
+          191
+        ],
+        [
+          2.72,
+          131.25,
+          194.25,
+          17,
+          70,
+          57.75,
+          191
+        ],
+        [
+          2.72,
+          118.75,
+          175.75,
+          19,
+          70,
+          52.25000000000001,
+          191
+        ],
+        [
+          2.72,
+          120,
+          177.6,
+          19.200000000000003,
+          70,
+          52.8,
+          191
+        ],
+        [
+          2.72,
+          121.25,
+          179.45,
+          17.400000000000002,
+          70,
+          53.35,
+          191
+        ],
+        [
+          2.72,
+          127.5,
+          188.7,
+          18.4,
+          70,
+          56.1,
+          191
+        ],
+        [
+          2.72,
+          131.25,
+          194.25,
+          17,
+          70,
+          57.75,
+          191
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "AA 3004 — Strain-hardened (Wrought)"
+      },
+      "heat_treatment": {
+        "from": "Strain-hardened"
+      }
+    },
+    "_fbasis": "합성 'Strain-hardened' → 실제 템퍼 H34.",
+    "_fsrc": "tubingchina ASM table · MakeItFrom · United Aluminum"
   }
 }

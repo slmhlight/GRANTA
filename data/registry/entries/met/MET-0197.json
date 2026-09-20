@@ -11,7 +11,7 @@
   "legacy_id": "G_0032",
   "origin": "generic(csv)",
   "id": "G_0032",
-  "name": "AA 6262 — Aged / solution-treated (Wrought)",
+  "name": "AA 6262 — T6",
   "category": "Metal",
   "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
   "tier": "generic",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Aged / solution-treated",
+  "heat_treatment": "T6",
   "ranges": {
     "density": {
       "min": 2.7,
@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 248.4,
-      "max": 292.6,
-      "typical": 270.5,
-      "n": 10,
-      "confidence": "measured"
+      "min": 276,
+      "typical": 276,
+      "max": 276,
+      "confidence": "handbook",
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (6262-T6, T651: 45/40 ksi, El 17, HB 95) · Alro 6262-T6511 extrusion min 38/35 ksi"
     },
     "uts": {
-      "min": 279,
-      "max": 328.6,
-      "typical": 303.8,
-      "n": 10,
-      "confidence": "measured"
+      "min": 310,
+      "typical": 310,
+      "max": 310,
+      "confidence": "handbook",
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (6262-T6, T651: 45/40 ksi, El 17, HB 95) · Alro 6262-T6511 extrusion min 38/35 ksi"
     },
     "elongation": {
-      "min": 13.6,
-      "max": 17.34,
-      "typical": 16.66,
-      "n": 10,
-      "confidence": "measured"
+      "min": 17,
+      "typical": 17,
+      "max": 17,
+      "confidence": "handbook",
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (6262-T6, T651: 45/40 ksi, El 17, HB 95) · Alro 6262-T6511 extrusion min 38/35 ksi"
     },
     "modulus": {
       "min": 69,
@@ -60,11 +60,11 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 85.5,
-      "max": 100.7,
-      "typical": 93.1,
-      "n": 10,
-      "confidence": "measured"
+      "min": 95,
+      "typical": 95,
+      "max": 95,
+      "confidence": "handbook",
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (6262-T6, T651: 45/40 ksi, El 17, HB 95) · Alro 6262-T6511 extrusion min 38/35 ksi"
     },
     "thermal_conductivity": {
       "min": 167,
@@ -201,92 +201,11 @@
   "points": [
     [
       2.7,
-      278.76,
-      313.1,
-      15.47,
+      276,
+      310,
+      17,
       69,
-      95.95,
-      167
-    ],
-    [
-      2.7,
-      273.24,
-      306.9,
-      16.83,
-      69,
-      94.05,
-      167
-    ],
-    [
-      2.7,
-      259.44,
-      291.40000000000003,
-      14.28,
-      69,
-      89.30000000000001,
-      167
-    ],
-    [
-      2.7,
-      262.20000000000005,
-      294.5,
-      14.45,
-      69,
-      90.25,
-      167
-    ],
-    [
-      2.7,
-      251.16,
-      282.1,
-      17.17,
-      69,
-      86.45,
-      167
-    ],
-    [
-      2.7,
-      270.48,
-      303.8,
-      16.66,
-      69,
-      93.1,
-      167
-    ],
-    [
-      2.7,
-      281.52,
-      316.2,
-      17.34,
-      69,
-      96.9,
-      167
-    ],
-    [
-      2.7,
-      253.92,
-      285.2,
-      17.34,
-      69,
-      87.4,
-      167
-    ],
-    [
-      2.7,
-      292.56,
-      328.6,
-      16.32,
-      69,
-      100.7,
-      167
-    ],
-    [
-      2.7,
-      248.4,
-      279,
-      13.6,
-      69,
-      85.5,
+      95,
       167
     ]
   ],
@@ -315,11 +234,11 @@
   "fracture_toughness": 27.5,
   "fatigue_strength": 103,
   "density": 2.7,
-  "yield_strength": 270.5,
-  "uts": 303.8,
-  "elongation": 16.66,
+  "yield_strength": 276,
+  "uts": 310,
+  "elongation": 17,
   "modulus": 69,
-  "hardness": 93.1,
+  "hardness": 95,
   "thermal_conductivity": 167,
   "impact_strength": 11,
   "manufacturer": "Generic",
@@ -380,6 +299,160 @@
           "verified": false
         }
       ]
-    }
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 248.4,
+        "max": 292.6,
+        "typical": 270.5,
+        "n": 10,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 270.5
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 279,
+        "max": 328.6,
+        "typical": 303.8,
+        "n": 10,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 303.8
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 13.6,
+        "max": 17.34,
+        "typical": 16.66,
+        "n": 10,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 16.66
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 85.5,
+        "max": 100.7,
+        "typical": 93.1,
+        "n": 10,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 93.1
+    },
+    "_basis": "'Aged / solution-treated' 합성값(σy 270.5/UTS 303.8)을 실제 템퍼 T6 로 교체.",
+    "_src": "Alro Steel Metals Guide — Rod/Bar typical (6262-T6, T651: 45/40 ksi, El 17, HB 95) · Alro 6262-T6511 extrusion min 38/35 ksi",
+    "points": {
+      "from": [
+        [
+          2.7,
+          278.76,
+          313.1,
+          15.47,
+          69,
+          95.95,
+          167
+        ],
+        [
+          2.7,
+          273.24,
+          306.9,
+          16.83,
+          69,
+          94.05,
+          167
+        ],
+        [
+          2.7,
+          259.44,
+          291.40000000000003,
+          14.28,
+          69,
+          89.30000000000001,
+          167
+        ],
+        [
+          2.7,
+          262.20000000000005,
+          294.5,
+          14.45,
+          69,
+          90.25,
+          167
+        ],
+        [
+          2.7,
+          251.16,
+          282.1,
+          17.17,
+          69,
+          86.45,
+          167
+        ],
+        [
+          2.7,
+          270.48,
+          303.8,
+          16.66,
+          69,
+          93.1,
+          167
+        ],
+        [
+          2.7,
+          281.52,
+          316.2,
+          17.34,
+          69,
+          96.9,
+          167
+        ],
+        [
+          2.7,
+          253.92,
+          285.2,
+          17.34,
+          69,
+          87.4,
+          167
+        ],
+        [
+          2.7,
+          292.56,
+          328.6,
+          16.32,
+          69,
+          100.7,
+          167
+        ],
+        [
+          2.7,
+          248.4,
+          279,
+          13.6,
+          69,
+          85.5,
+          167
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "AA 6262 — Aged / solution-treated (Wrought)"
+      },
+      "heat_treatment": {
+        "from": "Aged / solution-treated"
+      }
+    },
+    "_fbasis": "합성 'Aged / solution-treated' → 실제 템퍼 T6.",
+    "_fsrc": "Alro Metals Guide 6262-T6"
   }
 }

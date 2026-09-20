@@ -11,7 +11,7 @@
   "legacy_id": "G_0054",
   "origin": "generic(csv)",
   "id": "G_0054",
-  "name": "AA 1100 — Strain-hardened (Wrought)",
+  "name": "AA 1100 — H14",
   "category": "Metal",
   "subcategory": "Aluminum - Pure/Other",
   "tier": "generic",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Strain-hardened",
+  "heat_treatment": "H14",
   "ranges": {
     "density": {
       "min": 2.71,
@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 31.5,
-      "max": 38.15,
-      "typical": 33.95,
-      "n": 9,
-      "confidence": "measured"
+      "min": 117,
+      "typical": 117,
+      "max": 117,
+      "confidence": "handbook",
+      "provenance": "교정: EMJ Metals Aluminum catalog — 1100-H14 typical 18,000/17,000 psi, El 9 · United Aluminum 1100-H14 18/14 ksi · MakeItFrom 1100-H14 (130 / 110 / 8.2% / HB 32)"
     },
     "uts": {
-      "min": 81,
-      "max": 98.1,
-      "typical": 87.3,
-      "n": 9,
-      "confidence": "measured"
+      "min": 125,
+      "typical": 125,
+      "max": 125,
+      "confidence": "handbook",
+      "provenance": "교정: EMJ Metals Aluminum catalog — 1100-H14 typical 18,000/17,000 psi, El 9 · United Aluminum 1100-H14 18/14 ksi · MakeItFrom 1100-H14 (130 / 110 / 8.2% / HB 32)"
     },
     "elongation": {
-      "min": 28,
-      "max": 33.6,
-      "typical": 31.15,
-      "n": 9,
-      "confidence": "measured"
+      "min": 9,
+      "typical": 9,
+      "max": 9,
+      "confidence": "handbook",
+      "provenance": "교정: EMJ Metals Aluminum catalog — 1100-H14 typical 18,000/17,000 psi, El 9 · United Aluminum 1100-H14 18/14 ksi · MakeItFrom 1100-H14 (130 / 110 / 8.2% / HB 32)"
     },
     "modulus": {
       "min": 69,
@@ -60,11 +60,11 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 27,
-      "max": 32.7,
-      "typical": 29.1,
-      "n": 9,
-      "confidence": "measured"
+      "min": 32,
+      "typical": 32,
+      "max": 32,
+      "confidence": "handbook",
+      "provenance": "교정: EMJ Metals Aluminum catalog — 1100-H14 typical 18,000/17,000 psi, El 9 · United Aluminum 1100-H14 18/14 ksi · MakeItFrom 1100-H14 (130 / 110 / 8.2% / HB 32)"
     },
     "thermal_conductivity": {
       "min": 222,
@@ -201,83 +201,11 @@
   "points": [
     [
       2.71,
-      31.5,
-      81,
-      31.5,
+      117,
+      125,
+      9,
       69,
-      27,
-      222
-    ],
-    [
-      2.71,
-      38.150000000000006,
-      98.1,
-      31.15,
-      69,
-      32.7,
-      222
-    ],
-    [
-      2.71,
-      31.5,
-      81,
-      28,
-      69,
-      27,
-      222
-    ],
-    [
-      2.71,
-      36.75,
-      94.5,
-      29.750000000000004,
-      69,
-      31.5,
-      222
-    ],
-    [
-      2.71,
-      33.25,
-      85.5,
-      33.25,
-      69,
-      28.500000000000004,
-      222
-    ],
-    [
-      2.71,
-      33.6,
-      86.39999999999999,
-      33.6,
-      69,
-      28.8,
-      222
-    ],
-    [
-      2.71,
-      33.95,
-      87.3,
-      30.450000000000003,
-      69,
-      29.1,
-      222
-    ],
-    [
-      2.71,
-      35.7,
-      91.8,
-      32.2,
-      69,
-      30.6,
-      222
-    ],
-    [
-      2.71,
-      36.75,
-      94.5,
-      29.750000000000004,
-      69,
-      31.5,
+      32,
       222
     ]
   ],
@@ -305,11 +233,11 @@
   "fracture_toughness": 57.8,
   "fatigue_strength": 38,
   "density": 2.71,
-  "yield_strength": 33.95,
-  "uts": 87.3,
-  "elongation": 31.15,
+  "yield_strength": 117,
+  "uts": 125,
+  "elongation": 9,
   "modulus": 69,
-  "hardness": 29.1,
+  "hardness": 32,
   "thermal_conductivity": 222,
   "impact_strength": 55,
   "manufacturer": "Generic",
@@ -376,6 +304,151 @@
     },
     "aliases": {
       "from": []
-    }
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 31.5,
+        "max": 38.15,
+        "typical": 33.95,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 33.95
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 81,
+        "max": 98.1,
+        "typical": 87.3,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 87.3
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 28,
+        "max": 33.6,
+        "typical": 31.15,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 31.15
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 27,
+        "max": 32.7,
+        "typical": 29.1,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 29.1
+    },
+    "_basis": "'Strain-hardened' 합성값(σy 33.95/UTS 87.3 = 소둔 ×1.03 — 냉간가공인데 소둔과 같은 강도)을 실제 템퍼 H14 로 교체.",
+    "_src": "EMJ Metals Aluminum catalog — 1100-H14 typical 18,000/17,000 psi, El 9 · United Aluminum 1100-H14 18/14 ksi · MakeItFrom 1100-H14 (130 / 110 / 8.2% / HB 32)",
+    "points": {
+      "from": [
+        [
+          2.71,
+          31.5,
+          81,
+          31.5,
+          69,
+          27,
+          222
+        ],
+        [
+          2.71,
+          38.150000000000006,
+          98.1,
+          31.15,
+          69,
+          32.7,
+          222
+        ],
+        [
+          2.71,
+          31.5,
+          81,
+          28,
+          69,
+          27,
+          222
+        ],
+        [
+          2.71,
+          36.75,
+          94.5,
+          29.750000000000004,
+          69,
+          31.5,
+          222
+        ],
+        [
+          2.71,
+          33.25,
+          85.5,
+          33.25,
+          69,
+          28.500000000000004,
+          222
+        ],
+        [
+          2.71,
+          33.6,
+          86.39999999999999,
+          33.6,
+          69,
+          28.8,
+          222
+        ],
+        [
+          2.71,
+          33.95,
+          87.3,
+          30.450000000000003,
+          69,
+          29.1,
+          222
+        ],
+        [
+          2.71,
+          35.7,
+          91.8,
+          32.2,
+          69,
+          30.6,
+          222
+        ],
+        [
+          2.71,
+          36.75,
+          94.5,
+          29.750000000000004,
+          69,
+          31.5,
+          222
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "AA 1100 — Strain-hardened (Wrought)"
+      },
+      "heat_treatment": {
+        "from": "Strain-hardened"
+      }
+    },
+    "_fbasis": "합성 'Strain-hardened' → 실제 템퍼 H14.",
+    "_fsrc": "EMJ Metals catalog 1100-H14 · United Aluminum · MakeItFrom"
   }
 }

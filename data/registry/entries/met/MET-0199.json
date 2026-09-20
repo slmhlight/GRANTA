@@ -11,7 +11,7 @@
   "legacy_id": "G_0030",
   "origin": "generic(csv)",
   "id": "G_0030",
-  "name": "AA 6262 — Strain-hardened (Wrought)",
+  "name": "AA 6262 — T9",
   "category": "Metal",
   "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
   "tier": "generic",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Strain-hardened",
+  "heat_treatment": "T9",
   "ranges": {
     "density": {
       "min": 2.7,
@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 248.4,
-      "max": 300.8,
-      "typical": 267.7,
-      "n": 9,
-      "confidence": "measured"
+      "min": 379,
+      "typical": 379,
+      "max": 379,
+      "confidence": "handbook",
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (6262-T9: 58/55 ksi, El 10, HB 120) · eFunda AA 6262 T9 (400 / 380 / HB 120) · MakeItFrom 6262-T9 (390 / 360 / HB 120)"
     },
     "uts": {
-      "min": 279,
-      "max": 337.9,
-      "typical": 300.7,
-      "n": 9,
-      "confidence": "measured"
+      "min": 400,
+      "typical": 400,
+      "max": 400,
+      "confidence": "handbook",
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (6262-T9: 58/55 ksi, El 10, HB 120) · eFunda AA 6262 T9 (400 / 380 / HB 120) · MakeItFrom 6262-T9 (390 / 360 / HB 120)"
     },
     "elongation": {
-      "min": 13.6,
-      "max": 16.32,
-      "typical": 15.13,
-      "n": 9,
-      "confidence": "measured"
+      "min": 10,
+      "typical": 10,
+      "max": 10,
+      "confidence": "handbook",
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (6262-T9: 58/55 ksi, El 10, HB 120) · eFunda AA 6262 T9 (400 / 380 / HB 120) · MakeItFrom 6262-T9 (390 / 360 / HB 120)"
     },
     "modulus": {
       "min": 69,
@@ -60,11 +60,11 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 85.5,
-      "max": 103.6,
-      "typical": 92.15,
-      "n": 9,
-      "confidence": "measured"
+      "min": 120,
+      "typical": 120,
+      "max": 120,
+      "confidence": "handbook",
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (6262-T9: 58/55 ksi, El 10, HB 120) · eFunda AA 6262 T9 (400 / 380 / HB 120) · MakeItFrom 6262-T9 (390 / 360 / HB 120)"
     },
     "thermal_conductivity": {
       "min": 167,
@@ -201,83 +201,11 @@
   "points": [
     [
       2.7,
-      248.4,
-      279,
-      15.3,
+      379,
+      400,
+      10,
       69,
-      85.5,
-      167
-    ],
-    [
-      2.7,
-      300.84000000000003,
-      337.90000000000003,
-      15.13,
-      69,
-      103.55,
-      167
-    ],
-    [
-      2.7,
-      248.4,
-      279,
-      13.6,
-      69,
-      85.5,
-      167
-    ],
-    [
-      2.7,
-      289.8,
-      325.5,
-      14.45,
-      69,
-      99.75,
-      167
-    ],
-    [
-      2.7,
-      262.20000000000005,
-      294.5,
-      16.150000000000002,
-      69,
-      90.25,
-      167
-    ],
-    [
-      2.7,
-      264.96,
-      297.6,
-      16.32,
-      69,
-      91.2,
-      167
-    ],
-    [
-      2.7,
-      267.72,
-      300.7,
-      14.790000000000004,
-      69,
-      92.15,
-      167
-    ],
-    [
-      2.7,
-      281.52,
-      316.2,
-      15.64,
-      69,
-      96.9,
-      167
-    ],
-    [
-      2.7,
-      289.8,
-      325.5,
-      14.45,
-      69,
-      99.75,
+      120,
       167
     ]
   ],
@@ -305,11 +233,11 @@
   "fracture_toughness": 26.3,
   "fatigue_strength": 102,
   "density": 2.7,
-  "yield_strength": 267.7,
-  "uts": 300.7,
-  "elongation": 15.13,
+  "yield_strength": 379,
+  "uts": 400,
+  "elongation": 10,
   "modulus": 69,
-  "hardness": 92.15,
+  "hardness": 120,
   "thermal_conductivity": 167,
   "impact_strength": 11,
   "manufacturer": "Generic",
@@ -370,6 +298,151 @@
           "verified": false
         }
       ]
-    }
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 248.4,
+        "max": 300.8,
+        "typical": 267.7,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 267.7
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 279,
+        "max": 337.9,
+        "typical": 300.7,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 300.7
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 13.6,
+        "max": 16.32,
+        "typical": 15.13,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 15.13
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 85.5,
+        "max": 103.6,
+        "typical": 92.15,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 92.15
+    },
+    "_basis": "'Strain-hardened' 합성값(σy 267.7/UTS 300.7)을 실제 템퍼 T9(용체화+인공시효+냉간가공 — 6262 의 최고강도 템퍼)로 교체.",
+    "_src": "Alro Steel Metals Guide — Rod/Bar typical (6262-T9: 58/55 ksi, El 10, HB 120) · eFunda AA 6262 T9 (400 / 380 / HB 120) · MakeItFrom 6262-T9 (390 / 360 / HB 120)",
+    "points": {
+      "from": [
+        [
+          2.7,
+          248.4,
+          279,
+          15.3,
+          69,
+          85.5,
+          167
+        ],
+        [
+          2.7,
+          300.84000000000003,
+          337.90000000000003,
+          15.13,
+          69,
+          103.55,
+          167
+        ],
+        [
+          2.7,
+          248.4,
+          279,
+          13.6,
+          69,
+          85.5,
+          167
+        ],
+        [
+          2.7,
+          289.8,
+          325.5,
+          14.45,
+          69,
+          99.75,
+          167
+        ],
+        [
+          2.7,
+          262.20000000000005,
+          294.5,
+          16.150000000000002,
+          69,
+          90.25,
+          167
+        ],
+        [
+          2.7,
+          264.96,
+          297.6,
+          16.32,
+          69,
+          91.2,
+          167
+        ],
+        [
+          2.7,
+          267.72,
+          300.7,
+          14.790000000000004,
+          69,
+          92.15,
+          167
+        ],
+        [
+          2.7,
+          281.52,
+          316.2,
+          15.64,
+          69,
+          96.9,
+          167
+        ],
+        [
+          2.7,
+          289.8,
+          325.5,
+          14.45,
+          69,
+          99.75,
+          167
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "AA 6262 — Strain-hardened (Wrought)"
+      },
+      "heat_treatment": {
+        "from": "Strain-hardened"
+      }
+    },
+    "_fbasis": "합성 'Strain-hardened' → 실제 템퍼 T9.",
+    "_fsrc": "Alro Metals Guide 6262-T9 · eFunda · MakeItFrom"
   }
 }

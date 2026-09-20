@@ -64,7 +64,9 @@ const byBase = {}; for (const m of all) (byBase[baseOf(m.name)] = byBase[baseOf(
       후보 8건 중 5건이 이 때문이었다). 모르면 모른다고 두고 비교에서 뺀다. */
 const NEG_RE = /\b(?:no|non|without|free\s+of)[\s-]*(?:q\s*\+?\s*t\b|quench\w*|temper\w*|heat[\s-]?treat\w*|ag(?:e|ed|ing)\b|harden\w*)/g;
 const HARD_RE = /\baged|solution.?age|\bsta\b|q\s*\+?\s*t|quench|temper|strain.?hard|cold.?work|peak|precipit|hardened|carburiz|\bcase\b|h\d{3,}|h9\d\d/;
-const HARD_ADD = /\bt[3-8]\d{0,3}\b|\bh[123]\d\b|head.?harden|\bhht\b|cold.?draw|hard.?draw|work.?harden/;
+/* A3 (2026-09-20) — T9(용체화+인공시효+냉간가공, 6262-T9 등)도 강화 템퍼: [3-8] 이라 T9 가 SOFT 로 분류돼
+   'SOFT T9 σy379 > HARD T6 σy276' 헛것이 발화했다. */
+const HARD_ADD = /\bt[3-9]\d{0,3}\b|\bh[123]\d\b|head.?harden|\bhht\b|cold.?draw|hard.?draw|work.?harden/;
 const UNKNOWN_RE = /^(heat[-\s]?treated|as[-\s]?supplied|as[-\s]?received|as[-\s]?processed|standard|mill)$/;
 const stateOf = (h) => {
   const raw = (h || '').toLowerCase().trim();

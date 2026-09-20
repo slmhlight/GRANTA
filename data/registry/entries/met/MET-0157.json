@@ -11,7 +11,7 @@
   "legacy_id": "G_0043",
   "origin": "generic(csv)",
   "id": "G_0043",
-  "name": "AA 3005 — Annealed (Wrought)",
+  "name": "AA 3005 — Annealed",
   "category": "Metal",
   "subcategory": "Aluminum - Mn Alloys (3xxx)",
   "tier": "generic",
@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 89.3,
-      "max": 89.3,
-      "typical": 89.3,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 55,
+      "typical": 55,
+      "max": 55,
+      "confidence": "handbook",
+      "provenance": "교정: United Aluminum — Aluminum 3005 typical (3005-O: 20/8 ksi, El 22) · MakeItFrom 3005-O (140 / 51 / 16% / HB 33)"
     },
     "uts": {
-      "min": 136.3,
-      "max": 136.3,
-      "typical": 136.3,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 138,
+      "typical": 138,
+      "max": 138,
+      "confidence": "handbook",
+      "provenance": "교정: United Aluminum — Aluminum 3005 typical (3005-O: 20/8 ksi, El 22) · MakeItFrom 3005-O (140 / 51 / 16% / HB 33)"
     },
     "elongation": {
-      "min": 23.5,
-      "max": 23.5,
-      "typical": 23.5,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 22,
+      "typical": 22,
+      "max": 22,
+      "confidence": "handbook",
+      "provenance": "교정: United Aluminum — Aluminum 3005 typical (3005-O: 20/8 ksi, El 22) · MakeItFrom 3005-O (140 / 51 / 16% / HB 33)"
     },
     "modulus": {
       "min": 70,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 42.3,
-      "max": 42.3,
-      "typical": 42.3,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 33,
+      "typical": 33,
+      "max": 33,
+      "confidence": "handbook",
+      "provenance": "교정: United Aluminum — Aluminum 3005 typical (3005-O: 20/8 ksi, El 22) · MakeItFrom 3005-O (140 / 51 / 16% / HB 33)"
     },
     "thermal_conductivity": {
       "min": 191,
@@ -199,11 +199,11 @@
   "points": [
     [
       2.73,
-      89.30000000000001,
-      136.3,
-      23.5,
+      55,
+      138,
+      22,
       70,
-      42.3,
+      33,
       191
     ]
   ],
@@ -222,11 +222,11 @@
   "fracture_toughness": 60,
   "fatigue_strength": 34,
   "density": 2.73,
-  "yield_strength": 89.3,
-  "uts": 136.3,
-  "elongation": 23.5,
+  "yield_strength": 55,
+  "uts": 138,
+  "elongation": 22,
   "modulus": 70,
-  "hardness": 42.3,
+  "hardness": 33,
   "thermal_conductivity": 191,
   "impact_strength": 30,
   "manufacturer": "Generic",
@@ -281,6 +281,76 @@
           "verified": false
         }
       ]
-    }
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 89.3,
+        "max": 89.3,
+        "typical": 89.3,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 89.3
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 136.3,
+        "max": 136.3,
+        "typical": 136.3,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 136.3
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 23.5,
+        "max": 23.5,
+        "typical": 23.5,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 23.5
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 42.3,
+        "max": 42.3,
+        "typical": 42.3,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 42.3
+    },
+    "_basis": "AA 3005-O. 합성값의 항복 89.3 은 O 템퍼 대표(55)의 1.6배.",
+    "_src": "United Aluminum — Aluminum 3005 typical (3005-O: 20/8 ksi, El 22) · MakeItFrom 3005-O (140 / 51 / 16% / HB 33)",
+    "points": {
+      "from": [
+        [
+          2.73,
+          89.30000000000001,
+          136.3,
+          23.5,
+          70,
+          42.3,
+          191
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "AA 3005 — Annealed (Wrought)"
+      }
+    },
+    "_fbasis": "표기 통일.",
+    "_fsrc": "A3 Al re-verify 2026Q4"
   }
 }

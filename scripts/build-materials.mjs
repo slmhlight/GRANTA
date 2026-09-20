@@ -20,6 +20,7 @@ import { num, baseName, norm, round, smartRound, rangeFrom, uniq, mostCommon, mo
 import { htCostFactor, priceConditionFactor, priceFormFactor, priceGradePremium } from './pipeline/enrich/factors.mjs';
 import { popularityFor } from './pipeline/enrich/popularity.mjs';
 import { detectAnomalies } from './lib/anomalies.mjs';   // R226e — 공유 모듈 (build-from-registry 와 중복 제거)
+import { fatigueRule, deriveFatigueRange } from './lib/fatigue-fallback.mjs';   // A19 — C1 규칙 SSOT
 import { attachElevCurves } from './lib/elev-curves.mjs';   // R226g — 외부 elev-temp 곡선 확장 파이프
 import { VENDOR_PREFIXES, CLASS_WORDS, alloyOf, aaSubcategory, nameBasedSubcategory, fixSubcategory, conditionClass, isExcludedByName, isExcludedAlloy, EXCLUDED_ALLOY_PATTERNS, EXCLUDED_NAME_PATTERNS, isFakeVariant } from './pipeline/enrich/classification.mjs';
 import { htConditionMultiplier } from './pipeline/enrich/ht-condition.mjs';
@@ -2169,20 +2170,7 @@ console.log('Sprint 4 C2 — KIC fallback applied:', kicFilled);
 // ───────── Sprint 4 C1 — Fatigue strength endurance-limit fallback ─────────
 // 11% metal missing — σ_fatigue ≈ k · σy 근사 (10^7 cycles, R=-1, smooth specimen).
 // 출처: Shigley's Mechanical Engineering Design (10th ed) Ch. 6 Eq. 6-10; ASM Vol. 19 Fatigue.
-const FATIGUE_RATIO = [
-  // [pattern, k_low, k_typ, k_high, source]
-  [/stainless.*austenitic|austenitic.*stainless|304\b|316\b/i, 0.35, 0.42, 0.50, 'ASM Vol.19 SS fatigue'],
-  [/stainless.*martensitic|martensitic|17-?4|15-?5|13-?8|\b41[03]\b/i, 0.40, 0.50, 0.58, 'ASM Vol.19 Martensitic SS'],
-  [/tool steel|\bd[23]\b|\bm[24]\b|\bh1[13]\b/i, 0.35, 0.42, 0.50, 'ASM Vol.1 Tool Steels'],
-  [/inconel|hastelloy|haynes|nimonic|monel|udimet|rene/i, 0.40, 0.48, 0.55, 'Special Metals fatigue data'],
-  [/cobalt|stellite|f-?75|l-?605/i, 0.40, 0.48, 0.55, 'ASM Vol.2 Co alloys'],
-  [/titanium|ti-?6al-?4v|ti grade|cp ?ti/i, 0.42, 0.52, 0.60, 'MMPDS-2018 Titanium'],
-  [/aluminum|aa\s?\d{4}|alsi\d+|7075|6061|2024/i, 0.30, 0.38, 0.46, 'Aluminum Association handbook'],
-  [/magnesium|\baz\d/i, 0.30, 0.35, 0.42, 'ASM Vol.2 Mg alloys'],
-  [/copper|brass|bronze|c[12389]\d{4}/i, 0.28, 0.35, 0.42, 'ASM Vol.2 Cu alloys'],
-  [/refractory|tantalum|tungsten|niobium|molybdenum/i, 0.35, 0.42, 0.50, 'ASM Vol.2 Refractory'],
-  [/carbon steel|alloy steel|41\d{2}|43\d{2}|s45c|aisi|sae/i, 0.40, 0.50, 0.58, "Shigley's Mechanical Engineering Design"],
-];
+// A19 — 규칙 표는 scripts/lib/fatigue-fallback.mjs (build-from-registry 1i 재유도·게이트와 공유). 동작 동일.
 let fatigueFilled = 0;
 for (const m of all) {
   const r = m.ranges && m.ranges.fatigue_strength;
@@ -2190,22 +2178,18 @@ for (const m of all) {
   if (!m.category || m.category !== 'Metal') continue;
   const sy = m.ranges && m.ranges.yield_strength && m.ranges.yield_strength.typical;
   if (sy == null || sy <= 0) continue;
-  const key = `${m.subcategory || ''} ${m.name} ${m.category}`;
-  for (const [rx, kLo, kTyp, kHi, src] of FATIGUE_RATIO) {
-    if (rx.test(key)) {
+  const rule = fatigueRule(m);
+  {
+    if (rule) {
+      const kTyp = rule.kTyp, src = rule.src;
       if (!m.ranges) m.ranges = {};
-      m.ranges.fatigue_strength = {
-        min: Math.round(sy * kLo), max: Math.round(sy * kHi), typical: Math.round(sy * kTyp),
-        n: 0, confidence: 'derived',
-        provenance: `family:σf≈${kTyp}·σy (${src})`,  // R129 — Sprint 4 C1 fallback provenance
-      };
+      m.ranges.fatigue_strength = deriveFatigueRange(rule, sy);
       m.fatigue_strength = Math.round(sy * kTyp);
       m.sources = m.sources || [];
       if (!m.sources.some(s => s.label && s.label.startsWith('Fatigue fallback'))) {
         m.sources.push({ label: `Fatigue fallback: σf ≈ ${kTyp}·σy (${src})`, url: null, verified: false });
       }
       fatigueFilled++;
-      break;
     }
   }
 }

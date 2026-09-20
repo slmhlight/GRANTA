@@ -11,7 +11,7 @@
   "legacy_id": "G_0018",
   "origin": "generic(csv)",
   "id": "G_0018",
-  "name": "AA 2011 — Strain-hardened (Wrought)",
+  "name": "AA 2011 — T3",
   "category": "Metal",
   "subcategory": "Aluminum - Cu Alloys (2xxx)",
   "tier": "generic",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Strain-hardened",
+  "heat_treatment": "T3",
   "ranges": {
     "density": {
       "min": 2.8,
@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 315,
-      "max": 381.5,
-      "typical": 339.5,
-      "n": 9,
-      "confidence": "measured"
+      "min": 296,
+      "typical": 296,
+      "max": 296,
+      "confidence": "handbook",
+      "provenance": "교정: Alro Steel Metals Guide — Typical Mechanical Properties, Rod/Bar (2011-T3: 55/43 ksi, El 15, HB 95) · EMJ Metals catalog 2011-T3 55,000/43,000 psi · MakeItFrom 2011-T3 (360 / 280 / 12% / HB 95)"
     },
     "uts": {
-      "min": 432,
-      "max": 523.2,
-      "typical": 465.6,
-      "n": 9,
-      "confidence": "measured"
+      "min": 379,
+      "typical": 379,
+      "max": 379,
+      "confidence": "handbook",
+      "provenance": "교정: Alro Steel Metals Guide — Typical Mechanical Properties, Rod/Bar (2011-T3: 55/43 ksi, El 15, HB 95) · EMJ Metals catalog 2011-T3 55,000/43,000 psi · MakeItFrom 2011-T3 (360 / 280 / 12% / HB 95)"
     },
     "elongation": {
-      "min": 9.6,
-      "max": 11.52,
-      "typical": 10.68,
-      "n": 9,
-      "confidence": "measured"
+      "min": 15,
+      "typical": 15,
+      "max": 15,
+      "confidence": "handbook",
+      "provenance": "교정: Alro Steel Metals Guide — Typical Mechanical Properties, Rod/Bar (2011-T3: 55/43 ksi, El 15, HB 95) · EMJ Metals catalog 2011-T3 55,000/43,000 psi · MakeItFrom 2011-T3 (360 / 280 / 12% / HB 95)"
     },
     "modulus": {
       "min": 73,
@@ -60,11 +60,11 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 117,
-      "max": 141.7,
-      "typical": 126.1,
-      "n": 9,
-      "confidence": "measured"
+      "min": 95,
+      "typical": 95,
+      "max": 95,
+      "confidence": "handbook",
+      "provenance": "교정: Alro Steel Metals Guide — Typical Mechanical Properties, Rod/Bar (2011-T3: 55/43 ksi, El 15, HB 95) · EMJ Metals catalog 2011-T3 55,000/43,000 psi · MakeItFrom 2011-T3 (360 / 280 / 12% / HB 95)"
     },
     "thermal_conductivity": {
       "min": 121,
@@ -199,83 +199,11 @@
   "points": [
     [
       2.8,
-      315,
-      432,
-      10.8,
+      296,
+      379,
+      15,
       73,
-      117,
-      121
-    ],
-    [
-      2.8,
-      381.5,
-      523.2,
-      10.68,
-      73,
-      141.70000000000002,
-      121
-    ],
-    [
-      2.8,
-      315,
-      432,
-      9.6,
-      73,
-      117,
-      121
-    ],
-    [
-      2.8,
-      367.5,
-      504,
-      10.2,
-      73,
-      136.5,
-      121
-    ],
-    [
-      2.8,
-      332.5,
-      456.00000000000006,
-      11.4,
-      73,
-      123.5,
-      121
-    ],
-    [
-      2.8,
-      336,
-      460.8,
-      11.52,
-      73,
-      124.8,
-      121
-    ],
-    [
-      2.8,
-      339.5,
-      465.6,
-      10.44,
-      73,
-      126.1,
-      121
-    ],
-    [
-      2.8,
-      357,
-      489.6,
-      11.04,
-      73,
-      132.6,
-      121
-    ],
-    [
-      2.8,
-      367.5,
-      504,
-      10.2,
-      73,
-      136.5,
+      95,
       121
     ]
   ],
@@ -302,11 +230,11 @@
   "fracture_toughness": 25.2,
   "fatigue_strength": 129,
   "density": 2.8,
-  "yield_strength": 339.5,
-  "uts": 465.6,
-  "elongation": 10.68,
+  "yield_strength": 296,
+  "uts": 379,
+  "elongation": 15,
   "modulus": 73,
-  "hardness": 126.1,
+  "hardness": 95,
   "thermal_conductivity": 121,
   "impact_strength": 11,
   "manufacturer": "Generic",
@@ -371,6 +299,151 @@
     },
     "aliases": {
       "from": []
-    }
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 315,
+        "max": 381.5,
+        "typical": 339.5,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 339.5
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 432,
+        "max": 523.2,
+        "typical": 465.6,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 465.6
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 9.6,
+        "max": 11.52,
+        "typical": 10.68,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 10.68
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 117,
+        "max": 141.7,
+        "typical": 126.1,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 126.1
+    },
+    "_basis": "'Strain-hardened' 합성값(σy 339.5/UTS 465.6 — 2011 의 어떤 템퍼보다 높음)을 실제 템퍼 T3(용체화+냉간가공+자연시효; 2011 의 표준 쾌삭 봉재 템퍼)로 교체.",
+    "_src": "Alro Steel Metals Guide — Typical Mechanical Properties, Rod/Bar (2011-T3: 55/43 ksi, El 15, HB 95) · EMJ Metals catalog 2011-T3 55,000/43,000 psi · MakeItFrom 2011-T3 (360 / 280 / 12% / HB 95)",
+    "points": {
+      "from": [
+        [
+          2.8,
+          315,
+          432,
+          10.8,
+          73,
+          117,
+          121
+        ],
+        [
+          2.8,
+          381.5,
+          523.2,
+          10.68,
+          73,
+          141.70000000000002,
+          121
+        ],
+        [
+          2.8,
+          315,
+          432,
+          9.6,
+          73,
+          117,
+          121
+        ],
+        [
+          2.8,
+          367.5,
+          504,
+          10.2,
+          73,
+          136.5,
+          121
+        ],
+        [
+          2.8,
+          332.5,
+          456.00000000000006,
+          11.4,
+          73,
+          123.5,
+          121
+        ],
+        [
+          2.8,
+          336,
+          460.8,
+          11.52,
+          73,
+          124.8,
+          121
+        ],
+        [
+          2.8,
+          339.5,
+          465.6,
+          10.44,
+          73,
+          126.1,
+          121
+        ],
+        [
+          2.8,
+          357,
+          489.6,
+          11.04,
+          73,
+          132.6,
+          121
+        ],
+        [
+          2.8,
+          367.5,
+          504,
+          10.2,
+          73,
+          136.5,
+          121
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "AA 2011 — Strain-hardened (Wrought)"
+      },
+      "heat_treatment": {
+        "from": "Strain-hardened"
+      }
+    },
+    "_fbasis": "합성 'Strain-hardened' → 실제 템퍼 T3 (2011 표준 쾌삭 봉재 템퍼).",
+    "_fsrc": "Alro Metals Guide 2011-T3 · EMJ · MakeItFrom"
   }
 }

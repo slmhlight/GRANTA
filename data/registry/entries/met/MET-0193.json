@@ -11,7 +11,7 @@
   "legacy_id": "G_0029",
   "origin": "generic(csv)",
   "id": "G_0029",
-  "name": "AA 6101 — Aged / solution-treated (Wrought)",
+  "name": "AA 6101 — T6",
   "category": "Metal",
   "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
   "tier": "generic",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Aged / solution-treated",
+  "heat_treatment": "T6",
   "ranges": {
     "density": {
       "min": 2.7,
@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 216,
-      "max": 254.4,
-      "typical": 235.2,
-      "n": 10,
-      "confidence": "measured"
+      "min": 200,
+      "typical": 200,
+      "max": 200,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 6101-T6 Aluminum (220 / 200 / 15% / HB 71, 57 %IACS)"
     },
     "uts": {
-      "min": 252,
-      "max": 296.8,
-      "typical": 274.4,
-      "n": 10,
-      "confidence": "measured"
+      "min": 220,
+      "typical": 220,
+      "max": 220,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 6101-T6 Aluminum (220 / 200 / 15% / HB 71, 57 %IACS)"
     },
     "elongation": {
-      "min": 11.2,
-      "max": 14.28,
-      "typical": 13.72,
-      "n": 10,
-      "confidence": "measured"
+      "min": 15,
+      "typical": 15,
+      "max": 15,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 6101-T6 Aluminum (220 / 200 / 15% / HB 71, 57 %IACS)"
     },
     "modulus": {
       "min": 69,
@@ -60,11 +60,11 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 76.5,
-      "max": 90.1,
-      "typical": 83.3,
-      "n": 10,
-      "confidence": "measured"
+      "min": 71,
+      "typical": 71,
+      "max": 71,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 6101-T6 Aluminum (220 / 200 / 15% / HB 71, 57 %IACS)"
     },
     "thermal_conductivity": {
       "min": 205,
@@ -193,11 +193,11 @@
   "points": [
     [
       2.7,
-      235.2,
-      274.4,
-      13.72,
+      200,
+      220,
+      15,
       69,
-      83.3,
+      71,
       218
     ]
   ],
@@ -225,11 +225,11 @@
   "fracture_toughness": 33,
   "fatigue_strength": 89,
   "density": 2.7,
-  "yield_strength": 235.2,
-  "uts": 274.4,
-  "elongation": 13.72,
+  "yield_strength": 200,
+  "uts": 220,
+  "elongation": 15,
   "modulus": 69,
-  "hardness": 83.3,
+  "hardness": 71,
   "thermal_conductivity": 218,
   "impact_strength": null,
   "manufacturer": "Generic",
@@ -297,6 +297,56 @@
     "aliases": {
       "from": []
     },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 216,
+        "max": 254.4,
+        "typical": 235.2,
+        "n": 10,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 235.2
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 252,
+        "max": 296.8,
+        "typical": 274.4,
+        "n": 10,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 274.4
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 11.2,
+        "max": 14.28,
+        "typical": 13.72,
+        "n": 10,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 13.72
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 76.5,
+        "max": 90.1,
+        "typical": 83.3,
+        "n": 10,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 83.3
+    },
+    "_basis": "'Aged / solution-treated' 합성값(σy 235.2/UTS 274.4)을 실제 템퍼 T6 로 교체.",
+    "_src": "MakeItFrom 6101-T6 Aluminum (220 / 200 / 15% / HB 71, 57 %IACS)",
     "points": {
       "from": [
         [
@@ -391,6 +441,15 @@
         ]
       ]
     },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+    "fields": {
+      "name": {
+        "from": "AA 6101 — Aged / solution-treated (Wrought)"
+      },
+      "heat_treatment": {
+        "from": "Aged / solution-treated"
+      }
+    },
+    "_fbasis": "합성 'Aged / solution-treated' → 실제 템퍼 T6.",
+    "_fsrc": "MakeItFrom 6101-T6"
   }
 }

@@ -11,7 +11,7 @@
   "legacy_id": "G_0042",
   "origin": "generic(csv)",
   "id": "G_0042",
-  "name": "AA 3005 — Strain-hardened (Wrought)",
+  "name": "AA 3005 — H14",
   "category": "Metal",
   "subcategory": "Aluminum - Mn Alloys (3xxx)",
   "tier": "generic",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Strain-hardened",
+  "heat_treatment": "H14",
   "ranges": {
     "density": {
       "min": 2.73,
@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 85.5,
-      "max": 103.6,
-      "typical": 92.15,
-      "n": 9,
-      "confidence": "measured"
+      "min": 193,
+      "typical": 193,
+      "max": 193,
+      "confidence": "handbook",
+      "provenance": "교정: United Aluminum — 3005-H14 typical 29/28 ksi, El 4 · MakeItFrom 3005-H14 (190 / 170 / HB 54)"
     },
     "uts": {
-      "min": 130.5,
-      "max": 158.1,
-      "typical": 140.7,
-      "n": 9,
-      "confidence": "measured"
+      "min": 200,
+      "typical": 200,
+      "max": 200,
+      "confidence": "handbook",
+      "provenance": "교정: United Aluminum — 3005-H14 typical 29/28 ksi, El 4 · MakeItFrom 3005-H14 (190 / 170 / HB 54)"
     },
     "elongation": {
-      "min": 20,
-      "max": 24,
-      "typical": 22.25,
-      "n": 9,
-      "confidence": "measured"
+      "min": 4,
+      "typical": 4,
+      "max": 4,
+      "confidence": "handbook",
+      "provenance": "교정: United Aluminum — 3005-H14 typical 29/28 ksi, El 4 · MakeItFrom 3005-H14 (190 / 170 / HB 54)"
     },
     "modulus": {
       "min": 70,
@@ -60,11 +60,11 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 40.5,
-      "max": 49.05,
-      "typical": 43.65,
-      "n": 9,
-      "confidence": "measured"
+      "min": 54,
+      "typical": 54,
+      "max": 54,
+      "confidence": "handbook",
+      "provenance": "교정: United Aluminum — 3005-H14 typical 29/28 ksi, El 4 · MakeItFrom 3005-H14 (190 / 170 / HB 54)"
     },
     "thermal_conductivity": {
       "min": 191,
@@ -199,83 +199,11 @@
   "points": [
     [
       2.73,
-      85.5,
-      130.5,
-      22.5,
+      193,
+      200,
+      4,
       70,
-      40.5,
-      191
-    ],
-    [
-      2.73,
-      103.55,
-      158.05,
-      22.25,
-      70,
-      49.05,
-      191
-    ],
-    [
-      2.73,
-      85.5,
-      130.5,
-      20,
-      70,
-      40.5,
-      191
-    ],
-    [
-      2.73,
-      99.75,
-      152.25,
-      21.250000000000004,
-      70,
-      47.25,
-      191
-    ],
-    [
-      2.73,
-      90.25,
-      137.75,
-      23.75,
-      70,
-      42.75,
-      191
-    ],
-    [
-      2.73,
-      91.2,
-      139.2,
-      24.000000000000004,
-      70,
-      43.2,
-      191
-    ],
-    [
-      2.73,
-      92.15,
-      140.65,
-      21.750000000000004,
-      70,
-      43.65,
-      191
-    ],
-    [
-      2.73,
-      96.9,
-      147.9,
-      23,
-      70,
-      45.9,
-      191
-    ],
-    [
-      2.73,
-      99.75,
-      152.25,
-      21.250000000000004,
-      70,
-      47.25,
+      54,
       191
     ]
   ],
@@ -302,11 +230,11 @@
   "fracture_toughness": 31.5,
   "fatigue_strength": 35,
   "density": 2.73,
-  "yield_strength": 92.15,
-  "uts": 140.7,
-  "elongation": 22.25,
+  "yield_strength": 193,
+  "uts": 200,
+  "elongation": 4,
   "modulus": 70,
-  "hardness": 43.65,
+  "hardness": 54,
   "thermal_conductivity": 191,
   "impact_strength": 11,
   "manufacturer": "Generic",
@@ -361,6 +289,151 @@
           "verified": false
         }
       ]
-    }
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 85.5,
+        "max": 103.6,
+        "typical": 92.15,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 92.15
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 130.5,
+        "max": 158.1,
+        "typical": 140.7,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 140.7
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 20,
+        "max": 24,
+        "typical": 22.25,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 22.25
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 40.5,
+        "max": 49.05,
+        "typical": 43.65,
+        "n": 9,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 43.65
+    },
+    "_basis": "'Strain-hardened' 합성값(σy 92.15/UTS 140.7 = 소둔 ×1.03)을 실제 템퍼 H14 로 교체. 산포: 제조사 스트립 200/193 · ASM 계열 180/165(AZoM 요약) — 제조사값 채택, 경도는 MakeItFrom.",
+    "_src": "United Aluminum — 3005-H14 typical 29/28 ksi, El 4 · MakeItFrom 3005-H14 (190 / 170 / HB 54)",
+    "points": {
+      "from": [
+        [
+          2.73,
+          85.5,
+          130.5,
+          22.5,
+          70,
+          40.5,
+          191
+        ],
+        [
+          2.73,
+          103.55,
+          158.05,
+          22.25,
+          70,
+          49.05,
+          191
+        ],
+        [
+          2.73,
+          85.5,
+          130.5,
+          20,
+          70,
+          40.5,
+          191
+        ],
+        [
+          2.73,
+          99.75,
+          152.25,
+          21.250000000000004,
+          70,
+          47.25,
+          191
+        ],
+        [
+          2.73,
+          90.25,
+          137.75,
+          23.75,
+          70,
+          42.75,
+          191
+        ],
+        [
+          2.73,
+          91.2,
+          139.2,
+          24.000000000000004,
+          70,
+          43.2,
+          191
+        ],
+        [
+          2.73,
+          92.15,
+          140.65,
+          21.750000000000004,
+          70,
+          43.65,
+          191
+        ],
+        [
+          2.73,
+          96.9,
+          147.9,
+          23,
+          70,
+          45.9,
+          191
+        ],
+        [
+          2.73,
+          99.75,
+          152.25,
+          21.250000000000004,
+          70,
+          47.25,
+          191
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "AA 3005 — Strain-hardened (Wrought)"
+      },
+      "heat_treatment": {
+        "from": "Strain-hardened"
+      }
+    },
+    "_fbasis": "합성 'Strain-hardened' → 실제 템퍼 H14.",
+    "_fsrc": "United Aluminum 3005 · MakeItFrom"
   }
 }

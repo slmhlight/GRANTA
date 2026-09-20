@@ -11,7 +11,7 @@
   "legacy_id": "G_0055",
   "origin": "generic(csv)",
   "id": "G_0055",
-  "name": "AA 1100 — Annealed (Wrought)",
+  "name": "AA 1100 — Annealed",
   "category": "Metal",
   "subcategory": "Aluminum - Pure/Other",
   "tier": "generic",
@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 32.9,
-      "max": 32.9,
-      "typical": 32.9,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 34,
+      "typical": 34,
+      "max": 34,
+      "confidence": "handbook",
+      "provenance": "교정: EMJ Metals Aluminum catalog — 1100-O typical 13,000/5,000 psi, El 35 · United Aluminum 1100-O 13/5 ksi · MakeItFrom 1100-O (88 / 29 / 32% / HB 23)"
     },
     "uts": {
-      "min": 84.6,
-      "max": 84.6,
-      "typical": 84.6,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 90,
+      "typical": 90,
+      "max": 90,
+      "confidence": "handbook",
+      "provenance": "교정: EMJ Metals Aluminum catalog — 1100-O typical 13,000/5,000 psi, El 35 · United Aluminum 1100-O 13/5 ksi · MakeItFrom 1100-O (88 / 29 / 32% / HB 23)"
     },
     "elongation": {
-      "min": 32.9,
-      "max": 32.9,
-      "typical": 32.9,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 35,
+      "typical": 35,
+      "max": 35,
+      "confidence": "handbook",
+      "provenance": "교정: EMJ Metals Aluminum catalog — 1100-O typical 13,000/5,000 psi, El 35 · United Aluminum 1100-O 13/5 ksi · MakeItFrom 1100-O (88 / 29 / 32% / HB 23)"
     },
     "modulus": {
       "min": 69,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 28.2,
-      "max": 28.2,
-      "typical": 28.2,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 23,
+      "typical": 23,
+      "max": 23,
+      "confidence": "handbook",
+      "provenance": "교정: EMJ Metals Aluminum catalog — 1100-O typical 13,000/5,000 psi, El 35 · United Aluminum 1100-O 13/5 ksi · MakeItFrom 1100-O (88 / 29 / 32% / HB 23)"
     },
     "thermal_conductivity": {
       "min": 222,
@@ -201,11 +201,11 @@
   "points": [
     [
       2.71,
-      32.9,
-      84.60000000000001,
-      32.9,
+      34,
+      90,
+      35,
       69,
-      28.200000000000003,
+      23,
       222
     ]
   ],
@@ -225,11 +225,11 @@
   "fracture_toughness": 110,
   "fatigue_strength": 16,
   "density": 2.71,
-  "yield_strength": 32.9,
-  "uts": 84.6,
-  "elongation": 32.9,
+  "yield_strength": 34,
+  "uts": 90,
+  "elongation": 35,
   "modulus": 69,
-  "hardness": 28.2,
+  "hardness": 23,
   "thermal_conductivity": 222,
   "impact_strength": 150,
   "manufacturer": "Generic",
@@ -296,6 +296,76 @@
     },
     "aliases": {
       "from": []
-    }
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 32.9,
+        "max": 32.9,
+        "typical": 32.9,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 32.9
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 84.6,
+        "max": 84.6,
+        "typical": 84.6,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 84.6
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 32.9,
+        "max": 32.9,
+        "typical": 32.9,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 32.9
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 28.2,
+        "max": 28.2,
+        "typical": 28.2,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 28.2
+    },
+    "_basis": "AA 1100-O. 합성값(σy 32.9/UTS 84.6/El 32.9/HV 28.2) → AA 대표값 13/5 ksi, El 35, HB 23.",
+    "_src": "EMJ Metals Aluminum catalog — 1100-O typical 13,000/5,000 psi, El 35 · United Aluminum 1100-O 13/5 ksi · MakeItFrom 1100-O (88 / 29 / 32% / HB 23)",
+    "points": {
+      "from": [
+        [
+          2.71,
+          32.9,
+          84.60000000000001,
+          32.9,
+          69,
+          28.200000000000003,
+          222
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "AA 1100 — Annealed (Wrought)"
+      }
+    },
+    "_fbasis": "표기 통일.",
+    "_fsrc": "A3 Al re-verify 2026Q4"
   }
 }

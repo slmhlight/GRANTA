@@ -11,7 +11,7 @@
   "legacy_id": "G_0020",
   "origin": "generic(csv)",
   "id": "G_0020",
-  "name": "AA 2011 — Aged / solution-treated (Wrought)",
+  "name": "AA 2011 — T8",
   "category": "Metal",
   "subcategory": "Aluminum - Cu Alloys (2xxx)",
   "tier": "generic",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Aged / solution-treated",
+  "heat_treatment": "T8",
   "ranges": {
     "density": {
       "min": 2.8,
@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 315,
-      "max": 371,
-      "typical": 343,
-      "n": 10,
-      "confidence": "measured"
+      "min": 310,
+      "typical": 310,
+      "max": 310,
+      "confidence": "handbook",
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2011-T8: 59/45 ksi, El 12, HB 100) · EMJ Metals catalog 2011-T8 59,000/45,000 psi · MakeItFrom 2011-T8 (410 / 310 / 9.8% / HB 100)"
     },
     "uts": {
-      "min": 432,
-      "max": 508.8,
-      "typical": 470.4,
-      "n": 10,
-      "confidence": "measured"
+      "min": 407,
+      "typical": 407,
+      "max": 407,
+      "confidence": "handbook",
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2011-T8: 59/45 ksi, El 12, HB 100) · EMJ Metals catalog 2011-T8 59,000/45,000 psi · MakeItFrom 2011-T8 (410 / 310 / 9.8% / HB 100)"
     },
     "elongation": {
-      "min": 9.6,
-      "max": 12.24,
-      "typical": 11.76,
-      "n": 10,
-      "confidence": "measured"
+      "min": 12,
+      "typical": 12,
+      "max": 12,
+      "confidence": "handbook",
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2011-T8: 59/45 ksi, El 12, HB 100) · EMJ Metals catalog 2011-T8 59,000/45,000 psi · MakeItFrom 2011-T8 (410 / 310 / 9.8% / HB 100)"
     },
     "modulus": {
       "min": 73,
@@ -60,11 +60,11 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 117,
-      "max": 137.8,
-      "typical": 127.4,
-      "n": 10,
-      "confidence": "measured"
+      "min": 100,
+      "typical": 100,
+      "max": 100,
+      "confidence": "handbook",
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2011-T8: 59/45 ksi, El 12, HB 100) · EMJ Metals catalog 2011-T8 59,000/45,000 psi · MakeItFrom 2011-T8 (410 / 310 / 9.8% / HB 100)"
     },
     "thermal_conductivity": {
       "min": 121,
@@ -199,92 +199,11 @@
   "points": [
     [
       2.8,
-      353.5,
-      484.8,
-      10.92,
+      310,
+      407,
+      12,
       73,
-      131.3,
-      121
-    ],
-    [
-      2.8,
-      346.5,
-      475.2,
-      11.88,
-      73,
-      128.7,
-      121
-    ],
-    [
-      2.8,
-      329,
-      451.2000000000001,
-      10.080000000000002,
-      73,
-      122.2,
-      121
-    ],
-    [
-      2.8,
-      332.5,
-      456.00000000000006,
-      10.2,
-      73,
-      123.5,
-      121
-    ],
-    [
-      2.8,
-      318.5,
-      436.8,
-      12.12,
-      73,
-      118.3,
-      121
-    ],
-    [
-      2.8,
-      343,
-      470.4,
-      11.76,
-      73,
-      127.4,
-      121
-    ],
-    [
-      2.8,
-      357,
-      489.6,
-      12.24,
-      73,
-      132.6,
-      121
-    ],
-    [
-      2.8,
-      322,
-      441.6,
-      12.24,
-      73,
-      119.6,
-      121
-    ],
-    [
-      2.8,
-      371,
-      508.8,
-      11.52,
-      73,
-      137.8,
-      121
-    ],
-    [
-      2.8,
-      315,
-      432,
-      9.6,
-      73,
-      117,
+      100,
       121
     ]
   ],
@@ -312,11 +231,11 @@
   "fracture_toughness": 26.4,
   "fatigue_strength": 130,
   "density": 2.8,
-  "yield_strength": 343,
-  "uts": 470.4,
-  "elongation": 11.76,
+  "yield_strength": 310,
+  "uts": 407,
+  "elongation": 12,
   "modulus": 73,
-  "hardness": 127.4,
+  "hardness": 100,
   "thermal_conductivity": 121,
   "impact_strength": 11,
   "manufacturer": "Generic",
@@ -381,6 +300,160 @@
     },
     "aliases": {
       "from": []
-    }
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 315,
+        "max": 371,
+        "typical": 343,
+        "n": 10,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 343
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 432,
+        "max": 508.8,
+        "typical": 470.4,
+        "n": 10,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 470.4
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 9.6,
+        "max": 12.24,
+        "typical": 11.76,
+        "n": 10,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 11.76
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 117,
+        "max": 137.8,
+        "typical": 127.4,
+        "n": 10,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 127.4
+    },
+    "_basis": "'Aged / solution-treated' 합성값(σy 343/UTS 470.4)을 실제 템퍼 T8(용체화+냉간가공+인공시효)로 교체.",
+    "_src": "Alro Steel Metals Guide — Rod/Bar typical (2011-T8: 59/45 ksi, El 12, HB 100) · EMJ Metals catalog 2011-T8 59,000/45,000 psi · MakeItFrom 2011-T8 (410 / 310 / 9.8% / HB 100)",
+    "points": {
+      "from": [
+        [
+          2.8,
+          353.5,
+          484.8,
+          10.92,
+          73,
+          131.3,
+          121
+        ],
+        [
+          2.8,
+          346.5,
+          475.2,
+          11.88,
+          73,
+          128.7,
+          121
+        ],
+        [
+          2.8,
+          329,
+          451.2000000000001,
+          10.080000000000002,
+          73,
+          122.2,
+          121
+        ],
+        [
+          2.8,
+          332.5,
+          456.00000000000006,
+          10.2,
+          73,
+          123.5,
+          121
+        ],
+        [
+          2.8,
+          318.5,
+          436.8,
+          12.12,
+          73,
+          118.3,
+          121
+        ],
+        [
+          2.8,
+          343,
+          470.4,
+          11.76,
+          73,
+          127.4,
+          121
+        ],
+        [
+          2.8,
+          357,
+          489.6,
+          12.24,
+          73,
+          132.6,
+          121
+        ],
+        [
+          2.8,
+          322,
+          441.6,
+          12.24,
+          73,
+          119.6,
+          121
+        ],
+        [
+          2.8,
+          371,
+          508.8,
+          11.52,
+          73,
+          137.8,
+          121
+        ],
+        [
+          2.8,
+          315,
+          432,
+          9.6,
+          73,
+          117,
+          121
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "AA 2011 — Aged / solution-treated (Wrought)"
+      },
+      "heat_treatment": {
+        "from": "Aged / solution-treated"
+      }
+    },
+    "_fbasis": "합성 'Aged / solution-treated' → 실제 템퍼 T8.",
+    "_fsrc": "Alro Metals Guide 2011-T8 · EMJ · MakeItFrom"
   }
 }

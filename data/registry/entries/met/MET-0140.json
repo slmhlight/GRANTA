@@ -11,7 +11,7 @@
   "legacy_id": "G_0049",
   "origin": "generic(csv)",
   "id": "G_0049",
-  "name": "AA 5086 — Annealed (Wrought)",
+  "name": "AA 5086 — Annealed",
   "category": "Metal",
   "subcategory": "Aluminum - Mg Alloys (5xxx)",
   "tier": "generic",
@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 202.1,
-      "max": 202.1,
-      "typical": 202.1,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 120,
+      "typical": 120,
+      "max": 120,
+      "confidence": "handbook",
+      "provenance": "교정: ASM Handbook Vol.2 (1990) p.93-4 '5086, Alclad 5086' — 5086-O 260 / 120 / 22% (Wikipedia 5086 aluminium alloy 인용) · MakeItFrom 5086-O (270 / 110 / 20% / HB 65)"
     },
     "uts": {
-      "min": 286.7,
-      "max": 286.7,
-      "typical": 286.7,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 260,
+      "typical": 260,
+      "max": 260,
+      "confidence": "handbook",
+      "provenance": "교정: ASM Handbook Vol.2 (1990) p.93-4 '5086, Alclad 5086' — 5086-O 260 / 120 / 22% (Wikipedia 5086 aluminium alloy 인용) · MakeItFrom 5086-O (270 / 110 / 20% / HB 65)"
     },
     "elongation": {
-      "min": 16.92,
-      "max": 16.92,
-      "typical": 16.92,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 22,
+      "typical": 22,
+      "max": 22,
+      "confidence": "handbook",
+      "provenance": "교정: ASM Handbook Vol.2 (1990) p.93-4 '5086, Alclad 5086' — 5086-O 260 / 120 / 22% (Wikipedia 5086 aluminium alloy 인용) · MakeItFrom 5086-O (270 / 110 / 20% / HB 65)"
     },
     "modulus": {
       "min": 72,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 70.5,
-      "max": 70.5,
-      "typical": 70.5,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 65,
+      "typical": 65,
+      "max": 65,
+      "confidence": "handbook",
+      "provenance": "교정: ASM Handbook Vol.2 (1990) p.93-4 '5086, Alclad 5086' — 5086-O 260 / 120 / 22% (Wikipedia 5086 aluminium alloy 인용) · MakeItFrom 5086-O (270 / 110 / 20% / HB 65)"
     },
     "thermal_conductivity": {
       "min": 121,
@@ -199,11 +199,11 @@
   "points": [
     [
       2.66,
-      202.1,
-      286.70000000000005,
-      16.92,
+      120,
+      260,
+      22,
       72,
-      70.5,
+      65,
       121
     ]
   ],
@@ -222,11 +222,11 @@
   "fracture_toughness": 57,
   "fatigue_strength": 58,
   "density": 2.66,
-  "yield_strength": 202.1,
-  "uts": 286.7,
-  "elongation": 16.92,
+  "yield_strength": 120,
+  "uts": 260,
+  "elongation": 22,
   "modulus": 72,
-  "hardness": 70.5,
+  "hardness": 65,
   "thermal_conductivity": 121,
   "impact_strength": 31,
   "manufacturer": "Generic",
@@ -292,6 +292,76 @@
     },
     "aliases": {
       "from": []
-    }
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 202.1,
+        "max": 202.1,
+        "typical": 202.1,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 202.1
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 286.7,
+        "max": 286.7,
+        "typical": 286.7,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 286.7
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 16.92,
+        "max": 16.92,
+        "typical": 16.92,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 16.92
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 70.5,
+        "max": 70.5,
+        "typical": 70.5,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 70.5
+    },
+    "_basis": "AA 5086-O. 합성값의 항복 202.1 은 H32 급(205) — 소둔 대표는 115~120.",
+    "_src": "ASM Handbook Vol.2 (1990) p.93-4 '5086, Alclad 5086' — 5086-O 260 / 120 / 22% (Wikipedia 5086 aluminium alloy 인용) · MakeItFrom 5086-O (270 / 110 / 20% / HB 65)",
+    "points": {
+      "from": [
+        [
+          2.66,
+          202.1,
+          286.70000000000005,
+          16.92,
+          72,
+          70.5,
+          121
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "AA 5086 — Annealed (Wrought)"
+      }
+    },
+    "_fbasis": "표기 통일.",
+    "_fsrc": "A3 Al re-verify 2026Q4"
   }
 }
