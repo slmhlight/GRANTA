@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 290,
-      "max": 290,
-      "typical": 290,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 324,
+      "typical": 324,
+      "max": 324,
+      "confidence": "handbook",
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2024-T351, T4: 68/47 ksi, El 19, HB 120) · EMJ Metals catalog 2024-T4, T351 68,000/47,000 psi, El 19, HB 120 · tubingchina ASM typical table (2024-T4 68/48 ksi, El 19, HB 120)"
     },
     "uts": {
-      "min": 425,
-      "max": 425,
-      "typical": 425,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 469,
+      "typical": 469,
+      "max": 469,
+      "confidence": "handbook",
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2024-T351, T4: 68/47 ksi, El 19, HB 120) · EMJ Metals catalog 2024-T4, T351 68,000/47,000 psi, El 19, HB 120 · tubingchina ASM typical table (2024-T4 68/48 ksi, El 19, HB 120)"
     },
     "elongation": {
       "min": 19,
-      "max": 19,
       "typical": 19,
-      "n": 1,
-      "confidence": "handbook"
+      "max": 19,
+      "confidence": "handbook",
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2024-T351, T4: 68/47 ksi, El 19, HB 120) · EMJ Metals catalog 2024-T4, T351 68,000/47,000 psi, El 19, HB 120 · tubingchina ASM typical table (2024-T4 68/48 ksi, El 19, HB 120)"
     },
     "modulus": {
       "min": 73,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 105,
-      "max": 105,
-      "typical": 105,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 120,
+      "typical": 120,
+      "max": 120,
+      "confidence": "handbook",
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2024-T351, T4: 68/47 ksi, El 19, HB 120) · EMJ Metals catalog 2024-T4, T351 68,000/47,000 psi, El 19, HB 120 · tubingchina ASM typical table (2024-T4 68/48 ksi, El 19, HB 120)"
     },
     "thermal_conductivity": {
       "min": 121,
@@ -223,11 +223,11 @@
   "points": [
     [
       2.78,
-      290,
-      425,
+      324,
+      469,
       19,
       73,
-      105,
+      120,
       121
     ]
   ],
@@ -243,11 +243,11 @@
   "fracture_toughness": 33.8,
   "fatigue_strength": 110,
   "density": 2.78,
-  "yield_strength": 290,
-  "uts": 425,
+  "yield_strength": 324,
+  "uts": 469,
   "elongation": 19,
   "modulus": 73,
-  "hardness": 105,
+  "hardness": 120,
   "thermal_conductivity": 121,
   "impact_strength": 21,
   "manufacturer": "Reference data",
@@ -313,6 +313,69 @@
         "EN AW-2024",
         "AlCu4Mg1",
         "DIN 3.1355"
+      ]
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 290,
+        "max": 290,
+        "typical": 290,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 290
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 425,
+        "max": 425,
+        "typical": 425,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 425
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 19,
+        "max": 19,
+        "typical": 19,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 19
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 105,
+        "max": 105,
+        "typical": 105,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 105
+    },
+    "_basis": "AA 2024-T4 의 425/290 은 규격 최소값 수준(B209/B211 2024-T4 min 62~64/40~42 ksi)이 typical 자리에 실린 것 — 같은 base 의 다른 조건은 전부 typical. 대표값 표 3종이 68/47~48 ksi, El 19, HB 120 으로 일치.",
+    "_src": "Alro Steel Metals Guide — Rod/Bar typical (2024-T351, T4: 68/47 ksi, El 19, HB 120) · EMJ Metals catalog 2024-T4, T351 68,000/47,000 psi, El 19, HB 120 · tubingchina ASM typical table (2024-T4 68/48 ksi, El 19, HB 120)",
+    "points": {
+      "from": [
+        [
+          2.78,
+          290,
+          425,
+          19,
+          73,
+          105,
+          121
+        ]
       ]
     }
   }

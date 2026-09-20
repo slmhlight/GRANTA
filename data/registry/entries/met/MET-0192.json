@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 295,
-      "max": 295,
-      "typical": 295,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 270,
+      "typical": 270,
+      "max": 270,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 6082-T651 Aluminum (320 / 270 / HB 91) · Aalco Aluminium Alloy 6082 T6~T651 Plate datasheet (BS EN 485-2: 6~12.5 mm 300/255 min, El 9 min, HB 91)"
     },
     "uts": {
-      "min": 340,
-      "max": 340,
-      "typical": 340,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 320,
+      "typical": 320,
+      "max": 320,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 6082-T651 Aluminum (320 / 270 / HB 91) · Aalco Aluminium Alloy 6082 T6~T651 Plate datasheet (BS EN 485-2: 6~12.5 mm 300/255 min, El 9 min, HB 91)"
     },
     "elongation": {
-      "min": 8,
-      "max": 8,
-      "typical": 8,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 9,
+      "typical": 9,
+      "max": 9,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 6082-T651 Aluminum (320 / 270 / HB 91) · Aalco Aluminium Alloy 6082 T6~T651 Plate datasheet (BS EN 485-2: 6~12.5 mm 300/255 min, El 9 min, HB 91)"
     },
     "modulus": {
       "min": 70,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 110,
-      "max": 110,
-      "typical": 110,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 91,
+      "typical": 91,
+      "max": 91,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 6082-T651 Aluminum (320 / 270 / HB 91) · Aalco Aluminium Alloy 6082 T6~T651 Plate datasheet (BS EN 485-2: 6~12.5 mm 300/255 min, El 9 min, HB 91)"
     },
     "thermal_conductivity": {
       "min": 180,
@@ -222,11 +222,11 @@
   "points": [
     [
       2.7,
-      295,
-      340,
-      8,
+      270,
+      320,
+      9,
       70,
-      110,
+      91,
       180
     ]
   ],
@@ -242,11 +242,11 @@
   "fracture_toughness": 31,
   "fatigue_strength": 96,
   "density": 2.7,
-  "yield_strength": 295,
-  "uts": 340,
-  "elongation": 8,
+  "yield_strength": 270,
+  "uts": 320,
+  "elongation": 9,
   "modulus": 70,
-  "hardness": 110,
+  "hardness": 91,
   "thermal_conductivity": 180,
   "impact_strength": 13,
   "manufacturer": "Reference data",
@@ -310,6 +310,69 @@
         "UNS A96082",
         "EN AW-6082",
         "AlSi1MgMn"
+      ]
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 295,
+        "max": 295,
+        "typical": 295,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 295
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 340,
+        "max": 340,
+        "typical": 340,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 340
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 8,
+        "max": 8,
+        "typical": 8,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 8
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 110,
+        "max": 110,
+        "typical": 110,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 110
+    },
+    "_basis": "AA 6082-T651 의 340/295/HB 110 은 T651 판재 typical 밴드(310~320 / 260~280 / HB 89~91) 위에 있었다 — T651 은 T6 의 응력제거판이라 강도가 T6 와 같아야 한다. 연신율은 EN 485-2 최소(9%)를 채택(MakeItFrom 6.3% 은 박판 기준으로 보여 보수적으로 규격 최소).",
+    "_src": "MakeItFrom 6082-T651 Aluminum (320 / 270 / HB 91) · Aalco Aluminium Alloy 6082 T6~T651 Plate datasheet (BS EN 485-2: 6~12.5 mm 300/255 min, El 9 min, HB 91)",
+    "points": {
+      "from": [
+        [
+          2.7,
+          295,
+          340,
+          8,
+          70,
+          110,
+          180
+        ]
       ]
     }
   }

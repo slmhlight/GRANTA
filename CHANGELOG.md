@@ -2,6 +2,16 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## 2026-09-20 — A3 잔여 ⑤ 2차 (Al 8건 — 인용을 찾은 7건 종결)
+
+- **7050**: 인용된 Kaiser 7050 Sheet/Coil/Plate 데이터시트를 PDF 로 다시 판독 — typical 표는 **T7451·T7651 두 행뿐**. 'Annealed'(235/90)는 어디에도 없는 값이라 **제거**, T7451 은 표대로 524/469/11/**HB 140**(DB El 10·HB 165 정정), 'T74' 560/510/HB 175 는 표에 없고 T7651 보다 높아 **T7651**(552/489/11/150)로 교정·재라벨.
+- **2024-T4** 425/290/19/105 → **469/324/19/120** — 규격 최소(B209/B211)가 typical 자리에 있었다(Alro·EMJ·tubingchina 일치). **6082-T651** 340/295/8/110 → **320/270/9/91**(MakeItFrom · Aalco EN 485-2 plate). **5182 'H19'** → 값이 United 5182-H34(48/37 ksi, El 11)라 **H34 로 재라벨**(H19 는 420/360). **5456**(조건 미상) → **H116** 340/240/13/90(MakeItFrom). **6463** architectural 'T6' 207/172 = EN 755-2 **최소** → typical 230/200/11/74, 단독 'AA 6463'(템퍼 미상·El 20)은 중복 제거.
+- **2195·2050 "중복 조건"은 오독** — 1차 표에서 이름이 잘렸을 뿐(2195 'T8' vs 'T8 tested at −253 °C', 2050 'T84 std' vs 'T84 heavy plate'). REVIEWED. 파생 경도 4건(1050-O·3105-H25·6101-H111·2017-H13)은 재검색에도 공개 HB 가 없어 유지.
+- 부수: fields 교정 라운드트립이 "키가 존재하되 null"(heat_treatment: null)을 "없음"과 구분하지 못해 1건 어긋남 → `had` 플래그(build-registry). confidence_tier 하향 4(6262 T6/T9·1050 H14·1100 H14 — 가짜 'measured n=9' 가 handbook 으로 정직화). 재료 **1,115 → 1,113**.
+- 검증: 라운드트립 0 · vitest 1237/1237(80).
+
+---
+
 ## 2026-09-20 — A12 근본원인 (confidence↔provenance — 갈라지는 경로는 override 병합이었다)
 
 - **경로 특정**: 표시 신뢰도가 근거보다 낙관적이던 range(09-10 실측 107 → 현재 93)는 setPh/setTyp 순서가 아니라 **override 병합** 네 곳(R173-range 18 · R199 37 · R205 37 · backfill 2)에서 생겼다. `{ ...cur, ...newRange }` 로 값·신뢰도를 덮으면서 계열 폴백이 남긴 `provenance:'1st_family:…'`·`estimated:true` 가 그대로 살아남은 것 — 값과 신뢰도는 override 의 것이 맞고 **근거 표시만 옛것**이었다.

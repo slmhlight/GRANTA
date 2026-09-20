@@ -11,7 +11,7 @@
   "legacy_id": "R_0363_2",
   "origin": "reference(supplementary)",
   "id": "R_0363_2",
-  "name": "AA 7050 — T74",
+  "name": "AA 7050 — T7651",
   "category": "Metal",
   "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
   "tier": "reference",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "T74",
+  "heat_treatment": "T7651",
   "ranges": {
     "density": {
       "min": 2.83,
@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 510,
-      "max": 510,
-      "typical": 510,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 489,
+      "typical": 489,
+      "max": 489,
+      "confidence": "handbook",
+      "provenance": "교정: Kaiser Aluminum — Sheet Coil & Plate Alloy 7050 Technical Data (Rev. 05/06), Typical Mechanical Properties: T7651 80 ksi / 71 ksi / 11% / HB 150"
     },
     "uts": {
-      "min": 560,
-      "max": 560,
-      "typical": 560,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 552,
+      "typical": 552,
+      "max": 552,
+      "confidence": "handbook",
+      "provenance": "교정: Kaiser Aluminum — Sheet Coil & Plate Alloy 7050 Technical Data (Rev. 05/06), Typical Mechanical Properties: T7651 80 ksi / 71 ksi / 11% / HB 150"
     },
     "elongation": {
       "min": 11,
-      "max": 11,
       "typical": 11,
-      "n": 1,
-      "confidence": "handbook"
+      "max": 11,
+      "confidence": "handbook",
+      "provenance": "교정: Kaiser Aluminum — Sheet Coil & Plate Alloy 7050 Technical Data (Rev. 05/06), Typical Mechanical Properties: T7651 80 ksi / 71 ksi / 11% / HB 150"
     },
     "modulus": {
       "min": 72,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 175,
-      "max": 175,
-      "typical": 175,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 150,
+      "typical": 150,
+      "max": 150,
+      "confidence": "handbook",
+      "provenance": "교정: Kaiser Aluminum — Sheet Coil & Plate Alloy 7050 Technical Data (Rev. 05/06), Typical Mechanical Properties: T7651 80 ksi / 71 ksi / 11% / HB 150"
     },
     "thermal_conductivity": {
       "min": 154,
@@ -218,11 +218,11 @@
   "points": [
     [
       2.83,
-      510,
-      560,
+      489,
+      552,
       11,
       72,
-      175,
+      150,
       154
     ]
   ],
@@ -237,11 +237,11 @@
   "fracture_toughness": 44.8,
   "fatigue_strength": 113,
   "density": 2.83,
-  "yield_strength": 510,
-  "uts": 560,
+  "yield_strength": 489,
+  "uts": 552,
   "elongation": 11,
   "modulus": 72,
-  "hardness": 175,
+  "hardness": 150,
   "thermal_conductivity": 154,
   "impact_strength": 14,
   "manufacturer": "Reference data",
@@ -329,12 +329,80 @@
         "EN AW-7050"
       ]
     },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 510,
+        "max": 510,
+        "typical": 510,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 510
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 560,
+        "max": 560,
+        "typical": 560,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 560
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 11,
+        "max": 11,
+        "typical": 11,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 11
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 175,
+        "max": 175,
+        "typical": 175,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 175
+    },
+    "_basis": "라벨 'T74' 의 560/510/HB 175 는 인용된 Kaiser 표에 없는 값이고 T7651(552/489/HB 150)보다도 높다 — 7050 판재의 상용 고강도 템퍼는 T7651. 표의 T7651 행으로 교정·재라벨.",
+    "_src": "Kaiser Aluminum — Sheet Coil & Plate Alloy 7050 Technical Data (Rev. 05/06), Typical Mechanical Properties: T7651 80 ksi / 71 ksi / 11% / HB 150",
+    "points": {
+      "from": [
+        [
+          2.83,
+          510,
+          560,
+          11,
+          72,
+          175,
+          154
+        ]
+      ]
+    },
     "fields": {
       "name": {
-        "from": "AA 7050-T7451 (aerospace thick plate) — T74"
+        "from": "AA 7050-T7451 (aerospace thick plate) — T74",
+        "had": true
+      },
+      "heat_treatment": {
+        "from": "T74",
+        "had": true
       }
     },
-    "_fbasis": "합성 AA 7050 3조건(중복) 제거 후, 템퍼명이 base 에 박혀 있던 AA 7050-T7451 (aerospace thick plate) 를 표준 base 명으로 통일 — 부식 노트·위키 엔티티가 AA 7050 키를 쓴다. 값 불변(Kaiser 7050 plate datasheet 판독분).",
-    "_fsrc": "A3 Al re-verify 2026Q4"
+    "_fbasis": "값 교정과 세트 — Kaiser 표의 T7651 행.",
+    "_fsrc": "Kaiser Aluminum 7050 Sheet Coil & Plate Technical Data"
   }
 }

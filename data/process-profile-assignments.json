@@ -1,6 +1,6 @@
 {
  "_note": "생성물: pnpm build:profiles (scripts/build-process-profiles.mjs). 직접 수정 금지 — 교정은 data/process-profile-overrides.json (stable_id + src). 키 의미: mach=절삭성 프로파일(process-profiles.json), weld=용접성 모델(ce|schaeffler|none), ht=HT family(ht-alloy-specific.ts familyName), htc=조건 클래스, insight=선택 인사이트 그룹(selection-insights.json).",
- "entries": 1115,
+ "entries": 1113,
  "ht_families_parsed": 34,
  "assignments": {
   "CER-0001": {
@@ -1600,7 +1600,6 @@
    "colorf": "Magnesium",
    "mach": "al-5xxx",
    "weld": "none",
-   "htc": "cold",
    "htg": "h17-al-nonheat",
    "wg": "w18-aa",
    "insight": "aluminum",
@@ -2143,16 +2142,6 @@
    "cg": "al-wrought",
    "corr": "al-wrought"
   },
-  "MET-0200": {
-   "colorf": "Aluminum",
-   "mach": "al-6xxx",
-   "weld": "none",
-   "htg": "h02-aa",
-   "wg": "w19-aa",
-   "insight": "aluminum",
-   "cg": "al-wrought",
-   "corr": "al-wrought"
-  },
   "MET-0201": {
    "colorf": "Aluminum",
    "mach": "al-6xxx",
@@ -2171,18 +2160,6 @@
    "htc": "aged",
    "htg": "h02-aa",
    "wg": "w19-aa",
-   "insight": "aluminum",
-   "cg": "al-wrought",
-   "corr": "al-wrought"
-  },
-  "MET-0206": {
-   "colorf": "Aluminum",
-   "mach": "al-7xxx",
-   "weld": "none",
-   "htc": "soft",
-   "ht": "AA 7xxx Al-Zn-Mg (7075, 7050, 7068)",
-   "htg": "h02-aa",
-   "wg": "w20-aa",
    "insight": "aluminum",
    "cg": "al-wrought",
    "corr": "al-wrought"

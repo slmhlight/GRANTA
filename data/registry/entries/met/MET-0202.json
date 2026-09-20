@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 172,
-      "max": 172,
-      "typical": 172,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 200,
+      "typical": 200,
+      "max": 200,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 6463-T6 Aluminum (230 / 200 / 11% / HB 74)"
     },
     "uts": {
-      "min": 207,
-      "max": 207,
-      "typical": 207,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 230,
+      "typical": 230,
+      "max": 230,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 6463-T6 Aluminum (230 / 200 / 11% / HB 74)"
     },
     "elongation": {
-      "min": 12,
-      "max": 12,
-      "typical": 12,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 11,
+      "typical": 11,
+      "max": 11,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 6463-T6 Aluminum (230 / 200 / 11% / HB 74)"
     },
     "modulus": {
       "min": 74,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 60,
-      "max": 60,
-      "typical": 60,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 74,
+      "typical": 74,
+      "max": 74,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 6463-T6 Aluminum (230 / 200 / 11% / HB 74)"
     },
     "thermal_conductivity": {
       "min": 209,
@@ -220,11 +220,11 @@
   "points": [
     [
       2.7,
-      172,
-      207,
-      12,
+      200,
+      230,
+      11,
       74,
-      60,
+      74,
       209
     ]
   ],
@@ -244,11 +244,11 @@
   },
   "fracture_toughness": 32,
   "density": 2.7,
-  "yield_strength": 172,
-  "uts": 207,
-  "elongation": 12,
+  "yield_strength": 200,
+  "uts": 230,
+  "elongation": 11,
   "modulus": 74,
-  "hardness": 60,
+  "hardness": 74,
   "thermal_conductivity": 209,
   "fatigue_strength": 52,
   "impact_strength": 18,
@@ -282,5 +282,70 @@
   "total_cost_estimate": 4.91,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 172,
+        "max": 172,
+        "typical": 172,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 172
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 207,
+        "max": 207,
+        "typical": 207,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 207
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 12,
+        "max": 12,
+        "typical": 12,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 12
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 60,
+        "max": 60,
+        "typical": 60,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 60
+    },
+    "_basis": "'6463 (architectural) — T6' 의 207/172 는 EN 755-2 6463-T6 최소(Rm 205 / Rp 170)와 일치 — 규격 최소가 typical 자리에 실린 것. 대표값으로 교정. 같은 base 의 T4(135/81)는 EN T4 최소(125/75) 근방이나 T1 typical 과도 겹쳐 판정 보류.",
+    "_src": "MakeItFrom 6463-T6 Aluminum (230 / 200 / 11% / HB 74)",
+    "points": {
+      "from": [
+        [
+          2.7,
+          172,
+          207,
+          12,
+          74,
+          60,
+          209
+        ]
+      ]
+    }
+  }
 }

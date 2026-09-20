@@ -11,7 +11,7 @@
   "legacy_id": "R_0309_1",
   "origin": "reference(supplementary)",
   "id": "R_0309_1",
-  "name": "AA 5182 (Al-Mg high-Mg) — H19 (full hard)",
+  "name": "AA 5182 (Al-Mg high-Mg) — H34 (half hard)",
   "category": "Metal",
   "subcategory": "Aluminum - Mg Alloys (5xxx)",
   "tier": "reference",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "H19 (full hard)",
+  "heat_treatment": "H34",
   "ranges": {
     "density": {
       "min": 2.65,
@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 235,
-      "max": 235,
-      "typical": 235,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 255,
+      "typical": 255,
+      "max": 255,
+      "confidence": "handbook",
+      "provenance": "교정: United Aluminum — Aluminum Alloy 5182 typical mechanical properties (5182-H34: 48 ksi / 37 ksi / 11%) · MakeItFrom 5182-H19 (420 / 360 / 1.1% / HB 110 — H19 가 아님을 확인하는 대조)"
     },
     "uts": {
-      "min": 325,
-      "max": 325,
-      "typical": 325,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 331,
+      "typical": 331,
+      "max": 331,
+      "confidence": "handbook",
+      "provenance": "교정: United Aluminum — Aluminum Alloy 5182 typical mechanical properties (5182-H34: 48 ksi / 37 ksi / 11%) · MakeItFrom 5182-H19 (420 / 360 / 1.1% / HB 110 — H19 가 아님을 확인하는 대조)"
     },
     "elongation": {
-      "min": 12,
-      "max": 12,
-      "typical": 12,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 11,
+      "typical": 11,
+      "max": 11,
+      "confidence": "handbook",
+      "provenance": "교정: United Aluminum — Aluminum Alloy 5182 typical mechanical properties (5182-H34: 48 ksi / 37 ksi / 11%) · MakeItFrom 5182-H19 (420 / 360 / 1.1% / HB 110 — H19 가 아님을 확인하는 대조)"
     },
     "modulus": {
       "min": 70,
@@ -209,9 +209,9 @@
   "points": [
     [
       2.65,
-      235,
-      325,
-      12,
+      255,
+      331,
+      11,
       70,
       90,
       123
@@ -228,9 +228,9 @@
   "fracture_toughness": 29.8,
   "fatigue_strength": 89,
   "density": 2.65,
-  "yield_strength": 235,
-  "uts": 325,
-  "elongation": 12,
+  "yield_strength": 255,
+  "uts": 331,
+  "elongation": 11,
   "modulus": 70,
   "hardness": 90,
   "thermal_conductivity": 123,
@@ -262,5 +262,70 @@
   "total_cost_estimate": 3.27,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 235,
+        "max": 235,
+        "typical": 235,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 235
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 325,
+        "max": 325,
+        "typical": 325,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 325
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 12,
+        "max": 12,
+        "typical": 12,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 12
+    },
+    "_basis": "라벨 'H19 (full hard)' 인데 값(325/235/12)은 H34(48/37 ksi, El 11)와 일치하고 H19 typical(420/360, El ~1~5)과는 멀다 — 라벨을 값에 맞춰 H34 로 교정. 경도 90 은 인용 미확보로 유지.",
+    "_src": "United Aluminum — Aluminum Alloy 5182 typical mechanical properties (5182-H34: 48 ksi / 37 ksi / 11%) · MakeItFrom 5182-H19 (420 / 360 / 1.1% / HB 110 — H19 가 아님을 확인하는 대조)",
+    "points": {
+      "from": [
+        [
+          2.65,
+          235,
+          325,
+          12,
+          70,
+          90,
+          123
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "AA 5182 (Al-Mg high-Mg) — H19 (full hard)",
+        "had": true
+      },
+      "heat_treatment": {
+        "from": "H19 (full hard)",
+        "had": true
+      }
+    },
+    "_fbasis": "값이 H34 인데 라벨이 H19 였다.",
+    "_fsrc": "United Aluminum 5182 typical"
+  }
 }

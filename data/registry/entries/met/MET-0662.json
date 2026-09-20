@@ -333,18 +333,22 @@
     },
     "fields": {
       "name": {
-        "from": "Tantalum (Ta) — As-built"
+        "from": "Tantalum (Ta) — As-built",
+        "had": true
       },
       "process": {
-        "from": "LPBF"
+        "from": "LPBF",
+        "had": true
       },
       "heat_treatment": {
-        "from": "As-built"
+        "from": "As-built",
+        "had": true
       },
       "processes": {
         "from": [
           "LPBF"
-        ]
+        ],
+        "had": true
       }
     },
     "_fbasis": "As-built(AM) 공정을 wrought 로 전환 (사용자 지시). 이름·공정·HT 정합 + 기준값.",

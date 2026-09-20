@@ -11,7 +11,7 @@
   "legacy_id": "R_0217",
   "origin": "reference(supplementary)",
   "id": "R_0217",
-  "name": "AA 5456",
+  "name": "AA 5456 — H116",
   "category": "Metal",
   "subcategory": "Aluminum - Mg Alloys (5xxx)",
   "tier": "reference",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": null,
+  "heat_treatment": "H116",
   "ranges": {
     "density": {
       "min": 2.66,
@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 160,
-      "max": 230,
-      "typical": 230,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 240,
+      "typical": 240,
+      "max": 240,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 5456-H116 Aluminum (340 / 240 / 13% / HB 90)"
     },
     "uts": {
-      "min": 310,
-      "max": 350,
-      "typical": 350,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 340,
+      "typical": 340,
+      "max": 340,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 5456-H116 Aluminum (340 / 240 / 13% / HB 90)"
     },
     "elongation": {
-      "min": 16,
-      "max": 22,
-      "typical": 22,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 13,
+      "typical": 13,
+      "max": 13,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 5456-H116 Aluminum (340 / 240 / 13% / HB 90)"
     },
     "modulus": {
       "min": 71,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 80,
-      "max": 90,
+      "min": 90,
       "typical": 90,
-      "n": 2,
-      "confidence": "handbook"
+      "max": 90,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom 5456-H116 Aluminum (340 / 240 / 13% / HB 90)"
     },
     "thermal_conductivity": {
       "min": 116,
@@ -210,20 +210,11 @@
   "points": [
     [
       2.66,
-      230,
-      350,
-      16,
+      240,
+      340,
+      13,
       71,
       90,
-      116
-    ],
-    [
-      2.66,
-      160,
-      310,
-      22,
-      71,
-      80,
       116
     ]
   ],
@@ -237,9 +228,9 @@
   "fracture_toughness": 40,
   "fatigue_strength": 87,
   "density": 2.66,
-  "yield_strength": 230,
-  "uts": 350,
-  "elongation": 22,
+  "yield_strength": 240,
+  "uts": 340,
+  "elongation": 13,
   "modulus": 71,
   "hardness": 90,
   "thermal_conductivity": 116,
@@ -275,5 +266,91 @@
   "total_cost_estimate": 3.21,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 160,
+        "max": 230,
+        "typical": 230,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 230
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 310,
+        "max": 350,
+        "typical": 350,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 350
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 16,
+        "max": 22,
+        "typical": 22,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 22
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 80,
+        "max": 90,
+        "typical": 90,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 90
+    },
+    "_basis": "조건 없는 단독 entry 의 350/230/22 는 O(310/160/24)와 H116(350/255/16)이 섞인 값 — UTS·HB 가 H116 과 일치하므로 H116 으로 확정하고 σy·El 을 맞춤.",
+    "_src": "MakeItFrom 5456-H116 Aluminum (340 / 240 / 13% / HB 90)",
+    "points": {
+      "from": [
+        [
+          2.66,
+          230,
+          350,
+          16,
+          71,
+          90,
+          116
+        ],
+        [
+          2.66,
+          160,
+          310,
+          22,
+          71,
+          80,
+          116
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "AA 5456",
+        "had": true
+      },
+      "heat_treatment": {
+        "from": null,
+        "had": true
+      }
+    },
+    "_fbasis": "조건 미상 단독 entry 를 값이 가리키는 템퍼(H116)로 확정.",
+    "_fsrc": "MakeItFrom 5456-H116"
+  }
 }
