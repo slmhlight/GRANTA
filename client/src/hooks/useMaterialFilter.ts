@@ -5,12 +5,19 @@
  * R157b — FilterState interface + DEFAULT_FILTERS → lib/filter-state.ts.
  *   Hook 본체 (filter / sort / narrowedRanges) 만 여기 유지.
  *   기존 import 호환을 위해 두 심볼 모두 re-export.
+ *
+ * F1 (2026-09-20) — 술어를 한 벌로 모았다. 본필터(filteredUnsorted)와 leave-one-out 모집단(narrowedRanges)이
+ *   같은 술어 사슬을 **각자 복사**해 갖고 있었고(R209 가 한 번 맞춘 뒤 다시 갈라짐), 두 곳이 어긋나 있었다:
+ *   ① 모집단 쪽이 출처 등급(E3)·원소 범위 필터를 적용하지 않아 슬라이더 범위가 결과보다 넓었다.
+ *   ② 모집단 쪽이 평면값만 읽어(getProp) ranges 에만 값이 있는 재료가 빠졌다 — T_max 슬라이더 상한이 2000 인데
+ *      HfC 3000·ZrB₂ 2200·HfB₂ 2300·Y₂O₃ 2200 이 ranges 에만 있어 슬라이더로는 도달할 수 없었다(A15 잔여).
+ *   수치 범위 키 ↔ 물성 키 대응은 lib/range-filters.ts 한 곳(RANGE_FILTERS), 공정 그룹은 lib/process-groups.ts.
  */
 
 import { useState, useMemo, useCallback } from 'react';
 import { propValue, type Material } from '@/lib/materials';
 import { parseCompositionRange, getRangeValue } from '@/lib/composition-parser';
-import { applyQuery, parseQuery, type ParsedQuery } from '@/lib/query-dsl';
+import { applyQuery, parseQuery } from '@/lib/query-dsl';
 // R157b — fuzzyContains → lib/fuzzy-search.ts 로 이동.
 import { fuzzyContains } from '@/lib/fuzzy-search';
 // R157b — HT matcher (filter 카테고리 → material.heat_treatment 매칭) → lib/ht-matcher.ts.
@@ -20,6 +27,8 @@ import { type FilterState, DEFAULT_FILTERS } from '@/lib/filter-state';
 import { matchesAuthority, authorityRank } from '@/lib/source-authority';
 // E15l — 환경별 내식 필터 (합금 보정 적용 후 verdict 기준, WeakMap 캐시).
 import { passesCorrosionEnv } from '@/lib/corrosion-guidance';
+import { matchesAnyProcessGroup } from '@/lib/process-groups';
+import { RANGE_FILTERS } from '@/lib/range-filters';
 
 // Re-export for backward compat (Home / ScenarioDialog / 다른 consumer).
 export { DEFAULT_FILTERS, type FilterState };
@@ -30,6 +39,138 @@ export { DEFAULT_FILTERS, type FilterState };
  */
 export function fuzzyContainsExport(text: string, q: string): boolean {
   return fuzzyContains(text, q);
+}
+
+/** 물성 값이 [lo, hi] 안에 있는가 — 값은 공용 리더(propValue)로 읽는다. 값 없음은 탈락. */
+export function passesRange(m: Material, prop: keyof Material, range: readonly [number, number]): boolean {
+  const v = propValue(m, prop as string);
+  return v !== null && v >= range[0] && v <= range[1];
+}
+
+/**
+ * 수치 범위 필터(RANGE_FILTERS)를 **뺀** 모든 술어. 본필터와 슬라이더 모집단이 이 한 함수를 쓴다 —
+ * 술어를 여기 말고 다른 곳에 더 적으면 두 화면이 다시 갈라진다.
+ */
+export function applyBaseFilters(materials: Material[], filters: FilterState): Material[] {
+  let result = materials;
+
+  /* E3 (H6 W4-2) — 출처 권위 등급. 선택한 등급의 출처를 **가진** 재료를 남긴다(OR).
+     선택이 비면 전량 통과 — 원칙 8(구분 표시만, 저신뢰 은폐 금지). */
+  if (filters.authorities?.length) {
+    result = result.filter((m) => matchesAuthority(m, filters.authorities));
+  }
+
+  // R180 — Text search 범위를 alloy name + alias 만으로 제한 (사용자 지적: 검색 범위 너무 넓음).
+  //   이전: name + subcategory + manufacturer + process + aliases + industry_note + heat_treatment
+  //         + meta.applications + composition keys + spec id (10가지 field 검색)
+  //   현재: name + aliases (+ R226h UNS 정규 코드). 다른 field 는 filter 또는 DSL query 사용.
+  if (filters.search.trim()) {
+    const q = filters.search.toLowerCase().trim();
+    result = result.filter(m => {
+      if (fuzzyContains(m.name.toLowerCase(), q)) return true;
+      if ((m.aliases || []).some(a => fuzzyContains(a.toLowerCase(), q))) return true;
+      if ((m.uns || []).some(u => fuzzyContains(u.toLowerCase(), q))) return true;   // R226h/P3-8 — UNS 정규 코드 검색 ("N07718")
+      return false;
+    });
+  }
+
+  // R144b — Multi-constraint DSL query (AND with other filters)
+  if (filters.query && filters.query.trim()) {
+    const parsed = parseQuery(filters.query);
+    if (parsed.constraints.length) result = applyQuery(result, parsed);
+  }
+
+  // R144c — Spec filter (multiple specs = OR within group)
+  if (filters.specs && filters.specs.length) {
+    const wanted = filters.specs.map(s => s.toUpperCase().replace(/\s+/g, ' '));
+    result = result.filter(m => {
+      const specs = (m.meta as { specs?: Array<{ id: string }> })?.specs;
+      if (!specs?.length) return false;
+      return specs.some(s => wanted.includes(s.id.toUpperCase().replace(/\s+/g, ' ')));
+    });
+  }
+
+  if (filters.categories.length > 0) {
+    result = result.filter(m => filters.categories.includes(m.category));
+  }
+
+  if (filters.subcategories.length > 0) {
+    result = result.filter(m =>
+      filters.subcategories.includes(m.subcategory) ||
+      (m.families || []).some(f => filters.subcategories.includes(f))
+    );
+  }
+
+  /* Process filter — R192/R193 group-based matching (UI 옵션 5개 vs DB 44 process 문자열).
+     그룹 표·술어는 lib/process-groups.ts — 사이드바 count 도 같은 술어를 쓴다. */
+  if (filters.processes.length > 0) {
+    result = result.filter(m => matchesAnyProcessGroup(m, filters.processes));
+  }
+
+  /* Manufacturer filter — R192 array + comma-split support.
+   * AM curated entries 의 manufacturer 가 "GE Additive, EOS, Nikon SLM Solutions, 3D Systems"
+   * 형식 comma-separated string. m.manufacturers 도 array form 으로 같은 content.
+   * 이전: exact match 만 — 'EOS' 선택 시 comma-string 매칭 X.
+   * 변경: array + comma-split flatten 후 any-match. */
+  if (filters.manufacturers.length > 0) {
+    result = result.filter(m => {
+      const raw = Array.isArray(m.manufacturers) && m.manufacturers.length
+        ? m.manufacturers
+        : (m.manufacturer ? [m.manufacturer] : []);
+      const mfs = raw.flatMap(s => String(s || '').split(',').map(x => x.trim())).filter(Boolean);
+      return filters.manufacturers.some(f => mfs.includes(f));
+    });
+  }
+
+  // Composition filter (by primary composition)
+  // R157 — `as any` 제거: Material interface 에 primary_composition?: string 추가.
+  if (filters.compositions.length > 0) {
+    result = result.filter(m => {
+      const comp = m.primary_composition || 'Other';
+      return filters.compositions.includes(comp);
+    });
+  }
+
+  /* Composition range filters (원소 함량 %) — 클라이언트 사이드.
+     예전엔 원소 25종 하드코딩 목록만 돌아, 목록 밖 원소에 범위를 걸면 조용히 무시됐다.
+     걸린 원소를 그대로 순회한다(현재 UI 가 내는 원소는 전부 그 목록 안이라 결과 동일). */
+  for (const [el, range] of Object.entries(filters.compositionRanges)) {
+    if (!range) continue;
+    result = result.filter(m => {
+      const comp = m.composition[el as keyof Material['composition']];
+      if (comp === null || comp === undefined) return false;
+
+      let numericValue: number | null = null;
+      if (typeof comp === 'number') {
+        numericValue = comp;
+      } else if (typeof comp === 'string') {
+        const parsed = parseCompositionRange(comp);
+        numericValue = getRangeValue(parsed);
+      }
+
+      if (numericValue === null) return false;
+      return numericValue >= range[0] && numericValue <= range[1];
+    });
+  }
+
+  // Qualitative filters (corrosion / machinability / weldability)
+  if (filters.corrosion.length) result = result.filter(m => m.corrosion_resistance != null && filters.corrosion.includes(String(m.corrosion_resistance)));
+  if (filters.machinability.length) result = result.filter(m => m.machinability != null && filters.machinability.includes(String(m.machinability)));
+  if (filters.weldability.length) result = result.filter(m => m.weldability != null && filters.weldability.includes(String(m.weldability)));
+  // E15l — 환경별 내식 최소 등급 (부식 카드와 동일한 합금 보정 판정 사용)
+  if (filters.corrosionEnvMin && Object.keys(filters.corrosionEnvMin).length) result = result.filter(m => passesCorrosionEnv(m, filters.corrosionEnvMin));
+  // E15l — 고온 데이터 보유 (승온 곡선 또는 크리프 파단 곡선)
+  if (filters.hasElevatedData) result = result.filter(m => (m.elevated_temp && m.elevated_temp.length > 0) || (m.creep_rupture && m.creep_rupture.length > 0));
+  // R16: RoHS toggle — false (default) 면 통과, true 면 rohs_compliant === false 만 제외 (null/true 유지).
+  if (filters.rohsOnly) result = result.filter(m => m.rohs_compliant !== false);
+  // R38e: 열처리 다중 선택 — m.heat_treatment 가 선택된 라벨 중 하나로 시작 or 포함 일 때 통과.
+  //   현실적이지 않은 조합 (예: SLM 합금 + 단조 후 어닐링) 은 데이터에 없는 시점에서 자동 배제.
+  if (filters.heatTreatments && filters.heatTreatments.length) {
+    const wanted = filters.heatTreatments.map(s => s.toLowerCase());
+    result = result.filter(m => matchAnyHeatTreatment(String(m.heat_treatment || '').toLowerCase(), wanted));
+  }
+
+  return result;
 }
 
 export function useMaterialFilter(materials: Material[]) {
@@ -63,189 +204,16 @@ export function useMaterialFilter(materials: Material[]) {
   }, []);
 
   const filteredUnsorted = useMemo(() => {
-    let result = materials;
-
-    // R180 — Text search 범위를 alloy name + alias 만으로 제한 (사용자 지적: 검색 범위 너무 넓음).
-    //   이전: name + subcategory + manufacturer + process + aliases + industry_note + heat_treatment
-    //         + meta.applications + composition keys + spec id (10가지 field 검색)
-    //   현재: name + aliases (2가지). 다른 field 는 filter 또는 DSL query 사용.
-    /* E3 (H6 W4-2) — 출처 권위 등급. 선택한 등급의 출처를 **가진** 재료를 남긴다(OR).
-       선택이 비면 전량 통과 — 원칙 8(구분 표시만, 저신뢰 은폐 금지). */
-    if (filters.authorities?.length) {
-      result = result.filter((m) => matchesAuthority(m, filters.authorities));
-    }
-
-    if (filters.search.trim()) {
-      const q = filters.search.toLowerCase().trim();
-      result = result.filter(m => {
-        if (fuzzyContains(m.name.toLowerCase(), q)) return true;
-        if ((m.aliases || []).some(a => fuzzyContains(a.toLowerCase(), q))) return true;
-        if ((m.uns || []).some(u => fuzzyContains(u.toLowerCase(), q))) return true;   // R226h/P3-8 — UNS 정규 코드 검색 ("N07718")
-        return false;
-      });
-    }
-
-    // R144b — Multi-constraint DSL query (AND with other filters)
-    if (filters.query && filters.query.trim()) {
-      const parsed = parseQuery(filters.query);
-      if (parsed.constraints.length) result = applyQuery(result, parsed);
-    }
-
-    // R144c — Spec filter (multiple specs = OR within group)
-    if (filters.specs && filters.specs.length) {
-      const wanted = filters.specs.map(s => s.toUpperCase().replace(/\s+/g, ' '));
-      result = result.filter(m => {
-        const specs = (m.meta as { specs?: Array<{ id: string }> })?.specs;
-        if (!specs?.length) return false;
-        return specs.some(s => wanted.includes(s.id.toUpperCase().replace(/\s+/g, ' ')));
-      });
-    }
-
-    // Category filter
-    if (filters.categories.length > 0) {
-      result = result.filter(m => filters.categories.includes(m.category));
-    }
-
-    // Subcategory filter
-    if (filters.subcategories.length > 0) {
-      result = result.filter(m =>
-        filters.subcategories.includes(m.subcategory) ||
-        (m.families || []).some(f => filters.subcategories.includes(f))
-      );
-    }
-
-    /* Process filter — R192/R193 group-based matching.
-     * UI options 5개 (Wrought / Molding / Casting / Powder / AM) vs DB 44 distinct process strings.
-     * R193 — 'Sintered' / 'Powder-Metallurgy' 는 AM 이 아님 (전통 press-and-sinter / MIM).
-     *        AM 에서 분리 + 신규 'Powder' group 신설. */
-    if (filters.processes.length > 0) {
-      const procGroups: Record<string, string[]> = {
-        Wrought: ['wrought', 'cold rolled', 'hot rolled', 'cold drawn', 'hot dip galvani', 'tmcp', 'forged', 'extrusion', 'vacuum refined', 'q+t (heat'],
-        Molding: ['injection mold', 'compression mold', 'layup'],
-        Casting: ['cast'],
-        Powder: ['sintered', 'powder-metallurgy', 'powder metallurgy', 'press-and-sinter', 'mim ', 'metal injection mold'],
-        AM: ['lpbf', 'dmls', 'slm', 'sls', 'fdm', 'closed-cell foam', 'am ', 'am('],
-      };
-      result = result.filter(m => {
-        const p = String(m.process || '').toLowerCase();
-        if (!p) return false;
-        return filters.processes.some(grp => {
-          const keys = procGroups[grp];
-          if (!keys) return p === grp.toLowerCase(); // fallback
-          return keys.some(k => p.includes(k));
-        });
-      });
-    }
-
-    /* Manufacturer filter — R192 array + comma-split support.
-     * AM curated entries 의 manufacturer 가 "GE Additive, EOS, Nikon SLM Solutions, 3D Systems"
-     * 형식 comma-separated string. m.manufacturers 도 array form 으로 같은 content.
-     * 이전: exact match 만 — 'EOS' 선택 시 comma-string 매칭 X.
-     * 변경: array + comma-split flatten 후 any-match. */
-    if (filters.manufacturers.length > 0) {
-      result = result.filter(m => {
-        const raw = Array.isArray(m.manufacturers) && m.manufacturers.length
-          ? m.manufacturers
-          : (m.manufacturer ? [m.manufacturer] : []);
-        const mfs = raw.flatMap(s => String(s || '').split(',').map(x => x.trim())).filter(Boolean);
-        return filters.manufacturers.some(f => mfs.includes(f));
-      });
-    }
-
-    // Composition filter (by primary composition)
-    // R157 — `as any` 제거: Material interface 에 primary_composition?: string 추가.
-    if (filters.compositions.length > 0) {
-      result = result.filter(m => {
-        const comp = m.primary_composition || 'Other';
-        return filters.compositions.includes(comp);
-      });
-    }
-
-    // Composition range filters (by element percentage) — 클라이언트 사이드 처리
-    const ELEMENTS = ['C', 'O', 'Fe', 'Cr', 'Ni', 'Mo', 'Mn', 'Si', 'Cu', 'Al', 'Ti', 'V', 'Co', 'W', 'Nb', 'N', 'P', 'S', 'Mg', 'Zn', 'Sn', 'Be', 'Ta', 'La', 'Ce'];
-    for (const el of ELEMENTS) {
-      const range = filters.compositionRanges[el];
-      if (range) {
-        result = result.filter(m => {
-          const comp = m.composition[el as keyof Material['composition']];
-          if (comp === null || comp === undefined) return false;
-          
-          let numericValue: number | null = null;
-          if (typeof comp === 'number') {
-            numericValue = comp;
-          } else if (typeof comp === 'string') {
-            const parsed = parseCompositionRange(comp);
-            numericValue = getRangeValue(parsed);
-          }
-          
-          if (numericValue === null) return false;
-          return numericValue >= range[0] && numericValue <= range[1];
-        });
-      }
-    }
-
-    // Numeric range filters
-    const rangeFilters: Array<{
-      range: [number, number] | null;
-      key: keyof Material;
-    }> = [
-      { range: filters.densityRange, key: 'density' },
-      { range: filters.yieldStrengthRange, key: 'yield_strength' },
-      { range: filters.utsRange, key: 'uts' },
-      { range: filters.elongationRange, key: 'elongation' },
-      { range: filters.modulusRange, key: 'modulus' },
-      { range: filters.hardnessRange, key: 'hardness' },
-      { range: filters.thermalConductivityRange, key: 'thermal_conductivity' },
-      { range: filters.electricalConductivityRange, key: 'electrical_conductivity' },
-      { range: filters.maxServiceTempRange, key: 'max_service_temp' },
-      { range: filters.fatigueStrengthRange, key: 'fatigue_strength' },
-      { range: filters.impactStrengthRange, key: 'impact_strength' },
-      { range: filters.pricePerKgRange, key: 'price_per_kg' },
-      { range: filters.thermalExpansionRange, key: 'thermal_expansion' },
-      { range: filters.poissonRatioRange, key: 'poisson_ratio' },
-      { range: filters.specificHeatRange, key: 'specific_heat' },
-      { range: filters.meltingPointRange, key: 'melting_point' },
-      // R30 — 신규 numeric properties 필터 추가
-      { range: filters.popularityRange, key: 'popularity' },
-      { range: filters.fractureToughnessRange, key: 'fracture_toughness' as keyof Material },
-      { range: filters.totalCostEstimateRange, key: 'total_cost_estimate' as keyof Material },
-      { range: filters.minWallThicknessRange, key: 'min_wall_thickness' as keyof Material },
-      { range: filters.surfaceFinishTypicalRange, key: 'surface_finish_typical' as keyof Material },
-      { range: filters.machiningCostFactorRange, key: 'machining_cost_factor' as keyof Material },
-      { range: filters.htCostFactorRange, key: 'ht_cost_factor' as keyof Material },
-    ];
+    let result = applyBaseFilters(materials, filters);
 
     /* 값 읽기는 공용 리더(propValue) — 평면값만 보면 **ranges 에만 값이 있는 503 (재료x물성)**
        이 "값 없음" 으로 탈락했다(Tmax 129 · 가격 105 · KIC 39 · 열팽창 105 ...). 인용된 값을
        가진 재료를 필터가 숨기고 있던 것이고, 표는 그 값을 표시하고 있었으므로 화면끼리도
        어긋났다. 판정과 표시는 같은 리더를 써야 한다. */
-    for (const { range, key } of rangeFilters) {
-      if (range) {
-        result = result.filter(m => {
-          const v = propValue(m, key as string);
-          if (v === null) return false;
-          return v >= range[0] && v <= range[1];
-        });
-      }
+    for (const def of RANGE_FILTERS) {
+      const range = filters[def.key];
+      if (range) result = result.filter(m => passesRange(m, def.prop, range));
     }
-
-    // Qualitative filters (corrosion / machinability / weldability)
-    if (filters.corrosion.length) result = result.filter(m => m.corrosion_resistance != null && filters.corrosion.includes(String(m.corrosion_resistance)));
-    if (filters.machinability.length) result = result.filter(m => m.machinability != null && filters.machinability.includes(String(m.machinability)));
-    if (filters.weldability.length) result = result.filter(m => m.weldability != null && filters.weldability.includes(String(m.weldability)));
-    // E15l — 환경별 내식 최소 등급 (부식 카드와 동일한 합금 보정 판정 사용)
-    if (filters.corrosionEnvMin && Object.keys(filters.corrosionEnvMin).length) result = result.filter(m => passesCorrosionEnv(m, filters.corrosionEnvMin));
-    // E15l — 고온 데이터 보유 (승온 곡선 또는 크리프 파단 곡선)
-    if (filters.hasElevatedData) result = result.filter(m => (m.elevated_temp && m.elevated_temp.length > 0) || (m.creep_rupture && m.creep_rupture.length > 0));
-    // R16: RoHS toggle — false (default) 면 통과, true 면 rohs_compliant === false 만 제외 (null/true 유지).
-    if (filters.rohsOnly) result = result.filter(m => m.rohs_compliant !== false);
-    // R38e: 열처리 다중 선택 — m.heat_treatment 가 선택된 라벨 중 하나로 시작 or 포함 일 때 통과.
-    //   현실적이지 않은 조합 (예: SLM 합금 + 단조 후 어닐링) 은 데이터에 없는 시점에서 자동 배제.
-    if (filters.heatTreatments && filters.heatTreatments.length) {
-      const wanted = filters.heatTreatments.map(s => s.toLowerCase());
-      result = result.filter(m => matchAnyHeatTreatment(String(m.heat_treatment || '').toLowerCase(), wanted));
-    }
-
     return result;
   }, [materials, filters]);
 
@@ -277,38 +245,21 @@ export function useMaterialFilter(materials: Material[]) {
     });
   }, [filteredUnsorted, sortKey, sortDir]);
 
+  /* 결과를 거르고 있는 필터의 수 — 'Reset'/'필터 지우기' 버튼의 노출 조건. 예전엔 출처 등급·DSL·규격
+     필터가 빠져 있어, 그 셋만 걸린 상태에선 결과가 줄어 있는데 지우기 버튼이 안 보였다. */
   const activeFilterCount = useMemo(() => {
     let count = 0;
     if (filters.search.trim()) count++;
+    if (filters.query && filters.query.trim()) count++;
+    if (filters.specs && filters.specs.length > 0) count++;
+    if (filters.authorities && filters.authorities.length > 0) count++;
     if (filters.categories.length > 0) count++;
     if (filters.subcategories.length > 0) count++;
     if (filters.processes.length > 0) count++;
     if (filters.manufacturers.length > 0) count++;
     if (filters.compositions.length > 0) count++;
     if (Object.values(filters.compositionRanges).some(r => r !== null)) count++;
-    if (filters.densityRange) count++;
-    if (filters.yieldStrengthRange) count++;
-    if (filters.utsRange) count++;
-    if (filters.elongationRange) count++;
-    if (filters.modulusRange) count++;
-    if (filters.hardnessRange) count++;
-    if (filters.thermalConductivityRange) count++;
-    if (filters.electricalConductivityRange) count++;
-    if (filters.maxServiceTempRange) count++;
-    if (filters.fatigueStrengthRange) count++;
-    if (filters.impactStrengthRange) count++;
-    if (filters.pricePerKgRange) count++;
-    if (filters.thermalExpansionRange) count++;
-    if (filters.poissonRatioRange) count++;
-    if (filters.specificHeatRange) count++;
-    if (filters.meltingPointRange) count++;
-    if (filters.popularityRange) count++;
-    if (filters.fractureToughnessRange) count++;
-    if (filters.totalCostEstimateRange) count++;
-    if (filters.minWallThicknessRange) count++;
-    if (filters.surfaceFinishTypicalRange) count++;
-    if (filters.machiningCostFactorRange) count++;
-    if (filters.htCostFactorRange) count++;
+    for (const def of RANGE_FILTERS) if (filters[def.key]) count++;
     if (filters.corrosion.length > 0) count++;
     if (filters.machinability.length > 0) count++;
     if (filters.weldability.length > 0) count++;
@@ -321,115 +272,31 @@ export function useMaterialFilter(materials: Material[]) {
 
   // R51b — Leave-one-out narrowed ranges. 각 numeric property 의 가능 범위는
   //   "그 property filter 만 제외" 한 모든 필터 적용 후 결과의 min/max.
-  //   Granta MI 스타일 — slider 가 다른 필터의 제약 반영.
-  /** R157 — RANGE_FILTER_MAP 키는 Material 의 number-valued property name. 우회 marker 제거를 위해
-      keyof Material 로 좁힘 (이전 Record<string, ...> → 안전 type). */
-  const RANGE_FILTER_MAP: { [P in keyof Material]?: keyof FilterState } = {
-    density: 'densityRange', yield_strength: 'yieldStrengthRange', uts: 'utsRange',
-    elongation: 'elongationRange', modulus: 'modulusRange', hardness: 'hardnessRange',
-    thermal_conductivity: 'thermalConductivityRange', electrical_conductivity: 'electricalConductivityRange',
-    max_service_temp: 'maxServiceTempRange', fatigue_strength: 'fatigueStrengthRange',
-    impact_strength: 'impactStrengthRange', price_per_kg: 'pricePerKgRange',
-    thermal_expansion: 'thermalExpansionRange', poisson_ratio: 'poissonRatioRange',
-    specific_heat: 'specificHeatRange', melting_point: 'meltingPointRange',
-    popularity: 'popularityRange', fracture_toughness: 'fractureToughnessRange',
-    total_cost_estimate: 'totalCostEstimateRange', min_wall_thickness: 'minWallThicknessRange',
-    surface_finish_typical: 'surfaceFinishTypicalRange', machining_cost_factor: 'machiningCostFactorRange',
-    ht_cost_factor: 'htCostFactorRange',
-  };
-
+  //   Granta MI 스타일 — slider 가 다른 필터의 제약 반영. 키는 물성 키(RANGE_FILTERS[].prop).
   const narrowedRanges = useMemo(() => {
-    // 1) baseSet — non-range filter 적용.
-    //    R209 C-2/C-4/C-5 — 실제 filtered 로직과 정확히 동일하게 맞춤 (이전엔 search/process/manufacturer 가 어긋나
-    //    슬라이더 모집단이 틀림: AM 선택 시 exact-match 로 baseSet=0 붕괴, 검색은 5필드 vs 실제 2필드 등).
-    let baseSet = materials;
-    if (filters.search.trim()) {
-      const q = filters.search.toLowerCase().trim();
-      baseSet = baseSet.filter(m =>
-        fuzzyContains(m.name.toLowerCase(), q) ||
-        (m.aliases || []).some(a => fuzzyContains(a.toLowerCase(), q)) ||
-        (m.uns || []).some(u => fuzzyContains(u.toLowerCase(), q))   // R226h/P3-8 — 위 본검색과 동일 (모집단 일치 원칙 R209)
-      );
-    }
-    if (filters.query && filters.query.trim()) {
-      const parsed = parseQuery(filters.query);
-      if (parsed.constraints.length) baseSet = applyQuery(baseSet, parsed);
-    }
-    if (filters.specs && filters.specs.length) {
-      const wanted = filters.specs.map(s => s.toUpperCase().replace(/\s+/g, ' '));
-      baseSet = baseSet.filter(m => {
-        const specs = (m.meta as { specs?: Array<{ id: string }> })?.specs;
-        return !!specs?.length && specs.some(s => wanted.includes(s.id.toUpperCase().replace(/\s+/g, ' ')));
-      });
-    }
-    if (filters.categories.length) baseSet = baseSet.filter(m => filters.categories.includes(m.category));
-    if (filters.subcategories.length) baseSet = baseSet.filter(m =>
-      filters.subcategories.includes(m.subcategory) || (m.families || []).some(f => filters.subcategories.includes(f))
-    );
-    if (filters.processes.length) {
-      const procGroups: Record<string, string[]> = {
-        Wrought: ['wrought', 'cold rolled', 'hot rolled', 'cold drawn', 'hot dip galvani', 'tmcp', 'forged', 'extrusion', 'vacuum refined', 'q+t (heat'],
-        Molding: ['injection mold', 'compression mold', 'layup'],
-        Casting: ['cast'],
-        Powder: ['sintered', 'powder-metallurgy', 'powder metallurgy', 'press-and-sinter', 'mim ', 'metal injection mold'],
-        AM: ['lpbf', 'dmls', 'slm', 'sls', 'fdm', 'closed-cell foam', 'am ', 'am('],
-      };
-      baseSet = baseSet.filter(m => {
-        const p = String(m.process || '').toLowerCase();
-        if (!p) return false;
-        return filters.processes.some(grp => {
-          const keys = procGroups[grp];
-          if (!keys) return p === grp.toLowerCase();
-          return keys.some(k => p.includes(k));
-        });
-      });
-    }
-    if (filters.manufacturers.length) baseSet = baseSet.filter(m => {
-      const raw = Array.isArray(m.manufacturers) && m.manufacturers.length ? m.manufacturers : (m.manufacturer ? [m.manufacturer] : []);
-      const mfs = raw.flatMap(s => String(s || '').split(',').map(x => x.trim())).filter(Boolean);
-      return filters.manufacturers.some(f => mfs.includes(f));
-    });
-    if (filters.compositions.length) baseSet = baseSet.filter(m => filters.compositions.includes(m.primary_composition || 'Other'));
-    if (filters.corrosion.length) baseSet = baseSet.filter(m => m.corrosion_resistance != null && filters.corrosion.includes(String(m.corrosion_resistance)));
-    if (filters.machinability.length) baseSet = baseSet.filter(m => m.machinability != null && filters.machinability.includes(String(m.machinability)));
-    if (filters.weldability.length) baseSet = baseSet.filter(m => m.weldability != null && filters.weldability.includes(String(m.weldability)));
-    if (filters.corrosionEnvMin && Object.keys(filters.corrosionEnvMin).length) baseSet = baseSet.filter(m => passesCorrosionEnv(m, filters.corrosionEnvMin));
-    if (filters.hasElevatedData) baseSet = baseSet.filter(m => (m.elevated_temp && m.elevated_temp.length > 0) || (m.creep_rupture && m.creep_rupture.length > 0));
-    if (filters.rohsOnly) baseSet = baseSet.filter(m => m.rohs_compliant !== false);
-    if (filters.heatTreatments && filters.heatTreatments.length) {
-      const wanted = filters.heatTreatments.map(s => s.toLowerCase());
-      baseSet = baseSet.filter(m => matchAnyHeatTreatment(String(m.heat_treatment || '').toLowerCase(), wanted));
-    }
+    // 1) baseSet — 수치 범위를 뺀 모든 필터. 본필터와 **같은 함수**(R209 모집단 일치 원칙을 코드로 고정).
+    const baseSet = applyBaseFilters(materials, filters);
 
-    // 2) 각 target property 에 대해 — 자기 자신 제외 모든 range filter 적용 후 min/max 계산
-    // R157 — `as any` 제거: keyof Material 로 type-safe access.
-    const getProp = (m: Material, key: keyof Material): number | null => {
-      const v = m[key];
-      return typeof v === 'number' && isFinite(v) ? v : null;
-    };
+    // 2) 각 target property 에 대해 — 자기 자신 제외 모든 range filter 적용 후 min/max 계산 (리더는 propValue).
     const out: Record<string, [number, number] | null> = {};
-    for (const [propKey, filterKey] of Object.entries(RANGE_FILTER_MAP) as Array<[keyof Material, keyof FilterState]>) {
+    for (const def of RANGE_FILTERS) {
       let s = baseSet;
-      for (const [otherProp, otherFilter] of Object.entries(RANGE_FILTER_MAP) as Array<[keyof Material, keyof FilterState]>) {
-        if (otherProp === propKey) continue;
-        const r = filters[otherFilter] as [number, number] | null | undefined;
+      for (const other of RANGE_FILTERS) {
+        if (other.prop === def.prop) continue;
+        const r = filters[other.key];
         if (!r) continue;
-        s = s.filter(m => {
-          const v = getProp(m, otherProp);
-          return v != null && v >= r[0] && v <= r[1];
-        });
+        s = s.filter(m => passesRange(m, other.prop, r));
       }
-      const vals: number[] = [];
+      let lo = Infinity, hi = -Infinity;
       for (const m of s) {
-        const v = getProp(m, propKey);
-        if (v != null) vals.push(v);
+        const v = propValue(m, def.prop as string);
+        if (v === null) continue;
+        if (v < lo) lo = v;
+        if (v > hi) hi = v;
       }
-      out[propKey] = vals.length ? [Math.min(...vals), Math.max(...vals)] : null;
-      // Reference filterKey for narrowedRanges (consumer pairs propKey↔filterKey)
-      void filterKey;
+      out[def.prop] = lo <= hi ? [lo, hi] : null;
     }
     return out;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [materials, filters]);
 
   // 조성 범위 필터 업데이트 헬퍼

@@ -246,6 +246,10 @@ try {
     if (fx) {
       ch.fields = {};
       for (const k of FIELD_CORR_KEYS) if (fx[k] != null) { ch.fields[k] = { from: (k in r) ? r[k] : null }; r[k] = fx[k]; }
+      /* process 는 상류(build-materials 3099)에서 processes.join(' / ') 로 파생된 값이라 둘은 한 쌍이다. 교정이 process 만
+         바꾸면 processes[] 가 낡은 채 남아, 상세 패널(processes 우선)·AM 판정·사이드바 count 와 필터(process)가 갈라진다
+         (Ta MET-0662 'Wrought' vs ['LPBF'] · PA11 POL-0065 'SLS' vs ['Injection Molding'] — 2026-09-20 F1 에서 적발). */
+      if (fx.process != null) { ch.fields.processes = { from: ('processes' in r) ? r.processes : null }; r.processes = String(fx.process).split(' / '); }
       // 화이트리스트 밖 키는 silent skip 금지 — 오타·미지원 필드를 빌드에서 즉시 노출
       const unknown = Object.keys(fx).filter(k => !FIELD_CORR_KEYS.includes(k) && !['basis', 'src'].includes(k));
       if (unknown.length) { console.error(`❌ fields 교정 미지원 키 (${r.stable_id}): ${unknown.join(', ')} — FIELD_CORR_KEYS 확장 필요`); process.exit(1); }
@@ -329,7 +333,7 @@ for (const cc of fs.readdirSync(entriesRoot)) {
         if (c[p].had_range) rec.ranges[p] = (c[p].val_range === undefined ? null : c[p].val_range); else delete rec.ranges[p];
         if (c[p].had_scalar) rec[p] = (c[p].val_scalar === undefined ? null : c[p].val_scalar); else delete rec[p];
       }
-      if (c.fields) for (const k of FIELD_CORR_KEYS) if (c.fields[k]) { if (c.fields[k].from == null) delete rec[k]; else rec[k] = c.fields[k].from; }
+      if (c.fields) for (const k of [...FIELD_CORR_KEYS, 'processes']) if (c.fields[k]) { if (c.fields[k].from == null) delete rec[k]; else rec[k] = c.fields[k].from; }
       if (c.subcategory) rec.subcategory = c.subcategory.from;   // Ti 재분류 등 — 원본 subcat 복원
       if (c.points) rec.points = c.points.from;   // 재생성된 points → 원본(CSV) 복원
       if (c.sources) rec.sources = c.sources.from;   // generic 출처 업그레이드 → 원본 복원

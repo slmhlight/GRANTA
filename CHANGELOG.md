@@ -2,6 +2,19 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## 2026-09-20 — F1 잔여 · A18 (FilterSidebar 분해 — 정의가 여섯 벌이던 것을 하나로)
+
+백로그 F1 의 마지막 조각. Guide 때처럼 크기가 요점이 아니었다 — 1369줄을 열어 보니 **같은 대응이 여러 벌** 적혀 있었고, 그 복사본들이 실제로 어긋나 있었다.
+
+- **정의 통합**: 수치 범위 필터의 키↔물성↔i18n↔단위↔섹션 대응이 훅 3벌(술어·카운트·역맵) + 사이드바 3벌(useMemo 23·슬라이더 JSX 23·칩 23) = **여섯 벌** → `lib/range-filters.ts` 한 표. FilterState 에 range 키를 추가하고 표에 안 적으면 **컴파일 실패**(타입 게이트, 주입 실증). 공정 그룹 키워드 표 **세 벌**(훅 본필터·모집단·사이드바 count) → `lib/process-groups.ts` 한 술어. 훅의 술어 사슬 두 벌 → `applyBaseFilters` 한 함수를 본필터·leave-one-out 모집단이 공유.
+- **A18 — 복사본이 어긋나 있던 자리** (전부 사용자 노출): ① 슬라이더 모집단(`narrowedRanges` 의 getProp)과 기본 경계(`getPropertyRange`)가 **평면값만** 읽어 ranges 에만 값이 있는 434 (재료×물성)이 경계 밖 — T_max 상한 2000 인데 HfC 3000·HfB₂ 2300·ZrB₂ 2200·Y₂O₃ 2200 은 슬라이더로 도달 불가(A15 잔여). 리더를 propValue 로 통일. ② 모집단 술어에 출처 등급(E3)·원소 범위 필터가 없어 슬라이더 범위가 결과보다 넓었다(R209 재발). ③ activeFilterCount 가 출처 등급·DSL·규격 필터를 안 세어 그 셋만 걸면 지우기 버튼이 없었다. ④ 사이드바 공정 count 가 필터와 1건씩 달랐다(Wrought 752 vs 753 · Molding 118 vs 117) — 추적하니 **레지스트리 결함**: fields 교정이 `process` 만 바꾸고 `processes[]` 는 낡은 채(Ta MET-0662 'Wrought' vs ['LPBF'] · PA11 POL-0065 'SLS' vs ['Injection Molding'] — 상세 패널은 processes 우선이라 화면마다 다른 공정). build-registry 4c 가 둘을 함께 바꾸고 라운드트립이 둘 다 복원(재생성 diff 그 2 entry 뿐 · 무손실 0).
+- **분해**: `components/FilterSidebar.tsx` 1369 → 210 + `components/filter-sidebar/` 10 모듈(FilterSection 공용 헤더·RangeSlider·Family/Process/HT/Element/CorrosionEnv/Qualitative/Authority·ActiveFilterChips·family-tiers). 죽은 `CategoryFilter`(R44a 에서 제거된 뒤 남아 있던 70줄)·미사용 import 삭제. tier2 family 색은 `material-colors` CLASS_COLOR 참조(복사 아님).
+- **동작 대조**: 55 필터 상태의 결과 집합을 HEAD 와 대조해 **55/55 동일**. 사이드바 DOM(4 상태 × narrowed/fallback) 차이는 전부 의도한 부류뿐 — 공정 count 정정 · KIC 단위 'MPa·√m'→'MPa√m'(PropertyMeta 와 통일) · ν 슬라이더 '–' 단위 제거 · 슬라이더 경계 정정 · 칩 순서가 슬라이더 순서와 같아짐(E↔σy).
+- 게이트: `filter-sidebar.test.tsx`(15 — 표↔FilterState 전수 · 단위=PropertyMeta · count=필터 결과 · **모집단=결과 집합 23 물성×5 상태** · T_max ≥ 3000 · leave-one-out · 죽은 HT 옵션 0 · 내식 환경 축=CORROSION_ENV_AXES · tier2 색 앵커 13) · `registry-integrity` +1(process↔processes 전 entry + 교정 entry 원본 보존). 주입 실증: 모집단 리더를 평면값으로 되돌리면 2건 발화 · MET-0662 를 되돌리면 정확히 지목.
+- 검증: tsc 0 · lint 0 · vitest **1231/1231(79)** · build · 프리뷰 실측(T_max 45–3000 · CTE −12–220 · 공정 count 753/117/69/42/127 · 콘솔 오류 0).
+
+---
+
 ## 2026-09-20 — 현행화 (W19 이후 81 커밋 · 2026-07-17 ~ 09-11 소급 정리)
 
 > 07-17 의 "라운드 단위 즉시 기록" 약속이 지켜지지 않아 두 달치를 커밋 로그와 백로그(`docs/MASTER-BACKLOG.md`, 로컬)에서

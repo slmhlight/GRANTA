@@ -519,10 +519,12 @@ export function formatValue(val: number | string | null | undefined, decimals = 
   return val.toFixed(decimals);
 }
 
+/** 전체 데이터의 물성 범위(양수만) — 슬라이더 기본 경계. 값은 공용 리더(propValue)로 읽는다:
+ *  평면값만 보면 ranges 에만 값이 있는 재료(UHTC 의 T_max 2200~3000 등)가 경계 밖으로 밀려 슬라이더로 도달할 수 없었다. */
 export function getPropertyRange(materials: Material[], key: keyof Material): [number, number] {
   const values = materials
-    .map(m => m[key] as number)
-    .filter(v => v !== null && v !== undefined && !isNaN(v) && v > 0);
+    .map(m => propValue(m, key as string))
+    .filter((v): v is number => v !== null && v > 0);
   if (values.length === 0) return [0, 100];
   return [Math.min(...values), Math.max(...values)];
 }

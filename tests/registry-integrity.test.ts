@@ -69,6 +69,19 @@ describe('registry 무결성 (S1)', () => {
     expect(bad).toEqual([]);
   });
 
+  /* F1 (2026-09-20) — process 는 상류에서 processes.join(' / ') 로 파생된 한 쌍인데, fields 교정이 process 만 바꿔
+     processes[] 가 낡은 채 남은 entry 가 2건 있었다(Ta MET-0662 · PA11 POL-0065). 상세 패널은 processes 를 먼저 읽고
+     필터는 process 를 읽으므로 같은 재료가 화면마다 다른 공정으로 보였다. build-registry 4c 가 둘을 함께 바꾸고
+     라운드트립이 둘 다 복원한다 — 여기서는 전 entry 의 쌍 정합과, 교정 entry 의 원본 보존을 본다. */
+  it('process ↔ processes[] 정합 (전 entry) + process 교정 entry 는 processes 원본 보존', () => {
+    const bad = all.filter((m) => (m.processes || []).join(' / ') !== String(m.process || '')).map((m) => `${m.stable_id} ${JSON.stringify(m.process)} vs ${JSON.stringify(m.processes)}`);
+    expect(bad).toEqual([]);
+    const corrected = all.filter((m) => m._corrections?.fields?.process);
+    expect(corrected.length, 'process 교정 entry 가 0 이면 이 검사는 아무것도 증명하지 않는다').toBeGreaterThan(0);
+    const noFrom = corrected.filter((m) => !m._corrections.fields.processes || !('from' in m._corrections.fields.processes)).map((m) => m.stable_id);
+    expect(noFrom, 'process 교정 entry 의 processes 원본(from) 누락').toEqual([]);
+  });
+
   it('remove.ids 는 제거됨 (freeze 에는 reserve 유지)', () => {
     for (const id of corr.remove?.ids || []) {
       expect(byId.has(id), `${id} 제거`).toBe(false);

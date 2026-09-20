@@ -22,7 +22,7 @@
     "M2 Series 5"
   ],
   "processes": [
-    "LPBF"
+    "Wrought"
   ],
   "heat_treatment": "Annealed",
   "ranges": {
@@ -340,6 +340,11 @@
       },
       "heat_treatment": {
         "from": "As-built"
+      },
+      "processes": {
+        "from": [
+          "LPBF"
+        ]
       }
     },
     "_fbasis": "As-built(AM) 공정을 wrought 로 전환 (사용자 지시). 이름·공정·HT 정합 + 기준값.",
