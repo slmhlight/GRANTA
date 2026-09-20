@@ -167,6 +167,25 @@ export interface Material {
     price_verified_date?: string;
     /** R146 — Source identifier (e.g., "Inconel 718"). */
     price_verified_source?: string;
+    /* F2 (2026-09-20) — 상세 패널이 읽는 키를 선언한다. 예전엔 meta 를 `Record<string, any>` 로 읽어
+       키 오타·데이터에 없는 키가 컴파일을 통과했다(실제로 `heat_treatments` 는 어떤 재료에도 없는데
+       렌더 블록이 남아 있었다). 타입은 산출물 실측(materials.json 의 meta 키·값 타입)과 같다. */
+    /** AM 이방성 플래그 (build 방향 의존) · HIP 처리로 감소된 경우 anisotropy_reduced. */
+    anisotropy?: boolean;
+    anisotropic?: boolean;
+    anisotropy_note?: string;
+    anisotropy_reduced?: boolean;
+    /** 복합재 적층 — 섬유 체적분율(0~1) · 적층 방향(UD 0° 등). W4-2b. */
+    fiber_vf?: number;
+    ply_direction?: string;
+    /** 폴리머 한정 카드 (R113) — UL94 난연 등급 · UV 내성 · 24h 흡습률(%). */
+    flame_ul94?: string;
+    uv_resistance?: string;
+    moisture_24h?: number;
+    /** 사용 한계·주의 (W4-2b C-3) — 열충격 한계, 저온 열화 등. */
+    limitations?: string;
+    /** 값이 몇 vendor 의 데이터를 합친 것인지 (curated AM entry). */
+    vendor_count?: number;
   };
 }
 

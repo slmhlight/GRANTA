@@ -178,7 +178,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
   const tier = material.tier ? TIER_BADGE[material.tier] : null;
   const sources: MaterialSource[] = material.sources ?? (material.source ? [{ label: material.source, url: null, verified: false }] : []);
   const ranges = material.ranges ?? {};
-  const meta = (material.meta ?? {}) as Record<string, any>;
+  const meta = material.meta ?? {};
   const manufacturers = material.manufacturers ?? (material.manufacturer ? [material.manufacturer] : []);
   const processes = material.processes ?? (material.process ? [material.process] : []);
 
@@ -876,9 +876,9 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
             {/* R113 — Polymer 한정 카드 (Flame UL94 / UV / Moisture / Tg / HDT). Metal/Ceramic/Composite hide. */}
             {material.category === 'Polymer' && (() => {
               const meta = material.meta || {};
-              const flame = meta.flame_ul94 as string | undefined;
-              const uv = meta.uv_resistance as string | undefined;
-              const moisture = meta.moisture_24h as number | undefined;
+              const flame = meta.flame_ul94;
+              const uv = meta.uv_resistance;
+              const moisture = meta.moisture_24h;
               const tg = material.ranges?.glass_transition_temp?.typical;
               const hdt = material.ranges?.hdt_182?.typical;
               if (!flame && !uv && moisture == null && tg == null && hdt == null) return null;
@@ -1127,22 +1127,8 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
             </Field>
             <Field label="Manufacturer / Vendor">{manufacturers.length ? manufacturers.join(', ') : '—'}</Field>
             {material.machines && material.machines.length > 0 && <Field label="Machines">{material.machines.join(', ')}</Field>}
-            {meta.heat_treatments && (meta.heat_treatments as string[]).length > 0 && (
-              <Field label="Heat treatments">
-                {/* R63 G — 효과 multiline · 색조 강화. 좁은 panel 에서 ellipsis 없이 가독성 ↑. */}
-                <ul className="space-y-1.5 mt-0.5">
-                  {(meta.heat_treatments as string[]).map((ht, i) => {
-                    const g = htGlossaryFor(ht);
-                    return (
-                      <li key={i} className="leading-snug">
-                        <span className="font-mono text-foreground text-[12px]">{ht}</span>
-                        {g && <span className="block text-[10px] text-muted-foreground/90 italic mt-0.5">— {g.effect}</span>}
-                      </li>
-                    );
-                  })}
-                </ul>
-              </Field>
-            )}
+            {/* F2 (2026-09-20) — 'Heat treatments' 목록 블록(meta.heat_treatments)은 초기 커밋부터 있었지만 그 키를 가진
+                재료가 한 건도 없어 한 번도 렌더되지 않았다. any 를 걷어내자 드러나 삭제 — 열처리 설명은 HT 가이드 카드가 담당. */}
             {meta.applications && <Field label="Applications">{String(meta.applications)}</Field>}
             {/* W4-2b (C-4) — 복합재 적층 정보. 섬유 체적분율·적층 방향이 바뀌면 같은 소재라도
                 물성이 통째로 달라진다(UD 0° 와 quasi-iso 는 다른 재료에 가깝다). 데이터는 있는데
@@ -1152,12 +1138,12 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                 <span className="flex flex-wrap items-center gap-2">
                   {meta.fiber_vf != null && (
                     <span className="text-[11px]" title="섬유 체적분율 (Vf) — 이 값이 다르면 강성·강도가 비례해 달라집니다.">
-                      Vf <b className="font-mono">{(Number(meta.fiber_vf) * 100).toFixed(0)}%</b>
+                      Vf <b className="font-mono">{(meta.fiber_vf * 100).toFixed(0)}%</b>
                     </span>
                   )}
                   {meta.ply_direction && (
                     <span className="text-[10px] px-1.5 py-0.5 rounded bg-indigo-50 text-indigo-800 border border-indigo-200 font-mono" title="적층 방향 — 표의 물성은 이 방향 기준입니다. 방향이 다르면 값이 크게 달라집니다.">
-                      {String(meta.ply_direction)}
+                      {meta.ply_direction}
                     </span>
                   )}
                 </span>
@@ -1167,12 +1153,12 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                 "이 값을 쓸 때 걸리는 조건" 이라, 물성표만 보고 고르면 놓치는 정보다. */}
             {meta.limitations && (
               <div className="mt-2 rounded border border-amber-400/40 bg-amber-50/60 p-2 text-[11px] leading-relaxed">
-                <b className="text-amber-700">⚠ 사용 한계 · 주의:</b> {String(meta.limitations)}
+                <b className="text-amber-700">⚠ 사용 한계 · 주의:</b> {meta.limitations}
               </div>
             )}
             {(meta.anisotropy || meta.anisotropic) && (
               <div className={`mt-2 rounded border p-2 text-[12px] leading-relaxed ${meta.anisotropy_reduced ? 'border-emerald-400/40 bg-emerald-50/60' : 'border-amber-400/40 bg-amber-50/60'}`}>
-                <b className={meta.anisotropy_reduced ? 'text-emerald-700' : 'text-amber-700'}>{meta.anisotropy_reduced ? 'ℹ HIP 처리 — 이방성 감소:' : '⚠ AM 이방성 주의:'}</b> {String(meta.anisotropy_note || 'AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로가 ~10–30% 차이날 수 있습니다. 데이터시트의 방향·후처리(HIP·열처리) 조건을 반드시 확인하세요.')}
+                <b className={meta.anisotropy_reduced ? 'text-emerald-700' : 'text-amber-700'}>{meta.anisotropy_reduced ? 'ℹ HIP 처리 — 이방성 감소:' : '⚠ AM 이방성 주의:'}</b> {(meta.anisotropy_note || 'AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로가 ~10–30% 차이날 수 있습니다. 데이터시트의 방향·후처리(HIP·열처리) 조건을 반드시 확인하세요.')}
               </div>
             )}
             {/* R17: RoHS / SVHC 우려 — 자동 검출된 항목 노출. */}

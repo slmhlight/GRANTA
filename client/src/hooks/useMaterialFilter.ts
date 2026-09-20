@@ -192,6 +192,12 @@ export function useMaterialFilter(materials: Material[]) {
     setFilters({ ...DEFAULT_FILTERS, ...snapshot });
   }, []);
 
+  /** 여러 키를 현재 상태 위에 한 번에 덮는다(한 렌더). 프리셋 적용이 키마다 updateFilter 를 부르며
+   *  `Record<string, any>` 로 돌던 것의 대체 — Partial<FilterState> 라 값 타입이 검사된다. */
+  const mergeFilters = useCallback((partial: Partial<FilterState>) => {
+    setFilters(prev => ({ ...prev, ...partial }));
+  }, []);
+
   const toggleSort = useCallback((key: keyof Material) => {
     setSortKey(prev => {
       if (prev === key) {
@@ -319,6 +325,7 @@ export function useMaterialFilter(materials: Material[]) {
     updateCompositionRange,
     resetFilters,
     restoreFilters,
+    mergeFilters,
     filtered,
     sortKey,
     sortDir,

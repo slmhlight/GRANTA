@@ -195,7 +195,7 @@ export default function Home() {
   // R71 D — 전체 localStorage state 백업/복원. 데이터 손실 방지 + 기기 이동.
   const exportAllState = useCallback(() => {
     const keys = ['am_collections', 'am_favorites', 'am_recent_searches', 'am_coll_sort', 'am_lang', 'am_units', 'am_radar_axes', 'am_radar_base', 'am_panel_w'];
-    const out: Record<string, any> = { _meta: { version: 1, exported: new Date().toISOString() } };
+    const out: Record<string, unknown> = { _meta: { version: 1, exported: new Date().toISOString() } };
     for (const k of keys) {
       try { const v = localStorage.getItem(k); if (v != null) out[k] = JSON.parse(v); } catch { try { out[k] = localStorage.getItem(k); } catch { /* ignore */ } }
     }
@@ -250,6 +250,7 @@ export default function Home() {
     updateFilter,
     resetFilters,
     restoreFilters,
+    mergeFilters,
     filtered,
     sortKey,
     sortDir,
@@ -308,8 +309,7 @@ export default function Home() {
       const cfg = SCENARIO_PRESETS[p];
       // baseline 프리셋 필터 위에 다이얼로그가 산출한 f.* 오버라이드를 머지
       const override = decodeFiltersFromParams(params);
-      const merged = { ...cfg.filters, ...override } as Record<string, any>;
-      (Object.entries(merged) as [keyof typeof filters, any][]).forEach(([k, v]) => updateFilter(k, v));
+      mergeFilters({ ...cfg.filters, ...override });
       // 적용 시 항상 권장 뷰(거의 모든 사례에서 Ashby)로 자동 전환 — 사용자가 응용 산출 결과를
       // 곧장 차트 위에서 확인할 수 있도록. suggestedView 메타는 그대로 보관해서 사용자가 나중에
       // 다른 뷰로 전환했을 때 배너의 "Ashby로 보기" 버튼이 다시 안내해 줄 수 있게 함.
@@ -372,11 +372,10 @@ export default function Home() {
     if (appliedPreset?.key === p) return; // 이미 같은 preset 적용됨
     const cfg = SCENARIO_PRESETS[p];
     const override = decodeFiltersFromParams(params);
-    const merged = { ...cfg.filters, ...override } as Record<string, any>;
-    (Object.entries(merged) as [keyof typeof filters, any][]).forEach(([k, v]) => updateFilter(k, v));
+    mergeFilters({ ...cfg.filters, ...override });
     // R144e — wizard 가 추가한 q (multi-constraint query) 도 적용
     const q = params.get('q');
-    if (q) updateFilter('query' as keyof typeof filters, q as never);
+    if (q) updateFilter('query', q);
     if (cfg.viewMode) setViewMode(cfg.viewMode);
     const p2 = params.get('p2');
     const cfg2 = p2 ? SCENARIO_PRESETS[p2] : null;

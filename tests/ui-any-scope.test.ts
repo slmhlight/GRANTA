@@ -63,8 +63,10 @@ const scan = (rel: string) => {
   const src = fs.readFileSync(path.join(ROOT, rel), 'utf8')
     .replace(/\/\*[\s\S]*?\*\//g, (m) => m.replace(/[^\n]/g, ' '))
     .replace(/\/\/.*/g, '');
+  /* 제네릭 인자 자리(`Record<string, any>` · `[K, any][]` · `<any,`)도 본다 — 이 패턴이 빠져 있어
+     Home.tsx 의 프리셋 적용 5건(FilterState 값을 any 로 흘려 updateFilter 에 넣던 것)이 0 으로 보고됐었다(F2 잔여, 2026-09-20). */
   return src.split('\n').map((line, i) => ({ n: i + 1, line }))
-    .filter(({ line }) => /\bas any\b|:\s*any\b|<any>|any\[\]/.test(line));
+    .filter(({ line }) => /\bas any\b|:\s*any\b|<any>|any\[\]|[<,]\s*any\b|\bany\s*[>,\]]/.test(line));
 };
 
 const FILES = walk(SRC)

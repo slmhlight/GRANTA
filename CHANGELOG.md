@@ -2,6 +2,16 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## 2026-09-20 — F2 완료 (any 잔여 — 백로그 숫자가 틀렸고, 게이트가 못 보는 자리가 있었다)
+
+- **집계 정정**: 백로그의 "잔여 22 (scenario-presets 8 · ScenarioCompareSheet 10 · ComparePanel 4)" 는 세 파일의 타입 any 가 **0** 인데 `'any'` 문자열 리터럴("제약 없음" 옵션)과 주석 단어를 센 숫자였다.
+- **게이트 사각지대**: `ui-any-scope` 의 스캔 정규식이 제네릭 인자 자리(`Record<string, any>` · `[K, any][]`)를 안 봐서 **Home.tsx 5건**이 0 으로 보고됐다 — 프리셋 적용이 `{...cfg.filters, ...override} as Record<string, any>` 로 FilterState 값을 any 로 흘려 키마다 `updateFilter` 를 부르던 것 ×2(cold-start·후속 effect) + `as never` 캐스트 + 백업 객체. 훅에 `mergeFilters(partial: Partial<FilterState>)`(한 렌더·타입 검사)를 두고 두 곳을 교체. 정규식 확장 후 주입 실증(파일·줄 지목).
+- **넓힌 게이트가 잡은 것**: `MaterialDetail` 의 `meta as Record<string, any>`. `Material.meta` 에 UI 가 읽는 11 키(anisotropy·fiber_vf·flame_ul94·limitations·vendor_count …)를 산출물 실측 타입으로 선언하니 캐스트 0 — 그리고 **초기 커밋부터 한 번도 렌더된 적 없는 블록**이 드러났다: `meta.heat_treatments` 는 어떤 재료에도 없는 키인데 "Heat treatments" 목록 블록이 남아 있었다(any 가 가리던 죽은 코드). 삭제 — 열처리 설명은 HT 가이드 카드가 담당.
+- 남은 any **16** = Plotly 11 · recharts formatter 4 · usePersistFn 1, 전부 사유 등재된 라이브러리 표면.
+- 검증: tsc 0 · lint 0 · vitest 1231/1231 · 프리뷰(`?p=hightemp&tmm=800&ysm=300` → 155 결과 · 초기화 버튼 노출).
+
+---
+
 ## 2026-09-20 — F1 잔여 · A18 (FilterSidebar 분해 — 정의가 여섯 벌이던 것을 하나로)
 
 백로그 F1 의 마지막 조각. Guide 때처럼 크기가 요점이 아니었다 — 1369줄을 열어 보니 **같은 대응이 여러 벌** 적혀 있었고, 그 복사본들이 실제로 어긋나 있었다.
