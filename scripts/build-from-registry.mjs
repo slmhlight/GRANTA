@@ -282,6 +282,10 @@ if (elevDropped) console.log(`  교정 후 앵커 재검사: 조건 불일치 �
  * 근본 원인은 동결된 build-materials 안에 있어(레지스트리에 이미 그렇게 박혀 있고 교정 소산이 아니다)
  * 여기서는 **표시 신뢰도만** provenance 가 말하는 등급으로 맞춘다. 값은 건드리지 않고, **하향만** 한다 —
  * 어떤 경우에도 신뢰도를 올리지 않는다(원칙 8: 숨기지도 부풀리지도 않는다).
+ *
+ * A12 근본원인 해소(2026-09-20): override 병합이 계열 폴백의 provenance·estimated 를 살려 두던 것을
+ * build-materials 의 mergeRangeOverride 가 상류에서 정합 → 이 단계는 **0 건이 정상**(registry-integrity 게이트가
+ * 레지스트리에서 0 을 강제). 안전망으로만 남긴다 — 발화하면 상류가 다시 갈라진 것이니 로그를 봐야 한다.
  */
 const FALLBACK_CONF = [
   [/^3rd_family:/, 'subfamily'],

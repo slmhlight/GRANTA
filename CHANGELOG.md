@@ -2,6 +2,15 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## 2026-09-20 — A12 근본원인 (confidence↔provenance — 갈라지는 경로는 override 병합이었다)
+
+- **경로 특정**: 표시 신뢰도가 근거보다 낙관적이던 range(09-10 실측 107 → 현재 93)는 setPh/setTyp 순서가 아니라 **override 병합** 네 곳(R173-range 18 · R199 37 · R205 37 · backfill 2)에서 생겼다. `{ ...cur, ...newRange }` 로 값·신뢰도를 덮으면서 계열 폴백이 남긴 `provenance:'1st_family:…'`·`estimated:true` 가 그대로 살아남은 것 — 값과 신뢰도는 override 의 것이 맞고 **근거 표시만 옛것**이었다.
+- **조치**: build-materials 에 `mergeRangeOverride`(≤10줄 후크). 이전 provenance 가 계열 폴백일 때만 덮는 쪽의 근거로 갈아 끼우고(`handbook:ASTM B265` · `handbook:Elgiloy Specialty Metals` …), reason 의 개발 서사·`[minor]` 메모는 싣지 않는다(E15o'). 재생성 diff **83 entry·95 range, 값·신뢰도 변화 0**. build-from-registry 1d 의 표현 계층 하향은 **0 건**(수용 기준) — 안전망으로 잔존.
+- 게이트 `registry-integrity` +1: 레지스트리에서 직접 0 강제(구 spread 로 되돌리면 93건 지목). 잔여: price_per_kg 17건 measured+estimated:true 는 R146 시세 인용의 의도적 표기.
+- 검증: 라운드트립 0 · vitest 1237/1237(80) · tsc 0.
+
+---
+
 ## 2026-09-20 — A3 Al 족보 re-verify (2026Q4) · A19 (Al 131 entry 전건 판정 — 합성 조건 13 base 가 살아 있었다)
 
 Cu(Q3) 다음 로테이션. 판정 대장 `docs/audits/al-reverify-2026Q4.md`(로컬). 대조: Alro·EMJ 카탈로그(AA 대표값 표, ksi) · United Aluminum(제조사 typical) · tubingchina ASM 표 · MakeItFrom · eFunda · Aalco — MatWeb·ASM 원문은 자동 접근 불가.

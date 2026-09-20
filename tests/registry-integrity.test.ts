@@ -82,6 +82,24 @@ describe('registry 무결성 (S1)', () => {
     expect(noFrom, 'process 교정 entry 의 processes 원본(from) 누락').toEqual([]);
   });
 
+  /* A12 근본원인 (2026-09-20) — override 병합(R173-range·R199·R205·backfill)이 `{ ...cur, ...newRange }` 로 값·신뢰도를 덮으면서
+     계열 폴백이 남긴 provenance('1st_family:…')·estimated:true 를 그대로 살려 "handbook 인데 근거는 계열 폴백" 인 range 가 93건
+     생겼다. build-materials 의 mergeRangeOverride 가 덮는 쪽의 근거로 갈아 끼운다 — 이 검사는 **레지스트리(SSOT)** 를 직접 본다.
+     build-from-registry 1d 의 표현 계층 하향은 안전망으로 남되, 여기서 0 이면 그 안전망은 아무 일도 하지 않는다. */
+  it('A12 — handbook/measured 신뢰도의 range 는 계열 폴백 provenance 를 갖지 않는다 (상류 정합)', () => {
+    const FALLBACK = /^(?:1st_family|2nd_family|3rd_family|subfamily|family|class):/;
+    const bad: string[] = [];
+    let optimistic = 0;
+    for (const m of all) for (const [p, r] of Object.entries<any>(m.ranges || {})) {
+      if (!r || !(r.confidence === 'handbook' || r.confidence === 'measured')) continue;
+      optimistic++;
+      if (FALLBACK.test(String(r.provenance || ''))) bad.push(`${m.stable_id} ${p} ${r.confidence} ← ${r.provenance}`);
+      if (r.estimated === true && FALLBACK.test(String(r.provenance || ''))) bad.push(`${m.stable_id} ${p} estimated:true 인데 ${r.confidence}`);
+    }
+    expect(optimistic, 'handbook/measured range 가 0 이면 검사가 무의미하다').toBeGreaterThan(5000);
+    expect(bad, `되돌아오면 정확히 이 목록으로 발화한다 (2026-09-20 실측 93건):\n${bad.slice(0, 6).join('\n')}`).toEqual([]);
+  });
+
   it('remove.ids 는 제거됨 (freeze 에는 reserve 유지)', () => {
     for (const id of corr.remove?.ids || []) {
       expect(byId.has(id), `${id} 제거`).toBe(false);

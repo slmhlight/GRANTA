@@ -3978,6 +3978,30 @@ try {
 //   R151: data/polymer-elevtemp-backfill-r151.json — 13 high-temp polymer 의 elevated_temp 5-point curve
 //   confidence: handbook → measured (verified datasheet) 로 upgrade + 정확 composition 부여.
 //   match: name 의 처음 부분 (paren 이전) 으로 fuzzy match → ranges + composition + industry_note merge.
+
+/* A12 (2026-09-20) — override 병합 helper. 근본원인: override 가 `{ ...cur, ...newRange }` 로 값·신뢰도를 덮을 때 계열 폴백이
+ * 남긴 provenance('1st_family:…')·estimated:true 가 그대로 살아남아 "handbook 인데 estimated, 근거는 계열 폴백" 인 range 가
+ * 93건 생겼다(R173-range 18 · R199 37 · R205 37 · backfill 2 — 동일 (sid,prop) 중복 포함). 값을 덮는 쪽의 근거로 갈아 끼운다 —
+ * 단 이전 provenance 가 계열 폴백일 때만(alloy-specific 같은 실제 근거는 보존), estimated 는 신뢰도에 맞춘다.
+ * 출처 문자열은 reason 말미의 `[ … ]`(예: "[ASM Vol.1 420 hardened]") — 개발 서사가 아니라 인용만 provenance 에 싣는다. */
+const FALLBACK_PROV_RE = /^(?:1st_family|2nd_family|3rd_family|subfamily|family|class):/;
+/* reason 말미의 인용만 provenance 로 — "[ASM Vol.1 420 hardened]" · "(MMPDS-08 Vol.1 Sec.3.7)". "[minor]" 같은 메모나
+ * 개발 서사는 싣지 않는다(E15o' — 사용자 대면 필드). 인용으로 보이지 않으면 파일별 중립 라벨. */
+const CITATION_RE = /\b(?:ASM|ASTM|AMS|MMPDS|AA\b|ISO|EN\s?\d|DIN|JIS|SAE|API|NACE|UNS|Vol\.|Handbook|datasheet|Special Metals|ATI|TIMET|Solvay|Celanese|DuPont|DSM|Chemours|Perstorp|Haynes|Carpenter|Sandvik|Outokumpu|Alcoa|Kaiser|Materion|copper\.org|CDA|Aalco|Elgiloy|Victrex|Arkema|SABIC|BASF|Evonik|Ensinger)/i;
+const overrideProvenance = (reason, fallback) => {
+  const mm = /[\[(]([^\[\]()]+)[\])]\s*\.?\s*$/.exec(String(reason || ''));
+  return mm && CITATION_RE.test(mm[1]) ? `handbook:${mm[1].trim().replace(/^handbook\s+/i, '')}` : fallback;
+};
+const mergeRangeOverride = (cur, nr, prov) => {
+  const out = { ...(cur || {}), ...nr };
+  const overrides = nr.typical != null || nr.confidence != null;
+  // 계열 폴백 provenance 만 갈아 끼운다(없던 provenance 를 새로 만들지는 않는다 — 진단된 결함 범위로 한정).
+  if (overrides && !('provenance' in nr) && cur && FALLBACK_PROV_RE.test(String(cur.provenance || ''))) out.provenance = prov;
+  // 폴백이 남긴 estimated:true 가 handbook/measured 와 모순되면 내린다.
+  if (overrides && !('estimated' in nr) && cur && cur.estimated === true && (out.confidence === 'handbook' || out.confidence === 'measured')) out.estimated = false;
+  return out;
+};
+
 try {
   const backfillRaw = JSON.parse(fs.readFileSync(path.join(DATA, 'composite-polymer-measured-backfill.json'), 'utf8'));
   /* R150 — second-round backfill (MMC + CMC + AFK + Pitch CFRP + elev-temp curves). */
@@ -4027,7 +4051,7 @@ try {
       for (const [prop, range] of Object.entries(bf.ranges)) {
         const cur = target.ranges[prop];
         if (!cur || cur.confidence !== 'measured') {
-          target.ranges[prop] = { ...(cur || {}), ...range, n: Math.max(cur?.n || 0, 1) };
+          target.ranges[prop] = { ...mergeRangeOverride(cur, range, 'measured:composite/polymer datasheet backfill'), n: Math.max(cur?.n || 0, 1) };   // A12
         }
       }
     }
@@ -4232,7 +4256,7 @@ try {
     }
     if (!target.ranges) target.ranges = {};
     for (const [prop, newRange] of Object.entries(ov.ranges || {})) {
-      target.ranges[prop] = { ...(target.ranges[prop] || {}), ...newRange };
+      target.ranges[prop] = mergeRangeOverride(target.ranges[prop], newRange, overrideProvenance(ov.reason, 'handbook:verified range override'));   // A12
       r173PropsOverridden++;
     }
     // R173 — composition override 도 지원 (예: AISI 4340/4130 의 Al 97.5% 오류)
@@ -4264,7 +4288,7 @@ try {
         //         hand-verified handbook 값을 force override.
         //         단 reference/curated tier 의 measured 는 보존 (vendor datasheet).
         if (t.ranges[prop]?.confidence === 'measured' && t.tier !== 'generic' && t.tier !== 'am_vendor') continue;
-        t.ranges[prop] = { ...(t.ranges[prop] || {}), ...newRange };
+        t.ranges[prop] = mergeRangeOverride(t.ranges[prop], newRange, overrideProvenance(ov.reason, 'handbook:hand-verified override'));   // A12
         if (newRange.typical != null) t[prop] = newRange.typical;
         r199Props++;
       }
@@ -4327,7 +4351,7 @@ try {
       if (ov.ranges) {
         if (!t.ranges) t.ranges = {};
         for (const [prop, newRange] of Object.entries(ov.ranges)) {
-          t.ranges[prop] = { ...(t.ranges[prop] || {}), ...newRange };
+          t.ranges[prop] = mergeRangeOverride(t.ranges[prop], newRange, overrideProvenance(ov.reason, 'handbook:reliability-review override'));   // A12
           if (newRange.typical != null) t[prop] = newRange.typical;
           p205++;
         }
