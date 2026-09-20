@@ -2,6 +2,115 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## 2026-09-20 — 현행화 (W19 이후 81 커밋 · 2026-07-17 ~ 09-11 소급 정리)
+
+> 07-17 의 "라운드 단위 즉시 기록" 약속이 지켜지지 않아 두 달치를 커밋 로그와 백로그(`docs/MASTER-BACKLOG.md`, 로컬)에서
+> 소급 정리했다. 아래 7개 항목이 그 기간이며 각 bullet 은 백로그 ID 로 대응한다. 상세는 각 커밋 본문.
+>
+> **현재 기준선 (2026-09-20 실측)**: 재료 **1,128** (Metal 920 · Polymer 135 · Ceramic 39 · Composite 34) ·
+> vitest **1215 / 78 파일** · tsc 0 · lint 경고 0 · anomaly high 0 · 라운드트립 불일치 0 ·
+> 출처 권위 KPI(standard+handbook) **45.7%** · verified-src 1103 · UNS 444 · 위키 엔티티 247 ·
+> 글로서리 128 용어 = 128 A4 · 도표 91.
+
+---
+
+## 2026-09-11 — 데이터 진실성·코드 품질 라운드 (A6 · A13 · A13b · A14 · A15 · A16 · A17 · C3 · D4 · D6 · F1~F4b · W4-7 잔여)
+
+하루 34 커밋. W4 마감 뒤 백로그 순서로 내려오다 발견한 것을 발견 당일 닫았다. 공통 패턴은
+**낡은 예외 · 같은 일을 하는 구현 두 벌 · 판정 시점 오류** — 값이 틀린 것보다 값을 읽고 표시하는 층이 틀린 경우가 많았다.
+
+- **A13** EPDM·FKM 위키 누락 — 원인은 값이 아니라 `build-wiki-index` 의 낡은 하드코딩 제외 목록(`DEAD`). 바로 아래 데이터 판정(`members.length`)이 이미 있어 제거. 엔티티 245→247 · 엔티티 없는 재료 0. 게이트 `wiki-entity-coverage.test.ts`(6).
+- **A13b** AF1410 등재 — 첫 조사에서 집계 사이트 값(물리 불가)을 버렸다가 제조사 데이터시트(Latrobe Lescalloy VIM-VAR)로 재확보, 3중 교차 확인. 계열 폴백 KIC 75→165 교정(이 합금의 존재 이유가 인성). 경도·열전도는 근거 없어 비움.
+- **A14** 교정 뒤에도 남던 `KIC/Fatigue fallback:` 출처 라벨 **321줄** 정리 — confidence 가 measured/handbook 인 경우만 제거하고 class/derived/family 는 유일한 근거 설명이라 보존. 게이트 `ref-link.test.ts` +3(낡은 폴백 0 · 과잉 삭제 방지 · 출처 0 금지).
+- **A15** 물성 리더 6벌 단일화 — 평면값(v1 잔재) vs `ranges`(v2) 불일치 248 재료×물성, 클라이언트 리더 6벌은 우선순위까지 반대였다. 필터·정렬은 ranges 전용 값 **503건**을 '값 없음'으로 떨궈 Mo-La 1900°C 가 온도 필터에서 사라지던 것. 산출 단계(1h) 정합 + `propValue / propBound / propRange` 단일 리더. 게이트 `prop-read-single-source.test.ts`(17).
+- **A16** 조성 파서 두 벌(공용 `composition-parser` vs classifier 자체 구현) → 단일화. 숫자 폴백이 값을 지어내던 것(`≤0.50%`→exact · `≥2.5×C` 규격 공식의 계수→함량) 차단, balance 역산에서 비구성분 키(CE·Coating) 제외, `openMax` 플래그. 드러난 분류 분기 3건 — 페라이트·마르텐사이트계 29종 스테인리스 탈락 · 합금강 문턱(SAE J404 최소치) 108종 · Mg Al≥2.5/Zn≥2 분리. 탄소강↔합금강 모순 108→2.
+- **A17** "Strain-hardened" 라벨인데 소둔 형제와 σy·UTS·경도 완전 동일한 복제 **11 entry** — 규격 재확인(B348·A276·A331 폐지 등) 후 인용 가능한 값 없음 → `remove.json`. 재료 **1139→1128**. 제거가 드러낸 stale 참조 연쇄(스토리 멤버·override·REVIEWED 예외)를 게이트가 차례로 잡음. 게이트 `synthetic-condition.test.ts`(3).
+- **A6** 강화 조건 < 연화 조건 검사(`L_hard_weaker`) — 먼저 `stateOf` 분류기 3결함(T6/H32 등 강화 템퍼 누락 25종 · "no Q+T" 부정문 · Heat-Treated 를 SOFT 로) 교정. 비교쌍 140 · 역전 2(1.4%, 둘 다 REVIEWED). 게이트가 비교쌍 수(>100)·오탐율(<5%)까지 검사 — 루프가 멈춘 것과 통과한 것을 구분.
+- **C3** `confidence_tier` 205 entry 가 자기 규칙과 불일치 — 교정·출처 부착 **뒤에** 재계산되지 않던 시점 문제. 규칙을 `scripts/lib/confidence-tier.mjs` 로 추출, build-from-registry 1f 에서 재계산(상향 205 · 하향 0). 게이트 `confidence-tier.test.ts`(7) — 생산자와 같은 모듈 import(판정 재구현 금지).
+- **D4** CI 별도 audit 단계 불필요 판정(래퍼가 `execSync` 로 동일 실행). 대신 실패 메시지에 위반 줄 포함(리포트가 gitignore 라 CI 로그에 없던 것) + 죽은 REVIEWED 예외(AISI 1020) 제거 · 미발화 키 0 게이트.
+- **D6** "비결정 라벨링" 진단이 틀렸음(4회 재생성 완전 동일). 진짜 취약점은 `supRaw` 4파일 연결의 **중간 삽입** → append-only 순서 게이트로 봉쇄.
+- **W4-7 잔여** machining 가이드 21블록 문자열 → `{text, sources[]}` — 본문 `【표준】` 줄에서 39 인용 추출(번호 없는 표기는 인용 아님).
+- **F2** `(json as any).k as T` 8곳(process-guidance) + corrosion 리더 5 + Ashby 14 · FilterSidebar 3 — 도메인 타입을 any 로 읽던 것 전부 교체. `narrowEnum` 은 예외 대신 **미수록 + `SSOT_ISSUES` 기록**(정적 import 라 로드 예외는 앱 백지화). 공용 `lib/ssot-json.ts`. 게이트 `ui-any-scope.test.ts`(3, 개수 상한이 아니라 성격 검사). 잔여 22(scenario-presets 8 · ScenarioCompareSheet 10 · ComparePanel 4).
+- **F3** lint 경고 9→0 — 끄지 않고 의존성을 실제로 맞춤(`domainOf` 모듈 순수함수 승격 등). CI `--max-warnings 0`.
+- **F1** Guide.tsx **2298→647** — `<Chapter>` 는 라우트가 다르면 early return 인데 children 은 15개 본문 전부 구성되던 낭비를 **본문 = 호출하면 트리를 돌려주는 순수 함수**로 해소. 컴포넌트로 감싸면 `GlossaryText` 자동링크가 전멸(완성된 트리를 걸어야 함)하는 차이를 게이트 한 쌍으로 고정. 15 라우트 텍스트 해시·링크 href 집합 HEAD 대조 15/15. Guide.tsx 텍스트 소비자 6곳 → `scripts/lib/guide-sources.mjs` 통합. 게이트 `guide-chapter-lazy.test.tsx`(10). FilterSidebar(1369)는 잔여.
+- **F4b** 셸 heredoc 을 거치며 역슬래시가 벗겨져 정규식 단어경계가 U+0008 이 되고도 테스트가 통과하던 문제 — 소스 제어문자 게이트(`source-hygiene.test.ts`) 도입, 기존 `material-detail.test.tsx` 의 죽은 단언 2건 즉시 검출.
+- **F4** Playwright E2E 스모크 2개(메인 flow · 가이드 라우트) — 배포와 같은 base(`/GRANTA/`)로 빌드해 `vite preview` 로 검사. 산출물 서빙·부팅만 담당(값 정확성은 단위 게이트 몫). 재시도 0 의 flake 예산.
+- 기타: 용어사전 absent 5 · 미정의 31 전건 판정(dendrite 신설 등)으로 0 + 게이트 · C10200 OFHC 별칭 · 감사 라벨 "사문화" 를 판정기록(0건이면 삭제)/방어가드(0건이어도 유지)로 분리 · 도표 원화 20종 재생성 반영(구도 변경 2 · 지시점 교정 14).
+- 검증: tsc · vitest 1215/1215(78) · 라운드트립 0 · anomaly high 0.
+
+---
+
+## H6 W4 (2026-09-10) — UI 노출 + 월간 마감 (E3~E6 · A12 · W4-2b · W4-5 · W4-7 · W4-8 · W4-4 · D10)
+
+- **E3** 출처 권위 등급 필터·정렬 — '최고 등급' 축은 성립 불가(전 재료의 최고 등급이 standard/handbook 뿐)라 **'그 등급의 출처를 가진'(OR)** 축으로 전환. 공용 `lib/source-authority.ts` + `__authority` 정렬.
+- **E4** `basis='min_spec'` 116 range 가 평균값 행과 섞여 있던 것 → 'spec min' 배지 + `basis_source` 스탬프(113건이 인용 불명이었다).
+- **E5** Designations 에서 UNS(조성으로 정의된 합금 통일 번호)를 지역 규격명·상품명과 분리 — 414 재료, `splitDesignations`.
+- **E6** `≈` 근사대응(30 재료 · 48 별칭)을 동일 규격명과 분리 — "A36 = SS400" 오독 차단. 클릭 이동은 **만들지 않음**(해결률 40% 의 이름 매칭을 새로 심지 않기 위해).
+- **A12** 표시 신뢰도가 provenance(계열 폴백)보다 낙관적이던 **107 range** 하향 정합(값 불변) + ref 앵커화(URL 포함 ref 는 1077 중 6 뿐). 근본원인(동결 모놀리스 내부 경로)은 잔여.
+- **W4-2b** 미노출 데이터 렌더(`meta.limitations` 70 · 복합재 `fiber_vf / ply_direction` 19) + 죽은 필드 `spec_type` 은퇴 + **C-9 상류 파일 스키마 게이트**(elevated-temp by_id 전건 src · RT 앵커 / alloy-additions · cast-alloys 전건 인용 · 7열 순서 · append-only 동결).
+- **W4-5** 물성 라벨→용어(명시 13쌍) · 용어→가이드 챕터 CTA(본문 파생 55) · 배지→챕터.
+- **W4-7** ht 33 · welding 68 블록 `sources[]` 승격 + 날조 차단 게이트(인용은 본문 근거 필수).
+- **W4-8** 완전성 측정 기준 정제 89→**92%**(부적용을 공백으로 세던 것) — wiki_entity 축이 EPDM·FKM 2건을 노출(→ A13).
+- **W4-4** 월간 마감 — dead URL 10→0(403 안티봇 9 = `BOT_BLOCKED_DOMAINS` +5 · 진짜는 스킴 오류 1). 회고 `docs/H6-CLOSEOUT.md`(로컬).
+- **D10** 비철 경도가 조건을 안 따라가던 지문(UTS ≥1.5배 변동인데 경도는 단일값) — AA 6262 소둔 89→37 · AA 2025 소둔 108→56. 잔여 2(CuNi2SiCr · C-103)는 공개 앵커 없음.
+- 검증: vitest 1119/1119(66) · KPI 43.1% · 완전성 92%.
+
+---
+
+## A11 · D9 · 수치 스윕 (2026-08-05 ~ 08-07) — 물리 법칙 전수 검사
+
+- **A11** max_service_temp 오염 — ① 조건 문자열·규격 문서번호가 계열 판정에 새던 경로 차단(22 entry) ② 계열 오상속(Al/W/Ti 물성) 13 entry + 원소 물리 밴드 게이트 ③ **조건 축 도입**: 뜨임온도가 명시된 27 entry 의 Tmax 를 entry 자신의 뜨임온도로 제한(새 숫자 없음 — SS410 Q+T 150°C 는 650→150). 시효재 11건은 합금별 인용 선행이라 미적용. 발단은 2304 lean duplex 가 오스테나이트 typical(Tmax 870)을 상속하던 것(→300).
+- **D9** generic 탄소강 소둔값 저평가(합성 배율 역적용) — 1010·1040 연신율 + 1020·1030·1050·1080·1095 는 ASM 소둔 표 4값 전량. golden 앵커 1030 [Anneal] 자체가 오염 기준이라 재캘리브레이션. 잔여 1025 는 표준표에 행이 없어 인용 불가(공개 유지).
+- **수치 스윕 1·2회차** — 이름 매칭 없이 물리 법칙만으로 전수. 깨끗: 범위 역전 · σy>UTS · σf>UTS 0. 교정: UTS/경도 비(강재 중앙값 3.28) 이탈 8 entry · W-Ni-Fe 중합금 융점 3410→1465(기지 초기용융). 2회차에서 **교정이 고온곡선 23°C 앵커 게이트를 무효화**하던 것 발견(C17200 σy 1100→160 교정 뒤 곡선은 아무도 다시 보지 않았다) → 앵커 재검사 + 정합 게이트 11. Wiedemann-Franz 로 판별하니 마레이징이 `M300/` 부분문자열로 AISI **300M** 물성 7개(가격 $8 vs $65)를 상속 — 교정.
+- 검증: 정합 게이트 +17 · 라운드트립 0.
+
+---
+
+## H6 W3 (2026-08-05 ~ 08-07) — 위키·가이드 완결 (스토리 링크 · timeline · HT/용접/AM 가이드 전량 · H8)
+
+- **W3-1** 스토리 링크 커버리지 16%→**87%**(엔티티 기준) — 순숫자 봉인은 유지하고 본문을 canonical 표기(AISI/AA/UNS)로 스윕(116 지점, 합금별 첫 등장 1회만).
+- **W3-2** timeline 97→**156** 이벤트 + 사실검증 대장(`docs/audits/timeline-factcheck-2026Q3.md`) · 중복 8 정리 · Battelle 오귀속 교정.
+- **W3-6** 물성 용어 9종 신설(UI 노출 1000+ 인데 정의 0 이던 공백) · **W3-7** 플래그십 계열 13종 정량 표 27개 · **W3-8** 도표 2장(무도표 2→1).
+- **W3-10/10b** HT 가이드 블록 9+21종 — 조건명은 열처리인데 설명 없던 217→0, 금속 930종 **100%**. **W3-4/4b/4c** 조건별 가공 노트 26→55 조합(커버 282→535) · 프로파일 미할당 해소(insight·mach·cg 100%) · 용접 가이드 블록 12종 + 패턴 50(53→100%). **W3-3** AM 후처리 가이드 `byHtg` 조회축으로 103종 100%.
+- **W3-5 (H8)** 가이드 본문 H3 헤딩 41개 검색 인덱스 자동 파생(41 중 4개만 검색되던 것).
+- **W3-9** industry_note 백필 40 base + base-키 교정 도메인 신설.
+- **리뷰** 계획 대조 미달 보충 — EPDM·FKM 재료 추가 + 라운드트립 무손실 회복 · 용도 서술이 출처로 표시되던 110건 제거 · `validateAuthoredKeys` 순수함수 export(게이트가 재구현하지 않도록) · `docs/audits/runtime-matchers.md` · authority 토큰 사전 누락(ASM · SPS · DSM) 보강.
+- 검증: vitest 1021/1021.
+
+---
+
+## H6 W2 (2026-07-17 ~ 08-04) — Q3 신뢰성 만기 (출처 권위 343→0 · A2 min-spec 88 · A1 golden 119 · A3 Cu 족보)
+
+- **W2-3** 출처 권위 공백 전량 해소 — aggregator-only 는 이미 0 이었고 실제 병목은 "값이 속한 규격 체계 인용이 없는" 343 재료. build-registry 족보 조건에 `noStandard` 추가 + `sourcesBySubcategory` 23→64 족 + 폴리머 109 에 시험 표준(ISO 527/178/75) 병기(값 불변). KPI 32.2→**41.5%**. 게이트 `source-authority-coverage.test.ts`(3).
+- **W2-1** min-spec 43→46→86→**88** — floor probe 자동 선별(매칭 전 조건이 min×0.98 이상만). 미채택 4(A380 · ADC12 · AZ91D · AZ31B — 보증 최소값 확인 불가, 거짓 인용 금지).
+- **W2-2** golden 89→114(W2-5 Cu 앵커 포함 **119**) — 확장이 검증 스윕을 겸해 "냉간가공인데 연신율 상승" 13 base 검출·교정(냉간인발 탄소강 6 · 1080/1095 구상화 후 인발은 정상 · 405/434 A240 min 미달). 합성 Strain-hardened 2 제거(1143→1141). 게이트 `physical-ordering.test.ts`.
+- **W2-5 / W2-4a** Cu 족보 re-verify 37 base 판정 100%(`docs/audits/cu-reverify-2026Q3.md`) — C26000 한 조건에 세 템퍼 값 혼입 · C17200 "Annealed" 가 피크 시효값 · C51000 연신율 절반. 중복 5 제거(C95400 · C22000 · C10100 · C11000 · Zeron 100). duplex 점검.
+- **W2-4(b)** B1 elev-temp 달성 판정 — 실측급 71종 ≥ 목표 60(`docs/audits/b1-elevated-temp-judgment.md`, 재검증 큐 67 공개).
+- **W2 재점검** 규격 인용 오매칭 12건 — substring 패턴이 다른 합금까지(`Ti Grade 1`→11/12 · `304L`→304LN · `H900` 은 템퍼명이라 PH 4종). golden `.some()` 검출력 상실 8건 이름 좁힘. 304LN 자기 규격 등재. 정밀도 게이트 4.
+- **W2-8/9** 스토리 공백 6종 + 출처 재분류 · **잔여 해소 #1~#5** matwebSearch 폴백 생성 중단(177 entry) · 검색링크 라벨 " — 검색결과(문서 아님)" 투명화 · 검증 큐 소진(HfC 융점 ~3958 교정) · KIC 커버리지 build-meta 동적화 · 준용형 8건.
+- **W1/W2 감사** 수용 기준 26항 실측 — 미충족 3 보충(`Link` 컴포넌트 안 중첩 `<a>` 차단 · README 1,142→1,136 · W18 주석).
+- 검증: vitest 917→927 · 라운드트립 0.
+
+---
+
+## H4k (2026-07-20 ~ 07-30) — 생성 이미지 도표 트랙 20종 (조직·파면·결함)
+
+matplotlib 도식 67종에 "형태" 자료가 0 이던 공백. 정량(플롯·상태도·계열바)=matplotlib, 형태(조직·파면·결함)=생성 이미지로 분업.
+
+- `scripts/overlay-figure-labels.py` — 글자 없는 원화(`data/figure-sources/`)에 한글 라벨·리더선·패널 제목을 합성(정규화 좌표 · row_split · 4열은 지그재그 배치). 모식도 성격 명문(배율·스케일바 금지, 실사 필요 시 퍼블릭도메인 인용).
+- 1차 5종(파면 4종판 · AM 용융풀 · HAZ 구역 · 주철 흑연 · 폴리머 구정) → 2차 7종(σ상 · γ′ · 전위-석출물 · 부식 6형태 · ESC · 3D 입계 · Ti α+β) → 3차 8종(잔류응력 · 용접/주조 결함 · 표면처리 단면 · AM 분말 · 복합재 파손 · 마모 · 수소취성). 도표 67→**87**, 무도표 6→2(pren 수식 · zirconium 표만 사유 유지), 배선 35건(도표 없는 섹션만 · 도표당 ≤2문서), 고아 0.
+- 09-11 원화 20종 재생성 반영(위 항목 참조).
+
+---
+
+## E15n/o (2026-07-19 ~ 07-20) — 부식 카드 후속 + 내부마커 노출 차단
+
+- **E15n** 폴리머 카드를 금속식 부식 등급에서 **내약품성(화학 열화 4축)** 으로 전환, 매체 축 비표시. intro 재작성 · 잔재 문구 2건 제거. 청크 404 자동 복구(R120b).
+- **E15o** 방어적/메타 문구 29건 삭제·재작성.
+- **E15o'** 라운드 ID·작업 서사가 출처 줄·신뢰도 툴팁에 그대로 렌더되던 것 — 산출물 노출 6필드 **425필드 정화**(명시 패턴만 — R41 René 41 · R260 레일 등 실명 보존) + SSOT 직접 수정 + 상류 생성기 위생 + 영구 게이트 `no-internal-leak.test.ts`(4).
+
+---
+
 ## R143 ~ H6 (2026-07-17) — 압축 현행화 (W19)
 
 > R142 이후 기록이 정체됐던 구간의 요약. 상세는 git log·docs/MASTER-BACKLOG.md(로컬)·각 커밋 본문 참조.
@@ -17,12 +126,12 @@ All notable changes since R45 (post-Manus recovery). Format: `R##` references th
   도표 67종 · 감사 3종 전지표 0 · 배포 파이프 build:wiki 게이트.
 - **H5**: 링크 커버리지 감사·폼 소유권·병기 파서 · W20 "다른 합금 혼재" 전량 해소 · 신규 13종 통합 ·
   고온곡선 조건별 분화(23°C 앵커) · 미니 계열 정량 격상.
-- **H6 (진행 중)**: corrections 도메인 분할(D5) · W16 명시링크 · **E15 부식 카드 전 프로그램**
+- **H6 (2026-07-17 시점 — 이후 라운드는 상단 항목 참조)**: corrections 도메인 분할(D5) · W16 명시링크 · **E15 부식 카드 전 프로그램**
   (그룹 25종 + 합금 노트 636 base 전량 {t,src} + 웹 대조 대장 + 매체 표 합금 보정층(PREN·조성 규칙·
   by_base, 발화 478/1105) + 내식 환경 필터) · A10 런타임 매처 전수 감사(+HT 필터 6건 교정·Cold-worked
   카테고리 신설) · W17 순숫자 시뮬(봉인 유지 확정) · G3-1 곡선 출처 전파 · G3-2 검색링크 강등(660 entry) ·
   A-1~A-8 광역 스윕 버그 전건 수정(가이드 딥링크·balance 분류·property-stats 파이프·stale 수치/번호/인덱스).
-- 게이트 현황: vitest 917 tests / 51 files · 이상치 high 0 · 라운드트립 무손실 0 불일치.
+- 게이트 현황(2026-07-17 시점): vitest 917 tests / 51 files · 이상치 high 0 · 라운드트립 무손실 0 불일치.
 
 ## R142 — Schaeffler diagram 라인 가시성 결정적 강화
 
