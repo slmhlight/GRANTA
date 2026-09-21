@@ -2,6 +2,15 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## 2026-09-22 — 외부 감사 대응 3차: 죽은 출처 URL 57 (F11) · 검증기 404 오분류
+
+- **F11** 감사가 404 로 확인한 57 URL(613 재료 연결)을 브라우저 UA GET 으로 재확인(57/57 실제 404) 후 **현행 페이지로 교체**: ASM Handbook Vol.1/2 → ASM Digital Library(edited-volume 16/14; 자동 접근은 403, 브라우저 정상) · Haynes 6 슬러그 → `alloy-portfolio/…` · Outokumpu 5 → product-ranges(Supra 316L·Core 304L/321/347·Forta SDX 2507·Ultra 254 SMO·Therma 310S) · Carpenter → alloy-finder(NiMark 300/M300·Custom 630) · EOS → 현행 MDS(PA 2200·AlSi10Mg) · copper.org → alloys.copper.org/alloy/Cxxxxx · DuPont Delrin/Zytel/Crastin → delrin.com·Celanese · Hyundai Steel → product-tech/{rebar,plate,sections,hot-rolled} · Arkema Rilsan/Rilsamid/Kepstan → hpp.arkema.com · Kaiser 6061 → Sheet/Coil/Plate 기술자료 PDF · Uddeholm Orvar Supreme PDF(2024) · ATI 718Plus TDS v3·Hafnium TDS · Materion CuBe · Alleima SAF 2507 · Stratasys ULTEM 1010 · Covestro Makrolon · BASF Ultramid · Mitsubishi ACRYPET · Kennametal · Cannon-Muskegon vacuum-melt · Velo3D materials · MMPDS(mmpds.org) · ECCC(루트) · ASTM A351-24 · Poongsan 동합금 제품기술자료 PDF · IN-100 → Nickel Institute 'Engineering Properties of IN-100'. 텍스트 치환(최소 diff) + `r208-url-replacements.json` 맵 추가(재생성 시 normalizeSources 가 재차 보장). 산출물에 옛 주소 0 — `tests/dead-url-map.test.ts`.
+- **검증기 오분류** — `verify-datasheet-urls.mjs` 가 허용 도메인의 **404 도 'bot-blocked'** 로 세어 Dead 0 으로 보고하고 있었다(감사가 적발한 57건이 그 그늘). 404/410 은 dead, 401/403/405/406/429/5xx 만 차단으로 판정.
+- F28 보완: canonical 을 Pages 가 곧바로 200 을 주는 `/route/` 형태로. 배포 확인 — /GRANTA/tools/ · /guide/ch1/ · /guide/term/stress-concentration/ 200, 없는 경로 404.
+- 검증: 라운드트립 0 · vitest 1279/1279(83) · authority standard 1102 / handbook 757.
+
+---
+
 ## 2026-09-22 — 외부 감사 대응 2차: 사용성·접근성 (F01·F23~F28·R09~R13·R15)
 
 - **F01 Imperial 토글이 가격만 바꿨다** — `UnitSystemContext`(Home 이 제공) + `displayNumber/displayUnit`(lib/unit-context) 로 표·카드·상세(RangeRow)·비교·CSV 가 같은 단위계를 렌더(값 SSOT 는 SI 그대로; 7075-T6 σy 505 MPa → 73.2 ksi, ρ 2.81 → 0.102 lb/in³, E 72 → 10.4 Msi). 가격 라벨 "(per kg)" → "(per lb)". 필터 슬라이더·Ashby 축은 SI 고정이라 섹션 제목에 '(SI)'·축 제목에 '· SI' 를 붙이고 토글 툴팁에 적용 범위를 적었다.

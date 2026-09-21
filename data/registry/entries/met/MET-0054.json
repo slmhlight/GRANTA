@@ -189,14 +189,24 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+      "url": "https://dl.asminternational.org/handbooks/edited-volume/16/Properties-and-Selection-Irons-Steels-and-High",
+      "verified": true
+    },
+    {
+      "label": "ASTM A29/A29M — Carbon & Alloy Steel Bars, Hot-Wrought",
+      "url": "https://store.astm.org/a0029_a0029m-20.html",
+      "verified": true
+    },
+    {
       "label": "MatWeb 2",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=D6AC",
       "verified": false
     },
     {
-      "label": "Datasheet 2",
-      "url": "https://www.batelle.org/mmpds",
-      "verified": true
+      "label": "Reference 2",
+      "url": "https://www.mmpds.org/",
+      "verified": false
     },
     {
       "label": "KIC fallback: ASTM A553 9% Ni LNG",
@@ -271,6 +281,25 @@
   "rohs_compliant": true,
   "confidence_tier": "medium",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb 2",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=D6AC",
+          "verified": false
+        },
+        {
+          "label": "Reference 2",
+          "url": "https://www.mmpds.org/",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: ASTM A553 9% Ni LNG",
+          "url": null,
+          "verified": false
+        }
+      ]
+    },
     "max_service_temp": {
       "had_range": true,
       "val_range": {

@@ -43,7 +43,8 @@ export function listRoutes() {
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 /** 셸의 <title> 을 바꾸고 <head> 끝에 메타를 심는다. canonical 은 프로젝트 base 를 포함한 절대 URL. */
 export function renderPage(shellHtml, { route, title, desc }) {
-  const url = `${siteOrigin()}${basePath()}/${route}`.replace(/\/$/, '');
+  // Pages 는 디렉터리 라우트를 `/route/` 로 301 리다이렉트한 뒤 200 을 준다 — canonical 은 곧바로 200 인 슬래시 형태.
+  const url = `${siteOrigin()}${basePath()}/${route}/`;
   const meta = [
     `<meta name="description" content="${esc(desc)}" />`,
     `<link rel="canonical" href="${esc(url)}" />`,

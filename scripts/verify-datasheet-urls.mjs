@@ -206,8 +206,10 @@ async function checkUrl(url) {
       return { url, status: r.status, location, meta, type: 'redirected' };
     }
     /* R158/R208: bot-blocked 도메인 의 4xx 는 'bot-blocked' 로 별도 분류 (CI fail 제외).
-       SPA/CDN/WAF 사이트는 static fetch 가 종종 404 도 반환 → status 무관하게 도메인으로 판정. */
-    if (r.status >= 400) {
+       AUD F11 (2026-09-22) — **404/410 은 차단이 아니라 자원 없음이다.** 예전엔 "status 무관하게 도메인으로 판정" 해
+       ASM·Outokumpu·Haynes 등의 진짜 404 57건이 'bot-blocked' 로 숨어 Dead 0 으로 보고됐다(외부 감사가 적발).
+       이제 허용 도메인이라도 404/410 은 dead 로 세고, 401/403/405/406/429/5xx 만 차단으로 본다. */
+    if (r.status >= 400 && r.status !== 404 && r.status !== 410) {
       try {
         const host = new URL(url).hostname.toLowerCase();
         if (BOT_BLOCKED_DOMAINS.has(host)) {

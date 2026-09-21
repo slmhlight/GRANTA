@@ -194,14 +194,24 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+      "url": "https://dl.asminternational.org/handbooks/edited-volume/16/Properties-and-Selection-Irons-Steels-and-High",
+      "verified": true
+    },
+    {
+      "label": "ASTM A29/A29M — Carbon & Alloy Steel Bars, Hot-Wrought",
+      "url": "https://store.astm.org/a0029_a0029m-20.html",
+      "verified": true
+    },
+    {
       "label": "MatWeb 1",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=D6AC",
       "verified": false
     },
     {
-      "label": "Datasheet 1",
-      "url": "https://www.batelle.org/mmpds",
-      "verified": true
+      "label": "Reference 1",
+      "url": "https://www.mmpds.org/",
+      "verified": false
     },
     {
       "label": "KIC fallback: AMS 6415 alloy steel",
@@ -272,5 +282,26 @@
   "total_cost_estimate": 12.21,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb 1",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=D6AC",
+          "verified": false
+        },
+        {
+          "label": "Reference 1",
+          "url": "https://www.mmpds.org/",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: AMS 6415 alloy steel",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

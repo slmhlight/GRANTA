@@ -34,7 +34,7 @@ describe('정적 라우트 (F28)', () => {
     expect(html).toContain('<title>Engineering Tools — X</title>');
     expect(html).not.toContain('content="old"');
     expect(html).toContain('<meta name="description" content="a &quot;quoted&quot; &lt;desc&gt;" />');
-    expect(html).toContain('<link rel="canonical" href="https://slmhlight.github.io/GRANTA/tools" />');
+    expect(html).toContain('<link rel="canonical" href="https://slmhlight.github.io/GRANTA/tools/" />');   // Pages 가 200 을 주는 슬래시 형태
     expect(html).toContain('<meta property="og:title" content="Engineering Tools — X" />');
     expect(html.match(/<title>/g)!.length).toBe(1);
   });
