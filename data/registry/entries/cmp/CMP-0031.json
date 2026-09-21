@@ -90,15 +90,6 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "fatigue_strength": {
-      "min": 675,
-      "max": 675,
-      "typical": 675,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
-    },
     "price_per_cm3": {
       "min": 15.4,
       "max": 15.4,
@@ -145,7 +136,7 @@
   "modulus": 220,
   "hardness": null,
   "thermal_conductivity": 11,
-  "fatigue_strength": 675,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Layup",
@@ -157,7 +148,6 @@
     "Composite",
     "Metal-Matrix"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1,

@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 142,
-      "max": 142,
-      "typical": 142,
+      "min": 167,
+      "max": 167,
+      "typical": 167,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 142,
+      "conversion": "ASTM E140-12b Table 9",
+      "provenance": "HB 142 → HV 167 (ASTM E140-12b Table 9)"
     },
     "thermal_conductivity": {
       "min": 121,
@@ -94,8 +99,11 @@
       "max": 23.8,
       "typical": 23.8,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 25,
+      "factor": 0.95,
+      "condition": "T81 CW + aged peak",
       "provenance": "alloy-specific KIC × HT:T81 CW + aged peak (k×0.95)"
     },
     "electrical_conductivity": {
@@ -227,7 +235,7 @@
       480,
       6,
       73,
-      142,
+      167,
       121
     ]
   ],
@@ -247,7 +255,7 @@
   "uts": 480,
   "elongation": 6,
   "modulus": 73,
-  "hardness": 142,
+  "hardness": 167,
   "thermal_conductivity": 121,
   "impact_strength": 14,
   "manufacturer": "Reference data",
@@ -302,7 +310,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1.05,
   "delivered_price_per_kg": 5.51,
-  "total_cost_estimate": 4.41,
+  "total_cost_estimate": 9.92,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
@@ -314,6 +322,33 @@
         "AlCu4Mg1",
         "DIN 3.1355"
       ]
-    }
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 142,
+        "max": 142,
+        "typical": 142,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 142
+    },
+    "_hardness_scale": "Al HB500 142 → HV 167 (E140 T9)",
+    "points": {
+      "from": [
+        [
+          2.78,
+          450,
+          480,
+          6,
+          73,
+          142,
+          121
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
   }
 }

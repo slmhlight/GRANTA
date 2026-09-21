@@ -36,21 +36,21 @@
       "typical": 160,
       "max": 160,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 3105-H25 Aluminum (180 / 160 / 6.4%) · 피로 87 MPa(MakeItFrom 3105-H25) · D10 비례법 — 앵커 MakeItFrom 3105-O (120 MPa / HB 29)"
+      "provenance": "교정: MakeItFrom 3105-H25 Aluminum (180 / 160 / 6.4%) · 피로 87 MPa(MakeItFrom 3105-H25) · D10 비례법 — 앵커 MakeItFrom 3105-O (120 MPa / HB 29) · [경도 스케일] 인용 경도 44 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "uts": {
       "min": 180,
       "typical": 180,
       "max": 180,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 3105-H25 Aluminum (180 / 160 / 6.4%) · 피로 87 MPa(MakeItFrom 3105-H25) · D10 비례법 — 앵커 MakeItFrom 3105-O (120 MPa / HB 29)"
+      "provenance": "교정: MakeItFrom 3105-H25 Aluminum (180 / 160 / 6.4%) · 피로 87 MPa(MakeItFrom 3105-H25) · D10 비례법 — 앵커 MakeItFrom 3105-O (120 MPa / HB 29) · [경도 스케일] 인용 경도 44 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "elongation": {
       "min": 6.4,
       "typical": 6.4,
       "max": 6.4,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 3105-H25 Aluminum (180 / 160 / 6.4%) · 피로 87 MPa(MakeItFrom 3105-H25) · D10 비례법 — 앵커 MakeItFrom 3105-O (120 MPa / HB 29)"
+      "provenance": "교정: MakeItFrom 3105-H25 Aluminum (180 / 160 / 6.4%) · 피로 87 MPa(MakeItFrom 3105-H25) · D10 비례법 — 앵커 MakeItFrom 3105-O (120 MPa / HB 29) · [경도 스케일] 인용 경도 44 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "modulus": {
       "min": 70,
@@ -60,11 +60,15 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 44,
-      "typical": 44,
-      "max": 44,
+      "min": 49,
+      "typical": 49,
+      "max": 49,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 3105-H25 Aluminum (180 / 160 / 6.4%) · 피로 87 MPa(MakeItFrom 3105-H25) · D10 비례법 — 앵커 MakeItFrom 3105-O (120 MPa / HB 29)"
+      "provenance": "교정: MakeItFrom 3105-H25 Aluminum (180 / 160 / 6.4%) · 피로 87 MPa(MakeItFrom 3105-H25) · D10 비례법 — 앵커 MakeItFrom 3105-O (120 MPa / HB 29) · [경도 스케일] 인용 경도 44 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 44,
+      "conversion": "ASTM E140-12b Table 9"
     },
     "thermal_conductivity": {
       "min": 191,
@@ -78,7 +82,7 @@
       "typical": 87,
       "max": 87,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 3105-H25 Aluminum (180 / 160 / 6.4%) · 피로 87 MPa(MakeItFrom 3105-H25) · D10 비례법 — 앵커 MakeItFrom 3105-O (120 MPa / HB 29)"
+      "provenance": "교정: MakeItFrom 3105-H25 Aluminum (180 / 160 / 6.4%) · 피로 87 MPa(MakeItFrom 3105-H25) · D10 비례법 — 앵커 MakeItFrom 3105-O (120 MPa / HB 29) · [경도 스케일] 인용 경도 44 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "impact_strength": {
       "min": 40,
@@ -125,8 +129,8 @@
       "provenance": "3rd_family:Stainless - Austenitic"
     },
     "poisson_ratio": {
-      "min": 0.2805,
-      "max": 0.3795,
+      "min": 0.31,
+      "max": 0.35,
       "typical": 0.33,
       "n": 0,
       "estimated": true,
@@ -203,7 +207,7 @@
       180,
       6.4,
       70,
-      44,
+      49,
       191
     ]
   ],
@@ -234,7 +238,7 @@
   "uts": 180,
   "elongation": 6.4,
   "modulus": 70,
-  "hardness": 44,
+  "hardness": 49,
   "thermal_conductivity": 191,
   "impact_strength": 65,
   "manufacturer": "Generic",
@@ -263,7 +267,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 2.84,
-  "total_cost_estimate": 2.55,
+  "total_cost_estimate": 5.39,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
@@ -354,7 +358,7 @@
       "val_scalar": 38.8
     },
     "_basis": "'Strain-hardened' 합성값(σy 77.6/UTS 126.1 = 소둔 ×1.03)을 실제 템퍼 H25 로 교체. 파생 피로(SS 규칙 오분류) → 인용값. 경도: 3105-H25 공개 HB 미확보 → 같은 합금의 앵커 비(3105-O 120/29 = 4.1)로 180/4.1 ≈ 44 HB (파생, 문서화).",
-    "_src": "MakeItFrom 3105-H25 Aluminum (180 / 160 / 6.4%) · 피로 87 MPa(MakeItFrom 3105-H25) · D10 비례법 — 앵커 MakeItFrom 3105-O (120 MPa / HB 29)",
+    "_src": "MakeItFrom 3105-H25 Aluminum (180 / 160 / 6.4%) · 피로 87 MPa(MakeItFrom 3105-H25) · D10 비례법 — 앵커 MakeItFrom 3105-O (120 MPa / HB 29) · [경도 스케일] 인용 경도 44 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
     "points": {
       "from": [
         [

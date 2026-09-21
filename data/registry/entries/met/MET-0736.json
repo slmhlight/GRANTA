@@ -111,8 +111,11 @@
       "max": 190,
       "typical": 190,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 200,
+      "factor": 0.95,
+      "condition": "as-built (fine columnar)",
       "provenance": "alloy-specific KIC × HT:as-built (fine columnar) (k×0.95)"
     },
     "electrical_conductivity": {
@@ -176,7 +179,7 @@
       "n": 1,
       "estimated": false,
       "confidence": "measured",
-      "provenance": "LME nickel base 2026-Q2 avg $16,800/t + spec premium → 316L bar 약 $5.5-7/kg (varies by section)"
+      "provenance": "LME nickel base 2026-Q2 avg $16,800/t + spec premium → 316L bar 약 $5.5-7/kg (varies by section) · [AM entry: 원소재(압연·봉재) 기준 시장가 — 분말 등급·재사용·수율 프리미엄은 delivered price 의 form factor 로 반영, 납품 단가 아님]"
     },
     "price_per_cm3": {
       "min": 0.0421,
@@ -613,7 +616,7 @@
   "price_form_factor": 2.5,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 14.5,
-  "total_cost_estimate": 26.1,
+  "total_cost_estimate": 40.6,
   "min_wall_thickness": 0.4,
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",

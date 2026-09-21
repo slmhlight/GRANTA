@@ -36,21 +36,21 @@
       "typical": 55,
       "max": 55,
       "confidence": "handbook",
-      "provenance": "교정: United Aluminum — Aluminum 3005 typical (3005-O: 20/8 ksi, El 22) · MakeItFrom 3005-O (140 / 51 / 16% / HB 33)"
+      "provenance": "교정: United Aluminum — Aluminum 3005 typical (3005-O: 20/8 ksi, El 22) · MakeItFrom 3005-O (140 / 51 / 16% / HB 33) · [경도 스케일] 인용 경도 33 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기."
     },
     "uts": {
       "min": 138,
       "typical": 138,
       "max": 138,
       "confidence": "handbook",
-      "provenance": "교정: United Aluminum — Aluminum 3005 typical (3005-O: 20/8 ksi, El 22) · MakeItFrom 3005-O (140 / 51 / 16% / HB 33)"
+      "provenance": "교정: United Aluminum — Aluminum 3005 typical (3005-O: 20/8 ksi, El 22) · MakeItFrom 3005-O (140 / 51 / 16% / HB 33) · [경도 스케일] 인용 경도 33 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기."
     },
     "elongation": {
       "min": 22,
       "typical": 22,
       "max": 22,
       "confidence": "handbook",
-      "provenance": "교정: United Aluminum — Aluminum 3005 typical (3005-O: 20/8 ksi, El 22) · MakeItFrom 3005-O (140 / 51 / 16% / HB 33)"
+      "provenance": "교정: United Aluminum — Aluminum 3005 typical (3005-O: 20/8 ksi, El 22) · MakeItFrom 3005-O (140 / 51 / 16% / HB 33) · [경도 스케일] 인용 경도 33 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기."
     },
     "modulus": {
       "min": 70,
@@ -64,7 +64,12 @@
       "typical": 33,
       "max": 33,
       "confidence": "handbook",
-      "provenance": "교정: United Aluminum — Aluminum 3005 typical (3005-O: 20/8 ksi, El 22) · MakeItFrom 3005-O (140 / 51 / 16% / HB 33)"
+      "provenance": "교정: United Aluminum — Aluminum 3005 typical (3005-O: 20/8 ksi, El 22) · MakeItFrom 3005-O (140 / 51 / 16% / HB 33) · [경도 스케일] 인용 경도 33 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기.",
+      "scale": "HB",
+      "source_scale": "HB",
+      "source_value": 33,
+      "conversion": null,
+      "scale_note": "ASTM E140 표 밖(또는 해당 표 없음) — 환산하지 않고 원 스케일 그대로 표기"
     },
     "thermal_conductivity": {
       "min": 191,
@@ -126,8 +131,8 @@
       "provenance": "3rd_family:Aluminum - Mn Alloys (3xxx)"
     },
     "poisson_ratio": {
-      "min": 0.2805,
-      "max": 0.3795,
+      "min": 0.31,
+      "max": 0.35,
       "typical": 0.33,
       "n": 0,
       "estimated": true,
@@ -253,7 +258,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 2.68,
-  "total_cost_estimate": 2.41,
+  "total_cost_estimate": 5.09,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
@@ -331,7 +336,7 @@
       "val_scalar": 42.3
     },
     "_basis": "AA 3005-O. 합성값의 항복 89.3 은 O 템퍼 대표(55)의 1.6배.",
-    "_src": "United Aluminum — Aluminum 3005 typical (3005-O: 20/8 ksi, El 22) · MakeItFrom 3005-O (140 / 51 / 16% / HB 33)",
+    "_src": "United Aluminum — Aluminum 3005 typical (3005-O: 20/8 ksi, El 22) · MakeItFrom 3005-O (140 / 51 / 16% / HB 33) · [경도 스케일] 인용 경도 33 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기.",
     "points": {
       "from": [
         [

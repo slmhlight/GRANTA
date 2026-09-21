@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 160,
-      "max": 160,
-      "typical": 160,
+      "min": 189,
+      "max": 189,
+      "typical": 189,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 160,
+      "conversion": "ASTM E140-12b Table 9",
+      "provenance": "HB 160 → HV 189 (ASTM E140-12b Table 9)"
     },
     "thermal_conductivity": {
       "min": 95,
@@ -123,8 +128,8 @@
       "provenance": "3rd_family:Aluminum - Lithium"
     },
     "poisson_ratio": {
-      "min": 0.2805,
-      "max": 0.3795,
+      "min": 0.31,
+      "max": 0.35,
       "typical": 0.33,
       "n": 0,
       "estimated": true,
@@ -216,7 +221,7 @@
       600,
       7,
       78,
-      160,
+      189,
       95
     ]
   ],
@@ -234,7 +239,7 @@
   "uts": 600,
   "elongation": 7,
   "modulus": 78,
-  "hardness": 160,
+  "hardness": 189,
   "thermal_conductivity": 95,
   "fatigue_strength": 180,
   "impact_strength": 10,
@@ -265,7 +270,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 8.19,
-  "total_cost_estimate": 7.37,
+  "total_cost_estimate": 15.56,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
@@ -288,6 +293,33 @@
           "verified": false
         }
       ]
-    }
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 160,
+        "max": 160,
+        "typical": 160,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 160
+    },
+    "_hardness_scale": "Al HB500 160 → HV 189 (E140 T9)",
+    "points": {
+      "from": [
+        [
+          2.65,
+          540,
+          600,
+          7,
+          78,
+          160,
+          95
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
   }
 }

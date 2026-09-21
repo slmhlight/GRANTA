@@ -117,7 +117,7 @@ export function popularityFor(m) {
       else if (/Tool Steel/.test(sub)) t = 2.9;
       else if (/Cast Iron/.test(sub)) t = 3.3;
       else if (/Maraging Steel/.test(sub)) t = 2.6;
-      else if (/Aluminum - Si Alloys|Aluminum - Pure/.test(sub)) t = 3.5;
+      else if (/Aluminum - (Mg-)?Si Alloys|Aluminum - Zn Alloys|Aluminum - Pure/.test(sub)) t = 3.5;   // AUD F04 — 6xxx/7xxx/Al-Si 분리 후에도 같은 tier
       else if (/Aluminum - Mg Alloys|Aluminum - Cu Alloys/.test(sub)) t = 3.3;
       else if (/Aluminum - Mn Alloys|Aluminum - Cast/.test(sub)) t = 3.0;
       else if (/^Aluminum/.test(sub)) t = 3.2;

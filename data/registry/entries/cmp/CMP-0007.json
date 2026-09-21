@@ -29,13 +29,7 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "yield_strength": {
-      "min": 2207,
-      "max": 2207,
-      "typical": 2207,
-      "n": 1,
-      "confidence": "handbook"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 2207,
       "max": 2207,
@@ -90,15 +84,6 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "fatigue_strength": {
-      "min": 993.15,
-      "max": 993.15,
-      "typical": 993.15,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
-    },
     "price_per_cm3": {
       "min": 0.1738,
       "max": 0.1738,
@@ -142,17 +127,18 @@
     "applications": "Boeing 787 fuselage skin, 항공기 secondary structure, 헬리콥터 rotor blade",
     "industry_note": "Hexcel HexPly 8552 epoxy matrix + AS4 (12K tow) UD prepreg. 0° tensile 1903-2207 MPa, 0° compression 1586 MPa, ILSS 128 MPa. IM7 대비 modulus 낮으나 cost 효율 (40% 저렴). Boeing 787 fuselage, F-22 / F-35 일부, regional aircraft 사용.",
     "anisotropy_note": "복합재 — 강성·강도가 fiber 방향 의존. 0° UD 값 (수직 방향은 1/10~1/20).",
+    "no_yield": "섬유 복합재 — 항복점 없음(선형 후 파단). 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
     "_r173_note_applied": true
   },
   "popularity": 4,
   "density": 1.58,
-  "yield_strength": 2207,
+  "yield_strength": null,
   "uts": 2207,
   "elongation": 1.7,
   "modulus": 134,
   "hardness": null,
   "thermal_conductivity": 6,
-  "fatigue_strength": 993.15,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Layup",
@@ -162,7 +148,6 @@
     "Composite",
     "Carbon-Epoxy"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1,

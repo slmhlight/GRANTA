@@ -94,8 +94,11 @@
       "max": 150,
       "typical": 150,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 100,
+      "factor": 1.5,
+      "condition": "solution annealed (soft)",
       "provenance": "alloy-specific KIC × HT:solution annealed (soft) (k×1.5)"
     },
     "electrical_conductivity": {
@@ -277,7 +280,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 105,
-  "total_cost_estimate": 189,
+  "total_cost_estimate": 294,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "svhc_concerns": [

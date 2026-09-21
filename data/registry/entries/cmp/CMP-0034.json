@@ -90,15 +90,6 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "fatigue_strength": {
-      "min": 103.5,
-      "max": 103.5,
-      "typical": 103.5,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
-    },
     "price_per_cm3": {
       "min": 0.0011,
       "max": 0.0015,
@@ -144,7 +135,7 @@
   "modulus": 18,
   "hardness": null,
   "thermal_conductivity": 0.2,
-  "fatigue_strength": 103.5,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Layup",
@@ -154,7 +145,6 @@
     "Composite",
     "Wood"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1,

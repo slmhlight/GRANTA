@@ -168,10 +168,13 @@ export function classifyMaterialByComposition(material: Material): string {
     return 'Carbon Steel';
   }
 
-  // Aluminum-based alloys
+  // Aluminum-based alloys — AUD F04: 빌드 subcategory 와 같은 이름 체계 (6xxx Mg-Si / 7xxx Zn / Al-Si cast·AM)
   if (isElementHigh(material, 'Al', 85)) {
     if (isElementInRange(material, 'Si', 4, 13)) {
-      return 'Aluminum - Si Alloys (6xxx/7xxx)';
+      return 'Aluminum - Si Alloys (cast/AM 3xx·4xx)';
+    }
+    if (isElementInRange(material, 'Zn', 4, 9)) {
+      return 'Aluminum - Zn Alloys (7xxx)';
     }
     if (isElementInRange(material, 'Mg', 3, 6)) {
       return 'Aluminum - Mg Alloys (5xxx)';
@@ -179,8 +182,8 @@ export function classifyMaterialByComposition(material: Material): string {
     if (isElementInRange(material, 'Cu', 3, 5)) {
       return 'Aluminum - Cu Alloys (2xxx)';
     }
-    if (isElementInRange(material, 'Zn', 4, 8)) {
-      return 'Aluminum - Zn Alloys (7xxx)';
+    if (isElementInRange(material, 'Mg', 0.3, 1.5) && isElementInRange(material, 'Si', 0.2, 1.5)) {
+      return 'Aluminum - Mg-Si Alloys (6xxx)';
     }
     return 'Aluminum - Pure/Other';
   }

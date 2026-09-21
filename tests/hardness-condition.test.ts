@@ -65,8 +65,15 @@ describe('D10 — 경도가 조건을 따라가지 않는 합금', () => {
        같은 검사를 '경도가 있는 조건이 둘 이상인' Al 상용 사다리에 적용한다 — 비 산포 1.35 이내(HB 환산 편차 허용). */
     const bad: string[] = [];
     for (const base of ['AA 6262', 'AA 2011', 'AA 3003', 'AA 3004', 'AA 1100', 'AA 6061', 'AA 7075']) {
+      /* AUD F03 (2026-09-22) — Al 경도는 E140 Table 9 로 HB→HV 환산됐고 표 밖(HB<40)은 HB 로 남는다. 한 사다리 안에서
+         스케일이 섞이면 비가 성립하지 않으므로, 원 스케일 값(source_value = 인용 HB)으로 비교한다 — 게이트의 뜻(조건을 따라가는가)은 그대로. */
+      const hOf = (m: Mat) => {
+        const h = m.ranges?.hardness as { typical?: number; source_value?: number } | undefined;
+        const x = typeof h?.source_value === 'number' ? h.source_value : h?.typical;
+        return typeof x === 'number' && isFinite(x) ? x : null;
+      };
       const rows = ALL.filter((m) => baseOf(m.name) === base)
-        .map((m) => ({ m, u: v(m, 'uts'), h: v(m, 'hardness') }))
+        .map((m) => ({ m, u: v(m, 'uts'), h: hOf(m) }))
         .filter((r) => r.u != null && r.h != null) as Array<{ m: Mat; u: number; h: number }>;
       expect(rows.length, `${base}: 비교할 조건이 없다`).toBeGreaterThan(1);
       const ratios = rows.map((r) => r.u / r.h);

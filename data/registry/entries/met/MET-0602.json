@@ -119,8 +119,8 @@
       "provenance": "2nd_family:Nickel Superalloy"
     },
     "poisson_ratio": {
-      "min": 0.21,
-      "max": 0.39,
+      "min": 0.27,
+      "max": 0.33,
       "typical": 0.3,
       "n": 0,
       "estimated": true,
@@ -176,6 +176,11 @@
     "Ni": "99~99.9"
   },
   "sources": [
+    {
+      "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
     {
       "label": "Special Metals — Nickel 200/201",
       "url": "http://web.archive.org/web/20240714185430/https://www.specialmetals.com/documents/technical-bulletins/nickel-200.pdf",
@@ -269,7 +274,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 64.26,
-  "total_cost_estimate": 64.26,
+  "total_cost_estimate": 128.52,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "svhc_concerns": [
@@ -277,6 +282,20 @@
   ],
   "confidence_tier": "high",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Special Metals — Nickel 200/201",
+          "url": "http://web.archive.org/web/20240714185430/https://www.specialmetals.com/documents/technical-bulletins/nickel-200.pdf",
+          "verified": true
+        },
+        {
+          "label": "Special Metals — Nickel 200 (UNS N02200)",
+          "url": null,
+          "verified": false
+        }
+      ]
+    },
     "aliases": {
       "from": [
         "UNS N02200",

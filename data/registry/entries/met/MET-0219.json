@@ -2,7 +2,7 @@
   "stable_id": "MET-0219",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "subcategory": "F-MET-aluminum-si-alloys-cast-am-3xx-4xx",
     "alloy_base": "F-AB-alsi10mg",
     "element_families": [
       "F-EL-aluminum-based"
@@ -13,7 +13,7 @@
   "id": "R_0269",
   "name": "AlSi10Mg — Cast (A360 Sand/Permanent-Mold)",
   "category": "Metal",
-  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "subcategory": "Aluminum - Si Alloys (cast/AM 3xx·4xx)",
   "tier": "reference",
   "manufacturers": [
     "Reference data"
@@ -60,11 +60,16 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 72,
-      "max": 90,
-      "typical": 80,
+      "min": 82,
+      "max": 105,
+      "typical": 92,
       "n": 3,
-      "confidence": "measured"
+      "confidence": "measured",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 80,
+      "conversion": "ASTM E140-12b Table 9",
+      "provenance": "HB 80 → HV 92 (ASTM E140-12b Table 9)"
     },
     "thermal_conductivity": {
       "min": 150,
@@ -224,25 +229,7 @@
       240,
       4,
       71,
-      80,
-      150
-    ],
-    [
-      2.68,
-      110,
-      210,
-      2,
-      71,
-      72,
-      150
-    ],
-    [
-      2.68,
-      160,
-      280,
-      7,
-      71,
-      90,
+      92,
       150
     ]
   ],
@@ -273,7 +260,7 @@
   "uts": 240,
   "elongation": 4,
   "modulus": 71,
-  "hardness": 80,
+  "hardness": 92,
   "thermal_conductivity": 150,
   "impact_strength": 4,
   "manufacturer": "Reference data",
@@ -289,7 +276,7 @@
   ],
   "families": [
     "Metal",
-    "Aluminum - Cast (3xx/4xx)",
+    "Aluminum - Si Alloys (cast/AM 3xx·4xx)",
     "Aluminum-based"
   ],
   "fatigue_estimated": false,
@@ -308,7 +295,7 @@
   "price_form_factor": 1,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 8,
-  "total_cost_estimate": 4.8,
+  "total_cost_estimate": 12.8,
   "min_wall_thickness": 2.5,
   "surface_finish_typical": 12.5,
   "tolerance_class": "IT13-14",
@@ -322,6 +309,51 @@
         "EN AC-AlSi10Mg",
         "DIN 3.2381"
       ]
-    }
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 72,
+        "max": 90,
+        "typical": 80,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 80
+    },
+    "_hardness_scale": "Al HB500 80 → HV 92 (E140 T9)",
+    "points": {
+      "from": [
+        [
+          2.68,
+          130,
+          240,
+          4,
+          71,
+          80,
+          150
+        ],
+        [
+          2.68,
+          110,
+          210,
+          2,
+          71,
+          72,
+          150
+        ],
+        [
+          2.68,
+          160,
+          280,
+          7,
+          71,
+          90,
+          150
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
   }
 }

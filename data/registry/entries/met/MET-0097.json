@@ -36,21 +36,21 @@
       "typical": 310,
       "max": 310,
       "confidence": "handbook",
-      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2011-T8: 59/45 ksi, El 12, HB 100) · EMJ Metals catalog 2011-T8 59,000/45,000 psi · MakeItFrom 2011-T8 (410 / 310 / 9.8% / HB 100)"
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2011-T8: 59/45 ksi, El 12, HB 100) · EMJ Metals catalog 2011-T8 59,000/45,000 psi · MakeItFrom 2011-T8 (410 / 310 / 9.8% / HB 100) · [경도 스케일] 인용 경도 100 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "uts": {
       "min": 407,
       "typical": 407,
       "max": 407,
       "confidence": "handbook",
-      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2011-T8: 59/45 ksi, El 12, HB 100) · EMJ Metals catalog 2011-T8 59,000/45,000 psi · MakeItFrom 2011-T8 (410 / 310 / 9.8% / HB 100)"
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2011-T8: 59/45 ksi, El 12, HB 100) · EMJ Metals catalog 2011-T8 59,000/45,000 psi · MakeItFrom 2011-T8 (410 / 310 / 9.8% / HB 100) · [경도 스케일] 인용 경도 100 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "elongation": {
       "min": 12,
       "typical": 12,
       "max": 12,
       "confidence": "handbook",
-      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2011-T8: 59/45 ksi, El 12, HB 100) · EMJ Metals catalog 2011-T8 59,000/45,000 psi · MakeItFrom 2011-T8 (410 / 310 / 9.8% / HB 100)"
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2011-T8: 59/45 ksi, El 12, HB 100) · EMJ Metals catalog 2011-T8 59,000/45,000 psi · MakeItFrom 2011-T8 (410 / 310 / 9.8% / HB 100) · [경도 스케일] 인용 경도 100 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "modulus": {
       "min": 73,
@@ -60,11 +60,15 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 100,
-      "typical": 100,
-      "max": 100,
+      "min": 117,
+      "typical": 117,
+      "max": 117,
       "confidence": "handbook",
-      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2011-T8: 59/45 ksi, El 12, HB 100) · EMJ Metals catalog 2011-T8 59,000/45,000 psi · MakeItFrom 2011-T8 (410 / 310 / 9.8% / HB 100)"
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2011-T8: 59/45 ksi, El 12, HB 100) · EMJ Metals catalog 2011-T8 59,000/45,000 psi · MakeItFrom 2011-T8 (410 / 310 / 9.8% / HB 100) · [경도 스케일] 인용 경도 100 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 100,
+      "conversion": "ASTM E140-12b Table 9"
     },
     "thermal_conductivity": {
       "min": 121,
@@ -126,8 +130,8 @@
       "provenance": "1st_family:Aluminum - Cu Alloys (2xxx)"
     },
     "poisson_ratio": {
-      "min": 0.165,
-      "max": 0.495,
+      "min": 0.29,
+      "max": 0.37,
       "typical": 0.33,
       "n": 0,
       "estimated": true,
@@ -203,7 +207,7 @@
       407,
       12,
       73,
-      100,
+      117,
       121
     ]
   ],
@@ -235,7 +239,7 @@
   "uts": 407,
   "elongation": 12,
   "modulus": 73,
-  "hardness": 100,
+  "hardness": 117,
   "thermal_conductivity": 121,
   "impact_strength": 11,
   "manufacturer": "Generic",
@@ -264,7 +268,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 5.25,
-  "total_cost_estimate": 4.73,
+  "total_cost_estimate": 9.97,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
@@ -350,7 +354,7 @@
       "val_scalar": 127.4
     },
     "_basis": "'Aged / solution-treated' 합성값(σy 343/UTS 470.4)을 실제 템퍼 T8(용체화+냉간가공+인공시효)로 교체.",
-    "_src": "Alro Steel Metals Guide — Rod/Bar typical (2011-T8: 59/45 ksi, El 12, HB 100) · EMJ Metals catalog 2011-T8 59,000/45,000 psi · MakeItFrom 2011-T8 (410 / 310 / 9.8% / HB 100)",
+    "_src": "Alro Steel Metals Guide — Rod/Bar typical (2011-T8: 59/45 ksi, El 12, HB 100) · EMJ Metals catalog 2011-T8 59,000/45,000 psi · MakeItFrom 2011-T8 (410 / 310 / 9.8% / HB 100) · [경도 스케일] 인용 경도 100 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
     "points": {
       "from": [
         [

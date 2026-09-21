@@ -2,7 +2,7 @@
   "stable_id": "MET-0182",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "subcategory": "F-MET-aluminum-mg-si-alloys-6xxx",
     "alloy_base": "F-AB-aa-6061",
     "element_families": [
       "F-EL-aluminum-based"
@@ -13,7 +13,7 @@
   "id": "R_0438_1",
   "name": "AA 6061 — T4",
   "category": "Metal",
-  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
   "tier": "reference",
   "manufacturers": [
     "Reference data"
@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 65,
-      "max": 65,
-      "typical": 65,
+      "min": 74,
+      "max": 74,
+      "typical": 74,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 65,
+      "conversion": "ASTM E140-12b Table 9",
+      "provenance": "HB 65 → HV 74 (ASTM E140-12b Table 9)"
     },
     "thermal_conductivity": {
       "min": 167,
@@ -94,8 +99,11 @@
       "max": 39.2,
       "typical": 39.2,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 29,
+      "factor": 1.35,
+      "condition": "T4 solution + naturally aged",
       "provenance": "alloy-specific KIC × HT:T4 solution + naturally aged (k×1.35)"
     },
     "electrical_conductivity": {
@@ -227,7 +235,7 @@
       240,
       22,
       69,
-      65,
+      74,
       167
     ]
   ],
@@ -247,7 +255,7 @@
   "uts": 240,
   "elongation": 22,
   "modulus": 69,
-  "hardness": 65,
+  "hardness": 74,
   "thermal_conductivity": 167,
   "impact_strength": 17,
   "manufacturer": "Reference data",
@@ -262,7 +270,7 @@
   ],
   "families": [
     "Metal",
-    "Aluminum - Si Alloys (6xxx/7xxx)",
+    "Aluminum - Mg-Si Alloys (6xxx)",
     "Aluminum-based"
   ],
   "fatigue_estimated": false,
@@ -281,7 +289,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 3.15,
-  "total_cost_estimate": 1.89,
+  "total_cost_estimate": 5.04,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
@@ -293,6 +301,33 @@
         "AlMg1SiCu",
         "DIN 3.3211"
       ]
-    }
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 65,
+        "max": 65,
+        "typical": 65,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 65
+    },
+    "_hardness_scale": "Al HB500 65 → HV 74 (E140 T9)",
+    "points": {
+      "from": [
+        [
+          2.7,
+          145,
+          240,
+          22,
+          69,
+          65,
+          167
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
   }
 }

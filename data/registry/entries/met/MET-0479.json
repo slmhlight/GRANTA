@@ -187,6 +187,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Magnesium & Magnesium Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "MatWeb 2",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=ZK60",
       "verified": false
@@ -270,11 +275,35 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 16.38,
-  "total_cost_estimate": 14.74,
+  "total_cost_estimate": 31.12,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb 2",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=ZK60",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: ASM Vol.2 Mg alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Mg alloys)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "AZoM — Magnesium ZK60A Alloy (M16600) — extruded, ASTM B107/B91",
+          "url": "https://www.azom.com/article.aspx?ArticleID=6710",
+          "verified": true
+        }
+      ]
+    },
     "aliases": {
       "from": []
     }

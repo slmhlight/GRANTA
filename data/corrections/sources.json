@@ -108,11 +108,30 @@
     "verified": true
    }
   ],
-  "Aluminum - Si Alloys (6xxx/7xxx)": [
+  "Aluminum - Mg-Si Alloys (6xxx)": [
    {
     "label": "ASM Handbook Vol.2 — Aluminum & Aluminum Alloys",
     "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
     "verified": true
+   }
+  ],
+  "Aluminum - Zn Alloys (7xxx)": [
+   {
+    "label": "ASM Handbook Vol.2 — Aluminum & Aluminum Alloys",
+    "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+    "verified": true
+   }
+  ],
+  "Aluminum - Si Alloys (cast/AM 3xx·4xx)": [
+   {
+    "label": "ASM Handbook Vol.2 — Aluminum & Aluminum Alloys",
+    "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+    "verified": true
+   },
+   {
+    "label": "ASTM B26/B108 — 알루미늄 사형·금형 주조 규격 (3xx/4xx 주조 조성군)",
+    "url": "https://www.astm.org/b0026_b0026m-18.html",
+    "verified": false
    }
   ],
   "Aluminum - Pure/Other": [
@@ -455,18 +474,6 @@
     "verified": false
    }
   ],
-  "Aluminum - Cast (3xx/4xx)": [
-   {
-    "label": "ASM Handbook Vol.2 — Properties & Selection: Nonferrous Alloys and Special-Purpose Materials",
-    "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
-    "verified": true
-   },
-   {
-    "label": "ASTM B26/B108 — 알루미늄 사형·금형 주조 규격",
-    "url": "https://www.astm.org/b0026_b0026m-18.html",
-    "verified": false
-   }
-  ],
   "Shipbuilding Steel": [
    {
     "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
@@ -576,6 +583,85 @@
    {
     "label": "ASM Engineered Materials Handbook Vol.1 — Composites",
     "url": "https://www.asminternational.org/engineered-materials-handbook-volume-1-composites",
+    "verified": false
+   }
+  ],
+  "Tool Steel - High-Speed": [
+   {
+    "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+    "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+    "verified": true
+   },
+   {
+    "label": "ASTM A600 — Tool Steel High Speed",
+    "url": "https://store.astm.org/a0600-92ar16.html",
+    "verified": false
+   }
+  ],
+  "Press-Hardening Steel": [
+   {
+    "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+    "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+    "verified": true
+   },
+   {
+    "label": "EN 10083-3 — Steels for quenching and tempering, alloy steels (22MnB5)",
+    "url": "https://www.en-standard.eu/bs-en-10083-3-2006-steels-for-quenching-and-tempering-technical-delivery-conditions-for-alloy-steels/",
+    "verified": false
+   }
+  ],
+  "Pressure Vessel Steel": [
+   {
+    "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+    "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+    "verified": true
+   },
+   {
+    "label": "ASME B&PV Code Sec. II Part A — SA-508/SA-516 ferrous material specifications",
+    "url": "https://www.asme.org/codes-standards/find-codes-standards/bpvc-ii-a-bpvc-section-ii-materials-part-a-ferrous-material-specifications",
+    "verified": false
+   }
+  ],
+  "Armor Steel": [
+   {
+    "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+    "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+    "verified": true
+   },
+   {
+    "label": "MIL-DTL-46100E — Armor Plate, Steel, Wrought, High-Hardness",
+    "url": "https://everyspec.com/MIL-SPECS/MIL-SPECS-MIL-DTL/MIL-DTL-46100E_24587/",
+    "verified": false
+   }
+  ],
+  "Spring Steel": [
+   {
+    "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+    "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+    "verified": true
+   },
+   {
+    "label": "ASTM A228 — Steel Wire, Music Spring Quality",
+    "url": "https://store.astm.org/a0228_a0228m-18.html",
+    "verified": false
+   }
+  ],
+  "Composite - Ceramic-Metal": [
+   {
+    "label": "ASM Handbook Vol.21 — Composites",
+    "url": "https://www.asminternational.org/asm-handbook-volume-21-composites",
+    "verified": false
+   }
+  ],
+  "Rail Steel": [
+   {
+    "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+    "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+    "verified": true
+   },
+   {
+    "label": "EN 13674-1 — Railway applications, Track, Rail (R260/R350HT)",
+    "url": "https://www.en-standard.eu/bs-en-13674-1-2011-a1-2017-railway-applications-track-rail-vignole-railway-rails-46-kg-m-and-above/",
     "verified": false
    }
   ]

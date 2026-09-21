@@ -2,7 +2,7 @@
   "stable_id": "MET-0179",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "subcategory": "F-MET-aluminum-si-alloys-cast-am-3xx-4xx",
     "alloy_base": "F-AB-a356-0-al-si-mg-cast",
     "element_families": [
       "F-EL-aluminum-based"
@@ -13,7 +13,7 @@
   "id": "R_0017",
   "name": "A356.0 (Al-Si-Mg cast)",
   "category": "Metal",
-  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "subcategory": "Aluminum - Si Alloys (cast/AM 3xx·4xx)",
   "tier": "reference",
   "manufacturers": [
     "Reference data"
@@ -60,11 +60,16 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 60,
-      "max": 90,
-      "typical": 80,
+      "min": 68,
+      "max": 105,
+      "typical": 92,
       "n": 3,
-      "confidence": "measured"
+      "confidence": "measured",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 80,
+      "conversion": "ASTM E140-12b Table 9",
+      "provenance": "HB 80 → HV 92 (ASTM E140-12b Table 9)"
     },
     "thermal_conductivity": {
       "min": 151,
@@ -223,27 +228,9 @@
       2.68,
       186,
       262,
-      5,
-      72.4,
-      80,
-      151
-    ],
-    [
-      2.68,
-      124,
-      159,
       6,
       72.4,
-      60,
-      151
-    ],
-    [
-      2.68,
-      205,
-      278,
-      8,
-      72.4,
-      90,
+      92,
       151
     ]
   ],
@@ -262,7 +249,7 @@
   "uts": 262,
   "elongation": 6,
   "modulus": 72.4,
-  "hardness": 80,
+  "hardness": 92,
   "thermal_conductivity": 151,
   "impact_strength": 5,
   "manufacturer": "Reference data",
@@ -271,7 +258,7 @@
   "aliases": [],
   "families": [
     "Metal",
-    "Aluminum - Si Alloys (6xxx/7xxx)",
+    "Aluminum - Si Alloys (cast/AM 3xx·4xx)",
     "Aluminum-based"
   ],
   "fatigue_estimated": false,
@@ -290,10 +277,57 @@
   "price_form_factor": 1,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 3.5,
-  "total_cost_estimate": 2.1,
+  "total_cost_estimate": 5.6,
   "min_wall_thickness": 2.5,
   "surface_finish_typical": 12.5,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 60,
+        "max": 90,
+        "typical": 80,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 80
+    },
+    "_hardness_scale": "Al HB500 80 → HV 92 (E140 T9)",
+    "points": {
+      "from": [
+        [
+          2.68,
+          186,
+          262,
+          5,
+          72.4,
+          80,
+          151
+        ],
+        [
+          2.68,
+          124,
+          159,
+          6,
+          72.4,
+          60,
+          151
+        ],
+        [
+          2.68,
+          205,
+          278,
+          8,
+          72.4,
+          90,
+          151
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  }
 }

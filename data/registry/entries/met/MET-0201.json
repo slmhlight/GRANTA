@@ -2,7 +2,7 @@
   "stable_id": "MET-0201",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "subcategory": "F-MET-aluminum-mg-si-alloys-6xxx",
     "alloy_base": "F-AB-aa-6463-architectural-extrusion",
     "element_families": [
       "F-EL-aluminum-based"
@@ -13,7 +13,7 @@
   "id": "R_0043_0",
   "name": "AA 6463 (architectural extrusion) — T4 (sol. + nat aged)",
   "category": "Metal",
-  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
   "tier": "reference",
   "manufacturers": [
     "Reference data"
@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 41,
-      "max": 41,
-      "typical": 41,
+      "min": 45,
+      "max": 45,
+      "typical": 45,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 41,
+      "conversion": "ASTM E140-12b Table 9",
+      "provenance": "HB 41 → HV 45 (ASTM E140-12b Table 9)"
     },
     "thermal_conductivity": {
       "min": 209,
@@ -123,8 +128,8 @@
       "provenance": "1st_family:Aluminum - Pure/Other"
     },
     "poisson_ratio": {
-      "min": 0.165,
-      "max": 0.495,
+      "min": 0.29,
+      "max": 0.37,
       "typical": 0.33,
       "n": 0,
       "estimated": true,
@@ -187,6 +192,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Aluminum & Aluminum Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "Datasheet 1",
       "url": "ANSYS Granta — Aluminum, 6463, T4 / T6 (UNS A96463, EN AW-6463, EN AW-Al Mg0.7Si(B))",
       "verified": true
@@ -224,7 +234,7 @@
       135,
       19,
       74,
-      41,
+      45,
       209
     ]
   ],
@@ -248,7 +258,7 @@
   "uts": 135,
   "elongation": 19,
   "modulus": 74,
-  "hardness": 41,
+  "hardness": 45,
   "thermal_conductivity": 209,
   "fatigue_strength": 42,
   "impact_strength": 10,
@@ -279,8 +289,71 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 5.46,
-  "total_cost_estimate": 4.91,
+  "total_cost_estimate": 10.37,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Datasheet 1",
+          "url": "ANSYS Granta — Aluminum, 6463, T4 / T6 (UNS A96463, EN AW-6463, EN AW-Al Mg0.7Si(B))",
+          "verified": true
+        },
+        {
+          "label": "Datasheet 1",
+          "url": "https://www.aluminum.org/standards",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: AA 6xxx Al-Mg-Si",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MakeItFrom — 6463-T6 Aluminum (property table)",
+          "url": "https://www.makeitfrom.com/material-properties/6463-T6-Aluminum",
+          "verified": false
+        },
+        {
+          "label": "MakeItFrom — 6463 (AlMg0.7Si(B), A96463) Aluminum 합금 개요(UNS/EN 지정)",
+          "url": "https://www.makeitfrom.com/material-properties/6463-AlMg0.7SiB-A96463-Aluminum/",
+          "verified": false
+        },
+        {
+          "label": "AZoM — Aluminium 6463 Alloy (UNS A96463) 데이터시트",
+          "url": "https://www.azom.com/article.aspx?ArticleID=6649",
+          "verified": true
+        }
+      ]
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 41,
+        "max": 41,
+        "typical": 41,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 41
+    },
+    "_hardness_scale": "Al HB500 41 → HV 45 (E140 T9)",
+    "points": {
+      "from": [
+        [
+          2.69,
+          81,
+          135,
+          19,
+          74,
+          41,
+          209
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  }
 }

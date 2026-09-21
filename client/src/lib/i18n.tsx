@@ -118,10 +118,14 @@ export const TRANSLATIONS: Record<string, Record<Lang, string>> = {
   'scenario.apply': { ko: '적용하고 시작', en: 'Apply and start' },
   'scenario.cancel': { ko: '취소', en: 'Cancel' },
   'scenario.section': { ko: '단면 형상', en: 'Section shape' },
-  'scenario.strongAxis': { ko: '강축', en: 'Strong axis' },
-  'scenario.weakAxis': { ko: '약축', en: 'Weak axis' },
-  'scenario.strongAxis.sub': { ko: '하중 ⊥ h/H — 가장 효율', en: 'Load ⊥ h/H — most efficient' },
-  'scenario.weakAxis.sub': { ko: '하중 ⊥ b/B — I 작아짐', en: 'Load ⊥ b/B — smaller I' },
+  /* AUD F17 (2026-09-22) — 축 이름은 방향(어느 치수가 하중과 나란한가)만 말하고, 어느 쪽이 실제 강축인지는
+     현재 치수로 계산한 I 를 비교해 배지로 표시한다. 예전엔 h 방향을 무조건 "강축·가장 효율" 이라 불러
+     b=20·h=10 에서 더 약한 방향을 강축이라고 안내했다. */
+  'scenario.axisH': { ko: 'h/H 방향 하중', en: 'Load along h/H' },
+  'scenario.axisB': { ko: 'b/B 방향 하중', en: 'Load along b/B' },
+  'scenario.axis.strongBadge': { ko: '강축 (I 큼)', en: 'strong axis (larger I)' },
+  'scenario.axis.weakBadge': { ko: '약축 (I 작음)', en: 'weak axis (smaller I)' },
+  'scenario.axis.equalBadge': { ko: '동등 (I 같음)', en: 'equal (same I)' },
   'scenario.loadDirection': { ko: '하중 방향 (이 단면의 축)', en: 'Load direction (section axis)' },
   'scenario.result': { ko: '산출 결과 (라이브)', en: 'Result (live)' },
   'scenario.fillValues': { ko: '입력값을 확인해 주세요.', en: 'Please check input values.' },
@@ -156,7 +160,7 @@ export const TRANSLATIONS: Record<string, Record<Lang, string>> = {
   'detail.section.sources': { ko: '출처 · 데이터시트', en: 'Sources & Datasheets' },
   'detail.section.noData': { ko: '개 항목 데이터 없음', en: ' properties with no data' },
   'detail.confidence': { ko: '신뢰도', en: 'Confidence' },
-  'detail.confidence.measured': { ko: '실측 다수', en: 'measured (many)' },
+  'detail.confidence.measured': { ko: '실측 (n=표본 수)', en: 'measured (n = sample count)' },
   'detail.confidence.handbook': { ko: '표준 데이터시트', en: 'handbook' },
   'detail.confidence.class': { ko: '클래스 대표(추정)', en: 'class typical (estimated)' },
   'detail.confidence.derived': { ko: '다른 물성에서 유도', en: 'derived from other properties' },

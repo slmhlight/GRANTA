@@ -29,13 +29,7 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "yield_strength": {
-      "min": 100,
-      "max": 100,
-      "typical": 100,
-      "n": 1,
-      "confidence": "handbook"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 100,
       "max": 100,
@@ -96,15 +90,6 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "fatigue_strength": {
-      "min": 45,
-      "max": 45,
-      "typical": 45,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
-    },
     "price_per_cm3": {
       "min": 0.3792,
       "max": 0.3792,
@@ -141,6 +126,7 @@
     "ceramic": true,
     "applications": "골이식재, 임플란트 코팅 (Ti 위), 치과 충전재",
     "limitations": "낮은 강도 — 하중 부담 부품 부적합 (코팅용)",
+    "no_yield": "취성 세라믹 — 항복점 없음. 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
     "_r173_note_applied": true,
     "specs": [
       {
@@ -151,13 +137,13 @@
   },
   "popularity": 2,
   "density": 3.16,
-  "yield_strength": 100,
+  "yield_strength": null,
   "uts": 100,
   "elongation": null,
   "modulus": 100,
   "hardness": 500,
   "thermal_conductivity": 1.3,
-  "fatigue_strength": 45,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Sintered",
@@ -167,7 +153,6 @@
     "Ceramic",
     "Bioceramic"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1,
@@ -178,6 +163,6 @@
   "surface_finish_typical": 3.2,
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
-  "confidence_tier": "medium",
+  "confidence_tier": "medium-low",
   "industry_note": "HA (Hydroxyapatite, Ca₁₀(PO₄)₆(OH)₂, hexagonal P6₃/m) — bone main mineral component (인체 뼈의 65% by weight). Tm 1670°C (decomposes), ρ 3.16 g/cc, σf 80-120, E 80-120 GPa (bone E 18-25 와 비슷). Tmax 1200°C."
 }

@@ -1,4 +1,4 @@
-﻿/*
+/*
  * R67 Sprint B — Engineering Tools.
  * 9 계산기 — Kt / Galvanic / Buckling / CTE mismatch / Hardness / Pressure vessel / Larson-Miller / Mohr / Schaeffler.
  * 각 카드 = 입력 + 결과 + Guide 챕터 link. 수식은 lib/engineering-calcs.ts (R210 B7).
@@ -8,11 +8,12 @@ import { Link } from 'wouter';
 import { ArrowLeft, Calculator, Zap, BookOpen, GraduationCap } from 'lucide-react';
 // R210 B7 — 계산기 수식은 lib/engineering-calcs.ts 순수 함수에서 (테스트 가능). UI 는 그대로.
 import {
-  ktFactor, galvanicDeltaV, galvanicBand, buckling, thermalMismatchStress,
+  ktFactor, galvanicDeltaV, galvanicBand, galvanicAnode, buckling, thermalMismatchStress,
   hardnessConvert, pressureVesselThickness, larsonMiller, larsonMillerInverseTime,
-  mohrCircle, schaefflerEq,
-  KT_SHAPES, HARDNESS_SCALES, VESSEL_SHAPES,
-  type KtShape, type HardnessScale, type VesselShape,
+  mohrCircle, schaefflerEq, schaefflerRegion,
+  validateKt, validateBuckling, validateHardness, validateVessel, validateLMP, validateSchaeffler,
+  KT_SHAPES, HARDNESS_SCALES, HARDNESS_INPUT_RANGE, VESSEL_SHAPES, SCHAEFFLER_LINES, SCHAEFFLER_EXAMPLES,
+  type KtShape, type HardnessScale, type VesselShape, type ValidationIssue,
 } from '@/lib/engineering-calcs';
 
 /* <select> 의 value 는 string 이다. 예전에는 `as any` 로 상태에 그대로 밀어 넣었는데,
@@ -29,12 +30,41 @@ function onPick<T extends string>(allowed: readonly T[], set: (v: T) => void) {
 const KT_SHAPE_LABEL: Record<KtShape, string> = {
   hole: '중앙 구멍 (판)', fillet: '필렛 라운드 (계단축)', sharpCorner: 'Sharp corner (위험)', shoulderCut: 'Shoulder cut',
 };
-const HARDNESS_LABEL: Record<HardnessScale, string> = { HV: 'Vickers HV', HRC: 'Rockwell HRC', HB: 'Brinell HB' };
+const HARDNESS_LABEL: Record<HardnessScale, string> = { HV: 'Vickers HV', HRC: 'Rockwell HRC', HRB: 'Rockwell HRB', HB: 'Brinell HB (3000 kgf)' };
 const VESSEL_LABEL: Record<VesselShape, string> = { cyl: '원통 (후프 응력)', sph: '구형' };
 
 const W = 'rounded-lg border border-border bg-card p-4';
 const In = 'h-7 px-2 text-[12px] rounded border border-border bg-background focus:outline-none focus:border-accent';
 const Lab = 'text-[11px] font-semibold text-muted-foreground block mb-1';
+
+/* AUD F24 (2026-09-22) — 모든 입력은 <label htmlFor> 로 이름이 연결된다(스크린리더가 "spinbutton" 이 아니라
+   "구멍 d (mm)" 를 읽는다). 검증 메시지는 aria-describedby 로 같은 칸에 묶인다(감사 F13). */
+function NumField({ id, label, value, onChange, step, issue, className }: {
+  id: string; label: ReactNode; value: number; onChange: (v: number) => void; step?: number | string; issue?: ValidationIssue; className?: string;
+}) {
+  return (
+    <div className={className}>
+      <label htmlFor={id} className={Lab}>{label}</label>
+      <input
+        id={id} type="number" step={step} className={In + ' w-full' + (issue ? ' border-rose-400' : '')} value={Number.isFinite(value) ? value : ''}
+        aria-invalid={issue ? true : undefined} aria-describedby={issue ? `${id}-err` : undefined}
+        onChange={(e) => onChange(e.target.value === '' ? Number.NaN : Number(e.target.value))}
+      />
+      {issue && <p id={`${id}-err`} className="text-[10.5px] text-rose-700 mt-0.5 leading-tight">{issue.msg}</p>}
+    </div>
+  );
+}
+/** 입력 오류가 하나라도 있으면 결과 대신 이 블록을 보여준다 — NaN·Infinity·모델 밖 수치를 결과처럼 내지 않는다. */
+function Issues({ issues }: { issues: ValidationIssue[] }) {
+  if (!issues.length) return null;
+  return (
+    <div role="alert" className="rounded border border-rose-200 bg-rose-50 p-2 text-[12px] text-rose-800">
+      <p className="font-semibold">입력을 확인하세요 — 결과를 계산하지 않았습니다.</p>
+      <ul className="list-disc pl-4 mt-0.5 space-y-0.5">{issues.map((i) => <li key={i.field + i.msg}>{i.msg}</li>)}</ul>
+    </div>
+  );
+}
+const issueOf = (issues: ValidationIssue[], field: string) => issues.find((i) => i.field === field);
 
 /* ───────── Tool illustrations (small SVG) ───────── */
 /* R141a — 가시성·직관성 ↑: 응력 흐름선 opacity 0.5 → 0.8, σ_max·σ_nom label 추가,
@@ -109,31 +139,43 @@ function KtIllust({ shape }: { shape: string }) {
   );
 }
 
-function GalvanicIllust() {
+/* AUD F16 — anode/cathode 라벨·전자 이동 방향·부식 화살표가 실제 전위 비교 결과를 따른다 (재료 순서에 고정하지 않는다). */
+function GalvanicIllust({ anode }: { anode: 'A' | 'B' | null }) {
+  const roleA = anode === 'A' ? '(anode · 부식)' : anode === 'B' ? '(cathode)' : '(동전위)';
+  const roleB = anode === 'B' ? '(anode · 부식)' : anode === 'A' ? '(cathode)' : '(동전위)';
+  const anodeX = anode === 'B' ? 120 : 20;   // 부식 화살표를 그릴 금속의 x
+  // 전자는 anode → cathode 로 흐른다.
+  const ePath = anode === 'B' ? 'M 120 46 Q 100 38 80 46' : 'M 80 46 Q 100 38 120 46';
   return (
-    <svg viewBox="0 0 200 70" className="w-full h-14 mb-2">
+    <svg viewBox="0 0 200 70" className="w-full h-14 mb-2" role="img" aria-label={`갈바닉 쌍 도식 — ${anode === 'A' ? '금속 A 가 양극(부식)' : anode === 'B' ? '금속 B 가 양극(부식)' : '두 금속 동전위'}`}>
       {/* Two metals + electrolyte */}
-      <rect x="20" y="30" width="60" height="32" fill="oklch(0.85 0.05 90)" stroke="oklch(0.4 0.05 90)" />
+      <rect x="20" y="30" width="60" height="32" fill={anode === 'A' ? 'oklch(0.85 0.05 90)' : 'oklch(0.85 0.04 250)'} stroke="oklch(0.4 0.05 90)" />
       <text x="50" y="50" textAnchor="middle" fontSize="9" fill="oklch(0.3 0.05 90)" fontWeight="bold">금속 A</text>
-      <text x="50" y="60" textAnchor="middle" fontSize="7" fill="oklch(0.5 0.04 250)">(anode)</text>
-      <rect x="120" y="30" width="60" height="32" fill="oklch(0.85 0.04 250)" stroke="oklch(0.4 0.04 250)" />
+      <text x="50" y="60" textAnchor="middle" fontSize="7" fill={anode === 'A' ? 'oklch(0.5 0.18 30)' : 'oklch(0.5 0.04 250)'}>{roleA}</text>
+      <rect x="120" y="30" width="60" height="32" fill={anode === 'B' ? 'oklch(0.85 0.05 90)' : 'oklch(0.85 0.04 250)'} stroke="oklch(0.4 0.04 250)" />
       <text x="150" y="50" textAnchor="middle" fontSize="9" fill="oklch(0.3 0.04 250)" fontWeight="bold">금속 B</text>
-      <text x="150" y="60" textAnchor="middle" fontSize="7" fill="oklch(0.5 0.04 250)">(cathode)</text>
+      <text x="150" y="60" textAnchor="middle" fontSize="7" fill={anode === 'B' ? 'oklch(0.5 0.18 30)' : 'oklch(0.5 0.04 250)'}>{roleB}</text>
       {/* Electrolyte */}
       <path d="M 0 8 Q 100 -3 200 8 L 200 26 Q 100 18 0 26 z" fill="oklch(0.85 0.08 220 / 0.3)" />
       <text x="100" y="22" textAnchor="middle" fontSize="8" fill="oklch(0.4 0.12 220)" fontStyle="italic">전해질 (해수·산)</text>
-      {/* Current flow */}
-      <path d="M 80 46 Q 100 38 120 46" fill="none" stroke="oklch(0.55 0.18 30)" strokeWidth="1.5" markerEnd="url(#galvArrow)" />
-      <text x="100" y="36" textAnchor="middle" fontSize="8" fill="oklch(0.55 0.18 30)" fontWeight="bold">e⁻</text>
+      {/* Current flow (anode → cathode) */}
+      {anode && (
+        <>
+          <path d={ePath} fill="none" stroke="oklch(0.55 0.18 30)" strokeWidth="1.5" markerEnd="url(#galvArrow)" />
+          <text x="100" y="36" textAnchor="middle" fontSize="8" fill="oklch(0.55 0.18 30)" fontWeight="bold">e⁻</text>
+        </>
+      )}
       <defs>
         <marker id="galvArrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="oklch(0.55 0.18 30)" /></marker>
       </defs>
-      {/* Corrosion arrows on A */}
-      <g stroke="oklch(0.55 0.18 30)" strokeWidth="1" opacity="0.7">
-        <line x1="30" y1="65" x2="30" y2="69" />
-        <line x1="50" y1="65" x2="50" y2="69" />
-        <line x1="70" y1="65" x2="70" y2="69" />
-      </g>
+      {/* Corrosion arrows on the anode */}
+      {anode && (
+        <g stroke="oklch(0.55 0.18 30)" strokeWidth="1" opacity="0.7">
+          <line x1={anodeX + 10} y1="65" x2={anodeX + 10} y2="69" />
+          <line x1={anodeX + 30} y1="65" x2={anodeX + 30} y2="69" />
+          <line x1={anodeX + 50} y1="65" x2={anodeX + 50} y2="69" />
+        </g>
+      )}
     </svg>
   );
 }
@@ -364,8 +406,10 @@ function KtCalc() {
   const [w, setW] = useState(40);
   const [r, setR] = useState(2);
   // 근사식 (Pilkey - Peterson's Stress Concentration Factors) — lib/engineering-calcs.
-  const kt = ktFactor(shape, { d, w, r });
-  const band = kt < 2 ? 'safe' : kt < 3.5 ? 'caution' : 'danger';
+  const issues = validateKt(shape, { d, w, r });
+  const kt = issues.length ? Number.NaN : ktFactor(shape, { d, w, r });
+  const singular = shape === 'sharpCorner';
+  const band = singular || kt >= 3.5 ? 'danger' : kt < 2 ? 'safe' : 'caution';
   const color = band === 'safe' ? 'text-emerald-700' : band === 'caution' ? 'text-amber-700' : 'text-rose-700';
   return (
     <div className={W}>
@@ -374,26 +418,36 @@ function KtCalc() {
       <KtIllust shape={shape} />
       <div className="grid grid-cols-2 gap-2 mb-3">
         <div>
-          <label className={Lab}>형상</label>
-          <select className={In + ' w-full'} value={shape} onChange={onPick(KT_SHAPES, setShape)}>
+          <label htmlFor="kt-shape" className={Lab}>형상</label>
+          <select id="kt-shape" className={In + ' w-full'} value={shape} onChange={onPick(KT_SHAPES, setShape)}>
             {KT_SHAPES.map((s) => <option key={s} value={s}>{KT_SHAPE_LABEL[s]}</option>)}
           </select>
         </div>
         {shape === 'hole' ? (
           <>
-            <div><label className={Lab}>구멍 d (mm)</label><input type="number" className={In + ' w-full'} value={d} onChange={(e) => setD(+e.target.value || 0)} /></div>
-            <div><label className={Lab}>판 폭 w (mm)</label><input type="number" className={In + ' w-full'} value={w} onChange={(e) => setW(+e.target.value || 1)} /></div>
+            <NumField id="kt-d" label="구멍 d (mm)" value={d} onChange={setD} issue={issueOf(issues, 'd')} />
+            <NumField id="kt-w" label="판 폭 w (mm)" value={w} onChange={setW} issue={issueOf(issues, 'w')} />
           </>
-        ) : shape !== 'sharpCorner' && (
+        ) : !singular && (
           <>
-            <div><label className={Lab}>특성 치수 d (mm)</label><input type="number" className={In + ' w-full'} value={d} onChange={(e) => setD(+e.target.value || 0)} /></div>
-            <div><label className={Lab}>라디우스 r (mm)</label><input type="number" className={In + ' w-full'} value={r} onChange={(e) => setR(+e.target.value || 0.01)} /></div>
+            <NumField id="kt-d2" label="특성 치수 d (mm)" value={d} onChange={setD} issue={issueOf(issues, 'd')} />
+            <NumField id="kt-r" label="라디우스 r (mm)" value={r} onChange={setR} step="0.1" issue={issueOf(issues, 'r')} />
           </>
         )}
       </div>
-      <div className={`rounded p-2 text-sm font-mono ${color} bg-muted/30`}>
-        K<sub>t</sub> ≈ <b className="text-base">{kt.toFixed(2)}</b>
-      </div>
+      <Issues issues={issues} />
+      {!issues.length && (
+        <div className={`rounded p-2 text-sm font-mono ${color} bg-muted/30`}>
+          {singular ? (
+            <>
+              K<sub>t</sub> → <b className="text-base">∞</b>
+              <p className="text-[11px] font-sans mt-1 leading-snug">r = 0 인 완전한 날카로운 모서리는 탄성해가 <b>특이점</b>이라 유한한 K<sub>t</sub> 가 없습니다 (어떤 상수도 근거가 없음). 실제 설계에는 반드시 유한 반경을 주고 "필렛 라운드" 로 계산하세요 — r 이 작을수록 K<sub>t</sub> 가 급증합니다.</p>
+            </>
+          ) : (
+            <>K<sub>t</sub> ≈ <b className="text-base">{kt.toFixed(2)}</b></>
+          )}
+        </div>
+      )}
       <p className="text-[11px] text-muted-foreground mt-2">설계 응력 = σ × K<sub>t</sub>. 피로 고려 시 K<sub>f</sub> = 1 + q·(K<sub>t</sub>−1) (q: 강 0.9·Al 0.6·취성 0).</p>
       <Link href="/guide/ch5" className="text-[11px] text-accent hover:underline flex items-center gap-0.5 mt-1"><BookOpen className="w-3 h-3" /> Guide Ch.8 노치·좌굴 →</Link>
     </div>
@@ -424,11 +478,13 @@ function GalvanicCalc() {
   const va = SERIES.find(x => x.name === a)?.v ?? 0;
   const vb = SERIES.find(x => x.name === b)?.v ?? 0;
   const diff = galvanicDeltaV(va, vb);
-  const anode = va < vb ? a : b;
+  // AUD F16 — 양극(부식되는 쪽) 판정을 한 곳(galvanicAnode)에서 하고 도식·본문이 같이 쓴다.
+  const anodeSide = galvanicAnode(va, vb);
+  const anode = anodeSide === 'A' ? a : anodeSide === 'B' ? b : null;
   const band = galvanicBand(diff);
   const color = band === 'safe' ? 'text-emerald-700 bg-emerald-50 border-emerald-200' : band === 'caution' ? 'text-amber-700 bg-amber-50 border-amber-200' : 'text-rose-700 bg-rose-50 border-rose-200';
   const advice = band === 'safe'
-    ? '안전 — 일반 환경에서 갈바닉 부식 무시 가능.'
+    ? (anode ? `안전 — 일반 환경에서 갈바닉 부식 무시 가능 (전위가 낮은 ${anode} 쪽이 양극).` : '안전 — 같은 전위 (갈바닉 전지가 형성되지 않음).')
     : band === 'caution'
       ? `주의 — 습한·해양 환경에서 ${anode} 가 점진 부식. 절연 와셔·실링 권장.`
       : `위험 — ${anode} 가 빠르게 부식. 직접 접촉 금지. 절연 / 캐소드 보호 / 같은 family 통일.`;
@@ -436,16 +492,17 @@ function GalvanicCalc() {
     <div className={W}>
       <p className="text-xs font-semibold uppercase tracking-wide text-accent mb-2 flex items-center gap-1.5"><Zap className="w-3.5 h-3.5" /> #4 갈바닉 부식 호환성</p>
       <p className="text-[11px] text-muted-foreground mb-3">접촉하는 두 금속의 전위차로 부식. 전위 가까울수록 안전, 0.30V 이상이면 위험.</p>
-      <GalvanicIllust />
+      <GalvanicIllust anode={anodeSide} />
       <div className="grid grid-cols-2 gap-2 mb-3">
-        <div><label className={Lab}>재료 A</label><select className={In + ' w-full'} value={a} onChange={(e) => setA(e.target.value)}>{SERIES.map(s => <option key={s.name}>{s.name}</option>)}</select></div>
-        <div><label className={Lab}>재료 B</label><select className={In + ' w-full'} value={b} onChange={(e) => setB(e.target.value)}>{SERIES.map(s => <option key={s.name}>{s.name}</option>)}</select></div>
+        <div><label htmlFor="galv-a" className={Lab}>재료 A</label><select id="galv-a" className={In + ' w-full'} value={a} onChange={(e) => setA(e.target.value)}>{SERIES.map(s => <option key={s.name}>{s.name}</option>)}</select></div>
+        <div><label htmlFor="galv-b" className={Lab}>재료 B</label><select id="galv-b" className={In + ' w-full'} value={b} onChange={(e) => setB(e.target.value)}>{SERIES.map(s => <option key={s.name}>{s.name}</option>)}</select></div>
       </div>
       <div className={`rounded border p-2 text-sm ${color}`}>
-        <p className="font-mono">전위차 ΔV ≈ <b>{diff.toFixed(2)} V</b></p>
+        <p className="font-mono">전위차 ΔV ≈ <b>{diff.toFixed(2)} V</b>{anode && <span className="text-[11px] font-sans"> · 양극(부식): <b>{anode}</b></span>}</p>
         <p className="text-[12px] mt-1">{advice}</p>
       </div>
-      <p className="text-[11px] text-muted-foreground mt-2">기준: 해수 (3.5% NaCl) at 25°C, vs Ag/AgCl. 산성·고온에서 더 위험.</p>
+      {/* AUD F31 — 모델의 범위를 그대로 적는다: 면적비는 이 판정에 들어가지 않는다. */}
+      <p className="text-[11px] text-muted-foreground mt-2">기준: 해수 (3.5% NaCl) at 25°C, vs Ag/AgCl. 산성·고온에서 더 위험. <b>이 판정은 전위차만 봅니다</b> — 면적비(작은 양극 + 큰 음극 = 가속)는 계산에 포함되지 않으니 접합부 설계에서 따로 확인하세요.</p>
       <Link href="/guide/ch10" className="text-[11px] text-accent hover:underline flex items-center gap-0.5 mt-1"><BookOpen className="w-3 h-3" /> Guide Ch.3 환경별 합금 →</Link>
     </div>
   );
@@ -459,25 +516,28 @@ function BucklingCalc() {
   const [sy, setSy] = useState(250); // MPa
   const [K, setK] = useState(1); // 단부조건
   // 좌굴 — lib/engineering-calcs (Euler/Johnson 자동 선택).
-  const { slenderness: slender, lambdaC, isEuler, Pcr } = buckling({ L, d, E, sy, K });
-  const formula = isEuler ? 'Euler (가는 기둥)' : 'Johnson (짧은 기둥)';
+  const issues = validateBuckling({ L, d, E, sy, K });
+  const res = issues.length ? null : buckling({ L, d, E, sy, K });
   return (
     <div className={W}>
       <p className="text-xs font-semibold uppercase tracking-wide text-accent mb-2 flex items-center gap-1.5"><Calculator className="w-3.5 h-3.5" /> #5 좌굴 임계하중 (Euler / Johnson)</p>
       <p className="text-[11px] text-muted-foreground mb-3">기둥의 좌굴 한계 — 가늘면 Euler, 짧으면 Johnson 공식.</p>
       <BucklingIllust K={K} />
       <div className="grid grid-cols-2 gap-2 mb-3 text-[12px]">
-        <div><label className={Lab}>길이 L (mm)</label><input type="number" className={In + ' w-full'} value={L} onChange={(e) => setL(+e.target.value || 1)} /></div>
-        <div><label className={Lab}>직경 d (mm)</label><input type="number" className={In + ' w-full'} value={d} onChange={(e) => setD(+e.target.value || 1)} /></div>
-        <div><label className={Lab}>E (GPa)</label><input type="number" className={In + ' w-full'} value={E} onChange={(e) => setE(+e.target.value || 1)} /></div>
-        <div><label className={Lab}>σy (MPa)</label><input type="number" className={In + ' w-full'} value={sy} onChange={(e) => setSy(+e.target.value || 1)} /></div>
-        <div className="col-span-2"><label className={Lab}>단부 조건 K</label><select className={In + ' w-full'} value={K} onChange={(e) => setK(+e.target.value)}><option value={1}>핀-핀 (K=1.0)</option><option value={2}>고정-자유 외팔 (K=2.0)</option><option value={0.7}>고정-핀 (K≈0.7)</option><option value={0.5}>고정-고정 (K=0.5)</option></select></div>
+        <NumField id="bk-L" label="길이 L (mm)" value={L} onChange={setL} issue={issueOf(issues, 'L')} />
+        <NumField id="bk-d" label="직경 d (mm)" value={d} onChange={setD} issue={issueOf(issues, 'd')} />
+        <NumField id="bk-E" label="E (GPa)" value={E} onChange={setE} issue={issueOf(issues, 'E')} />
+        <NumField id="bk-sy" label="σy (MPa)" value={sy} onChange={setSy} issue={issueOf(issues, 'sy')} />
+        <div className="col-span-2"><label htmlFor="bk-K" className={Lab}>단부 조건 K</label><select id="bk-K" className={In + ' w-full'} value={K} onChange={(e) => setK(+e.target.value)}><option value={1}>핀-핀 (K=1.0)</option><option value={2}>고정-자유 외팔 (K=2.0)</option><option value={0.7}>고정-핀 (K≈0.7)</option><option value={0.5}>고정-고정 (K=0.5)</option></select></div>
       </div>
-      <div className="rounded bg-muted/30 p-2 text-sm font-mono space-y-0.5">
-        <div>(L/k) = {slender.toFixed(1)} · 임계 = {lambdaC.toFixed(1)}</div>
-        <div className="text-emerald-700">{formula} 적용</div>
-        <div className="text-base">P_cr ≈ <b>{Pcr.toFixed(1)} kN</b></div>
-      </div>
+      <Issues issues={issues} />
+      {res && (
+        <div className="rounded bg-muted/30 p-2 text-sm font-mono space-y-0.5">
+          <div>(L/k) = {res.slenderness.toFixed(1)} · 임계 = {res.lambdaC.toFixed(1)}</div>
+          <div className="text-emerald-700">{res.isEuler ? 'Euler (가는 기둥)' : 'Johnson (짧은 기둥)'} 적용</div>
+          <div className="text-base">P_cr ≈ <b>{res.Pcr.toFixed(1)} kN</b></div>
+        </div>
+      )}
       <p className="text-[11px] text-muted-foreground mt-2">설계 안전계수 SF = P_cr / P_applied. 항공 SF ≥ 1.5, 일반 ≥ 2.</p>
       <Link href="/guide/ch5" className="text-[11px] text-accent hover:underline flex items-center gap-0.5 mt-1"><BookOpen className="w-3 h-3" /> Guide Ch.8 좌굴 이론 →</Link>
     </div>
@@ -491,7 +551,8 @@ function CTEMismatch() {
   const [dT, setDT] = useState(100);
   const [E, setE] = useState(200); // GPa, 작은 쪽
   // 열응력 σ ≈ ΔCTE·ΔT·E — lib/engineering-calcs.
-  const sigma = thermalMismatchStress(cteA, cteB, dT, E);
+  const ok = [cteA, cteB, dT, E].every(Number.isFinite) && E > 0;
+  const sigma = ok ? thermalMismatchStress(cteA, cteB, dT, E) : Number.NaN;
   const band = Math.abs(sigma) < 50 ? 'safe' : Math.abs(sigma) < 200 ? 'caution' : 'danger';
   const color = band === 'safe' ? 'text-emerald-700' : band === 'caution' ? 'text-amber-700' : 'text-rose-700';
   return (
@@ -500,43 +561,52 @@ function CTEMismatch() {
       <p className="text-[11px] text-muted-foreground mb-3">두 재료의 열팽창 차이로 발생하는 응력. σ ≈ ΔCTE × ΔT × E.</p>
       <CTEIllust />
       <div className="grid grid-cols-2 gap-2 mb-3 text-[12px]">
-        <div><label className={Lab}>재료 A CTE (×10⁻⁶/K)</label><input type="number" className={In + ' w-full'} value={cteA} onChange={(e) => setCteA(+e.target.value || 0)} /></div>
-        <div><label className={Lab}>재료 B CTE</label><input type="number" className={In + ' w-full'} value={cteB} onChange={(e) => setCteB(+e.target.value || 0)} /></div>
-        <div><label className={Lab}>온도 변화 ΔT (°C)</label><input type="number" className={In + ' w-full'} value={dT} onChange={(e) => setDT(+e.target.value || 0)} /></div>
-        <div><label className={Lab}>구속 재료 E (GPa)</label><input type="number" className={In + ' w-full'} value={E} onChange={(e) => setE(+e.target.value || 1)} /></div>
+        <NumField id="cte-a" label="재료 A CTE (×10⁻⁶/K)" value={cteA} onChange={setCteA} />
+        <NumField id="cte-b" label="재료 B CTE" value={cteB} onChange={setCteB} />
+        <NumField id="cte-dt" label="온도 변화 ΔT (°C)" value={dT} onChange={setDT} />
+        <NumField id="cte-E" label="구속 재료 E (GPa)" value={E} onChange={setE} />
       </div>
-      <div className={`rounded bg-muted/30 p-2 text-sm font-mono ${color}`}>
-        <div>ΔCTE × ΔT = {((cteA - cteB) * dT * 1e-6 * 100).toFixed(3)} %</div>
-        <div className="text-base">σ_th ≈ <b>{sigma.toFixed(0)} MPa</b></div>
-      </div>
+      {ok ? (
+        <div className={`rounded bg-muted/30 p-2 text-sm font-mono ${color}`}>
+          <div>ΔCTE × ΔT = {((cteA - cteB) * dT * 1e-6 * 100).toFixed(3)} %</div>
+          <div className="text-base">σ_th ≈ <b>{sigma.toFixed(0)} MPa</b></div>
+        </div>
+      ) : <Issues issues={[{ field: 'E', msg: '모든 값을 입력하고 E 는 0 보다 커야 합니다.' }]} />}
       <p className="text-[11px] text-muted-foreground mt-2">참고: Al 23 · Steel 12 · Ti 9 · Invar 1.3 · CFRP ≈0 · 세라믹 5-8 (×10⁻⁶/K).</p>
       <Link href="/guide/ch11" className="text-[11px] text-accent hover:underline flex items-center gap-0.5 mt-1"><BookOpen className="w-3 h-3" /> Guide Ch.9 #9 CTE mismatch →</Link>
     </div>
   );
 }
 
-/* ───────── #7 Hardness conversion (HV ↔ HRC ↔ HB ↔ UTS) ───────── */
+/* ───────── #7 Hardness conversion (HV ↔ HRC ↔ HRB ↔ HB ↔ UTS) ───────── */
 function HardnessConv() {
   const [scale, setScale] = useState<HardnessScale>('HV');
   const [val, setVal] = useState(300);
-  // ASTM E140/A370 근사 (탄소·합금강) — lib/engineering-calcs.
-  const { HV, HRC, HB, UTS } = hardnessConvert(scale, val);
+  // AUD F02 — ASTM E140-12b Table 1·2 (비오스테나이트 강) 표 보간. 표 밖은 환산하지 않는다 (lib/hardness-convert).
+  const issues = validateHardness(scale, val);
+  const res = issues.length ? null : hardnessConvert(scale, val);
+  const rng = HARDNESS_INPUT_RANGE[scale];
+  const fmt = (v: number | null, digits = 0) => (v == null ? '— (표 범위 외)' : v.toFixed(digits));
   return (
     <div className={W}>
-      <p className="text-xs font-semibold uppercase tracking-wide text-accent mb-2 flex items-center gap-1.5"><Calculator className="w-3.5 h-3.5" /> #7 경도 변환 (HV/HRC/HB)</p>
-      <p className="text-[11px] text-muted-foreground mb-3">ASTM E140 근사 — 탄소·합금강에 가장 정확, 다른 합금은 ±10%.</p>
+      <p className="text-xs font-semibold uppercase tracking-wide text-accent mb-2 flex items-center gap-1.5"><Calculator className="w-3.5 h-3.5" /> #7 경도 변환 (HV/HRC/HRB/HB)</p>
+      <p className="text-[11px] text-muted-foreground mb-3">ASTM E140-12b 표 1·2 (비오스테나이트 <b>강</b>) 의 선형 보간. 알루미늄·구리·오스테나이트강은 다른 표(E140 Table 4·9 등)를 써야 하며 이 환산을 적용하지 마세요.</p>
       <HardnessIllust />
       <div className="grid grid-cols-2 gap-2 mb-3 text-[12px]">
-        <div><label className={Lab}>입력 scale</label><select className={In + ' w-full'} value={scale} onChange={onPick(HARDNESS_SCALES, setScale)}>{HARDNESS_SCALES.map((s) => <option key={s} value={s}>{HARDNESS_LABEL[s]}</option>)}</select></div>
-        <div><label className={Lab}>값</label><input type="number" className={In + ' w-full'} value={val} onChange={(e) => setVal(+e.target.value || 0)} /></div>
+        <div><label htmlFor="hd-scale" className={Lab}>입력 scale</label><select id="hd-scale" className={In + ' w-full'} value={scale} onChange={onPick(HARDNESS_SCALES, setScale)}>{HARDNESS_SCALES.map((s) => <option key={s} value={s}>{HARDNESS_LABEL[s]}</option>)}</select></div>
+        <NumField id="hd-val" label={<>값 <span className="font-normal text-muted-foreground">(표 범위 {rng.min}~{rng.max})</span></>} value={val} onChange={setVal} issue={issueOf(issues, 'val')} />
       </div>
-      <div className="rounded bg-muted/30 p-2 text-sm font-mono space-y-0.5">
-        <div>HV ≈ <b>{HV.toFixed(0)}</b></div>
-        <div>HRC ≈ <b>{isFinite(HRC) ? HRC.toFixed(1) : '— (HRC 범위 외)'}</b></div>
-        <div>HB ≈ <b>{HB.toFixed(0)}</b></div>
-        <div className="text-emerald-700 mt-1 pt-1 border-t border-border/30">UTS 추정 ≈ <b>{UTS.toFixed(0)} MPa</b></div>
-      </div>
-      <p className="text-[11px] text-muted-foreground mt-2">UTS ≈ 3.45 × HV (탄소강). 다른 합금은 vendor datasheet 사용.</p>
+      <Issues issues={issues} />
+      {res && (
+        <div className="rounded bg-muted/30 p-2 text-sm font-mono space-y-0.5">
+          <div>HV ≈ <b>{fmt(res.HV)}</b></div>
+          <div>HRC ≈ <b>{fmt(res.HRC, 1)}</b></div>
+          <div>HRB ≈ <b>{fmt(res.HRB, 1)}</b></div>
+          <div>HB (3000 kgf) ≈ <b>{fmt(res.HB)}</b></div>
+          <div className="text-emerald-700 mt-1 pt-1 border-t border-border/30">인장강도 근사 (E140 표의 강 전용 열) ≈ <b>{fmt(res.UTS)} MPa</b></div>
+        </div>
+      )}
+      <p className="text-[11px] text-muted-foreground mt-2">환산표는 근사입니다 (같은 표 안에서도 합금·가공 이력에 따라 오차). 인장강도 열은 E140 이 강에 한해 제시한 참고값 — 설계값은 datasheet 로.</p>
       <Link href="/guide/ch1" className="text-[11px] text-accent hover:underline flex items-center gap-0.5 mt-1"><BookOpen className="w-3 h-3" /> Guide Ch.4 물성 사전 →</Link>
     </div>
   );
@@ -549,25 +619,40 @@ function PressureVessel() {
   const [sy, setSy] = useState(250); // MPa
   const [SF, setSF] = useState(3);
   const [shape, setShape] = useState<VesselShape>('cyl');
-  // 얇은 벽 가정 — lib/engineering-calcs. t/r>0.1 이면 두꺼운 벽(Lame) 경고.
-  const { t, thick } = pressureVesselThickness({ p, r, sy, SF, shape });
+  // 얇은 벽 가정 — lib/engineering-calcs. t/r>0.1 이면 얇은 벽 가정 밖 → Lamé 두께를 함께 제시 (AUD R07).
+  const issues = validateVessel({ p, r, sy, SF });
+  const res = issues.length ? null : pressureVesselThickness({ p, r, sy, SF, shape });
   return (
     <div className={W}>
       <p className="text-xs font-semibold uppercase tracking-wide text-accent mb-2 flex items-center gap-1.5"><Calculator className="w-3.5 h-3.5" /> #9 압력 용기 두께</p>
-      <p className="text-[11px] text-muted-foreground mb-3">얇은 벽 가정 — 원통 σ = p·r/t (후프), 구형 σ = p·r/(2t). 두꺼운 벽 (t/r &gt; 0.1) 은 Lame 식 필요.</p>
+      <p className="text-[11px] text-muted-foreground mb-3">얇은 벽 가정 — 원통 σ = p·r/t (후프), 구형 σ = p·r/(2t). 두꺼운 벽 (t/r &gt; 0.1) 은 Lamé 식으로 다시 계산해 보여줍니다.</p>
       <PVIllust shape={shape} />
       <div className="grid grid-cols-2 gap-2 mb-3 text-[12px]">
-        <div><label className={Lab}>형상</label><select className={In + ' w-full'} value={shape} onChange={onPick(VESSEL_SHAPES, setShape)}>{VESSEL_SHAPES.map((s) => <option key={s} value={s}>{VESSEL_LABEL[s]}</option>)}</select></div>
-        <div><label className={Lab}>내압 p (MPa)</label><input type="number" className={In + ' w-full'} value={p} onChange={(e) => setP(+e.target.value || 0)} /></div>
-        <div><label className={Lab}>내반경 r (mm)</label><input type="number" className={In + ' w-full'} value={r} onChange={(e) => setR(+e.target.value || 1)} /></div>
-        <div><label className={Lab}>σy (MPa)</label><input type="number" className={In + ' w-full'} value={sy} onChange={(e) => setSy(+e.target.value || 1)} /></div>
-        <div><label className={Lab}>안전계수 SF</label><input type="number" className={In + ' w-full'} value={SF} onChange={(e) => setSF(+e.target.value || 1)} /></div>
+        <div><label htmlFor="pv-shape" className={Lab}>형상</label><select id="pv-shape" className={In + ' w-full'} value={shape} onChange={onPick(VESSEL_SHAPES, setShape)}>{VESSEL_SHAPES.map((s) => <option key={s} value={s}>{VESSEL_LABEL[s]}</option>)}</select></div>
+        <NumField id="pv-p" label="내압 p (MPa)" value={p} onChange={setP} issue={issueOf(issues, 'p')} />
+        <NumField id="pv-r" label="내반경 r (mm)" value={r} onChange={setR} issue={issueOf(issues, 'r')} />
+        <NumField id="pv-sy" label="σy (MPa)" value={sy} onChange={setSy} issue={issueOf(issues, 'sy')} />
+        <NumField id="pv-sf" label="안전계수 SF (σy 기준)" value={SF} onChange={setSF} step="0.1" issue={issueOf(issues, 'SF')} />
       </div>
-      <div className="rounded bg-muted/30 p-2 text-sm font-mono">
-        <div>최소 두께 t ≈ <b className="text-base">{t.toFixed(2)} mm</b></div>
-        <div className="text-[11px] mt-1">t/r = {(t / r).toFixed(3)} {thick && <span className="text-amber-700">· 두꺼운 벽 — Lame 식 권장</span>}</div>
-      </div>
-      <p className="text-[11px] text-muted-foreground mt-2">ASME B&PV Sec. VIII SF ≥ 3 (UTS) · 1.5 (σy). 부식 여유 (corrosion allowance) 1-3 mm 추가.</p>
+      <Issues issues={issues} />
+      {res && (
+        <div className="rounded bg-muted/30 p-2 text-sm font-mono">
+          {res.thick ? (
+            <>
+              <div className="text-[11px] text-amber-700">얇은 벽 식 t ≈ {res.t.toFixed(2)} mm (t/r = {(res.t / r).toFixed(3)} &gt; 0.1 — 가정 밖이라 확정값으로 쓰지 않음)</div>
+              <div className="mt-1">Lamé (두꺼운 벽) 최소 두께 t ≈ <b className="text-base">{res.tLame == null ? '해 없음' : res.tLame.toFixed(2) + ' mm'}</b></div>
+              {res.tLame == null && <div className="text-[11px] text-rose-700 mt-0.5">허용응력 σy/SF 가 내압 이하 — 어떤 두께로도 내면 응력을 허용치 아래로 내릴 수 없습니다 (재료·SF·압력을 다시 정하세요).</div>}
+            </>
+          ) : (
+            <>
+              <div>최소 두께 t ≈ <b className="text-base">{res.t.toFixed(2)} mm</b></div>
+              <div className="text-[11px] mt-1">t/r = {(res.t / r).toFixed(3)} (얇은 벽 가정 유효)</div>
+            </>
+          )}
+        </div>
+      )}
+      {/* AUD F30 — 코드 계수와 이 계산기의 SF 를 섞어 쓰지 않도록 기준을 한 문장으로 못박는다. */}
+      <p className="text-[11px] text-muted-foreground mt-2">SF 는 <b>σy 기준</b>으로 입력합니다 (탄성식 교육용). ASME B&amp;PV Sec. VIII Div.1 은 이런 SF 가 아니라 허용응력 S (≈ min(UTS/3.5, σy/1.5), 판본·재료표 기준)로 두께를 정하므로 UTS 기준 3.5 를 여기 σy 칸에 넣지 마세요. 부식 여유 (corrosion allowance) 1-3 mm 는 별도 가산.</p>
       <Link href="/guide/ch5" className="text-[11px] text-accent hover:underline flex items-center gap-0.5 mt-1"><BookOpen className="w-3 h-3" /> Guide Ch.8 압력용기 →</Link>
     </div>
   );
@@ -578,11 +663,12 @@ function LMPCalc() {
   const [T, setT] = useState(600);   // °C
   const [t, setT_h] = useState(1000); // h
   const [C, setC] = useState(20);
-  // Larson-Miller — lib/engineering-calcs. LMP = T(K)·(C+log₁₀ t)/1000.
-  const LMP = larsonMiller(T, t, C);
   const [T2, setT2] = useState(650);
+  // Larson-Miller — lib/engineering-calcs. LMP = T(K)·(C+log₁₀ t)/1000. 절대온도>0·t>0 검증 (AUD F13).
+  const issues = validateLMP({ T, t, C, T2 });
+  const LMP = issues.length ? Number.NaN : larsonMiller(T, t, C);
   // 같은 LMP 에서 T₂ 의 파단 시간 역산.
-  const t2 = larsonMillerInverseTime(LMP, T2, C);
+  const t2 = issues.length ? Number.NaN : larsonMillerInverseTime(LMP, T2, C);
   return (
     <div className={W}>
       <p className="text-xs font-semibold uppercase tracking-wide text-accent mb-2 flex items-center gap-1.5"><Calculator className="w-3.5 h-3.5" /> Larson-Miller parameter (creep 수명)</p>
@@ -617,15 +703,18 @@ function LMPCalc() {
         <text x="150" y="22" fontSize="9" fill="oklch(0.35 0.15 220)" fontStyle="italic">master curve (σ_rupture)</text>
       </svg>
       <div className="grid grid-cols-2 gap-2 mb-2 text-[12px]">
-        <div><label className={Lab}>온도 T (°C)</label><input type="number" className={In + ' w-full'} value={T} onChange={(e) => setT(+e.target.value || 0)} /></div>
-        <div><label className={Lab}>시간 t (h)</label><input type="number" className={In + ' w-full'} value={t} onChange={(e) => setT_h(+e.target.value || 1)} /></div>
-        <div><label className={Lab}>상수 C</label><input type="number" className={In + ' w-full'} value={C} onChange={(e) => setC(+e.target.value || 0)} /></div>
-        <div><label className={Lab}>예측 T₂ (°C)</label><input type="number" className={In + ' w-full'} value={T2} onChange={(e) => setT2(+e.target.value || 0)} /></div>
+        <NumField id="lmp-T" label="온도 T (°C)" value={T} onChange={setT} issue={issueOf(issues, 'T')} />
+        <NumField id="lmp-t" label="시간 t (h)" value={t} onChange={setT_h} issue={issueOf(issues, 't')} />
+        <NumField id="lmp-C" label="상수 C" value={C} onChange={setC} issue={issueOf(issues, 'C')} />
+        <NumField id="lmp-T2" label="예측 T₂ (°C)" value={T2} onChange={setT2} issue={issueOf(issues, 'T2')} />
       </div>
-      <div className="rounded bg-muted/30 p-2 text-sm font-mono space-y-0.5">
-        <div>LMP = <b className="text-base">{LMP.toFixed(2)}</b> × 10³</div>
-        <div className="text-emerald-700">→ T₂={T2}°C 에서 같은 LMP 의 수명 ≈ <b className="text-base">{t2.toExponential(2)} h</b></div>
-      </div>
+      <Issues issues={issues} />
+      {!issues.length && (
+        <div className="rounded bg-muted/30 p-2 text-sm font-mono space-y-0.5">
+          <div>LMP = <b className="text-base">{LMP.toFixed(2)}</b> × 10³</div>
+          <div className="text-emerald-700">→ T₂={T2}°C 에서 같은 LMP 의 수명 ≈ <b className="text-base">{t2.toExponential(2)} h</b></div>
+        </div>
+      )}
       <p className="text-[11px] text-muted-foreground mt-1">전형: P91 σ=100 MPa LMP ≈ 22.5. Inconel 718 σ=400 MPa LMP ≈ 24. ECCC datasheets 참고.</p>
       <Link href="/guide/ch9" className="text-[11px] text-accent hover:underline flex items-center gap-0.5 mt-1"><BookOpen className="w-3 h-3" /> Guide Ch.10 LMP →</Link>
     </div>
@@ -638,7 +727,7 @@ function MohrCalc() {
   const [sy, setSy] = useState(40);
   const [txy, setTxy] = useState(30);
   // Mohr's circle — lib/engineering-calcs.
-  const { center, R, s1, s2, tauMax: tmax, angleDeg: angle } = mohrCircle(sx, sy, txy);
+  const { center, R, s1, s2, tauMax: tmax, tauMaxAbs, angleDeg: angle } = mohrCircle(sx, sy, txy);
   // SVG scale
   const sw = 280, sh = 180;
   const cx = sw / 2, cy = sh / 2 + 10;
@@ -676,14 +765,15 @@ function MohrCalc() {
         <text x={cx} y={cy + 14} textAnchor="middle" fontSize="8" fill="oklch(0.4 0.04 250)">C=(σ_x+σ_y)/2</text>
       </svg>
       <div className="grid grid-cols-3 gap-2 mb-2 text-[12px]">
-        <div><label className={Lab}>σ_x (MPa)</label><input type="number" className={In + ' w-full'} value={sx} onChange={(e) => setSx(+e.target.value || 0)} /></div>
-        <div><label className={Lab}>σ_y (MPa)</label><input type="number" className={In + ' w-full'} value={sy} onChange={(e) => setSy(+e.target.value || 0)} /></div>
-        <div><label className={Lab}>τ_xy (MPa)</label><input type="number" className={In + ' w-full'} value={txy} onChange={(e) => setTxy(+e.target.value || 0)} /></div>
+        <NumField id="mohr-sx" label="σ_x (MPa)" value={sx} onChange={(v) => setSx(Number.isFinite(v) ? v : 0)} />
+        <NumField id="mohr-sy" label="σ_y (MPa)" value={sy} onChange={(v) => setSy(Number.isFinite(v) ? v : 0)} />
+        <NumField id="mohr-txy" label="τ_xy (MPa)" value={txy} onChange={(v) => setTxy(Number.isFinite(v) ? v : 0)} />
       </div>
       <div className="rounded bg-muted/30 p-2 text-sm font-mono space-y-0.5">
-        <div>σ₁ = <b>{s1.toFixed(1)}</b> · σ₂ = <b>{s2.toFixed(1)}</b> MPa</div>
-        <div>τ_max = <b>{tmax.toFixed(1)}</b> MPa · 회전각 = <b>{angle.toFixed(1)}°</b></div>
-        <div className="text-emerald-700 mt-1 pt-1 border-t border-border/30">von Mises σ_eq = √(σ₁² − σ₁σ₂ + σ₂²) ≈ <b>{Math.sqrt(s1*s1 - s1*s2 + s2*s2).toFixed(1)}</b> MPa</div>
+        <div>σ₁ = <b>{s1.toFixed(1)}</b> · σ₂ = <b>{s2.toFixed(1)}</b> MPa · 회전각 = <b>{angle.toFixed(1)}°</b></div>
+        {/* AUD R06 — 면내 최대 전단(원의 반지름)과 σ₃=0 을 포함한 절대 최대 전단을 구분한다. Tresca 는 후자. */}
+        <div>면내 τ_max = R = <b>{tmax.toFixed(1)}</b> MPa · 절대 τ_max (σ₃=0 포함) = <b>{tauMaxAbs.toFixed(1)}</b> MPa</div>
+        <div className="text-emerald-700 mt-1 pt-1 border-t border-border/30">von Mises σ_eq = √(σ₁² − σ₁σ₂ + σ₂²) ≈ <b>{Math.sqrt(s1*s1 - s1*s2 + s2*s2).toFixed(1)}</b> MPa · Tresca σ_eq = 2·절대 τ_max ≈ <b>{(2 * tauMaxAbs).toFixed(1)}</b> MPa</div>
       </div>
       <Link href="/guide/ch5" className="text-[11px] text-accent hover:underline flex items-center gap-0.5 mt-1"><BookOpen className="w-3 h-3" /> Guide Ch.8 Mohr·복합응력 →</Link>
     </div>
@@ -691,6 +781,8 @@ function MohrCalc() {
 }
 
 /* ───────── #H3 Schaeffler diagram (stainless) ───────── */
+/* AUD F14 — 그림의 경계선·영역 채색은 lib/engineering-calcs 의 SCHAEFFLER_LINES 에서 계산한다. 판정(schaefflerRegion)과
+   예시(SCHAEFFLER_EXAMPLES)도 같은 식이라 같은 좌표에서 셋이 다른 답을 낼 수 없다. */
 function SchaefflerCalc() {
   const [Cr, setCr] = useState(18);
   const [Ni, setNi] = useState(10);
@@ -700,27 +792,42 @@ function SchaefflerCalc() {
   const [C, setC] = useState(0.05);
   const [N, setN] = useState(0.04);
   const [Mn, setMn] = useState(1.5);
-  // Schaeffler/DeLong — lib/engineering-calcs (welding-machinability 와 동일 식).
-  const { crEq: Cr_eq, niEq: Ni_eq, phase } = schaefflerEq({ Cr, Ni, Mo, Si, Nb, C, N, Mn });
+  const inp = { Cr, Ni, Mo, Si, Nb, C, N, Mn };
+  const issues = validateSchaeffler(inp);
+  const res = issues.length ? null : schaefflerEq(inp);
   // SVG positions: Cr_eq x-axis (0–40), Ni_eq y-axis (0–32)
-  // R141a (개정) — 가시성 대폭 ↑: hex 색상 + strokeWidth 3-4 + white halo around lines + 큰 라벨
   const sw = 320, sh = 240;
   const PAD_L = 38, PAD_R = 12, PAD_T = 30, PAD_B = 38;
   const X = (v: number) => PAD_L + (v / 40) * (sw - PAD_L - PAD_R);
   const Y = (v: number) => sh - PAD_B - (v / 32) * (sh - PAD_T - PAD_B);
+  const clampY = (v: number) => Math.max(0, Math.min(32, v));
+  const { A, M, F, crMF, apex } = SCHAEFFLER_LINES;
+  // 경계선 끝점 (도표 범위 0~40 × 0~32 안에서 자른다)
+  const xAtA32 = 8 + 32 / 1.125;               // L_A 가 Ni_eq=32 에 닿는 Cr_eq
+  const xAtM0 = 31.5;                          // L_M 이 Ni_eq=0 에 닿는 Cr_eq
+  const xAtF0 = 9.5 / 0.6;                     // L_F 가 Ni_eq=0 에 닿는 Cr_eq
+  const pt = (x: number, y: number) => `${X(x)},${Y(clampY(y))}`;
+  // 영역 폴리곤 (선 세 개 + 도표 경계로 닫음)
+  const polyA = [pt(0, 32), pt(0, M(0)), pt(apex.crEq, apex.niEq), pt(xAtA32, 32)].join(' ');
+  const polyAF = [pt(apex.crEq, apex.niEq), pt(xAtA32, 32), pt(40, 32), pt(40, F(40)), pt(xAtM0, 0), pt(xAtF0, 0)].join(' ');
+  const polyF = [pt(xAtF0, 0), pt(40, F(40)), pt(40, 0)].join(' ');
+  const polyM = [pt(0, 0), pt(0, M(0)), pt(apex.crEq, apex.niEq), pt(13, 0)].join(' ');
+  const polyMF = [pt(13, 0), pt(apex.crEq, apex.niEq), pt(xAtF0, 0)].join(' ');
+  // 예시 점의 판정 (같은 모델)
+  const examples = SCHAEFFLER_EXAMPLES.map((e) => ({ ...e, r: schaefflerEq(e.comp) }));
   return (
     <div className={W}>
       <p className="text-xs font-semibold uppercase tracking-wide text-accent mb-2 flex items-center gap-1.5"><Calculator className="w-3.5 h-3.5" /> Schaeffler diagram (stainless 미세조직)</p>
-      <p className="text-[11px] text-muted-foreground mb-3">Cr-eq / Ni-eq 로 austenite·ferrite·martensite·duplex 영역 예측. 용접부 미세조직 추정.</p>
-      <svg viewBox={`0 0 ${sw} ${sh}`} className="w-full h-60 mb-2 border border-border rounded bg-white">
-        {/* === R141a 개정 — 명확한 phase boundary + 매우 옅은 zone tint === */}
-        {/* 1) Zone tint: 매우 옅게 (opacity 0.18) — 라인 가시성 우선 */}
-        <polygon points={`${X(0)},${Y(32)} ${X(0)},${Y(15)} ${X(10)},${Y(15)} ${X(34)},${Y(32)}`} fill="#3b82f6" opacity="0.12" />
-        <polygon points={`${X(0)},${Y(15)} ${X(10)},${Y(15)} ${X(18)},${Y(0)} ${X(0)},${Y(0)}`} fill="#f59e0b" opacity="0.14" />
-        <polygon points={`${X(18)},${Y(0)} ${X(40)},${Y(0)} ${X(40)},${Y(8)} ${X(28)},${Y(8)}`} fill="#ef4444" opacity="0.12" />
-        <polygon points={`${X(10)},${Y(15)} ${X(34)},${Y(32)} ${X(40)},${Y(32)} ${X(40)},${Y(8)} ${X(28)},${Y(8)} ${X(18)},${Y(0)}`} fill="#10b981" opacity="0.10" />
+      <p className="text-[11px] text-muted-foreground mb-3">Cr-eq / Ni-eq 로 austenite·ferrite·martensite·duplex 영역 예측 (용접 금속 기준). <b>이 앱의 직선 근사 경계</b>(Schaeffler 1949 도표를 직선 3개로 근사) — 정밀 ferrite number 는 WRC-1992 를 쓰세요.</p>
+      <svg viewBox={`0 0 ${sw} ${sh}`} className="w-full h-60 mb-2 border border-border rounded bg-white" role="img" aria-label="Schaeffler 다이어그램 — 현재 조성 점과 상 영역">
+        {/* 1) Zone tint — 경계식에서 계산한 폴리곤 */}
+        <polygon points={polyA} fill="#3b82f6" opacity="0.12" />
+        <polygon points={polyM} fill="#f59e0b" opacity="0.14" />
+        <polygon points={polyMF} fill="#f97316" opacity="0.10" />
+        <polygon points={polyF} fill="#ef4444" opacity="0.12" />
+        <polygon points={polyAF} fill="#10b981" opacity="0.10" />
 
-        {/* 2) Grid (옅게) */}
+        {/* 2) Grid */}
         {[0, 10, 20, 30, 40].map(v => (
           <g key={'cr' + v}>
             <line x1={X(v)} y1={Y(0)} x2={X(v)} y2={Y(32)} stroke="#cbd5e1" strokeWidth="0.6" strokeDasharray="2 3" />
@@ -734,55 +841,55 @@ function SchaefflerCalc() {
           </g>
         ))}
 
-        {/* 3) Axes (진하게) */}
+        {/* 3) Axes */}
         <line x1={X(0)} y1={Y(0)} x2={X(40)} y2={Y(0)} stroke="#1e293b" strokeWidth="2" />
         <line x1={X(0)} y1={Y(0)} x2={X(0)} y2={Y(32)} stroke="#1e293b" strokeWidth="2" />
 
-        {/* 4) === 핵심: PHASE BOUNDARY LINES — 매우 굵게 + 흰색 halo === */}
-        {/* Halo (white shadow underneath) */}
-        <line x1={X(10)} y1={Y(15)} x2={X(34)} y2={Y(32)} stroke="white" strokeWidth="7" />
-        <line x1={X(18)} y1={Y(0)} x2={X(40)} y2={Y(8)} stroke="white" strokeWidth="7" />
-        <path d={`M ${X(0)} ${Y(8)} Q ${X(9)} ${Y(5)} ${X(18)} ${Y(0)}`} fill="none" stroke="white" strokeWidth="7" />
+        {/* 4) Boundary lines — halo + main. 모두 SCHAEFFLER_LINES 에서. */}
+        {[
+          { d: `M ${pt(apex.crEq, apex.niEq)} L ${pt(xAtA32, 32)}`, c: '#1d4ed8' },
+          { d: `M ${pt(0, M(0))} L ${pt(xAtM0, 0)}`, c: '#c2410c' },
+          { d: `M ${pt(xAtF0, 0)} L ${pt(40, F(40))}`, c: '#b91c1c' },
+          { d: `M ${pt(13, 0)} L ${pt(apex.crEq, apex.niEq)}`, c: '#9a3412' },
+        ].map((l, i) => (
+          <g key={i}>
+            <path d={l.d} fill="none" stroke="white" strokeWidth="7" />
+            <path d={l.d} fill="none" stroke={l.c} strokeWidth="3.5" strokeLinecap="round" />
+          </g>
+        ))}
 
-        {/* Main boundary lines (진한 색상 + 굵게) */}
-        {/* (a) 0% ferrite line: γ Austenite ↔ A+F Duplex */}
-        <line x1={X(10)} y1={Y(15)} x2={X(34)} y2={Y(32)} stroke="#1d4ed8" strokeWidth="3.5" strokeLinecap="round" />
-        {/* (b) 100% ferrite line: A+F ↔ α Ferrite */}
-        <line x1={X(18)} y1={Y(0)} x2={X(40)} y2={Y(8)} stroke="#b91c1c" strokeWidth="3.5" strokeLinecap="round" />
-        {/* (c) Ms = RT line: α' Martensite ↔ A+F Duplex */}
-        <path d={`M ${X(0)} ${Y(8)} Q ${X(9)} ${Y(5)} ${X(18)} ${Y(0)}`} fill="none" stroke="#c2410c" strokeWidth="3.5" strokeLinecap="round" />
-
-        {/* 5) Iso-ferrite 보조선 (5%·20%·80%) */}
-        <line x1={X(13)} y1={Y(15)} x2={X(36)} y2={Y(30)} stroke="#60a5fa" strokeWidth="1.5" strokeDasharray="5 3" opacity="0.65" />
-        <line x1={X(15)} y1={Y(11)} x2={X(38)} y2={Y(25)} stroke="#60a5fa" strokeWidth="1.2" strokeDasharray="3 3" opacity="0.5" />
-
-        {/* 6) Boundary labels (흰색 배경 + 진한 글자) */}
+        {/* 5) Boundary labels */}
         <g>
-          <rect x={X(22)-30} y={Y(25)-7} width="60" height="13" fill="white" fillOpacity="0.92" rx="2" stroke="#1d4ed8" strokeWidth="0.5" />
-          <text x={X(22)} y={Y(25)+3} textAnchor="middle" fontSize="10" fill="#1d4ed8" fontWeight="bold">0 % ferrite</text>
+          <rect x={X(26)-30} y={Y(A(26))-7} width="60" height="13" fill="white" fillOpacity="0.92" rx="2" stroke="#1d4ed8" strokeWidth="0.5" />
+          <text x={X(26)} y={Y(A(26))+3} textAnchor="middle" fontSize="10" fill="#1d4ed8" fontWeight="bold">0 % ferrite</text>
         </g>
         <g>
-          <rect x={X(30)-35} y={Y(4)-7} width="70" height="13" fill="white" fillOpacity="0.92" rx="2" stroke="#b91c1c" strokeWidth="0.5" />
-          <text x={X(30)} y={Y(4)+3} textAnchor="middle" fontSize="10" fill="#b91c1c" fontWeight="bold">100 % ferrite</text>
+          <rect x={X(34)-35} y={Y(F(34))-7} width="70" height="13" fill="white" fillOpacity="0.92" rx="2" stroke="#b91c1c" strokeWidth="0.5" />
+          <text x={X(34)} y={Y(F(34))+3} textAnchor="middle" fontSize="10" fill="#b91c1c" fontWeight="bold">100 % ferrite</text>
         </g>
         <g>
-          <rect x={X(9)-25} y={Y(3.5)-7} width="50" height="13" fill="white" fillOpacity="0.92" rx="2" stroke="#c2410c" strokeWidth="0.5" />
-          <text x={X(9)} y={Y(3.5)+3} textAnchor="middle" fontSize="10" fill="#c2410c" fontWeight="bold">Ms = RT</text>
+          <rect x={X(7)-25} y={Y(M(7))-7} width="50" height="13" fill="white" fillOpacity="0.92" rx="2" stroke="#c2410c" strokeWidth="0.5" />
+          <text x={X(7)} y={Y(M(7))+3} textAnchor="middle" fontSize="10" fill="#c2410c" fontWeight="bold">Ms = RT</text>
         </g>
 
-        {/* 7) Phase zone labels (큰 글씨 + 흰 outline) */}
-        <text x={X(5)} y={Y(28)} fontSize="13" fontWeight="bold" fill="#1e3a8a" stroke="white" strokeWidth="3" paintOrder="stroke">γ Austenite</text>
-        <text x={X(34)} y={Y(2.5)} fontSize="13" fontWeight="bold" fill="#7f1d1d" stroke="white" strokeWidth="3" paintOrder="stroke" textAnchor="middle">α Ferrite</text>
-        <text x={X(5)} y={Y(2.5)} fontSize="13" fontWeight="bold" fill="#7c2d12" stroke="white" strokeWidth="3" paintOrder="stroke">α′ Martensite</text>
-        <text x={X(25)} y={Y(18)} fontSize="13" fontWeight="bold" fill="#064e3b" stroke="white" strokeWidth="3" paintOrder="stroke" textAnchor="middle">A + F</text>
-        <text x={X(25)} y={Y(15.5)} fontSize="10" fontStyle="italic" fill="#065f46" stroke="white" strokeWidth="3" paintOrder="stroke" textAnchor="middle">(Duplex)</text>
+        {/* 6) Phase zone labels */}
+        <text x={X(3)} y={Y(29)} fontSize="13" fontWeight="bold" fill="#1e3a8a" stroke="white" strokeWidth="3" paintOrder="stroke">γ Austenite</text>
+        <text x={X(34)} y={Y(2)} fontSize="13" fontWeight="bold" fill="#7f1d1d" stroke="white" strokeWidth="3" paintOrder="stroke" textAnchor="middle">α Ferrite</text>
+        <text x={X(3)} y={Y(4)} fontSize="13" fontWeight="bold" fill="#7c2d12" stroke="white" strokeWidth="3" paintOrder="stroke">α′ Martensite</text>
+        <text x={X(17)} y={Y(2.5)} fontSize="10" fontWeight="bold" fill="#9a3412" stroke="white" strokeWidth="3" paintOrder="stroke" textAnchor="middle">M+F</text>
+        <text x={X(28)} y={Y(20)} fontSize="13" fontWeight="bold" fill="#064e3b" stroke="white" strokeWidth="3" paintOrder="stroke" textAnchor="middle">A + F</text>
+        <text x={X(28)} y={Y(17.5)} fontSize="10" fontStyle="italic" fill="#065f46" stroke="white" strokeWidth="3" paintOrder="stroke" textAnchor="middle">(Duplex)</text>
 
-        {/* 8) User point — 매우 눈에 띄게 */}
-        <circle cx={X(Cr_eq)} cy={Y(Ni_eq)} r="9" fill="white" stroke="#dc2626" strokeWidth="3" />
-        <circle cx={X(Cr_eq)} cy={Y(Ni_eq)} r="5" fill="#dc2626" />
-        <text x={X(Cr_eq) + 12} y={Y(Ni_eq) - 5} fontSize="11" fontWeight="bold" fill="#7f1d1d" stroke="white" strokeWidth="3" paintOrder="stroke">현재 조성</text>
+        {/* 7) User point */}
+        {res && (
+          <>
+            <circle cx={X(Math.min(40, res.crEq))} cy={Y(clampY(res.niEq))} r="9" fill="white" stroke="#dc2626" strokeWidth="3" />
+            <circle cx={X(Math.min(40, res.crEq))} cy={Y(clampY(res.niEq))} r="5" fill="#dc2626" />
+            <text x={X(Math.min(40, res.crEq)) + 12} y={Y(clampY(res.niEq)) - 5} fontSize="11" fontWeight="bold" fill="#7f1d1d" stroke="white" strokeWidth="3" paintOrder="stroke">현재 조성</text>
+          </>
+        )}
 
-        {/* 9) Axis labels */}
+        {/* 8) Axis labels */}
         <text x={(X(0) + X(40)) / 2} y={sh - 6} textAnchor="middle" fontSize="11" fontWeight="bold" fill="#1e293b">Cr-eq = Cr + Mo + 1.5 Si + 0.5 Nb  (%)</text>
         <text x={4} y={16} fontSize="11" fontWeight="bold" fill="#1e293b">Ni-eq (%)</text>
         <text x={4} y={28} fontSize="9" fill="#64748b">= Ni + 30C + 30N + 0.5Mn</text>
@@ -790,22 +897,23 @@ function SchaefflerCalc() {
       <p className="text-[10px] text-muted-foreground -mt-1 mb-1 leading-tight">
         <span className="inline-block w-3 h-0.5 bg-[#1d4ed8] align-middle mr-1"/> 0% ferrite (γ↔A+F)  ·
         <span className="inline-block w-3 h-0.5 bg-[#b91c1c] align-middle mx-1"/> 100% ferrite (A+F↔α)  ·
-        <span className="inline-block w-3 h-0.5 bg-[#c2410c] align-middle mx-1"/> Ms=RT (γ↔α′)
+        <span className="inline-block w-3 h-0.5 bg-[#c2410c] align-middle mx-1"/> Ms=RT (martensite 형성 한계)  ·
+        <span className="inline-block w-3 h-0.5 bg-[#9a3412] align-middle mx-1"/> α′↔M+F
       </p>
       <div className="grid grid-cols-3 gap-1 mb-2 text-[11px]">
         {/* R209 A-12 — Cu 입력 제거 (Schaeffler/DeLong Ni_eq 에 미포함 → 입력해도 무시되던 혼란 제거) */}
         {[{l:'Cr', v:Cr, s:setCr}, {l:'Ni', v:Ni, s:setNi}, {l:'Mo', v:Mo, s:setMo}, {l:'Si', v:Si, s:setSi}, {l:'Nb', v:Nb, s:setNb}, {l:'C', v:C, s:setC}, {l:'N', v:N, s:setN}, {l:'Mn', v:Mn, s:setMn}].map(f => (
-          <label key={f.l}>
-            <span className="text-muted-foreground text-[10px]">{f.l} %</span>
-            <input type="number" step="0.1" className={In + ' w-full'} value={f.v} onChange={(e) => f.s(+e.target.value || 0)} />
-          </label>
+          <NumField key={f.l} id={`sch-${f.l}`} label={`${f.l} %`} value={f.v} onChange={f.s} step="0.1" issue={issueOf(issues, f.l)} />
         ))}
       </div>
-      <div className="rounded bg-muted/30 p-2 text-sm font-mono">
-        <div>Cr-eq = <b>{Cr_eq.toFixed(1)}</b> · Ni-eq = <b>{Ni_eq.toFixed(1)}</b></div>
-        <div className="text-emerald-700 mt-1">예측 미세조직: <b>{phase}</b></div>
-      </div>
-      <p className="text-[11px] text-muted-foreground mt-1">전형: 304 SS Cr-eq≈18·Ni-eq≈10 (γ) · 17-4 PH Cr-eq≈16·Ni-eq≈5 (Mart.) · 2205 Duplex Cr-eq≈25·Ni-eq≈10 (A+F).</p>
+      <Issues issues={issues} />
+      {res && (
+        <div className="rounded bg-muted/30 p-2 text-sm font-mono">
+          <div>Cr-eq = <b>{res.crEq.toFixed(1)}</b> · Ni-eq = <b>{res.niEq.toFixed(1)}</b></div>
+          <div className="text-emerald-700 mt-1">예측 미세조직: <b>{res.phase}</b>{res.phase === 'A+F' && res.ferritePct != null && <span> · δ-ferrite ≈ {res.ferritePct}% (근사)</span>}</div>
+        </div>
+      )}
+      <p className="text-[11px] text-muted-foreground mt-1">전형 조성의 이 모델 판정: {examples.map((e, i) => <span key={e.label}>{i > 0 && ' · '}{e.label} → <b>{e.r.phase}</b>{e.r.phase === 'A+F' && e.r.ferritePct != null ? ` ${e.r.ferritePct}%` : ''} ({e.r.crEq.toFixed(1)}/{e.r.niEq.toFixed(1)})</span>)}</p>
       <Link href="/guide/ch12" className="text-[11px] text-accent hover:underline flex items-center gap-0.5 mt-1"><BookOpen className="w-3 h-3" /> Guide Ch.11 가공성·용접성 →</Link>
     </div>
   );
@@ -890,14 +998,14 @@ export default function Tools() {
           <p className="font-semibold mb-1.5">📚 계산기 9 개의 적용 영역</p>
           <ul className="list-disc pl-5 space-y-0.5">
             <li><b>Kt (응력 집중)</b> — hole/fillet/notch/groove 형상의 stress amplification. 피로 설계 핵심. <span className="text-muted-foreground">→ Guide <Link href="/guide/ch4" className="text-accent">Ch.7 보 하중</Link></span></li>
-            <li><b>Galvanic</b> — 이종금속 부식. anode-cathode 전위차 + 면적비. 해양·외기 환경. <span className="text-muted-foreground">→ Guide <Link href="/guide/ch10" className="text-accent">Ch.3 family + 환경</Link></span></li>
+            <li><b>Galvanic</b> — 이종금속 부식. anode-cathode 전위차 (해수 계열 기준). 면적비 효과는 이 계산기에 없음. <span className="text-muted-foreground">→ Guide <Link href="/guide/ch10" className="text-accent">Ch.3 family + 환경</Link></span></li>
             <li><b>Buckling (Euler)</b> — 압축 부재 임계하중 P_cr = π²EI/(KL)². 가늘고 긴 column. <span className="text-muted-foreground">→ Guide <Link href="/guide/ch5" className="text-accent">Ch.8 비틀림·좌굴</Link></span></li>
             <li><b>CTE mismatch</b> — 이종재료 접합부 열응력. 반도체 패키지·복합재. ΔL = α × L × ΔT.</li>
-            <li><b>Hardness convert</b> — HV ↔ HRC ↔ HB. ASTM E140. UTS ≈ 3.45 × HV (강 한정).</li>
-            <li><b>Pressure vessel</b> — Thin-wall σ_hoop = pD/(2t), σ_axial = pD/(4t). ASME VIII Div 1.</li>
+            <li><b>Hardness convert</b> — HV ↔ HRC ↔ HRB ↔ HB. ASTM E140-12b 표 1·2 (비오스테나이트 강) 보간, 표 밖은 환산 안 함. 인장강도는 같은 표의 강 전용 근사열.</li>
+            <li><b>Pressure vessel</b> — Thin-wall σ_hoop = pD/(2t), σ_axial = pD/(4t); t/r &gt; 0.1 이면 Lamé 두꺼운 벽 해. 코드(ASME VIII Div.1) 허용응력 방식과는 별개의 교육용 탄성식.</li>
             <li><b>Larson-Miller (LMP)</b> — Creep rupture time-temp 등가. LMP = T(C + log t). C = 20 일반.</li>
-            <li><b>Mohr 원</b> — 2D 응력 상태 회전. principal stress + max shear. von Mises / Tresca 평가.</li>
-            <li><b>Schaeffler</b> — 스테인리스 용접 weld metal phase 예측 (Cr_eq vs Ni_eq). 304/316 → A+F. <span className="text-muted-foreground">→ Detail panel 의 용접성 표시도 동일 계산</span></li>
+            <li><b>Mohr 원</b> — 2D 응력 상태 회전. principal stress + 면내/절대 max shear. von Mises · Tresca(=2·절대 τ_max) 평가.</li>
+            <li><b>Schaeffler</b> — 스테인리스 용접 weld metal phase 예측 (Cr_eq vs Ni_eq). 직선 근사 경계 — 304(18Cr-8Ni) 는 0 % ferrite 선 바로 아래(δ-ferrite 수 %), 310 은 γ, 2205 는 A+F. <span className="text-muted-foreground">→ Detail panel 의 용접성 표시도 동일 경계식</span></li>
           </ul>
         </div>
 
@@ -918,8 +1026,8 @@ export default function Tools() {
             <p className="font-semibold text-foreground/80 mb-1">⚠ 사용 시 주의</p>
             <ul className="list-disc pl-5 space-y-0.5">
               <li>모든 계산은 <b>설계 초기 단계 후보 좁히기용</b>. 실제 설계는 vendor datasheet + FEA + 시제품 시험으로 검증 필수.</li>
-              <li>피로 (S-N curve, Goodman), 좌굴 (slenderness ratio λ), 압력용기 (안전계수 SF 3.5 = ASME / 4 = PED) 등 표준 코드 우선.</li>
-              <li>비표준 입력 (음수, 0, 극단값) 은 결과 신뢰성 ↓. 결과 의심 시 손계산 또는 별도 코드 검증.</li>
+              <li>피로 (S-N curve, Goodman), 좌굴 (slenderness ratio λ), 압력용기 (ASME VIII Div.1 허용응력 S ≈ min(UTS/3.5, σy/1.5) · PED 등 코드별 상이) 는 표준 코드 우선 — 계산기의 SF 입력은 σy 기준 교육용 값.</li>
+              <li>모델 밖 입력 (음수 조성, 판보다 큰 구멍, 절대영도 이하 온도 등) 은 결과를 계산하지 않고 입력 칸에 이유를 표시합니다. 결과 의심 시 손계산 또는 별도 코드 검증.</li>
               <li>이 도구는 <b>educational</b> — 단일 결과를 설계 승인 근거로 사용 금지.</li>
             </ul>
           </div>
@@ -931,7 +1039,7 @@ export default function Tools() {
               <li><b>경도 변환</b>: ASTM E140-12b (Standard Hardness Conversion Tables for Metals)</li>
               <li><b>압력 용기</b>: ASME Boiler &amp; Pressure Vessel Code Sec.VIII Div.1 · KS B 6750 · PED 2014/68/EU</li>
               <li><b>Creep / Larson-Miller</b>: ASME Sec.II Part D + ASM Vol.19 (Fatigue and Fracture)</li>
-              <li><b>Schaeffler</b>: AWS A3.0 · ASM Vol.6 (Welding) · Schaeffler 1949 + DeLong (N 30× austenite 보정). Ni_eq = Ni + 30C + 30N + 0.5Mn</li>
+              <li><b>Schaeffler</b>: AWS A3.0 · ASM Vol.6 (Welding) · Schaeffler 1949 + DeLong (N 30× austenite 보정). Ni_eq = Ni + 30C + 30N + 0.5Mn. 경계 직선식: 0 % ferrite Ni_eq = 1.125(Cr_eq − 8) · martensite 한계 Ni_eq = −0.749(Cr_eq − 31.5) (Schaeffler 도표 판독 직선식, US 7,459,034) · 100 % ferrite·α′/M+F 선은 이 앱의 근사</li>
             </ul>
           </div>
         </div>

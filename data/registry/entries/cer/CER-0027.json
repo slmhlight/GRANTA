@@ -29,13 +29,7 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "yield_strength": {
-      "min": 200,
-      "max": 200,
-      "typical": 200,
-      "n": 1,
-      "confidence": "handbook"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 200,
       "max": 200,
@@ -96,15 +90,6 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "fatigue_strength": {
-      "min": 90,
-      "max": 90,
-      "typical": 90,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
-    },
     "price_per_cm3": {
       "min": 0.0474,
       "max": 0.0474,
@@ -142,17 +127,18 @@
   "meta": {
     "ceramic": true,
     "applications": "고온 furnace 라이너, 열적 충격 부품, 글래스 furnace",
+    "no_yield": "취성 세라믹 — 항복점 없음. 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
     "_r173_note_applied": true
   },
   "popularity": 3,
   "density": 3.16,
-  "yield_strength": 200,
+  "yield_strength": null,
   "uts": 200,
   "elongation": null,
   "modulus": 145,
   "hardness": 1100,
   "thermal_conductivity": 6,
-  "fatigue_strength": 90,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Sintered",
@@ -164,7 +150,6 @@
     "Ceramic",
     "Oxide"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1,

@@ -36,21 +36,21 @@
       "typical": 48,
       "max": 48,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 3105-O Aluminum (120 / 48 / 20% / HB 29) · 피로 52 MPa(MakeItFrom 3105-O)"
+      "provenance": "교정: MakeItFrom 3105-O Aluminum (120 / 48 / 20% / HB 29) · 피로 52 MPa(MakeItFrom 3105-O) · [경도 스케일] 인용 경도 29 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기."
     },
     "uts": {
       "min": 120,
       "typical": 120,
       "max": 120,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 3105-O Aluminum (120 / 48 / 20% / HB 29) · 피로 52 MPa(MakeItFrom 3105-O)"
+      "provenance": "교정: MakeItFrom 3105-O Aluminum (120 / 48 / 20% / HB 29) · 피로 52 MPa(MakeItFrom 3105-O) · [경도 스케일] 인용 경도 29 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기."
     },
     "elongation": {
       "min": 20,
       "typical": 20,
       "max": 20,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 3105-O Aluminum (120 / 48 / 20% / HB 29) · 피로 52 MPa(MakeItFrom 3105-O)"
+      "provenance": "교정: MakeItFrom 3105-O Aluminum (120 / 48 / 20% / HB 29) · 피로 52 MPa(MakeItFrom 3105-O) · [경도 스케일] 인용 경도 29 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기."
     },
     "modulus": {
       "min": 70,
@@ -64,7 +64,12 @@
       "typical": 29,
       "max": 29,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 3105-O Aluminum (120 / 48 / 20% / HB 29) · 피로 52 MPa(MakeItFrom 3105-O)"
+      "provenance": "교정: MakeItFrom 3105-O Aluminum (120 / 48 / 20% / HB 29) · 피로 52 MPa(MakeItFrom 3105-O) · [경도 스케일] 인용 경도 29 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기.",
+      "scale": "HB",
+      "source_scale": "HB",
+      "source_value": 29,
+      "conversion": null,
+      "scale_note": "ASTM E140 표 밖(또는 해당 표 없음) — 환산하지 않고 원 스케일 그대로 표기"
     },
     "thermal_conductivity": {
       "min": 191,
@@ -78,7 +83,7 @@
       "typical": 52,
       "max": 52,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 3105-O Aluminum (120 / 48 / 20% / HB 29) · 피로 52 MPa(MakeItFrom 3105-O)"
+      "provenance": "교정: MakeItFrom 3105-O Aluminum (120 / 48 / 20% / HB 29) · 피로 52 MPa(MakeItFrom 3105-O) · [경도 스케일] 인용 경도 29 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기."
     },
     "impact_strength": {
       "min": 80,
@@ -125,8 +130,8 @@
       "provenance": "3rd_family:Stainless - Austenitic"
     },
     "poisson_ratio": {
-      "min": 0.2805,
-      "max": 0.3795,
+      "min": 0.31,
+      "max": 0.35,
       "typical": 0.33,
       "n": 0,
       "estimated": true,
@@ -255,7 +260,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 2.68,
-  "total_cost_estimate": 2.41,
+  "total_cost_estimate": 5.09,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
@@ -320,18 +325,6 @@
       "had_scalar": true,
       "val_scalar": 26.32
     },
-    "hardness": {
-      "had_range": true,
-      "val_range": {
-        "min": 37.6,
-        "max": 37.6,
-        "typical": 37.6,
-        "n": 1,
-        "confidence": "handbook"
-      },
-      "had_scalar": true,
-      "val_scalar": 37.6
-    },
     "fatigue_strength": {
       "had_range": true,
       "val_range": {
@@ -345,8 +338,20 @@
       "had_scalar": true,
       "val_scalar": 32
     },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 37.6,
+        "max": 37.6,
+        "typical": 37.6,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 37.6
+    },
     "_basis": "AA 3105-O. 합성값의 항복 75.2 는 O 템퍼 대표(48~55)보다 높다. 파생 피로가 SS 규칙(0.42·σy, 이름 regex 오분류)으로 찍혀 있어 인용값으로 교체.",
-    "_src": "MakeItFrom 3105-O Aluminum (120 / 48 / 20% / HB 29) · 피로 52 MPa(MakeItFrom 3105-O)",
+    "_src": "MakeItFrom 3105-O Aluminum (120 / 48 / 20% / HB 29) · 피로 52 MPa(MakeItFrom 3105-O) · [경도 스케일] 인용 경도 29 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기.",
     "points": {
       "from": [
         [

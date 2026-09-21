@@ -57,13 +57,7 @@
       "confidence": "handbook",
       "provenance": "교정: SABIC ULTEM Resin 1010 Technical Data Sheet (ISO 527 injection-molded: tensile stress at yield 105 MPa · tensile modulus 3200 MPa · strain at break 60% · stress at break 85 MPa) · UL Prospector Ultem 1010 (datasheet 351635)"
     },
-    "hardness": {
-      "min": 16,
-      "max": 20,
-      "typical": 18,
-      "n": 3,
-      "confidence": "measured"
-    },
+    "hardness": null,
     "thermal_conductivity": {
       "min": 0.22,
       "max": 0.22,
@@ -207,7 +201,7 @@
       110,
       60,
       3.2,
-      18,
+      null,
       0.22
     ]
   ],
@@ -228,7 +222,7 @@
   "uts": 110,
   "elongation": 60,
   "modulus": 3.2,
-  "hardness": 18,
+  "hardness": null,
   "thermal_conductivity": 0.22,
   "fatigue_strength": null,
   "impact_strength": null,
@@ -261,7 +255,7 @@
   "price_form_factor": 1,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 0.8,
-  "total_cost_estimate": 1.44,
+  "total_cost_estimate": 2.24,
   "min_wall_thickness": 2,
   "surface_finish_typical": 50,
   "tolerance_class": "IT15",

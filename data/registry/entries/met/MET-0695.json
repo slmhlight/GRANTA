@@ -89,8 +89,11 @@
       "max": 209,
       "typical": 209,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 220,
+      "factor": 0.95,
+      "condition": "as-built (fine columnar)",
       "provenance": "alloy-specific KIC × HT:as-built (fine columnar) (k×0.95)"
     },
     "electrical_conductivity": {
@@ -286,7 +289,7 @@
   "price_form_factor": 2.5,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 11.75,
-  "total_cost_estimate": 21.15,
+  "total_cost_estimate": 32.9,
   "min_wall_thickness": 0.4,
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",

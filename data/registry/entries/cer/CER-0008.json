@@ -29,13 +29,7 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "yield_strength": {
-      "min": 260,
-      "max": 260,
-      "typical": 260,
-      "n": 1,
-      "confidence": "handbook"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 260,
       "max": 260,
@@ -102,15 +96,6 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "fatigue_strength": {
-      "min": 117,
-      "max": 117,
-      "typical": 117,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
-    },
     "price_per_cm3": {
       "min": 0.4437,
       "max": 0.4437,
@@ -143,17 +128,18 @@
     "ceramic": true,
     "applications": "Cermet 절삭공구 (TiC-Ni-Mo), 마모 코팅 (PVD/CVD), 항공 탱크 라이닝",
     "limitations": "공기 中 800°C 산화 (TiO₂ 형성). WC 보다 brittle.",
+    "no_yield": "취성 세라믹 — 항복점 없음. 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
     "_r173_note_applied": true
   },
   "popularity": 2,
   "density": 4.93,
-  "yield_strength": 260,
+  "yield_strength": null,
   "uts": 260,
   "elongation": null,
   "modulus": 450,
   "hardness": 2900,
   "thermal_conductivity": 21,
-  "fatigue_strength": 117,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Sintered",
@@ -165,7 +151,6 @@
     "Ceramic",
     "Carbide"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1,
@@ -176,6 +161,6 @@
   "surface_finish_typical": 3.2,
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
-  "confidence_tier": "medium",
+  "confidence_tier": "medium-low",
   "industry_note": "TiC (Titanium Carbide, NaCl structure) — Tm 3140°C, ρ 4.93 g/cc, σf 260-310, E 450 GPa, KIC 3, HV 28-32 GPa. Tmax 1400°C inert. WC-Co cutting tool 의 alloying (TiC, TaC 추가 → 1500°C wear 보존, Ti(C,N) 코팅 표준). Cermet (TiC + Ni-Mo binder) cutting tool — high-speed steel 가공 표준. TiC-particle reinforced steel (Hardide coating). 우주 ablative heat shield mid-layer."
 }

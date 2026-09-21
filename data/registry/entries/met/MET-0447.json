@@ -36,21 +36,21 @@
       "typical": 103,
       "max": 103,
       "confidence": "handbook",
-      "provenance": "교정: Copper Development Association alloys.copper.org C26000 flat product OS050 (0.050 mm grain): 47 ksi UTS / 15 ksi YS / El 62% / HRB 26"
+      "provenance": "교정: Copper Development Association alloys.copper.org C26000 flat product OS050 (0.050 mm grain): 47 ksi UTS / 15 ksi YS / El 62% / HRB 26 · [경도 스케일] CDA C26000 OS050 HRB 26 → HV 71 (ASTM E140-12b Table 4 cartridge brass). 기존 58 은 환산 근거 없던 수치."
     },
     "uts": {
       "min": 324,
       "typical": 324,
       "max": 324,
       "confidence": "handbook",
-      "provenance": "교정: Copper Development Association alloys.copper.org C26000 flat product OS050 (0.050 mm grain): 47 ksi UTS / 15 ksi YS / El 62% / HRB 26"
+      "provenance": "교정: Copper Development Association alloys.copper.org C26000 flat product OS050 (0.050 mm grain): 47 ksi UTS / 15 ksi YS / El 62% / HRB 26 · [경도 스케일] CDA C26000 OS050 HRB 26 → HV 71 (ASTM E140-12b Table 4 cartridge brass). 기존 58 은 환산 근거 없던 수치."
     },
     "elongation": {
       "min": 62,
       "typical": 62,
       "max": 62,
       "confidence": "handbook",
-      "provenance": "교정: Copper Development Association alloys.copper.org C26000 flat product OS050 (0.050 mm grain): 47 ksi UTS / 15 ksi YS / El 62% / HRB 26"
+      "provenance": "교정: Copper Development Association alloys.copper.org C26000 flat product OS050 (0.050 mm grain): 47 ksi UTS / 15 ksi YS / El 62% / HRB 26 · [경도 스케일] CDA C26000 OS050 HRB 26 → HV 71 (ASTM E140-12b Table 4 cartridge brass). 기존 58 은 환산 근거 없던 수치."
     },
     "modulus": {
       "min": 97,
@@ -60,11 +60,15 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 58,
-      "typical": 58,
-      "max": 58,
+      "min": 71,
+      "typical": 71,
+      "max": 71,
       "confidence": "handbook",
-      "provenance": "교정: Copper Development Association alloys.copper.org C26000 flat product OS050 (0.050 mm grain): 47 ksi UTS / 15 ksi YS / El 62% / HRB 26"
+      "provenance": "교정: Copper Development Association alloys.copper.org C26000 flat product OS050 (0.050 mm grain): 47 ksi UTS / 15 ksi YS / El 62% / HRB 26 · [경도 스케일] CDA C26000 OS050 HRB 26 → HV 71 (ASTM E140-12b Table 4 cartridge brass). 기존 58 은 환산 근거 없던 수치.",
+      "scale": "HV",
+      "source_scale": "HRB",
+      "source_value": 26,
+      "conversion": "ASTM E140-12b Table 4"
     },
     "thermal_conductivity": {
       "min": 121,
@@ -94,8 +98,11 @@
       "max": 82.5,
       "typical": 82.5,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 55,
+      "factor": 1.5,
+      "condition": "annealed (austenitic)",
       "provenance": "alloy-specific KIC × HT:annealed (austenitic) (k×1.5)"
     },
     "electrical_conductivity": {
@@ -214,7 +221,7 @@
       324,
       62,
       97,
-      58,
+      71,
       121
     ]
   ],
@@ -245,7 +252,7 @@
   "uts": 324,
   "elongation": 62,
   "modulus": 97,
-  "hardness": 58,
+  "hardness": 71,
   "thermal_conductivity": 121,
   "impact_strength": 245,
   "manufacturer": "Generic",
@@ -274,7 +281,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 7.88,
-  "total_cost_estimate": 7.09,
+  "total_cost_estimate": 14.96,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
@@ -361,7 +368,7 @@
       "val_scalar": 75.75
     },
     "_basis": "어닐드 황동의 물성은 결정립 크기(OS 템퍼)가 좌우하는데, DB 값은 **세 템퍼의 값이 섞여** 있었다 — σy 151.5(22 ksi = 최세립 OS015) · UTS 343.4(≈49 ksi = OS035) · El 67.3(≈최조립 OS100). 한 조건에서 동시에 성립할 수 없다(세립일수록 강하고 연신율은 낮다). 상용 표준 연질인 **OS050** 로 통일.",
-    "_src": "Copper Development Association alloys.copper.org C26000 flat product OS050 (0.050 mm grain): 47 ksi UTS / 15 ksi YS / El 62% / HRB 26",
+    "_src": "Copper Development Association alloys.copper.org C26000 flat product OS050 (0.050 mm grain): 47 ksi UTS / 15 ksi YS / El 62% / HRB 26 · [경도 스케일] CDA C26000 OS050 HRB 26 → HV 71 (ASTM E140-12b Table 4 cartridge brass). 기존 58 은 환산 근거 없던 수치.",
     "points": {
       "from": [
         [

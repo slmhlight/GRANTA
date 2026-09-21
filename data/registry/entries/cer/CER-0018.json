@@ -29,13 +29,7 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "yield_strength": {
-      "min": 1300,
-      "max": 1300,
-      "typical": 1300,
-      "n": 1,
-      "confidence": "handbook"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 1300,
       "max": 1300,
@@ -96,15 +90,6 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "fatigue_strength": {
-      "min": 585,
-      "max": 585,
-      "typical": 585,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
-    },
     "price_per_cm3": {
       "min": 4.176,
       "max": 4.176,
@@ -141,17 +126,18 @@
   "meta": {
     "ceramic": true,
     "applications": "철계 가공 절삭공구 (다이아몬드 대체 — Fe 친화성 없음)",
+    "no_yield": "취성 세라믹 — 항복점 없음. 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
     "_r173_note_applied": true
   },
   "popularity": 2,
   "density": 3.48,
-  "yield_strength": 1300,
+  "yield_strength": null,
   "uts": 1300,
   "elongation": null,
   "modulus": 720,
   "hardness": 4500,
   "thermal_conductivity": 200,
-  "fatigue_strength": 585,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Sintered",
@@ -161,7 +147,6 @@
     "Ceramic",
     "Nitride"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1.3,
@@ -172,6 +157,6 @@
   "surface_finish_typical": 3.2,
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
-  "confidence_tier": "medium",
+  "confidence_tier": "medium-low",
   "industry_note": "c-BN (cubic Boron Nitride, sphalerite structure) — 2nd hardest material (Diamond 다음). ρ 3.48 g/cc, σf 800-1500, E 720 GPa, Mohs 9.9. Tmax 1300°C in air (vs Diamond 700°C — c-BN 우월 for ferrous machining). Sumitomo Sumiboron / Element Six CBN500. Sintered CBN (PCBN) inserts for 자동차 transmission gear 가공, 베어링 race 마무리, hard-turning replace grinding. Cost $300-800/insert."
 }

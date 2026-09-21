@@ -2,7 +2,7 @@
   "stable_id": "MET-0213",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "subcategory": "F-MET-aluminum-zn-alloys-7xxx",
     "alloy_base": "F-AB-aa-7075",
     "element_families": [
       "F-EL-aluminum-based"
@@ -13,7 +13,7 @@
   "id": "R_0439_3",
   "name": "AA 7075 — T73",
   "category": "Metal",
-  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "subcategory": "Aluminum - Zn Alloys (7xxx)",
   "tier": "reference",
   "manufacturers": [
     "Reference data"
@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 135,
-      "max": 135,
-      "typical": 135,
+      "min": 159,
+      "max": 159,
+      "typical": 159,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 135,
+      "conversion": "ASTM E140-12b Table 9",
+      "provenance": "HB 135 → HV 159 (ASTM E140-12b Table 9)"
     },
     "thermal_conductivity": {
       "min": 130,
@@ -94,8 +99,11 @@
       "max": 36.4,
       "typical": 36.4,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 26,
+      "factor": 1.4,
+      "condition": "T7351/T7451 over-aged SCC-resistant",
       "provenance": "alloy-specific KIC × HT:T7351/T7451 over-aged SCC-resistant (k×1.4)"
     },
     "electrical_conductivity": {
@@ -227,7 +235,7 @@
       505,
       13,
       72,
-      135,
+      159,
       130
     ]
   ],
@@ -247,7 +255,7 @@
   "uts": 505,
   "elongation": 13,
   "modulus": 72,
-  "hardness": 135,
+  "hardness": 159,
   "thermal_conductivity": 130,
   "impact_strength": 12,
   "manufacturer": "Reference data",
@@ -262,7 +270,7 @@
   ],
   "families": [
     "Metal",
-    "Aluminum - Si Alloys (6xxx/7xxx)",
+    "Aluminum - Zn Alloys (7xxx)",
     "Aluminum-based"
   ],
   "fatigue_estimated": false,
@@ -302,7 +310,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1.1,
   "delivered_price_per_kg": 7.94,
-  "total_cost_estimate": 6.35,
+  "total_cost_estimate": 14.29,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
@@ -314,6 +322,33 @@
         "AlZn5.5MgCu",
         "DIN 3.4365"
       ]
-    }
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 135,
+        "max": 135,
+        "typical": 135,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 135
+    },
+    "_hardness_scale": "Al HB500 135 → HV 159 (E140 T9)",
+    "points": {
+      "from": [
+        [
+          2.81,
+          430,
+          505,
+          13,
+          72,
+          135,
+          130
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
   }
 }

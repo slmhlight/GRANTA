@@ -36,21 +36,21 @@
       "typical": 260,
       "max": 260,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 2025 (2025-T6) Aluminum — 400 / 260 / 15% / HB 110 ('cited properties are appropriate for the T6 temper')"
+      "provenance": "교정: MakeItFrom 2025 (2025-T6) Aluminum — 400 / 260 / 15% / HB 110 ('cited properties are appropriate for the T6 temper') · [경도 스케일] 인용 경도 110 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "uts": {
       "min": 400,
       "typical": 400,
       "max": 400,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 2025 (2025-T6) Aluminum — 400 / 260 / 15% / HB 110 ('cited properties are appropriate for the T6 temper')"
+      "provenance": "교정: MakeItFrom 2025 (2025-T6) Aluminum — 400 / 260 / 15% / HB 110 ('cited properties are appropriate for the T6 temper') · [경도 스케일] 인용 경도 110 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "elongation": {
       "min": 15,
       "typical": 15,
       "max": 15,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 2025 (2025-T6) Aluminum — 400 / 260 / 15% / HB 110 ('cited properties are appropriate for the T6 temper')"
+      "provenance": "교정: MakeItFrom 2025 (2025-T6) Aluminum — 400 / 260 / 15% / HB 110 ('cited properties are appropriate for the T6 temper') · [경도 스케일] 인용 경도 110 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "modulus": {
       "min": 73,
@@ -60,11 +60,15 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 110,
-      "typical": 110,
-      "max": 110,
+      "min": 129,
+      "typical": 129,
+      "max": 129,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 2025 (2025-T6) Aluminum — 400 / 260 / 15% / HB 110 ('cited properties are appropriate for the T6 temper')"
+      "provenance": "교정: MakeItFrom 2025 (2025-T6) Aluminum — 400 / 260 / 15% / HB 110 ('cited properties are appropriate for the T6 temper') · [경도 스케일] 인용 경도 110 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 110,
+      "conversion": "ASTM E140-12b Table 9"
     },
     "thermal_conductivity": {
       "min": 121,
@@ -126,8 +130,8 @@
       "provenance": "1st_family:Aluminum - Cu Alloys (2xxx)"
     },
     "poisson_ratio": {
-      "min": 0.165,
-      "max": 0.495,
+      "min": 0.29,
+      "max": 0.37,
       "typical": 0.33,
       "n": 0,
       "estimated": true,
@@ -204,7 +208,7 @@
       400,
       15,
       73,
-      110,
+      129,
       121
     ]
   ],
@@ -236,7 +240,7 @@
   "uts": 400,
   "elongation": 15,
   "modulus": 73,
-  "hardness": 110,
+  "hardness": 129,
   "thermal_conductivity": 121,
   "impact_strength": 11,
   "manufacturer": "Generic",
@@ -263,7 +267,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 5.25,
-  "total_cost_estimate": 4.73,
+  "total_cost_estimate": 9.97,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
@@ -346,7 +350,7 @@
       "val_scalar": 112.7
     },
     "_basis": "'Aged / solution-treated' 합성값(σy 303.8/UTS 441/El 19.6/HV 112.7)을 실제 템퍼 T6(2025 단조재의 표준 템퍼)로 교체.",
-    "_src": "MakeItFrom 2025 (2025-T6) Aluminum — 400 / 260 / 15% / HB 110 ('cited properties are appropriate for the T6 temper')",
+    "_src": "MakeItFrom 2025 (2025-T6) Aluminum — 400 / 260 / 15% / HB 110 ('cited properties are appropriate for the T6 temper') · [경도 스케일] 인용 경도 110 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
     "points": {
       "from": [
         [

@@ -160,6 +160,10 @@ export interface Material {
   /** R157 — Primary composition class (legacy filter 호환 — 현재 build pipeline 이 채우지 않음). */
   primary_composition?: string;
   meta?: Record<string, unknown> & {
+    /** AUD F08 — 구성비 기준: 'wt%'(기본, 원소 화학조성) | 'vol%'(복합재 구성 부피분율) | 'at%'. */
+    composition_basis?: 'wt%' | 'vol%' | 'at%';
+    /** AUD R02 — 취성 재료: 항복점이 없어 yield_strength 를 비운 이유. */
+    no_yield?: string;
     /** R144c — Standard spec refs (AMS, ASTM, ASME, DNV, EN, DIN, JIS, MIL, UNS, API, NACE) extracted from name+heat_treatment+sources. */
     specs?: Array<{ id: string; org: 'AMS' | 'ASTM' | 'ASME' | 'DNV' | 'EN' | 'DIN' | 'JIS' | 'MIL' | 'UNS' | 'API' | 'NACE' | 'OTHER'; grade?: string; description?: string }>;
     applications?: string[] | string;
@@ -243,7 +247,7 @@ export const MECHANICAL_PROPERTIES: PropertyMeta[] = [
   { key: 'uts', label: 'UTS', unit: 'MPa', description: 'Ultimate Tensile Strength', group: 'mechanical' },
   { key: 'elongation', label: 'Elongation', unit: '%', description: 'Elongation at break', group: 'mechanical' },
   { key: 'modulus', label: "Young's Modulus", unit: 'GPa', description: 'Elastic modulus', group: 'mechanical' },
-  { key: 'hardness', label: 'Hardness', unit: 'HV', description: 'Vickers hardness', group: 'mechanical' },
+  { key: 'hardness', label: 'Hardness', unit: 'HV', description: 'Vickers hardness. 원자료가 Brinell/Rockwell 이면 ASTM E140-12b 표로 HV 환산(range.source_scale·conversion 에 기록); 표 밖 값은 환산하지 않고 원 스케일(HB 등)로 표기.', group: 'mechanical' },
   { key: 'fatigue_strength', label: 'Fatigue Strength', unit: 'MPa', description: 'Fatigue limit (R=-1)', group: 'mechanical' },
   { key: 'impact_strength', label: 'Impact Strength', unit: 'J', description: 'Charpy impact energy', group: 'mechanical' },
   // R56-fix #1: Sprint 4 C2 KIC 데이터를 UI 에서 사용 가능하도록 entry 추가.
@@ -276,7 +280,7 @@ export const COST_PROPERTIES: PropertyMeta[] = [
   { key: 'price_grade_premium', label: 'Grade × (premium)', unit: '×', description: 'R116: 같은 family 내 grade 차이. Single crystal 4.0 / DS cast 2.0 / Scalmalloy 2.0 / Al-Li 1.30 / aerospace 7xxx 1.10', group: 'cost' },
   { key: 'machining_cost_factor', label: 'Machining factor', unit: '×', description: 'F4: 가공 비용 가중치 (1.0 = 표준 강) — 자세한 의미는 아래 "제조성" 카드 참조', group: 'cost' },
   { key: 'ht_cost_factor', label: 'HT factor', unit: '×', description: 'F4: 열처리·후공정 비용 가중치 (1.0 = 없음) — 자세한 의미는 아래 "제조성" 카드 참조', group: 'cost' },
-  { key: 'total_cost_estimate', label: 'Total cost (machined)', unit: 'USD/kg', description: 'R116: delivered_price × machining factor — 가공·열처리·form 모두 적용한 최종 추정 단가', group: 'cost' },
+  { key: 'total_cost_estimate', label: 'Total cost est. (material + machining)', unit: 'USD/kg', description: '추정 모델: delivered price × (1 + machining index). 가공비를 "소재비 × 상대 가공비 지수(탄소강 1.0)" 로 가정한 상대 지표 — 실제 가공비는 형상·수량·공정에 따라 다르다. 항상 delivered price 이상.', group: 'cost' },
   /* R111 — Min wall / Surface Ra 는 process-aware (Wrought 에서는 의미 없음). build-materials 에서 Cast/AM/Injection 만 채움. */
   { key: 'min_wall_thickness', label: 'Min wall', unit: 'mm', description: 'R15: 최소 벽 두께 — Cast/AM/Injection 프로세스 한정 (Wrought 는 가공 결과에 의존하므로 N/A)', group: 'cost' },
   { key: 'surface_finish_typical', label: 'Surface Ra', unit: 'μm', description: 'R15: 제조 그대로의 표면 거칠기 — Cast/AM/Injection 한정 (Wrought 는 가공 후 결과로 결정, N/A)', group: 'cost' },
@@ -360,7 +364,9 @@ export const FAMILY_TREE: FamilyGroup[] = [
       'Aluminum - Cu Alloys (2xxx)',
       'Aluminum - Mn Alloys (3xxx)',
       'Aluminum - Mg Alloys (5xxx)',
-      'Aluminum - Si Alloys (6xxx/7xxx)',
+      'Aluminum - Mg-Si Alloys (6xxx)',
+      'Aluminum - Zn Alloys (7xxx)',
+      'Aluminum - Si Alloys (cast/AM 3xx·4xx)',
     ],
   },
   {

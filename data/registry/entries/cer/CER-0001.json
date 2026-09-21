@@ -29,13 +29,7 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "yield_strength": {
-      "min": 0.5,
-      "max": 0.5,
-      "typical": 0.5,
-      "n": 1,
-      "confidence": "handbook"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 0.5,
       "max": 0.5,
@@ -96,15 +90,6 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "fatigue_strength": {
-      "min": 0.23,
-      "max": 0.23,
-      "typical": 0.23,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
-    },
     "price_per_cm3": {
       "min": 0.075,
       "max": 0.075,
@@ -142,17 +127,18 @@
     "ceramic": true,
     "applications": "초경량 단열재 (우주 미션 — NASA Stardust), 진공 단열, 의료 영상 detector",
     "limitations": "매우 약함 (압축 강도 0.5 MPa), 가공 거의 불가",
+    "no_yield": "취성 세라믹 — 항복점 없음. 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
     "_r173_note_applied": true
   },
   "popularity": 5,
   "density": 0.05,
-  "yield_strength": 0.5,
+  "yield_strength": null,
   "uts": 0.5,
   "elongation": null,
   "modulus": 0.05,
   "hardness": 5,
   "thermal_conductivity": 0.017,
-  "fatigue_strength": 0.23,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Sintered",
@@ -162,7 +148,6 @@
     "Ceramic",
     "Aerogel"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1,
@@ -173,6 +158,6 @@
   "surface_finish_typical": 3.2,
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
-  "confidence_tier": "medium",
+  "confidence_tier": "medium-low",
   "industry_note": "Silica Aerogel — supercritical CO₂-dried sol-gel SiO₂ network. ρ 0.003-0.5 g/cc (가장 낮은 solid density), thermal conductivity 0.013 W/m·K (air = 0.026, half of air!). σf 0.1-1 MPa (extremely brittle), E 0.005-0.1 GPa, Tmax 650°C. 99% air void by volume. 단열재 (NASA Stardust comet dust collector, ISS), 단열 jacket / 단열 blanket (Pyrogel), Marine pipe insulation, 극저온 단열 (LNG vacuum-jacketed pipe 표면). 손으로 잡으면 부서지지만 압축 강도는 동일 부피의 polymer foam 우수."
 }

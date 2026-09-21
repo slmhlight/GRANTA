@@ -36,21 +36,21 @@
       "typical": 28,
       "max": 28,
       "confidence": "handbook",
-      "provenance": "교정: United Aluminum — Aluminum 1050 alloy typical mechanical properties (1050-O: 11 ksi / 4 ksi / 40%) · MakeItFrom 1050-O (76 / 25 / 37%) · D10 비례법 — 앵커 MakeItFrom 1100-O (HB 23) · Aalco 1050A-H14 (HB 34)"
+      "provenance": "교정: United Aluminum — Aluminum 1050 alloy typical mechanical properties (1050-O: 11 ksi / 4 ksi / 40%) · MakeItFrom 1050-O (76 / 25 / 37%) · D10 비례법 — 앵커 MakeItFrom 1100-O (HB 23) · Aalco 1050A-H14 (HB 34) · [경도 스케일] 인용 경도 22 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기."
     },
     "uts": {
       "min": 76,
       "typical": 76,
       "max": 76,
       "confidence": "handbook",
-      "provenance": "교정: United Aluminum — Aluminum 1050 alloy typical mechanical properties (1050-O: 11 ksi / 4 ksi / 40%) · MakeItFrom 1050-O (76 / 25 / 37%) · D10 비례법 — 앵커 MakeItFrom 1100-O (HB 23) · Aalco 1050A-H14 (HB 34)"
+      "provenance": "교정: United Aluminum — Aluminum 1050 alloy typical mechanical properties (1050-O: 11 ksi / 4 ksi / 40%) · MakeItFrom 1050-O (76 / 25 / 37%) · D10 비례법 — 앵커 MakeItFrom 1100-O (HB 23) · Aalco 1050A-H14 (HB 34) · [경도 스케일] 인용 경도 22 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기."
     },
     "elongation": {
       "min": 39,
       "typical": 39,
       "max": 39,
       "confidence": "handbook",
-      "provenance": "교정: United Aluminum — Aluminum 1050 alloy typical mechanical properties (1050-O: 11 ksi / 4 ksi / 40%) · MakeItFrom 1050-O (76 / 25 / 37%) · D10 비례법 — 앵커 MakeItFrom 1100-O (HB 23) · Aalco 1050A-H14 (HB 34)"
+      "provenance": "교정: United Aluminum — Aluminum 1050 alloy typical mechanical properties (1050-O: 11 ksi / 4 ksi / 40%) · MakeItFrom 1050-O (76 / 25 / 37%) · D10 비례법 — 앵커 MakeItFrom 1100-O (HB 23) · Aalco 1050A-H14 (HB 34) · [경도 스케일] 인용 경도 22 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기."
     },
     "modulus": {
       "min": 69,
@@ -64,7 +64,12 @@
       "typical": 22,
       "max": 22,
       "confidence": "handbook",
-      "provenance": "교정: United Aluminum — Aluminum 1050 alloy typical mechanical properties (1050-O: 11 ksi / 4 ksi / 40%) · MakeItFrom 1050-O (76 / 25 / 37%) · D10 비례법 — 앵커 MakeItFrom 1100-O (HB 23) · Aalco 1050A-H14 (HB 34)"
+      "provenance": "교정: United Aluminum — Aluminum 1050 alloy typical mechanical properties (1050-O: 11 ksi / 4 ksi / 40%) · MakeItFrom 1050-O (76 / 25 / 37%) · D10 비례법 — 앵커 MakeItFrom 1100-O (HB 23) · Aalco 1050A-H14 (HB 34) · [경도 스케일] 인용 경도 22 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기.",
+      "scale": "HB",
+      "source_scale": "HB",
+      "source_value": 22,
+      "conversion": null,
+      "scale_note": "ASTM E140 표 밖(또는 해당 표 없음) — 환산하지 않고 원 스케일 그대로 표기"
     },
     "thermal_conductivity": {
       "min": 222,
@@ -94,8 +99,11 @@
       "max": 108,
       "typical": 108,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 60,
+      "factor": 1.8,
+      "condition": "fully annealed",
       "provenance": "alloy-specific KIC × HT:fully annealed (k×1.8)"
     },
     "electrical_conductivity": {
@@ -262,7 +270,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 2.36,
-  "total_cost_estimate": 2.12,
+  "total_cost_estimate": 4.48,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
@@ -353,7 +361,7 @@
       "val_scalar": 26.32
     },
     "_basis": "AA 1050-O. generic CSV 층의 값(σy 32.9/UTS 79.9/El 32.9)은 base×배율 합성. 1050-O 대표값(11/4 ksi, El 40)으로 교정. 경도: 공개 O-템퍼 HB 미확보 → D10 방식(합금·자매합금 앵커 비). 1100-O 90/23 = 3.9 · 1050-H14 110/34 = 3.2 → 3.5 로 76/3.5 ≈ 22 HB (파생, 문서화).",
-    "_src": "United Aluminum — Aluminum 1050 alloy typical mechanical properties (1050-O: 11 ksi / 4 ksi / 40%) · MakeItFrom 1050-O (76 / 25 / 37%) · D10 비례법 — 앵커 MakeItFrom 1100-O (HB 23) · Aalco 1050A-H14 (HB 34)",
+    "_src": "United Aluminum — Aluminum 1050 alloy typical mechanical properties (1050-O: 11 ksi / 4 ksi / 40%) · MakeItFrom 1050-O (76 / 25 / 37%) · D10 비례법 — 앵커 MakeItFrom 1100-O (HB 23) · Aalco 1050A-H14 (HB 34) · [경도 스케일] 인용 경도 22 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기.",
     "points": {
       "from": [
         [

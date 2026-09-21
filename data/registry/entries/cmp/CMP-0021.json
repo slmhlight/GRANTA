@@ -34,9 +34,9 @@
       "min": 1.4,
       "max": 1.7,
       "typical": 1.5,
-      "n": 1,
       "confidence": "measured",
-      "provenance": "ISO 844 compression strength"
+      "provenance": "ISO 844 compression strength",
+      "n": 1
     },
     "uts": {
       "min": 2.4,
@@ -94,15 +94,6 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "fatigue_strength": {
-      "min": 0.68,
-      "max": 0.68,
-      "typical": 0.68,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
-    },
     "price_per_cm3": {
       "min": 0.0153,
       "max": 0.0207,
@@ -139,17 +130,18 @@
     "anisotropic": true,
     "applications": "샌드위치 코어 (항공·우주), 위성 패널, 헬리콥터 블레이드 코어",
     "anisotropy_note": "복합재 — 강성·강도가 fiber 방향 의존. 0° UD 값 (수직 방향은 1/10~1/20).",
+    "no_yield": "섬유 복합재 — 항복점 없음(선형 후 파단). 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
     "_r173_note_applied": true
   },
   "popularity": 4,
   "density": 0.075,
-  "yield_strength": 1.5,
+  "yield_strength": null,
   "uts": 1.5,
   "elongation": 3,
   "modulus": 0.085,
   "hardness": null,
   "thermal_conductivity": 0.029,
-  "fatigue_strength": 0.68,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Layup",
@@ -161,7 +153,6 @@
     "Composite",
     "Foam-Polymer"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1,

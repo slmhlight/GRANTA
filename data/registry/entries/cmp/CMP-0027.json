@@ -29,13 +29,7 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "yield_strength": {
-      "min": 800,
-      "max": 800,
-      "typical": 800,
-      "n": 1,
-      "confidence": "handbook"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 800,
       "max": 800,
@@ -90,15 +84,6 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "fatigue_strength": {
-      "min": 360,
-      "max": 360,
-      "typical": 360,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
-    },
     "price_per_cm3": {
       "min": 0.0074,
       "max": 0.0074,
@@ -141,17 +126,18 @@
     "fiber_vf": 0.5,
     "applications": "건축용 패널, 욕조·세면대, 자동차 부속 (저가)",
     "anisotropy_note": "복합재 — 강성·강도가 fiber 방향 의존. 0° UD 값 (수직 방향은 1/10~1/20).",
+    "no_yield": "섬유 복합재 — 항복점 없음(선형 후 파단). 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
     "_r173_note_applied": true
   },
   "popularity": 5,
   "density": 1.85,
-  "yield_strength": 800,
+  "yield_strength": null,
   "uts": 800,
   "elongation": 2.4,
   "modulus": 38,
   "hardness": null,
   "thermal_conductivity": 0.4,
-  "fatigue_strength": 360,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Layup",
@@ -161,7 +147,6 @@
     "Composite",
     "Glass-Polyester"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1,

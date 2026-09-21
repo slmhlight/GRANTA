@@ -2,7 +2,7 @@
   "stable_id": "MET-0202",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "subcategory": "F-MET-aluminum-mg-si-alloys-6xxx",
     "alloy_base": "F-AB-aa-6463-architectural-extrusion",
     "element_families": [
       "F-EL-aluminum-based"
@@ -13,7 +13,7 @@
   "id": "R_0043_1",
   "name": "AA 6463 (architectural extrusion) — T6 (sol. + artificial aged peak)",
   "category": "Metal",
-  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
   "tier": "reference",
   "manufacturers": [
     "Reference data"
@@ -36,21 +36,21 @@
       "typical": 200,
       "max": 200,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 6463-T6 Aluminum (230 / 200 / 11% / HB 74)"
+      "provenance": "교정: MakeItFrom 6463-T6 Aluminum (230 / 200 / 11% / HB 74) · [경도 스케일] 인용 경도 74 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "uts": {
       "min": 230,
       "typical": 230,
       "max": 230,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 6463-T6 Aluminum (230 / 200 / 11% / HB 74)"
+      "provenance": "교정: MakeItFrom 6463-T6 Aluminum (230 / 200 / 11% / HB 74) · [경도 스케일] 인용 경도 74 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "elongation": {
       "min": 11,
       "typical": 11,
       "max": 11,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 6463-T6 Aluminum (230 / 200 / 11% / HB 74)"
+      "provenance": "교정: MakeItFrom 6463-T6 Aluminum (230 / 200 / 11% / HB 74) · [경도 스케일] 인용 경도 74 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "modulus": {
       "min": 74,
@@ -60,11 +60,15 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 74,
-      "typical": 74,
-      "max": 74,
+      "min": 85,
+      "typical": 85,
+      "max": 85,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 6463-T6 Aluminum (230 / 200 / 11% / HB 74)"
+      "provenance": "교정: MakeItFrom 6463-T6 Aluminum (230 / 200 / 11% / HB 74) · [경도 스케일] 인용 경도 74 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 74,
+      "conversion": "ASTM E140-12b Table 9"
     },
     "thermal_conductivity": {
       "min": 209,
@@ -123,8 +127,8 @@
       "provenance": "1st_family:Aluminum - Pure/Other"
     },
     "poisson_ratio": {
-      "min": 0.165,
-      "max": 0.495,
+      "min": 0.29,
+      "max": 0.37,
       "typical": 0.33,
       "n": 0,
       "estimated": true,
@@ -187,6 +191,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Aluminum & Aluminum Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "Datasheet 2",
       "url": "ANSYS Granta — Aluminum, 6463, T4 / T6 (UNS A96463, EN AW-6463, EN AW-Al Mg0.7Si(B))",
       "verified": true
@@ -224,7 +233,7 @@
       230,
       11,
       74,
-      74,
+      85,
       209
     ]
   ],
@@ -248,7 +257,7 @@
   "uts": 230,
   "elongation": 11,
   "modulus": 74,
-  "hardness": 74,
+  "hardness": 85,
   "thermal_conductivity": 209,
   "fatigue_strength": 52,
   "impact_strength": 18,
@@ -279,11 +288,45 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 5.46,
-  "total_cost_estimate": 4.91,
+  "total_cost_estimate": 10.37,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Datasheet 2",
+          "url": "ANSYS Granta — Aluminum, 6463, T4 / T6 (UNS A96463, EN AW-6463, EN AW-Al Mg0.7Si(B))",
+          "verified": true
+        },
+        {
+          "label": "Datasheet 2",
+          "url": "https://www.aluminum.org/standards",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: AA 6xxx Al-Mg-Si",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MakeItFrom — 6463-T6 Aluminum (property table)",
+          "url": "https://www.makeitfrom.com/material-properties/6463-T6-Aluminum",
+          "verified": false
+        },
+        {
+          "label": "MakeItFrom — 6463 (AlMg0.7Si(B), A96463) Aluminum 합금 개요(UNS/EN 지정)",
+          "url": "https://www.makeitfrom.com/material-properties/6463-AlMg0.7SiB-A96463-Aluminum/",
+          "verified": false
+        },
+        {
+          "label": "AZoM — Aluminium 6463 Alloy (UNS A96463) 데이터시트",
+          "url": "https://www.azom.com/article.aspx?ArticleID=6649",
+          "verified": true
+        }
+      ]
+    },
     "yield_strength": {
       "had_range": true,
       "val_range": {
@@ -333,7 +376,7 @@
       "val_scalar": 60
     },
     "_basis": "'6463 (architectural) — T6' 의 207/172 는 EN 755-2 6463-T6 최소(Rm 205 / Rp 170)와 일치 — 규격 최소가 typical 자리에 실린 것. 대표값으로 교정. 같은 base 의 T4(135/81)는 EN T4 최소(125/75) 근방이나 T1 typical 과도 겹쳐 판정 보류.",
-    "_src": "MakeItFrom 6463-T6 Aluminum (230 / 200 / 11% / HB 74)",
+    "_src": "MakeItFrom 6463-T6 Aluminum (230 / 200 / 11% / HB 74) · [경도 스케일] 인용 경도 74 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
     "points": {
       "from": [
         [

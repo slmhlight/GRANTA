@@ -1826,7 +1826,9 @@ function loadCeramicsAsMaterials() {
       for (const p of CERAMIC_PROPS) ranges[p] = null;
       const setR = (k, v) => { if (v != null && isFinite(v)) ranges[k] = { min: v, max: v, typical: v, n: 1, confidence: 'handbook' }; };
       setR('density', c.density);
-      setR('yield_strength', c.ys);
+      /* AUD R02 (2026-09-22) — 세라믹은 항복하지 않는다. 원자료의 ys 는 uts 를 복사한 자리표시자(39/39 동일)라 싣지 않는다 —
+         항복강도 열은 비우고(취성) uts(인장강도)만 남긴다. 값이 다른 ys 가 실제로 들어오면(예외) 그대로 싣는다. */
+      if (c.ys != null && c.uts != null && c.ys !== c.uts) setR('yield_strength', c.ys);
       setR('uts', c.uts);
       setR('modulus', c.modulus);
       setR('hardness', c.hardness_HV);
@@ -1868,7 +1870,8 @@ function loadCeramicsAsMaterials() {
         heat_treatment: null, ranges,
         composition: c.composition || {}, sources,
         machinability: null, weldability: null, corrosion_resistance: 'Excellent',
-        meta: { ceramic: true, applications: c.applications, limitations: c.limitations, industry_note: c.industry_note },
+        meta: { ceramic: true, applications: c.applications, limitations: c.limitations, industry_note: c.industry_note,
+          ...(c.ys != null && c.ys === c.uts ? { no_yield: '취성 세라믹 — 항복점 없음. 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).' } : {}) },
         popularity: c.popularity || 3,
       };
     });
@@ -1886,7 +1889,8 @@ function loadCompositesAsMaterials() {
       ranges.elongation = null;
       const setR = (k, v) => { if (v != null && isFinite(v)) ranges[k] = { min: v, max: v, typical: v, n: 1, confidence: 'handbook' }; };
       setR('density', c.density);
-      setR('yield_strength', c.ys);
+      /* AUD R02 확장 — 섬유 복합재(CFRP/GFRP/AFK 등)도 항복하지 않는다. ys===uts 복사본(23 entry)은 싣지 않는다. */
+      if (c.ys != null && !(c.uts != null && c.ys === c.uts)) setR('yield_strength', c.ys);
       setR('uts', c.uts);
       setR('modulus', c.modulus);
       setR('elongation', c.elongation);
@@ -1927,7 +1931,8 @@ function loadCompositesAsMaterials() {
         sources,
         machinability: null, weldability: null, corrosion_resistance: null,
         meta: { composite: true, anisotropic: true, ply_direction: c.ply_direction, fiber_vf: c.fiber_vf, applications: c.applications, limitations: c.limitations, industry_note: c.industry_note,
-          anisotropy_note: '복합재 — 강성·강도가 fiber 방향 의존. 0° UD 값 (수직 방향은 1/10~1/20).' },
+          anisotropy_note: '복합재 — 강성·강도가 fiber 방향 의존. 0° UD 값 (수직 방향은 1/10~1/20).',
+          ...(c.ys != null && c.ys === c.uts ? { no_yield: '섬유 복합재 — 항복점 없음(선형 후 파단). 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).' } : {}) },
         popularity: c.popularity || 3,
       };
     });
@@ -2123,7 +2128,9 @@ const KIC_FALLBACK = [
 
   // ========== Magnesium / Copper / Refractory ==========
   [/magnesium|\baz3[1]\b|\baz6[1]\b|\baz9[1]\b|we43|we54|zk60|wz\d/i, [12, 17, 25], 'ASM Vol.2 Mg alloys'],
-  [/c17200|c17500|c17510|cube|bery|moldmax/i, [50, 60, 75], 'Materion BeCu C17200'],
+  /* AUD R05 (2026-09-22) — 'bery' 토큰이 순수 베릴륨(Be 99.5 %)까지 잡아 BeCu 계열 KIC(50~75)를 붙였다. 순 Be 는 취성이 커
+     KIC 가 한 자릿수~10 대라 계열이 다르다 — 검증 출처 없이는 값 없음. 구리-베릴륨 표기로만 매칭. */
+  [/c17200|c17500|c17510|cube|beryllium\s*copper|becu|moldmax/i, [50, 60, 75], 'Materion BeCu C17200'],
   [/c18000|c18100|c18150|c18200|cucr|cuni2sicr/i, [50, 60, 75], 'Cu-Cr-Zr / Cu-Ni-Si-Cr family'],
   [/c95820|c95500|c63020|cu.?al.?fe|aluminum.?bronze|nab\b/i, [40, 60, 80], 'Copper.org NIAB'],
   [/c26000|c46400|brass|naval.?brass|cuzn/i, [40, 55, 75], 'Copper.org Brass'],
@@ -3075,6 +3082,16 @@ function injectTempCurves(m) {
   }
 }
 
+/* AUD R03 (2026-09-22) — 폴리머 경도 32 entry 는 CSV generic 합성값(n=15 'measured')이 스케일 표기 없이 HV 열에 실린 것이다
+   (ABS 72.75 는 Shore D 로 보이나 확인 불가). 스케일을 모르는 수치는 경도가 아니다 — 출처·스케일(scale) 이 있는 값만 남긴다. */
+let polymerHardnessDropped = 0;
+for (const m of all) {
+  if (m.category !== 'Polymer' || !m.ranges?.hardness) continue;
+  const h = m.ranges.hardness;
+  if (!h.provenance && !h.scale) { m.ranges.hardness = null; polymerHardnessDropped++; }
+}
+if (polymerHardnessDropped) console.log(`ℹ AUD R03 — 폴리머 스케일 불명 경도 제거: ${polymerHardnessDropped}`);
+
 // back-compat flat fields: current app reads m.density / m.manufacturer / m.process / m.source directly.
 // Keep them (= typical value) alongside the richer {ranges, sources, tier, meta} so the UI can migrate gradually.
 for (const m of all) {
@@ -3156,19 +3173,26 @@ for (const m of all) {
     }
   }
   // estimated fatigue (endurance) from UTS where no measured value — labelled as an estimate
-  /* R129 — provenance 명시: family-level σf ≈ k·UTS ratio (Shigley/MMPDS family typical). */
-  if (m.category !== 'Polymer' && !m.ranges.fatigue_strength && m.ranges.uts) {
+  /* R129 — provenance 명시: family-level σf ≈ k·UTS ratio (Shigley/MMPDS family typical).
+     AUD F05/F06 (2026-09-22) — **금속에만** 적용한다. 이전 조건(category !== 'Polymer')은 세라믹 35·복합재 31 에
+     "family:Fe-based σf≈0.45·UTS" 를 붙였다 — 취성 세라믹·섬유 복합재의 피로 기구에 강의 내구한도 비율을 쓸 근거는 없다
+     (값 없음이 정직하다). 계열 태그도 families 에서 읽고, 매칭 계열이 없으면(아연 등) 값을 만들지 않는다. */
+  if (m.category === 'Metal' && !m.ranges.fatigue_strength && m.ranges.uts) {
     const f = m.families || [];
-    const ratio = f.includes('Titanium-based') ? 0.55 : f.includes('Nickel-based') ? 0.40 : (f.includes('Aluminum-based') || f.includes('Copper-based') || f.includes('Magnesium-based')) ? 0.35 : 0.45;
-    const famTag = f.includes('Titanium-based') ? 'Ti-based' : f.includes('Nickel-based') ? 'Ni-based' : (f.includes('Aluminum-based') ? 'Al-based' : f.includes('Copper-based') ? 'Cu-based' : f.includes('Magnesium-based') ? 'Mg-based' : 'Fe-based');
-    const u = m.ranges.uts;
-    m.ranges.fatigue_strength = {
-      min: round(u.min * ratio), max: round(u.max * ratio), typical: round(u.typical * ratio),
-      n: 0, estimated: true, confidence: 'derived',
-      provenance: `family:${famTag} σf≈${ratio}·UTS (Shigley/MMPDS family typical)`
-    };
-    m.fatigue_strength = round(u.typical * ratio);
-    m.fatigue_estimated = true;
+    const fam = f.includes('Titanium-based') ? ['Ti-based', 0.55] : f.includes('Nickel-based') ? ['Ni-based', 0.40]
+      : f.includes('Aluminum-based') ? ['Al-based', 0.35] : f.includes('Copper-based') ? ['Cu-based', 0.35] : f.includes('Magnesium-based') ? ['Mg-based', 0.35]
+      : f.includes('Iron-based') ? ['Fe-based', 0.45] : null;
+    if (fam) {
+      const [famTag, ratio] = fam;
+      const u = m.ranges.uts;
+      m.ranges.fatigue_strength = {
+        min: round(u.min * ratio), max: round(u.max * ratio), typical: round(u.typical * ratio),
+        n: 0, estimated: true, confidence: 'derived',
+        provenance: `family:${famTag} σf≈${ratio}·UTS (Shigley/MMPDS family typical)`
+      };
+      m.fatigue_strength = round(u.typical * ratio);
+      m.fatigue_estimated = true;
+    }
   }
   /* R109 — impact_strength family typical fallback (alloy-specific 가 없을 때만).
      R129 — provenance 명시 + HT multiplier 적용. */
@@ -3227,6 +3251,15 @@ for (const m of all) {
     let lo = v * (1 - spread);
     let hi = v * (1 + spread);
     if (spread <= 0) { lo = v; hi = v; }
+    /* AUD R01 (2026-09-22) — 푸아송비는 등방 선형탄성에서 ν < 0.5 가 물리 상한이다. 비율 spread(class ±50%)를 그대로 쓰면
+       Ti 0.17~0.51 · 폴리머 0.2~0.6 같은 비물리 구간이 149 entry 에 생겼다. 절대폭(class ±0.04 · family ±0.03 · subfamily ±0.02)
+       + [0, 0.5) clamp. */
+    if (k === 'poisson_ratio') {
+      const absW = { subfamily: 0.02, family: 0.03, class: 0.04, derived: 0.03 }[c] ?? 0;
+      lo = v - absW; hi = v + absW;
+      lo = Math.max(0, lo); hi = Math.min(0.499, hi);
+      if (v >= 0.499) { lo = Math.min(lo, 0.499); hi = 0.499; }
+    }
     if (NON_NEGATIVE.has(k)) { lo = Math.max(0, lo); hi = Math.max(0, hi); }
     const min = Math.min(lo, hi);
     const max = Math.max(lo, hi);
@@ -3254,7 +3287,12 @@ for (const m of all) {
       const scaledKic = +(sp.kic * multK.k).toFixed(1);
       setTyp('fracture_toughness', scaledKic, 'handbook');
       if (m.ranges.fracture_toughness && multK.condTag && multK.k !== 1) {
-        m.ranges.fracture_toughness.provenance = `alloy-specific KIC × HT:${multK.condTag} (k×${multK.k})`;
+        /* AUD F09 (2026-09-22) — 계수를 곱한 값은 핸드북 발췌가 아니라 모델 출력이다. 149 entry 가 estimated=false·handbook 으로
+           실려 "그 열처리 조건의 실측/발췌" 처럼 읽혔다. confidence 'derived' + estimated + 원값·계수 노출 (표시 계층이 구분). */
+        Object.assign(m.ranges.fracture_toughness, {
+          confidence: 'derived', estimated: true, base_value: sp.kic, factor: multK.k, condition: multK.condTag,
+          provenance: `alloy-specific KIC × HT:${multK.condTag} (k×${multK.k})`,
+        });
       } else if (m.ranges.fracture_toughness) {
         m.ranges.fracture_toughness.provenance = 'alloy-specific KIC';
       }
@@ -3332,8 +3370,11 @@ for (const m of all) {
   if (m.price_per_kg != null && m.price_per_kg > 0) {
     const delivered = m.price_per_kg * m.price_condition_factor * m.price_form_factor * m.price_grade_premium;
     m.delivered_price_per_kg = +delivered.toFixed(2);
-    // total_cost_estimate 도 delivered price 기반으로 (가공 + HT 처리 후 단가)
-    m.total_cost_estimate = +(delivered * m.machining_cost_factor).toFixed(2);
+    /* AUD F10 (2026-09-22) — 총 가공 원가 모델: delivered × (1 + machining index).
+       이전 식 delivered × index 는 index<1 인 알루미늄·황동에서 총원가가 소재비보다 낮아졌다(405 entry) —
+       "가공할수록 싸진다". index 는 탄소강 1.0 기준 상대 가공비이므로 **가공비 = delivered × index** 로 두고 소재비에 더한다.
+       세라믹·복합재는 index null → 총원가 없음(절삭 모델 부적용). 모델 가정은 PROPERTY_META description 에 그대로 적는다. */
+    m.total_cost_estimate = m.machining_cost_factor == null ? null : +(delivered * (1 + m.machining_cost_factor)).toFixed(2);
     // delivered range 도 ranges 에 (sorting/filter 가능)
     m.ranges = m.ranges || {};
     m.ranges.delivered_price_per_kg = { min: m.delivered_price_per_kg, max: m.delivered_price_per_kg, typical: m.delivered_price_per_kg, n: 0, estimated: true, confidence: 'derived' };
@@ -3541,10 +3582,14 @@ const NAME_BASED_OVERRIDE = [
   [/^aa\s?2\d{3}\b/i, 'Aluminum - Cu Alloys (2xxx)'],           // 2xxx Al-Cu
   [/^aa\s?3\d{3}\b/i, 'Aluminum - Mn Alloys (3xxx)'],           // 3xxx Al-Mn
   [/^aa\s?5\d{3}\b/i, 'Aluminum - Mg Alloys (5xxx)'],           // 5xxx Al-Mg
-  [/^aa\s?[67]\d{3}\b/i, 'Aluminum - Si Alloys (6xxx/7xxx)'],   // 6xxx Al-Mg-Si, 7xxx Al-Zn-Mg
+  /* AUD F04 (2026-09-22) — 6xxx(Al-Mg-Si)·7xxx(Al-Zn-Mg-Cu)·Al-Si 주조/AM 을 한 통('Si Alloys (6xxx/7xxx)')에 넣던 것을
+     Aluminum Association 계열대로 셋으로 가른다. 7075 가 'Si 계열' 이었고 조성 분류기(클라이언트)는 같은 합금을 'Zn Alloys' 라
+     불러 두 이름이 동시에 존재했다(감사 F04). */
+  [/^aa\s?6\d{3}\b/i, 'Aluminum - Mg-Si Alloys (6xxx)'],          // 6xxx Al-Mg-Si
+  [/^aa\s?7\d{3}\b/i, 'Aluminum - Zn Alloys (7xxx)'],             // 7xxx Al-Zn-Mg(-Cu)
   [/^aa\s?1\d{3}\b|^aa\s?8\d{3}\b/i, 'Aluminum - Pure/Other'],  // 1xxx pure, 8xxx misc
-  // Cast aluminum (A356, A357, A360, A380, A413 등) — 6xxx 와 함께 Si 계열로
-  [/^a3(?:5[67]|60|80|13)\b|^alsi\d|^aa\s?a3\d{2}/i, 'Aluminum - Si Alloys (6xxx/7xxx)'],
+  // Cast/AM aluminum-silicon (A356, A357, A360, A380, A413, ADC12, AlSi10Mg, AlSi7Mg, Al12Si …) — 3xx/4xx 조성군
+  [/^a3(?:5[67]|60|80|13)\b|^alsi\d|^al1[02]si|^aa\s?a3\d{2}|^adc\s?12|^a383\b/i, 'Aluminum - Si Alloys (cast/AM 3xx·4xx)'],
   // Titanium — Ti-X-Y-Z, Ti CP, Ti grade N, beta-Ti aliases
   [/^ti[\s-]?(?:cp|grade)|^ti[\s-]?\d|^ti-\d|^β[\s-]?ti|beta[\s-]?ti/i, 'Titanium - Pure / CP Grades'],
   // Copper — Cxxxxx UNS designation
@@ -3955,10 +4000,16 @@ try {
     for (const m of targets) {
       if (!m.ranges) m.ranges = {};
       const cur = m.ranges.price_per_kg || {};
+      /* AUD R04 (2026-09-22) — AM(LPBF/EBM/DED…) entry 에 봉재(bar) 시장가가 붙는 것은 의도(원소재 기준가)지만, 그대로 두면
+         "AM 납품 단가" 로 읽힌다. 근거 문장에 기준을 밝힌다 — 분말 프리미엄은 delivered price 의 form factor 가 담당. */
+      const isAM = (m.processes || [m.process]).some(pr => AM_PROC.has(String(pr)));
+      const prov = isAM && /\bbar\b|봉재|billet|plate|sheet|coil/i.test(String(info.provenance || ''))
+        ? `${info.provenance} · [AM entry: 원소재(압연·봉재) 기준 시장가 — 분말 등급·재사용·수율 프리미엄은 delivered price 의 form factor 로 반영, 납품 단가 아님]`
+        : info.provenance;
       m.ranges.price_per_kg = {
         ...cur,
         ...info.price_per_kg,
-        provenance: info.provenance,
+        provenance: prov,
         n: Math.max(cur.n || 0, 1),
       };
       if (!m.meta) m.meta = {};
@@ -4635,6 +4686,29 @@ fs.writeFileSync(path.join(DATA, 'validation-report.md'), rep.join('\n'));
 // 이렇게 해도 검색·filter slider·Ashby preview 모두 동작. 첫 페인트 우선.
 // R173 — delivered_price_per_kg 추가 (condition × form × grade factor 반영된 processed cost).
 // Radar chart 의 1/$ axis 가 condition-aware price 사용 가능 (slim index 단계 부터).
+/* AUD F08 (2026-09-22) — 복합재 구성비 기준 스탬프 (r150 backfill 로 구성이 합류한 뒤 — 출력 직전). 구성 라벨에 'vol%' 가 있으면 부피분율이다 — 조성 탭 제목이
+   "Chemical Composition (wt%)" 로 고정돼 B4C 20 vol% 가 20 wt% 로 읽혔다. 라벨에 표기가 없는 복합재 구성은 basis 를 찍지 않는다. */
+for (const m of all) {
+  if (m.category !== 'Composite' || !Array.isArray(m.composition)) continue;
+  const labels = m.composition.map(p => String(Array.isArray(p) ? p[0] : '')).join(' ');
+  if (/vol\s?%/i.test(labels)) { m.meta = m.meta || {}; m.meta.composition_basis = 'vol%'; }
+  else if (/wt\s?%/i.test(labels)) { m.meta = m.meta || {}; m.meta.composition_basis = 'wt%'; }
+}
+/* AUD R02 (2026-09-22) — backfill(r145/r150)이 섬유 복합재에 "UTS = effective yield" 로 항복강도를 다시 채운다(15 entry).
+   취성 섬유 복합재는 항복하지 않는다 — 인장강도 복사본은 싣지 않고 사유(no_yield)를 남긴다. 값이 다른 항복(MMC·폼 등)은 유지. */
+let cmpYieldDropped = 0;
+for (const m of all) {
+  if (m.category !== 'Composite') continue;
+  const y = m.ranges?.yield_strength, u = m.ranges?.uts;
+  if (y && u && typeof y.typical === 'number' && y.typical === u.typical) {
+    m.ranges.yield_strength = null; m.yield_strength = null;
+    m.meta = m.meta || {};
+    m.meta.no_yield = m.meta.no_yield || '섬유 복합재 — 항복점 없음(선형 후 파단). 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).';
+    cmpYieldDropped++;
+  }
+}
+if (cmpYieldDropped) console.log(`ℹ AUD R02 — 복합재 인장강도-복사 항복값 제거: ${cmpYieldDropped}`);
+
 const SLIM_PROPS = ['density', 'yield_strength', 'uts', 'modulus', 'max_service_temp', 'price_per_kg', 'delivered_price_per_kg'];
 const slimEntries = all.map(m => {
   const slim = {

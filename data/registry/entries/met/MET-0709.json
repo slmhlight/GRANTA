@@ -64,7 +64,11 @@
       "typical": 160,
       "max": 160,
       "confidence": "handbook",
-      "provenance": "교정: ASTM A666 Type 301 소둔(경도 최대 92 HRB) · ISO 18265 경도-인장 환산 (530 MPa ↔ 약 160 HB)"
+      "provenance": "교정: ASTM A666 Type 301 소둔(경도 최대 92 HRB) · ISO 18265 경도-인장 환산 (530 MPa ↔ 약 160 HB) · [경도 스케일] 원자료 160 HB(3000 kgf) → HV 160 (ASTM E140-12b Table 2 — 이 범위에서 HV=HB).",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 160,
+      "conversion": "ASTM E140-12b Table 2"
     },
     "thermal_conductivity": {
       "min": 15.5,
@@ -123,8 +127,8 @@
       "provenance": "3rd_family:Stainless Steel - Austenitic"
     },
     "poisson_ratio": {
-      "min": 0.255,
-      "max": 0.345,
+      "min": 0.28,
+      "max": 0.32,
       "typical": 0.3,
       "n": 0,
       "estimated": true,
@@ -271,7 +275,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 6.24,
-  "total_cost_estimate": 6.24,
+  "total_cost_estimate": 12.47,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "svhc_concerns": [
@@ -319,7 +323,7 @@
       "val_scalar": 95
     },
     "_basis": "AISI 301 소둔의 경도 95 는 **HRB 값이 HB/HV 필드에 그대로 들어간 것**이다 — 같은 합금의 냉간압연 조건들은 320·380·430·470(HB/HV 척도)을 쓴다. 두 경로가 같은 값을 가리킨다: ① 이 entry 자신의 UTS 530 → ISO 18265 로 약 160 HB, ② 소둔 301 의 통상 경도 85 HRB ≈ 160 HB.",
-    "_src": "ASTM A666 Type 301 소둔(경도 최대 92 HRB) · ISO 18265 경도-인장 환산 (530 MPa ↔ 약 160 HB)",
+    "_src": "ASTM A666 Type 301 소둔(경도 최대 92 HRB) · ISO 18265 경도-인장 환산 (530 MPa ↔ 약 160 HB) · [경도 스케일] 원자료 160 HB(3000 kgf) → HV 160 (ASTM E140-12b Table 2 — 이 범위에서 HV=HB).",
     "points": {
       "from": [
         [

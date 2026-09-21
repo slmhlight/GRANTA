@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 105,
-      "max": 105,
-      "typical": 105,
+      "min": 123,
+      "max": 123,
+      "typical": 123,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 105,
+      "conversion": "ASTM E140-12b Table 9",
+      "provenance": "HB 105 → HV 123 (ASTM E140-12b Table 9)"
     },
     "thermal_conductivity": {
       "min": 123,
@@ -126,8 +131,8 @@
       "provenance": "3rd_family:Aluminum - Mg Alloys (5xxx)"
     },
     "poisson_ratio": {
-      "min": 0.2805,
-      "max": 0.3795,
+      "min": 0.31,
+      "max": 0.35,
       "typical": 0.33,
       "n": 0,
       "estimated": true,
@@ -186,6 +191,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Aluminum & Aluminum Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "Aluminum Association — AA 5xxx (Al-Mg) + MMPDS-08 Sec.3.6",
       "url": "https://www.aluminum.org/standards",
       "verified": true
@@ -213,7 +223,7 @@
       360,
       8,
       70,
-      105,
+      123,
       123
     ]
   ],
@@ -232,7 +242,7 @@
   "uts": 360,
   "elongation": 8,
   "modulus": 70,
-  "hardness": 105,
+  "hardness": 123,
   "thermal_conductivity": 123,
   "impact_strength": 9.5,
   "manufacturer": "Reference data",
@@ -259,7 +269,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 3.8,
-  "total_cost_estimate": 3.42,
+  "total_cost_estimate": 7.21,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "elevated_temp": [
@@ -307,5 +317,58 @@
       "hours": 1000
     }
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Aluminum Association — AA 5xxx (Al-Mg) + MMPDS-08 Sec.3.6",
+          "url": "https://www.aluminum.org/standards",
+          "verified": true
+        },
+        {
+          "label": "MatWeb 3",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA5182",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: ASM Vol.1 Austenitic SS",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Fatigue fallback: σf ≈ 0.38·σy (Aluminum Association handbook)",
+          "url": null,
+          "verified": false
+        }
+      ]
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 105,
+        "max": 105,
+        "typical": 105,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 105
+    },
+    "_hardness_scale": "Al HB500 105 → HV 123 (E140 T9)",
+    "points": {
+      "from": [
+        [
+          2.65,
+          285,
+          360,
+          8,
+          70,
+          105,
+          123
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  }
 }

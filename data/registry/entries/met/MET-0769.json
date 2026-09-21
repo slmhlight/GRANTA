@@ -196,6 +196,16 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM A240/A240M — 스테인리스 판·시트(듀플렉스 포함) 규격",
+      "url": "https://www.astm.org/a0240_a0240m-20a.html",
+      "verified": false
+    },
+    {
       "label": "Outokumpu — Super Duplex 2507 (1.4410)",
       "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/duplex-stainless-steel/2507",
       "verified": true
@@ -287,11 +297,37 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 18.27,
-  "total_cost_estimate": 27.41,
+  "total_cost_estimate": 45.67,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "svhc_concerns": [
     "Ni 8% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Outokumpu — Super Duplex 2507 (1.4410)",
+          "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/duplex-stainless-steel/2507",
+          "verified": true
+        },
+        {
+          "label": "Datasheet 1",
+          "url": "https://www.rolledalloys.com/alloys/duplex-stainless-steels/zeron-100/",
+          "verified": true
+        },
+        {
+          "label": "Datasheet 1",
+          "url": "ASTM A 240 / A 276 / A 789 / A 790 Gr F55 / S32760",
+          "verified": true
+        },
+        {
+          "label": "Zeron 100, Super Duplex (UNS S32760) — Mega Mex",
+          "url": "https://megamex.com/zeron-100/",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

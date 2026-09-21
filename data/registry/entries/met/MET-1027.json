@@ -126,8 +126,8 @@
       "provenance": "3rd_family:Stainless Steel - Austenitic"
     },
     "poisson_ratio": {
-      "min": 0.255,
-      "max": 0.345,
+      "min": 0.28,
+      "max": 0.32,
       "typical": 0.3,
       "n": 0,
       "estimated": true,
@@ -188,6 +188,16 @@
     "Mn": "≤2.0"
   },
   "sources": [
+    {
+      "label": "ASM Handbook Vol.1 — Stainless Steels (properties & selection)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM A240/A240M — Stainless Steel Plate, Sheet & Strip",
+      "url": "https://store.astm.org/a0240_a0240m-23.html",
+      "verified": true
+    },
     {
       "label": "ASTM A297/A297M — Heat-Resistant Steel Castings (Grade HK: UTS≥65ksi/YS≥35ksi/El≥10%)",
       "url": "https://www.iron-foundry.com/ASTM-A297-Standard-Specification-Steel-Casting-Alloy.html",
@@ -275,7 +285,7 @@
   "price_form_factor": 1,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 5.5,
-  "total_cost_estimate": 5.5,
+  "total_cost_estimate": 11,
   "min_wall_thickness": 2.5,
   "surface_finish_typical": 12.5,
   "tolerance_class": "IT13-14",
@@ -283,5 +293,26 @@
   "svhc_concerns": [
     "Ni 22% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "ASTM A297/A297M — Heat-Resistant Steel Castings (Grade HK: UTS≥65ksi/YS≥35ksi/El≥10%)",
+          "url": "https://www.iron-foundry.com/ASTM-A297-Standard-Specification-Steel-Casting-Alloy.html",
+          "verified": true
+        },
+        {
+          "label": "MetalTek — Cast Grade HK 40 (C 0.35-0.45)",
+          "url": "https://www.metaltek.com/alloy/specialty-alloys-heat-resistant-stainless-steel-mtek-hk-40/",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: ASM Vol.1 Austenitic SS",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

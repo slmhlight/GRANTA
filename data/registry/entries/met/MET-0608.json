@@ -190,6 +190,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "MatWeb — Rene 41",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Rene+41",
       "verified": false
@@ -305,7 +310,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 109.2,
-  "total_cost_estimate": 196.56,
+  "total_cost_estimate": 305.76,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "svhc_concerns": [
@@ -350,5 +355,36 @@
       "hours": 1000
     }
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb — Rene 41",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Rene+41",
+          "verified": false
+        },
+        {
+          "label": "ASM / AMS 5545 — Rene 41 (aged)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: Special Metals/Haynes general",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Special Metals — UDIMET alloy R41 (UNS N07041) Technical Bulletin (SMC-108, ©2004, AMS 5712)",
+          "url": "https://www.specialmetals.com/documents/technical-bulletins/udimet-alloy-r41.pdf",
+          "verified": true
+        },
+        {
+          "label": "Rolled Alloys — René 41 Data Sheet (Bulletin 1141USe, heat-treated sheet 인장·rupture 표)",
+          "url": "https://www.rolledalloys.com/wp-content/uploads/RENE-41_Data-sheet-rolled-alloys.pdf",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

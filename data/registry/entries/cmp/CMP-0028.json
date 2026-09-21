@@ -30,13 +30,7 @@
       "confidence": "measured",
       "provenance": "Hexcel HexWeb CR III 1/8-5052-.001 datasheet"
     },
-    "yield_strength": {
-      "min": 0.62,
-      "max": 0.72,
-      "typical": 0.69,
-      "n": 1,
-      "confidence": "measured"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 0.62,
       "max": 0.72,
@@ -142,11 +136,12 @@
     "anisotropic": true,
     "applications": "항공기 객실 바닥, 위성 패널, 자동차 충격 흡수",
     "anisotropy_note": "복합재 — 강성·강도가 fiber 방향 의존. 0° UD 값 (수직 방향은 1/10~1/20).",
+    "no_yield": "섬유 복합재 — 항복점 없음(선형 후 파단). 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
     "_r173_note_applied": true
   },
   "popularity": 3.25,
   "density": 0.049,
-  "yield_strength": 1.7,
+  "yield_strength": null,
   "uts": 1.7,
   "elongation": 0.8,
   "modulus": 0.5,

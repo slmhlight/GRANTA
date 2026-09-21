@@ -29,13 +29,7 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "yield_strength": {
-      "min": 750,
-      "max": 750,
-      "typical": 750,
-      "n": 1,
-      "confidence": "handbook"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 750,
       "max": 750,
@@ -96,15 +90,6 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "fatigue_strength": {
-      "min": 337.5,
-      "max": 337.5,
-      "typical": 337.5,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
-    },
     "price_per_cm3": {
       "min": 0.4225,
       "max": 0.4225,
@@ -148,17 +133,18 @@
   "meta": {
     "ceramic": true,
     "applications": "절삭공구 (주철·고온합금 가공), 용접 노즐, 베어링",
+    "no_yield": "취성 세라믹 — 항복점 없음. 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
     "_r173_note_applied": true
   },
   "popularity": 2,
   "density": 3.25,
-  "yield_strength": 750,
+  "yield_strength": null,
   "uts": 750,
   "elongation": null,
   "modulus": 290,
   "hardness": 1500,
   "thermal_conductivity": 21,
-  "fatigue_strength": 337.5,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Sintered",
@@ -168,7 +154,6 @@
     "Ceramic",
     "Nitride"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1,

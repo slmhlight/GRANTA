@@ -2,7 +2,7 @@
   "stable_id": "MET-0196",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "subcategory": "F-MET-aluminum-mg-si-alloys-6xxx",
     "alloy_base": "F-AB-aa-6151-anticorodal-forging",
     "element_families": [
       "F-EL-aluminum-based"
@@ -13,7 +13,7 @@
   "id": "R_0042_0",
   "name": "AA 6151 (Anticorodal, forging) — T6 (Solution heat-treated + artificially aged, peak strength)",
   "category": "Metal",
-  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
   "tier": "reference",
   "manufacturers": [
     "Reference data"
@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 103,
-      "max": 103,
-      "typical": 103,
+      "min": 121,
+      "max": 121,
+      "typical": 121,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 103,
+      "conversion": "ASTM E140-12b Table 9",
+      "provenance": "HB 103 → HV 121 (ASTM E140-12b Table 9)"
     },
     "thermal_conductivity": {
       "min": 173,
@@ -123,8 +128,8 @@
       "provenance": "1st_family:Aluminum - Pure/Other"
     },
     "poisson_ratio": {
-      "min": 0.165,
-      "max": 0.495,
+      "min": 0.29,
+      "max": 0.37,
       "typical": 0.33,
       "n": 0,
       "estimated": true,
@@ -216,7 +221,7 @@
       327,
       12,
       69.6,
-      103,
+      121,
       173
     ]
   ],
@@ -234,7 +239,7 @@
   "uts": 327,
   "elongation": 12,
   "modulus": 69.6,
-  "hardness": 103,
+  "hardness": 121,
   "thermal_conductivity": 173,
   "fatigue_strength": 85,
   "impact_strength": 8,
@@ -262,7 +267,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 5.46,
-  "total_cost_estimate": 4.91,
+  "total_cost_estimate": 10.37,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
@@ -285,6 +290,33 @@
           "verified": false
         }
       ]
-    }
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 103,
+        "max": 103,
+        "typical": 103,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 103
+    },
+    "_hardness_scale": "Al HB500 103 → HV 121 (E140 T9)",
+    "points": {
+      "from": [
+        [
+          2.71,
+          275,
+          327,
+          12,
+          69.6,
+          103,
+          173
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
   }
 }

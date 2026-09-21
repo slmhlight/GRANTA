@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 135,
-      "max": 135,
-      "typical": 135,
+      "min": 159,
+      "max": 159,
+      "typical": 159,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 135,
+      "conversion": "ASTM E140-12b Table 9",
+      "provenance": "HB 135 → HV 159 (ASTM E140-12b Table 9)"
     },
     "thermal_conductivity": {
       "min": 192,
@@ -222,7 +227,7 @@
       485,
       13,
       72,
-      135,
+      159,
       192
     ]
   ],
@@ -242,7 +247,7 @@
   "uts": 485,
   "elongation": 13,
   "modulus": 72,
-  "hardness": 135,
+  "hardness": 159,
   "thermal_conductivity": 192,
   "impact_strength": 9,
   "manufacturer": "Reference data",
@@ -275,7 +280,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1.05,
   "delivered_price_per_kg": 6.2,
-  "total_cost_estimate": 4.96,
+  "total_cost_estimate": 11.16,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "elevated_temp": [
@@ -313,6 +318,33 @@
         "EN AW-2014",
         "AlCu4SiMg"
       ]
-    }
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 135,
+        "max": 135,
+        "typical": 135,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 135
+    },
+    "_hardness_scale": "Al HB500 135 → HV 159 (E140 T9)",
+    "points": {
+      "from": [
+        [
+          2.8,
+          415,
+          485,
+          13,
+          72,
+          135,
+          192
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
   }
 }

@@ -126,8 +126,8 @@
       "provenance": "3rd_family:Stainless Steel - Martensitic"
     },
     "poisson_ratio": {
-      "min": 0.238,
-      "max": 0.322,
+      "min": 0.26,
+      "max": 0.3,
       "typical": 0.28,
       "n": 0,
       "estimated": true,
@@ -189,6 +189,16 @@
     "S": "≤0.03"
   },
   "sources": [
+    {
+      "label": "ASM Handbook Vol.1 — Stainless Steels (properties & selection)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM A240/A240M — Stainless Steel Plate, Sheet & Strip",
+      "url": "https://store.astm.org/a0240_a0240m-23.html",
+      "verified": true
+    },
     {
       "label": "AK Steel — 410 Stainless Steel (martensitic, UNS S41000)",
       "url": "https://www.aksteel.com/our-products/stainless/410-stainless-steel",
@@ -267,7 +277,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 4.34,
-  "total_cost_estimate": 4.34,
+  "total_cost_estimate": 8.67,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "elevated_temp": [
@@ -291,5 +301,26 @@
     }
   ],
   "elevated_temp_src": "핸드북 typical — 개별 인용 미기재",
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "AK Steel — 410 Stainless Steel (martensitic, UNS S41000)",
+          "url": "https://www.aksteel.com/our-products/stainless/410-stainless-steel",
+          "verified": true
+        },
+        {
+          "label": "Datasheet 2",
+          "url": "https://www.aksteel.com/sites/default/files/2018-01/410201706.pdf",
+          "verified": true
+        },
+        {
+          "label": "MatWeb 2",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI%20410",
+          "verified": false
+        }
+      ]
+    }
+  }
 }

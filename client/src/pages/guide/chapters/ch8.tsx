@@ -30,10 +30,10 @@ export default function ch8Body() {
             <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
               <thead className="bg-muted/50 text-left"><tr><th className="p-2 font-semibold w-[16%]">라벨</th><th className="p-2 font-semibold">의미</th><th className="p-2 font-semibold w-[35%]">설계 적합성</th></tr></thead>
               <tbody className="[&>tr]:border-t [&>tr]:border-border align-top text-[12.5px]">
-                <tr><td className="p-2 font-mono text-foreground/70">n=N (measured)</td><td className="p-2">N 개 실측 데이터점의 평균 ± 범위. n 클수록 신뢰 ↑.</td><td className="p-2 text-emerald-700">✓ 인증·시제품 설계에 직접 사용 가능</td></tr>
+                <tr><td className="p-2 font-mono text-foreground/70">n=N (measured)</td><td className="p-2">실측(측정)으로 얻은 값. N 은 표본 수 — n=1 이면 사실상 단일 대표값이고, n 이 커야 평균 ± 범위로 읽을 수 있습니다.</td><td className="p-2 text-emerald-700">✓ 시제품·예비 설계의 출발점. <span className="text-foreground/70">단, "실측" 은 측정 방법일 뿐 — 시험 조건·추적성·통계 기준(A/B-basis)이 확인된 뒤에야 인증 설계 허용값이 됩니다. 이 앱의 값 하나로 인증을 대신할 수 없습니다.</span></td></tr>
                 <tr><td className="p-2 font-mono text-sky-600">handbook</td><td className="p-2">ASM Handbook · MMPDS · vendor datasheet 의 표준 typical 값.</td><td className="p-2 text-emerald-700">✓ 예비 설계·후보 좁히기에 적합</td></tr>
                 <tr><td className="p-2 font-mono text-amber-600">class</td><td className="p-2">같은 family/subcategory 의 평균값으로 추정 (family KIC fallback 등).</td><td className="p-2 text-amber-700">⚠ Ashby 차트·후보 선정 용. 설계값으로는 부적합 — 출처 확인 必</td></tr>
-                <tr><td className="p-2 font-mono text-rose-500">≈UTS (derived)</td><td className="p-2">다른 물성에서 유도 (Fatigue σ_f ≈ 0.45·σy 등 Shigley 근사).</td><td className="p-2 text-rose-700">⚠ 정성적 비교만. 정량 설계는 측정값으로 대체 必</td></tr>
+                <tr><td className="p-2 font-mono text-rose-500">derived (≈k·σy / ≈k·UTS)</td><td className="p-2">다른 물성에서 유도. 피로강도는 계열 대표 비율 — 대부분 σ_f ≈ k·σy (Shigley, k = 0.30~0.52 계열별), σy 규칙이 없는 일부 강·Ni 계열은 σ_f ≈ 0.45(강)·0.40(Ni)·UTS. 배지에 쓰인 식(예 ≈0.38·σy)이 곧 그 값의 계산식입니다. 세라믹·복합재에는 이 유도를 적용하지 않습니다(피로 기구가 다름 — 값 없음으로 둠).</td><td className="p-2 text-rose-700">⚠ 정성적 비교만. 정량 설계는 측정값으로 대체 必</td></tr>
               </tbody>
             </table>
           </div>
@@ -52,7 +52,7 @@ export default function ch8Body() {
                 <tr><td className="p-2 font-medium">Haynes International (H-3000·3008·3068)</td><td className="p-2">vendor</td><td className="p-2">Haynes 230·X·282·25 (L605) 등 고온합금</td></tr>
                 <tr><td className="p-2 font-medium">Carpenter Technology Custom</td><td className="p-2">vendor</td><td className="p-2">17-4 PH·15-5 PH·Custom 465·A286·Maraging 등 PH 합금</td></tr>
                 <tr><td className="p-2 font-medium">EOS · Renishaw · SLM Solutions · GE Additive</td><td className="p-2">vendor (AM)</td><td className="p-2">LPBF·EBM 합금의 build orientation·후처리별 측정값</td></tr>
-                <tr><td className="p-2 font-medium">Shigley's Mechanical Engineering Design</td><td className="p-2">교과서</td><td className="p-2">Fatigue endurance limit σ_f ≈ k · σy 근사 (derived 출처)</td></tr>
+                <tr><td className="p-2 font-medium">Shigley's Mechanical Engineering Design</td><td className="p-2">교과서</td><td className="p-2">Fatigue endurance limit σ_f ≈ k · σy 근사 (derived 출처; 일부 강·Ni 계열은 k·UTS — 배지의 식 참조)</td></tr>
                 <tr><td className="p-2 font-medium">ASME B&PV Section II·D · ASTM A335</td><td className="p-2">규격</td><td className="p-2">압력용기·발전소 강재 (Grade 91/P91) 의 elevated-temp design</td></tr>
                 <tr><td className="p-2 font-medium">ECCC datasheets</td><td className="p-2">creep DB</td><td className="p-2">P91·9Cr 합금 등의 10⁵ h creep rupture</td></tr>
                 <tr><td className="p-2 font-medium">LME spot prices (2026 Q1) + vendor 가격 책자</td><td className="p-2">시장 데이터</td><td className="p-2">원자재 단가 (price_per_kg). 분기별 갱신.</td></tr>
@@ -90,7 +90,7 @@ export default function ch8Body() {
               { q: '같은 합금이 여러 row 로 나오는 이유?', a: '열처리 condition (Annealed / Solution / Aged / Q+T / H900 등) 별로 별도 row 입니다. 같은 alloy 라도 condition 마다 σy 가 2배 이상 차이날 수 있어 분리해 표시합니다.' },
               { q: 'class 라벨이 붙은 값을 설계에 그대로 쓸 수 있나요?', a: '아니오. class 는 family 평균에서 유도한 추정값입니다. 후보 좁히기·Ashby 차트 용도로 쓰고, 정량 설계는 출처 데이터시트의 측정값을 직접 사용하세요.' },
               { q: 'AM 합금 데이터는 어느 빌드 방향 기준?', a: 'vendor datasheet 기준입니다. 대부분 XY (적층면 수직) 표준이며, Z 방향은 ~10–30% 낮은 값이 일반적. 자세한 영향은 Chapter 10 (AM 특화) 참고.' },
-              { q: 'Fatigue strength 가 derived 인 합금은 신뢰할만한가?', a: 'Shigley 근사 (σ_f ≈ k · σy, k = 0.38–0.52) 로 채워진 값입니다. 정성적 비교에는 OK 이나 실 설계는 S-N 곡선이나 endurance limit 측정값으로 대체하세요.' },
+              { q: 'Fatigue strength 가 derived 인 합금은 신뢰할만한가?', a: '계열 대표 비율로 채워진 값입니다 — 배지에 식이 적혀 있습니다 (예 ≈0.38·σy = Shigley 근사, 계열별 k 0.30–0.52 / 일부 강·Ni 는 ≈0.45·UTS). 정성적 비교에는 OK 이나 실 설계는 S-N 곡선이나 endurance limit 측정값으로 대체하세요.' },
               { q: 'Compare 패널에서 Radar 차트는 왜 21개 이상일 때 비활성?', a: '오버레이가 너무 많으면 시각 비교가 어렵습니다. 20개 이하로 좁히거나, 표·CSV 로 비교하세요.' },
               { q: 'KIC 값이 없는 합금이 많은 이유?', a: `실측 데이터가 최초 39 alloys 뿐이었습니다. family fallback (ASM Vol. 1·2 + MMPDS) 과 이후 검증 보강으로 현재 금속 ${BM.kicCoverage.covered}/${BM.kicCoverage.total} (${BM.kicCoverage.pct}%) 커버. fallback 표시는 confidence "class".` },
               { q: '단위·언어를 어디서 바꾸나요?', a: '우측 상단 헤더의 <b>한 / EN</b> 토글 (언어), <b>SI / Imperial</b> 토글 (단위). 즉시 전환되며 localStorage 에 저장.' },
@@ -113,19 +113,20 @@ export default function ch8Body() {
             <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
               <thead className="bg-muted/50 text-left"><tr><th className="p-2 font-semibold w-[16%]">통계 base</th><th className="p-2 font-semibold w-[14%]">신뢰 수준</th><th className="p-2 font-semibold">의미·사용</th></tr></thead>
               <tbody className="[&>tr]:border-t [&>tr]:border-border align-top text-[12.5px]">
-                <tr><td className="p-2 font-mono text-foreground/70">typical</td><td className="p-2">~50%</td><td className="p-2">측정값의 평균. vendor 마케팅·교과서·이 앱 default. 약 절반의 시편이 이 값 이상.</td></tr>
-                <tr><td className="p-2 font-mono text-sky-600">minimum</td><td className="p-2">~99%</td><td className="p-2">spec 의 최소 보장값. 99% 시편이 이 값 이상. vendor 보증 가능. 일반 양산용.</td></tr>
-                <tr><td className="p-2 font-mono text-amber-600">A-basis (S-basis)</td><td className="p-2">99% / 95% 신뢰</td><td className="p-2">MMPDS / MIL-HDBK-5J 표준. 99% 시편이 이 값 이상 — 95% 신뢰. <b>항공 design allowable</b>. typical 대비 80–90% 수준.</td></tr>
-                <tr><td className="p-2 font-mono text-amber-600">B-basis</td><td className="p-2">90% / 95% 신뢰</td><td className="p-2">MMPDS 표준. 90% 시편이 이 값 이상 — 95% 신뢰. <b>항공 일반·redundant 부품</b>. typical 의 85–95%.</td></tr>
-                <tr><td className="p-2 font-mono text-rose-500">guaranteed minimum</td><td className="p-2">100% (contractual)</td><td className="p-2">계약 기반 — vendor 가 lot certificate 로 보증. typical 의 70–85%. 가장 보수적.</td></tr>
+                <tr><td className="p-2 font-mono text-foreground/70">typical</td><td className="p-2">통계 보장 없음</td><td className="p-2">데이터시트가 "대표값" 으로 제시한 수 — 보통 시험 평균이지만 중앙값·대표 lot 값일 수도 있고, 분포·표본 수가 딸려 오지 않습니다. 그래서 "몇 % 의 시편이 이 값 이상" 이라고 말할 수 없습니다 (평균 ≠ 중앙값인 비대칭 분포도 흔함). vendor 마케팅·교과서·이 앱 default.</td></tr>
+                <tr><td className="p-2 font-mono text-sky-600">minimum (spec min)</td><td className="p-2">규격 하한 (통계 아님)</td><td className="p-2">규격(ASTM/AMS 등)이 정한 <b>합격 하한</b> — 이 값 미만 lot 은 출하되지 않는다는 뜻이지, 모집단의 99% 가 이 값 이상이라는 통계가 아닙니다. 일반 양산의 설계 기준.</td></tr>
+                <tr><td className="p-2 font-mono text-amber-600">S-basis</td><td className="p-2">규격 하한 (MMPDS 표기)</td><td className="p-2">MMPDS 에서 "규격 최소값을 그대로 실은 값" 을 부르는 이름 — 통계 처리 없이 spec min 을 옮긴 것이라 <b>A-basis 와 다릅니다</b>. 통계 허용값이 없는 합금·형태에 쓰입니다.</td></tr>
+                <tr><td className="p-2 font-mono text-amber-600">A-basis</td><td className="p-2">99% / 95% 신뢰 (T99)</td><td className="p-2">MMPDS / MIL-HDBK-5 통계 절차: 모집단의 99% 가 이 값 이상임을 95% 신뢰로 보장하는 하한 (lower tolerance bound, 정해진 표본 수·lot 요건 충족 시 산출). <b>항공 단일 하중경로 부품의 design allowable</b>. typical 대비 대략 80–90%.</td></tr>
+                <tr><td className="p-2 font-mono text-amber-600">B-basis</td><td className="p-2">90% / 95% 신뢰 (T90)</td><td className="p-2">같은 통계 절차로 90% 가 이 값 이상 — 95% 신뢰. <b>항공 redundant(다중 하중경로) 부품</b>. typical 의 대략 85–95%.</td></tr>
+                <tr><td className="p-2 font-mono text-rose-500">lot certificate</td><td className="p-2">그 lot 의 실측</td><td className="p-2">납품 lot 의 mill/test certificate 값 — 통계가 아니라 그 lot 에 대한 계약상 보증. 가장 구체적이지만 다른 lot 으로 일반화할 수 없음.</td></tr>
               </tbody>
             </table>
           </div>
           <Note tone="tip" title="실무 의사결정">
             <p><b>학생·시제품:</b> typical 사용 (이 앱 default).<br/>
               <b>양산:</b> spec minimum 또는 vendor lot certificate 사용.<br/>
-              <b>항공·인증:</b> MMPDS A-basis 또는 B-basis 의무.<br/>
-              <b>중요</b>: 이 앱의 confidence 라벨 (measured / handbook / class / derived) 도 함께 확인. class·derived 라벨 = typical 도 아닌 추정값.</p>
+              <b>항공·인증:</b> MMPDS A-basis 또는 B-basis (통계 허용값) 의무 — S-basis(규격 하한 전재)는 통계 허용값이 아니므로 구분해서 씁니다.<br/>
+              <b>중요</b>: 이 앱의 confidence 라벨 (measured / handbook / class / derived) 도 함께 확인. class·derived 라벨 = typical 도 아닌 추정값. measured 도 "표본 n 개의 측정" 이지 인증 허용값이 아닙니다.</p>
           </Note>
 
           <H3>참고문헌</H3>

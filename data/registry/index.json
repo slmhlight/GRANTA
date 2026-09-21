@@ -899,35 +899,35 @@
       "origin": "composites-data"
     },
     {
-      "stable_id": "CMP-0018",
-      "name": "B4C-Al MMC (boron carbide / Al armor) — Pressed + sintered (B4C 20%)",
-      "category": "Composite",
-      "subcategory": "Composite - Ceramic-Metal",
-      "family": {
-        "category": "F-CMP",
-        "subcategory": "F-CMP-composite-ceramic-metal",
-        "alloy_base": "F-AB-b4c-al-mmc-boron-carbide-al-armor",
-        "element_families": []
-      },
-      "tier": "am_vendor",
-      "popularity": 2,
-      "legacy_id": "R_0320_0",
-      "origin": "reference(supplementary)"
-    },
-    {
       "stable_id": "CMP-0019",
-      "name": "B4C-Al MMC (boron carbide / Al armor) — Pressed + sintered (B4C 40%)",
+      "name": "B4C-Al MMC (boron carbide particulate / Al neutron-absorber & armor) — PM sintered + hot-extruded + hot-rolled (B4C 15 wt%, Al 99.5 matrix)",
       "category": "Composite",
       "subcategory": "Composite - Ceramic-Metal",
       "family": {
         "category": "F-CMP",
         "subcategory": "F-CMP-composite-ceramic-metal",
-        "alloy_base": "F-AB-b4c-al-mmc-boron-carbide-al-armor",
+        "alloy_base": "F-AB-b4c-al-mmc-boron-carbide-particulate-al-neutron-absorber-armor",
         "element_families": []
       },
       "tier": "am_vendor",
       "popularity": 2,
       "legacy_id": "R_0320_1",
+      "origin": "reference(supplementary)"
+    },
+    {
+      "stable_id": "CMP-0018",
+      "name": "B4C-Al MMC (boron carbide particulate / Al neutron-absorber & armor) — PM sintered + hot-extruded + hot-rolled (B4C 20 wt%, Al 99.5 matrix)",
+      "category": "Composite",
+      "subcategory": "Composite - Ceramic-Metal",
+      "family": {
+        "category": "F-CMP",
+        "subcategory": "F-CMP-composite-ceramic-metal",
+        "alloy_base": "F-AB-b4c-al-mmc-boron-carbide-particulate-al-neutron-absorber-armor",
+        "element_families": []
+      },
+      "tier": "am_vendor",
+      "popularity": 2,
+      "legacy_id": "R_0320_0",
       "origin": "reference(supplementary)"
     },
     {
@@ -2521,24 +2521,6 @@
       "origin": "generic(csv)"
     },
     {
-      "stable_id": "MET-0096",
-      "name": "Al12Si (AlSi12, A413) — Cast",
-      "category": "Metal",
-      "subcategory": "Aluminum - Cast (3xx/4xx)",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-aluminum-cast-3xx-4xx",
-        "alloy_base": "F-AB-al12si-alsi12-a413",
-        "element_families": [
-          "F-EL-aluminum-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 3,
-      "legacy_id": "R_0267",
-      "origin": "reference(supplementary)"
-    },
-    {
       "stable_id": "MET-1023",
       "name": "A201.0 (Al-Cu-Ag premium casting, AMS 4229)",
       "category": "Metal",
@@ -3421,6 +3403,312 @@
       "origin": "reference(supplementary)"
     },
     {
+      "stable_id": "MET-0181",
+      "name": "AA 6061 — Annealed",
+      "category": "Metal",
+      "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
+      "family": {
+        "category": "F-MET",
+        "subcategory": "F-MET-aluminum-mg-si-alloys-6xxx",
+        "alloy_base": "F-AB-aa-6061",
+        "element_families": [
+          "F-EL-aluminum-based"
+        ]
+      },
+      "tier": "reference",
+      "popularity": 5,
+      "legacy_id": "R_0438_0",
+      "origin": "reference(supplementary)"
+    },
+    {
+      "stable_id": "MET-0182",
+      "name": "AA 6061 — T4",
+      "category": "Metal",
+      "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
+      "family": {
+        "category": "F-MET",
+        "subcategory": "F-MET-aluminum-mg-si-alloys-6xxx",
+        "alloy_base": "F-AB-aa-6061",
+        "element_families": [
+          "F-EL-aluminum-based"
+        ]
+      },
+      "tier": "reference",
+      "popularity": 5,
+      "legacy_id": "R_0438_1",
+      "origin": "reference(supplementary)"
+    },
+    {
+      "stable_id": "MET-0183",
+      "name": "AA 6061 — T6",
+      "category": "Metal",
+      "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
+      "family": {
+        "category": "F-MET",
+        "subcategory": "F-MET-aluminum-mg-si-alloys-6xxx",
+        "alloy_base": "F-AB-aa-6061",
+        "element_families": [
+          "F-EL-aluminum-based"
+        ]
+      },
+      "tier": "reference",
+      "popularity": 5,
+      "legacy_id": "R_0438_2",
+      "origin": "reference(supplementary)"
+    },
+    {
+      "stable_id": "MET-0184",
+      "name": "AA 6061 — T651",
+      "category": "Metal",
+      "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
+      "family": {
+        "category": "F-MET",
+        "subcategory": "F-MET-aluminum-mg-si-alloys-6xxx",
+        "alloy_base": "F-AB-aa-6061",
+        "element_families": [
+          "F-EL-aluminum-based"
+        ]
+      },
+      "tier": "reference",
+      "popularity": 5,
+      "legacy_id": "R_0438_3",
+      "origin": "reference(supplementary)"
+    },
+    {
+      "stable_id": "MET-0186",
+      "name": "AA 6063 — Annealed",
+      "category": "Metal",
+      "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
+      "family": {
+        "category": "F-MET",
+        "subcategory": "F-MET-aluminum-mg-si-alloys-6xxx",
+        "alloy_base": "F-AB-aa-6063",
+        "element_families": [
+          "F-EL-aluminum-based"
+        ]
+      },
+      "tier": "reference",
+      "popularity": 4.25,
+      "legacy_id": "R_0442_0",
+      "origin": "reference(supplementary)"
+    },
+    {
+      "stable_id": "MET-0187",
+      "name": "AA 6063 — T5",
+      "category": "Metal",
+      "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
+      "family": {
+        "category": "F-MET",
+        "subcategory": "F-MET-aluminum-mg-si-alloys-6xxx",
+        "alloy_base": "F-AB-aa-6063",
+        "element_families": [
+          "F-EL-aluminum-based"
+        ]
+      },
+      "tier": "reference",
+      "popularity": 4.25,
+      "legacy_id": "R_0442_1",
+      "origin": "reference(supplementary)"
+    },
+    {
+      "stable_id": "MET-0188",
+      "name": "AA 6063 — T6",
+      "category": "Metal",
+      "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
+      "family": {
+        "category": "F-MET",
+        "subcategory": "F-MET-aluminum-mg-si-alloys-6xxx",
+        "alloy_base": "F-AB-aa-6063",
+        "element_families": [
+          "F-EL-aluminum-based"
+        ]
+      },
+      "tier": "reference",
+      "popularity": 4.25,
+      "legacy_id": "R_0442_2",
+      "origin": "reference(supplementary)"
+    },
+    {
+      "stable_id": "MET-0190",
+      "name": "AA 6082 (EU extrusion) — Annealed",
+      "category": "Metal",
+      "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
+      "family": {
+        "category": "F-MET",
+        "subcategory": "F-MET-aluminum-mg-si-alloys-6xxx",
+        "alloy_base": "F-AB-aa-6082-eu-extrusion",
+        "element_families": [
+          "F-EL-aluminum-based"
+        ]
+      },
+      "tier": "reference",
+      "popularity": 4,
+      "legacy_id": "R_0310_0",
+      "origin": "reference(supplementary)"
+    },
+    {
+      "stable_id": "MET-0191",
+      "name": "AA 6082 (EU extrusion) — T6",
+      "category": "Metal",
+      "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
+      "family": {
+        "category": "F-MET",
+        "subcategory": "F-MET-aluminum-mg-si-alloys-6xxx",
+        "alloy_base": "F-AB-aa-6082-eu-extrusion",
+        "element_families": [
+          "F-EL-aluminum-based"
+        ]
+      },
+      "tier": "reference",
+      "popularity": 4,
+      "legacy_id": "R_0310_1",
+      "origin": "reference(supplementary)"
+    },
+    {
+      "stable_id": "MET-0192",
+      "name": "AA 6082 (EU extrusion) — T651",
+      "category": "Metal",
+      "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
+      "family": {
+        "category": "F-MET",
+        "subcategory": "F-MET-aluminum-mg-si-alloys-6xxx",
+        "alloy_base": "F-AB-aa-6082-eu-extrusion",
+        "element_families": [
+          "F-EL-aluminum-based"
+        ]
+      },
+      "tier": "reference",
+      "popularity": 4,
+      "legacy_id": "R_0310_2",
+      "origin": "reference(supplementary)"
+    },
+    {
+      "stable_id": "MET-0193",
+      "name": "AA 6101 — T6",
+      "category": "Metal",
+      "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
+      "family": {
+        "category": "F-MET",
+        "subcategory": "F-MET-aluminum-mg-si-alloys-6xxx",
+        "alloy_base": "F-AB-aa-6101",
+        "element_families": [
+          "F-EL-aluminum-based"
+        ]
+      },
+      "tier": "generic",
+      "popularity": 3.57,
+      "legacy_id": "G_0029",
+      "origin": "generic(csv)"
+    },
+    {
+      "stable_id": "MET-0195",
+      "name": "AA 6101 — H111",
+      "category": "Metal",
+      "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
+      "family": {
+        "category": "F-MET",
+        "subcategory": "F-MET-aluminum-mg-si-alloys-6xxx",
+        "alloy_base": "F-AB-aa-6101",
+        "element_families": [
+          "F-EL-aluminum-based"
+        ]
+      },
+      "tier": "generic",
+      "popularity": 3.53,
+      "legacy_id": "G_0027",
+      "origin": "generic(csv)"
+    },
+    {
+      "stable_id": "MET-0196",
+      "name": "AA 6151 (Anticorodal, forging) — T6 (Solution heat-treated + artificially aged, peak strength)",
+      "category": "Metal",
+      "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
+      "family": {
+        "category": "F-MET",
+        "subcategory": "F-MET-aluminum-mg-si-alloys-6xxx",
+        "alloy_base": "F-AB-aa-6151-anticorodal-forging",
+        "element_families": [
+          "F-EL-aluminum-based"
+        ]
+      },
+      "tier": "reference",
+      "popularity": 3.57,
+      "legacy_id": "R_0042_0",
+      "origin": "reference(supplementary)"
+    },
+    {
+      "stable_id": "MET-0197",
+      "name": "AA 6262 — T6",
+      "category": "Metal",
+      "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
+      "family": {
+        "category": "F-MET",
+        "subcategory": "F-MET-aluminum-mg-si-alloys-6xxx",
+        "alloy_base": "F-AB-aa-6262",
+        "element_families": [
+          "F-EL-aluminum-based"
+        ]
+      },
+      "tier": "generic",
+      "popularity": 3.57,
+      "legacy_id": "G_0032",
+      "origin": "generic(csv)"
+    },
+    {
+      "stable_id": "MET-0199",
+      "name": "AA 6262 — T9",
+      "category": "Metal",
+      "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
+      "family": {
+        "category": "F-MET",
+        "subcategory": "F-MET-aluminum-mg-si-alloys-6xxx",
+        "alloy_base": "F-AB-aa-6262",
+        "element_families": [
+          "F-EL-aluminum-based"
+        ]
+      },
+      "tier": "generic",
+      "popularity": 3.53,
+      "legacy_id": "G_0030",
+      "origin": "generic(csv)"
+    },
+    {
+      "stable_id": "MET-0201",
+      "name": "AA 6463 (architectural extrusion) — T4 (sol. + nat aged)",
+      "category": "Metal",
+      "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
+      "family": {
+        "category": "F-MET",
+        "subcategory": "F-MET-aluminum-mg-si-alloys-6xxx",
+        "alloy_base": "F-AB-aa-6463-architectural-extrusion",
+        "element_families": [
+          "F-EL-aluminum-based"
+        ]
+      },
+      "tier": "reference",
+      "popularity": 3.57,
+      "legacy_id": "R_0043_0",
+      "origin": "reference(supplementary)"
+    },
+    {
+      "stable_id": "MET-0202",
+      "name": "AA 6463 (architectural extrusion) — T6 (sol. + artificial aged peak)",
+      "category": "Metal",
+      "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
+      "family": {
+        "category": "F-MET",
+        "subcategory": "F-MET-aluminum-mg-si-alloys-6xxx",
+        "alloy_base": "F-AB-aa-6463-architectural-extrusion",
+        "element_families": [
+          "F-EL-aluminum-based"
+        ]
+      },
+      "tier": "reference",
+      "popularity": 3.57,
+      "legacy_id": "R_0043_1",
+      "origin": "reference(supplementary)"
+    },
+    {
       "stable_id": "MET-0153",
       "name": "AA 3003 — Annealed",
       "category": "Metal",
@@ -3874,10 +4162,10 @@
       "stable_id": "MET-0178",
       "name": "A356 (AlSi7Mg) — Cast T6 (Standard)",
       "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+      "subcategory": "Aluminum - Si Alloys (cast/AM 3xx·4xx)",
       "family": {
         "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+        "subcategory": "F-MET-aluminum-si-alloys-cast-am-3xx-4xx",
         "alloy_base": "F-AB-a356-alsi7mg",
         "element_families": [
           "F-EL-aluminum-based"
@@ -3892,10 +4180,10 @@
       "stable_id": "MET-0179",
       "name": "A356.0 (Al-Si-Mg cast)",
       "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+      "subcategory": "Aluminum - Si Alloys (cast/AM 3xx·4xx)",
       "family": {
         "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+        "subcategory": "F-MET-aluminum-si-alloys-cast-am-3xx-4xx",
         "alloy_base": "F-AB-a356-0-al-si-mg-cast",
         "element_families": [
           "F-EL-aluminum-based"
@@ -3910,10 +4198,10 @@
       "stable_id": "MET-1024",
       "name": "A357.0 (Al-Si-Mg premium casting, AMS 4219)",
       "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+      "subcategory": "Aluminum - Si Alloys (cast/AM 3xx·4xx)",
       "family": {
         "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+        "subcategory": "F-MET-aluminum-si-alloys-cast-am-3xx-4xx",
         "alloy_base": "F-AB-a357-0-al-si-mg-premium-casting-ams-4219",
         "element_families": [
           "F-EL-aluminum-based"
@@ -3928,10 +4216,10 @@
       "stable_id": "MET-0180",
       "name": "A380 (die-cast Al)",
       "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+      "subcategory": "Aluminum - Si Alloys (cast/AM 3xx·4xx)",
       "family": {
         "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+        "subcategory": "F-MET-aluminum-si-alloys-cast-am-3xx-4xx",
         "alloy_base": "F-AB-a380-die-cast-al",
         "element_families": [
           "F-EL-aluminum-based"
@@ -3943,499 +4231,13 @@
       "origin": "reference(supplementary)"
     },
     {
-      "stable_id": "MET-0181",
-      "name": "AA 6061 — Annealed",
-      "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
-        "alloy_base": "F-AB-aa-6061",
-        "element_families": [
-          "F-EL-aluminum-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 5,
-      "legacy_id": "R_0438_0",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0182",
-      "name": "AA 6061 — T4",
-      "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
-        "alloy_base": "F-AB-aa-6061",
-        "element_families": [
-          "F-EL-aluminum-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 5,
-      "legacy_id": "R_0438_1",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0183",
-      "name": "AA 6061 — T6",
-      "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
-        "alloy_base": "F-AB-aa-6061",
-        "element_families": [
-          "F-EL-aluminum-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 5,
-      "legacy_id": "R_0438_2",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0184",
-      "name": "AA 6061 — T651",
-      "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
-        "alloy_base": "F-AB-aa-6061",
-        "element_families": [
-          "F-EL-aluminum-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 5,
-      "legacy_id": "R_0438_3",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0186",
-      "name": "AA 6063 — Annealed",
-      "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
-        "alloy_base": "F-AB-aa-6063",
-        "element_families": [
-          "F-EL-aluminum-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 4.25,
-      "legacy_id": "R_0442_0",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0187",
-      "name": "AA 6063 — T5",
-      "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
-        "alloy_base": "F-AB-aa-6063",
-        "element_families": [
-          "F-EL-aluminum-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 4.25,
-      "legacy_id": "R_0442_1",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0188",
-      "name": "AA 6063 — T6",
-      "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
-        "alloy_base": "F-AB-aa-6063",
-        "element_families": [
-          "F-EL-aluminum-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 4.25,
-      "legacy_id": "R_0442_2",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0190",
-      "name": "AA 6082 (EU extrusion) — Annealed",
-      "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
-        "alloy_base": "F-AB-aa-6082-eu-extrusion",
-        "element_families": [
-          "F-EL-aluminum-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 4,
-      "legacy_id": "R_0310_0",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0191",
-      "name": "AA 6082 (EU extrusion) — T6",
-      "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
-        "alloy_base": "F-AB-aa-6082-eu-extrusion",
-        "element_families": [
-          "F-EL-aluminum-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 4,
-      "legacy_id": "R_0310_1",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0192",
-      "name": "AA 6082 (EU extrusion) — T651",
-      "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
-        "alloy_base": "F-AB-aa-6082-eu-extrusion",
-        "element_families": [
-          "F-EL-aluminum-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 4,
-      "legacy_id": "R_0310_2",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0193",
-      "name": "AA 6101 — T6",
-      "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
-        "alloy_base": "F-AB-aa-6101",
-        "element_families": [
-          "F-EL-aluminum-based"
-        ]
-      },
-      "tier": "generic",
-      "popularity": 3.57,
-      "legacy_id": "G_0029",
-      "origin": "generic(csv)"
-    },
-    {
-      "stable_id": "MET-0195",
-      "name": "AA 6101 — H111",
-      "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
-        "alloy_base": "F-AB-aa-6101",
-        "element_families": [
-          "F-EL-aluminum-based"
-        ]
-      },
-      "tier": "generic",
-      "popularity": 3.53,
-      "legacy_id": "G_0027",
-      "origin": "generic(csv)"
-    },
-    {
-      "stable_id": "MET-0196",
-      "name": "AA 6151 (Anticorodal, forging) — T6 (Solution heat-treated + artificially aged, peak strength)",
-      "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
-        "alloy_base": "F-AB-aa-6151-anticorodal-forging",
-        "element_families": [
-          "F-EL-aluminum-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 3.57,
-      "legacy_id": "R_0042_0",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0197",
-      "name": "AA 6262 — T6",
-      "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
-        "alloy_base": "F-AB-aa-6262",
-        "element_families": [
-          "F-EL-aluminum-based"
-        ]
-      },
-      "tier": "generic",
-      "popularity": 3.57,
-      "legacy_id": "G_0032",
-      "origin": "generic(csv)"
-    },
-    {
-      "stable_id": "MET-0199",
-      "name": "AA 6262 — T9",
-      "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
-        "alloy_base": "F-AB-aa-6262",
-        "element_families": [
-          "F-EL-aluminum-based"
-        ]
-      },
-      "tier": "generic",
-      "popularity": 3.53,
-      "legacy_id": "G_0030",
-      "origin": "generic(csv)"
-    },
-    {
-      "stable_id": "MET-0201",
-      "name": "AA 6463 (architectural extrusion) — T4 (sol. + nat aged)",
-      "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
-        "alloy_base": "F-AB-aa-6463-architectural-extrusion",
-        "element_families": [
-          "F-EL-aluminum-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 3.57,
-      "legacy_id": "R_0043_0",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0202",
-      "name": "AA 6463 (architectural extrusion) — T6 (sol. + artificial aged peak)",
-      "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
-        "alloy_base": "F-AB-aa-6463-architectural-extrusion",
-        "element_families": [
-          "F-EL-aluminum-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 3.57,
-      "legacy_id": "R_0043_1",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0207",
-      "name": "AA 7050 — T7651",
-      "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
-        "alloy_base": "F-AB-aa-7050-t7451-aerospace-thick-plate",
-        "element_families": [
-          "F-EL-aluminum-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 3,
-      "legacy_id": "R_0363_2",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0208",
-      "name": "AA 7050 — T7451",
-      "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
-        "alloy_base": "F-AB-aa-7050-t7451-aerospace-thick-plate",
-        "element_families": [
-          "F-EL-aluminum-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 3,
-      "legacy_id": "R_0363_1",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0209",
-      "name": "AA 7068",
-      "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
-        "alloy_base": "F-AB-aa-7068",
-        "element_families": [
-          "F-EL-aluminum-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 3.2,
-      "legacy_id": "R_0198",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0210",
-      "name": "AA 7075 — Annealed",
-      "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
-        "alloy_base": "F-AB-aa-7075",
-        "element_families": [
-          "F-EL-aluminum-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 4.25,
-      "legacy_id": "R_0439_0",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0211",
-      "name": "AA 7075 — T6",
-      "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
-        "alloy_base": "F-AB-aa-7075",
-        "element_families": [
-          "F-EL-aluminum-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 4.25,
-      "legacy_id": "R_0439_1",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0212",
-      "name": "AA 7075 — T651",
-      "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
-        "alloy_base": "F-AB-aa-7075",
-        "element_families": [
-          "F-EL-aluminum-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 4.25,
-      "legacy_id": "R_0439_2",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0213",
-      "name": "AA 7075 — T73",
-      "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
-        "alloy_base": "F-AB-aa-7075",
-        "element_families": [
-          "F-EL-aluminum-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 4.25,
-      "legacy_id": "R_0439_3",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0214",
-      "name": "AA 7075 — T7351",
-      "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
-        "alloy_base": "F-AB-aa-7075",
-        "element_families": [
-          "F-EL-aluminum-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 4.25,
-      "legacy_id": "R_0439_4",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0215",
-      "name": "AA 7475 (Al-Zn-Mg-Cu, high-toughness) — T651",
-      "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
-        "alloy_base": "F-AB-aa-7475-al-zn-mg-cu-high-toughness",
-        "element_families": [
-          "F-EL-aluminum-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 3.2,
-      "legacy_id": "R_0311_0",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0216",
-      "name": "AA 7475 (Al-Zn-Mg-Cu, high-toughness) — T7351 (over-aged, SCC-resistant)",
-      "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
-        "alloy_base": "F-AB-aa-7475-al-zn-mg-cu-high-toughness",
-        "element_families": [
-          "F-EL-aluminum-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 3.27,
-      "legacy_id": "R_0311_1",
-      "origin": "reference(supplementary)"
-    },
-    {
       "stable_id": "MET-1000",
       "name": "ADC12 / A383 (die-cast Al-Si-Cu)",
       "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+      "subcategory": "Aluminum - Si Alloys (cast/AM 3xx·4xx)",
       "family": {
         "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+        "subcategory": "F-MET-aluminum-si-alloys-cast-am-3xx-4xx",
         "alloy_base": "F-AB-adc12-a383-die-cast-al-si-cu",
         "element_families": [
           "F-EL-aluminum-based"
@@ -4447,13 +4249,31 @@
       "origin": "reference(supplementary)"
     },
     {
+      "stable_id": "MET-0096",
+      "name": "Al12Si (AlSi12, A413) — Cast",
+      "category": "Metal",
+      "subcategory": "Aluminum - Si Alloys (cast/AM 3xx·4xx)",
+      "family": {
+        "category": "F-MET",
+        "subcategory": "F-MET-aluminum-si-alloys-cast-am-3xx-4xx",
+        "alloy_base": "F-AB-al12si-alsi12-a413",
+        "element_families": [
+          "F-EL-aluminum-based"
+        ]
+      },
+      "tier": "reference",
+      "popularity": 3.5,
+      "legacy_id": "R_0267",
+      "origin": "reference(supplementary)"
+    },
+    {
       "stable_id": "MET-0217",
       "name": "AlSi10Mg — Annealed",
       "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+      "subcategory": "Aluminum - Si Alloys (cast/AM 3xx·4xx)",
       "family": {
         "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+        "subcategory": "F-MET-aluminum-si-alloys-cast-am-3xx-4xx",
         "alloy_base": "F-AB-alsi10mg",
         "element_families": [
           "F-EL-aluminum-based"
@@ -4468,10 +4288,10 @@
       "stable_id": "MET-0218",
       "name": "AlSi10Mg — As-built",
       "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+      "subcategory": "Aluminum - Si Alloys (cast/AM 3xx·4xx)",
       "family": {
         "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+        "subcategory": "F-MET-aluminum-si-alloys-cast-am-3xx-4xx",
         "alloy_base": "F-AB-alsi10mg",
         "element_families": [
           "F-EL-aluminum-based"
@@ -4486,10 +4306,10 @@
       "stable_id": "MET-0219",
       "name": "AlSi10Mg — Cast (A360 Sand/Permanent-Mold)",
       "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+      "subcategory": "Aluminum - Si Alloys (cast/AM 3xx·4xx)",
       "family": {
         "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+        "subcategory": "F-MET-aluminum-si-alloys-cast-am-3xx-4xx",
         "alloy_base": "F-AB-alsi10mg",
         "element_families": [
           "F-EL-aluminum-based"
@@ -4504,10 +4324,10 @@
       "stable_id": "MET-0220",
       "name": "AlSi10Mg — Heat-Treated",
       "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+      "subcategory": "Aluminum - Si Alloys (cast/AM 3xx·4xx)",
       "family": {
         "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+        "subcategory": "F-MET-aluminum-si-alloys-cast-am-3xx-4xx",
         "alloy_base": "F-AB-alsi10mg",
         "element_families": [
           "F-EL-aluminum-based"
@@ -4522,10 +4342,10 @@
       "stable_id": "MET-0221",
       "name": "AlSi10Mg — Stress-relieved",
       "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+      "subcategory": "Aluminum - Si Alloys (cast/AM 3xx·4xx)",
       "family": {
         "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+        "subcategory": "F-MET-aluminum-si-alloys-cast-am-3xx-4xx",
         "alloy_base": "F-AB-alsi10mg",
         "element_families": [
           "F-EL-aluminum-based"
@@ -4540,10 +4360,10 @@
       "stable_id": "MET-0222",
       "name": "AlSi7Mg — As-built",
       "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+      "subcategory": "Aluminum - Si Alloys (cast/AM 3xx·4xx)",
       "family": {
         "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+        "subcategory": "F-MET-aluminum-si-alloys-cast-am-3xx-4xx",
         "alloy_base": "F-AB-alsi7mg",
         "element_families": [
           "F-EL-aluminum-based"
@@ -4558,10 +4378,10 @@
       "stable_id": "MET-0223",
       "name": "AlSi7Mg — Heat-Treated",
       "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+      "subcategory": "Aluminum - Si Alloys (cast/AM 3xx·4xx)",
       "family": {
         "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+        "subcategory": "F-MET-aluminum-si-alloys-cast-am-3xx-4xx",
         "alloy_base": "F-AB-alsi7mg",
         "element_families": [
           "F-EL-aluminum-based"
@@ -4576,10 +4396,10 @@
       "stable_id": "MET-0224",
       "name": "AlSi7Mg — Stress-relieved",
       "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+      "subcategory": "Aluminum - Si Alloys (cast/AM 3xx·4xx)",
       "family": {
         "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+        "subcategory": "F-MET-aluminum-si-alloys-cast-am-3xx-4xx",
         "alloy_base": "F-AB-alsi7mg",
         "element_families": [
           "F-EL-aluminum-based"
@@ -4594,10 +4414,10 @@
       "stable_id": "MET-0225",
       "name": "AlSi7Mg — T6",
       "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+      "subcategory": "Aluminum - Si Alloys (cast/AM 3xx·4xx)",
       "family": {
         "category": "F-MET",
-        "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+        "subcategory": "F-MET-aluminum-si-alloys-cast-am-3xx-4xx",
         "alloy_base": "F-AB-alsi7mg",
         "element_families": [
           "F-EL-aluminum-based"
@@ -4607,6 +4427,186 @@
       "popularity": 3.5,
       "legacy_id": "C_0020",
       "origin": "curated(material_db)"
+    },
+    {
+      "stable_id": "MET-0207",
+      "name": "AA 7050 — T7651",
+      "category": "Metal",
+      "subcategory": "Aluminum - Zn Alloys (7xxx)",
+      "family": {
+        "category": "F-MET",
+        "subcategory": "F-MET-aluminum-zn-alloys-7xxx",
+        "alloy_base": "F-AB-aa-7050-t7451-aerospace-thick-plate",
+        "element_families": [
+          "F-EL-aluminum-based"
+        ]
+      },
+      "tier": "reference",
+      "popularity": 3,
+      "legacy_id": "R_0363_2",
+      "origin": "reference(supplementary)"
+    },
+    {
+      "stable_id": "MET-0208",
+      "name": "AA 7050 — T7451",
+      "category": "Metal",
+      "subcategory": "Aluminum - Zn Alloys (7xxx)",
+      "family": {
+        "category": "F-MET",
+        "subcategory": "F-MET-aluminum-zn-alloys-7xxx",
+        "alloy_base": "F-AB-aa-7050-t7451-aerospace-thick-plate",
+        "element_families": [
+          "F-EL-aluminum-based"
+        ]
+      },
+      "tier": "reference",
+      "popularity": 3,
+      "legacy_id": "R_0363_1",
+      "origin": "reference(supplementary)"
+    },
+    {
+      "stable_id": "MET-0209",
+      "name": "AA 7068",
+      "category": "Metal",
+      "subcategory": "Aluminum - Zn Alloys (7xxx)",
+      "family": {
+        "category": "F-MET",
+        "subcategory": "F-MET-aluminum-zn-alloys-7xxx",
+        "alloy_base": "F-AB-aa-7068",
+        "element_families": [
+          "F-EL-aluminum-based"
+        ]
+      },
+      "tier": "reference",
+      "popularity": 3.2,
+      "legacy_id": "R_0198",
+      "origin": "reference(supplementary)"
+    },
+    {
+      "stable_id": "MET-0210",
+      "name": "AA 7075 — Annealed",
+      "category": "Metal",
+      "subcategory": "Aluminum - Zn Alloys (7xxx)",
+      "family": {
+        "category": "F-MET",
+        "subcategory": "F-MET-aluminum-zn-alloys-7xxx",
+        "alloy_base": "F-AB-aa-7075",
+        "element_families": [
+          "F-EL-aluminum-based"
+        ]
+      },
+      "tier": "reference",
+      "popularity": 4.25,
+      "legacy_id": "R_0439_0",
+      "origin": "reference(supplementary)"
+    },
+    {
+      "stable_id": "MET-0211",
+      "name": "AA 7075 — T6",
+      "category": "Metal",
+      "subcategory": "Aluminum - Zn Alloys (7xxx)",
+      "family": {
+        "category": "F-MET",
+        "subcategory": "F-MET-aluminum-zn-alloys-7xxx",
+        "alloy_base": "F-AB-aa-7075",
+        "element_families": [
+          "F-EL-aluminum-based"
+        ]
+      },
+      "tier": "reference",
+      "popularity": 4.25,
+      "legacy_id": "R_0439_1",
+      "origin": "reference(supplementary)"
+    },
+    {
+      "stable_id": "MET-0212",
+      "name": "AA 7075 — T651",
+      "category": "Metal",
+      "subcategory": "Aluminum - Zn Alloys (7xxx)",
+      "family": {
+        "category": "F-MET",
+        "subcategory": "F-MET-aluminum-zn-alloys-7xxx",
+        "alloy_base": "F-AB-aa-7075",
+        "element_families": [
+          "F-EL-aluminum-based"
+        ]
+      },
+      "tier": "reference",
+      "popularity": 4.25,
+      "legacy_id": "R_0439_2",
+      "origin": "reference(supplementary)"
+    },
+    {
+      "stable_id": "MET-0213",
+      "name": "AA 7075 — T73",
+      "category": "Metal",
+      "subcategory": "Aluminum - Zn Alloys (7xxx)",
+      "family": {
+        "category": "F-MET",
+        "subcategory": "F-MET-aluminum-zn-alloys-7xxx",
+        "alloy_base": "F-AB-aa-7075",
+        "element_families": [
+          "F-EL-aluminum-based"
+        ]
+      },
+      "tier": "reference",
+      "popularity": 4.25,
+      "legacy_id": "R_0439_3",
+      "origin": "reference(supplementary)"
+    },
+    {
+      "stable_id": "MET-0214",
+      "name": "AA 7075 — T7351",
+      "category": "Metal",
+      "subcategory": "Aluminum - Zn Alloys (7xxx)",
+      "family": {
+        "category": "F-MET",
+        "subcategory": "F-MET-aluminum-zn-alloys-7xxx",
+        "alloy_base": "F-AB-aa-7075",
+        "element_families": [
+          "F-EL-aluminum-based"
+        ]
+      },
+      "tier": "reference",
+      "popularity": 4.25,
+      "legacy_id": "R_0439_4",
+      "origin": "reference(supplementary)"
+    },
+    {
+      "stable_id": "MET-0215",
+      "name": "AA 7475 (Al-Zn-Mg-Cu, high-toughness) — T651",
+      "category": "Metal",
+      "subcategory": "Aluminum - Zn Alloys (7xxx)",
+      "family": {
+        "category": "F-MET",
+        "subcategory": "F-MET-aluminum-zn-alloys-7xxx",
+        "alloy_base": "F-AB-aa-7475-al-zn-mg-cu-high-toughness",
+        "element_families": [
+          "F-EL-aluminum-based"
+        ]
+      },
+      "tier": "reference",
+      "popularity": 3.5,
+      "legacy_id": "R_0311_0",
+      "origin": "reference(supplementary)"
+    },
+    {
+      "stable_id": "MET-0216",
+      "name": "AA 7475 (Al-Zn-Mg-Cu, high-toughness) — T7351 (over-aged, SCC-resistant)",
+      "category": "Metal",
+      "subcategory": "Aluminum - Zn Alloys (7xxx)",
+      "family": {
+        "category": "F-MET",
+        "subcategory": "F-MET-aluminum-zn-alloys-7xxx",
+        "alloy_base": "F-AB-aa-7475-al-zn-mg-cu-high-toughness",
+        "element_families": [
+          "F-EL-aluminum-based"
+        ]
+      },
+      "tier": "reference",
+      "popularity": 3.57,
+      "legacy_id": "R_0311_1",
+      "origin": "reference(supplementary)"
     },
     {
       "stable_id": "MET-0226",

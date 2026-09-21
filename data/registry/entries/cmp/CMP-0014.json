@@ -30,13 +30,7 @@
       "confidence": "measured",
       "provenance": "Toray T700SC datasheet (TDS-T700SC, verified 2024)"
     },
-    "yield_strength": {
-      "min": 2300,
-      "max": 2500,
-      "typical": 2400,
-      "n": 1,
-      "confidence": "measured"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 2300,
       "max": 2500,
@@ -93,15 +87,6 @@
       "typical": 1.9,
       "n": 1,
       "confidence": "measured"
-    },
-    "fatigue_strength": {
-      "min": 1035,
-      "max": 1035,
-      "typical": 1035,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
     },
     "price_per_cm3": {
       "min": 0.1318,
@@ -166,19 +151,21 @@
     "applications": "F1 모노코크 보강, 자전거 프레임, 카이트보드 spar, 풍력 spar cap (mid-range, Vestas / GE 일부 모델), 산악 자전거, 압력 수소 탱크",
     "limitations": "T800 보다 modulus 17% 낮음, 자동화 lay-up 시 결함 민감",
     "anisotropy_note": "복합재 — 강성·강도가 fiber 방향 의존. 0° UD 값 (수직 방향은 1/10~1/20).",
+    "no_yield": "섬유 복합재 — 항복점 없음(선형 후 파단). 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
     "price_verified_date": "2026-04",
     "price_verified_source": "CFRP T700/Epoxy",
-    "_r173_note_applied": true
+    "_r173_note_applied": true,
+    "composition_basis": "vol%"
   },
   "popularity": 4,
   "density": 1.55,
-  "yield_strength": 2300,
+  "yield_strength": null,
   "uts": 2300,
   "elongation": 1.7,
   "modulus": 135,
   "hardness": null,
   "thermal_conductivity": 5,
-  "fatigue_strength": 1035,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Layup",
@@ -188,7 +175,6 @@
     "Composite",
     "Carbon-Epoxy"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1,

@@ -29,13 +29,7 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "yield_strength": {
-      "min": 700,
-      "max": 700,
-      "typical": 700,
-      "n": 1,
-      "confidence": "handbook"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 700,
       "max": 700,
@@ -200,11 +194,12 @@
   "meta": {
     "ceramic": true,
     "applications": "고하중 절삭 인서트, 의료 임플란트 헤드 (ISO 6474-2), 와이어 다이",
+    "no_yield": "취성 세라믹 — 항복점 없음. 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
     "_r173_note_applied": true
   },
   "popularity": 4,
   "density": 4.1,
-  "yield_strength": 700,
+  "yield_strength": null,
   "uts": 700,
   "elongation": null,
   "modulus": 350,
@@ -237,7 +232,7 @@
   "price_form_factor": 1.5,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 1.35,
-  "total_cost_estimate": 0,
+  "total_cost_estimate": null,
   "min_wall_thickness": 1.5,
   "surface_finish_typical": 3.2,
   "tolerance_class": "IT12-13",

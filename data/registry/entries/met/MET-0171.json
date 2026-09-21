@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 45,
-      "max": 45,
-      "typical": 45,
+      "min": 50,
+      "max": 50,
+      "typical": 50,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 45,
+      "conversion": "ASTM E140-12b Table 9",
+      "provenance": "HB 45 → HV 50 (ASTM E140-12b Table 9)"
     },
     "thermal_conductivity": {
       "min": 230,
@@ -123,8 +128,8 @@
       "provenance": "3rd_family:Aluminum - Pure/Other"
     },
     "poisson_ratio": {
-      "min": 0.2805,
-      "max": 0.3795,
+      "min": 0.31,
+      "max": 0.35,
       "typical": 0.33,
       "n": 0,
       "estimated": true,
@@ -213,7 +218,7 @@
       150,
       3,
       70,
-      45,
+      50,
       230
     ]
   ],
@@ -231,7 +236,7 @@
   "uts": 150,
   "elongation": 3,
   "modulus": 70,
-  "hardness": 45,
+  "hardness": 50,
   "thermal_conductivity": 230,
   "fatigue_strength": 45,
   "impact_strength": 25,
@@ -261,7 +266,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 3.02,
-  "total_cost_estimate": 2.72,
+  "total_cost_estimate": 5.74,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
@@ -287,6 +292,33 @@
     },
     "aliases": {
       "from": []
-    }
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 45,
+        "max": 45,
+        "typical": 45,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 45
+    },
+    "_hardness_scale": "Al HB500 45 → HV 50 (E140 T9)",
+    "points": {
+      "from": [
+        [
+          2.71,
+          140,
+          150,
+          3,
+          70,
+          45,
+          230
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
   }
 }

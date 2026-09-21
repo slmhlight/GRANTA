@@ -59,13 +59,13 @@ describe('alloyOf', () => {
 /* ───────── aaSubcategory ───────── */
 
 describe('aaSubcategory', () => {
-  it('AA 6xxx → Si Alloys (6xxx/7xxx)', () => {
-    expect(aaSubcategory('AA 6061-T6')).toBe('Aluminum - Si Alloys (6xxx/7xxx)');
-    expect(aaSubcategory('AA 6063')).toBe('Aluminum - Si Alloys (6xxx/7xxx)');
+  it('AA 6xxx → Mg-Si Alloys (6xxx) — AUD F04 계열 분리', () => {
+    expect(aaSubcategory('AA 6061-T6')).toBe('Aluminum - Mg-Si Alloys (6xxx)');
+    expect(aaSubcategory('AA 6063')).toBe('Aluminum - Mg-Si Alloys (6xxx)');
   });
 
-  it('AA 7xxx → Si Alloys (6xxx/7xxx)', () => {
-    expect(aaSubcategory('AA 7075-T6')).toBe('Aluminum - Si Alloys (6xxx/7xxx)');
+  it('AA 7xxx → Zn Alloys (7xxx) — 7075 는 Al-Zn-Mg-Cu (Si 계열 아님)', () => {
+    expect(aaSubcategory('AA 7075-T6')).toBe('Aluminum - Zn Alloys (7xxx)');
   });
 
   it('AA 5xxx → Mg Alloys', () => {
@@ -158,7 +158,7 @@ describe('fixSubcategory', () => {
   });
 
   it('AA-based when name-based null', () => {
-    expect(fixSubcategory('AA 6061', 'Raw')).toBe('Aluminum - Si Alloys (6xxx/7xxx)');
+    expect(fixSubcategory('AA 6061', 'Raw')).toBe('Aluminum - Mg-Si Alloys (6xxx)');
   });
 
   it('raw when neither match', () => {

@@ -29,13 +29,7 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "yield_strength": {
-      "min": 350,
-      "max": 350,
-      "typical": 350,
-      "n": 1,
-      "confidence": "handbook"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 350,
       "max": 350,
@@ -206,6 +200,7 @@
     "ceramic": true,
     "applications": "로켓 노즐 throat, 핵 분야 thermal couple sheath, 초고온 도가니",
     "limitations": "고가 (Ta 원료), 가공 매우 어려움",
+    "no_yield": "취성 세라믹 — 항복점 없음. 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
     "_r173_note_applied": true,
     "specs": [
       {
@@ -216,7 +211,7 @@
   },
   "popularity": 2,
   "density": 14.5,
-  "yield_strength": 350,
+  "yield_strength": null,
   "uts": 350,
   "elongation": null,
   "modulus": 470,
@@ -247,7 +242,7 @@
   "price_form_factor": 1.5,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 375,
-  "total_cost_estimate": 0,
+  "total_cost_estimate": null,
   "min_wall_thickness": 1.5,
   "surface_finish_typical": 3.2,
   "tolerance_class": "IT12-13",

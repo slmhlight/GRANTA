@@ -51,21 +51,39 @@ const AUTH = {
   /* H6 W2 리뷰 — `\bASM\b` 단독 토큰 추가. "ASM — Niobium C-103" 처럼 Handbook/Desk 를 안 붙인 인용이
      30건 other 로 남아 있었다(ASM 은 핸드북 발행처이므로 handbook 이 맞다).
      ASME 는 위 standard 검사가 먼저 잡고, `\bASM\b` 는 단어경계라 ASME 에 걸리지 않는다. */
-  handbook: { dom: /asminternational\.org|batelle\.org|ntrs\.nasa\.gov|nasa\.gov|eccc-creep\.com/i,
-              lbl: /\bASM\b|MMPDS|Battelle|NASA|ECCC|\bhandbook\b|Shigley|Outokumpu Corrosion Handbook/i },
-  aggregator: { dom: /matweb\.com|azom\.com|makeitfrom\.com|lookpolymers|specialchem|ulprospector|wikipedia/i,
-                lbl: /MatWeb|AZoM|MakeItFrom|Wikipedia|QuickText/i },
+  /* AUD (2026-09-22) — 동료심사 학술지(MDPI·Elsevier·Springer·Wiley·Nature·T&F·IEEE·doi.org)는 핸드북 등급 —
+     제조사 문서도 규격도 아닌 1차 측정 문헌. B4C-Al 논문 인용이 'manufacturer' 로 떨어지던 것을 바로잡는다. */
+  handbook: { dom: /asminternational\.org|batelle\.org|ntrs\.nasa\.gov|nasa\.gov|eccc-creep\.com|mdpi\.com|doi\.org|sciencedirect\.com|springer\.com|link\.springer|wiley\.com|nature\.com|tandfonline\.com|ieeexplore/i,
+              lbl: /\bASM\b|MMPDS|Battelle|NASA|ECCC|\bhandbook\b|Shigley|Outokumpu Corrosion Handbook|\bet al\.|Appl\. Sci\.|\bJ\. [A-Z]|Journal of|Proceedings/i },
+  aggregator: { dom: /matweb\.com|azom\.com|makeitfrom\.com|lookpolymers|specialchem|ulprospector|wikipedia|steelnumber\.com|matmatch\.com|totalmateria|efunda\.com/i,
+                lbl: /MatWeb|AZoM|MakeItFrom|Wikipedia|QuickText|eFunda|steelnumber/i },
 };
-/** 출처 권위 등급: 'standard' | 'handbook' | 'manufacturer' | 'aggregator' | 'other'. */
+/* AUD F12 (2026-09-22) — 라벨 첫머리가 규격 번호(ASTM A240 …)면 그 문서는 규격이다. 라벨 어딘가에 UNS/AMS 가 *언급*된 것과 다르다. */
+const STANDARD_LEAD = /^\s*(?:ASTM|ASME|SAE|AMS\s?\d|JIS|EN\s?\d|ISO\s?\d|DIN|MIL-|API\s?\d|AAR|KS\s?[A-Z]\s?\d|UNS\s+[A-Z]\d|MMPDS)/i;
+/**
+ * 출처 권위 등급: 'standard' | 'handbook' | 'manufacturer' | 'aggregator' | 'other'.
+ *
+ * AUD F12 (2026-09-22) — **발행처가 등급을 정한다.** 이전엔 라벨 토큰(`UNS`·`AMS \d`·`ASTM`)이 도메인보다 먼저 검사돼
+ * "AK Steel — 410 Stainless (UNS S41000)" 같은 제조사 datasheet 48건이 'standard' 로 올라갔다. URL 이 있으면 도메인이
+ * 발행처(표준기구/핸드북/aggregator/그 외=제조사)이고, URL 이 없을 때만 라벨을 읽되 제조사 명칭이 있으면 규격 인용이
+ * 딸려 있어도 제조사 문서로 본다(규격 번호로 **시작**하는 라벨만 규격; MMPDS 로 시작하면 핸드북).
+ */
 export function sourceAuthority(s) {
   const url = s.url || '', lbl = s.label || '';
   if (/\bfallback\b|estimated|derived|baseline/i.test(lbl)) return 'other';   // 파생값 provenance 마커 (표준 아님)
-  if (AUTH.standard.dom.test(url) || AUTH.standard.lbl.test(lbl)) return 'standard';
-  if (AUTH.handbook.dom.test(url) || AUTH.handbook.lbl.test(lbl)) return 'handbook';
-  if (AUTH.aggregator.dom.test(url) || AUTH.aggregator.lbl.test(lbl)) return 'aggregator';
-  if (/^https?:\/\//i.test(url)) return 'manufacturer';   // 그 외 실 URL = 벤더 datasheet
-  // G3-3/W2-9 — URL 이 없어도 라벨이 실제 제조사·기관 인용이면 승격 (파생 마커는 위에서 이미 other 확정)
-  if (INSTITUTION_TOKENS.test(lbl)) return 'handbook';    // 협회·기관 기술자료 (표준서는 위 standard 가 선점)
+  if (/^https?:\/\//i.test(url)) {
+    if (AUTH.standard.dom.test(url)) return 'standard';
+    if (AUTH.handbook.dom.test(url)) return 'handbook';
+    if (AUTH.aggregator.dom.test(url)) return 'aggregator';
+    return 'manufacturer';   // 그 외 실 URL = 벤더 datasheet (라벨이 규격을 인용해도 문서 자체는 제조사 것)
+  }
+  if (/^\s*MMPDS/i.test(lbl)) return 'handbook';
+  if (STANDARD_LEAD.test(lbl)) return 'standard';
+  if (AUTH.aggregator.lbl.test(lbl)) return 'aggregator';
   if (MANUFACTURER_TOKENS.test(lbl)) return 'manufacturer';
+  if (AUTH.standard.lbl.test(lbl)) return 'standard';
+  if (AUTH.handbook.lbl.test(lbl)) return 'handbook';
+  // G3-3/W2-9 — URL 이 없어도 라벨이 실제 기관 인용이면 승격 (파생 마커는 위에서 이미 other 확정)
+  if (INSTITUTION_TOKENS.test(lbl)) return 'handbook';    // 협회·기관 기술자료
   return 'other';   // url 없는 일반 인용·fallback (정직한 파생 마커 포함)
 }

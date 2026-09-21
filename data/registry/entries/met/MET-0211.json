@@ -2,7 +2,7 @@
   "stable_id": "MET-0211",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "subcategory": "F-MET-aluminum-zn-alloys-7xxx",
     "alloy_base": "F-AB-aa-7075",
     "element_families": [
       "F-EL-aluminum-based"
@@ -13,7 +13,7 @@
   "id": "R_0439_1",
   "name": "AA 7075 — T6",
   "category": "Metal",
-  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "subcategory": "Aluminum - Zn Alloys (7xxx)",
   "tier": "reference",
   "manufacturers": [
     "Reference data"
@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 150,
-      "max": 150,
-      "typical": 150,
+      "min": 177,
+      "max": 177,
+      "typical": 177,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 150,
+      "conversion": "ASTM E140-12b Table 9",
+      "provenance": "HB 150 → HV 177 (ASTM E140-12b Table 9)"
     },
     "thermal_conductivity": {
       "min": 130,
@@ -227,7 +232,7 @@
       570,
       11,
       72,
-      150,
+      177,
       130
     ]
   ],
@@ -247,7 +252,7 @@
   "uts": 570,
   "elongation": 11,
   "modulus": 72,
-  "hardness": 150,
+  "hardness": 177,
   "thermal_conductivity": 130,
   "impact_strength": 8,
   "manufacturer": "Reference data",
@@ -262,7 +267,7 @@
   ],
   "families": [
     "Metal",
-    "Aluminum - Si Alloys (6xxx/7xxx)",
+    "Aluminum - Zn Alloys (7xxx)",
     "Aluminum-based"
   ],
   "fatigue_estimated": false,
@@ -302,7 +307,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1.1,
   "delivered_price_per_kg": 7.94,
-  "total_cost_estimate": 6.35,
+  "total_cost_estimate": 14.29,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
@@ -314,6 +319,33 @@
         "AlZn5.5MgCu",
         "DIN 3.4365"
       ]
-    }
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 150,
+        "max": 150,
+        "typical": 150,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 150
+    },
+    "_hardness_scale": "Al HB500 150 → HV 177 (E140 T9)",
+    "points": {
+      "from": [
+        [
+          2.81,
+          505,
+          570,
+          11,
+          72,
+          150,
+          130
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
   }
 }

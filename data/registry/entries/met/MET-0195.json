@@ -2,7 +2,7 @@
   "stable_id": "MET-0195",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "subcategory": "F-MET-aluminum-mg-si-alloys-6xxx",
     "alloy_base": "F-AB-aa-6101",
     "element_families": [
       "F-EL-aluminum-based"
@@ -13,7 +13,7 @@
   "id": "G_0027",
   "name": "AA 6101 — H111",
   "category": "Metal",
-  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
   "tier": "generic",
   "manufacturers": [
     "Generic"
@@ -36,21 +36,21 @@
       "typical": 75,
       "max": 75,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 6101-H111 Aluminum (95 / 75 / 25%, 57 %IACS) · D10 비례법 — 앵커 MakeItFrom 6101-T6 (220 MPa / HB 71)"
+      "provenance": "교정: MakeItFrom 6101-H111 Aluminum (95 / 75 / 25%, 57 %IACS) · D10 비례법 — 앵커 MakeItFrom 6101-T6 (220 MPa / HB 71) · [경도 스케일] 인용 경도 31 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기."
     },
     "uts": {
       "min": 95,
       "typical": 95,
       "max": 95,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 6101-H111 Aluminum (95 / 75 / 25%, 57 %IACS) · D10 비례법 — 앵커 MakeItFrom 6101-T6 (220 MPa / HB 71)"
+      "provenance": "교정: MakeItFrom 6101-H111 Aluminum (95 / 75 / 25%, 57 %IACS) · D10 비례법 — 앵커 MakeItFrom 6101-T6 (220 MPa / HB 71) · [경도 스케일] 인용 경도 31 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기."
     },
     "elongation": {
       "min": 25,
       "typical": 25,
       "max": 25,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 6101-H111 Aluminum (95 / 75 / 25%, 57 %IACS) · D10 비례법 — 앵커 MakeItFrom 6101-T6 (220 MPa / HB 71)"
+      "provenance": "교정: MakeItFrom 6101-H111 Aluminum (95 / 75 / 25%, 57 %IACS) · D10 비례법 — 앵커 MakeItFrom 6101-T6 (220 MPa / HB 71) · [경도 스케일] 인용 경도 31 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기."
     },
     "modulus": {
       "min": 69,
@@ -64,7 +64,12 @@
       "typical": 31,
       "max": 31,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 6101-H111 Aluminum (95 / 75 / 25%, 57 %IACS) · D10 비례법 — 앵커 MakeItFrom 6101-T6 (220 MPa / HB 71)"
+      "provenance": "교정: MakeItFrom 6101-H111 Aluminum (95 / 75 / 25%, 57 %IACS) · D10 비례법 — 앵커 MakeItFrom 6101-T6 (220 MPa / HB 71) · [경도 스케일] 인용 경도 31 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기.",
+      "scale": "HB",
+      "source_scale": "HB",
+      "source_value": 31,
+      "conversion": null,
+      "scale_note": "ASTM E140 표 밖(또는 해당 표 없음) — 환산하지 않고 원 스케일 그대로 표기"
     },
     "thermal_conductivity": {
       "min": 205,
@@ -87,8 +92,11 @@
       "max": 31.5,
       "typical": 31.5,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 30,
+      "factor": 1.05,
+      "condition": "strain-hardened (fallback)",
       "provenance": "alloy-specific KIC × HT:strain-hardened (fallback) (k×1.05)"
     },
     "electrical_conductivity": {
@@ -239,7 +247,7 @@
   ],
   "families": [
     "Metal",
-    "Aluminum - Si Alloys (6xxx/7xxx)"
+    "Aluminum - Mg-Si Alloys (6xxx)"
   ],
   "electrical_conductivity": 57,
   "max_service_temp": 170,
@@ -256,7 +264,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 3.52,
-  "total_cost_estimate": 3.16,
+  "total_cost_estimate": 6.68,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
@@ -345,7 +353,7 @@
       "val_scalar": 82.45
     },
     "_basis": "'Strain-hardened' 합성값(σy 232.8/UTS 271.6 — T6 보다 높은 냉간가공값은 6101 에 없다)을 실재하는 도체 템퍼 H111 로 교체. 경도: 6101-H111 공개 HB 미확보 → 같은 합금의 앵커 비(6101-T6 220/71 = 3.1)로 95/3.1 ≈ 31 HB (파생, 문서화). 합성값 82.45 는 UTS 95 의 0.87 배로 물리적으로 불가.",
-    "_src": "MakeItFrom 6101-H111 Aluminum (95 / 75 / 25%, 57 %IACS) · D10 비례법 — 앵커 MakeItFrom 6101-T6 (220 MPa / HB 71)",
+    "_src": "MakeItFrom 6101-H111 Aluminum (95 / 75 / 25%, 57 %IACS) · D10 비례법 — 앵커 MakeItFrom 6101-T6 (220 MPa / HB 71) · [경도 스케일] 인용 경도 31 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기.",
     "points": {
       "from": [
         [

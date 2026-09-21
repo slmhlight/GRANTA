@@ -29,13 +29,7 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "yield_strength": {
-      "min": 50,
-      "max": 50,
-      "typical": 50,
-      "n": 1,
-      "confidence": "handbook"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 50,
       "max": 50,
@@ -108,15 +102,6 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "fatigue_strength": {
-      "min": 22.5,
-      "max": 22.5,
-      "typical": 22.5,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
-    },
     "price_per_cm3": {
       "min": 0.0025,
       "max": 0.0025,
@@ -155,6 +140,7 @@
   "meta": {
     "ceramic": true,
     "applications": "일반 유리 (병, 윈도우)",
+    "no_yield": "취성 세라믹 — 항복점 없음. 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
     "_r173_note_applied": true,
     "specs": [
       {
@@ -165,13 +151,13 @@
   },
   "popularity": 5,
   "density": 2.5,
-  "yield_strength": 50,
+  "yield_strength": null,
   "uts": 50,
   "elongation": null,
   "modulus": 72,
   "hardness": 540,
   "thermal_conductivity": 0.96,
-  "fatigue_strength": 22.5,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Sintered",
@@ -181,7 +167,6 @@
     "Ceramic",
     "Glass"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1,
@@ -192,6 +177,6 @@
   "surface_finish_typical": 3.2,
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
-  "confidence_tier": "medium",
+  "confidence_tier": "medium-low",
   "industry_note": "Soda-lime Glass (75% SiO₂ + 15% Na₂O + 10% CaO) — 가장 흔한 glass (90% of all glass 생산). CTE 9×10⁻⁶/K (Pyrex 의 3×, thermal shock 약함). σf 30-100 / E 70 / ρ 2.50 / Tmax 400°C continuous (annealing point 540°C). Refractive 1.520. 창문 / 자동차 windshield (laminated PVB), 식음료 병 / 유리잔, 가정 light bulb glass (한국 인천 OCI). 가공: float process (Pilkington), tempered (열처리 → compressive surface, 3-4× strength), laminated (2 ply + PVB)."
 }

@@ -126,8 +126,8 @@
       "provenance": "3rd_family:Alloy Steel"
     },
     "poisson_ratio": {
-      "min": 0.2465,
-      "max": 0.3335,
+      "min": 0.27,
+      "max": 0.31,
       "typical": 0.29,
       "n": 0,
       "estimated": true,
@@ -187,6 +187,16 @@
     "Si": "≤0.4"
   },
   "sources": [
+    {
+      "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM A29/A29M — Carbon & Alloy Steel Bars, Hot-Wrought",
+      "url": "https://store.astm.org/a0029_a0029m-20.html",
+      "verified": true
+    },
     {
       "label": "MatWeb 3",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=20MnCr5",
@@ -276,7 +286,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 4.78,
-  "total_cost_estimate": 4.3,
+  "total_cost_estimate": 9.08,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
@@ -284,6 +294,30 @@
     "industry_note": {
       "from": null,
       "had": true
+    },
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb 3",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=20MnCr5",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: AMS 6415 alloy steel",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Hascelik — 20MnCr5 (1.7147 / SAE 5120) DIN EN 10084 조성+기계적 물성",
+          "url": "https://hascelik.com/eng/20mncr5-material-1-7147-sae-aisi-5120",
+          "verified": true
+        }
+      ]
     }
   }
 }

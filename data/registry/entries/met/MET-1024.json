@@ -2,7 +2,7 @@
   "stable_id": "MET-1024",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "subcategory": "F-MET-aluminum-si-alloys-cast-am-3xx-4xx",
     "alloy_base": "F-AB-a357-0-al-si-mg-premium-casting-ams-4219",
     "element_families": [
       "F-EL-aluminum-based"
@@ -13,7 +13,7 @@
   "id": "R_0479",
   "name": "A357.0 (Al-Si-Mg premium casting, AMS 4219)",
   "category": "Metal",
-  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "subcategory": "Aluminum - Si Alloys (cast/AM 3xx·4xx)",
   "tier": "reference",
   "manufacturers": [
     "Reference data"
@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 100,
-      "max": 100,
-      "typical": 100,
+      "min": 117,
+      "max": 117,
+      "typical": 117,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 100,
+      "conversion": "ASTM E140-12b Table 9",
+      "provenance": "HB 100 → HV 117 (ASTM E140-12b Table 9)"
     },
     "thermal_conductivity": {
       "min": 155,
@@ -210,7 +215,7 @@
       320,
       4,
       72,
-      100,
+      117,
       155
     ]
   ],
@@ -248,7 +253,7 @@
   "uts": 320,
   "elongation": 4,
   "modulus": 72,
-  "hardness": 100,
+  "hardness": 117,
   "thermal_conductivity": 155,
   "impact_strength": 5,
   "manufacturer": "Reference data",
@@ -256,7 +261,7 @@
   "source": "MatWeb — Aluminum A357 cast",
   "families": [
     "Metal",
-    "Aluminum - Si Alloys (6xxx/7xxx)",
+    "Aluminum - Si Alloys (cast/AM 3xx·4xx)",
     "Aluminum-based"
   ],
   "fatigue_estimated": false,
@@ -275,10 +280,39 @@
   "price_form_factor": 1,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 5.2,
-  "total_cost_estimate": 3.12,
+  "total_cost_estimate": 8.32,
   "min_wall_thickness": 2.5,
   "surface_finish_typical": 12.5,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 100,
+        "max": 100,
+        "typical": 100,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 100
+    },
+    "_hardness_scale": "Al HB500 100 → HV 117 (E140 T9)",
+    "points": {
+      "from": [
+        [
+          2.68,
+          250,
+          320,
+          4,
+          72,
+          100,
+          155
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  }
 }

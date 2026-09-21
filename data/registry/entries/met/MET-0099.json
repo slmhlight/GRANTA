@@ -36,21 +36,21 @@
       "typical": 296,
       "max": 296,
       "confidence": "handbook",
-      "provenance": "교정: Alro Steel Metals Guide — Typical Mechanical Properties, Rod/Bar (2011-T3: 55/43 ksi, El 15, HB 95) · EMJ Metals catalog 2011-T3 55,000/43,000 psi · MakeItFrom 2011-T3 (360 / 280 / 12% / HB 95)"
+      "provenance": "교정: Alro Steel Metals Guide — Typical Mechanical Properties, Rod/Bar (2011-T3: 55/43 ksi, El 15, HB 95) · EMJ Metals catalog 2011-T3 55,000/43,000 psi · MakeItFrom 2011-T3 (360 / 280 / 12% / HB 95) · [경도 스케일] 인용 경도 95 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "uts": {
       "min": 379,
       "typical": 379,
       "max": 379,
       "confidence": "handbook",
-      "provenance": "교정: Alro Steel Metals Guide — Typical Mechanical Properties, Rod/Bar (2011-T3: 55/43 ksi, El 15, HB 95) · EMJ Metals catalog 2011-T3 55,000/43,000 psi · MakeItFrom 2011-T3 (360 / 280 / 12% / HB 95)"
+      "provenance": "교정: Alro Steel Metals Guide — Typical Mechanical Properties, Rod/Bar (2011-T3: 55/43 ksi, El 15, HB 95) · EMJ Metals catalog 2011-T3 55,000/43,000 psi · MakeItFrom 2011-T3 (360 / 280 / 12% / HB 95) · [경도 스케일] 인용 경도 95 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "elongation": {
       "min": 15,
       "typical": 15,
       "max": 15,
       "confidence": "handbook",
-      "provenance": "교정: Alro Steel Metals Guide — Typical Mechanical Properties, Rod/Bar (2011-T3: 55/43 ksi, El 15, HB 95) · EMJ Metals catalog 2011-T3 55,000/43,000 psi · MakeItFrom 2011-T3 (360 / 280 / 12% / HB 95)"
+      "provenance": "교정: Alro Steel Metals Guide — Typical Mechanical Properties, Rod/Bar (2011-T3: 55/43 ksi, El 15, HB 95) · EMJ Metals catalog 2011-T3 55,000/43,000 psi · MakeItFrom 2011-T3 (360 / 280 / 12% / HB 95) · [경도 스케일] 인용 경도 95 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "modulus": {
       "min": 73,
@@ -60,11 +60,15 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 95,
-      "typical": 95,
-      "max": 95,
+      "min": 111,
+      "typical": 111,
+      "max": 111,
       "confidence": "handbook",
-      "provenance": "교정: Alro Steel Metals Guide — Typical Mechanical Properties, Rod/Bar (2011-T3: 55/43 ksi, El 15, HB 95) · EMJ Metals catalog 2011-T3 55,000/43,000 psi · MakeItFrom 2011-T3 (360 / 280 / 12% / HB 95)"
+      "provenance": "교정: Alro Steel Metals Guide — Typical Mechanical Properties, Rod/Bar (2011-T3: 55/43 ksi, El 15, HB 95) · EMJ Metals catalog 2011-T3 55,000/43,000 psi · MakeItFrom 2011-T3 (360 / 280 / 12% / HB 95) · [경도 스케일] 인용 경도 95 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 95,
+      "conversion": "ASTM E140-12b Table 9"
     },
     "thermal_conductivity": {
       "min": 121,
@@ -126,8 +130,8 @@
       "provenance": "1st_family:Aluminum - Cu Alloys (2xxx)"
     },
     "poisson_ratio": {
-      "min": 0.165,
-      "max": 0.495,
+      "min": 0.29,
+      "max": 0.37,
       "typical": 0.33,
       "n": 0,
       "estimated": true,
@@ -203,7 +207,7 @@
       379,
       15,
       73,
-      95,
+      111,
       121
     ]
   ],
@@ -234,7 +238,7 @@
   "uts": 379,
   "elongation": 15,
   "modulus": 73,
-  "hardness": 95,
+  "hardness": 111,
   "thermal_conductivity": 121,
   "impact_strength": 11,
   "manufacturer": "Generic",
@@ -263,7 +267,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 4.54,
-  "total_cost_estimate": 4.08,
+  "total_cost_estimate": 8.62,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
@@ -349,7 +353,7 @@
       "val_scalar": 126.1
     },
     "_basis": "'Strain-hardened' 합성값(σy 339.5/UTS 465.6 — 2011 의 어떤 템퍼보다 높음)을 실제 템퍼 T3(용체화+냉간가공+자연시효; 2011 의 표준 쾌삭 봉재 템퍼)로 교체.",
-    "_src": "Alro Steel Metals Guide — Typical Mechanical Properties, Rod/Bar (2011-T3: 55/43 ksi, El 15, HB 95) · EMJ Metals catalog 2011-T3 55,000/43,000 psi · MakeItFrom 2011-T3 (360 / 280 / 12% / HB 95)",
+    "_src": "Alro Steel Metals Guide — Typical Mechanical Properties, Rod/Bar (2011-T3: 55/43 ksi, El 15, HB 95) · EMJ Metals catalog 2011-T3 55,000/43,000 psi · MakeItFrom 2011-T3 (360 / 280 / 12% / HB 95) · [경도 스케일] 인용 경도 95 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
     "points": {
       "from": [
         [

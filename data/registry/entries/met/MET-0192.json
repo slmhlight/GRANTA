@@ -2,7 +2,7 @@
   "stable_id": "MET-0192",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "subcategory": "F-MET-aluminum-mg-si-alloys-6xxx",
     "alloy_base": "F-AB-aa-6082-eu-extrusion",
     "element_families": [
       "F-EL-aluminum-based"
@@ -13,7 +13,7 @@
   "id": "R_0310_2",
   "name": "AA 6082 (EU extrusion) — T651",
   "category": "Metal",
-  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
   "tier": "reference",
   "manufacturers": [
     "Reference data"
@@ -36,21 +36,21 @@
       "typical": 270,
       "max": 270,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 6082-T651 Aluminum (320 / 270 / HB 91) · Aalco Aluminium Alloy 6082 T6~T651 Plate datasheet (BS EN 485-2: 6~12.5 mm 300/255 min, El 9 min, HB 91)"
+      "provenance": "교정: MakeItFrom 6082-T651 Aluminum (320 / 270 / HB 91) · Aalco Aluminium Alloy 6082 T6~T651 Plate datasheet (BS EN 485-2: 6~12.5 mm 300/255 min, El 9 min, HB 91) · [경도 스케일] 인용 경도 91 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "uts": {
       "min": 320,
       "typical": 320,
       "max": 320,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 6082-T651 Aluminum (320 / 270 / HB 91) · Aalco Aluminium Alloy 6082 T6~T651 Plate datasheet (BS EN 485-2: 6~12.5 mm 300/255 min, El 9 min, HB 91)"
+      "provenance": "교정: MakeItFrom 6082-T651 Aluminum (320 / 270 / HB 91) · Aalco Aluminium Alloy 6082 T6~T651 Plate datasheet (BS EN 485-2: 6~12.5 mm 300/255 min, El 9 min, HB 91) · [경도 스케일] 인용 경도 91 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "elongation": {
       "min": 9,
       "typical": 9,
       "max": 9,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 6082-T651 Aluminum (320 / 270 / HB 91) · Aalco Aluminium Alloy 6082 T6~T651 Plate datasheet (BS EN 485-2: 6~12.5 mm 300/255 min, El 9 min, HB 91)"
+      "provenance": "교정: MakeItFrom 6082-T651 Aluminum (320 / 270 / HB 91) · Aalco Aluminium Alloy 6082 T6~T651 Plate datasheet (BS EN 485-2: 6~12.5 mm 300/255 min, El 9 min, HB 91) · [경도 스케일] 인용 경도 91 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "modulus": {
       "min": 70,
@@ -60,11 +60,15 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 91,
-      "typical": 91,
-      "max": 91,
+      "min": 106,
+      "typical": 106,
+      "max": 106,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 6082-T651 Aluminum (320 / 270 / HB 91) · Aalco Aluminium Alloy 6082 T6~T651 Plate datasheet (BS EN 485-2: 6~12.5 mm 300/255 min, El 9 min, HB 91)"
+      "provenance": "교정: MakeItFrom 6082-T651 Aluminum (320 / 270 / HB 91) · Aalco Aluminium Alloy 6082 T6~T651 Plate datasheet (BS EN 485-2: 6~12.5 mm 300/255 min, El 9 min, HB 91) · [경도 스케일] 인용 경도 91 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 91,
+      "conversion": "ASTM E140-12b Table 9"
     },
     "thermal_conductivity": {
       "min": 180,
@@ -226,7 +230,7 @@
       320,
       9,
       70,
-      91,
+      106,
       180
     ]
   ],
@@ -246,7 +250,7 @@
   "uts": 320,
   "elongation": 9,
   "modulus": 70,
-  "hardness": 91,
+  "hardness": 106,
   "thermal_conductivity": 180,
   "impact_strength": 13,
   "manufacturer": "Reference data",
@@ -279,7 +283,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 3.94,
-  "total_cost_estimate": 3.54,
+  "total_cost_estimate": 7.48,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "elevated_temp": [
@@ -361,7 +365,7 @@
       "val_scalar": 110
     },
     "_basis": "AA 6082-T651 의 340/295/HB 110 은 T651 판재 typical 밴드(310~320 / 260~280 / HB 89~91) 위에 있었다 — T651 은 T6 의 응력제거판이라 강도가 T6 와 같아야 한다. 연신율은 EN 485-2 최소(9%)를 채택(MakeItFrom 6.3% 은 박판 기준으로 보여 보수적으로 규격 최소).",
-    "_src": "MakeItFrom 6082-T651 Aluminum (320 / 270 / HB 91) · Aalco Aluminium Alloy 6082 T6~T651 Plate datasheet (BS EN 485-2: 6~12.5 mm 300/255 min, El 9 min, HB 91)",
+    "_src": "MakeItFrom 6082-T651 Aluminum (320 / 270 / HB 91) · Aalco Aluminium Alloy 6082 T6~T651 Plate datasheet (BS EN 485-2: 6~12.5 mm 300/255 min, El 9 min, HB 91) · [경도 스케일] 인용 경도 91 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
     "points": {
       "from": [
         [

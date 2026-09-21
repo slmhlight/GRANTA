@@ -29,13 +29,7 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "yield_strength": {
-      "min": 900,
-      "max": 900,
-      "typical": 900,
-      "n": 1,
-      "confidence": "handbook"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 900,
       "max": 900,
@@ -114,15 +108,6 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "fatigue_strength": {
-      "min": 405,
-      "max": 405,
-      "typical": 405,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
-    },
     "price_per_cm3": {
       "min": 0.5778,
       "max": 0.5778,
@@ -165,17 +150,18 @@
     "ceramic": true,
     "applications": "베어링 볼 (롤링 베어링 hybrid), 절삭 인서트, 디젤 엔진 글로 플러그, 터빈 로터",
     "limitations": "고가, 가공 어려움 (다이아몬드 그라인딩 필수)",
+    "no_yield": "취성 세라믹 — 항복점 없음. 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
     "_r173_note_applied": true
   },
   "popularity": 3.04,
   "density": 3.21,
-  "yield_strength": 900,
+  "yield_strength": null,
   "uts": 900,
   "elongation": null,
   "modulus": 320,
   "hardness": 1500,
   "thermal_conductivity": 30,
-  "fatigue_strength": 405,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Sintered",
@@ -185,7 +171,6 @@
     "Ceramic",
     "Nitride"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1.6,

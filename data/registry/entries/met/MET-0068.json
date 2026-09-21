@@ -166,8 +166,11 @@
       "max": 54,
       "typical": 54,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 60,
+      "factor": 0.9,
+      "condition": "carburized case",
       "provenance": "alloy-specific KIC × HT:carburized case (k×0.9)"
     },
     "delivered_price_per_kg": {
@@ -277,7 +280,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1.02,
   "delivered_price_per_kg": 3.9,
-  "total_cost_estimate": 3.51,
+  "total_cost_estimate": 7.42,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium"

@@ -126,8 +126,8 @@
       "provenance": "3rd_family:Tool Steel - High-Speed"
     },
     "poisson_ratio": {
-      "min": 0.2465,
-      "max": 0.3335,
+      "min": 0.27,
+      "max": 0.31,
       "typical": 0.29,
       "n": 0,
       "estimated": true,
@@ -189,6 +189,16 @@
     "Mn": "≤0.35"
   },
   "sources": [
+    {
+      "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM A600 — Tool Steel High Speed",
+      "url": "https://store.astm.org/a0600-92ar16.html",
+      "verified": false
+    },
     {
       "label": "MatWeb 1",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=M50%20tool%20steel",
@@ -272,8 +282,34 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 6.43,
-  "total_cost_estimate": 6.43,
+  "total_cost_estimate": 12.85,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb 1",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=M50%20tool%20steel",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: ASM Vol.1 Tool Steels",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.1 Tool Steels)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Böhler Edelstahl — R250 (M50/1.3551/AMS 6491) 조성 (WebFetch 확인)",
+          "url": "https://www.bohler-edelstahl.com/en/products/r250/",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

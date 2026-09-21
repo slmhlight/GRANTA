@@ -29,13 +29,7 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "yield_strength": {
-      "min": 260,
-      "max": 260,
-      "typical": 260,
-      "n": 1,
-      "confidence": "handbook"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 260,
       "max": 260,
@@ -120,15 +114,6 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "fatigue_strength": {
-      "min": 117,
-      "max": 117,
-      "typical": 117,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
-    },
     "price_per_cm3": {
       "min": 0.1624,
       "max": 0.1624,
@@ -171,6 +156,7 @@
     "ceramic": true,
     "applications": "베어링, 절연체, 의료 임플란트 (인공관절 ball head), 절삭 인서트, microcircuit substrate",
     "limitations": "충격에 약함 (KIC ~6 MPa·√m), 열충격 ΔT ~200°C 한계",
+    "no_yield": "취성 세라믹 — 항복점 없음. 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
     "_r173_note_applied": true,
     "specs": [
       {
@@ -181,13 +167,13 @@
   },
   "popularity": 4,
   "density": 3.96,
-  "yield_strength": 260,
+  "yield_strength": null,
   "uts": 260,
   "elongation": null,
   "modulus": 400,
   "hardness": 1830,
   "thermal_conductivity": 30,
-  "fatigue_strength": 117,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Sintered",
@@ -199,7 +185,6 @@
     "Ceramic",
     "Oxide"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1,

@@ -2,7 +2,7 @@
   "stable_id": "MET-1000",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "subcategory": "F-MET-aluminum-si-alloys-cast-am-3xx-4xx",
     "alloy_base": "F-AB-adc12-a383-die-cast-al-si-cu",
     "element_families": [
       "F-EL-aluminum-based"
@@ -13,7 +13,7 @@
   "id": "R_0453",
   "name": "ADC12 / A383 (die-cast Al-Si-Cu)",
   "category": "Metal",
-  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "subcategory": "Aluminum - Si Alloys (cast/AM 3xx·4xx)",
   "tier": "reference",
   "manufacturers": [
     "Reference data"
@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 75,
-      "max": 75,
-      "typical": 75,
+      "min": 86,
+      "max": 86,
+      "typical": 86,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 75,
+      "conversion": "ASTM E140-12b Table 9",
+      "provenance": "HB 75 → HV 86 (ASTM E140-12b Table 9)"
     },
     "thermal_conductivity": {
       "min": 96,
@@ -105,7 +110,7 @@
       "n": 0,
       "estimated": true,
       "confidence": "class",
-      "provenance": "1st_family:Aluminum - Si Alloys (6xxx/7xxx)"
+      "provenance": "1st_family:Aluminum - Si Alloys (cast/AM 3xx·4xx)"
     },
     "max_service_temp": {
       "min": 85,
@@ -114,7 +119,7 @@
       "n": 0,
       "estimated": true,
       "confidence": "class",
-      "provenance": "1st_family:Aluminum - Si Alloys (6xxx/7xxx)"
+      "provenance": "1st_family:Aluminum - Si Alloys (cast/AM 3xx·4xx)"
     },
     "thermal_expansion": {
       "min": 11.5,
@@ -123,16 +128,16 @@
       "n": 0,
       "estimated": true,
       "confidence": "class",
-      "provenance": "1st_family:Aluminum - Si Alloys (6xxx/7xxx)"
+      "provenance": "1st_family:Aluminum - Si Alloys (cast/AM 3xx·4xx)"
     },
     "poisson_ratio": {
-      "min": 0.165,
-      "max": 0.495,
+      "min": 0.29,
+      "max": 0.37,
       "typical": 0.33,
       "n": 0,
       "estimated": true,
       "confidence": "class",
-      "provenance": "1st_family:Aluminum - Si Alloys (6xxx/7xxx)"
+      "provenance": "1st_family:Aluminum - Si Alloys (cast/AM 3xx·4xx)"
     },
     "specific_heat": {
       "min": 450,
@@ -141,7 +146,7 @@
       "n": 0,
       "estimated": true,
       "confidence": "class",
-      "provenance": "1st_family:Aluminum - Si Alloys (6xxx/7xxx)"
+      "provenance": "1st_family:Aluminum - Si Alloys (cast/AM 3xx·4xx)"
     },
     "melting_point": {
       "min": 325,
@@ -150,7 +155,7 @@
       "n": 0,
       "estimated": true,
       "confidence": "class",
-      "provenance": "1st_family:Aluminum - Si Alloys (6xxx/7xxx)"
+      "provenance": "1st_family:Aluminum - Si Alloys (cast/AM 3xx·4xx)"
     },
     "price_per_kg": {
       "min": 2,
@@ -159,7 +164,7 @@
       "n": 0,
       "estimated": true,
       "confidence": "class",
-      "provenance": "1st_family:Aluminum - Si Alloys (6xxx/7xxx)"
+      "provenance": "1st_family:Aluminum - Si Alloys (cast/AM 3xx·4xx)"
     },
     "price_per_cm3": {
       "min": 0.0055,
@@ -168,7 +173,7 @@
       "n": 0,
       "estimated": true,
       "confidence": "class",
-      "provenance": "1st_family:Aluminum - Si Alloys (6xxx/7xxx)"
+      "provenance": "1st_family:Aluminum - Si Alloys (cast/AM 3xx·4xx)"
     },
     "delivered_price_per_kg": {
       "min": 4,
@@ -212,7 +217,7 @@
       310,
       2.5,
       71,
-      75,
+      86,
       96
     ]
   ],
@@ -247,7 +252,7 @@
   "uts": 310,
   "elongation": 2.5,
   "modulus": 71,
-  "hardness": 75,
+  "hardness": 86,
   "thermal_conductivity": 96,
   "impact_strength": 17,
   "manufacturer": "Reference data",
@@ -255,7 +260,7 @@
   "source": "Sunrise Metal — A383 (ADC12) die-cast datasheet",
   "families": [
     "Metal",
-    "Aluminum - Si Alloys (6xxx/7xxx)",
+    "Aluminum - Si Alloys (cast/AM 3xx·4xx)",
     "Aluminum-based"
   ],
   "electrical_conductivity": 40,
@@ -273,10 +278,39 @@
   "price_form_factor": 1,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 4,
-  "total_cost_estimate": 2.4,
+  "total_cost_estimate": 6.4,
   "min_wall_thickness": 2.5,
   "surface_finish_typical": 12.5,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 75,
+        "max": 75,
+        "typical": 75,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 75
+    },
+    "_hardness_scale": "Al HB500 75 → HV 86 (E140 T9)",
+    "points": {
+      "from": [
+        [
+          2.74,
+          160,
+          310,
+          2.5,
+          71,
+          75,
+          96
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  }
 }

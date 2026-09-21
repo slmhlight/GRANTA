@@ -96,8 +96,11 @@
       "max": 30.8,
       "typical": 30.8,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 28,
+      "factor": 1.1,
+      "condition": "as-cast (defect-limited)",
       "provenance": "alloy-specific KIC × HT:as-cast (defect-limited) (k×1.1)"
     },
     "electrical_conductivity": {
@@ -280,7 +283,7 @@
   "price_form_factor": 1,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 200,
-  "total_cost_estimate": 360,
+  "total_cost_estimate": 560,
   "min_wall_thickness": 2.5,
   "surface_finish_typical": 12.5,
   "tolerance_class": "IT13-14",

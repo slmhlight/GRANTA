@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 65,
-      "max": 65,
-      "typical": 65,
+      "min": 74,
+      "max": 74,
+      "typical": 74,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 65,
+      "conversion": "ASTM E140-12b Table 9",
+      "provenance": "HB 65 → HV 74 (ASTM E140-12b Table 9)"
     },
     "thermal_conductivity": {
       "min": 134,
@@ -95,8 +100,11 @@
       "max": 45.6,
       "typical": 45.6,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 38,
+      "factor": 1.2,
+      "condition": "H111/H112 as-fabricated",
       "provenance": "alloy-specific KIC × HT:H111/H112 as-fabricated (k×1.2)"
     },
     "electrical_conductivity": {
@@ -225,7 +233,7 @@
       240,
       14,
       71.8,
-      65,
+      74,
       134
     ]
   ],
@@ -245,7 +253,7 @@
   "uts": 240,
   "elongation": 14,
   "modulus": 71.8,
-  "hardness": 65,
+  "hardness": 74,
   "thermal_conductivity": 134,
   "impact_strength": 14,
   "manufacturer": "Reference data",
@@ -277,7 +285,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 3.36,
-  "total_cost_estimate": 3.02,
+  "total_cost_estimate": 6.38,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
@@ -288,6 +296,33 @@
         "EN AW-5454",
         "AlMg3Mn"
       ]
-    }
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 65,
+        "max": 65,
+        "typical": 65,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 65
+    },
+    "_hardness_scale": "Al HB500 65 → HV 74 (E140 T9)",
+    "points": {
+      "from": [
+        [
+          2.69,
+          165,
+          240,
+          14,
+          71.8,
+          65,
+          134
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
   }
 }

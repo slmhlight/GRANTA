@@ -89,8 +89,11 @@
       "max": 88,
       "typical": 88,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 80,
+      "factor": 1.1,
+      "condition": "as-built martensitic",
       "provenance": "alloy-specific KIC × HT:as-built martensitic (k×1.1)"
     },
     "electrical_conductivity": {
@@ -327,7 +330,7 @@
   "price_form_factor": 2.5,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 17.5,
-  "total_cost_estimate": 31.5,
+  "total_cost_estimate": 49,
   "min_wall_thickness": 0.4,
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",

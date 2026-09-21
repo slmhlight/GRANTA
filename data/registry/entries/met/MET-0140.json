@@ -36,21 +36,21 @@
       "typical": 120,
       "max": 120,
       "confidence": "handbook",
-      "provenance": "교정: ASM Handbook Vol.2 (1990) p.93-4 '5086, Alclad 5086' — 5086-O 260 / 120 / 22% (Wikipedia 5086 aluminium alloy 인용) · MakeItFrom 5086-O (270 / 110 / 20% / HB 65)"
+      "provenance": "교정: ASM Handbook Vol.2 (1990) p.93-4 '5086, Alclad 5086' — 5086-O 260 / 120 / 22% (Wikipedia 5086 aluminium alloy 인용) · MakeItFrom 5086-O (270 / 110 / 20% / HB 65) · [경도 스케일] 인용 경도 65 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "uts": {
       "min": 260,
       "typical": 260,
       "max": 260,
       "confidence": "handbook",
-      "provenance": "교정: ASM Handbook Vol.2 (1990) p.93-4 '5086, Alclad 5086' — 5086-O 260 / 120 / 22% (Wikipedia 5086 aluminium alloy 인용) · MakeItFrom 5086-O (270 / 110 / 20% / HB 65)"
+      "provenance": "교정: ASM Handbook Vol.2 (1990) p.93-4 '5086, Alclad 5086' — 5086-O 260 / 120 / 22% (Wikipedia 5086 aluminium alloy 인용) · MakeItFrom 5086-O (270 / 110 / 20% / HB 65) · [경도 스케일] 인용 경도 65 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "elongation": {
       "min": 22,
       "typical": 22,
       "max": 22,
       "confidence": "handbook",
-      "provenance": "교정: ASM Handbook Vol.2 (1990) p.93-4 '5086, Alclad 5086' — 5086-O 260 / 120 / 22% (Wikipedia 5086 aluminium alloy 인용) · MakeItFrom 5086-O (270 / 110 / 20% / HB 65)"
+      "provenance": "교정: ASM Handbook Vol.2 (1990) p.93-4 '5086, Alclad 5086' — 5086-O 260 / 120 / 22% (Wikipedia 5086 aluminium alloy 인용) · MakeItFrom 5086-O (270 / 110 / 20% / HB 65) · [경도 스케일] 인용 경도 65 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "modulus": {
       "min": 72,
@@ -60,11 +60,15 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 65,
-      "typical": 65,
-      "max": 65,
+      "min": 74,
+      "typical": 74,
+      "max": 74,
       "confidence": "handbook",
-      "provenance": "교정: ASM Handbook Vol.2 (1990) p.93-4 '5086, Alclad 5086' — 5086-O 260 / 120 / 22% (Wikipedia 5086 aluminium alloy 인용) · MakeItFrom 5086-O (270 / 110 / 20% / HB 65)"
+      "provenance": "교정: ASM Handbook Vol.2 (1990) p.93-4 '5086, Alclad 5086' — 5086-O 260 / 120 / 22% (Wikipedia 5086 aluminium alloy 인용) · MakeItFrom 5086-O (270 / 110 / 20% / HB 65) · [경도 스케일] 인용 경도 65 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 65,
+      "conversion": "ASTM E140-12b Table 9"
     },
     "thermal_conductivity": {
       "min": 121,
@@ -94,8 +98,11 @@
       "max": 57,
       "typical": 57,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 38,
+      "factor": 1.5,
+      "condition": "O (annealed soft)",
       "provenance": "alloy-specific KIC × HT:O (annealed soft) (k×1.5)"
     },
     "electrical_conductivity": {
@@ -203,7 +210,7 @@
       260,
       22,
       72,
-      65,
+      74,
       121
     ]
   ],
@@ -226,7 +233,7 @@
   "uts": 260,
   "elongation": 22,
   "modulus": 72,
-  "hardness": 65,
+  "hardness": 74,
   "thermal_conductivity": 121,
   "impact_strength": 31,
   "manufacturer": "Generic",
@@ -256,7 +263,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 3.43,
-  "total_cost_estimate": 3.08,
+  "total_cost_estimate": 6.51,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
@@ -342,7 +349,7 @@
       "val_scalar": 70.5
     },
     "_basis": "AA 5086-O. 합성값의 항복 202.1 은 H32 급(205) — 소둔 대표는 115~120.",
-    "_src": "ASM Handbook Vol.2 (1990) p.93-4 '5086, Alclad 5086' — 5086-O 260 / 120 / 22% (Wikipedia 5086 aluminium alloy 인용) · MakeItFrom 5086-O (270 / 110 / 20% / HB 65)",
+    "_src": "ASM Handbook Vol.2 (1990) p.93-4 '5086, Alclad 5086' — 5086-O 260 / 120 / 22% (Wikipedia 5086 aluminium alloy 인용) · MakeItFrom 5086-O (270 / 110 / 20% / HB 65) · [경도 스케일] 인용 경도 65 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
     "points": {
       "from": [
         [

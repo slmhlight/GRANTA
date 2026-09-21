@@ -60,11 +60,16 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 110,
-      "max": 125,
-      "typical": 115,
+      "min": 129,
+      "max": 147,
+      "typical": 135,
       "n": 3,
-      "confidence": "measured"
+      "confidence": "measured",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 115,
+      "conversion": "ASTM E140-12b Table 9",
+      "provenance": "HB 115 → HV 135 (ASTM E140-12b Table 9)"
     },
     "thermal_conductivity": {
       "min": 146,
@@ -126,8 +131,8 @@
       "provenance": "3rd_family:Aluminum"
     },
     "poisson_ratio": {
-      "min": 0.2805,
-      "max": 0.3795,
+      "min": 0.31,
+      "max": 0.35,
       "typical": 0.33,
       "n": 0,
       "estimated": true,
@@ -215,25 +220,7 @@
       440,
       10,
       74,
-      115,
-      146
-    ],
-    [
-      2.76,
-      350,
-      420,
-      8,
-      74,
-      110,
-      146
-    ],
-    [
-      2.76,
-      390,
-      460,
-      12,
-      74,
-      125,
+      135,
       146
     ]
   ],
@@ -251,7 +238,7 @@
   "uts": 440,
   "elongation": 10,
   "modulus": 74,
-  "hardness": 115,
+  "hardness": 135,
   "thermal_conductivity": 146,
   "impact_strength": 10,
   "manufacturer": "Reference data",
@@ -284,7 +271,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 6.3,
-  "total_cost_estimate": 5.67,
+  "total_cost_estimate": 11.97,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "svhc_concerns": [
@@ -298,6 +285,51 @@
         "EN AW-2618",
         "AlCu2Mg1.5Ni"
       ]
-    }
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 110,
+        "max": 125,
+        "typical": 115,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 115
+    },
+    "_hardness_scale": "Al HB500 115 → HV 135 (E140 T9)",
+    "points": {
+      "from": [
+        [
+          2.76,
+          370,
+          440,
+          10,
+          74,
+          115,
+          146
+        ],
+        [
+          2.76,
+          350,
+          420,
+          8,
+          74,
+          110,
+          146
+        ],
+        [
+          2.76,
+          390,
+          460,
+          12,
+          74,
+          125,
+          146
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
   }
 }

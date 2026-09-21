@@ -79,7 +79,7 @@ export const propColor = (key: string): string => GROUP_COLORS[PROP_GROUP[key] |
 export type ConfidenceLevel = 'measured' | 'handbook' | 'subfamily' | 'family' | 'class' | 'derived';
 export const CONFIDENCE_ORDER: ConfidenceLevel[] = ['measured', 'handbook', 'subfamily', 'family', 'class', 'derived'];
 export const CONFIDENCE: Record<ConfidenceLevel, { hex: string; twDot: string; twText: string; label: string; labelEn: string; tip: string }> = {
-  measured:  { hex: '#10b981', twDot: 'bg-emerald-500', twText: 'text-foreground/50', label: '실측',    labelEn: 'measured', tip: '실측 데이터 다수 (가장 신뢰)' },
+  measured:  { hex: '#10b981', twDot: 'bg-emerald-500', twText: 'text-foreground/50', label: '실측',    labelEn: 'measured', tip: '실측(측정) 값 — 배지의 n=N 이 표본 수. n 이 작으면 단일 대표값에 가깝고, 실측이라도 시험 조건·통계 기준은 출처에서 확인' },
   handbook:  { hex: '#0ea5e9', twDot: 'bg-sky-500',     twText: 'text-sky-600',       label: '핸드북',  labelEn: 'handbook', tip: '표준 데이터시트 기반 (개별 alloy 1차 자료)' },
   subfamily: { hex: '#3b82f6', twDot: 'bg-blue-500',    twText: 'text-blue-600',      label: 'sub-fam', labelEn: 'sub-fam',  tip: '3rd family typical (예: 스테인리스 austenitic / Al 7xxx 등 — 특정 subgroup)' },
   family:    { hex: '#06b6d4', twDot: 'bg-cyan-500',    twText: 'text-cyan-600',      label: 'family',  labelEn: 'family',   tip: '2nd family typical (예: 스테인리스 일반 / Al 일반 등 — group)' },

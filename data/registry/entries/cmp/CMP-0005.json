@@ -30,13 +30,7 @@
       "confidence": "measured",
       "provenance": "Cytec 5250-4 BMI + IM7 prepreg datasheet"
     },
-    "yield_strength": {
-      "min": 2400,
-      "max": 2700,
-      "typical": 2550,
-      "n": 1,
-      "confidence": "measured"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 2400,
       "max": 2700,
@@ -91,15 +85,6 @@
       "typical": 1.6,
       "n": 1,
       "confidence": "measured"
-    },
-    "fatigue_strength": {
-      "min": 1125,
-      "max": 1125,
-      "typical": 1125,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
     },
     "price_per_cm3": {
       "min": 0.352,
@@ -163,17 +148,19 @@
     "applications": "F-22 Raptor·F-35 Lightning II nose & wing skin (high-temp 200°C 환경), 미사일 nosecone (radome), Trent 1000 fan blade containment, hypersonic UAV",
     "limitations": "에폭시 대비 toughness 낮음 (KIC 약), 가공·curing 비용 ↑, 흡습 영향 영구",
     "anisotropy_note": "복합재 — 강성·강도가 fiber 방향 의존. 0° UD 값 (수직 방향은 1/10~1/20).",
-    "_r173_note_applied": true
+    "no_yield": "섬유 복합재 — 항복점 없음(선형 후 파단). 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
+    "_r173_note_applied": true,
+    "composition_basis": "vol%"
   },
   "popularity": 4,
   "density": 1.6,
-  "yield_strength": 2500,
+  "yield_strength": null,
   "uts": 2500,
   "elongation": 1.6,
   "modulus": 165,
   "hardness": null,
   "thermal_conductivity": 6,
-  "fatigue_strength": 1125,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Layup",
@@ -183,7 +170,6 @@
     "Composite",
     "Carbon-BMI"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1,

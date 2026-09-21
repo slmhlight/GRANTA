@@ -34,8 +34,8 @@
       "min": 1000,
       "max": 1500,
       "typical": 1200,
-      "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "n": 1
     },
     "uts": {
       "min": 1200,
@@ -93,15 +93,6 @@
       "n": 1,
       "confidence": "measured"
     },
-    "fatigue_strength": {
-      "min": 1350,
-      "max": 1350,
-      "typical": 1350,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
-    },
     "price_per_cm3": {
       "min": 0.2425,
       "max": 0.2425,
@@ -145,6 +136,7 @@
     "applications": "최고급 방탄 (Level IV plate), 등반·낚시 rope, 의료 sutures",
     "limitations": "80°C 이상 creep, 접착 어려움",
     "anisotropy_note": "복합재 — 강성·강도가 fiber 방향 의존. 0° UD 값 (수직 방향은 1/10~1/20).",
+    "no_yield": "섬유 복합재 — 항복점 없음(선형 후 파단). 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
     "_r173_note_applied": true
   },
   "popularity": 3,
@@ -155,7 +147,7 @@
   "modulus": 120,
   "hardness": null,
   "thermal_conductivity": 0.4,
-  "fatigue_strength": 1350,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Layup",
@@ -168,7 +160,6 @@
     "Composite",
     "Polyethylene-Epoxy"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1,

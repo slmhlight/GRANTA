@@ -123,8 +123,8 @@
       "provenance": "2nd_family:Press-Hardening Steel"
     },
     "poisson_ratio": {
-      "min": 0.203,
-      "max": 0.377,
+      "min": 0.26,
+      "max": 0.32,
       "typical": 0.29,
       "n": 0,
       "estimated": true,
@@ -186,6 +186,16 @@
     "Ti": "0.020~0.05"
   },
   "sources": [
+    {
+      "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "EN 10083-3 — Steels for quenching and tempering, alloy steels (22MnB5)",
+      "url": "https://www.en-standard.eu/bs-en-10083-3-2006-steels-for-quenching-and-tempering-technical-delivery-conditions-for-alloy-steels/",
+      "verified": false
+    },
     {
       "label": "Datasheet 3",
       "url": "ANSYS Granta — Press hardening steel 22MnB5 (BS EN 10083-3:2006), high ductility + austenized & H2O quenched (coated/uncoated)",
@@ -257,8 +267,29 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 2.21,
-  "total_cost_estimate": 1.98,
+  "total_cost_estimate": 4.19,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Datasheet 3",
+          "url": "ANSYS Granta — Press hardening steel 22MnB5 (BS EN 10083-3:2006), high ductility + austenized & H2O quenched (coated/uncoated)",
+          "verified": true
+        },
+        {
+          "label": "Datasheet 3",
+          "url": "https://automotive.arcelormittal.com/products/flat/PHS/usibor_ductibor",
+          "verified": true
+        },
+        {
+          "label": "Datasheet 3",
+          "url": "ArcelorMittal Ductibor 500 P / Krupp 22MnB5 datasheet",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

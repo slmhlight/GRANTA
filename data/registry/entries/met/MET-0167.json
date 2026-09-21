@@ -36,21 +36,21 @@
       "typical": 34,
       "max": 34,
       "confidence": "handbook",
-      "provenance": "교정: EMJ Metals Aluminum catalog — 1100-O typical 13,000/5,000 psi, El 35 · United Aluminum 1100-O 13/5 ksi · MakeItFrom 1100-O (88 / 29 / 32% / HB 23)"
+      "provenance": "교정: EMJ Metals Aluminum catalog — 1100-O typical 13,000/5,000 psi, El 35 · United Aluminum 1100-O 13/5 ksi · MakeItFrom 1100-O (88 / 29 / 32% / HB 23) · [경도 스케일] 인용 경도 23 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기."
     },
     "uts": {
       "min": 90,
       "typical": 90,
       "max": 90,
       "confidence": "handbook",
-      "provenance": "교정: EMJ Metals Aluminum catalog — 1100-O typical 13,000/5,000 psi, El 35 · United Aluminum 1100-O 13/5 ksi · MakeItFrom 1100-O (88 / 29 / 32% / HB 23)"
+      "provenance": "교정: EMJ Metals Aluminum catalog — 1100-O typical 13,000/5,000 psi, El 35 · United Aluminum 1100-O 13/5 ksi · MakeItFrom 1100-O (88 / 29 / 32% / HB 23) · [경도 스케일] 인용 경도 23 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기."
     },
     "elongation": {
       "min": 35,
       "typical": 35,
       "max": 35,
       "confidence": "handbook",
-      "provenance": "교정: EMJ Metals Aluminum catalog — 1100-O typical 13,000/5,000 psi, El 35 · United Aluminum 1100-O 13/5 ksi · MakeItFrom 1100-O (88 / 29 / 32% / HB 23)"
+      "provenance": "교정: EMJ Metals Aluminum catalog — 1100-O typical 13,000/5,000 psi, El 35 · United Aluminum 1100-O 13/5 ksi · MakeItFrom 1100-O (88 / 29 / 32% / HB 23) · [경도 스케일] 인용 경도 23 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기."
     },
     "modulus": {
       "min": 69,
@@ -64,7 +64,12 @@
       "typical": 23,
       "max": 23,
       "confidence": "handbook",
-      "provenance": "교정: EMJ Metals Aluminum catalog — 1100-O typical 13,000/5,000 psi, El 35 · United Aluminum 1100-O 13/5 ksi · MakeItFrom 1100-O (88 / 29 / 32% / HB 23)"
+      "provenance": "교정: EMJ Metals Aluminum catalog — 1100-O typical 13,000/5,000 psi, El 35 · United Aluminum 1100-O 13/5 ksi · MakeItFrom 1100-O (88 / 29 / 32% / HB 23) · [경도 스케일] 인용 경도 23 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기.",
+      "scale": "HB",
+      "source_scale": "HB",
+      "source_value": 23,
+      "conversion": null,
+      "scale_note": "ASTM E140 표 밖(또는 해당 표 없음) — 환산하지 않고 원 스케일 그대로 표기"
     },
     "thermal_conductivity": {
       "min": 222,
@@ -94,8 +99,11 @@
       "max": 110,
       "typical": 110,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 55,
+      "factor": 2,
+      "condition": "O (annealed soft, fallback derived from T6)",
       "provenance": "alloy-specific KIC × HT:O (annealed soft, fallback derived from T6) (k×2)"
     },
     "electrical_conductivity": {
@@ -259,7 +267,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 2.46,
-  "total_cost_estimate": 2.22,
+  "total_cost_estimate": 4.68,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
@@ -346,7 +354,7 @@
       "val_scalar": 28.2
     },
     "_basis": "AA 1100-O. 합성값(σy 32.9/UTS 84.6/El 32.9/HV 28.2) → AA 대표값 13/5 ksi, El 35, HB 23.",
-    "_src": "EMJ Metals Aluminum catalog — 1100-O typical 13,000/5,000 psi, El 35 · United Aluminum 1100-O 13/5 ksi · MakeItFrom 1100-O (88 / 29 / 32% / HB 23)",
+    "_src": "EMJ Metals Aluminum catalog — 1100-O typical 13,000/5,000 psi, El 35 · United Aluminum 1100-O 13/5 ksi · MakeItFrom 1100-O (88 / 29 / 32% / HB 23) · [경도 스케일] 인용 경도 23 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기.",
     "points": {
       "from": [
         [

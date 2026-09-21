@@ -2,40 +2,36 @@
   "_meta": {
     "round": "R150",
     "date": "2026-06-06",
+    "aud_2026_09_22": "F07/F08/F29 — 구 B4C 20/40 vol% entry 는 ASTM C1161 4점굽힘값을 UTS 로 싣고(F07), vol% 구성을 wt% 탭에 표시(F08), 60~80 vol% 침투 장갑재 설명이 섞여(F29) 있었으며 출처가 검증 불가였다. 공개 논문(Zhang 2017 Appl. Sci.) 실측(20/15 wt%, 순Al 기지)으로 교체 — 탄성률·연신율·경도·사용온도는 논문이 주지 않으므로 싣지 않는다.",
     "purpose": "R145 후속 — MMC/CMC/Honeycomb/Foam Core + 고온 polymer 의 measured 값 추가. 신뢰성 datasheet 기반.",
     "scope": "B4C-Al MMC, Al 6061/SiC MMC, Ti/SiC MMC, CMC (Al2O3 / SiC-SiC), Aramid Honeycomb, AFK Kevlar, CFRP IM7/BMI · M40J · M55J · Pitch P-100, Antero 800NA + ULTEM 1010/9085 + Solvay KetaSpire 의 elevated temp 일부."
   },
 
   "composites": {
-    "B4C-Al MMC (boron carbide / Al armor) — Pressed + sintered (B4C 20%)": {
+    "B4C-Al MMC (boron carbide particulate / Al neutron-absorber & armor) — PM sintered + hot-extruded + hot-rolled (B4C 20 wt%, Al 99.5 matrix)": {
       "composition": [
-        ["B4C particle (20 vol%, 80-150 μm)", "20"],
-        ["Al matrix (Al-Mg-Si 6061)", "80"]
+        ["B4C particle (20 wt%, <10 μm, ≥95 % purity)", "20"],
+        ["Al matrix (99.5 % Al powder, PM)", "80"]
       ],
       "ranges": {
-        "density": { "min": 2.55, "max": 2.65, "typical": 2.60, "confidence": "measured", "provenance": "Sonometric / Saint-Gobain B4C-Al armor tile datasheet" },
-        "uts": { "min": 420, "max": 480, "typical": 450, "confidence": "measured", "provenance": "ASTM C1161 4-point bending (typical B4C-Al MMC)" },
-        "yield_strength": { "min": 380, "max": 430, "typical": 405, "confidence": "measured" },
-        "modulus": { "min": 95, "max": 110, "typical": 100, "confidence": "measured" },
-        "elongation": { "min": 1.5, "max": 3.5, "typical": 2.5, "confidence": "measured" },
-        "max_service_temp": { "min": 350, "max": 450, "typical": 400, "confidence": "measured" }
+        "density": { "min": 2.66, "max": 2.66, "typical": 2.66, "confidence": "derived", "provenance": "혼합법칙(완전치밀 가정) 1/(0.80/2.70 + 0.20/2.52) = 2.66 — 논문 미보고, 계산값" },
+        "uts": { "min": 306, "max": 306, "typical": 306, "confidence": "measured", "provenance": "Zhang L. et al., \"B4C-Al Composites Fabricated by the Powder Metallurgy Process\", Appl. Sci. 2017, 7(10):1009 (open access, doi:10.3390/app7101009) — GB/T 228 인장, 고에너지 볼밀 + 530°C 소결 + 480°C 압출 + 460°C 압연 판재 — 인장강도 306 MPa (고에너지 볼밀 시편)" },
+        "yield_strength": { "min": 213, "max": 213, "typical": 213, "confidence": "measured", "provenance": "Zhang L. et al., \"B4C-Al Composites Fabricated by the Powder Metallurgy Process\", Appl. Sci. 2017, 7(10):1009 (open access, doi:10.3390/app7101009) — GB/T 228 인장, 고에너지 볼밀 + 530°C 소결 + 480°C 압출 + 460°C 압연 판재 — 항복강도 213 MPa (고에너지 볼밀 시편)" }
       },
-      "industry_note": "군용 ceramic-metal hybrid armor (MIL-DTL-46100 의 일부 grade). B4C-Al MMC armor 의 areal density 22 kg/m² 가 NIJ Level IV 통과."
+      "industry_note": "사용후핵연료 저장 랙·수송 캐스크의 중성자 흡수 구조재(10B 흡수단면적) 및 경량 장갑 후보. 이 entry 는 입자강화 PM 복합재(B4C ≤ 20 wt%)이며, 60~80 vol% B4C 를 Al 로 침투시킨 반응결합 장갑판(E 300+ GPa)과는 다른 재료군이다 — 그 값은 싣지 않는다."
     },
-    "B4C-Al MMC (boron carbide / Al armor) — Pressed + sintered (B4C 40%)": {
+
+    "B4C-Al MMC (boron carbide particulate / Al neutron-absorber & armor) — PM sintered + hot-extruded + hot-rolled (B4C 15 wt%, Al 99.5 matrix)": {
       "composition": [
-        ["B4C particle (40 vol%)", "40"],
-        ["Al matrix (Al-Mg-Si)", "60"]
+        ["B4C particle (15 wt%, <10 μm, ≥95 % purity)", "15"],
+        ["Al matrix (99.5 % Al powder, PM)", "85"]
       ],
       "ranges": {
-        "density": { "min": 2.45, "max": 2.55, "typical": 2.50, "confidence": "measured" },
-        "uts": { "min": 480, "max": 550, "typical": 520, "confidence": "measured" },
-        "yield_strength": { "min": 440, "max": 510, "typical": 480, "confidence": "measured" },
-        "modulus": { "min": 130, "max": 150, "typical": 140, "confidence": "measured" },
-        "elongation": { "min": 0.8, "max": 1.8, "typical": 1.2, "confidence": "measured" },
-        "max_service_temp": { "min": 350, "max": 450, "typical": 400, "confidence": "measured" }
+        "density": { "min": 2.67, "max": 2.67, "typical": 2.67, "confidence": "derived", "provenance": "혼합법칙(완전치밀 가정) 1/(0.85/2.70 + 0.15/2.52) = 2.67 — 논문 미보고, 계산값" },
+        "uts": { "min": 281, "max": 281, "typical": 281, "confidence": "measured", "provenance": "Zhang L. et al., \"B4C-Al Composites Fabricated by the Powder Metallurgy Process\", Appl. Sci. 2017, 7(10):1009 (open access, doi:10.3390/app7101009) — GB/T 228 인장, 고에너지 볼밀 + 530°C 소결 + 480°C 압출 + 460°C 압연 판재 — 인장강도 281 MPa (고에너지 볼밀 시편)" },
+        "yield_strength": { "min": 184, "max": 184, "typical": 184, "confidence": "measured", "provenance": "Zhang L. et al., \"B4C-Al Composites Fabricated by the Powder Metallurgy Process\", Appl. Sci. 2017, 7(10):1009 (open access, doi:10.3390/app7101009) — GB/T 228 인장, 고에너지 볼밀 + 530°C 소결 + 480°C 압출 + 460°C 압연 판재 — 항복강도 184 MPa (고에너지 볼밀 시편)" }
       },
-      "industry_note": "Heavy-armor application (M1 Abrams add-on armor 의 일부 layer). B4C 40% 그레이드는 hardness 가 더 높지만 brittle."
+      "industry_note": "사용후핵연료 저장 랙·수송 캐스크의 중성자 흡수 구조재(10B 흡수단면적) 및 경량 장갑 후보. 이 entry 는 입자강화 PM 복합재(B4C ≤ 20 wt%)이며, 60~80 vol% B4C 를 Al 로 침투시킨 반응결합 장갑판(E 300+ GPa)과는 다른 재료군이다 — 그 값은 싣지 않는다."
     },
 
     "CFRP — IM7/BMI (UD 0°, supersonic structural)": {

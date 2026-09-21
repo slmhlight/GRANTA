@@ -36,21 +36,21 @@
       "typical": 230,
       "max": 230,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom — Grade 11 (3.7225, R52250) Titanium, annealed (310 / 230 / 29% / HB 120)"
+      "provenance": "교정: MakeItFrom — Grade 11 (3.7225, R52250) Titanium, annealed (310 / 230 / 29% / HB 120) · [경도 스케일] MakeItFrom Grade 11 annealed 120 HB — ASTM E140 에 Ti 환산표가 없어 Brinell 그대로 표기(HV 아님)."
     },
     "uts": {
       "min": 310,
       "typical": 310,
       "max": 310,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom — Grade 11 (3.7225, R52250) Titanium, annealed (310 / 230 / 29% / HB 120)"
+      "provenance": "교정: MakeItFrom — Grade 11 (3.7225, R52250) Titanium, annealed (310 / 230 / 29% / HB 120) · [경도 스케일] MakeItFrom Grade 11 annealed 120 HB — ASTM E140 에 Ti 환산표가 없어 Brinell 그대로 표기(HV 아님)."
     },
     "elongation": {
       "min": 29,
       "typical": 29,
       "max": 29,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom — Grade 11 (3.7225, R52250) Titanium, annealed (310 / 230 / 29% / HB 120)"
+      "provenance": "교정: MakeItFrom — Grade 11 (3.7225, R52250) Titanium, annealed (310 / 230 / 29% / HB 120) · [경도 스케일] MakeItFrom Grade 11 annealed 120 HB — ASTM E140 에 Ti 환산표가 없어 Brinell 그대로 표기(HV 아님)."
     },
     "modulus": {
       "min": 103,
@@ -64,7 +64,12 @@
       "typical": 120,
       "max": 120,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom — Grade 11 (3.7225, R52250) Titanium, annealed (310 / 230 / 29% / HB 120)"
+      "provenance": "교정: MakeItFrom — Grade 11 (3.7225, R52250) Titanium, annealed (310 / 230 / 29% / HB 120) · [경도 스케일] MakeItFrom Grade 11 annealed 120 HB — ASTM E140 에 Ti 환산표가 없어 Brinell 그대로 표기(HV 아님).",
+      "scale": "HB",
+      "source_scale": "HB",
+      "source_value": 120,
+      "conversion": null,
+      "scale_note": "ASTM E140 표 밖(또는 해당 표 없음) — 환산하지 않고 원 스케일 그대로 표기"
     },
     "thermal_conductivity": {
       "min": 17,
@@ -123,8 +128,8 @@
       "provenance": "1st_family:Titanium - Pure / CP Grades"
     },
     "poisson_ratio": {
-      "min": 0.17,
-      "max": 0.51,
+      "min": 0.3,
+      "max": 0.38,
       "typical": 0.34,
       "n": 0,
       "estimated": true,
@@ -272,7 +277,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 39.32,
-  "total_cost_estimate": 86.51,
+  "total_cost_estimate": 125.83,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
@@ -345,7 +350,7 @@
       "val_scalar": 120
     },
     "_basis": "Titanium Grade 11(Ti-0.2Pd)의 200/295/30 은 인용 미상(단독 'Ti Grade 11' 170/240 은 B265 최소값). Gr11 = Gr1 + Pd — 대표값 인용(MakeItFrom)으로 교정. 두 base 를 이 entry 로 통합.",
-    "_src": "MakeItFrom — Grade 11 (3.7225, R52250) Titanium, annealed (310 / 230 / 29% / HB 120)",
+    "_src": "MakeItFrom — Grade 11 (3.7225, R52250) Titanium, annealed (310 / 230 / 29% / HB 120) · [경도 스케일] MakeItFrom Grade 11 annealed 120 HB — ASTM E140 에 Ti 환산표가 없어 Brinell 그대로 표기(HV 아님).",
     "points": {
       "from": [
         [

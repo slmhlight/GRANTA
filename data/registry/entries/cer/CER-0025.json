@@ -29,13 +29,7 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "yield_strength": {
-      "min": 100,
-      "max": 100,
-      "typical": 100,
-      "n": 1,
-      "confidence": "handbook"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 100,
       "max": 100,
@@ -114,15 +108,6 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "fatigue_strength": {
-      "min": 45,
-      "max": 45,
-      "typical": 45,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
-    },
     "price_per_cm3": {
       "min": 0.0895,
       "max": 0.0895,
@@ -154,17 +139,18 @@
   "meta": {
     "ceramic": true,
     "applications": "고온 도가니, 열전대 보호관, 분광 윈도우 (IR)",
-    "limitations": "물에 반응 (수산화)"
+    "limitations": "물에 반응 (수산화)",
+    "no_yield": "취성 세라믹 — 항복점 없음. 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조)."
   },
   "popularity": 2,
   "density": 3.58,
-  "yield_strength": 100,
+  "yield_strength": null,
   "uts": 100,
   "elongation": null,
   "modulus": 270,
   "hardness": 700,
   "thermal_conductivity": 60,
-  "fatigue_strength": 45,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Sintered",
@@ -176,7 +162,6 @@
     "Ceramic",
     "Oxide"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1,

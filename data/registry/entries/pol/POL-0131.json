@@ -57,13 +57,7 @@
       "n": 15,
       "confidence": "measured"
     },
-    "hardness": {
-      "min": 72.8,
-      "max": 87.2,
-      "typical": 77.6,
-      "n": 15,
-      "confidence": "measured"
-    },
+    "hardness": null,
     "thermal_conductivity": {
       "min": 0.24,
       "max": 0.24,
@@ -101,8 +95,8 @@
       "provenance": "class:Polymer - TPU (FDM)"
     },
     "poisson_ratio": {
-      "min": 0.2,
-      "max": 0.6,
+      "min": 0.36,
+      "max": 0.44,
       "typical": 0.4,
       "n": 0,
       "estimated": true,
@@ -341,7 +335,7 @@
   "uts": 48.5,
   "elongation": 376,
   "modulus": 0.15,
-  "hardness": 77.6,
+  "hardness": null,
   "thermal_conductivity": 0.24,
   "fatigue_strength": null,
   "impact_strength": null,
@@ -368,7 +362,7 @@
   "price_form_factor": 1,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 40,
-  "total_cost_estimate": 28,
+  "total_cost_estimate": 68,
   "min_wall_thickness": 0.8,
   "surface_finish_typical": 1.6,
   "tolerance_class": "IT10-12",

@@ -94,8 +94,11 @@
       "max": 17.6,
       "typical": 17.6,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 8,
+      "factor": 2.2,
+      "condition": "spheroidized annealed",
       "provenance": "alloy-specific KIC × HT:spheroidized annealed (k×2.2)"
     },
     "electrical_conductivity": {
@@ -263,7 +266,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 74.97,
-  "total_cost_estimate": 74.97,
+  "total_cost_estimate": 149.94,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",

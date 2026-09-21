@@ -36,21 +36,21 @@
       "typical": 228,
       "max": 228,
       "confidence": "handbook",
-      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2017-H13: 35/33 ksi, El 10) · D10 비례법 — 앵커 Alro 2017-T4 (62 ksi / HB 105)"
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2017-H13: 35/33 ksi, El 10) · D10 비례법 — 앵커 Alro 2017-T4 (62 ksi / HB 105) · [경도 스케일] 인용 경도 59 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "uts": {
       "min": 241,
       "typical": 241,
       "max": 241,
       "confidence": "handbook",
-      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2017-H13: 35/33 ksi, El 10) · D10 비례법 — 앵커 Alro 2017-T4 (62 ksi / HB 105)"
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2017-H13: 35/33 ksi, El 10) · D10 비례법 — 앵커 Alro 2017-T4 (62 ksi / HB 105) · [경도 스케일] 인용 경도 59 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "elongation": {
       "min": 10,
       "typical": 10,
       "max": 10,
       "confidence": "handbook",
-      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2017-H13: 35/33 ksi, El 10) · D10 비례법 — 앵커 Alro 2017-T4 (62 ksi / HB 105)"
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2017-H13: 35/33 ksi, El 10) · D10 비례법 — 앵커 Alro 2017-T4 (62 ksi / HB 105) · [경도 스케일] 인용 경도 59 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "modulus": {
       "min": 72,
@@ -60,11 +60,15 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 59,
-      "typical": 59,
-      "max": 59,
+      "min": 67,
+      "typical": 67,
+      "max": 67,
       "confidence": "handbook",
-      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2017-H13: 35/33 ksi, El 10) · D10 비례법 — 앵커 Alro 2017-T4 (62 ksi / HB 105)"
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2017-H13: 35/33 ksi, El 10) · D10 비례법 — 앵커 Alro 2017-T4 (62 ksi / HB 105) · [경도 스케일] 인용 경도 59 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 59,
+      "conversion": "ASTM E140-12b Table 9"
     },
     "thermal_conductivity": {
       "min": 121,
@@ -126,8 +130,8 @@
       "provenance": "1st_family:Aluminum - Cu Alloys (2xxx)"
     },
     "poisson_ratio": {
-      "min": 0.165,
-      "max": 0.495,
+      "min": 0.29,
+      "max": 0.37,
       "typical": 0.33,
       "n": 0,
       "estimated": true,
@@ -204,7 +208,7 @@
       241,
       10,
       72,
-      59,
+      67,
       121
     ]
   ],
@@ -235,7 +239,7 @@
   "uts": 241,
   "elongation": 10,
   "modulus": 72,
-  "hardness": 59,
+  "hardness": 67,
   "thermal_conductivity": 121,
   "impact_strength": 11,
   "manufacturer": "Generic",
@@ -264,7 +268,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 4.54,
-  "total_cost_estimate": 4.08,
+  "total_cost_estimate": 8.62,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
@@ -350,7 +354,7 @@
       "val_scalar": 101.9
     },
     "_basis": "'Strain-hardened' 합성값(σy 261.9/UTS 368.6 = T4 ×0.95)을 실재하는 냉간가공 템퍼 H13 으로 교체. 경도: Alro 표에 H13 경도 미기재 → 같은 합금의 앵커 비(2017-T4 427/105 = 4.07)로 241/4.07 ≈ 59 HB (파생, 문서화).",
-    "_src": "Alro Steel Metals Guide — Rod/Bar typical (2017-H13: 35/33 ksi, El 10) · D10 비례법 — 앵커 Alro 2017-T4 (62 ksi / HB 105)",
+    "_src": "Alro Steel Metals Guide — Rod/Bar typical (2017-H13: 35/33 ksi, El 10) · D10 비례법 — 앵커 Alro 2017-T4 (62 ksi / HB 105) · [경도 스케일] 인용 경도 59 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
     "points": {
       "from": [
         [

@@ -52,11 +52,17 @@ export function getCompositionRangesForFamily(family: string): CompositionRange 
       Mg: [3, 6],
       Mn: [0, 0.5],
     },
-    'Aluminum - Si Alloys (6xxx/7xxx)': {
-      Al: [88, 98],
-      Si: [0.4, 1.5],
-      Mg: [0.4, 1],
-      Cu: [0, 0.3],
+    'Aluminum - Mg-Si Alloys (6xxx)': {
+      Al: [95, 99],
+      Si: [0.2, 1.5],
+      Mg: [0.3, 1.5],
+      Cu: [0, 0.4],
+    },
+    'Aluminum - Si Alloys (cast/AM 3xx·4xx)': {
+      Al: [80, 94],
+      Si: [4, 13],
+      Mg: [0, 1],
+      Cu: [0, 4.5],
     },
     'Aluminum - Zn Alloys (7xxx)': {
       Al: [90, 96],

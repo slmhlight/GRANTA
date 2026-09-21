@@ -2,7 +2,7 @@
   "stable_id": "MET-0193",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "subcategory": "F-MET-aluminum-mg-si-alloys-6xxx",
     "alloy_base": "F-AB-aa-6101",
     "element_families": [
       "F-EL-aluminum-based"
@@ -13,7 +13,7 @@
   "id": "G_0029",
   "name": "AA 6101 — T6",
   "category": "Metal",
-  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
   "tier": "generic",
   "manufacturers": [
     "Generic"
@@ -36,21 +36,21 @@
       "typical": 200,
       "max": 200,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 6101-T6 Aluminum (220 / 200 / 15% / HB 71, 57 %IACS)"
+      "provenance": "교정: MakeItFrom 6101-T6 Aluminum (220 / 200 / 15% / HB 71, 57 %IACS) · [경도 스케일] 인용 경도 71 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "uts": {
       "min": 220,
       "typical": 220,
       "max": 220,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 6101-T6 Aluminum (220 / 200 / 15% / HB 71, 57 %IACS)"
+      "provenance": "교정: MakeItFrom 6101-T6 Aluminum (220 / 200 / 15% / HB 71, 57 %IACS) · [경도 스케일] 인용 경도 71 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "elongation": {
       "min": 15,
       "typical": 15,
       "max": 15,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 6101-T6 Aluminum (220 / 200 / 15% / HB 71, 57 %IACS)"
+      "provenance": "교정: MakeItFrom 6101-T6 Aluminum (220 / 200 / 15% / HB 71, 57 %IACS) · [경도 스케일] 인용 경도 71 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "modulus": {
       "min": 69,
@@ -60,11 +60,15 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 71,
-      "typical": 71,
-      "max": 71,
+      "min": 81,
+      "typical": 81,
+      "max": 81,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 6101-T6 Aluminum (220 / 200 / 15% / HB 71, 57 %IACS)"
+      "provenance": "교정: MakeItFrom 6101-T6 Aluminum (220 / 200 / 15% / HB 71, 57 %IACS) · [경도 스케일] 인용 경도 71 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 71,
+      "conversion": "ASTM E140-12b Table 9"
     },
     "thermal_conductivity": {
       "min": 205,
@@ -87,8 +91,11 @@
       "max": 33,
       "typical": 33,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 30,
+      "factor": 1.1,
+      "condition": "mixed aged/solution-treated CSV-generic (fallback midpoint)",
       "provenance": "alloy-specific KIC × HT:mixed aged/solution-treated CSV-generic (fallback midpoint) (k×1.1)"
     },
     "electrical_conductivity": {
@@ -197,7 +204,7 @@
       220,
       15,
       69,
-      71,
+      81,
       218
     ]
   ],
@@ -229,7 +236,7 @@
   "uts": 220,
   "elongation": 15,
   "modulus": 69,
-  "hardness": 71,
+  "hardness": 81,
   "thermal_conductivity": 218,
   "impact_strength": null,
   "manufacturer": "Generic",
@@ -240,7 +247,7 @@
   ],
   "families": [
     "Metal",
-    "Aluminum - Si Alloys (6xxx/7xxx)"
+    "Aluminum - Mg-Si Alloys (6xxx)"
   ],
   "electrical_conductivity": 57,
   "max_service_temp": 170,
@@ -257,7 +264,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 4.07,
-  "total_cost_estimate": 3.66,
+  "total_cost_estimate": 7.73,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
@@ -346,7 +353,7 @@
       "val_scalar": 83.3
     },
     "_basis": "'Aged / solution-treated' 합성값(σy 235.2/UTS 274.4)을 실제 템퍼 T6 로 교체.",
-    "_src": "MakeItFrom 6101-T6 Aluminum (220 / 200 / 15% / HB 71, 57 %IACS)",
+    "_src": "MakeItFrom 6101-T6 Aluminum (220 / 200 / 15% / HB 71, 57 %IACS) · [경도 스케일] 인용 경도 71 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
     "points": {
       "from": [
         [

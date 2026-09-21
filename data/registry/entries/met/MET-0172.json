@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 85,
-      "max": 90,
-      "typical": 90,
+      "min": 98,
+      "max": 105,
+      "typical": 105,
       "n": 2,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 90,
+      "conversion": "ASTM E140-12b Table 9",
+      "provenance": "HB 90 → HV 105 (ASTM E140-12b Table 9)"
     },
     "thermal_conductivity": {
       "min": 190,
@@ -229,16 +234,7 @@
       270,
       12,
       69,
-      90,
-      190
-    ],
-    [
-      2.7,
-      200,
-      250,
-      8,
-      69,
-      85,
+      105,
       190
     ]
   ],
@@ -257,7 +253,7 @@
   "uts": 270,
   "elongation": 12,
   "modulus": 69,
-  "hardness": 90,
+  "hardness": 105,
   "thermal_conductivity": 190,
   "impact_strength": 10,
   "manufacturer": "Reference data",
@@ -288,8 +284,46 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 3.15,
-  "total_cost_estimate": 2.84,
+  "total_cost_estimate": 5.99,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 85,
+        "max": 90,
+        "typical": 90,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 90
+    },
+    "_hardness_scale": "Al HB500 90 → HV 105 (E140 T9)",
+    "points": {
+      "from": [
+        [
+          2.7,
+          225,
+          270,
+          12,
+          69,
+          90,
+          190
+        ],
+        [
+          2.7,
+          200,
+          250,
+          8,
+          69,
+          85,
+          190
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  }
 }

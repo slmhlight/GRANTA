@@ -126,8 +126,8 @@
       "provenance": "3rd_family:Nickel - Hastelloy"
     },
     "poisson_ratio": {
-      "min": 0.272,
-      "max": 0.368,
+      "min": 0.3,
+      "max": 0.34,
       "typical": 0.32,
       "n": 0,
       "estimated": true,
@@ -186,6 +186,11 @@
     "W": "3~4.4"
   },
   "sources": [
+    {
+      "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
     {
       "label": "Special Metals — Inconel 686 (UNS N06686)",
       "url": null,
@@ -278,8 +283,34 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 45.94,
-  "total_cost_estimate": 119.44,
+  "total_cost_estimate": 165.38,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Special Metals — Inconel 686 (UNS N06686)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: Special Metals/Haynes general",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Fatigue fallback: σf ≈ 0.48·σy (Special Metals fatigue data)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Special Metals — INCONEL alloy 686 Technical Bulletin (SMC-024, ©2005, Table 1 조성 + Table 5 인장)",
+          "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-686.pdf",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

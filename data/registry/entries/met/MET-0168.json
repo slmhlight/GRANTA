@@ -36,21 +36,21 @@
       "typical": 117,
       "max": 117,
       "confidence": "handbook",
-      "provenance": "교정: EMJ Metals Aluminum catalog — 1100-H14 typical 18,000/17,000 psi, El 9 · United Aluminum 1100-H14 18/14 ksi · MakeItFrom 1100-H14 (130 / 110 / 8.2% / HB 32)"
+      "provenance": "교정: EMJ Metals Aluminum catalog — 1100-H14 typical 18,000/17,000 psi, El 9 · United Aluminum 1100-H14 18/14 ksi · MakeItFrom 1100-H14 (130 / 110 / 8.2% / HB 32) · [경도 스케일] 인용 경도 32 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기."
     },
     "uts": {
       "min": 125,
       "typical": 125,
       "max": 125,
       "confidence": "handbook",
-      "provenance": "교정: EMJ Metals Aluminum catalog — 1100-H14 typical 18,000/17,000 psi, El 9 · United Aluminum 1100-H14 18/14 ksi · MakeItFrom 1100-H14 (130 / 110 / 8.2% / HB 32)"
+      "provenance": "교정: EMJ Metals Aluminum catalog — 1100-H14 typical 18,000/17,000 psi, El 9 · United Aluminum 1100-H14 18/14 ksi · MakeItFrom 1100-H14 (130 / 110 / 8.2% / HB 32) · [경도 스케일] 인용 경도 32 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기."
     },
     "elongation": {
       "min": 9,
       "typical": 9,
       "max": 9,
       "confidence": "handbook",
-      "provenance": "교정: EMJ Metals Aluminum catalog — 1100-H14 typical 18,000/17,000 psi, El 9 · United Aluminum 1100-H14 18/14 ksi · MakeItFrom 1100-H14 (130 / 110 / 8.2% / HB 32)"
+      "provenance": "교정: EMJ Metals Aluminum catalog — 1100-H14 typical 18,000/17,000 psi, El 9 · United Aluminum 1100-H14 18/14 ksi · MakeItFrom 1100-H14 (130 / 110 / 8.2% / HB 32) · [경도 스케일] 인용 경도 32 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기."
     },
     "modulus": {
       "min": 69,
@@ -64,7 +64,12 @@
       "typical": 32,
       "max": 32,
       "confidence": "handbook",
-      "provenance": "교정: EMJ Metals Aluminum catalog — 1100-H14 typical 18,000/17,000 psi, El 9 · United Aluminum 1100-H14 18/14 ksi · MakeItFrom 1100-H14 (130 / 110 / 8.2% / HB 32)"
+      "provenance": "교정: EMJ Metals Aluminum catalog — 1100-H14 typical 18,000/17,000 psi, El 9 · United Aluminum 1100-H14 18/14 ksi · MakeItFrom 1100-H14 (130 / 110 / 8.2% / HB 32) · [경도 스케일] 인용 경도 32 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기.",
+      "scale": "HB",
+      "source_scale": "HB",
+      "source_value": 32,
+      "conversion": null,
+      "scale_note": "ASTM E140 표 밖(또는 해당 표 없음) — 환산하지 않고 원 스케일 그대로 표기"
     },
     "thermal_conductivity": {
       "min": 222,
@@ -94,8 +99,11 @@
       "max": 57.8,
       "typical": 57.8,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 55,
+      "factor": 1.05,
+      "condition": "strain-hardened (fallback)",
       "provenance": "alloy-specific KIC × HT:strain-hardened (fallback) (k×1.05)"
     },
     "electrical_conductivity": {
@@ -267,7 +275,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 2.61,
-  "total_cost_estimate": 2.35,
+  "total_cost_estimate": 4.96,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
@@ -354,7 +362,7 @@
       "val_scalar": 29.1
     },
     "_basis": "'Strain-hardened' 합성값(σy 33.95/UTS 87.3 = 소둔 ×1.03 — 냉간가공인데 소둔과 같은 강도)을 실제 템퍼 H14 로 교체.",
-    "_src": "EMJ Metals Aluminum catalog — 1100-H14 typical 18,000/17,000 psi, El 9 · United Aluminum 1100-H14 18/14 ksi · MakeItFrom 1100-H14 (130 / 110 / 8.2% / HB 32)",
+    "_src": "EMJ Metals Aluminum catalog — 1100-H14 typical 18,000/17,000 psi, El 9 · United Aluminum 1100-H14 18/14 ksi · MakeItFrom 1100-H14 (130 / 110 / 8.2% / HB 32) · [경도 스케일] 인용 경도 32 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기.",
     "points": {
       "from": [
         [

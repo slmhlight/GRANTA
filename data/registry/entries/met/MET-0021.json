@@ -94,8 +94,11 @@
       "max": 135,
       "typical": 135,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 90,
+      "factor": 1.5,
+      "condition": "normalized",
       "provenance": "alloy-specific KIC × HT:normalized (k×1.5)"
     },
     "electrical_conductivity": {
@@ -294,7 +297,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1.03,
   "delivered_price_per_kg": 3.41,
-  "total_cost_estimate": 3.75,
+  "total_cost_estimate": 7.15,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium"

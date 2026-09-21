@@ -29,13 +29,7 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "yield_strength": {
-      "min": 2900,
-      "max": 2900,
-      "typical": 2900,
-      "n": 1,
-      "confidence": "handbook"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 2900,
       "max": 2900,
@@ -90,15 +84,6 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "fatigue_strength": {
-      "min": 1305,
-      "max": 1305,
-      "typical": 1305,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
-    },
     "price_per_cm3": {
       "min": 0.2054,
       "max": 0.2054,
@@ -151,17 +136,18 @@
     "fiber_vf": 0.62,
     "applications": "항공 1차 구조 (스파, 길이재), F1 모노코크",
     "anisotropy_note": "복합재 — 강성·강도가 fiber 방향 의존. 0° UD 값 (수직 방향은 1/10~1/20).",
+    "no_yield": "섬유 복합재 — 항복점 없음(선형 후 파단). 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
     "_r173_note_applied": true
   },
   "popularity": 4,
   "density": 1.58,
-  "yield_strength": 2900,
+  "yield_strength": null,
   "uts": 2900,
   "elongation": 1.8,
   "modulus": 165,
   "hardness": null,
   "thermal_conductivity": 6,
-  "fatigue_strength": 1305,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Layup",
@@ -171,7 +157,6 @@
     "Composite",
     "Carbon-Epoxy"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1,

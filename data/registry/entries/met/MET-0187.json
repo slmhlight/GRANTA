@@ -2,7 +2,7 @@
   "stable_id": "MET-0187",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "subcategory": "F-MET-aluminum-mg-si-alloys-6xxx",
     "alloy_base": "F-AB-aa-6063",
     "element_families": [
       "F-EL-aluminum-based"
@@ -13,7 +13,7 @@
   "id": "R_0442_1",
   "name": "AA 6063 — T5",
   "category": "Metal",
-  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
   "tier": "reference",
   "manufacturers": [
     "Reference data"
@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 60,
-      "max": 60,
-      "typical": 60,
+      "min": 68,
+      "max": 68,
+      "typical": 68,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 60,
+      "conversion": "ASTM E140-12b Table 9",
+      "provenance": "HB 60 → HV 68 (ASTM E140-12b Table 9)"
     },
     "thermal_conductivity": {
       "min": 200,
@@ -94,8 +99,11 @@
       "max": 38.4,
       "typical": 38.4,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 32,
+      "factor": 1.2,
+      "condition": "T5 cooled + artificial aged",
       "provenance": "alloy-specific KIC × HT:T5 cooled + artificial aged (k×1.2)"
     },
     "electrical_conductivity": {
@@ -222,7 +230,7 @@
       185,
       12,
       69,
-      60,
+      68,
       200
     ]
   ],
@@ -242,7 +250,7 @@
   "uts": 185,
   "elongation": 12,
   "modulus": 69,
-  "hardness": 60,
+  "hardness": 68,
   "thermal_conductivity": 200,
   "impact_strength": 22,
   "manufacturer": "Reference data",
@@ -253,7 +261,7 @@
   ],
   "families": [
     "Metal",
-    "Aluminum - Si Alloys (6xxx/7xxx)",
+    "Aluminum - Mg-Si Alloys (6xxx)",
     "Aluminum-based"
   ],
   "fatigue_estimated": false,
@@ -272,7 +280,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 2.94,
-  "total_cost_estimate": 1.76,
+  "total_cost_estimate": 4.7,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "elevated_temp": [
@@ -300,6 +308,33 @@
   "_corrections": {
     "aliases": {
       "from": []
-    }
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 60,
+        "max": 60,
+        "typical": 60,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 60
+    },
+    "_hardness_scale": "Al HB500 60 → HV 68 (E140 T9)",
+    "points": {
+      "from": [
+        [
+          2.7,
+          145,
+          185,
+          12,
+          69,
+          60,
+          200
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
   }
 }

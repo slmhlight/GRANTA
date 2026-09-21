@@ -94,8 +94,11 @@
       "max": 31.5,
       "typical": 31.5,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 30,
+      "factor": 1.05,
+      "condition": "HIP densified (cast)",
       "provenance": "alloy-specific KIC × HT:HIP densified (cast) (k×1.05)"
     },
     "electrical_conductivity": {
@@ -281,7 +284,7 @@
   "price_form_factor": 1,
   "price_grade_premium": 2,
   "delivered_price_per_kg": 660,
-  "total_cost_estimate": 1188,
+  "total_cost_estimate": 1848,
   "min_wall_thickness": 2.5,
   "surface_finish_typical": 12.5,
   "tolerance_class": "IT13-14",

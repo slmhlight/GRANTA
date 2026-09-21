@@ -36,21 +36,21 @@
       "typical": 145,
       "max": 145,
       "confidence": "handbook",
-      "provenance": "교정: United Aluminum — 3003-H14 typical 22/21 ksi · tubingchina ASM typical table (3003-H14 22/20 ksi, HB 40) · MakeItFrom 3003-H14 (160 / 130 / 8.3% / HB 42) · Alro sheet 3003-H14 ASTM B209 min 20–26 ksi / 17 ksi"
+      "provenance": "교정: United Aluminum — 3003-H14 typical 22/21 ksi · tubingchina ASM typical table (3003-H14 22/20 ksi, HB 40) · MakeItFrom 3003-H14 (160 / 130 / 8.3% / HB 42) · Alro sheet 3003-H14 ASTM B209 min 20–26 ksi / 17 ksi · [경도 스케일] 인용 경도 40 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "uts": {
       "min": 150,
       "typical": 150,
       "max": 150,
       "confidence": "handbook",
-      "provenance": "교정: United Aluminum — 3003-H14 typical 22/21 ksi · tubingchina ASM typical table (3003-H14 22/20 ksi, HB 40) · MakeItFrom 3003-H14 (160 / 130 / 8.3% / HB 42) · Alro sheet 3003-H14 ASTM B209 min 20–26 ksi / 17 ksi"
+      "provenance": "교정: United Aluminum — 3003-H14 typical 22/21 ksi · tubingchina ASM typical table (3003-H14 22/20 ksi, HB 40) · MakeItFrom 3003-H14 (160 / 130 / 8.3% / HB 42) · Alro sheet 3003-H14 ASTM B209 min 20–26 ksi / 17 ksi · [경도 스케일] 인용 경도 40 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "elongation": {
       "min": 8,
       "typical": 8,
       "max": 8,
       "confidence": "handbook",
-      "provenance": "교정: United Aluminum — 3003-H14 typical 22/21 ksi · tubingchina ASM typical table (3003-H14 22/20 ksi, HB 40) · MakeItFrom 3003-H14 (160 / 130 / 8.3% / HB 42) · Alro sheet 3003-H14 ASTM B209 min 20–26 ksi / 17 ksi"
+      "provenance": "교정: United Aluminum — 3003-H14 typical 22/21 ksi · tubingchina ASM typical table (3003-H14 22/20 ksi, HB 40) · MakeItFrom 3003-H14 (160 / 130 / 8.3% / HB 42) · Alro sheet 3003-H14 ASTM B209 min 20–26 ksi / 17 ksi · [경도 스케일] 인용 경도 40 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "modulus": {
       "min": 70,
@@ -60,11 +60,15 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 40,
-      "typical": 40,
-      "max": 40,
+      "min": 44,
+      "typical": 44,
+      "max": 44,
       "confidence": "handbook",
-      "provenance": "교정: United Aluminum — 3003-H14 typical 22/21 ksi · tubingchina ASM typical table (3003-H14 22/20 ksi, HB 40) · MakeItFrom 3003-H14 (160 / 130 / 8.3% / HB 42) · Alro sheet 3003-H14 ASTM B209 min 20–26 ksi / 17 ksi"
+      "provenance": "교정: United Aluminum — 3003-H14 typical 22/21 ksi · tubingchina ASM typical table (3003-H14 22/20 ksi, HB 40) · MakeItFrom 3003-H14 (160 / 130 / 8.3% / HB 42) · Alro sheet 3003-H14 ASTM B209 min 20–26 ksi / 17 ksi · [경도 스케일] 인용 경도 40 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 40,
+      "conversion": "ASTM E140-12b Table 9"
     },
     "thermal_conductivity": {
       "min": 191,
@@ -94,8 +98,11 @@
       "max": 52.5,
       "typical": 52.5,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 50,
+      "factor": 1.05,
+      "condition": "strain-hardened (fallback)",
       "provenance": "alloy-specific KIC × HT:strain-hardened (fallback) (k×1.05)"
     },
     "electrical_conductivity": {
@@ -203,7 +210,7 @@
       150,
       8,
       70,
-      40,
+      44,
       191
     ]
   ],
@@ -234,7 +241,7 @@
   "uts": 150,
   "elongation": 8,
   "modulus": 70,
-  "hardness": 40,
+  "hardness": 44,
   "thermal_conductivity": 191,
   "impact_strength": 44,
   "manufacturer": "Generic",
@@ -267,7 +274,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 2.84,
-  "total_cost_estimate": 2.55,
+  "total_cost_estimate": 5.39,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
@@ -352,7 +359,7 @@
       "val_scalar": 33.95
     },
     "_basis": "'Strain-hardened' 합성값(σy 38.8/UTS 106.7 = 소둔 ×1.03 — 냉간가공인데 소둔과 같은 강도)을 실제 템퍼 H14 로 교체.",
-    "_src": "United Aluminum — 3003-H14 typical 22/21 ksi · tubingchina ASM typical table (3003-H14 22/20 ksi, HB 40) · MakeItFrom 3003-H14 (160 / 130 / 8.3% / HB 42) · Alro sheet 3003-H14 ASTM B209 min 20–26 ksi / 17 ksi",
+    "_src": "United Aluminum — 3003-H14 typical 22/21 ksi · tubingchina ASM typical table (3003-H14 22/20 ksi, HB 40) · MakeItFrom 3003-H14 (160 / 130 / 8.3% / HB 42) · Alro sheet 3003-H14 ASTM B209 min 20–26 ksi / 17 ksi · [경도 스케일] 인용 경도 40 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
     "points": {
       "from": [
         [

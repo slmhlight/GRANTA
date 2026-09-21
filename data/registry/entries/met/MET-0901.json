@@ -188,6 +188,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Titanium & Titanium Alloys (β alloys)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "MatWeb 3",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti-15-3",
       "verified": false
@@ -270,13 +275,37 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 102.38,
-  "total_cost_estimate": 184.28,
+  "total_cost_estimate": 286.65,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
   "_corrections": {
     "subcategory": {
       "from": "Titanium - Pure / CP Grades"
+    },
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb 3",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ti-15-3",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: TIMET beta Ti",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Fatigue fallback: σf ≈ 0.52·σy (MMPDS-2018 Titanium)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "AZoM — Grade Ti 15V-3Cr-3Al-3Sn Alloy (UNS R58153) (Article 9396)",
+          "url": "https://www.azom.com/article.aspx?ArticleID=9396",
+          "verified": true
+        }
+      ]
     },
     "yield_strength": {
       "had_range": true,

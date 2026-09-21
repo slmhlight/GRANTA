@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 75,
-      "max": 75,
-      "typical": 75,
+      "min": 86,
+      "max": 86,
+      "typical": 86,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 75,
+      "conversion": "ASTM E140-12b Table 9",
+      "provenance": "HB 75 → HV 86 (ASTM E140-12b Table 9)"
     },
     "thermal_conductivity": {
       "min": 134,
@@ -222,7 +227,7 @@
       270,
       12,
       71.8,
-      75,
+      86,
       134
     ]
   ],
@@ -241,7 +246,7 @@
   "uts": 270,
   "elongation": 12,
   "modulus": 71.8,
-  "hardness": 75,
+  "hardness": 86,
   "thermal_conductivity": 134,
   "fatigue_strength": 110,
   "impact_strength": 30,
@@ -274,7 +279,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 3.36,
-  "total_cost_estimate": 3.02,
+  "total_cost_estimate": 6.38,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
@@ -285,6 +290,33 @@
         "EN AW-5454",
         "AlMg3Mn"
       ]
-    }
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 75,
+        "max": 75,
+        "typical": 75,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 75
+    },
+    "_hardness_scale": "Al HB500 75 → HV 86 (E140 T9)",
+    "points": {
+      "from": [
+        [
+          2.69,
+          200,
+          270,
+          12,
+          71.8,
+          75,
+          134
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
   }
 }

@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 140,
-      "max": 140,
-      "typical": 140,
+      "min": 165,
+      "max": 165,
+      "typical": 165,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 140,
+      "conversion": "ASTM E140-12b Table 9",
+      "provenance": "HB 140 → HV 165 (ASTM E140-12b Table 9)"
     },
     "thermal_conductivity": {
       "min": 121,
@@ -126,8 +131,8 @@
       "provenance": "1st_family:Aluminum - Cu Alloys (2xxx)"
     },
     "poisson_ratio": {
-      "min": 0.165,
-      "max": 0.495,
+      "min": 0.29,
+      "max": 0.37,
       "typical": 0.33,
       "n": 0,
       "estimated": true,
@@ -211,7 +216,7 @@
       415,
       3,
       71,
-      140,
+      165,
       121
     ]
   ],
@@ -250,7 +255,7 @@
   "uts": 415,
   "elongation": 3,
   "modulus": 71,
-  "hardness": 140,
+  "hardness": 165,
   "thermal_conductivity": 121,
   "impact_strength": 14,
   "manufacturer": "Reference data",
@@ -276,10 +281,39 @@
   "price_form_factor": 1,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 5.2,
-  "total_cost_estimate": 4.68,
+  "total_cost_estimate": 9.88,
   "min_wall_thickness": 2.5,
   "surface_finish_typical": 12.5,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 140,
+        "max": 140,
+        "typical": 140,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 140
+    },
+    "_hardness_scale": "Al HB500 140 → HV 165 (E140 T9)",
+    "points": {
+      "from": [
+        [
+          2.8,
+          360,
+          415,
+          3,
+          71,
+          140,
+          121
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  }
 }

@@ -300,7 +300,8 @@ export function MaterialTable({
                   <td className="px-3 py-1.5 data-cell text-right">{formatValue(propValue(m, 'uts'), 0)}</td>
                   <td className="px-3 py-1.5 data-cell text-right">{formatValue(propValue(m, 'elongation'), 1)}</td>
                   <td className="px-3 py-1.5 data-cell text-right">{formatValue(propValue(m, 'modulus'), 0)}</td>
-                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(propValue(m, 'hardness'), 0)}</td>
+                  {/* AUD F03 — 환산되지 않은 원 스케일(HB) 값은 열 제목(HV)과 다르므로 스케일을 함께 적는다. */}
+                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(propValue(m, 'hardness'), 0)}{(() => { const sc = (m.ranges?.hardness as { scale?: string } | undefined)?.scale; return sc && sc !== 'HV' ? <span className="ml-0.5 text-[9px] text-muted-foreground">{sc}</span> : null; })()}</td>
                 </tr>
               );
             })}

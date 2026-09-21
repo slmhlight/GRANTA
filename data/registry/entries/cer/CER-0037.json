@@ -29,13 +29,7 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "yield_strength": {
-      "min": 280,
-      "max": 280,
-      "typical": 280,
-      "n": 1,
-      "confidence": "handbook"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 280,
       "max": 280,
@@ -102,15 +96,6 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "fatigue_strength": {
-      "min": 126,
-      "max": 126,
-      "typical": 126,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
-    },
     "price_per_cm3": {
       "min": 44.45,
       "max": 44.45,
@@ -163,6 +148,7 @@
     "ceramic": true,
     "applications": "재진입체 (re-entry vehicle) 리딩 엣지, 핵 reactor 컨트롤 rod",
     "limitations": "세계 최고 융점급 — 가공 거의 불가, 산화 1500°C 이상",
+    "no_yield": "취성 세라믹 — 항복점 없음. 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
     "_r173_note_applied": true,
     "specs": [
       {
@@ -173,13 +159,13 @@
   },
   "popularity": 1,
   "density": 12.7,
-  "yield_strength": 280,
+  "yield_strength": null,
   "uts": 280,
   "elongation": null,
   "modulus": 461,
   "hardness": 2700,
   "thermal_conductivity": 20,
-  "fatigue_strength": 126,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Sintered",
@@ -189,7 +175,6 @@
     "Ceramic",
     "UHTC"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1,

@@ -36,21 +36,21 @@
       "typical": 210,
       "max": 210,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 5086-H32 Aluminum (300 / 210 / 11% / HB 80) · Alro sheet 5086-H32 ASTM B209 min 40–47 ksi / 28 ksi"
+      "provenance": "교정: MakeItFrom 5086-H32 Aluminum (300 / 210 / 11% / HB 80) · Alro sheet 5086-H32 ASTM B209 min 40–47 ksi / 28 ksi · [경도 스케일] 인용 경도 80 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "uts": {
       "min": 300,
       "typical": 300,
       "max": 300,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 5086-H32 Aluminum (300 / 210 / 11% / HB 80) · Alro sheet 5086-H32 ASTM B209 min 40–47 ksi / 28 ksi"
+      "provenance": "교정: MakeItFrom 5086-H32 Aluminum (300 / 210 / 11% / HB 80) · Alro sheet 5086-H32 ASTM B209 min 40–47 ksi / 28 ksi · [경도 스케일] 인용 경도 80 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "elongation": {
       "min": 11,
       "typical": 11,
       "max": 11,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 5086-H32 Aluminum (300 / 210 / 11% / HB 80) · Alro sheet 5086-H32 ASTM B209 min 40–47 ksi / 28 ksi"
+      "provenance": "교정: MakeItFrom 5086-H32 Aluminum (300 / 210 / 11% / HB 80) · Alro sheet 5086-H32 ASTM B209 min 40–47 ksi / 28 ksi · [경도 스케일] 인용 경도 80 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "modulus": {
       "min": 72,
@@ -60,11 +60,15 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 80,
-      "typical": 80,
-      "max": 80,
+      "min": 92,
+      "typical": 92,
+      "max": 92,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 5086-H32 Aluminum (300 / 210 / 11% / HB 80) · Alro sheet 5086-H32 ASTM B209 min 40–47 ksi / 28 ksi"
+      "provenance": "교정: MakeItFrom 5086-H32 Aluminum (300 / 210 / 11% / HB 80) · Alro sheet 5086-H32 ASTM B209 min 40–47 ksi / 28 ksi · [경도 스케일] 인용 경도 80 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 80,
+      "conversion": "ASTM E140-12b Table 9"
     },
     "thermal_conductivity": {
       "min": 121,
@@ -203,7 +207,7 @@
       300,
       11,
       72,
-      80,
+      92,
       121
     ]
   ],
@@ -234,7 +238,7 @@
   "uts": 300,
   "elongation": 11,
   "modulus": 72,
-  "hardness": 80,
+  "hardness": 92,
   "thermal_conductivity": 121,
   "impact_strength": 17,
   "manufacturer": "Generic",
@@ -264,7 +268,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 3.63,
-  "total_cost_estimate": 3.27,
+  "total_cost_estimate": 6.89,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
@@ -350,7 +354,7 @@
       "val_scalar": 72.75
     },
     "_basis": "'Strain-hardened' 합성값(σy 208.6/UTS 295.9 = 소둔 ×1.03 — 소둔 자체가 H32 급이라 우연히 근접)을 실제 템퍼 H32 로 교체.",
-    "_src": "MakeItFrom 5086-H32 Aluminum (300 / 210 / 11% / HB 80) · Alro sheet 5086-H32 ASTM B209 min 40–47 ksi / 28 ksi",
+    "_src": "MakeItFrom 5086-H32 Aluminum (300 / 210 / 11% / HB 80) · Alro sheet 5086-H32 ASTM B209 min 40–47 ksi / 28 ksi · [경도 스케일] 인용 경도 80 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
     "points": {
       "from": [
         [

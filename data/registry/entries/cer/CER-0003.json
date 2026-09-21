@@ -29,13 +29,7 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "yield_strength": {
-      "min": 350,
-      "max": 350,
-      "typical": 350,
-      "n": 1,
-      "confidence": "handbook"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 350,
       "max": 350,
@@ -96,15 +90,6 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "fatigue_strength": {
-      "min": 157.5,
-      "max": 157.5,
-      "typical": 157.5,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
-    },
     "price_per_cm3": {
       "min": 0.882,
       "max": 0.882,
@@ -147,17 +132,18 @@
     "ceramic": true,
     "applications": "방탄 패널 (가장 가벼운 ballistic ceramic), 핵중성자 흡수, 연마재",
     "limitations": "충격 취약, KIC 매우 낮음",
+    "no_yield": "취성 세라믹 — 항복점 없음. 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
     "_r173_note_applied": true
   },
   "popularity": 2,
   "density": 2.52,
-  "yield_strength": 350,
+  "yield_strength": null,
   "uts": 350,
   "elongation": null,
   "modulus": 460,
   "hardness": 3000,
   "thermal_conductivity": 27,
-  "fatigue_strength": 157.5,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Sintered",
@@ -167,7 +153,6 @@
     "Ceramic",
     "Carbide"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1,

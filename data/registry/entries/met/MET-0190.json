@@ -2,7 +2,7 @@
   "stable_id": "MET-0190",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "subcategory": "F-MET-aluminum-mg-si-alloys-6xxx",
     "alloy_base": "F-AB-aa-6082-eu-extrusion",
     "element_families": [
       "F-EL-aluminum-based"
@@ -13,7 +13,7 @@
   "id": "R_0310_0",
   "name": "AA 6082 (EU extrusion) — Annealed",
   "category": "Metal",
-  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
   "tier": "reference",
   "manufacturers": [
     "Reference data"
@@ -64,7 +64,12 @@
       "max": 35,
       "typical": 35,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "scale": "HB",
+      "source_scale": "HB",
+      "source_value": 35,
+      "conversion": null,
+      "scale_note": "ASTM E140-12b Table 9 범위(HB 40~160) 밖 — 환산하지 않고 Brinell(500 kgf) 로 표기"
     },
     "thermal_conductivity": {
       "min": 180,
@@ -94,8 +99,11 @@
       "max": 62,
       "typical": 62,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 31,
+      "factor": 2,
+      "condition": "O (annealed soft, fallback derived from T6)",
       "provenance": "alloy-specific KIC × HT:O (annealed soft, fallback derived from T6) (k×2)"
     },
     "electrical_conductivity": {
@@ -279,7 +287,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 3.21,
-  "total_cost_estimate": 2.89,
+  "total_cost_estimate": 6.1,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
@@ -290,6 +298,19 @@
         "EN AW-6082",
         "AlSi1MgMn"
       ]
-    }
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 35,
+        "max": 35,
+        "typical": 35,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 35
+    },
+    "_hardness_scale": "Al HB500 35 표 밖 — HB 표기 유지"
   }
 }

@@ -119,8 +119,8 @@
       "provenance": "2nd_family:Nickel Superalloy"
     },
     "poisson_ratio": {
-      "min": 0.21,
-      "max": 0.39,
+      "min": 0.27,
+      "max": 0.33,
       "typical": 0.3,
       "n": 0,
       "estimated": true,
@@ -180,6 +180,11 @@
     "Al": "0.3"
   },
   "sources": [
+    {
+      "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
     {
       "label": "Special Metals — MA754 oxide-dispersion-strengthened (UNS N07754)",
       "url": null,
@@ -267,8 +272,29 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 64.26,
-  "total_cost_estimate": 115.67,
+  "total_cost_estimate": 179.93,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Special Metals — MA754 oxide-dispersion-strengthened (UNS N07754)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Special Metals — INCONEL alloy MA754 공식 데이터시트 (Publication SMC-040, ©2004; 조성·물리물성·Young's modulus표·인장/응력파단 그래프, pdftotext 텍스트 추출 검증)",
+          "url": "http://specialmetals.ir/images/technical_info/nickel-base-alloy/Inconel-alloy-MA754.pdf",
+          "verified": true
+        },
+        {
+          "label": "LookPolymers (MatWeb 미러) — Special Metals INCONEL Alloy MA754: 조성·ρ 8.55·실온/550°C 인장(UTS 950/σy 570 MPa)·CTE 'Data provided by manufacturer Special Metals'",
+          "url": "https://www.lookpolymers.com/polymer_Special-Metals-INCONEL-Alloy-MA-754.php",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

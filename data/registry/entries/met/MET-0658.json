@@ -174,6 +174,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Refractory Metals & Alloys (W, Mo, Nb, Ta)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "MatWeb — Pure Tantalum Ta",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Pure+Tantalum",
       "verified": false
@@ -254,11 +259,35 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 74.97,
-  "total_cost_estimate": 74.97,
+  "total_cost_estimate": 149.94,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb — Pure Tantalum Ta",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Pure+Tantalum",
+          "verified": false
+        },
+        {
+          "label": "MatWeb 1",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Ta-2.5W",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: ASM Vol.2 Refractory",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "WHS Sondermetalle — Data Sheet Tantalum (Ta, TaW2.5, TaW10): Ta97.5W2.5 R05252 vacuum arc-melt 명기·ASTM B364/B365/B708/B521·물성표(Ta col)",
+          "url": "https://www.whs-sondermetalle.de/images/pdf/Ta-Tantalum.pdf",
+          "verified": true
+        }
+      ]
+    },
     "electrical_conductivity": {
       "had_range": true,
       "val_range": {

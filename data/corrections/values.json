@@ -173,33 +173,49 @@
    "yield_strength": 341,
    "uts": 464,
    "elongation": 31.2,
-   "hardness": 126,
    "basis": "AISI 1030 소둔 — 4개 값 전부 저평가(228.8/334.4/26.04/96.8). generic CSV 합성 조건값.",
-   "src": "AISI 1030 소둔 표준표 — 항복 49500 psi · 인장 67250 psi · 연신율 31.2% · 경도 126 HB (tubingchina AISI Steel Mechanical Characteristics, ASM 계열 소둔 표). MPa 환산 ×0.00689476"
+   "src": "AISI 1030 소둔 표준표 — 항복 49500 psi · 인장 67250 psi · 연신율 31.2% · 경도 126 HB (tubingchina AISI Steel Mechanical Characteristics, ASM 계열 소둔 표). MPa 환산 ×0.00689476 · [경도 스케일] 원자료 126 HB(3000 kgf) → HV 126 (ASTM E140-12b Table 2 — 이 범위에서 HV=HB).",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 126,
+    "family": "steel"
+   }
   },
   "MET-0266": {
    "yield_strength": 365,
    "uts": 636,
    "elongation": 23.7,
-   "hardness": 187,
    "basis": "AISI 1050 소둔 — 전부 저평가(321.2/550/13.95/167.2). 연신율이 실제의 59% 였다.",
-   "src": "AISI 1050 소둔 표준표 — 항복 53000 psi · 인장 92250 psi · 연신율 23.7% · 경도 187 HB (tubingchina AISI Steel Mechanical Characteristics, ASM 계열 소둔 표). MPa 환산 ×0.00689476"
+   "src": "AISI 1050 소둔 표준표 — 항복 53000 psi · 인장 92250 psi · 연신율 23.7% · 경도 187 HB (tubingchina AISI Steel Mechanical Characteristics, ASM 계열 소둔 표). MPa 환산 ×0.00689476 · [경도 스케일] 원자료 187 HB(3000 kgf) → HV 187 (ASTM E140-12b Table 2 — 이 범위에서 HV=HB).",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 187,
+    "family": "steel"
+   }
   },
   "MET-0271": {
    "yield_strength": 376,
    "uts": 615,
    "elongation": 24.7,
-   "hardness": 174,
    "basis": "AISI 1080 \"소둔\" 이 실제로는 소둔이 아니었다 — 강도가 소둔 기준보다 **높고**(497.2 vs 376 · 677.6 vs 615) 연신율은 **낮았다**(9.3 vs 24.7). 노멀라이즈드~압연 값에 소둔 라벨이 붙은 셈. 고탄소강 완전소둔은 구상화로 무르고 늘어난다.",
-   "src": "AISI 1080 소둔 표준표 — 항복 54500 psi · 인장 89250 psi · 연신율 24.7% · 경도 174 HB (tubingchina AISI Steel Mechanical Characteristics, ASM 계열 소둔 표). MPa 환산 ×0.00689476"
+   "src": "AISI 1080 소둔 표준표 — 항복 54500 psi · 인장 89250 psi · 연신율 24.7% · 경도 174 HB (tubingchina AISI Steel Mechanical Characteristics, ASM 계열 소둔 표). MPa 환산 ×0.00689476 · [경도 스케일] 원자료 174 HB(3000 kgf) → HV 174 (ASTM E140-12b Table 2 — 이 범위에서 HV=HB).",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 174,
+    "family": "steel"
+   }
   },
   "MET-0276": {
    "yield_strength": 380,
    "uts": 657,
    "elongation": 13,
-   "hardness": 192,
    "basis": "AISI 1095 \"소둔\" 도 MET-0271 과 같은 양상 — 강도 과대(545.6 vs 379)·연신율 과소(7.44 vs 13.0).",
-   "src": "AISI 1095 소둔 표준표 — 항복 55000 psi · 인장 95250 psi · 연신율 13% · 경도 192 HB (tubingchina AISI Steel Mechanical Characteristics, ASM 계열 소둔 표). MPa 환산 ×0.00689476"
+   "src": "AISI 1095 소둔 표준표 — 항복 55000 psi · 인장 95250 psi · 연신율 13% · 경도 192 HB (tubingchina AISI Steel Mechanical Characteristics, ASM 계열 소둔 표). MPa 환산 ×0.00689476 · [경도 스케일] 원자료 192 HB(3000 kgf) → HV 192 (ASTM E140-12b Table 2 — 이 범위에서 HV=HB).",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 192,
+    "family": "steel"
+   }
   },
   "MET-0952": {
    "price_per_cm3": 0.52,
@@ -211,9 +227,13 @@
    "max_service_temp": 480,
    "price_per_kg": 65,
    "thermal_conductivity": 20,
-   "hardness": 577,
    "basis": "마레이징강(18Ni300/1.2709) Aged 의 경도 321 이 **시효 전 경도**였다. 같은 합금 As-built(MET-0953, UTS 1180)가 347 로 더 높아 — 시효재가 미시효재보다 무른 역전. 시효 후 54 HRC.",
-   "src": "Sandvik Osprey 18Ni300 datasheet (시효 후 최대 54 HRC) · ISO 18265 환산 54 HRC ≈ 577 HV"
+   "src": "Sandvik Osprey 18Ni300 datasheet (시효 후 최대 54 HRC) · ISO 18265 환산 54 HRC ≈ 577 HV · [경도 스케일] Sandvik Osprey 18Ni300 시효 후 54 HRC → HV 577 (ASTM E140-12b Table 1; ISO 18265 환산과 일치).",
+   "hardness_src": {
+    "scale": "HRC",
+    "value": 54,
+    "family": "steel"
+   }
   },
   "MET-0050": {
    "hardness": 500,
@@ -226,9 +246,13 @@
    "src": "W-Ni-Fe 액상소결 문헌 — 공정 Ni-Fe-W 액상이 1465°C 에서 형성(소결 1460~1520°C 수행) · Total Materia W-Ni-Fe LPS"
   },
   "MET-0709": {
-   "hardness": 160,
    "basis": "AISI 301 소둔의 경도 95 는 **HRB 값이 HB/HV 필드에 그대로 들어간 것**이다 — 같은 합금의 냉간압연 조건들은 320·380·430·470(HB/HV 척도)을 쓴다. 두 경로가 같은 값을 가리킨다: ① 이 entry 자신의 UTS 530 → ISO 18265 로 약 160 HB, ② 소둔 301 의 통상 경도 85 HRB ≈ 160 HB.",
-   "src": "ASTM A666 Type 301 소둔(경도 최대 92 HRB) · ISO 18265 경도-인장 환산 (530 MPa ↔ 약 160 HB)"
+   "src": "ASTM A666 Type 301 소둔(경도 최대 92 HRB) · ISO 18265 경도-인장 환산 (530 MPa ↔ 약 160 HB) · [경도 스케일] 원자료 160 HB(3000 kgf) → HV 160 (ASTM E140-12b Table 2 — 이 범위에서 HV=HB).",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 160,
+    "family": "steel"
+   }
   },
   "MET-0954": {
    "price_per_cm3": 0.52,
@@ -240,22 +264,34 @@
    "max_service_temp": 480,
    "price_per_kg": 65,
    "thermal_conductivity": 20,
-   "hardness": 577,
    "basis": "마레이징강 Heat-Treated(시효 완료) 의 경도 358 도 MET-0952 와 같은 미시효 경도였다 — UTS 1875 에 경도 358 이면 비 5.2 (DB 강재 중앙값 3.28).",
-   "src": "Sandvik Osprey 18Ni300 datasheet (시효 후 최대 54 HRC) · ISO 18265 환산 54 HRC ≈ 577 HV"
+   "src": "Sandvik Osprey 18Ni300 datasheet (시효 후 최대 54 HRC) · ISO 18265 환산 54 HRC ≈ 577 HV · [경도 스케일] Sandvik Osprey 18Ni300 시효 후 54 HRC → HV 577 (ASTM E140-12b Table 1; ISO 18265 환산과 일치).",
+   "hardness_src": {
+    "scale": "HRC",
+    "value": 54,
+    "family": "steel"
+   }
   },
   "MET-0248": {
-   "hardness": 175,
    "basis": "AISI 1020 Quenched/tempered 의 경도 95.95 는 UTS 590 MPa 와 맞지 않는다(비 6.1). 95.95 는 같은 CSV 계열의 1010·1015 Q+T 에도 동일하게 찍혀 있어 합금별 실측이 아니라 합성값이다(D9 부류).",
-   "src": "ISO 18265 금속 경도 환산 — 인장 590 MPa ↔ 약 175 HB"
+   "src": "ISO 18265 금속 경도 환산 — 인장 590 MPa ↔ 약 175 HB · [경도 스케일] 원자료 175 HB(3000 kgf) → HV 175 (ASTM E140-12b Table 2 — 이 범위에서 HV=HB).",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 175,
+    "family": "steel"
+   }
   },
   "MET-0243": {
    "yield_strength": 370,
    "uts": 440,
    "elongation": 20,
-   "hardness": 120,
    "basis": "AISI 1015 Strain-hardened(냉간인발) 값이 전부 저평가였다 — σy 205.2 가 **소둔(285)보다 낮아** 냉간가공이 소둔보다 약한 물리 역전이었다. generic CSV 조건별 합성값 잔재(D9 과 같은 부류).",
-   "src": "MakeItFrom Cold Drawn AISI 1015 Carbon Steel — 인장 440 MPa · 항복 370 MPa · 연신율 20% · 경도 120 HB"
+   "src": "MakeItFrom Cold Drawn AISI 1015 Carbon Steel — 인장 440 MPa · 항복 370 MPa · 연신율 20% · 경도 120 HB · [경도 스케일] 원자료 120 HB(3000 kgf) → HV 120 (ASTM E140-12b Table 2 — 이 범위에서 HV=HB).",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 120,
+    "family": "steel"
+   }
   },
   "MET-0234": {
    "elongation": 37,
@@ -314,11 +350,16 @@
    "poisson_ratio": 0.34,
    "specific_heat": 560,
    "basis": "CP Ti Grade 7 가 알루미늄 계열 typical 을 상속(CTE 23·비열 900·%IACS 40 — 알루미늄 값). 조성의 주원소가 \"balance\" 문자열이라 계열 태깅에서 탈락한 결과다. 같은 CP Ti 계열의 다른 entry 들이 이미 갖고 있는 계열 typical 로 정렬 — 융점 1668 은 이미 CP Ti 실측이라 유지. | A3 Ti (2026-09-21): Ti Grade 7 소둔의 275/345/20 은 B265 Gr7 최소값(= Gr2 최소). Gr7 은 Gr2 + 0.15Pd 라 기계적 성질이 Gr2 급(TIMET 50A 345/485)이나 Gr7 자체의 대표값 인용(MakeItFrom)을 채택 — 420 은 Gr2 대표(485)보다 낮은 산포.",
-   "src": "Carpenter CP Titanium Grade 2 datasheet (CTE 8.6×10⁻⁶/°C 20~100°C · 비열 522 J/kg·K · 융점 1665°C) — DB CP Ti 계열 typical(8.8 / 560)이 이 범위임을 확인 · MakeItFrom — Grade 7 (3.7235, R52400) Titanium, annealed (420 / 340 / 24% / HB 150)",
+   "src": "Carpenter CP Titanium Grade 2 datasheet (CTE 8.6×10⁻⁶/°C 20~100°C · 비열 522 J/kg·K · 융점 1665°C) — DB CP Ti 계열 typical(8.8 / 560)이 이 범위임을 확인 · MakeItFrom — Grade 7 (3.7235, R52400) Titanium, annealed (420 / 340 / 24% / HB 150) · [경도 스케일] MakeItFrom Grade 7 annealed 150 HB — ASTM E140 에 Ti 환산표가 없어 Brinell 그대로 표기(HV 아님).",
    "yield_strength": 340,
    "uts": 420,
    "elongation": 24,
-   "hardness": 150
+   "hardness_src": {
+    "scale": "HB",
+    "value": 150,
+    "family": "titanium",
+    "keep": true
+   }
   },
   "MET-0543": {
    "electrical_conductivity": 1.3,
@@ -597,35 +638,51 @@
    "yield_strength": 276,
    "uts": 448,
    "elongation": 25,
-   "hardness": 138,
    "basis": "AISI 405 annealed — DB 242/365.2 는 **UTS 가 ASTM A240 최소 415 MPa 미달**(430 에서 이미 교정한 것과 동일한 오염값 242/365.2). A240 min(170/415) 위 typical 로 교정.",
-   "src": "ASTM A240 (Type 405: YS≥170 MPa / UTS≥415 MPa) · AZoM Grade 405 datasheet (annealed 448 MPa UTS / 276 MPa YS / El 25% / 131 HB)"
+   "src": "ASTM A240 (Type 405: YS≥170 MPa / UTS≥415 MPa) · AZoM Grade 405 datasheet (annealed 448 MPa UTS / 276 MPa YS / El 25% / 131 HB) · [경도 스케일] AZoM Grade 405 annealed 131 HB → HV 131 (E140 Table 2). 기존 138 은 인용 불명이라 인용값(131 HB)으로 교체.",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 131,
+    "family": "steel"
+   }
   },
   "MET-0789": {
    "yield_strength": 345,
    "uts": 540,
    "elongation": 28,
-   "hardness": 180,
    "basis": "AISI 434 annealed — DB 242/365.2 는 **UTS 가 ASTM A240 최소 450 MPa 미달**(405·430 과 동일 오염값). typical 밴드(σy 345~441 · UTS 538~552 · El 28~33) 하한으로 보수 교정.",
-   "src": "ASTM A240 (Type 434: YS≥240 MPa / UTS≥450 MPa) · Combined Metals 434 strip datasheet (50 ksi YS / 80 ksi UTS / El 28% / 75 HRB) · eFunda AISI 434 annealed (415/545/33%) · AZoM Grade 434 (441/538/32%)"
+   "src": "ASTM A240 (Type 434: YS≥240 MPa / UTS≥450 MPa) · Combined Metals 434 strip datasheet (50 ksi YS / 80 ksi UTS / El 28% / 75 HRB) · eFunda AISI 434 annealed (415/545/33%) · AZoM Grade 434 (441/538/32%) · [경도 스케일] Combined Metals 434 소둔 strip 75 HRB → HV 137 (ASTM E140-12b Table 2). 기존 180 은 AZoM 상한 계열값이라 직접 측정치(75 HRB)로 교체 — ASTM A240 434 경도 상한(89 HRB ≈ HV 180)은 규격 최대치이지 typical 이 아님.",
+   "hardness_src": {
+    "scale": "HRB",
+    "value": 75,
+    "family": "steel"
+   }
   },
   "MET-0447": {
    "yield_strength": 103,
    "uts": 324,
    "elongation": 62,
-   "hardness": 58,
    "basis": "어닐드 황동의 물성은 결정립 크기(OS 템퍼)가 좌우하는데, DB 값은 **세 템퍼의 값이 섞여** 있었다 — σy 151.5(22 ksi = 최세립 OS015) · UTS 343.4(≈49 ksi = OS035) · El 67.3(≈최조립 OS100). 한 조건에서 동시에 성립할 수 없다(세립일수록 강하고 연신율은 낮다). 상용 표준 연질인 **OS050** 로 통일.",
-   "src": "Copper Development Association alloys.copper.org C26000 flat product OS050 (0.050 mm grain): 47 ksi UTS / 15 ksi YS / El 62% / HRB 26"
+   "src": "Copper Development Association alloys.copper.org C26000 flat product OS050 (0.050 mm grain): 47 ksi UTS / 15 ksi YS / El 62% / HRB 26 · [경도 스케일] CDA C26000 OS050 HRB 26 → HV 71 (ASTM E140-12b Table 4 cartridge brass). 기존 58 은 환산 근거 없던 수치.",
+   "hardness_src": {
+    "scale": "HRB",
+    "value": 26,
+    "family": "brass"
+   }
   },
   "MET-0381": {
    "yield_strength": 160,
    "uts": 480,
    "elongation": 37,
-   "hardness": 105,
    "density": 8.25,
    "basis": "heat_treatment 는 \"Annealed\" 인데 값(σy 1100 · UTS 1300 · El 5%)은 **피크 시효(TF00) 수준** — 라벨과 값이 어긋났다. 시효 조건은 이미 MET-0363(TF00)·MET-0364(TH04)가 담당하므로 이 entry 는 라벨대로 용체화 어닐링(TB00) 실제값으로 교정. 밀도도 8.36 → 8.25(C17200 실제)로 정정. 피로강도 380 도 시효 UTS 기준 파생이라 교정 후 물리 상한(0.63·UTS)을 넘어 — Cu 계열 endurance ratio(0.35·UTS, DB 내 Cu 분포와 일치)로 재유도.",
-   "src": "MakeItFrom — Annealed (A or TB00) C17200 Copper (480 MPa UTS / 160 MPa YS / El 37% / HRB 63) · ASTM B194 TB00",
-   "fatigue_strength": 170
+   "src": "MakeItFrom — Annealed (A or TB00) C17200 Copper (480 MPa UTS / 160 MPa YS / El 37% / HRB 63) · ASTM B194 TB00 · [경도 스케일] MakeItFrom C17200 TB00 HRB 63 → HV 112 (ASTM E140-12b Table 4 — 70/30 황동 표를 Cu-Be 에 적용한 근사). 기존 105 는 환산 근거 없던 수치.",
+   "fatigue_strength": 170,
+   "hardness_src": {
+    "scale": "HRB",
+    "value": 63,
+    "family": "brass"
+   }
   },
   "MET-0445": {
    "elongation": 58,
@@ -659,226 +716,346 @@
    "uts": 76,
    "elongation": 39,
    "basis": "AA 1050-O. generic CSV 층의 값(σy 32.9/UTS 79.9/El 32.9)은 base×배율 합성. 1050-O 대표값(11/4 ksi, El 40)으로 교정. 경도: 공개 O-템퍼 HB 미확보 → D10 방식(합금·자매합금 앵커 비). 1100-O 90/23 = 3.9 · 1050-H14 110/34 = 3.2 → 3.5 로 76/3.5 ≈ 22 HB (파생, 문서화).",
-   "src": "United Aluminum — Aluminum 1050 alloy typical mechanical properties (1050-O: 11 ksi / 4 ksi / 40%) · MakeItFrom 1050-O (76 / 25 / 37%) · D10 비례법 — 앵커 MakeItFrom 1100-O (HB 23) · Aalco 1050A-H14 (HB 34)",
-   "hardness": 22
+   "src": "United Aluminum — Aluminum 1050 alloy typical mechanical properties (1050-O: 11 ksi / 4 ksi / 40%) · MakeItFrom 1050-O (76 / 25 / 37%) · D10 비례법 — 앵커 MakeItFrom 1100-O (HB 23) · Aalco 1050A-H14 (HB 34) · [경도 스케일] 인용 경도 22 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기.",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 22,
+    "family": "aluminum",
+    "keep": true
+   }
   },
   "MET-0166": {
    "yield_strength": 103,
    "uts": 110,
    "elongation": 8,
    "basis": "라벨 'Strain-hardened' 의 합성값(σy 33.95/UTS 82.45 = 소둔 ×1.03)을 실제 냉간가공 템퍼 H14 로 교체. 경도 34 HB 는 Aalco 1050A-H14 시트 데이터시트 typical.",
-   "src": "United Aluminum — Aluminum 1050 typical (1050-H14: 16 ksi / 15 ksi / 7%) · MakeItFrom 1050-H14 (110 / 94 / 8.4%) · Aalco Aluminium Alloy 1050A H14 Sheet datasheet (HB 34)",
-   "hardness": 34
+   "src": "United Aluminum — Aluminum 1050 typical (1050-H14: 16 ksi / 15 ksi / 7%) · MakeItFrom 1050-H14 (110 / 94 / 8.4%) · Aalco Aluminium Alloy 1050A H14 Sheet datasheet (HB 34) · [경도 스케일] 인용 경도 34 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기.",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 34,
+    "family": "aluminum",
+    "keep": true
+   }
   },
   "MET-0167": {
    "yield_strength": 34,
    "uts": 90,
    "elongation": 35,
-   "hardness": 23,
    "basis": "AA 1100-O. 합성값(σy 32.9/UTS 84.6/El 32.9/HV 28.2) → AA 대표값 13/5 ksi, El 35, HB 23.",
-   "src": "EMJ Metals Aluminum catalog — 1100-O typical 13,000/5,000 psi, El 35 · United Aluminum 1100-O 13/5 ksi · MakeItFrom 1100-O (88 / 29 / 32% / HB 23)"
+   "src": "EMJ Metals Aluminum catalog — 1100-O typical 13,000/5,000 psi, El 35 · United Aluminum 1100-O 13/5 ksi · MakeItFrom 1100-O (88 / 29 / 32% / HB 23) · [경도 스케일] 인용 경도 23 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기.",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 23,
+    "family": "aluminum",
+    "keep": true
+   }
   },
   "MET-0168": {
    "yield_strength": 117,
    "uts": 125,
    "elongation": 9,
-   "hardness": 32,
    "basis": "'Strain-hardened' 합성값(σy 33.95/UTS 87.3 = 소둔 ×1.03 — 냉간가공인데 소둔과 같은 강도)을 실제 템퍼 H14 로 교체.",
-   "src": "EMJ Metals Aluminum catalog — 1100-H14 typical 18,000/17,000 psi, El 9 · United Aluminum 1100-H14 18/14 ksi · MakeItFrom 1100-H14 (130 / 110 / 8.2% / HB 32)"
+   "src": "EMJ Metals Aluminum catalog — 1100-H14 typical 18,000/17,000 psi, El 9 · United Aluminum 1100-H14 18/14 ksi · MakeItFrom 1100-H14 (130 / 110 / 8.2% / HB 32) · [경도 스케일] 인용 경도 32 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기.",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 32,
+    "family": "aluminum",
+    "keep": true
+   }
   },
   "MET-0099": {
    "yield_strength": 296,
    "uts": 379,
    "elongation": 15,
-   "hardness": 95,
    "basis": "'Strain-hardened' 합성값(σy 339.5/UTS 465.6 — 2011 의 어떤 템퍼보다 높음)을 실제 템퍼 T3(용체화+냉간가공+자연시효; 2011 의 표준 쾌삭 봉재 템퍼)로 교체.",
-   "src": "Alro Steel Metals Guide — Typical Mechanical Properties, Rod/Bar (2011-T3: 55/43 ksi, El 15, HB 95) · EMJ Metals catalog 2011-T3 55,000/43,000 psi · MakeItFrom 2011-T3 (360 / 280 / 12% / HB 95)"
+   "src": "Alro Steel Metals Guide — Typical Mechanical Properties, Rod/Bar (2011-T3: 55/43 ksi, El 15, HB 95) · EMJ Metals catalog 2011-T3 55,000/43,000 psi · MakeItFrom 2011-T3 (360 / 280 / 12% / HB 95) · [경도 스케일] 인용 경도 95 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 95,
+    "family": "aluminum"
+   }
   },
   "MET-0097": {
    "yield_strength": 310,
    "uts": 407,
    "elongation": 12,
-   "hardness": 100,
    "basis": "'Aged / solution-treated' 합성값(σy 343/UTS 470.4)을 실제 템퍼 T8(용체화+냉간가공+인공시효)로 교체.",
-   "src": "Alro Steel Metals Guide — Rod/Bar typical (2011-T8: 59/45 ksi, El 12, HB 100) · EMJ Metals catalog 2011-T8 59,000/45,000 psi · MakeItFrom 2011-T8 (410 / 310 / 9.8% / HB 100)"
+   "src": "Alro Steel Metals Guide — Rod/Bar typical (2011-T8: 59/45 ksi, El 12, HB 100) · EMJ Metals catalog 2011-T8 59,000/45,000 psi · MakeItFrom 2011-T8 (410 / 310 / 9.8% / HB 100) · [경도 스케일] 인용 경도 100 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 100,
+    "family": "aluminum"
+   }
   },
   "MET-0105": {
    "yield_strength": 228,
    "uts": 241,
    "elongation": 10,
    "basis": "'Strain-hardened' 합성값(σy 261.9/UTS 368.6 = T4 ×0.95)을 실재하는 냉간가공 템퍼 H13 으로 교체. 경도: Alro 표에 H13 경도 미기재 → 같은 합금의 앵커 비(2017-T4 427/105 = 4.07)로 241/4.07 ≈ 59 HB (파생, 문서화).",
-   "src": "Alro Steel Metals Guide — Rod/Bar typical (2017-H13: 35/33 ksi, El 10) · D10 비례법 — 앵커 Alro 2017-T4 (62 ksi / HB 105)",
-   "hardness": 59
+   "src": "Alro Steel Metals Guide — Rod/Bar typical (2017-H13: 35/33 ksi, El 10) · D10 비례법 — 앵커 Alro 2017-T4 (62 ksi / HB 105) · [경도 스케일] 인용 경도 59 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 59,
+    "family": "aluminum"
+   }
   },
   "MET-0103": {
    "yield_strength": 276,
    "uts": 427,
    "elongation": 22,
-   "hardness": 105,
    "basis": "'Aged / solution-treated' 합성값(σy 264.6/UTS 372.4)을 실제 템퍼 T4 로 교체.",
-   "src": "Alro Steel Metals Guide — Rod/Bar typical (2017-T4, T451: 62/40 ksi, El 22, HB 105) · EMJ Metals catalog 2017-T4 62,000/40,000 psi · MakeItFrom 2017-T4 (420 / 260 / 18% / HB 110)"
+   "src": "Alro Steel Metals Guide — Rod/Bar typical (2017-T4, T451: 62/40 ksi, El 22, HB 105) · EMJ Metals catalog 2017-T4 62,000/40,000 psi · MakeItFrom 2017-T4 (420 / 260 / 18% / HB 110) · [경도 스케일] 인용 경도 105 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 105,
+    "family": "aluminum"
+   }
   },
   "MET-0114": {
    "yield_strength": 260,
    "uts": 400,
    "elongation": 15,
-   "hardness": 110,
    "basis": "'Aged / solution-treated' 합성값(σy 303.8/UTS 441/El 19.6/HV 112.7)을 실제 템퍼 T6(2025 단조재의 표준 템퍼)로 교체.",
-   "src": "MakeItFrom 2025 (2025-T6) Aluminum — 400 / 260 / 15% / HB 110 ('cited properties are appropriate for the T6 temper')"
+   "src": "MakeItFrom 2025 (2025-T6) Aluminum — 400 / 260 / 15% / HB 110 ('cited properties are appropriate for the T6 temper') · [경도 스케일] 인용 경도 110 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 110,
+    "family": "aluminum"
+   }
   },
   "MET-0153": {
    "yield_strength": 41,
    "uts": 110,
    "elongation": 30,
-   "hardness": 28,
    "basis": "AA 3003-O. 합성값(σy 37.6/UTS 103.4/El 28.2/HV 32.9) → AA 대표값 16/6 ksi, El 30, HB 28.",
-   "src": "United Aluminum — Aluminum 3003 typical (3003-O: 16/6 ksi, El 30) · tubingchina ASM typical table (3003-O 16/6 ksi, El 40, HB 28) · MakeItFrom 3003-O (110 / 40 / 28% / HB 28)"
+   "src": "United Aluminum — Aluminum 3003 typical (3003-O: 16/6 ksi, El 30) · tubingchina ASM typical table (3003-O 16/6 ksi, El 40, HB 28) · MakeItFrom 3003-O (110 / 40 / 28% / HB 28) · [경도 스케일] 인용 경도 28 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기.",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 28,
+    "family": "aluminum",
+    "keep": true
+   }
   },
   "MET-0154": {
    "yield_strength": 145,
    "uts": 150,
    "elongation": 8,
-   "hardness": 40,
    "basis": "'Strain-hardened' 합성값(σy 38.8/UTS 106.7 = 소둔 ×1.03 — 냉간가공인데 소둔과 같은 강도)을 실제 템퍼 H14 로 교체.",
-   "src": "United Aluminum — 3003-H14 typical 22/21 ksi · tubingchina ASM typical table (3003-H14 22/20 ksi, HB 40) · MakeItFrom 3003-H14 (160 / 130 / 8.3% / HB 42) · Alro sheet 3003-H14 ASTM B209 min 20–26 ksi / 17 ksi"
+   "src": "United Aluminum — 3003-H14 typical 22/21 ksi · tubingchina ASM typical table (3003-H14 22/20 ksi, HB 40) · MakeItFrom 3003-H14 (160 / 130 / 8.3% / HB 42) · Alro sheet 3003-H14 ASTM B209 min 20–26 ksi / 17 ksi · [경도 스케일] 인용 경도 40 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 40,
+    "family": "aluminum"
+   }
   },
   "MET-0155": {
    "yield_strength": 69,
    "uts": 180,
    "elongation": 20,
-   "hardness": 45,
    "basis": "AA 3004-O. 합성값의 항복 117.5 는 O 템퍼의 두 배(대표 69) — H32 급 항복이 소둔에 실려 있었다.",
-   "src": "United Aluminum — 3004-O typical 26/10 ksi, El 19 · tubingchina ASM typical table (3004-O 26/10 ksi, El 25, HB 45) · MakeItFrom 3004-O (170 / 69 / 19% / HB 45)"
+   "src": "United Aluminum — 3004-O typical 26/10 ksi, El 19 · tubingchina ASM typical table (3004-O 26/10 ksi, El 25, HB 45) · MakeItFrom 3004-O (170 / 69 / 19% / HB 45) · [경도 스케일] 인용 경도 45 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 45,
+    "family": "aluminum"
+   }
   },
   "MET-0156": {
    "yield_strength": 200,
    "uts": 240,
    "elongation": 9,
-   "hardness": 63,
    "basis": "'Strain-hardened' 합성값(σy 121.3/UTS 179.5 = 소둔 ×1.03)을 실제 템퍼 H34 로 교체.",
-   "src": "tubingchina ASM typical table (3004-H34 34/27 ksi, El 12, HB 63) · MakeItFrom 3004-H34 (240 / 200 / 5.8% / HB 64) · United Aluminum 3004-H34 39/29 ksi, El 5 (스트립 상한 산포)"
+   "src": "tubingchina ASM typical table (3004-H34 34/27 ksi, El 12, HB 63) · MakeItFrom 3004-H34 (240 / 200 / 5.8% / HB 64) · United Aluminum 3004-H34 39/29 ksi, El 5 (스트립 상한 산포) · [경도 스케일] 인용 경도 63 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 63,
+    "family": "aluminum"
+   }
   },
   "MET-0157": {
    "yield_strength": 55,
    "uts": 138,
    "elongation": 22,
-   "hardness": 33,
    "basis": "AA 3005-O. 합성값의 항복 89.3 은 O 템퍼 대표(55)의 1.6배.",
-   "src": "United Aluminum — Aluminum 3005 typical (3005-O: 20/8 ksi, El 22) · MakeItFrom 3005-O (140 / 51 / 16% / HB 33)"
+   "src": "United Aluminum — Aluminum 3005 typical (3005-O: 20/8 ksi, El 22) · MakeItFrom 3005-O (140 / 51 / 16% / HB 33) · [경도 스케일] 인용 경도 33 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기.",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 33,
+    "family": "aluminum",
+    "keep": true
+   }
   },
   "MET-0158": {
    "yield_strength": 193,
    "uts": 200,
    "elongation": 4,
-   "hardness": 54,
    "basis": "'Strain-hardened' 합성값(σy 92.15/UTS 140.7 = 소둔 ×1.03)을 실제 템퍼 H14 로 교체. 산포: 제조사 스트립 200/193 · ASM 계열 180/165(AZoM 요약) — 제조사값 채택, 경도는 MakeItFrom.",
-   "src": "United Aluminum — 3005-H14 typical 29/28 ksi, El 4 · MakeItFrom 3005-H14 (190 / 170 / HB 54)"
+   "src": "United Aluminum — 3005-H14 typical 29/28 ksi, El 4 · MakeItFrom 3005-H14 (190 / 170 / HB 54) · [경도 스케일] 인용 경도 54 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 54,
+    "family": "aluminum"
+   }
   },
   "MET-0159": {
    "yield_strength": 48,
    "uts": 120,
    "elongation": 20,
-   "hardness": 29,
    "basis": "AA 3105-O. 합성값의 항복 75.2 는 O 템퍼 대표(48~55)보다 높다. 파생 피로가 SS 규칙(0.42·σy, 이름 regex 오분류)으로 찍혀 있어 인용값으로 교체.",
-   "src": "MakeItFrom 3105-O Aluminum (120 / 48 / 20% / HB 29) · 피로 52 MPa(MakeItFrom 3105-O)",
-   "fatigue_strength": 52
+   "src": "MakeItFrom 3105-O Aluminum (120 / 48 / 20% / HB 29) · 피로 52 MPa(MakeItFrom 3105-O) · [경도 스케일] 인용 경도 29 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기.",
+   "fatigue_strength": 52,
+   "hardness_src": {
+    "scale": "HB",
+    "value": 29,
+    "family": "aluminum",
+    "keep": true
+   }
   },
   "MET-0160": {
    "yield_strength": 160,
    "uts": 180,
    "elongation": 6.4,
    "basis": "'Strain-hardened' 합성값(σy 77.6/UTS 126.1 = 소둔 ×1.03)을 실제 템퍼 H25 로 교체. 파생 피로(SS 규칙 오분류) → 인용값. 경도: 3105-H25 공개 HB 미확보 → 같은 합금의 앵커 비(3105-O 120/29 = 4.1)로 180/4.1 ≈ 44 HB (파생, 문서화).",
-   "src": "MakeItFrom 3105-H25 Aluminum (180 / 160 / 6.4%) · 피로 87 MPa(MakeItFrom 3105-H25) · D10 비례법 — 앵커 MakeItFrom 3105-O (120 MPa / HB 29)",
+   "src": "MakeItFrom 3105-H25 Aluminum (180 / 160 / 6.4%) · 피로 87 MPa(MakeItFrom 3105-H25) · D10 비례법 — 앵커 MakeItFrom 3105-O (120 MPa / HB 29) · [경도 스케일] 인용 경도 44 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
    "fatigue_strength": 87,
-   "hardness": 44
+   "hardness_src": {
+    "scale": "HB",
+    "value": 44,
+    "family": "aluminum"
+   }
   },
   "MET-0140": {
    "yield_strength": 120,
    "uts": 260,
    "elongation": 22,
-   "hardness": 65,
    "basis": "AA 5086-O. 합성값의 항복 202.1 은 H32 급(205) — 소둔 대표는 115~120.",
-   "src": "ASM Handbook Vol.2 (1990) p.93-4 '5086, Alclad 5086' — 5086-O 260 / 120 / 22% (Wikipedia 5086 aluminium alloy 인용) · MakeItFrom 5086-O (270 / 110 / 20% / HB 65)"
+   "src": "ASM Handbook Vol.2 (1990) p.93-4 '5086, Alclad 5086' — 5086-O 260 / 120 / 22% (Wikipedia 5086 aluminium alloy 인용) · MakeItFrom 5086-O (270 / 110 / 20% / HB 65) · [경도 스케일] 인용 경도 65 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 65,
+    "family": "aluminum"
+   }
   },
   "MET-0141": {
    "yield_strength": 210,
    "uts": 300,
    "elongation": 11,
-   "hardness": 80,
    "basis": "'Strain-hardened' 합성값(σy 208.6/UTS 295.9 = 소둔 ×1.03 — 소둔 자체가 H32 급이라 우연히 근접)을 실제 템퍼 H32 로 교체.",
-   "src": "MakeItFrom 5086-H32 Aluminum (300 / 210 / 11% / HB 80) · Alro sheet 5086-H32 ASTM B209 min 40–47 ksi / 28 ksi"
+   "src": "MakeItFrom 5086-H32 Aluminum (300 / 210 / 11% / HB 80) · Alro sheet 5086-H32 ASTM B209 min 40–47 ksi / 28 ksi · [경도 스케일] 인용 경도 80 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 80,
+    "family": "aluminum"
+   }
   },
   "MET-0195": {
    "yield_strength": 75,
    "uts": 95,
    "elongation": 25,
    "basis": "'Strain-hardened' 합성값(σy 232.8/UTS 271.6 — T6 보다 높은 냉간가공값은 6101 에 없다)을 실재하는 도체 템퍼 H111 로 교체. 경도: 6101-H111 공개 HB 미확보 → 같은 합금의 앵커 비(6101-T6 220/71 = 3.1)로 95/3.1 ≈ 31 HB (파생, 문서화). 합성값 82.45 는 UTS 95 의 0.87 배로 물리적으로 불가.",
-   "src": "MakeItFrom 6101-H111 Aluminum (95 / 75 / 25%, 57 %IACS) · D10 비례법 — 앵커 MakeItFrom 6101-T6 (220 MPa / HB 71)",
-   "hardness": 31
+   "src": "MakeItFrom 6101-H111 Aluminum (95 / 75 / 25%, 57 %IACS) · D10 비례법 — 앵커 MakeItFrom 6101-T6 (220 MPa / HB 71) · [경도 스케일] 인용 경도 31 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기.",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 31,
+    "family": "aluminum",
+    "keep": true
+   }
   },
   "MET-0193": {
    "yield_strength": 200,
    "uts": 220,
    "elongation": 15,
-   "hardness": 71,
    "basis": "'Aged / solution-treated' 합성값(σy 235.2/UTS 274.4)을 실제 템퍼 T6 로 교체.",
-   "src": "MakeItFrom 6101-T6 Aluminum (220 / 200 / 15% / HB 71, 57 %IACS)"
+   "src": "MakeItFrom 6101-T6 Aluminum (220 / 200 / 15% / HB 71, 57 %IACS) · [경도 스케일] 인용 경도 71 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 71,
+    "family": "aluminum"
+   }
   },
   "MET-0199": {
    "yield_strength": 379,
    "uts": 400,
    "elongation": 10,
-   "hardness": 120,
    "basis": "'Strain-hardened' 합성값(σy 267.7/UTS 300.7)을 실제 템퍼 T9(용체화+인공시효+냉간가공 — 6262 의 최고강도 템퍼)로 교체.",
-   "src": "Alro Steel Metals Guide — Rod/Bar typical (6262-T9: 58/55 ksi, El 10, HB 120) · eFunda AA 6262 T9 (400 / 380 / HB 120) · MakeItFrom 6262-T9 (390 / 360 / HB 120)"
+   "src": "Alro Steel Metals Guide — Rod/Bar typical (6262-T9: 58/55 ksi, El 10, HB 120) · eFunda AA 6262 T9 (400 / 380 / HB 120) · MakeItFrom 6262-T9 (390 / 360 / HB 120) · [경도 스케일] 인용 경도 120 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 120,
+    "family": "aluminum"
+   }
   },
   "MET-0197": {
    "yield_strength": 276,
    "uts": 310,
    "elongation": 17,
-   "hardness": 95,
    "basis": "'Aged / solution-treated' 합성값(σy 270.5/UTS 303.8)을 실제 템퍼 T6 로 교체.",
-   "src": "Alro Steel Metals Guide — Rod/Bar typical (6262-T6, T651: 45/40 ksi, El 17, HB 95) · Alro 6262-T6511 extrusion min 38/35 ksi"
+   "src": "Alro Steel Metals Guide — Rod/Bar typical (6262-T6, T651: 45/40 ksi, El 17, HB 95) · Alro 6262-T6511 extrusion min 38/35 ksi · [경도 스케일] 인용 경도 95 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 95,
+    "family": "aluminum"
+   }
   },
   "MET-0214": {
    "yield_strength": 435,
    "uts": 505,
    "elongation": 13,
-   "hardness": 135,
    "basis": "AA 7075-T7351 의 540/470 은 T76(538/469) 값이다. T7351 은 T73 의 응력제거판이라 대표값이 T73(505/435)과 같다 — 같은 base 의 T73 entry(505/430/13/135)와 정합.",
-   "src": "Alro Steel Metals Guide — Rod/Bar typical ('7075-T73, T7351': 73/63 ksi, El 13) · MakeItFrom 7075-T7351 (510 / 410 / HB 140)"
+   "src": "Alro Steel Metals Guide — Rod/Bar typical ('7075-T73, T7351': 73/63 ksi, El 13) · MakeItFrom 7075-T7351 (510 / 410 / HB 140) · [경도 스케일] 인용 경도 135 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 135,
+    "family": "aluminum"
+   }
   },
   "MET-0208": {
    "yield_strength": 469,
    "uts": 524,
    "elongation": 11,
-   "hardness": 140,
    "basis": "AA 7050-T7451. 출처로 인용된 Kaiser 7050 Sheet/Coil/Plate 데이터시트의 typical 표를 다시 판독 — 76/68 ksi(524/469), El 11, HB 140. DB 의 El 10·HB 165 는 표와 어긋났다(경도 +18%).",
-   "src": "Kaiser Aluminum — Sheet Coil & Plate Alloy 7050 Technical Data (Rev. 05/06), Typical Mechanical Properties (Longitudinal): T7451 76 ksi / 68 ksi / 11% / HB 140"
+   "src": "Kaiser Aluminum — Sheet Coil & Plate Alloy 7050 Technical Data (Rev. 05/06), Typical Mechanical Properties (Longitudinal): T7451 76 ksi / 68 ksi / 11% / HB 140 · [경도 스케일] 인용 경도 140 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 140,
+    "family": "aluminum"
+   }
   },
   "MET-0207": {
    "yield_strength": 489,
    "uts": 552,
    "elongation": 11,
-   "hardness": 150,
    "basis": "라벨 'T74' 의 560/510/HB 175 는 인용된 Kaiser 표에 없는 값이고 T7651(552/489/HB 150)보다도 높다 — 7050 판재의 상용 고강도 템퍼는 T7651. 표의 T7651 행으로 교정·재라벨.",
-   "src": "Kaiser Aluminum — Sheet Coil & Plate Alloy 7050 Technical Data (Rev. 05/06), Typical Mechanical Properties: T7651 80 ksi / 71 ksi / 11% / HB 150"
+   "src": "Kaiser Aluminum — Sheet Coil & Plate Alloy 7050 Technical Data (Rev. 05/06), Typical Mechanical Properties: T7651 80 ksi / 71 ksi / 11% / HB 150 · [경도 스케일] 인용 경도 150 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 150,
+    "family": "aluminum"
+   }
   },
   "MET-0108": {
    "yield_strength": 324,
    "uts": 469,
    "elongation": 19,
-   "hardness": 120,
    "basis": "AA 2024-T4 의 425/290 은 규격 최소값 수준(B209/B211 2024-T4 min 62~64/40~42 ksi)이 typical 자리에 실린 것 — 같은 base 의 다른 조건은 전부 typical. 대표값 표 3종이 68/47~48 ksi, El 19, HB 120 으로 일치.",
-   "src": "Alro Steel Metals Guide — Rod/Bar typical (2024-T351, T4: 68/47 ksi, El 19, HB 120) · EMJ Metals catalog 2024-T4, T351 68,000/47,000 psi, El 19, HB 120 · tubingchina ASM typical table (2024-T4 68/48 ksi, El 19, HB 120)"
+   "src": "Alro Steel Metals Guide — Rod/Bar typical (2024-T351, T4: 68/47 ksi, El 19, HB 120) · EMJ Metals catalog 2024-T4, T351 68,000/47,000 psi, El 19, HB 120 · tubingchina ASM typical table (2024-T4 68/48 ksi, El 19, HB 120) · [경도 스케일] 인용 경도 120 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 120,
+    "family": "aluminum"
+   }
   },
   "MET-0192": {
    "yield_strength": 270,
    "uts": 320,
    "elongation": 9,
-   "hardness": 91,
    "basis": "AA 6082-T651 의 340/295/HB 110 은 T651 판재 typical 밴드(310~320 / 260~280 / HB 89~91) 위에 있었다 — T651 은 T6 의 응력제거판이라 강도가 T6 와 같아야 한다. 연신율은 EN 485-2 최소(9%)를 채택(MakeItFrom 6.3% 은 박판 기준으로 보여 보수적으로 규격 최소).",
-   "src": "MakeItFrom 6082-T651 Aluminum (320 / 270 / HB 91) · Aalco Aluminium Alloy 6082 T6~T651 Plate datasheet (BS EN 485-2: 6~12.5 mm 300/255 min, El 9 min, HB 91)"
+   "src": "MakeItFrom 6082-T651 Aluminum (320 / 270 / HB 91) · Aalco Aluminium Alloy 6082 T6~T651 Plate datasheet (BS EN 485-2: 6~12.5 mm 300/255 min, El 9 min, HB 91) · [경도 스케일] 인용 경도 91 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 91,
+    "family": "aluminum"
+   }
   },
   "MET-0143": {
    "yield_strength": 255,
@@ -891,17 +1068,25 @@
    "yield_strength": 240,
    "uts": 340,
    "elongation": 13,
-   "hardness": 90,
    "basis": "조건 없는 단독 entry 의 350/230/22 는 O(310/160/24)와 H116(350/255/16)이 섞인 값 — UTS·HB 가 H116 과 일치하므로 H116 으로 확정하고 σy·El 을 맞춤.",
-   "src": "MakeItFrom 5456-H116 Aluminum (340 / 240 / 13% / HB 90)"
+   "src": "MakeItFrom 5456-H116 Aluminum (340 / 240 / 13% / HB 90) · [경도 스케일] 인용 경도 90 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 90,
+    "family": "aluminum"
+   }
   },
   "MET-0202": {
    "yield_strength": 200,
    "uts": 230,
    "elongation": 11,
-   "hardness": 74,
    "basis": "'6463 (architectural) — T6' 의 207/172 는 EN 755-2 6463-T6 최소(Rm 205 / Rp 170)와 일치 — 규격 최소가 typical 자리에 실린 것. 대표값으로 교정. 같은 base 의 T4(135/81)는 EN T4 최소(125/75) 근방이나 T1 typical 과도 겹쳐 판정 보류.",
-   "src": "MakeItFrom 6463-T6 Aluminum (230 / 200 / 11% / HB 74)"
+   "src": "MakeItFrom 6463-T6 Aluminum (230 / 200 / 11% / HB 74) · [경도 스케일] 인용 경도 74 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 74,
+    "family": "aluminum"
+   }
   },
   "MET-0874": {
    "yield_strength": 345,
@@ -928,9 +1113,14 @@
    "yield_strength": 230,
    "uts": 310,
    "elongation": 29,
-   "hardness": 120,
    "basis": "Titanium Grade 11(Ti-0.2Pd)의 200/295/30 은 인용 미상(단독 'Ti Grade 11' 170/240 은 B265 최소값). Gr11 = Gr1 + Pd — 대표값 인용(MakeItFrom)으로 교정. 두 base 를 이 entry 로 통합.",
-   "src": "MakeItFrom — Grade 11 (3.7225, R52250) Titanium, annealed (310 / 230 / 29% / HB 120)"
+   "src": "MakeItFrom — Grade 11 (3.7225, R52250) Titanium, annealed (310 / 230 / 29% / HB 120) · [경도 스케일] MakeItFrom Grade 11 annealed 120 HB — ASTM E140 에 Ti 환산표가 없어 Brinell 그대로 표기(HV 아님).",
+   "hardness_src": {
+    "scale": "HB",
+    "value": 120,
+    "family": "titanium",
+    "keep": true
+   }
   },
   "MET-0900": {
    "yield_strength": 1210,

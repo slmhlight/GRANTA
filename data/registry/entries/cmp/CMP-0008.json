@@ -30,14 +30,7 @@
       "confidence": "measured",
       "provenance": "Hexcel HexPly 8552 datasheet (verified 2024)"
     },
-    "yield_strength": {
-      "min": 2700,
-      "max": 2900,
-      "typical": 2820,
-      "n": 1,
-      "confidence": "measured",
-      "provenance": "Brittle CFRP — UTS = effective yield (no Lüders)"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 2700,
       "max": 2900,
@@ -97,15 +90,6 @@
       "n": 1,
       "confidence": "measured",
       "provenance": "ASTM D3039 strain to break"
-    },
-    "fatigue_strength": {
-      "min": 1225.8,
-      "max": 1225.8,
-      "typical": 1225.8,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
     },
     "price_per_cm3": {
       "min": 0.3336,
@@ -170,19 +154,21 @@
     "applications": "B-1B 폭격기 동체, 미사일 모터 케이스, 로켓 격리벽, Airbus A350 wing skin, Boeing 787 nacelle",
     "industry_note": "Hexcel HexPly 8552 epoxy matrix (180°C cure) + IM7 (12K tow) UD prepreg. 항공기 primary aerospace structure 표준 — 0° tensile 2724 MPa (-55°C dry), 90° tensile 92 MPa, 0° compression 1690 MPa, ILSS 137 MPa. 121°C 환경에서 거의 무손실 (controlled flow matrix).",
     "anisotropy_note": "복합재 — 강성·강도가 fiber 방향 의존. 0° UD 값 (수직 방향은 1/10~1/20).",
+    "no_yield": "섬유 복합재 — 항복점 없음(선형 후 파단). 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
     "price_verified_date": "2026-04",
     "price_verified_source": "CFRP IM7/8552",
-    "_r173_note_applied": true
+    "_r173_note_applied": true,
+    "composition_basis": "vol%"
   },
   "popularity": 4,
   "density": 1.57,
-  "yield_strength": 2724,
+  "yield_strength": null,
   "uts": 2724,
   "elongation": 1.7,
   "modulus": 163,
   "hardness": null,
   "thermal_conductivity": 6,
-  "fatigue_strength": 1225.8,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Layup",
@@ -192,7 +178,6 @@
     "Composite",
     "Carbon-Epoxy"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1,

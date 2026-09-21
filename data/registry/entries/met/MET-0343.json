@@ -187,6 +187,16 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Properties & Selection: Nonferrous Alloys and Special-Purpose Materials",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
+      "label": "ASTM F75 / F1537 — Co-Cr-Mo 주조·단조 의료용 합금 규격",
+      "url": "https://www.astm.org/f0075-18.html",
+      "verified": false
+    },
+    {
       "label": "Haynes International — Haynes 25 / L-605 Alloy",
       "url": "https://haynesintl.com/en/alloys/alloy/haynes-25-alloy",
       "verified": true
@@ -284,7 +294,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 68.25,
-  "total_cost_estimate": 122.85,
+  "total_cost_estimate": 191.1,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "svhc_concerns": [
@@ -335,5 +345,26 @@
       "hours": 1000
     }
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Haynes International — Haynes 25 / L-605 Alloy",
+          "url": "https://haynesintl.com/en/alloys/alloy/haynes-25-alloy",
+          "verified": true
+        },
+        {
+          "label": "Haynes — L605 / Haynes 25 (UNS R30605)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: ASM Vol.2 Cobalt alloys",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

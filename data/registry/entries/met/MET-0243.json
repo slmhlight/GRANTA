@@ -36,21 +36,21 @@
       "typical": 370,
       "max": 370,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom Cold Drawn AISI 1015 Carbon Steel — 인장 440 MPa · 항복 370 MPa · 연신율 20% · 경도 120 HB"
+      "provenance": "교정: MakeItFrom Cold Drawn AISI 1015 Carbon Steel — 인장 440 MPa · 항복 370 MPa · 연신율 20% · 경도 120 HB · [경도 스케일] 원자료 120 HB(3000 kgf) → HV 120 (ASTM E140-12b Table 2 — 이 범위에서 HV=HB)."
     },
     "uts": {
       "min": 440,
       "typical": 440,
       "max": 440,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom Cold Drawn AISI 1015 Carbon Steel — 인장 440 MPa · 항복 370 MPa · 연신율 20% · 경도 120 HB"
+      "provenance": "교정: MakeItFrom Cold Drawn AISI 1015 Carbon Steel — 인장 440 MPa · 항복 370 MPa · 연신율 20% · 경도 120 HB · [경도 스케일] 원자료 120 HB(3000 kgf) → HV 120 (ASTM E140-12b Table 2 — 이 범위에서 HV=HB)."
     },
     "elongation": {
       "min": 20,
       "typical": 20,
       "max": 20,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom Cold Drawn AISI 1015 Carbon Steel — 인장 440 MPa · 항복 370 MPa · 연신율 20% · 경도 120 HB"
+      "provenance": "교정: MakeItFrom Cold Drawn AISI 1015 Carbon Steel — 인장 440 MPa · 항복 370 MPa · 연신율 20% · 경도 120 HB · [경도 스케일] 원자료 120 HB(3000 kgf) → HV 120 (ASTM E140-12b Table 2 — 이 범위에서 HV=HB)."
     },
     "modulus": {
       "min": 200,
@@ -64,7 +64,11 @@
       "typical": 120,
       "max": 120,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom Cold Drawn AISI 1015 Carbon Steel — 인장 440 MPa · 항복 370 MPa · 연신율 20% · 경도 120 HB"
+      "provenance": "교정: MakeItFrom Cold Drawn AISI 1015 Carbon Steel — 인장 440 MPa · 항복 370 MPa · 연신율 20% · 경도 120 HB · [경도 스케일] 원자료 120 HB(3000 kgf) → HV 120 (ASTM E140-12b Table 2 — 이 범위에서 HV=HB).",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 120,
+      "conversion": "ASTM E140-12b Table 2"
     },
     "thermal_conductivity": {
       "min": 50,
@@ -95,8 +99,11 @@
       "max": 48,
       "typical": 48,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 60,
+      "factor": 0.8,
+      "condition": "cold worked",
       "provenance": "alloy-specific KIC × HT:cold worked (k×0.8)"
     },
     "electrical_conductivity": {
@@ -271,7 +278,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 0.957,
   "delivered_price_per_kg": 0.98,
-  "total_cost_estimate": 0.98,
+  "total_cost_estimate": 1.95,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
@@ -352,7 +359,7 @@
       "val_scalar": 102.6
     },
     "_basis": "AISI 1015 Strain-hardened(냉간인발) 값이 전부 저평가였다 — σy 205.2 가 **소둔(285)보다 낮아** 냉간가공이 소둔보다 약한 물리 역전이었다. generic CSV 조건별 합성값 잔재(D9 과 같은 부류).",
-    "_src": "MakeItFrom Cold Drawn AISI 1015 Carbon Steel — 인장 440 MPa · 항복 370 MPa · 연신율 20% · 경도 120 HB",
+    "_src": "MakeItFrom Cold Drawn AISI 1015 Carbon Steel — 인장 440 MPa · 항복 370 MPa · 연신율 20% · 경도 120 HB · [경도 스케일] 원자료 120 HB(3000 kgf) → HV 120 (ASTM E140-12b Table 2 — 이 범위에서 HV=HB).",
     "points": {
       "from": [
         [

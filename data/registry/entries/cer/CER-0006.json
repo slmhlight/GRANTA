@@ -29,13 +29,7 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "yield_strength": {
-      "min": 400,
-      "max": 400,
-      "typical": 400,
-      "n": 1,
-      "confidence": "handbook"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 400,
       "max": 400,
@@ -114,15 +108,6 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "fatigue_strength": {
-      "min": 180,
-      "max": 180,
-      "typical": 180,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
-    },
     "price_per_cm3": {
       "min": 0.2347,
       "max": 0.2347,
@@ -165,17 +150,18 @@
     "ceramic": true,
     "applications": "기계적 씰, 베어링, 강화 코팅, 우주항공 거울 기재, 반도체 wafer chuck",
     "limitations": "고가, KIC 낮음 (충격 취약)",
+    "no_yield": "취성 세라믹 — 항복점 없음. 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
     "_r173_note_applied": true
   },
   "popularity": 4,
   "density": 3.13,
-  "yield_strength": 400,
+  "yield_strength": null,
   "uts": 400,
   "elongation": null,
   "modulus": 410,
   "hardness": 2500,
   "thermal_conductivity": 110,
-  "fatigue_strength": 180,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Sintered",
@@ -185,7 +171,6 @@
     "Ceramic",
     "Carbide"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1,

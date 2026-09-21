@@ -2,7 +2,7 @@
   "stable_id": "MET-0217",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "subcategory": "F-MET-aluminum-si-alloys-cast-am-3xx-4xx",
     "alloy_base": "F-AB-alsi10mg",
     "element_families": [
       "F-EL-aluminum-based"
@@ -13,7 +13,7 @@
   "id": "C_0016",
   "name": "AlSi10Mg — Annealed",
   "category": "Metal",
-  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "subcategory": "Aluminum - Si Alloys (cast/AM 3xx·4xx)",
   "tier": "curated",
   "manufacturers": [
     "GE Additive",
@@ -108,8 +108,11 @@
       "max": 36,
       "typical": 36,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 18,
+      "factor": 2,
+      "condition": "O (annealed soft, fallback derived from T6)",
       "provenance": "alloy-specific KIC × HT:O (annealed soft, fallback derived from T6) (k×2)"
     },
     "electrical_conductivity": {
@@ -203,6 +206,16 @@
     "Zn": "≤0.10"
   },
   "sources": [
+    {
+      "label": "ASM Handbook Vol.2 — Aluminum & Aluminum Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
+      "label": "ASTM B26/B108 — 알루미늄 사형·금형 주조 규격 (3xx/4xx 주조 조성군)",
+      "url": "https://www.astm.org/b0026_b0026m-18.html",
+      "verified": false
+    },
     {
       "label": "EOS — AlSi10Mg for DMLS/LPBF",
       "url": "https://www.eos.info/metal-solutions/metal-materials",
@@ -340,13 +353,47 @@
   "price_form_factor": 2.5,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 20.4,
-  "total_cost_estimate": 36.72,
+  "total_cost_estimate": 57.12,
   "min_wall_thickness": 0.4,
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
   "confidence_tier": "high",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "EOS — AlSi10Mg for DMLS/LPBF",
+          "url": "https://www.eos.info/metal-solutions/metal-materials",
+          "verified": true
+        },
+        {
+          "label": "Nikon SLM AlSi10Mg MDS 2026-01.1",
+          "url": "https://nikon-slm-solutions.com/wp-content/uploads/2026/01/MDS_AlSi10Mg_2026-01.1_EN.pdf",
+          "verified": true
+        },
+        {
+          "label": "EOS AlSi10Mg",
+          "url": "https://www.eos.info/metal-solutions/metal-materials/aluminium",
+          "verified": true
+        },
+        {
+          "label": "EOS — AlSi10Mg material data sheet",
+          "url": "https://www.eos.info/en-us/3d-printing-materials/metals/aluminum/eos-aluminium-alsi10mg",
+          "verified": true
+        },
+        {
+          "label": "ASTM F3318 / ISO/ASTM 52907 — AM Powder Aluminum AlSi10Mg",
+          "url": "https://www.astm.org/f3318-18.html",
+          "verified": false
+        },
+        {
+          "label": "Aluminum Association — AlSi10Mg cast (~A360)",
+          "url": "https://www.aluminum.org/",
+          "verified": false
+        }
+      ]
+    },
     "aliases": {
       "from": [
         "EN AC-43000",

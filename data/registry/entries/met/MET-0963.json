@@ -124,8 +124,8 @@
       "provenance": "3rd_family:Tool Steel"
     },
     "poisson_ratio": {
-      "min": 0.2465,
-      "max": 0.3335,
+      "min": 0.27,
+      "max": 0.31,
       "typical": 0.29,
       "n": 0,
       "estimated": true,
@@ -184,6 +184,11 @@
     "Si": "≤0.35"
   },
   "sources": [
+    {
+      "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
     {
       "label": "MatWeb 2",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=JIS%20SK5",
@@ -266,11 +271,35 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 7.75,
-  "total_cost_estimate": 7.75,
+  "total_cost_estimate": 15.5,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb 2",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=JIS%20SK5",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: ASM Vol.1 Tool Steels",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Fatigue fallback: σf ≈ 0.42·σy (ASM Vol.1 Tool Steels)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "SteelJIS — SK85 (구 SK5) datasheet (JIS G4401 조성+207HBW/59HRC)",
+          "url": "http://steeljis.com/jis_steel_datasheet.php?name_id=191",
+          "verified": true
+        }
+      ]
+    },
     "max_service_temp": {
       "had_range": true,
       "val_range": {

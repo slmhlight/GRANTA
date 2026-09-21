@@ -29,13 +29,7 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "yield_strength": {
-      "min": 2000,
-      "max": 2000,
-      "typical": 2000,
-      "n": 1,
-      "confidence": "handbook"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 2000,
       "max": 2000,
@@ -102,15 +96,6 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "fatigue_strength": {
-      "min": 900,
-      "max": 900,
-      "typical": 900,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
-    },
     "price_per_cm3": {
       "min": 28.16,
       "max": 28.16,
@@ -152,17 +137,18 @@
     "ceramic": true,
     "applications": "절삭공구 (PCD inserts), 광학 윈도우 (적외), 열 확산기 (전력반도체)",
     "limitations": "공기 中 700°C 이상 → CO₂ 변환. Fe 와 친화성으로 강 절삭 부적합.",
+    "no_yield": "취성 세라믹 — 항복점 없음. 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
     "_r173_note_applied": true
   },
   "popularity": 2,
   "density": 3.52,
-  "yield_strength": 2000,
+  "yield_strength": null,
   "uts": 2000,
   "elongation": null,
   "modulus": 1050,
   "hardness": 10000,
   "thermal_conductivity": 2200,
-  "fatigue_strength": 900,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Sintered",
@@ -172,7 +158,6 @@
     "Ceramic",
     "Carbide"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1.5,

@@ -2,7 +2,7 @@
   "stable_id": "MET-0197",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "subcategory": "F-MET-aluminum-mg-si-alloys-6xxx",
     "alloy_base": "F-AB-aa-6262",
     "element_families": [
       "F-EL-aluminum-based"
@@ -13,7 +13,7 @@
   "id": "G_0032",
   "name": "AA 6262 — T6",
   "category": "Metal",
-  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
   "tier": "generic",
   "manufacturers": [
     "Generic"
@@ -36,21 +36,21 @@
       "typical": 276,
       "max": 276,
       "confidence": "handbook",
-      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (6262-T6, T651: 45/40 ksi, El 17, HB 95) · Alro 6262-T6511 extrusion min 38/35 ksi"
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (6262-T6, T651: 45/40 ksi, El 17, HB 95) · Alro 6262-T6511 extrusion min 38/35 ksi · [경도 스케일] 인용 경도 95 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "uts": {
       "min": 310,
       "typical": 310,
       "max": 310,
       "confidence": "handbook",
-      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (6262-T6, T651: 45/40 ksi, El 17, HB 95) · Alro 6262-T6511 extrusion min 38/35 ksi"
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (6262-T6, T651: 45/40 ksi, El 17, HB 95) · Alro 6262-T6511 extrusion min 38/35 ksi · [경도 스케일] 인용 경도 95 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "elongation": {
       "min": 17,
       "typical": 17,
       "max": 17,
       "confidence": "handbook",
-      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (6262-T6, T651: 45/40 ksi, El 17, HB 95) · Alro 6262-T6511 extrusion min 38/35 ksi"
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (6262-T6, T651: 45/40 ksi, El 17, HB 95) · Alro 6262-T6511 extrusion min 38/35 ksi · [경도 스케일] 인용 경도 95 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "modulus": {
       "min": 69,
@@ -60,11 +60,15 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 95,
-      "typical": 95,
-      "max": 95,
+      "min": 111,
+      "typical": 111,
+      "max": 111,
       "confidence": "handbook",
-      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (6262-T6, T651: 45/40 ksi, El 17, HB 95) · Alro 6262-T6511 extrusion min 38/35 ksi"
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (6262-T6, T651: 45/40 ksi, El 17, HB 95) · Alro 6262-T6511 extrusion min 38/35 ksi · [경도 스케일] 인용 경도 95 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 95,
+      "conversion": "ASTM E140-12b Table 9"
     },
     "thermal_conductivity": {
       "min": 167,
@@ -95,8 +99,11 @@
       "max": 27.5,
       "typical": 27.5,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 25,
+      "factor": 1.1,
+      "condition": "mixed aged/solution-treated CSV-generic (fallback midpoint)",
       "provenance": "alloy-specific KIC × HT:mixed aged/solution-treated CSV-generic (fallback midpoint) (k×1.1)"
     },
     "electrical_conductivity": {
@@ -205,7 +212,7 @@
       310,
       17,
       69,
-      95,
+      111,
       167
     ]
   ],
@@ -238,7 +245,7 @@
   "uts": 310,
   "elongation": 17,
   "modulus": 69,
-  "hardness": 95,
+  "hardness": 111,
   "thermal_conductivity": 167,
   "impact_strength": 11,
   "manufacturer": "Generic",
@@ -247,7 +254,7 @@
   "aliases": [],
   "families": [
     "Metal",
-    "Aluminum - Si Alloys (6xxx/7xxx)",
+    "Aluminum - Mg-Si Alloys (6xxx)",
     "Aluminum-based"
   ],
   "electrical_conductivity": 44,
@@ -265,7 +272,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 4.59,
-  "total_cost_estimate": 4.13,
+  "total_cost_estimate": 8.73,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
@@ -349,7 +356,7 @@
       "val_scalar": 93.1
     },
     "_basis": "'Aged / solution-treated' 합성값(σy 270.5/UTS 303.8)을 실제 템퍼 T6 로 교체.",
-    "_src": "Alro Steel Metals Guide — Rod/Bar typical (6262-T6, T651: 45/40 ksi, El 17, HB 95) · Alro 6262-T6511 extrusion min 38/35 ksi",
+    "_src": "Alro Steel Metals Guide — Rod/Bar typical (6262-T6, T651: 45/40 ksi, El 17, HB 95) · Alro 6262-T6511 extrusion min 38/35 ksi · [경도 스케일] 인용 경도 95 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
     "points": {
       "from": [
         [

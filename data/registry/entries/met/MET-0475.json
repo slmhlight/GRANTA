@@ -126,8 +126,8 @@
       "provenance": "1st_family:Magnesium Alloy"
     },
     "poisson_ratio": {
-      "min": 0.175,
-      "max": 0.525,
+      "min": 0.31,
+      "max": 0.39,
       "typical": 0.35,
       "n": 0,
       "estimated": true,
@@ -186,6 +186,11 @@
     "Zr": "0.4~1"
   },
   "sources": [
+    {
+      "label": "ASM Handbook Vol.2 — Magnesium & Magnesium Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
     {
       "label": "Magnesium Elektron — WE54",
       "url": null,
@@ -290,10 +295,41 @@
   "price_form_factor": 1,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 6,
-  "total_cost_estimate": 5.4,
+  "total_cost_estimate": 11.4,
   "min_wall_thickness": 2.5,
   "surface_finish_typical": 12.5,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Magnesium Elektron — WE54",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: ASM Vol.2 Mg alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Fatigue fallback: σf ≈ 0.35·σy (ASM Vol.2 Mg alloys)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "AZoM — Magnesium Elektron WE54 Alloy (UNS M18410) — 등가규격 AMS 4426, ASTM B80 WE54A-T6",
+          "url": "https://www.azom.com/article.aspx?ArticleID=9280",
+          "verified": true
+        },
+        {
+          "label": "MakeItFrom — WE54A (M18410) Magnesium (σ0.2·UTS·A·E·ρ)",
+          "url": "https://www.makeitfrom.com/material-properties/WE54A-M18410-Magnesium",
+          "verified": false
+        }
+      ]
+    }
+  }
 }

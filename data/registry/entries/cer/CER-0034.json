@@ -29,13 +29,7 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "yield_strength": {
-      "min": 1200,
-      "max": 1200,
-      "typical": 1200,
-      "n": 1,
-      "confidence": "handbook"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 1200,
       "max": 1200,
@@ -114,15 +108,6 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "fatigue_strength": {
-      "min": 540,
-      "max": 540,
-      "typical": 540,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
-    },
     "price_per_cm3": {
       "min": 0.5747,
       "max": 0.5747,
@@ -166,6 +151,7 @@
     "applications": "치과 임플란트, 정밀 가위·나이프, 산소 센서, 단열 코팅, 정밀 fiber-optic ferrule",
     "limitations": "200-300°C 저온 열화 (LTD) 가능 — 수증기 노출 시 t→m 변환",
     "industry_note": "CoorsTek 표준 grade: YTZP / TTZ / DURA-Z / ZDY / YZ-110 / TZ-3Y-E (Tosoh equivalent) / Cerastat. 3Y-TZP 의 metastable tetragonal 상이 stress 시 monoclinic 으로 변환 (transformation toughening) → KIC 10 달성 (Si3N4 와 동등).",
+    "no_yield": "취성 세라믹 — 항복점 없음. 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
     "_r173_note_applied": true,
     "specs": [
       {
@@ -176,13 +162,13 @@
   },
   "popularity": 4,
   "density": 6.05,
-  "yield_strength": 1200,
+  "yield_strength": null,
   "uts": 1200,
   "elongation": null,
   "modulus": 200,
   "hardness": 1300,
   "thermal_conductivity": 2.7,
-  "fatigue_strength": 540,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Sintered",
@@ -195,7 +181,6 @@
     "Ceramic",
     "Oxide"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1.05,

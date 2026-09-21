@@ -2,6 +2,25 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## 2026-09-22 — 외부 감사(2026-09-21) 대응 1차: 수치 신뢰성 (F02~F10·F12·R01~R05) · 계산기 전제 (F13~F17·F30·F31·R06·R07) · 가이드 (F18~F22)
+
+외부 감사 보고서(확정 결함 31·검토 16)를 코드베이스와 대조해 진위를 가린 뒤 데이터 진실성부터 고쳤다. 감사 자료의 검사 규칙은 `tests/audit-2026-09.test.ts`(19 게이트)로 옮겨 재발을 막는다.
+
+- **F02 경도 환산** — 계산기의 `(HRC/23.5)^1.7×50+100` 은 출처 없는 식이었다(HRC 30 → HV 176, 표는 302). SSOT `data/hardness-conversion-e140.json`(ASTM E140-12b Table 1·2 강 / Table 9 단조 Al / Table 4 황동 — Buehler 포스터·Microstar·UTS Canada 전재본을 좌표 판독)으로 교체, 표 안 선형 보간·표 밖 환산 금지. 클라이언트(`hardness-convert.ts`)와 빌드(`scripts/lib/hardness-convert.mjs`)가 같은 표를 쓰고 게이트가 둘을 같은 앵커로 묶는다. HRB 입력 추가, 인장강도는 E140 강 전용 근사열.
+- **F03 Brinell 이 HV 열에** — 압연·주조 Al 의 경도 100 entry 가 전부 AA typical 표의 Brinell(500 kgf)이었다(6061-T6 95 · 7075-T6 150). build-registry 4c 뒤에 **Al 스케일 정규화**: Table 9 로 HV 도출(82) + 표 밖(HB<40·>160, 18)은 `scale:'HB'` 원 스케일 표기, `source_scale·source_value·conversion` 기록. 교정 스키마 `hardness_src:{scale,value,family,keep}` 신설 — HRB(434 75 HRB → HV 137 · C26000 26 HRB → 71 · C17200 63 → 112) · HRC(마레이징 54 → 577) · Ti(표 없음, HB 유지). UI: 상세 툴팁 "HB 150 → HV 177 (E140 T9)", 표는 비-HV 스케일 첨자.
+- **F04 7xxx 가 Si 계열** — 'Si Alloys (6xxx/7xxx)' 통합 subcategory 를 **Mg-Si (6xxx) / Zn (7xxx) / Si (cast/AM 3xx·4xx)** 로 분리(빌드 규칙·조성 분류기·계열 트리·조성 범위·족보 출처·인기도 tier·상류 명시값 전부). 조성 분류기가 6xxx 를 Pure/Other 로 떨구던 것도 함께 교정.
+- **F05/F06 세라믹·복합재에 강 피로식** — family UTS-비율 폴백을 **금속 한정**(66 entry 값 제거 — 취성 세라믹·섬유 복합재에 내구한도 비율을 쓸 근거 없음) + 계열 태그를 families 에서 읽어 'Zn 합금 = Fe-based' 오표기 제거. stale 유도값(UTS 교정 후 재계산 안 된 16)은 이 제거로 소멸.
+- **F09 HT 계수 KIC** — `alloy-specific KIC × HT (k×0.95)` 149 entry 가 handbook·estimated=false 였다 → `derived`+estimated, `base_value·factor·condition` 노출.
+- **R01 푸아송비** 149 entry max 0.51~0.60 → 절대폭(class ±0.04·family ±0.03·subfamily ±0.02) + [0, 0.5) clamp. **R02** 세라믹 39·섬유 복합재 15 의 항복강도가 인장강도 복사본 → 제거 + `meta.no_yield` 사유. **R03** 폴리머 스케일 불명 경도 32 제거. **R05** 순 Be 에 BeCu 계열 KIC 50~75 가 붙던 regex(`bery`) 교정 → 값 없음.
+- **F07/F08/F29 B4C-Al MMC** — ASTM C1161 4점굽힘값을 UTS 로 싣고, vol% 를 wt% 탭에, 60~80 vol% 침투 장갑 설명이 섞여 있었고 출처는 검증 불가. 공개 논문(Zhang 2017 Appl. Sci. 7:1009 — 20/15 wt% PM 압출·압연: 306/213 · 281/184 MPa) 실측으로 교체·개명(freeze fp 재기록, 상류 순서 동결 재생성). 논문이 주지 않는 E·El·경도·사용온도는 싣지 않음. 복합재 구성비 기준 `meta.composition_basis`(vol%/wt%) 스탬프 → 조성 탭 제목 연동.
+- **F10 총 원가 < 소재비** 405 entry — `delivered × index` → `delivered × (1 + index)`(가공비 = 소재비 × 상대지수). 설명에 모델 명시. **R04** AM entry 봉재 시세 근거에 "원소재 기준가, 분말 프리미엄은 form factor" 명기.
+- **F12 제조사 문서가 standard** 48건 — 권위 판정을 **발행처(URL 도메인) 우선**으로: 규격 번호로 *시작*하는 URL 없는 라벨만 standard, 제조사 명칭이 있으면 규격 인용이 딸려도 manufacturer, 학술지(MDPI·Elsevier·Springer…)는 handbook. 족보 출처 7 subcategory 보강(HSS·PHS·압력용기·장갑·스프링·레일·Ceramic-Metal). standard 1484 → 1079.
+- **계산기 (F13~F17·F30·F31·R06·R07)** — 모든 계산기에 `validate*()`(절대영도·0/음수·d≥w·조성 0~100·합계) → 오류면 결과 대신 이유(NaN/Infinity 노출 0), 입력 28개 전부 `<label htmlFor>`·aria-describedby(F24). Sharp corner Kt=5.5 상수 → **특이점(∞)** 안내. **Schaeffler** 는 직선 경계식 3+1(`SCHAEFFLER_LINES` — L_A·L_M 은 도표 판독 특허식, L_F·L_MF 는 앱 근사)로 그림·판정·예시(7 전형 조성 계산값)·상세 용접성이 한 식을 쓴다(구 welding-machinability 휴리스틱은 2205 를 'Ferrite' 로 판정했었다). 갈바닉 도식 anode/cathode 가 전위 판정을 따르고 "면적비 미포함" 명시. 압력용기 t/r>0.1 이면 **Lamé** 두께 제시, SF 는 σy 기준·ASME 허용응력 방식과 구분. Mohr 절대 τ_max(σ₃=0)·Tresca 병기.
+- **가이드·사례** — F17 브래킷 강·약축이 치수와 무관하게 고정 → 두 방향 I 를 계산해 배지. F18 "A-basis (S-basis)" 동일시 → S-basis(규격 하한 전재)·A/B(통계 허용값) 분리. F19 typical=평균/50%·minimum=99% 서술 삭제(통계 보장 없음/규격 하한). F20 measured=인증 직접 사용 → 표본 n·조건·통계 기준 확인 전 허용값 아님. F21 정사각형 J=0.141a⁴ 는 비틀림 상수, 극관성모멘트 a⁴/6 과 구분. F22 유도 피로 배지가 provenance 의 식(≈0.38·σy / ≈0.45·UTS)을 그대로 표시. F26 measured 툴팁 "다수(가장 신뢰)" → n 표기.
+- 검증: 라운드트립 0 · vitest 1266/1266(81) · tsc 0 · lint 0 · anomaly 0. 재료 1,102(불변).
+
+---
+
 ## 2026-09-21 — A3 Ti 족보 re-verify (2027Q1 앞당김 — CP 사다리가 ASTM 최소값을 typical 로 싣고 있었다)
 
 Ti 56 entry / 34 base 전건 판정. 대장 `docs/audits/ti-reverify-2027Q1.md`(로컬). 대조: **TIMET Titanium Alloys technical manual**의 "Typical Mechanical Properties of TIMETAL alloys" 표(제조사 대표값, PDF 좌표 복원) · AZoM/MakeItFrom · ASTM B265/B348/F136 최소.

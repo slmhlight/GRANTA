@@ -81,10 +81,19 @@ export function RangeRow({
      이제: price 류 = '계산', fatigue 류 = '≈UTS', 기타 = '유도'. */
   const isPriceProp = /price|cost/i.test(label);
   const isFatigueProp = /피로|fatigue|σ_?f\b|σf/i.test(label);
-  const derivedLabel = isPriceProp ? '계산' : (isFatigueProp ? '≈UTS' : '유도');
+  /* AUD F22 (2026-09-22) — 피로 유도값의 배지·툴팁은 provenance 에 적힌 식을 그대로 읽는다. 예전엔 어떤 값이든
+     '≈UTS' 로 찍었지만 실제 규칙은 σy 기반(family:σf≈0.38·σy …)과 UTS 기반(σf≈0.45·UTS)이 섞여 있다. */
+  const provStr = String((range as { provenance?: string })?.provenance ?? '');
+  const fatigueRule = provStr.match(/σf≈([\d.]+)·(σy|UTS)/);
+  const derivedLabel = isPriceProp ? '계산' : (isFatigueProp ? (fatigueRule ? `≈${fatigueRule[1]}·${fatigueRule[2]}` : '유도') : '유도');
   const derivedTip = isPriceProp
     ? '계산값 — base price × condition/form/grade 배수 적용 (raw price 의 product)'
-    : (isFatigueProp ? '피로 한도 = UTS·비율 (Shigley/MMPDS family typical)' : '다른 물성에서 유도된 값');
+    : (isFatigueProp
+      ? (fatigueRule ? `피로 한도 ≈ ${fatigueRule[1]} × ${fatigueRule[2]} (계열 대표 비율 — 10⁷ cycles·R=−1·매끈 시편 가정, 실측 아님)` : '다른 물성에서 유도된 피로값')
+      : '다른 물성에서 유도된 값');
+  /* AUD F26 — measured 툴팁은 표본 수를 그대로 말한다. n=1 은 "실측 데이터 다수" 가 아니다. */
+  const nPts = range?.n ?? 0;
+  const measuredTip = nPts >= 3 ? `실측 데이터 ${nPts}점 (평균 ± 범위)` : nPts === 1 || nPts === 2 ? `실측 ${nPts}점 — 단일 대표값에 가깝습니다. 조건·시험법·표본 수를 출처에서 확인하세요.` : '실측으로 표기됐지만 표본 수 정보가 없습니다 — 출처를 확인하세요.';
 
   /* R210 B5 — 색/툴팁은 material-colors.ts 의 CONFIDENCE 단일 소스에서. measured 의 라벨은 n=N,
      derived 의 라벨·툴팁은 property type 별(가격='계산'/피로='≈UTS'/기타='유도')로 override. */
@@ -93,7 +102,7 @@ export function RangeRow({
     label: conf === 'measured' ? `n=${range?.n ?? 0}` : conf === 'derived' ? derivedLabel : base.label,
     cls: base.twText,
     dot: base.twDot,
-    tip: conf === 'derived' ? derivedTip : base.tip,
+    tip: conf === 'derived' ? derivedTip : conf === 'measured' ? measuredTip : base.tip,
   } : null;
   /* R129 — fallback 출처/조정 표시 (provenance). hover tooltip 에 fallback chain 명시.
             예: "alloy:174ph × HT:H1025 (f×0.9, i×1.4)" → 17-4 PH peak 값에서 H1025 condition 조정. */
@@ -121,6 +130,13 @@ export function RangeRow({
   /* R204 #3 — Cost/Difficulty factor (unit=×) 의 directness 라벨.
      Machining/HT factor → 어려움 등급, Condition/Form/Grade × → 가격(premium) 등급. */
   const isFactorRow = unit === '×' && typeof typical === 'number';
+  /* AUD F03 (2026-09-22) — range.scale 이 있으면 그 스케일이 표시 단위다 (예: 순알루미늄 소둔 HB 23 — E140 표 밖이라 HV 로 환산하지 않음).
+     환산된 값(scale HV + source_scale)은 단위는 HV 그대로, 툴팁에 "HB 95 → HV 111 (ASTM E140-12b Table 9)" 를 보인다. */
+  const hs = range as { scale?: string; source_scale?: string; source_value?: number; conversion?: string | null; scale_note?: string } | undefined;
+  const scaleUnit = hs?.scale && hs.scale !== 'HV' && unit === 'HV' ? hs.scale : unit;
+  const hardnessScaleTip = unit === 'HV' && hs?.source_scale
+    ? (hs.conversion ? `원자료 ${hs.source_scale} ${hs.source_value} → HV ${typical} (${hs.conversion})` : `원자료 ${hs.source_scale} ${hs.source_value} — ${hs.scale_note || '환산표 없음, 원 스케일 표기'}`)
+    : undefined;
   const isDifficultyFactor = /machining|ht factor|machinability|wear/i.test(label);
   const factorBadge = isFactorRow ? factorDifficultyLabel(typical as number, isDifficultyFactor ? 'difficulty' : 'price') : null;
   return (
@@ -144,7 +160,8 @@ export function RangeRow({
       </span>
       <div className="text-right">
         <span className="font-mono text-xs font-medium text-foreground">{typicalStr}</span>
-        {!isPrice && <span className="text-muted-foreground font-normal text-[11px]"> {unit}</span>}
+        {/* AUD F03 — 경도 스케일: 환산되지 않은 원 스케일(HB 등)은 그 스케일로 표기하고, 환산된 HV 는 툴팁에 원자료·표를 남긴다. */}
+        {!isPrice && <span className="text-muted-foreground font-normal text-[11px]" title={hardnessScaleTip}> {scaleUnit}</span>}
         {/* R204 #3 — factor directness 라벨 (×값 옆) */}
         {factorBadge && (
           <span className={`ml-1.5 text-[10px] font-medium ${factorBadge.color}`} title={`${factorBadge.label} (값 ${typical?.toFixed?.(2)} ×, 1.0=표준/보통 기준)`}>

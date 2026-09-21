@@ -73,15 +73,7 @@
       "n": 3,
       "confidence": "measured"
     },
-    "fatigue_strength": {
-      "min": 117,
-      "max": 135,
-      "typical": 126,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
-    },
+    "fatigue_strength": null,
     "impact_strength": null,
     "max_service_temp": {
       "typical": 95,
@@ -161,7 +153,7 @@
   "modulus": 96,
   "hardness": 82,
   "thermal_conductivity": 113,
-  "fatigue_strength": 126,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Cast",
@@ -176,7 +168,6 @@
     "Metal",
     "Zinc Alloy"
   ],
-  "fatigue_estimated": true,
   "popularity": 2.4,
   "machining_cost_factor": 0.9,
   "ht_cost_factor": 1,

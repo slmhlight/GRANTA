@@ -57,13 +57,7 @@
       "n": 3,
       "confidence": "measured"
     },
-    "hardness": {
-      "min": 15,
-      "max": 21,
-      "typical": 18,
-      "n": 3,
-      "confidence": "measured"
-    },
+    "hardness": null,
     "thermal_conductivity": {
       "min": 0.2,
       "max": 0.2,
@@ -101,8 +95,8 @@
       "provenance": "class:Polycarbonate"
     },
     "poisson_ratio": {
-      "min": 0.2,
-      "max": 0.6,
+      "min": 0.36,
+      "max": 0.44,
       "typical": 0.4,
       "n": 0,
       "estimated": true,
@@ -232,7 +226,7 @@
   "uts": 70,
   "elongation": 100,
   "modulus": 2.4,
-  "hardness": 18,
+  "hardness": null,
   "thermal_conductivity": 0.2,
   "fatigue_strength": null,
   "impact_strength": null,
@@ -259,7 +253,7 @@
   "price_form_factor": 1,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 40,
-  "total_cost_estimate": 72,
+  "total_cost_estimate": 112,
   "min_wall_thickness": 2,
   "surface_finish_typical": 50,
   "tolerance_class": "IT15",

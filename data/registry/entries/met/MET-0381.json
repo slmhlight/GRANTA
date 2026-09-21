@@ -29,28 +29,28 @@
       "typical": 8.25,
       "max": 8.25,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom — Annealed (A or TB00) C17200 Copper (480 MPa UTS / 160 MPa YS / El 37% / HRB 63) · ASTM B194 TB00"
+      "provenance": "교정: MakeItFrom — Annealed (A or TB00) C17200 Copper (480 MPa UTS / 160 MPa YS / El 37% / HRB 63) · ASTM B194 TB00 · [경도 스케일] MakeItFrom C17200 TB00 HRB 63 → HV 112 (ASTM E140-12b Table 4 — 70/30 황동 표를 Cu-Be 에 적용한 근사). 기존 105 는 환산 근거 없던 수치."
     },
     "yield_strength": {
       "min": 160,
       "typical": 160,
       "max": 160,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom — Annealed (A or TB00) C17200 Copper (480 MPa UTS / 160 MPa YS / El 37% / HRB 63) · ASTM B194 TB00"
+      "provenance": "교정: MakeItFrom — Annealed (A or TB00) C17200 Copper (480 MPa UTS / 160 MPa YS / El 37% / HRB 63) · ASTM B194 TB00 · [경도 스케일] MakeItFrom C17200 TB00 HRB 63 → HV 112 (ASTM E140-12b Table 4 — 70/30 황동 표를 Cu-Be 에 적용한 근사). 기존 105 는 환산 근거 없던 수치."
     },
     "uts": {
       "min": 480,
       "typical": 480,
       "max": 480,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom — Annealed (A or TB00) C17200 Copper (480 MPa UTS / 160 MPa YS / El 37% / HRB 63) · ASTM B194 TB00"
+      "provenance": "교정: MakeItFrom — Annealed (A or TB00) C17200 Copper (480 MPa UTS / 160 MPa YS / El 37% / HRB 63) · ASTM B194 TB00 · [경도 스케일] MakeItFrom C17200 TB00 HRB 63 → HV 112 (ASTM E140-12b Table 4 — 70/30 황동 표를 Cu-Be 에 적용한 근사). 기존 105 는 환산 근거 없던 수치."
     },
     "elongation": {
       "min": 37,
       "typical": 37,
       "max": 37,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom — Annealed (A or TB00) C17200 Copper (480 MPa UTS / 160 MPa YS / El 37% / HRB 63) · ASTM B194 TB00"
+      "provenance": "교정: MakeItFrom — Annealed (A or TB00) C17200 Copper (480 MPa UTS / 160 MPa YS / El 37% / HRB 63) · ASTM B194 TB00 · [경도 스케일] MakeItFrom C17200 TB00 HRB 63 → HV 112 (ASTM E140-12b Table 4 — 70/30 황동 표를 Cu-Be 에 적용한 근사). 기존 105 는 환산 근거 없던 수치."
     },
     "modulus": {
       "min": 124,
@@ -60,11 +60,15 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 105,
-      "typical": 105,
-      "max": 105,
+      "min": 112,
+      "typical": 112,
+      "max": 112,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom — Annealed (A or TB00) C17200 Copper (480 MPa UTS / 160 MPa YS / El 37% / HRB 63) · ASTM B194 TB00"
+      "provenance": "교정: MakeItFrom — Annealed (A or TB00) C17200 Copper (480 MPa UTS / 160 MPa YS / El 37% / HRB 63) · ASTM B194 TB00 · [경도 스케일] MakeItFrom C17200 TB00 HRB 63 → HV 112 (ASTM E140-12b Table 4 — 70/30 황동 표를 Cu-Be 에 적용한 근사). 기존 105 는 환산 근거 없던 수치.",
+      "scale": "HV",
+      "source_scale": "HRB",
+      "source_value": 63,
+      "conversion": "ASTM E140-12b Table 4"
     },
     "thermal_conductivity": {
       "min": 111,
@@ -78,7 +82,7 @@
       "typical": 170,
       "max": 170,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom — Annealed (A or TB00) C17200 Copper (480 MPa UTS / 160 MPa YS / El 37% / HRB 63) · ASTM B194 TB00"
+      "provenance": "교정: MakeItFrom — Annealed (A or TB00) C17200 Copper (480 MPa UTS / 160 MPa YS / El 37% / HRB 63) · ASTM B194 TB00 · [경도 스케일] MakeItFrom C17200 TB00 HRB 63 → HV 112 (ASTM E140-12b Table 4 — 70/30 황동 표를 Cu-Be 에 적용한 근사). 기존 105 는 환산 근거 없던 수치."
     },
     "impact_strength": {
       "min": 53,
@@ -93,8 +97,11 @@
       "max": 126,
       "typical": 126,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 70,
+      "factor": 1.8,
+      "condition": "TB00 solution annealed",
       "provenance": "alloy-specific KIC × HT:TB00 solution annealed (k×1.8)"
     },
     "electrical_conductivity": {
@@ -215,7 +222,7 @@
       480,
       37,
       128,
-      105,
+      112,
       111
     ]
   ],
@@ -248,7 +255,7 @@
   "uts": 480,
   "elongation": 37,
   "modulus": 128,
-  "hardness": 105,
+  "hardness": 112,
   "thermal_conductivity": 111,
   "impact_strength": 88,
   "manufacturer": "Generic",
@@ -283,7 +290,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 42,
-  "total_cost_estimate": 37.8,
+  "total_cost_estimate": 79.8,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "elevated_temp": [
@@ -384,18 +391,6 @@
       "had_scalar": true,
       "val_scalar": 5
     },
-    "hardness": {
-      "had_range": true,
-      "val_range": {
-        "min": 340,
-        "max": 420,
-        "typical": 380,
-        "n": 10,
-        "confidence": "handbook"
-      },
-      "had_scalar": true,
-      "val_scalar": 380
-    },
     "density": {
       "had_range": true,
       "val_range": {
@@ -421,8 +416,20 @@
       "had_scalar": true,
       "val_scalar": 380
     },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 340,
+        "max": 420,
+        "typical": 380,
+        "n": 10,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 380
+    },
     "_basis": "heat_treatment 는 \"Annealed\" 인데 값(σy 1100 · UTS 1300 · El 5%)은 **피크 시효(TF00) 수준** — 라벨과 값이 어긋났다. 시효 조건은 이미 MET-0363(TF00)·MET-0364(TH04)가 담당하므로 이 entry 는 라벨대로 용체화 어닐링(TB00) 실제값으로 교정. 밀도도 8.36 → 8.25(C17200 실제)로 정정. 피로강도 380 도 시효 UTS 기준 파생이라 교정 후 물리 상한(0.63·UTS)을 넘어 — Cu 계열 endurance ratio(0.35·UTS, DB 내 Cu 분포와 일치)로 재유도.",
-    "_src": "MakeItFrom — Annealed (A or TB00) C17200 Copper (480 MPa UTS / 160 MPa YS / El 37% / HRB 63) · ASTM B194 TB00",
+    "_src": "MakeItFrom — Annealed (A or TB00) C17200 Copper (480 MPa UTS / 160 MPa YS / El 37% / HRB 63) · ASTM B194 TB00 · [경도 스케일] MakeItFrom C17200 TB00 HRB 63 → HV 112 (ASTM E140-12b Table 4 — 70/30 황동 표를 Cu-Be 에 적용한 근사). 기존 105 는 환산 근거 없던 수치.",
     "points": {
       "from": [
         [

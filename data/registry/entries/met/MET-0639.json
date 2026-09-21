@@ -127,8 +127,8 @@
       "provenance": "2nd_family:Rail Steel"
     },
     "poisson_ratio": {
-      "min": 0.203,
-      "max": 0.377,
+      "min": 0.26,
+      "max": 0.32,
       "typical": 0.29,
       "n": 0,
       "estimated": true,
@@ -190,6 +190,16 @@
     "S": "≤0.040"
   },
   "sources": [
+    {
+      "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "EN 13674-1 — Railway applications, Track, Rail (R260/R350HT)",
+      "url": "https://www.en-standard.eu/bs-en-13674-1-2011-a1-2017-railway-applications-track-rail-vignole-railway-rails-46-kg-m-and-above/",
+      "verified": false
+    },
     {
       "label": "Reference 1",
       "url": "https://www.mxvrail.com",
@@ -268,8 +278,29 @@
   "price_form_factor": 1.15,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 2.83,
-  "total_cost_estimate": 2.55,
+  "total_cost_estimate": 5.38,
   "tolerance_class": "IT12-14",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Reference 1",
+          "url": "https://www.mxvrail.com",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: BS EN 13674 Rail",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "AAR Manual of Standards & Recommended Practices — M-107/M-208 'Wheels, Carbon Steel' (Implemented 07/2009): Table 8.1 화학요건 + Table 10.1 림 Brinell 경도(Class C 321-363 BHN)",
+          "url": "https://shspecialsteel.com/wp-content/uploads/2020/01/AAR_M-107-for-Train-Wheels-of-carbon_steel.pdf",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

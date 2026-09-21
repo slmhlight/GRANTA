@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 40,
-      "max": 60,
-      "typical": 45,
+      "min": 44,
+      "max": 68,
+      "typical": 50,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 45,
+      "conversion": "ASTM E140-12b Table 9",
+      "provenance": "HB 45 → HV 50 (ASTM E140-12b Table 9)"
     },
     "thermal_conductivity": {
       "min": 121,
@@ -127,8 +132,8 @@
       "provenance": "1st_family:Aluminum - Cu Alloys (2xxx)"
     },
     "poisson_ratio": {
-      "min": 0.165,
-      "max": 0.495,
+      "min": 0.29,
+      "max": 0.37,
       "typical": 0.33,
       "n": 0,
       "estimated": true,
@@ -205,7 +210,7 @@
       180,
       22,
       72,
-      45,
+      50,
       121
     ]
   ],
@@ -228,7 +233,7 @@
   "uts": 180,
   "elongation": 22,
   "modulus": 72,
-  "hardness": 45,
+  "hardness": 50,
   "thermal_conductivity": 121,
   "impact_strength": 30,
   "manufacturer": "Generic",
@@ -257,7 +262,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 4.28,
-  "total_cost_estimate": 3.86,
+  "total_cost_estimate": 8.14,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
@@ -295,6 +300,19 @@
     "aliases": {
       "from": []
     },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 40,
+        "max": 60,
+        "typical": 45,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 45
+    },
+    "_hardness_scale": "Al HB500 45 → HV 50 (E140 T9)",
     "fields": {
       "name": {
         "from": "AA 2017 — Annealed (Wrought)",

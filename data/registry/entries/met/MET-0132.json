@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 145,
-      "max": 145,
-      "typical": 145,
+      "min": 171,
+      "max": 171,
+      "typical": 171,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 145,
+      "conversion": "ASTM E140-12b Table 9",
+      "provenance": "HB 145 → HV 171 (ASTM E140-12b Table 9)"
     },
     "thermal_conductivity": {
       "min": 105,
@@ -126,8 +131,8 @@
       "provenance": "3rd_family:Aluminum - Lithium"
     },
     "poisson_ratio": {
-      "min": 0.2805,
-      "max": 0.3795,
+      "min": 0.31,
+      "max": 0.35,
       "typical": 0.33,
       "n": 0,
       "estimated": true,
@@ -188,6 +193,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Aluminum & Aluminum Alloys (Al-Li)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "MatWeb 2",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA8090",
       "verified": false
@@ -215,7 +225,7 @@
       480,
       5,
       77,
-      145,
+      171,
       105
     ]
   ],
@@ -240,7 +250,7 @@
   "uts": 480,
   "elongation": 5,
   "modulus": 77,
-  "hardness": 145,
+  "hardness": 171,
   "thermal_conductivity": 105,
   "impact_strength": 10,
   "manufacturer": "Reference data",
@@ -269,8 +279,61 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 8.19,
-  "total_cost_estimate": 7.37,
+  "total_cost_estimate": 15.56,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb 2",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA8090",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: FAA DOT/TC-18/21 Al-Li",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Fatigue fallback: σf ≈ 0.38·σy (Aluminum Association handbook)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "AZoM — Aluminum 8090 Alloy (UNS A98090), Mechanical Properties (T8151)",
+          "url": "https://www.azom.com/article.aspx?ArticleID=8789",
+          "verified": true
+        }
+      ]
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 145,
+        "max": 145,
+        "typical": 145,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 145
+    },
+    "_hardness_scale": "Al HB500 145 → HV 171 (E140 T9)",
+    "points": {
+      "from": [
+        [
+          2.54,
+          415,
+          480,
+          5,
+          77,
+          145,
+          105
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  }
 }

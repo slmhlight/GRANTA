@@ -94,8 +94,11 @@
       "max": 78.8,
       "typical": 78.8,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 75,
+      "factor": 1.05,
+      "condition": "HIP densified",
       "provenance": "alloy-specific KIC × HT:HIP densified (k×1.05)"
     },
     "electrical_conductivity": {
@@ -331,7 +334,7 @@
   "price_form_factor": 1,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 57.75,
-  "total_cost_estimate": 127.05,
+  "total_cost_estimate": 184.8,
   "min_wall_thickness": 2.5,
   "surface_finish_typical": 12.5,
   "tolerance_class": "IT13-14",

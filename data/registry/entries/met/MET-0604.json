@@ -126,8 +126,8 @@
       "provenance": "3rd_family:Nickel Superalloy"
     },
     "poisson_ratio": {
-      "min": 0.255,
-      "max": 0.345,
+      "min": 0.28,
+      "max": 0.32,
       "typical": 0.3,
       "n": 0,
       "estimated": true,
@@ -187,6 +187,11 @@
     "Ti": "1.9~2.4"
   },
   "sources": [
+    {
+      "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
     {
       "label": "Haynes International — Haynes 263 Alloy",
       "url": "https://haynesintl.com/en/alloys/alloy/haynes-263-alloy",
@@ -284,11 +289,32 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 118.13,
-  "total_cost_estimate": 212.63,
+  "total_cost_estimate": 330.75,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "svhc_concerns": [
     "Co 21% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Haynes International — Haynes 263 Alloy",
+          "url": "https://haynesintl.com/en/alloys/alloy/haynes-263-alloy",
+          "verified": true
+        },
+        {
+          "label": "Special Metals — Nimonic 263 (UNS N07263)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: Special Metals/Haynes general",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

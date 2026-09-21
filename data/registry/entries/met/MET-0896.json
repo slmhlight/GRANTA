@@ -189,6 +189,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Titanium & Titanium Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "MatWeb — Titanium Grade 9 (Ti-3Al-2.5V)",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Titanium+Grade+9",
       "verified": false
@@ -285,7 +290,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 52.5,
-  "total_cost_estimate": 47.25,
+  "total_cost_estimate": 99.75,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "elevated_temp": [
@@ -313,6 +318,35 @@
   "_corrections": {
     "subcategory": {
       "from": "Titanium - Pure / CP Grades"
+    },
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb — Titanium Grade 9 (Ti-3Al-2.5V)",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=Titanium+Grade+9",
+          "verified": false
+        },
+        {
+          "label": "ASTM B338 / Aircraft Materials — Ti 3-2.5 (Grade 9)",
+          "url": "https://www.aircraftmaterials.com/data/titanium.html",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: MMPDS-2018 Titanium",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Smiths High Performance — Ti 3Al 2.5V (Grade 9) Technical Datasheet (AMS 4944 CWSR: UTS 860 / YS 725 / 신율 10% / E 100 GPa, PDF 직접 판독)",
+          "url": "https://www.smithshp.com/assets/pdf/titanium/ti3-al-2.5v-grade-9-titanium-english.pdf",
+          "verified": true
+        },
+        {
+          "label": "AZoM — Grade 9 Ti-3Al-2.5V (UNS R56320) (annealed: YS 530 / UTS 620 / 신율 20% / E 100 GPa, ASTM·AMS 목록)",
+          "url": "https://www.azom.com/article.aspx?ArticleID=9337",
+          "verified": true
+        }
+      ]
     },
     "yield_strength": {
       "had_range": true,

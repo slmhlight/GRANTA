@@ -107,8 +107,11 @@
       "max": 94.3,
       "typical": 94.3,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 65,
+      "factor": 1.45,
+      "condition": "solution treated",
       "provenance": "alloy-specific KIC × HT:solution treated (k×1.45)"
     },
     "electrical_conductivity": {
@@ -293,7 +296,7 @@
   "price_form_factor": 2.5,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 25,
-  "total_cost_estimate": 45,
+  "total_cost_estimate": 70,
   "min_wall_thickness": 0.4,
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",

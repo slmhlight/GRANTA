@@ -30,13 +30,7 @@
       "confidence": "measured",
       "provenance": "Hexcel HRH-10 1/8-3.0 datasheet"
     },
-    "yield_strength": {
-      "min": 0.85,
-      "max": 1.1,
-      "typical": 1,
-      "n": 1,
-      "confidence": "measured"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 0.85,
       "max": 1.1,
@@ -93,7 +87,6 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "fatigue_strength": null,
     "price_per_cm3": {
       "min": 0.0038,
       "max": 0.0038,
@@ -135,11 +128,12 @@
     "applications": "항공 패널 (객실 바닥·벽·천장), 위성 패널, 헬리콥터 floor",
     "limitations": "충격 손상 후 hidden — 비파괴 검사 어려움",
     "anisotropy_note": "복합재 — 강성·강도가 fiber 방향 의존. 0° UD 값 (수직 방향은 1/10~1/20).",
+    "no_yield": "섬유 복합재 — 항복점 없음(선형 후 파단). 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
     "_r173_note_applied": true
   },
   "popularity": 3,
   "density": 0.048,
-  "yield_strength": 2.5,
+  "yield_strength": null,
   "uts": 2.5,
   "elongation": 1,
   "modulus": 0.075,
@@ -158,7 +152,6 @@
     "Composite",
     "Honeycomb"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1,

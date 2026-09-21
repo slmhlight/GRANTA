@@ -126,8 +126,8 @@
       "provenance": "3rd_family:Stainless Steel - Austenitic"
     },
     "poisson_ratio": {
-      "min": 0.255,
-      "max": 0.345,
+      "min": 0.28,
+      "max": 0.32,
       "typical": 0.3,
       "n": 0,
       "estimated": true,
@@ -187,6 +187,16 @@
     "N": "0.18~0.25"
   },
   "sources": [
+    {
+      "label": "ASM Handbook Vol.1 — Stainless Steels (properties & selection)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM A240/A240M — Stainless Steel Plate, Sheet & Strip",
+      "url": "https://store.astm.org/a0240_a0240m-23.html",
+      "verified": true
+    },
     {
       "label": "ATI — AL-6XN Alloy",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AL-6XN",
@@ -290,7 +300,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 5.78,
-  "total_cost_estimate": 5.78,
+  "total_cost_estimate": 11.55,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "svhc_concerns": [
@@ -301,6 +311,30 @@
     "industry_note": {
       "from": null,
       "had": true
+    },
+    "sources": {
+      "from": [
+        {
+          "label": "ATI — AL-6XN Alloy",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AL-6XN",
+          "verified": false
+        },
+        {
+          "label": "ATI — AL-6XN super-austenitic (UNS N08367)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: ASM Vol.1 Austenitic SS",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "AL6XN (UNS N08367) — Calico Metal Alloys (ASME SB-688 최소값)",
+          "url": "https://www.calicometal.com/materials/al6xn.html",
+          "verified": true
+        }
+      ]
     }
   }
 }

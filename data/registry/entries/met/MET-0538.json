@@ -188,6 +188,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "Special Metals — Incoloy Alloy 825",
       "url": "https://www.specialmetals.com/documents/technical-bulletins/incoloy/incoloy-alloy-825.pdf",
       "verified": true
@@ -287,7 +292,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 37.49,
-  "total_cost_estimate": 37.49,
+  "total_cost_estimate": 74.97,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "svhc_concerns": [
@@ -295,6 +300,25 @@
   ],
   "confidence_tier": "high",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Special Metals — Incoloy Alloy 825",
+          "url": "https://www.specialmetals.com/documents/technical-bulletins/incoloy/incoloy-alloy-825.pdf",
+          "verified": true
+        },
+        {
+          "label": "Special Metals — Incoloy 825 (UNS N08825)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: Special Metals/Haynes general",
+          "url": null,
+          "verified": false
+        }
+      ]
+    },
     "aliases": {
       "from": [
         "UNS N08825",

@@ -41,7 +41,7 @@ const SYM_GLOSSARY: Record<string, string> = {
   'σ_h': 'Hoop stress (원주응력) — 압력용기 σ = PD/2t',
   'I': '단면 2차모멘트 — 굽힘 강성의 단면 의존 항',
   'Z': '단면계수 — 굽힘 응력 σ = M/Z',
-  'J': '극관성모멘트 — 비틀림 강성 θ = TL/GJ',
+  'J': '비틀림 상수 — 비틀림 강성 θ = TL/GJ. 원형 단면에서만 극관성모멘트 J_p = π d⁴/32 와 같음',
   'M': '성능지수 (Material Index) — Ashby 방법, 클수록 우수',
   'F': '집중 하중 (Force, N)',
   'L': '길이 (m 또는 mm)',

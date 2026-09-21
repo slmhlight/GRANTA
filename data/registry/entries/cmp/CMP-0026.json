@@ -29,13 +29,7 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "yield_strength": {
-      "min": 1700,
-      "max": 1700,
-      "typical": 1700,
-      "n": 1,
-      "confidence": "handbook"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 1700,
       "max": 1700,
@@ -90,15 +84,6 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "fatigue_strength": {
-      "min": 765,
-      "max": 765,
-      "typical": 765,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
-    },
     "price_per_cm3": {
       "min": 0.07,
       "max": 0.07,
@@ -141,17 +126,18 @@
     "fiber_vf": 0.6,
     "applications": "헬리콥터 로터 블레이드 (rotor blade torsion box), 압력용기",
     "anisotropy_note": "복합재 — 강성·강도가 fiber 방향 의존. 0° UD 값 (수직 방향은 1/10~1/20).",
+    "no_yield": "섬유 복합재 — 항복점 없음(선형 후 파단). 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
     "_r173_note_applied": true
   },
   "popularity": 5,
   "density": 2,
-  "yield_strength": 1700,
+  "yield_strength": null,
   "uts": 1700,
   "elongation": 3.5,
   "modulus": 60,
   "hardness": null,
   "thermal_conductivity": 0.45,
-  "fatigue_strength": 765,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Layup",
@@ -161,7 +147,6 @@
     "Composite",
     "Glass-Epoxy"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1,

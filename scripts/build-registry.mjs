@@ -12,7 +12,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { sourceAuthority } from './lib/source-labels.mjs';   // R226f/축1a — weak-provenance(aggregator/other-only) 판정
+import { sourceAuthority } from './lib/source-labels.mjs';
+import { toHV } from './lib/hardness-convert.mjs';   // AUD F03 — 경도 스케일 환산(E140)   // R226f/축1a — weak-provenance(aggregator/other-only) 판정
 import { loadCorrections } from './lib/corrections.mjs';   // H6 D5 — 도메인 분할 로더 (data/corrections/*.json)
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -224,7 +225,23 @@ try {
       const merged = [...existing, ...al.filter(a => !existing.includes(a))];
       if (merged.length !== existing.length) { ch.aliases = { from: r.aliases }; r.aliases = merged; }
     }
-    const rg = corr.ranges && corr.ranges[r.stable_id];
+    let rg = corr.ranges && corr.ranges[r.stable_id];
+    /* AUD F03 (2026-09-22) — 경도 원자료 스케일 보존 + 환산. 교정에 `hardness_src: {scale, value, family}` 를 쓰면
+       ASTM E140-12b 표(scripts/lib/hardness-convert.mjs)로 HV 를 도출해 싣고, 원 스케일·값·표를 range 객체에 남긴다
+       (HV 열이 HB 수치를 그대로 싣던 것을 교정: Al HB 95 → HV 111). 표 밖 값(`keep: true`)은 환산하지 않고 원 스케일로 표기. */
+    let hardnessMeta = null;
+    if (rg && rg.hardness_src) {
+      const hs = rg.hardness_src;
+      if (hs.keep) {
+        rg = { ...rg, hardness: hs.value };
+        hardnessMeta = { scale: hs.scale, source_scale: hs.scale, source_value: hs.value, conversion: null, scale_note: 'ASTM E140 표 밖(또는 해당 표 없음) — 환산하지 않고 원 스케일 그대로 표기' };
+      } else {
+        const conv = toHV(hs.family, hs.scale, hs.value);
+        if (!conv) { console.error(`❌ hardness_src 환산 불가 (${r.stable_id}): ${JSON.stringify(hs)} — 표 밖이면 keep:true 로 원 스케일 표기`); process.exit(1); }
+        rg = { ...rg, hardness: conv.hv };
+        hardnessMeta = { scale: 'HV', source_scale: hs.scale, source_value: hs.value, conversion: conv.table };
+      }
+    }
     if (rg) {
       r.ranges = r.ranges ? { ...r.ranges } : {};
       for (const p of Object.keys(rg)) {
@@ -236,12 +253,45 @@ try {
         r.ranges[p] = { min: rg[p], typical: rg[p], max: rg[p], confidence: 'handbook', provenance: rg.src ? `교정: ${rg.src}` : 'r226-correction', ...(rg.basis_kind ? { basis: rg.basis_kind } : {}) };
         r[p] = rg[p];   // top-level scalar (MaterialDetail·audit 가 ranges.typical ?? scalar 로 읽음)
       }
+      if (hardnessMeta && r.ranges.hardness) Object.assign(r.ranges.hardness, hardnessMeta);
       ch._basis = rg.basis; ch._src = rg.src;
       // points[] = CSV 합성 조건값 → 교정 ranges 로부터 재생성 (레지스트리 자체를 self-consistent 로). 원본은 _corrections.points 보존.
       if (r.points) {
         ch.points = { from: r.points };
         const PO = ['density', 'yield_strength', 'uts', 'elongation', 'modulus', 'hardness', 'thermal_conductivity'];
         r.points = [PO.map(p => { const v = r.ranges && r.ranges[p] && r.ranges[p].typical; return (typeof v === 'number' && isFinite(v)) ? v : null; })];
+      }
+    }
+    /* AUD F03 (2026-09-22) — 알루미늄 계열 경도 스케일 정규화. 압연·주조 Al 의 원자료(AA typical 표·Alro/EMJ·MakeItFrom·
+       주조 datasheet)는 경도를 Brinell(500 kgf/10 mm)로 준다 — 6061-T6 95 · 7075-T6 150 · 2024-T3 120 이 그 숫자인데 HV 열에
+       그대로 실려 있었다(감사 F03; Al HB 95 는 HV 111). ASTM E140-12b Table 9 로 HV 를 도출해 싣고 원 스케일·값·표를 남긴다.
+       표 밖(HB<40 순알루미늄 소둔 · HB>160 7068/Al-Li)은 환산하지 않고 scale:'HB' 로 원 스케일 표기. AM(LPBF 등) entry 는
+       벤더 표기가 HBW/HV 로 갈려 확정할 수 없어 제외(그대로). 교정(rg) 뒤에 적용하므로 교정값(HB)도 함께 환산된다. */
+    const isAlHardnessTarget = r.category === 'Metal' && /^Aluminum/.test(String(r.subcategory || ''))
+      && r.ranges && r.ranges.hardness && typeof r.ranges.hardness.typical === 'number' && !r.ranges.hardness.scale
+      && !(r.processes || []).some(pr => /LPBF|DMLS|SLM|EBM|DED|Binder/i.test(String(pr)));
+    if (isAlHardnessTarget) {
+      const h = r.ranges.hardness;
+      if (!ch.hardness) ch.hardness = { had_range: true, val_range: h, had_scalar: ('hardness' in r), val_scalar: r.hardness };
+      const conv = toHV('aluminum', 'HB', h.typical);
+      const cv = (x) => { const c = (typeof x === 'number') ? toHV('aluminum', 'HB', x) : null; return c ? c.hv : null; };
+      if (conv) {
+        const min = cv(h.min) ?? conv.hv, max = cv(h.max) ?? conv.hv;
+        r.ranges.hardness = { ...h, min: Math.min(min, conv.hv), max: Math.max(max, conv.hv), typical: conv.hv,
+          scale: 'HV', source_scale: 'HB', source_value: h.typical, conversion: conv.table,
+          provenance: `${h.provenance ? h.provenance + ' · ' : ''}HB ${h.typical} → HV ${conv.hv} (${conv.table})` };
+        r.hardness = conv.hv;
+        ch._hardness_scale = `Al HB500 ${h.typical} → HV ${conv.hv} (E140 T9)`;
+        /* points[] — 교정(rg) 블록이 이미 typical 단일행으로 재생성한 경우(ch.points 있음)는 환산값으로 다시 생성한다.
+           교정이 없던 entry 는 손대지 않는다: 4d 가 stale(경도 열 HB ∉ HV 범위)을 검출해 typical 행으로 재생성하고 ch.points 를 남긴다. */
+        if (ch.points && Array.isArray(r.points) && r.points.length) {
+          const PO = ['density', 'yield_strength', 'uts', 'elongation', 'modulus', 'hardness', 'thermal_conductivity'];
+          r.points = [PO.map(p => { const v = r.ranges && r.ranges[p] && r.ranges[p].typical; return (typeof v === 'number' && isFinite(v)) ? v : null; })];
+        }
+      } else {
+        r.ranges.hardness = { ...h, scale: 'HB', source_scale: 'HB', source_value: h.typical, conversion: null,
+          scale_note: 'ASTM E140-12b Table 9 범위(HB 40~160) 밖 — 환산하지 않고 Brinell(500 kgf) 로 표기' };
+        ch._hardness_scale = `Al HB500 ${h.typical} 표 밖 — HB 표기 유지`;
       }
     }
     // 비-수치 필드 교정 (name·process·heat_treatment·정성등급) — 잘못된 라벨/공정/등급 수정. ID 는 freeze 라 불변.

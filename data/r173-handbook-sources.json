@@ -507,20 +507,15 @@
    ]
   },
   {
-   "_alloy": "B4C-Al MMC (boron carbide armor)",
+   "_alloy": "B4C-Al MMC (boron carbide particulate PM composite)",
    "sources": [
     {
-     "label": "Allvac / Coalition Resources B4C-Al ceramic armor",
-     "url": "https://www.aerospaceandmilitaryusa.com/",
-     "verified": false
-    },
-    {
-     "label": "MIL-DTL-46032E — Boron Carbide Armor Insert",
-     "url": "https://www.dla.mil/",
-     "verified": false
+     "label": "Zhang et al. 2017, Appl. Sci. 7:1009 — B4C-Al Composites Fabricated by the Powder Metallurgy Process (open access)",
+     "url": "https://www.mdpi.com/2076-3417/7/10/1009",
+     "verified": true
     }
    ],
-   "industry_note": "R173 — B₄C-Al MMC — sintered B₄C (60-80 vol%) + Al infiltration. ρ 2.5-2.6 g/cc (alumina armor 의 65% — 매우 가벼움). σf 400-500 / E 100-140 GPa. NIJ Level IV ballistic protection (.30-06 AP). 군용 body armor insert (US Army ESAPI, NIJ Level IV 의 가장 advanced — SAPI 의 후속 SAPI Plus), Stryker IBCT 차량 add-on armor, IFV crew armor. B₄C alone 가격 비싸지만 (~$200/kg) Al MMC 으로 가공 + 무게 절감. Korea 풍산 / GenCorp 의 공급.",
+   "industry_note": "B₄C-Al 입자강화 PM 복합재 — 중성자 흡수(10B) 구조재(사용후핵연료 랙·캐스크)와 경량 장갑 후보. 반응결합 고함량(60~80 vol%) B₄C-Al 장갑판은 별개 재료군(미수록).",
    "_namePattern_ref": "^B4C-?Al MMC\\b|^B4C-?Al\\s|^B₄C-?Al\\s",
    "_reI": true,
    "stableIds": [

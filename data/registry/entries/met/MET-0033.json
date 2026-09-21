@@ -94,8 +94,11 @@
       "max": 93.8,
       "typical": 93.8,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 75,
+      "factor": 1.25,
+      "condition": "Q+T high-temper",
       "provenance": "alloy-specific KIC × HT:Q+T high-temper (k×1.25)"
     },
     "electrical_conductivity": {
@@ -314,7 +317,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 5.81,
-  "total_cost_estimate": 6.39,
+  "total_cost_estimate": 12.2,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "svhc_concerns": [

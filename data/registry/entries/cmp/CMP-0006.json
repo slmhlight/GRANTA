@@ -30,13 +30,7 @@
       "confidence": "measured",
       "provenance": "Toray M40J + cyanate ester prepreg"
     },
-    "yield_strength": {
-      "min": 2100,
-      "max": 2400,
-      "typical": 2250,
-      "n": 1,
-      "confidence": "measured"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 2100,
       "max": 2400,
@@ -91,15 +85,6 @@
       "typical": 1,
       "n": 1,
       "confidence": "measured"
-    },
-    "fatigue_strength": {
-      "min": 855,
-      "max": 855,
-      "typical": 855,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
     },
     "price_per_cm3": {
       "min": 0.627,
@@ -163,17 +148,19 @@
     "applications": "통신 위성 antenna reflector & feed boom (저 CTE, 낮은 OOS), Sentinel·WorldView optical bench, James Webb sun-shield strut, GPS satellite truss",
     "limitations": "고가 (CE resin $200/kg), Tg 250°C 부근 toughness drop, processing window 좁음",
     "anisotropy_note": "복합재 — 강성·강도가 fiber 방향 의존. 0° UD 값 (수직 방향은 1/10~1/20).",
-    "_r173_note_applied": true
+    "no_yield": "섬유 복합재 — 항복점 없음(선형 후 파단). 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
+    "_r173_note_applied": true,
+    "composition_basis": "vol%"
   },
   "popularity": 4,
   "density": 1.65,
-  "yield_strength": 1900,
+  "yield_strength": null,
   "uts": 1900,
   "elongation": 0.8,
   "modulus": 230,
   "hardness": null,
   "thermal_conductivity": 35,
-  "fatigue_strength": 855,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Layup",
@@ -183,7 +170,6 @@
     "Composite",
     "Carbon-Cyanate"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1,

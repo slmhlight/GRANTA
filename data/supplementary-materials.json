@@ -966,7 +966,7 @@
     {
       "name": "A356.0 (Al-Si-Mg cast)",
       "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+      "subcategory": "Aluminum - Si Alloys (cast/AM 3xx·4xx)",
       "process": "Cast",
       "composition": {
         "Al": "balance",
@@ -1015,7 +1015,7 @@
     {
       "name": "AA 6063 (Al-Mg-Si)",
       "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+      "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
       "process": "Wrought",
       "composition": {
         "Al": "balance",
@@ -13221,7 +13221,7 @@
     {
       "name": "Al12Si (AlSi12, A413) — Cast",
       "category": "Metal",
-      "subcategory": "Aluminum - Cast (3xx/4xx)",
+      "subcategory": "Aluminum - Si Alloys (cast/AM 3xx·4xx)",
       "process": "Cast",
       "composition": {
         "Al": "balance",
@@ -13270,7 +13270,7 @@
     {
       "name": "A356 (AlSi7Mg) — Cast T6 (Standard)",
       "category": "Metal",
-      "subcategory": "Aluminum - Cast (3xx/4xx)",
+      "subcategory": "Aluminum - Si Alloys (cast/AM 3xx·4xx)",
       "process": "Cast",
       "composition": {
         "Al": "balance",
@@ -13319,7 +13319,7 @@
     {
       "name": "AlSi10Mg — Cast (A360 Sand/Permanent-Mold)",
       "category": "Metal",
-      "subcategory": "Aluminum - Cast (3xx/4xx)",
+      "subcategory": "Aluminum - Si Alloys (cast/AM 3xx·4xx)",
       "process": "Cast",
       "composition": {
         "Al": "balance",
@@ -15744,37 +15744,37 @@
       ]
     },
     {
-      "name": "B4C-Al MMC (boron carbide / Al armor)",
+      "name": "B4C-Al MMC (boron carbide particulate / Al neutron-absorber & armor)",
       "category": "Composite",
       "subcategory": "Composite - Ceramic-Metal",
       "process": "Powder-Metallurgy",
       "composition": {},
       "points": [
         [
-          2.55,
-          220,
-          300,
-          4,
-          110,
-          280,
-          90
+          null,
+          213,
+          306,
+          null,
+          null,
+          null,
+          null
         ],
         [
-          2.55,
-          250,
-          340,
-          2,
-          115,
-          320,
-          90
+          null,
+          184,
+          281,
+          null,
+          null,
+          null,
+          null
         ]
       ],
       "conditions": [
-        "Pressed + sintered (B4C 20%)",
-        "Pressed + sintered (B4C 40%)"
+        "PM sintered + hot-extruded + hot-rolled (B4C 20 wt%, Al 99.5 matrix)",
+        "PM sintered + hot-extruded + hot-rolled (B4C 15 wt%, Al 99.5 matrix)"
       ],
       "ref_urls": [
-        "https://www.matweb.com/search/QuickText.aspx?SearchText=B4C%20aluminum%20composite"
+        "https://doi.org/10.3390/app7101009"
       ]
     },
     {
@@ -21289,7 +21289,7 @@
     {
       "name": "AA 6061",
       "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+      "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
       "process": "Wrought",
       "composition": {
         "Al": "balance",
@@ -21364,7 +21364,7 @@
     {
       "name": "AA 7075",
       "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+      "subcategory": "Aluminum - Zn Alloys (7xxx)",
       "process": "Wrought",
       "composition": {
         "Al": "balance",
@@ -21567,7 +21567,7 @@
     {
       "name": "AA 6063",
       "category": "Metal",
-      "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+      "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
       "process": "Wrought",
       "composition": {
         "Al": "balance",

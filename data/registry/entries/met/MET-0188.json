@@ -2,7 +2,7 @@
   "stable_id": "MET-0188",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "subcategory": "F-MET-aluminum-mg-si-alloys-6xxx",
     "alloy_base": "F-AB-aa-6063",
     "element_families": [
       "F-EL-aluminum-based"
@@ -13,7 +13,7 @@
   "id": "R_0442_2",
   "name": "AA 6063 — T6",
   "category": "Metal",
-  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
   "tier": "reference",
   "manufacturers": [
     "Reference data"
@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 73,
-      "max": 73,
-      "typical": 73,
+      "min": 84,
+      "max": 84,
+      "typical": 84,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 73,
+      "conversion": "ASTM E140-12b Table 9",
+      "provenance": "HB 73 → HV 84 (ASTM E140-12b Table 9)"
     },
     "thermal_conductivity": {
       "min": 200,
@@ -222,7 +227,7 @@
       240,
       12,
       69,
-      73,
+      84,
       200
     ]
   ],
@@ -242,7 +247,7 @@
   "uts": 240,
   "elongation": 12,
   "modulus": 69,
-  "hardness": 73,
+  "hardness": 84,
   "thermal_conductivity": 200,
   "impact_strength": 18,
   "manufacturer": "Reference data",
@@ -253,7 +258,7 @@
   ],
   "families": [
     "Metal",
-    "Aluminum - Si Alloys (6xxx/7xxx)",
+    "Aluminum - Mg-Si Alloys (6xxx)",
     "Aluminum-based"
   ],
   "fatigue_estimated": false,
@@ -272,13 +277,40 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 3.68,
-  "total_cost_estimate": 2.21,
+  "total_cost_estimate": 5.88,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
   "_corrections": {
     "aliases": {
       "from": []
-    }
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 73,
+        "max": 73,
+        "typical": 73,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 73
+    },
+    "_hardness_scale": "Al HB500 73 → HV 84 (E140 T9)",
+    "points": {
+      "from": [
+        [
+          2.7,
+          215,
+          240,
+          12,
+          69,
+          73,
+          200
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
   }
 }

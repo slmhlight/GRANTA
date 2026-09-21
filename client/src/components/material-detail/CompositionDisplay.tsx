@@ -31,9 +31,13 @@ export function CompositionDisplay({ material }: { material: Material }) {
     return vb - va;
   });
 
+  /* AUD F08 (2026-09-22) — 혼합물(복합재)의 구성비는 부피 기준(vol%)인 경우가 많다. 빌드가 라벨의 'vol%' 표기로
+     meta.composition_basis 를 스탬프하고, 여기서는 그 기준을 제목에 그대로 쓴다 (원소 화학조성 wt% 와 구분). */
+  const basis = material.meta?.composition_basis ?? 'wt%';
+  const title = basis === 'vol%' ? 'Constituents (vol%)' : basis === 'at%' ? 'Chemical Composition (at%)' : 'Chemical Composition (wt%)';
   return (
     <div className="space-y-3">
-      <div className="text-xs font-semibold text-foreground/80 mb-2">Chemical Composition (wt%)</div>
+      <div className="text-xs font-semibold text-foreground/80 mb-2">{title}{basis === 'vol%' && <span className="ml-1 font-normal text-muted-foreground">— 부피 분율 (질량 분율 아님)</span>}</div>
       {slices.length > 0 && (
         <div className="rounded border border-border/50 bg-muted/10 p-3 flex flex-col sm:flex-row sm:items-center sm:gap-4">
           <div className="flex-shrink-0 mx-auto sm:mx-0"><CompositionDonut slices={slices} /></div>

@@ -36,21 +36,21 @@
       "typical": 276,
       "max": 276,
       "confidence": "handbook",
-      "provenance": "교정: ASTM A240 (Type 405: YS≥170 MPa / UTS≥415 MPa) · AZoM Grade 405 datasheet (annealed 448 MPa UTS / 276 MPa YS / El 25% / 131 HB)"
+      "provenance": "교정: ASTM A240 (Type 405: YS≥170 MPa / UTS≥415 MPa) · AZoM Grade 405 datasheet (annealed 448 MPa UTS / 276 MPa YS / El 25% / 131 HB) · [경도 스케일] AZoM Grade 405 annealed 131 HB → HV 131 (E140 Table 2). 기존 138 은 인용 불명이라 인용값(131 HB)으로 교체."
     },
     "uts": {
       "min": 448,
       "typical": 448,
       "max": 448,
       "confidence": "handbook",
-      "provenance": "교정: ASTM A240 (Type 405: YS≥170 MPa / UTS≥415 MPa) · AZoM Grade 405 datasheet (annealed 448 MPa UTS / 276 MPa YS / El 25% / 131 HB)"
+      "provenance": "교정: ASTM A240 (Type 405: YS≥170 MPa / UTS≥415 MPa) · AZoM Grade 405 datasheet (annealed 448 MPa UTS / 276 MPa YS / El 25% / 131 HB) · [경도 스케일] AZoM Grade 405 annealed 131 HB → HV 131 (E140 Table 2). 기존 138 은 인용 불명이라 인용값(131 HB)으로 교체."
     },
     "elongation": {
       "min": 25,
       "typical": 25,
       "max": 25,
       "confidence": "handbook",
-      "provenance": "교정: ASTM A240 (Type 405: YS≥170 MPa / UTS≥415 MPa) · AZoM Grade 405 datasheet (annealed 448 MPa UTS / 276 MPa YS / El 25% / 131 HB)"
+      "provenance": "교정: ASTM A240 (Type 405: YS≥170 MPa / UTS≥415 MPa) · AZoM Grade 405 datasheet (annealed 448 MPa UTS / 276 MPa YS / El 25% / 131 HB) · [경도 스케일] AZoM Grade 405 annealed 131 HB → HV 131 (E140 Table 2). 기존 138 은 인용 불명이라 인용값(131 HB)으로 교체."
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,15 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 138,
-      "typical": 138,
-      "max": 138,
+      "min": 131,
+      "typical": 131,
+      "max": 131,
       "confidence": "handbook",
-      "provenance": "교정: ASTM A240 (Type 405: YS≥170 MPa / UTS≥415 MPa) · AZoM Grade 405 datasheet (annealed 448 MPa UTS / 276 MPa YS / El 25% / 131 HB)"
+      "provenance": "교정: ASTM A240 (Type 405: YS≥170 MPa / UTS≥415 MPa) · AZoM Grade 405 datasheet (annealed 448 MPa UTS / 276 MPa YS / El 25% / 131 HB) · [경도 스케일] AZoM Grade 405 annealed 131 HB → HV 131 (E140 Table 2). 기존 138 은 인용 불명이라 인용값(131 HB)으로 교체.",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 131,
+      "conversion": "ASTM E140-12b Table 2"
     },
     "thermal_conductivity": {
       "min": 24.8,
@@ -95,8 +99,11 @@
       "max": 128,
       "typical": 128,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 80,
+      "factor": 1.6,
+      "condition": "fully annealed (soft)",
       "provenance": "alloy-specific KIC × HT:fully annealed (soft) (k×1.6)"
     },
     "electrical_conductivity": {
@@ -212,7 +219,7 @@
       448,
       25,
       200,
-      138,
+      131,
       24.8
     ]
   ],
@@ -241,7 +248,7 @@
   "uts": 448,
   "elongation": 25,
   "modulus": 200,
-  "hardness": 138,
+  "hardness": 131,
   "thermal_conductivity": 24.8,
   "impact_strength": 140,
   "manufacturer": "Generic",
@@ -269,7 +276,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 3.75,
-  "total_cost_estimate": 3.75,
+  "total_cost_estimate": 7.5,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
@@ -347,7 +354,7 @@
       "val_scalar": 164.6
     },
     "_basis": "AISI 405 annealed — DB 242/365.2 는 **UTS 가 ASTM A240 최소 415 MPa 미달**(430 에서 이미 교정한 것과 동일한 오염값 242/365.2). A240 min(170/415) 위 typical 로 교정.",
-    "_src": "ASTM A240 (Type 405: YS≥170 MPa / UTS≥415 MPa) · AZoM Grade 405 datasheet (annealed 448 MPa UTS / 276 MPa YS / El 25% / 131 HB)",
+    "_src": "ASTM A240 (Type 405: YS≥170 MPa / UTS≥415 MPa) · AZoM Grade 405 datasheet (annealed 448 MPa UTS / 276 MPa YS / El 25% / 131 HB) · [경도 스케일] AZoM Grade 405 annealed 131 HB → HV 131 (E140 Table 2). 기존 138 은 인용 불명이라 인용값(131 HB)으로 교체.",
     "points": {
       "from": [
         [

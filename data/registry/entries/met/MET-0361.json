@@ -87,14 +87,6 @@
       "n": 20,
       "confidence": "measured"
     },
-    "fracture_toughness": {
-      "min": 50,
-      "max": 75,
-      "typical": 60,
-      "n": 0,
-      "confidence": "class",
-      "provenance": "class:Materion BeCu C17200"
-    },
     "max_service_temp": {
       "typical": 200,
       "min": 150,
@@ -143,7 +135,6 @@
       "Be-2Cu"
     ]
   },
-  "fracture_toughness": 60,
   "density": 8.25,
   "yield_strength": 1050,
   "uts": 1235,
@@ -189,11 +180,6 @@
         },
         {
           "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "KIC fallback: Materion BeCu C17200",
           "url": null,
           "verified": false
         }

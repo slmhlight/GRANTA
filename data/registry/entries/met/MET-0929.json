@@ -94,8 +94,11 @@
       "max": 71.3,
       "typical": 71.3,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 75,
+      "factor": 0.95,
+      "condition": "STA aged",
       "provenance": "alloy-specific KIC × HT:STA aged (k×0.95)"
     },
     "electrical_conductivity": {
@@ -320,7 +323,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 53.29,
-  "total_cost_estimate": 117.23,
+  "total_cost_estimate": 170.52,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "creep_rupture": [

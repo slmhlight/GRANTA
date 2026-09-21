@@ -190,6 +190,16 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM A240/A240M — 스테인리스 판·시트(듀플렉스 포함) 규격",
+      "url": "https://www.astm.org/a0240_a0240m-20a.html",
+      "verified": false
+    },
+    {
       "label": "Outokumpu — Duplex 2205 (1.4462)",
       "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/duplex-stainless-steel/2205",
       "verified": true
@@ -315,7 +325,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 8.4,
-  "total_cost_estimate": 12.6,
+  "total_cost_estimate": 21,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "svhc_concerns": [
@@ -323,6 +333,25 @@
   ],
   "confidence_tier": "high",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Outokumpu — Duplex 2205 (1.4462)",
+          "url": "https://www.outokumpu.com/en/products/stainless-steel-grades/duplex-stainless-steel/2205",
+          "verified": true
+        },
+        {
+          "label": "Rolled Alloys — 2205 Duplex (UNS S32205) datasheet",
+          "url": "https://www.rolledalloys.com/alloys/duplex-stainless-steels/2205/",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: ASM Vol.1 Duplex SS",
+          "url": null,
+          "verified": false
+        }
+      ]
+    },
     "aliases": {
       "from": []
     }

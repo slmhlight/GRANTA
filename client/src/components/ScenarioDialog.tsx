@@ -137,7 +137,8 @@ function LoadArrow({ axis, cx, cy, h }: { axis?: 'strong' | 'weak'; cx: number; 
 function AxisLabel({ axis, hasAxes, isWeakOrientation }: { axis?: 'strong' | 'weak'; hasAxes?: boolean; isWeakOrientation: boolean }) {
   if (!hasAxes) return null;
   // 약축 모드면 중립축은 수직 (가운데 100, 위 14~106). 강축이면 수평 (60).
-  const text = axis === 'weak' ? 'y (약축)' : 'x (강축)';
+  // AUD F17 — 중립축 라벨도 방향만 표기 (강·약 판정은 치수로 계산한 배지가 담당).
+  const text = axis === 'weak' ? 'y (b 방향 하중)' : 'x (h 방향 하중)';
   if (isWeakOrientation) {
     return <text x="106" y="20" fontSize="9" className="fill-emerald-600 font-bold" fontFamily="monospace">{text}</text>;
   }
@@ -447,20 +448,29 @@ export function ScenarioDialog({ scenarioKey, open, onOpenChange }: { scenarioKe
                       <div className="mt-3 rounded border border-accent/30 bg-accent/5 p-2">
                         <p className="text-[11px] font-semibold uppercase tracking-wide text-accent/80 mb-1.5">{t('scenario.loadDirection')}</p>
                         <div className="flex gap-1.5">
-                          {[
-                            { v: 'strong', label: t('scenario.strongAxis'), sub: t('scenario.strongAxis.sub') },
-                            { v: 'weak', label: t('scenario.weakAxis'), sub: t('scenario.weakAxis.sub') },
-                          ].map((opt) => (
-                            <button
-                              key={opt.v}
-                              type="button"
-                              onClick={() => setValues((p) => ({ ...p, _axis: opt.v }))}
-                              className={`flex-1 text-left px-2 py-1.5 rounded border text-[11px] transition-colors ${(String(values._axis ?? 'strong')) === opt.v ? 'border-accent bg-accent/15 text-foreground' : 'border-border text-muted-foreground hover:border-accent/50'}`}
-                            >
-                              <div className="font-semibold">{opt.label}</div>
-                              <div className="text-[10px] opacity-80">{opt.sub}</div>
-                            </button>
-                          ))}
+                          {(() => {
+                            /* AUD F17 — 두 방향의 I 를 현재 치수로 계산해 실제 강·약축 배지를 붙인다 (이름은 방향만). */
+                            const dims = Object.fromEntries(section.dimFields.map((f) => [f.id, Number(values[f.id] ?? f.default)]));
+                            const iS = section.I(dims, 'strong'), iW = section.I(dims, 'weak');
+                            const badge = (mine: number, other: number) =>
+                              Math.abs(mine - other) <= 1e-9 * Math.max(1, Math.abs(mine)) ? t('scenario.axis.equalBadge') : mine > other ? t('scenario.axis.strongBadge') : t('scenario.axis.weakBadge');
+                            const fmtI = (v: number) => (v >= 1e5 ? `${(v / 1e4).toFixed(1)}×10⁴` : v.toFixed(0));
+                            return [
+                              { v: 'strong', label: t('scenario.axisH'), sub: `I = ${fmtI(iS)} mm⁴ · ${badge(iS, iW)}`, strong: iS >= iW },
+                              { v: 'weak', label: t('scenario.axisB'), sub: `I = ${fmtI(iW)} mm⁴ · ${badge(iW, iS)}`, strong: iW > iS },
+                            ].map((opt) => (
+                              <button
+                                key={opt.v}
+                                type="button"
+                                aria-pressed={(String(values._axis ?? 'strong')) === opt.v}
+                                onClick={() => setValues((p) => ({ ...p, _axis: opt.v }))}
+                                className={`flex-1 text-left px-2 py-1.5 rounded border text-[11px] transition-colors ${(String(values._axis ?? 'strong')) === opt.v ? 'border-accent bg-accent/15 text-foreground' : 'border-border text-muted-foreground hover:border-accent/50'}`}
+                              >
+                                <div className="font-semibold">{opt.label}</div>
+                                <div className={`text-[10px] ${opt.strong ? 'text-emerald-700' : 'opacity-80'}`}>{opt.sub}</div>
+                              </button>
+                            ));
+                          })()}
                         </div>
                       </div>
                     )}

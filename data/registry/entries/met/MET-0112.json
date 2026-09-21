@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 137,
-      "max": 137,
-      "typical": 137,
+      "min": 161,
+      "max": 161,
+      "typical": 161,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 137,
+      "conversion": "ASTM E140-12b Table 9",
+      "provenance": "HB 137 → HV 161 (ASTM E140-12b Table 9)"
     },
     "thermal_conductivity": {
       "min": 121,
@@ -226,7 +231,7 @@
       470,
       20,
       73,
-      137,
+      161,
       121
     ]
   ],
@@ -248,7 +253,7 @@
   "uts": 470,
   "elongation": 20,
   "modulus": 73,
-  "hardness": 137,
+  "hardness": 161,
   "thermal_conductivity": 121,
   "impact_strength": 9,
   "manufacturer": "Reference data",
@@ -281,7 +286,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1.05,
   "delivered_price_per_kg": 5.51,
-  "total_cost_estimate": 4.41,
+  "total_cost_estimate": 9.92,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "elevated_temp": [
@@ -311,5 +316,34 @@
     }
   ],
   "elevated_temp_src": "핸드북 typical — 개별 인용 미기재",
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 137,
+        "max": 137,
+        "typical": 137,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 137
+    },
+    "_hardness_scale": "Al HB500 137 → HV 161 (E140 T9)",
+    "points": {
+      "from": [
+        [
+          2.78,
+          325,
+          470,
+          20,
+          73,
+          137,
+          121
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+  }
 }

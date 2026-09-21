@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 130,
-      "max": 130,
-      "typical": 130,
+      "min": 153,
+      "max": 153,
+      "typical": 153,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 130,
+      "conversion": "ASTM E140-12b Table 9",
+      "provenance": "HB 130 → HV 153 (ASTM E140-12b Table 9)"
     },
     "thermal_conductivity": {
       "min": 121,
@@ -190,6 +195,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Aluminum & Aluminum Alloys (properties & selection)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "MatWeb 3",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=2219-T87",
       "verified": false
@@ -217,7 +227,7 @@
       475,
       10,
       73,
-      130,
+      153,
       121
     ]
   ],
@@ -242,7 +252,7 @@
   "uts": 475,
   "elongation": 10,
   "modulus": 73,
-  "hardness": 130,
+  "hardness": 153,
   "thermal_conductivity": 121,
   "impact_strength": 15,
   "manufacturer": "Reference data",
@@ -275,17 +285,68 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1.05,
   "delivered_price_per_kg": 6.62,
-  "total_cost_estimate": 5.95,
+  "total_cost_estimate": 12.57,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb 3",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=2219-T87",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: AA 2024-T351",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Fatigue fallback: σf ≈ 0.38·σy (Aluminum Association handbook)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "MakeItFrom — 2219-T87 Aluminum (property table, UNS A92219)",
+          "url": "https://www.makeitfrom.com/material-properties/2219-T87-Aluminum",
+          "verified": false
+        }
+      ]
+    },
     "aliases": {
       "from": [
         "UNS A92219",
         "EN AW-2219",
         "AlCu6Mn"
       ]
-    }
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 130,
+        "max": 130,
+        "typical": 130,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 130
+    },
+    "_hardness_scale": "Al HB500 130 → HV 153 (E140 T9)",
+    "points": {
+      "from": [
+        [
+          2.84,
+          395,
+          475,
+          10,
+          73,
+          130,
+          121
+        ]
+      ]
+    },
+    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
   }
 }

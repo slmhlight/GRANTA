@@ -29,13 +29,7 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "yield_strength": {
-      "min": 350,
-      "max": 350,
-      "typical": 350,
-      "n": 1,
-      "confidence": "handbook"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 350,
       "max": 350,
@@ -102,15 +96,6 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "fatigue_strength": {
-      "min": 157.5,
-      "max": 157.5,
-      "typical": 157.5,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
-    },
     "price_per_cm3": {
       "min": 61.6,
       "max": 61.6,
@@ -163,6 +148,7 @@
     "ceramic": true,
     "applications": "재진입체 sharp leading edge, 핵 cladding, MHD 발전 전극",
     "limitations": "ZrB₂ 보다 더 고가, 산화 보호 SiC 필수",
+    "no_yield": "취성 세라믹 — 항복점 없음. 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
     "_r173_note_applied": true,
     "specs": [
       {
@@ -173,13 +159,13 @@
   },
   "popularity": 1,
   "density": 11.2,
-  "yield_strength": 350,
+  "yield_strength": null,
   "uts": 350,
   "elongation": null,
   "modulus": 480,
   "hardness": 2900,
   "thermal_conductivity": 105,
-  "fatigue_strength": 157.5,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Sintered",
@@ -189,7 +175,6 @@
     "Ceramic",
     "UHTC"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1,

@@ -57,8 +57,8 @@ export function aaSubcategory(name) {
     '2': 'Aluminum - Cu Alloys (2xxx)',
     '3': 'Aluminum - Mn Alloys (3xxx)',
     '5': 'Aluminum - Mg Alloys (5xxx)',
-    '6': 'Aluminum - Si Alloys (6xxx/7xxx)',
-    '7': 'Aluminum - Si Alloys (6xxx/7xxx)',
+    '6': 'Aluminum - Mg-Si Alloys (6xxx)',    // AUD F04 — 계열 분리
+    '7': 'Aluminum - Zn Alloys (7xxx)',
     '8': 'Aluminum - Pure/Other',
   }[m[1]] || null;
 }

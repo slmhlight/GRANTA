@@ -29,13 +29,7 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "yield_strength": {
-      "min": 2200,
-      "max": 2200,
-      "typical": 2200,
-      "n": 1,
-      "confidence": "handbook"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 2200,
       "max": 2200,
@@ -201,6 +195,7 @@
     "ceramic": true,
     "applications": "절삭 인서트, 드릴 비트, 다이, 측정기 anvils, 광산 비트",
     "limitations": "Co 매트릭스 — 600°C 이상에서 산화 + Co 손실",
+    "no_yield": "취성 세라믹 — 항복점 없음. 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
     "_r173_note_applied": true,
     "specs": [
       {
@@ -211,7 +206,7 @@
   },
   "popularity": 5,
   "density": 14.9,
-  "yield_strength": 2200,
+  "yield_strength": null,
   "uts": 2200,
   "elongation": null,
   "modulus": 630,
@@ -244,7 +239,7 @@
   "price_form_factor": 1.5,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 105,
-  "total_cost_estimate": 0,
+  "total_cost_estimate": null,
   "min_wall_thickness": 1.5,
   "surface_finish_typical": 3.2,
   "tolerance_class": "IT12-13",

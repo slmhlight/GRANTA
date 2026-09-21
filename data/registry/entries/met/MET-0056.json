@@ -94,8 +94,11 @@
       "max": 234,
       "typical": 234,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 130,
+      "factor": 1.8,
+      "condition": "fully annealed",
       "provenance": "alloy-specific KIC × HT:fully annealed (k×1.8)"
     },
     "electrical_conductivity": {
@@ -192,6 +195,16 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.1 — Properties & Selection: Irons, Steels, High-Performance Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys",
+      "verified": true
+    },
+    {
+      "label": "ASTM A29/A29M — Carbon & Alloy Steel Bars, Hot-Wrought",
+      "url": "https://store.astm.org/a0029_a0029m-20.html",
+      "verified": true
+    },
+    {
       "label": "MatWeb 1",
       "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=HP%209-4-30",
       "verified": false
@@ -278,12 +291,38 @@
   "price_form_factor": 1.15,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 5.86,
-  "total_cost_estimate": 5.28,
+  "total_cost_estimate": 11.14,
   "tolerance_class": "IT12-14",
   "rohs_compliant": true,
   "svhc_concerns": [
     "Ni 8% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)",
     "Co 4.75% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "MatWeb 1",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=HP%209-4-30",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: ASTM A553 9% Ni LNG",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Fatigue fallback: σf ≈ 0.5·σy (Shigley's Mechanical Engineering Design)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "AircraftMaterials.com — Aircraft Steel 9-4-30 Vac Melt (AMS 6526) 조성+기계적 물성",
+          "url": "https://www.aircraftmaterials.com/data/alstst/9-4-30.html",
+          "verified": false
+        }
+      ]
+    }
+  }
 }

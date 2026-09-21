@@ -126,8 +126,8 @@
       "provenance": "2nd_family:Nickel Superalloy"
     },
     "poisson_ratio": {
-      "min": 0.21,
-      "max": 0.39,
+      "min": 0.27,
+      "max": 0.33,
       "typical": 0.3,
       "n": 0,
       "estimated": true,
@@ -188,6 +188,11 @@
     "Nb": "0.7~1.2"
   },
   "sources": [
+    {
+      "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
     {
       "label": "Special Metals — Inconel Alloy 751",
       "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-751.pdf",
@@ -284,8 +289,29 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 91.35,
-  "total_cost_estimate": 237.51,
+  "total_cost_estimate": 328.86,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Special Metals — Inconel Alloy 751",
+          "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-751.pdf",
+          "verified": true
+        },
+        {
+          "label": "Special Metals — Inconel 751 (UNS N07751)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: Special Metals/Haynes general",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

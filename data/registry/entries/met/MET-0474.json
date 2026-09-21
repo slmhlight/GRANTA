@@ -187,6 +187,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Magnesium & Magnesium Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "Luxfer Magnesium Elektron — Elektron WE43",
       "url": "https://www.luxfermeltechnologies.com",
       "verified": false
@@ -313,10 +318,41 @@
   "price_form_factor": 1,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 25,
-  "total_cost_estimate": 22.5,
+  "total_cost_estimate": 47.5,
   "min_wall_thickness": 2.5,
   "surface_finish_typical": 12.5,
   "tolerance_class": "IT13-14",
   "rohs_compliant": true,
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Luxfer Magnesium Elektron — Elektron WE43",
+          "url": "https://www.luxfermeltechnologies.com",
+          "verified": false
+        },
+        {
+          "label": "Magnesium Elektron — WE43 (UNS M18430)",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: ASM Vol.2 Mg alloys",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Luxfer MEL Technologies — Elektron 43 (WE43) Extruded product page (AMS 4485, ASTM B107/B107M, UNS M18434, MMPDS-08)",
+          "url": "https://www.luxfermeltechnologies.com/elektron-43/",
+          "verified": true
+        },
+        {
+          "label": "AZoM — Magnesium Elektron WE43 Alloy (UNS M18430) — 등가규격 AMS 4427, ASTM B80, MAM 4427",
+          "url": "https://www.azom.com/article.aspx?ArticleID=9279",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

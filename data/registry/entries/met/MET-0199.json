@@ -2,7 +2,7 @@
   "stable_id": "MET-0199",
   "family": {
     "category": "F-MET",
-    "subcategory": "F-MET-aluminum-si-alloys-6xxx-7xxx",
+    "subcategory": "F-MET-aluminum-mg-si-alloys-6xxx",
     "alloy_base": "F-AB-aa-6262",
     "element_families": [
       "F-EL-aluminum-based"
@@ -13,7 +13,7 @@
   "id": "G_0030",
   "name": "AA 6262 — T9",
   "category": "Metal",
-  "subcategory": "Aluminum - Si Alloys (6xxx/7xxx)",
+  "subcategory": "Aluminum - Mg-Si Alloys (6xxx)",
   "tier": "generic",
   "manufacturers": [
     "Generic"
@@ -36,21 +36,21 @@
       "typical": 379,
       "max": 379,
       "confidence": "handbook",
-      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (6262-T9: 58/55 ksi, El 10, HB 120) · eFunda AA 6262 T9 (400 / 380 / HB 120) · MakeItFrom 6262-T9 (390 / 360 / HB 120)"
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (6262-T9: 58/55 ksi, El 10, HB 120) · eFunda AA 6262 T9 (400 / 380 / HB 120) · MakeItFrom 6262-T9 (390 / 360 / HB 120) · [경도 스케일] 인용 경도 120 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "uts": {
       "min": 400,
       "typical": 400,
       "max": 400,
       "confidence": "handbook",
-      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (6262-T9: 58/55 ksi, El 10, HB 120) · eFunda AA 6262 T9 (400 / 380 / HB 120) · MakeItFrom 6262-T9 (390 / 360 / HB 120)"
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (6262-T9: 58/55 ksi, El 10, HB 120) · eFunda AA 6262 T9 (400 / 380 / HB 120) · MakeItFrom 6262-T9 (390 / 360 / HB 120) · [경도 스케일] 인용 경도 120 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "elongation": {
       "min": 10,
       "typical": 10,
       "max": 10,
       "confidence": "handbook",
-      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (6262-T9: 58/55 ksi, El 10, HB 120) · eFunda AA 6262 T9 (400 / 380 / HB 120) · MakeItFrom 6262-T9 (390 / 360 / HB 120)"
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (6262-T9: 58/55 ksi, El 10, HB 120) · eFunda AA 6262 T9 (400 / 380 / HB 120) · MakeItFrom 6262-T9 (390 / 360 / HB 120) · [경도 스케일] 인용 경도 120 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "modulus": {
       "min": 69,
@@ -60,11 +60,15 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 120,
-      "typical": 120,
-      "max": 120,
+      "min": 141,
+      "typical": 141,
+      "max": 141,
       "confidence": "handbook",
-      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (6262-T9: 58/55 ksi, El 10, HB 120) · eFunda AA 6262 T9 (400 / 380 / HB 120) · MakeItFrom 6262-T9 (390 / 360 / HB 120)"
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (6262-T9: 58/55 ksi, El 10, HB 120) · eFunda AA 6262 T9 (400 / 380 / HB 120) · MakeItFrom 6262-T9 (390 / 360 / HB 120) · [경도 스케일] 인용 경도 120 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 120,
+      "conversion": "ASTM E140-12b Table 9"
     },
     "thermal_conductivity": {
       "min": 167,
@@ -95,8 +99,11 @@
       "max": 26.3,
       "typical": 26.3,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 25,
+      "factor": 1.05,
+      "condition": "strain-hardened (fallback)",
       "provenance": "alloy-specific KIC × HT:strain-hardened (fallback) (k×1.05)"
     },
     "electrical_conductivity": {
@@ -205,7 +212,7 @@
       400,
       10,
       69,
-      120,
+      141,
       167
     ]
   ],
@@ -237,7 +244,7 @@
   "uts": 400,
   "elongation": 10,
   "modulus": 69,
-  "hardness": 120,
+  "hardness": 141,
   "thermal_conductivity": 167,
   "impact_strength": 11,
   "manufacturer": "Generic",
@@ -246,7 +253,7 @@
   "aliases": [],
   "families": [
     "Metal",
-    "Aluminum - Si Alloys (6xxx/7xxx)",
+    "Aluminum - Mg-Si Alloys (6xxx)",
     "Aluminum-based"
   ],
   "electrical_conductivity": 44,
@@ -264,7 +271,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 3.97,
-  "total_cost_estimate": 3.57,
+  "total_cost_estimate": 7.54,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
@@ -348,7 +355,7 @@
       "val_scalar": 92.15
     },
     "_basis": "'Strain-hardened' 합성값(σy 267.7/UTS 300.7)을 실제 템퍼 T9(용체화+인공시효+냉간가공 — 6262 의 최고강도 템퍼)로 교체.",
-    "_src": "Alro Steel Metals Guide — Rod/Bar typical (6262-T9: 58/55 ksi, El 10, HB 120) · eFunda AA 6262 T9 (400 / 380 / HB 120) · MakeItFrom 6262-T9 (390 / 360 / HB 120)",
+    "_src": "Alro Steel Metals Guide — Rod/Bar typical (6262-T9: 58/55 ksi, El 10, HB 120) · eFunda AA 6262 T9 (400 / 380 / HB 120) · MakeItFrom 6262-T9 (390 / 360 / HB 120) · [경도 스케일] 인용 경도 120 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
     "points": {
       "from": [
         [

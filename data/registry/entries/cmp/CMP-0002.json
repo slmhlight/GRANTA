@@ -29,13 +29,7 @@
       "n": 1,
       "confidence": "measured"
     },
-    "yield_strength": {
-      "min": 1100,
-      "max": 1400,
-      "typical": 1250,
-      "n": 1,
-      "confidence": "measured"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 1100,
       "max": 1400,
@@ -90,15 +84,6 @@
       "n": 1,
       "confidence": "measured"
     },
-    "fatigue_strength": {
-      "min": 621,
-      "max": 621,
-      "typical": 621,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
-    },
     "price_per_cm3": {
       "min": 0.1242,
       "max": 0.1242,
@@ -151,17 +136,19 @@
     "applications": "방탄 패널, 헬멧 (Mod-IV), 케이블 보강, 산업 호스",
     "limitations": "압축 강도 280MPa (인장의 20%), 표면 흡습",
     "anisotropy_note": "복합재 — 강성·강도가 fiber 방향 의존. 0° UD 값 (수직 방향은 1/10~1/20).",
-    "_r173_note_applied": true
+    "no_yield": "섬유 복합재 — 항복점 없음(선형 후 파단). 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
+    "_r173_note_applied": true,
+    "composition_basis": "vol%"
   },
   "popularity": 3,
   "density": 1.38,
-  "yield_strength": 1380,
+  "yield_strength": null,
   "uts": 1380,
   "elongation": 1.8,
   "modulus": 76,
   "hardness": null,
   "thermal_conductivity": 0.5,
-  "fatigue_strength": 621,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Layup",
@@ -171,7 +158,6 @@
     "Composite",
     "Aramid-Epoxy"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1,

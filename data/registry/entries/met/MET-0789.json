@@ -36,21 +36,21 @@
       "typical": 345,
       "max": 345,
       "confidence": "handbook",
-      "provenance": "교정: ASTM A240 (Type 434: YS≥240 MPa / UTS≥450 MPa) · Combined Metals 434 strip datasheet (50 ksi YS / 80 ksi UTS / El 28% / 75 HRB) · eFunda AISI 434 annealed (415/545/33%) · AZoM Grade 434 (441/538/32%)"
+      "provenance": "교정: ASTM A240 (Type 434: YS≥240 MPa / UTS≥450 MPa) · Combined Metals 434 strip datasheet (50 ksi YS / 80 ksi UTS / El 28% / 75 HRB) · eFunda AISI 434 annealed (415/545/33%) · AZoM Grade 434 (441/538/32%) · [경도 스케일] Combined Metals 434 소둔 strip 75 HRB → HV 137 (ASTM E140-12b Table 2). 기존 180 은 AZoM 상한 계열값이라 직접 측정치(75 HRB)로 교체 — ASTM A240 434 경도 상한(89 HRB ≈ HV 180)은 규격 최대치이지 typical 이 아님."
     },
     "uts": {
       "min": 540,
       "typical": 540,
       "max": 540,
       "confidence": "handbook",
-      "provenance": "교정: ASTM A240 (Type 434: YS≥240 MPa / UTS≥450 MPa) · Combined Metals 434 strip datasheet (50 ksi YS / 80 ksi UTS / El 28% / 75 HRB) · eFunda AISI 434 annealed (415/545/33%) · AZoM Grade 434 (441/538/32%)"
+      "provenance": "교정: ASTM A240 (Type 434: YS≥240 MPa / UTS≥450 MPa) · Combined Metals 434 strip datasheet (50 ksi YS / 80 ksi UTS / El 28% / 75 HRB) · eFunda AISI 434 annealed (415/545/33%) · AZoM Grade 434 (441/538/32%) · [경도 스케일] Combined Metals 434 소둔 strip 75 HRB → HV 137 (ASTM E140-12b Table 2). 기존 180 은 AZoM 상한 계열값이라 직접 측정치(75 HRB)로 교체 — ASTM A240 434 경도 상한(89 HRB ≈ HV 180)은 규격 최대치이지 typical 이 아님."
     },
     "elongation": {
       "min": 28,
       "typical": 28,
       "max": 28,
       "confidence": "handbook",
-      "provenance": "교정: ASTM A240 (Type 434: YS≥240 MPa / UTS≥450 MPa) · Combined Metals 434 strip datasheet (50 ksi YS / 80 ksi UTS / El 28% / 75 HRB) · eFunda AISI 434 annealed (415/545/33%) · AZoM Grade 434 (441/538/32%)"
+      "provenance": "교정: ASTM A240 (Type 434: YS≥240 MPa / UTS≥450 MPa) · Combined Metals 434 strip datasheet (50 ksi YS / 80 ksi UTS / El 28% / 75 HRB) · eFunda AISI 434 annealed (415/545/33%) · AZoM Grade 434 (441/538/32%) · [경도 스케일] Combined Metals 434 소둔 strip 75 HRB → HV 137 (ASTM E140-12b Table 2). 기존 180 은 AZoM 상한 계열값이라 직접 측정치(75 HRB)로 교체 — ASTM A240 434 경도 상한(89 HRB ≈ HV 180)은 규격 최대치이지 typical 이 아님."
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,15 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 180,
-      "typical": 180,
-      "max": 180,
+      "min": 137,
+      "typical": 137,
+      "max": 137,
       "confidence": "handbook",
-      "provenance": "교정: ASTM A240 (Type 434: YS≥240 MPa / UTS≥450 MPa) · Combined Metals 434 strip datasheet (50 ksi YS / 80 ksi UTS / El 28% / 75 HRB) · eFunda AISI 434 annealed (415/545/33%) · AZoM Grade 434 (441/538/32%)"
+      "provenance": "교정: ASTM A240 (Type 434: YS≥240 MPa / UTS≥450 MPa) · Combined Metals 434 strip datasheet (50 ksi YS / 80 ksi UTS / El 28% / 75 HRB) · eFunda AISI 434 annealed (415/545/33%) · AZoM Grade 434 (441/538/32%) · [경도 스케일] Combined Metals 434 소둔 strip 75 HRB → HV 137 (ASTM E140-12b Table 2). 기존 180 은 AZoM 상한 계열값이라 직접 측정치(75 HRB)로 교체 — ASTM A240 434 경도 상한(89 HRB ≈ HV 180)은 규격 최대치이지 typical 이 아님.",
+      "scale": "HV",
+      "source_scale": "HRB",
+      "source_value": 75,
+      "conversion": "ASTM E140-12b Table 2"
     },
     "thermal_conductivity": {
       "min": 24.8,
@@ -126,8 +130,8 @@
       "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
     },
     "poisson_ratio": {
-      "min": 0.238,
-      "max": 0.322,
+      "min": 0.26,
+      "max": 0.3,
       "typical": 0.28,
       "n": 0,
       "estimated": true,
@@ -211,7 +215,7 @@
       540,
       28,
       200,
-      180,
+      137,
       24.8
     ]
   ],
@@ -240,7 +244,7 @@
   "uts": 540,
   "elongation": 28,
   "modulus": 200,
-  "hardness": 180,
+  "hardness": 137,
   "thermal_conductivity": 24.8,
   "impact_strength": 140,
   "manufacturer": "Generic",
@@ -268,7 +272,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 3.75,
-  "total_cost_estimate": 3.75,
+  "total_cost_estimate": 7.5,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
@@ -346,7 +350,7 @@
       "val_scalar": 164.6
     },
     "_basis": "AISI 434 annealed — DB 242/365.2 는 **UTS 가 ASTM A240 최소 450 MPa 미달**(405·430 과 동일 오염값). typical 밴드(σy 345~441 · UTS 538~552 · El 28~33) 하한으로 보수 교정.",
-    "_src": "ASTM A240 (Type 434: YS≥240 MPa / UTS≥450 MPa) · Combined Metals 434 strip datasheet (50 ksi YS / 80 ksi UTS / El 28% / 75 HRB) · eFunda AISI 434 annealed (415/545/33%) · AZoM Grade 434 (441/538/32%)",
+    "_src": "ASTM A240 (Type 434: YS≥240 MPa / UTS≥450 MPa) · Combined Metals 434 strip datasheet (50 ksi YS / 80 ksi UTS / El 28% / 75 HRB) · eFunda AISI 434 annealed (415/545/33%) · AZoM Grade 434 (441/538/32%) · [경도 스케일] Combined Metals 434 소둔 strip 75 HRB → HV 137 (ASTM E140-12b Table 2). 기존 180 은 AZoM 상한 계열값이라 직접 측정치(75 HRB)로 교체 — ASTM A240 434 경도 상한(89 HRB ≈ HV 180)은 규격 최대치이지 typical 이 아님.",
     "points": {
       "from": [
         [

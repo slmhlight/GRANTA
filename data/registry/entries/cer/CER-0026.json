@@ -29,13 +29,7 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "yield_strength": {
-      "min": 200,
-      "max": 200,
-      "typical": 200,
-      "n": 1,
-      "confidence": "handbook"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 200,
       "max": 200,
@@ -114,15 +108,6 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "fatigue_strength": {
-      "min": 90,
-      "max": 90,
-      "typical": 90,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
-    },
     "price_per_cm3": {
       "min": 2.864,
       "max": 2.864,
@@ -165,17 +150,18 @@
     "ceramic": true,
     "applications": "transparent armor (장갑차 윈도우), IR dome (3-5 μm), HID 램프 envelope",
     "limitations": "비싸고 hot-press 가공 필요. 충격 KIC 2 미만.",
+    "no_yield": "취성 세라믹 — 항복점 없음. 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
     "_r173_note_applied": true
   },
   "popularity": 4,
   "density": 3.58,
-  "yield_strength": 200,
+  "yield_strength": null,
   "uts": 200,
   "elongation": null,
   "modulus": 280,
   "hardness": 1400,
   "thermal_conductivity": 14,
-  "fatigue_strength": 90,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Sintered",
@@ -185,7 +171,6 @@
     "Ceramic",
     "Oxide"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1,

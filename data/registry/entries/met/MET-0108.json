@@ -36,21 +36,21 @@
       "typical": 324,
       "max": 324,
       "confidence": "handbook",
-      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2024-T351, T4: 68/47 ksi, El 19, HB 120) · EMJ Metals catalog 2024-T4, T351 68,000/47,000 psi, El 19, HB 120 · tubingchina ASM typical table (2024-T4 68/48 ksi, El 19, HB 120)"
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2024-T351, T4: 68/47 ksi, El 19, HB 120) · EMJ Metals catalog 2024-T4, T351 68,000/47,000 psi, El 19, HB 120 · tubingchina ASM typical table (2024-T4 68/48 ksi, El 19, HB 120) · [경도 스케일] 인용 경도 120 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "uts": {
       "min": 469,
       "typical": 469,
       "max": 469,
       "confidence": "handbook",
-      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2024-T351, T4: 68/47 ksi, El 19, HB 120) · EMJ Metals catalog 2024-T4, T351 68,000/47,000 psi, El 19, HB 120 · tubingchina ASM typical table (2024-T4 68/48 ksi, El 19, HB 120)"
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2024-T351, T4: 68/47 ksi, El 19, HB 120) · EMJ Metals catalog 2024-T4, T351 68,000/47,000 psi, El 19, HB 120 · tubingchina ASM typical table (2024-T4 68/48 ksi, El 19, HB 120) · [경도 스케일] 인용 경도 120 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "elongation": {
       "min": 19,
       "typical": 19,
       "max": 19,
       "confidence": "handbook",
-      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2024-T351, T4: 68/47 ksi, El 19, HB 120) · EMJ Metals catalog 2024-T4, T351 68,000/47,000 psi, El 19, HB 120 · tubingchina ASM typical table (2024-T4 68/48 ksi, El 19, HB 120)"
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2024-T351, T4: 68/47 ksi, El 19, HB 120) · EMJ Metals catalog 2024-T4, T351 68,000/47,000 psi, El 19, HB 120 · tubingchina ASM typical table (2024-T4 68/48 ksi, El 19, HB 120) · [경도 스케일] 인용 경도 120 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "modulus": {
       "min": 73,
@@ -60,11 +60,15 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 120,
-      "typical": 120,
-      "max": 120,
+      "min": 141,
+      "typical": 141,
+      "max": 141,
       "confidence": "handbook",
-      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2024-T351, T4: 68/47 ksi, El 19, HB 120) · EMJ Metals catalog 2024-T4, T351 68,000/47,000 psi, El 19, HB 120 · tubingchina ASM typical table (2024-T4 68/48 ksi, El 19, HB 120)"
+      "provenance": "교정: Alro Steel Metals Guide — Rod/Bar typical (2024-T351, T4: 68/47 ksi, El 19, HB 120) · EMJ Metals catalog 2024-T4, T351 68,000/47,000 psi, El 19, HB 120 · tubingchina ASM typical table (2024-T4 68/48 ksi, El 19, HB 120) · [경도 스케일] 인용 경도 120 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 120,
+      "conversion": "ASTM E140-12b Table 9"
     },
     "thermal_conductivity": {
       "min": 121,
@@ -94,8 +98,11 @@
       "max": 33.8,
       "typical": 33.8,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 25,
+      "factor": 1.35,
+      "condition": "T4 solution + naturally aged",
       "provenance": "alloy-specific KIC × HT:T4 solution + naturally aged (k×1.35)"
     },
     "electrical_conductivity": {
@@ -227,7 +234,7 @@
       469,
       19,
       73,
-      120,
+      141,
       121
     ]
   ],
@@ -247,7 +254,7 @@
   "uts": 469,
   "elongation": 19,
   "modulus": 73,
-  "hardness": 120,
+  "hardness": 141,
   "thermal_conductivity": 121,
   "impact_strength": 21,
   "manufacturer": "Reference data",
@@ -302,7 +309,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1.05,
   "delivered_price_per_kg": 5.51,
-  "total_cost_estimate": 4.41,
+  "total_cost_estimate": 9.92,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
@@ -364,7 +371,7 @@
       "val_scalar": 105
     },
     "_basis": "AA 2024-T4 의 425/290 은 규격 최소값 수준(B209/B211 2024-T4 min 62~64/40~42 ksi)이 typical 자리에 실린 것 — 같은 base 의 다른 조건은 전부 typical. 대표값 표 3종이 68/47~48 ksi, El 19, HB 120 으로 일치.",
-    "_src": "Alro Steel Metals Guide — Rod/Bar typical (2024-T351, T4: 68/47 ksi, El 19, HB 120) · EMJ Metals catalog 2024-T4, T351 68,000/47,000 psi, El 19, HB 120 · tubingchina ASM typical table (2024-T4 68/48 ksi, El 19, HB 120)",
+    "_src": "Alro Steel Metals Guide — Rod/Bar typical (2024-T351, T4: 68/47 ksi, El 19, HB 120) · EMJ Metals catalog 2024-T4, T351 68,000/47,000 psi, El 19, HB 120 · tubingchina ASM typical table (2024-T4 68/48 ksi, El 19, HB 120) · [경도 스케일] 인용 경도 120 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
     "points": {
       "from": [
         [

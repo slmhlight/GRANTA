@@ -94,8 +94,11 @@
       "max": 104,
       "typical": 104,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 65,
+      "factor": 1.6,
+      "condition": "annealed (forming)",
       "provenance": "alloy-specific KIC × HT:annealed (forming) (k×1.6)"
     },
     "electrical_conductivity": {
@@ -273,7 +276,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1.032,
   "delivered_price_per_kg": 2.76,
-  "total_cost_estimate": 2.49,
+  "total_cost_estimate": 5.25,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",

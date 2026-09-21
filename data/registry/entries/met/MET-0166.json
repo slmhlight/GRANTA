@@ -36,21 +36,21 @@
       "typical": 103,
       "max": 103,
       "confidence": "handbook",
-      "provenance": "교정: United Aluminum — Aluminum 1050 typical (1050-H14: 16 ksi / 15 ksi / 7%) · MakeItFrom 1050-H14 (110 / 94 / 8.4%) · Aalco Aluminium Alloy 1050A H14 Sheet datasheet (HB 34)"
+      "provenance": "교정: United Aluminum — Aluminum 1050 typical (1050-H14: 16 ksi / 15 ksi / 7%) · MakeItFrom 1050-H14 (110 / 94 / 8.4%) · Aalco Aluminium Alloy 1050A H14 Sheet datasheet (HB 34) · [경도 스케일] 인용 경도 34 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기."
     },
     "uts": {
       "min": 110,
       "typical": 110,
       "max": 110,
       "confidence": "handbook",
-      "provenance": "교정: United Aluminum — Aluminum 1050 typical (1050-H14: 16 ksi / 15 ksi / 7%) · MakeItFrom 1050-H14 (110 / 94 / 8.4%) · Aalco Aluminium Alloy 1050A H14 Sheet datasheet (HB 34)"
+      "provenance": "교정: United Aluminum — Aluminum 1050 typical (1050-H14: 16 ksi / 15 ksi / 7%) · MakeItFrom 1050-H14 (110 / 94 / 8.4%) · Aalco Aluminium Alloy 1050A H14 Sheet datasheet (HB 34) · [경도 스케일] 인용 경도 34 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기."
     },
     "elongation": {
       "min": 8,
       "typical": 8,
       "max": 8,
       "confidence": "handbook",
-      "provenance": "교정: United Aluminum — Aluminum 1050 typical (1050-H14: 16 ksi / 15 ksi / 7%) · MakeItFrom 1050-H14 (110 / 94 / 8.4%) · Aalco Aluminium Alloy 1050A H14 Sheet datasheet (HB 34)"
+      "provenance": "교정: United Aluminum — Aluminum 1050 typical (1050-H14: 16 ksi / 15 ksi / 7%) · MakeItFrom 1050-H14 (110 / 94 / 8.4%) · Aalco Aluminium Alloy 1050A H14 Sheet datasheet (HB 34) · [경도 스케일] 인용 경도 34 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기."
     },
     "modulus": {
       "min": 69,
@@ -64,7 +64,12 @@
       "typical": 34,
       "max": 34,
       "confidence": "handbook",
-      "provenance": "교정: United Aluminum — Aluminum 1050 typical (1050-H14: 16 ksi / 15 ksi / 7%) · MakeItFrom 1050-H14 (110 / 94 / 8.4%) · Aalco Aluminium Alloy 1050A H14 Sheet datasheet (HB 34)"
+      "provenance": "교정: United Aluminum — Aluminum 1050 typical (1050-H14: 16 ksi / 15 ksi / 7%) · MakeItFrom 1050-H14 (110 / 94 / 8.4%) · Aalco Aluminium Alloy 1050A H14 Sheet datasheet (HB 34) · [경도 스케일] 인용 경도 34 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기.",
+      "scale": "HB",
+      "source_scale": "HB",
+      "source_value": 34,
+      "conversion": null,
+      "scale_note": "ASTM E140 표 밖(또는 해당 표 없음) — 환산하지 않고 원 스케일 그대로 표기"
     },
     "thermal_conductivity": {
       "min": 222,
@@ -270,7 +275,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 2.49,
-  "total_cost_estimate": 2.25,
+  "total_cost_estimate": 4.74,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
@@ -361,7 +366,7 @@
       "val_scalar": 27.16
     },
     "_basis": "라벨 'Strain-hardened' 의 합성값(σy 33.95/UTS 82.45 = 소둔 ×1.03)을 실제 냉간가공 템퍼 H14 로 교체. 경도 34 HB 는 Aalco 1050A-H14 시트 데이터시트 typical.",
-    "_src": "United Aluminum — Aluminum 1050 typical (1050-H14: 16 ksi / 15 ksi / 7%) · MakeItFrom 1050-H14 (110 / 94 / 8.4%) · Aalco Aluminium Alloy 1050A H14 Sheet datasheet (HB 34)",
+    "_src": "United Aluminum — Aluminum 1050 typical (1050-H14: 16 ksi / 15 ksi / 7%) · MakeItFrom 1050-H14 (110 / 94 / 8.4%) · Aalco Aluminium Alloy 1050A H14 Sheet datasheet (HB 34) · [경도 스케일] 인용 경도 34 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기.",
     "points": {
       "from": [
         [

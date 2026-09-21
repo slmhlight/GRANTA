@@ -36,21 +36,21 @@
       "typical": 380,
       "max": 380,
       "confidence": "handbook",
-      "provenance": "교정: AISI 1095 소둔 표준표 — 항복 55000 psi · 인장 95250 psi · 연신율 13% · 경도 192 HB (tubingchina AISI Steel Mechanical Characteristics, ASM 계열 소둔 표). MPa 환산 ×0.00689476"
+      "provenance": "교정: AISI 1095 소둔 표준표 — 항복 55000 psi · 인장 95250 psi · 연신율 13% · 경도 192 HB (tubingchina AISI Steel Mechanical Characteristics, ASM 계열 소둔 표). MPa 환산 ×0.00689476 · [경도 스케일] 원자료 192 HB(3000 kgf) → HV 192 (ASTM E140-12b Table 2 — 이 범위에서 HV=HB)."
     },
     "uts": {
       "min": 657,
       "typical": 657,
       "max": 657,
       "confidence": "handbook",
-      "provenance": "교정: AISI 1095 소둔 표준표 — 항복 55000 psi · 인장 95250 psi · 연신율 13% · 경도 192 HB (tubingchina AISI Steel Mechanical Characteristics, ASM 계열 소둔 표). MPa 환산 ×0.00689476"
+      "provenance": "교정: AISI 1095 소둔 표준표 — 항복 55000 psi · 인장 95250 psi · 연신율 13% · 경도 192 HB (tubingchina AISI Steel Mechanical Characteristics, ASM 계열 소둔 표). MPa 환산 ×0.00689476 · [경도 스케일] 원자료 192 HB(3000 kgf) → HV 192 (ASTM E140-12b Table 2 — 이 범위에서 HV=HB)."
     },
     "elongation": {
       "min": 13,
       "typical": 13,
       "max": 13,
       "confidence": "handbook",
-      "provenance": "교정: AISI 1095 소둔 표준표 — 항복 55000 psi · 인장 95250 psi · 연신율 13% · 경도 192 HB (tubingchina AISI Steel Mechanical Characteristics, ASM 계열 소둔 표). MPa 환산 ×0.00689476"
+      "provenance": "교정: AISI 1095 소둔 표준표 — 항복 55000 psi · 인장 95250 psi · 연신율 13% · 경도 192 HB (tubingchina AISI Steel Mechanical Characteristics, ASM 계열 소둔 표). MPa 환산 ×0.00689476 · [경도 스케일] 원자료 192 HB(3000 kgf) → HV 192 (ASTM E140-12b Table 2 — 이 범위에서 HV=HB)."
     },
     "modulus": {
       "min": 200,
@@ -64,7 +64,11 @@
       "typical": 192,
       "max": 192,
       "confidence": "handbook",
-      "provenance": "교정: AISI 1095 소둔 표준표 — 항복 55000 psi · 인장 95250 psi · 연신율 13% · 경도 192 HB (tubingchina AISI Steel Mechanical Characteristics, ASM 계열 소둔 표). MPa 환산 ×0.00689476"
+      "provenance": "교정: AISI 1095 소둔 표준표 — 항복 55000 psi · 인장 95250 psi · 연신율 13% · 경도 192 HB (tubingchina AISI Steel Mechanical Characteristics, ASM 계열 소둔 표). MPa 환산 ×0.00689476 · [경도 스케일] 원자료 192 HB(3000 kgf) → HV 192 (ASTM E140-12b Table 2 — 이 범위에서 HV=HB).",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 192,
+      "conversion": "ASTM E140-12b Table 2"
     },
     "thermal_conductivity": {
       "min": 50,
@@ -94,8 +98,11 @@
       "max": 30.8,
       "typical": 30.8,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 28,
+      "factor": 1.1,
+      "condition": "annealed/as-cast",
       "provenance": "alloy-specific KIC × HT:annealed/as-cast (k×1.1)"
     },
     "electrical_conductivity": {
@@ -266,7 +273,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 0.997,
   "delivered_price_per_kg": 1.6,
-  "total_cost_estimate": 1.6,
+  "total_cost_estimate": 3.2,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
@@ -349,7 +356,7 @@
       "val_scalar": 228.8
     },
     "_basis": "AISI 1095 \"소둔\" 도 MET-0271 과 같은 양상 — 강도 과대(545.6 vs 379)·연신율 과소(7.44 vs 13.0).",
-    "_src": "AISI 1095 소둔 표준표 — 항복 55000 psi · 인장 95250 psi · 연신율 13% · 경도 192 HB (tubingchina AISI Steel Mechanical Characteristics, ASM 계열 소둔 표). MPa 환산 ×0.00689476",
+    "_src": "AISI 1095 소둔 표준표 — 항복 55000 psi · 인장 95250 psi · 연신율 13% · 경도 192 HB (tubingchina AISI Steel Mechanical Characteristics, ASM 계열 소둔 표). MPa 환산 ×0.00689476 · [경도 스케일] 원자료 192 HB(3000 kgf) → HV 192 (ASTM E140-12b Table 2 — 이 범위에서 HV=HB).",
     "points": {
       "from": [
         [

@@ -30,13 +30,7 @@
       "confidence": "measured",
       "provenance": "Teijin Twaron 1000 datasheet"
     },
-    "yield_strength": {
-      "min": 450,
-      "max": 600,
-      "typical": 525,
-      "n": 1,
-      "confidence": "measured"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 450,
       "max": 600,
@@ -91,15 +85,6 @@
       "n": 1,
       "confidence": "measured"
     },
-    "fatigue_strength": {
-      "min": 495,
-      "max": 495,
-      "typical": 495,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
-    },
     "price_per_cm3": {
       "min": 0.0565,
       "max": 0.0765,
@@ -152,17 +137,19 @@
     "fiber_vf": 0.55,
     "applications": "선박 hull (저가 방탄용), 송수관 보강",
     "anisotropy_note": "복합재 — 강성·강도가 fiber 방향 의존. 0° UD 값 (수직 방향은 1/10~1/20).",
-    "_r173_note_applied": true
+    "no_yield": "섬유 복합재 — 항복점 없음(선형 후 파단). 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
+    "_r173_note_applied": true,
+    "composition_basis": "vol%"
   },
   "popularity": 3,
   "density": 1.42,
-  "yield_strength": 1100,
+  "yield_strength": null,
   "uts": 1100,
   "elongation": 2.5,
   "modulus": 65,
   "hardness": null,
   "thermal_conductivity": 0.45,
-  "fatigue_strength": 495,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Layup",
@@ -172,7 +159,6 @@
     "Composite",
     "Aramid-VinylEster"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1,

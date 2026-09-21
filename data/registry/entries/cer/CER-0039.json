@@ -29,13 +29,7 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "yield_strength": {
-      "min": 360,
-      "max": 360,
-      "typical": 360,
-      "n": 1,
-      "confidence": "handbook"
-    },
+    "yield_strength": null,
     "uts": {
       "min": 360,
       "max": 360,
@@ -102,15 +96,6 @@
       "n": 1,
       "confidence": "handbook"
     },
-    "fatigue_strength": {
-      "min": 162,
-      "max": 162,
-      "typical": 162,
-      "n": 0,
-      "estimated": true,
-      "confidence": "derived",
-      "provenance": "family:Fe-based σf≈0.45·UTS (Shigley/MMPDS family typical)"
-    },
     "price_per_cm3": {
       "min": 4.8,
       "max": 4.8,
@@ -148,17 +133,18 @@
     "ceramic": true,
     "applications": "극초음속 비행체 nose tip, 로켓 throat, 용탕 측정 thermo well",
     "limitations": "공기 中 1100°C 이상 ZrO₂+B₂O₃ 형성 — SiC 첨가로 보호 스케일",
+    "no_yield": "취성 세라믹 — 항복점 없음. 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
     "_r173_note_applied": true
   },
   "popularity": 1,
   "density": 6,
-  "yield_strength": 360,
+  "yield_strength": null,
   "uts": 360,
   "elongation": null,
   "modulus": 510,
   "hardness": 2300,
   "thermal_conductivity": 60,
-  "fatigue_strength": 162,
+  "fatigue_strength": null,
   "impact_strength": null,
   "manufacturer": "Reference data",
   "process": "Sintered",
@@ -168,7 +154,6 @@
     "Ceramic",
     "UHTC"
   ],
-  "fatigue_estimated": true,
   "machining_cost_factor": null,
   "ht_cost_factor": null,
   "price_condition_factor": 1,
@@ -179,6 +164,6 @@
   "surface_finish_typical": 3.2,
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
-  "confidence_tier": "medium",
+  "confidence_tier": "medium-low",
   "industry_note": "ZrB₂ (Zirconium Diboride, hexagonal AlB₂-type) — sister UHTC of HfB₂ (lower cost). Tm 3245°C, ρ 6.10 g/cc (HfB₂ 의 55% — 가벼움 advantage). σf 360-450 / E 510 / KIC 3.5 / Tmax 2200°C inert. ZrB₂-SiC composite oxidation 저항 1700°C+. Hypersonic leading edge (DARPA Falcon HTV-2), refractory crucible (molten metal contact), 우주 thermal protection. SPS sintering 표준."
 }

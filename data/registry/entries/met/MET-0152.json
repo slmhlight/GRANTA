@@ -36,21 +36,21 @@
       "typical": 240,
       "max": 240,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 5456-H116 Aluminum (340 / 240 / 13% / HB 90)"
+      "provenance": "교정: MakeItFrom 5456-H116 Aluminum (340 / 240 / 13% / HB 90) · [경도 스케일] 인용 경도 90 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "uts": {
       "min": 340,
       "typical": 340,
       "max": 340,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 5456-H116 Aluminum (340 / 240 / 13% / HB 90)"
+      "provenance": "교정: MakeItFrom 5456-H116 Aluminum (340 / 240 / 13% / HB 90) · [경도 스케일] 인용 경도 90 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "elongation": {
       "min": 13,
       "typical": 13,
       "max": 13,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 5456-H116 Aluminum (340 / 240 / 13% / HB 90)"
+      "provenance": "교정: MakeItFrom 5456-H116 Aluminum (340 / 240 / 13% / HB 90) · [경도 스케일] 인용 경도 90 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "modulus": {
       "min": 71,
@@ -60,11 +60,15 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 90,
-      "typical": 90,
-      "max": 90,
+      "min": 105,
+      "typical": 105,
+      "max": 105,
       "confidence": "handbook",
-      "provenance": "교정: MakeItFrom 5456-H116 Aluminum (340 / 240 / 13% / HB 90)"
+      "provenance": "교정: MakeItFrom 5456-H116 Aluminum (340 / 240 / 13% / HB 90) · [경도 스케일] 인용 경도 90 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 90,
+      "conversion": "ASTM E140-12b Table 9"
     },
     "thermal_conductivity": {
       "min": 116,
@@ -214,7 +218,7 @@
       340,
       13,
       71,
-      90,
+      105,
       116
     ]
   ],
@@ -232,7 +236,7 @@
   "uts": 340,
   "elongation": 13,
   "modulus": 71,
-  "hardness": 90,
+  "hardness": 105,
   "thermal_conductivity": 116,
   "impact_strength": 10,
   "manufacturer": "Reference data",
@@ -263,7 +267,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 3.57,
-  "total_cost_estimate": 3.21,
+  "total_cost_estimate": 6.78,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
@@ -317,7 +321,7 @@
       "val_scalar": 90
     },
     "_basis": "조건 없는 단독 entry 의 350/230/22 는 O(310/160/24)와 H116(350/255/16)이 섞인 값 — UTS·HB 가 H116 과 일치하므로 H116 으로 확정하고 σy·El 을 맞춤.",
-    "_src": "MakeItFrom 5456-H116 Aluminum (340 / 240 / 13% / HB 90)",
+    "_src": "MakeItFrom 5456-H116 Aluminum (340 / 240 / 13% / HB 90) · [경도 스케일] 인용 경도 90 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
     "points": {
       "from": [
         [

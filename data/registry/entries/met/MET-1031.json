@@ -119,8 +119,8 @@
       "provenance": "3rd_family:Nickel Superalloy"
     },
     "poisson_ratio": {
-      "min": 0.255,
-      "max": 0.345,
+      "min": 0.28,
+      "max": 0.32,
       "typical": 0.3,
       "n": 0,
       "estimated": true,
@@ -184,6 +184,11 @@
     "Zr": "≤0.06"
   },
   "sources": [
+    {
+      "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
     {
       "label": "ATI — Astroloy datasheet (UNS N13017, AMS 5846: σy≥965 / UTS≥1275 MPa / El≥10%)",
       "url": "https://www.atimaterials.com/Products/Pages/ati-astroloy.aspx",
@@ -267,11 +272,27 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 137.03,
-  "total_cost_estimate": 246.65,
+  "total_cost_estimate": 383.67,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "svhc_concerns": [
     "Co 20% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "ATI — Astroloy datasheet (UNS N13017, AMS 5846: σy≥965 / UTS≥1275 MPa / El≥10%)",
+          "url": "https://www.atimaterials.com/Products/Pages/ati-astroloy.aspx",
+          "verified": true
+        },
+        {
+          "label": "E-FORU / matweb — Astroloy N13017 물성 (E 214 GPa · k 10.5 W/m·K · CTE 14.5 µm/m·°C)",
+          "url": "https://www.eforu-materials.com/nickel-metal-and-alloys/22386.html",
+          "verified": true
+        }
+      ]
+    }
+  }
 }

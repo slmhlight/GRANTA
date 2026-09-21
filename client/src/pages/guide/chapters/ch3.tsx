@@ -19,7 +19,7 @@ export default function ch3Body() {
             <Term word="A">단면적 — 인장응력 <F>σ = F/A</F></Term>
             <Term word="I">단면 2차모멘트 — 굽힘 변형·응력의 단면 인자, 중립축 기준</Term>
             <Term word="Z = I/c">단면계수 — 굽힘응력 <F>σ_b = M / Z</F>, <F>c</F>는 중립축에서 가장 먼 거리</Term>
-            <Term word="J">극관성모멘트 — 비틀림 <F>τ = T·r / J</F>, 원형 단면만 단순한 닫힌식</Term>
+            <Term word="J">비틀림 상수 (torsion constant) — 비틀림 강성 <F>θ = T·L / (G·J)</F>. <b>원형 단면에서만</b> 극관성모멘트 <F>J_p = I_x + I_y = π·d⁴/32</F> 와 같고, 그때만 <F>τ = T·r / J</F> 가 성립. 비원형 단면(정사각형 등)은 J ≠ J_p 이고 전단응력도 다른 식(Saint-Venant)으로 구함</Term>
           </div>
 
           <Note tone="why" title="왜 I빔·박스·관이 효율적인가?">
@@ -55,9 +55,10 @@ export default function ch3Body() {
                 { label: 'A', expr: 'a²' },
                 { label: 'I', expr: 'a⁴ / 12' },
                 { label: 'Z', expr: 'a³ / 6' },
-                { label: 'J', expr: '≈ 0.141 · a⁴' },
+                { label: 'J_p', expr: 'I_x + I_y = a⁴ / 6 (극관성모멘트)' },
+                { label: 'J (비틀림)', expr: '≈ 0.141 · a⁴ (Saint-Venant 비틀림 상수 ≠ J_p)' },
               ]}
-              usedFor="기계 부품의 일반 단면. 비틀림은 원형보다 약함."
+              usedFor="기계 부품의 일반 단면. 비틀림은 원형보다 약함 — τ = T·r/J 식은 원형에만 쓰고, 정사각형은 τ_max ≈ T/(0.208·a³) (Roark)."
             />
             <ShapeCard
               svg={<SvgCircle />}
@@ -67,9 +68,9 @@ export default function ch3Body() {
                 { label: 'A', expr: 'π · d² / 4' },
                 { label: 'I', expr: 'π · d⁴ / 64' },
                 { label: 'Z', expr: 'π · d³ / 32' },
-                { label: 'J', expr: 'π · d⁴ / 32' },
+                { label: 'J = J_p', expr: 'π · d⁴ / 32 (원형: 비틀림 상수 = 극관성모멘트)' },
               ]}
-              usedFor="축·핀·볼트. 비틀림에 자연스럽고 가공 쉬움."
+              usedFor="축·핀·볼트. 비틀림에 자연스럽고 가공 쉬움. τ = T·r/J 가 정확히 성립하는 유일한 꽉찬 단면."
             />
             <ShapeCard
               svg={<SvgBox />}

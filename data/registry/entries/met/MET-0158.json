@@ -36,21 +36,21 @@
       "typical": 193,
       "max": 193,
       "confidence": "handbook",
-      "provenance": "교정: United Aluminum — 3005-H14 typical 29/28 ksi, El 4 · MakeItFrom 3005-H14 (190 / 170 / HB 54)"
+      "provenance": "교정: United Aluminum — 3005-H14 typical 29/28 ksi, El 4 · MakeItFrom 3005-H14 (190 / 170 / HB 54) · [경도 스케일] 인용 경도 54 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "uts": {
       "min": 200,
       "typical": 200,
       "max": 200,
       "confidence": "handbook",
-      "provenance": "교정: United Aluminum — 3005-H14 typical 29/28 ksi, El 4 · MakeItFrom 3005-H14 (190 / 170 / HB 54)"
+      "provenance": "교정: United Aluminum — 3005-H14 typical 29/28 ksi, El 4 · MakeItFrom 3005-H14 (190 / 170 / HB 54) · [경도 스케일] 인용 경도 54 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "elongation": {
       "min": 4,
       "typical": 4,
       "max": 4,
       "confidence": "handbook",
-      "provenance": "교정: United Aluminum — 3005-H14 typical 29/28 ksi, El 4 · MakeItFrom 3005-H14 (190 / 170 / HB 54)"
+      "provenance": "교정: United Aluminum — 3005-H14 typical 29/28 ksi, El 4 · MakeItFrom 3005-H14 (190 / 170 / HB 54) · [경도 스케일] 인용 경도 54 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "modulus": {
       "min": 70,
@@ -60,11 +60,15 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 54,
-      "typical": 54,
-      "max": 54,
+      "min": 61,
+      "typical": 61,
+      "max": 61,
       "confidence": "handbook",
-      "provenance": "교정: United Aluminum — 3005-H14 typical 29/28 ksi, El 4 · MakeItFrom 3005-H14 (190 / 170 / HB 54)"
+      "provenance": "교정: United Aluminum — 3005-H14 typical 29/28 ksi, El 4 · MakeItFrom 3005-H14 (190 / 170 / HB 54) · [경도 스케일] 인용 경도 54 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 54,
+      "conversion": "ASTM E140-12b Table 9"
     },
     "thermal_conductivity": {
       "min": 191,
@@ -126,8 +130,8 @@
       "provenance": "3rd_family:Aluminum - Mn Alloys (3xxx)"
     },
     "poisson_ratio": {
-      "min": 0.2805,
-      "max": 0.3795,
+      "min": 0.31,
+      "max": 0.35,
       "typical": 0.33,
       "n": 0,
       "estimated": true,
@@ -203,7 +207,7 @@
       200,
       4,
       70,
-      54,
+      61,
       191
     ]
   ],
@@ -234,7 +238,7 @@
   "uts": 200,
   "elongation": 4,
   "modulus": 70,
-  "hardness": 54,
+  "hardness": 61,
   "thermal_conductivity": 191,
   "impact_strength": 11,
   "manufacturer": "Generic",
@@ -261,7 +265,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 2.84,
-  "total_cost_estimate": 2.55,
+  "total_cost_estimate": 5.39,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
@@ -339,7 +343,7 @@
       "val_scalar": 43.65
     },
     "_basis": "'Strain-hardened' 합성값(σy 92.15/UTS 140.7 = 소둔 ×1.03)을 실제 템퍼 H14 로 교체. 산포: 제조사 스트립 200/193 · ASM 계열 180/165(AZoM 요약) — 제조사값 채택, 경도는 MakeItFrom.",
-    "_src": "United Aluminum — 3005-H14 typical 29/28 ksi, El 4 · MakeItFrom 3005-H14 (190 / 170 / HB 54)",
+    "_src": "United Aluminum — 3005-H14 typical 29/28 ksi, El 4 · MakeItFrom 3005-H14 (190 / 170 / HB 54) · [경도 스케일] 인용 경도 54 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
     "points": {
       "from": [
         [

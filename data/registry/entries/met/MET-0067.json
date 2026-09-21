@@ -166,8 +166,11 @@
       "max": 96,
       "typical": 96,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 60,
+      "factor": 1.6,
+      "condition": "annealed",
       "provenance": "alloy-specific KIC × HT:annealed (k×1.6)"
     },
     "delivered_price_per_kg": {
@@ -275,7 +278,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1.02,
   "delivered_price_per_kg": 2.95,
-  "total_cost_estimate": 2.65,
+  "total_cost_estimate": 5.6,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "elevated_temp": [

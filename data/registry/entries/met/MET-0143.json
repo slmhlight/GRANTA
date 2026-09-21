@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 90,
-      "max": 90,
-      "typical": 90,
+      "min": 105,
+      "max": 105,
+      "typical": 105,
       "n": 1,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 90,
+      "conversion": "ASTM E140-12b Table 9",
+      "provenance": "HB 90 → HV 105 (ASTM E140-12b Table 9)"
     },
     "thermal_conductivity": {
       "min": 123,
@@ -126,8 +131,8 @@
       "provenance": "3rd_family:Aluminum - Mg Alloys (5xxx)"
     },
     "poisson_ratio": {
-      "min": 0.2805,
-      "max": 0.3795,
+      "min": 0.31,
+      "max": 0.35,
       "typical": 0.33,
       "n": 0,
       "estimated": true,
@@ -186,6 +191,11 @@
   },
   "sources": [
     {
+      "label": "ASM Handbook Vol.2 — Aluminum & Aluminum Alloys",
+      "url": "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials",
+      "verified": true
+    },
+    {
       "label": "Aluminum Association — AA 5xxx (Al-Mg) + MMPDS-08 Sec.3.6",
       "url": "https://www.aluminum.org/standards",
       "verified": true
@@ -213,7 +223,7 @@
       331,
       11,
       70,
-      90,
+      105,
       123
     ]
   ],
@@ -232,7 +242,7 @@
   "uts": 331,
   "elongation": 11,
   "modulus": 70,
-  "hardness": 90,
+  "hardness": 105,
   "thermal_conductivity": 123,
   "impact_strength": 7.5,
   "manufacturer": "Reference data",
@@ -259,11 +269,35 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 3.63,
-  "total_cost_estimate": 3.27,
+  "total_cost_estimate": 6.89,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
   "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "Aluminum Association — AA 5xxx (Al-Mg) + MMPDS-08 Sec.3.6",
+          "url": "https://www.aluminum.org/standards",
+          "verified": true
+        },
+        {
+          "label": "MatWeb 2",
+          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AA5182",
+          "verified": false
+        },
+        {
+          "label": "KIC fallback: AA 5xxx Al-Mg",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Fatigue fallback: σf ≈ 0.38·σy (Aluminum Association handbook)",
+          "url": null,
+          "verified": false
+        }
+      ]
+    },
     "yield_strength": {
       "had_range": true,
       "val_range": {
@@ -315,6 +349,19 @@
         ]
       ]
     },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 90,
+        "max": 90,
+        "typical": 90,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 90
+    },
+    "_hardness_scale": "Al HB500 90 → HV 105 (E140 T9)",
     "fields": {
       "name": {
         "from": "AA 5182 (Al-Mg high-Mg) — H19 (full hard)",

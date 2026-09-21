@@ -36,21 +36,21 @@
       "typical": 69,
       "max": 69,
       "confidence": "handbook",
-      "provenance": "교정: United Aluminum — 3004-O typical 26/10 ksi, El 19 · tubingchina ASM typical table (3004-O 26/10 ksi, El 25, HB 45) · MakeItFrom 3004-O (170 / 69 / 19% / HB 45)"
+      "provenance": "교정: United Aluminum — 3004-O typical 26/10 ksi, El 19 · tubingchina ASM typical table (3004-O 26/10 ksi, El 25, HB 45) · MakeItFrom 3004-O (170 / 69 / 19% / HB 45) · [경도 스케일] 인용 경도 45 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "uts": {
       "min": 180,
       "typical": 180,
       "max": 180,
       "confidence": "handbook",
-      "provenance": "교정: United Aluminum — 3004-O typical 26/10 ksi, El 19 · tubingchina ASM typical table (3004-O 26/10 ksi, El 25, HB 45) · MakeItFrom 3004-O (170 / 69 / 19% / HB 45)"
+      "provenance": "교정: United Aluminum — 3004-O typical 26/10 ksi, El 19 · tubingchina ASM typical table (3004-O 26/10 ksi, El 25, HB 45) · MakeItFrom 3004-O (170 / 69 / 19% / HB 45) · [경도 스케일] 인용 경도 45 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "elongation": {
       "min": 20,
       "typical": 20,
       "max": 20,
       "confidence": "handbook",
-      "provenance": "교정: United Aluminum — 3004-O typical 26/10 ksi, El 19 · tubingchina ASM typical table (3004-O 26/10 ksi, El 25, HB 45) · MakeItFrom 3004-O (170 / 69 / 19% / HB 45)"
+      "provenance": "교정: United Aluminum — 3004-O typical 26/10 ksi, El 19 · tubingchina ASM typical table (3004-O 26/10 ksi, El 25, HB 45) · MakeItFrom 3004-O (170 / 69 / 19% / HB 45) · [경도 스케일] 인용 경도 45 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산."
     },
     "modulus": {
       "min": 70,
@@ -60,11 +60,15 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 45,
-      "typical": 45,
-      "max": 45,
+      "min": 50,
+      "typical": 50,
+      "max": 50,
       "confidence": "handbook",
-      "provenance": "교정: United Aluminum — 3004-O typical 26/10 ksi, El 19 · tubingchina ASM typical table (3004-O 26/10 ksi, El 25, HB 45) · MakeItFrom 3004-O (170 / 69 / 19% / HB 45)"
+      "provenance": "교정: United Aluminum — 3004-O typical 26/10 ksi, El 19 · tubingchina ASM typical table (3004-O 26/10 ksi, El 25, HB 45) · MakeItFrom 3004-O (170 / 69 / 19% / HB 45) · [경도 스케일] 인용 경도 45 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 45,
+      "conversion": "ASTM E140-12b Table 9"
     },
     "thermal_conductivity": {
       "min": 191,
@@ -126,8 +130,8 @@
       "provenance": "3rd_family:Aluminum - Mn Alloys (3xxx)"
     },
     "poisson_ratio": {
-      "min": 0.2805,
-      "max": 0.3795,
+      "min": 0.31,
+      "max": 0.35,
       "typical": 0.33,
       "n": 0,
       "estimated": true,
@@ -204,7 +208,7 @@
       180,
       20,
       70,
-      45,
+      50,
       191
     ]
   ],
@@ -227,7 +231,7 @@
   "uts": 180,
   "elongation": 20,
   "modulus": 70,
-  "hardness": 45,
+  "hardness": 50,
   "thermal_conductivity": 191,
   "impact_strength": 30,
   "manufacturer": "Generic",
@@ -256,7 +260,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 2.68,
-  "total_cost_estimate": 2.41,
+  "total_cost_estimate": 5.09,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
@@ -337,7 +341,7 @@
       "val_scalar": 51.7
     },
     "_basis": "AA 3004-O. 합성값의 항복 117.5 는 O 템퍼의 두 배(대표 69) — H32 급 항복이 소둔에 실려 있었다.",
-    "_src": "United Aluminum — 3004-O typical 26/10 ksi, El 19 · tubingchina ASM typical table (3004-O 26/10 ksi, El 25, HB 45) · MakeItFrom 3004-O (170 / 69 / 19% / HB 45)",
+    "_src": "United Aluminum — 3004-O typical 26/10 ksi, El 19 · tubingchina ASM typical table (3004-O 26/10 ksi, El 25, HB 45) · MakeItFrom 3004-O (170 / 69 / 19% / HB 45) · [경도 스케일] 인용 경도 45 는 Brinell(500 kgf) — ASTM E140-12b Table 9 로 HV 환산.",
     "points": {
       "from": [
         [

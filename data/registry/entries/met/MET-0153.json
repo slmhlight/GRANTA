@@ -36,21 +36,21 @@
       "typical": 41,
       "max": 41,
       "confidence": "handbook",
-      "provenance": "교정: United Aluminum — Aluminum 3003 typical (3003-O: 16/6 ksi, El 30) · tubingchina ASM typical table (3003-O 16/6 ksi, El 40, HB 28) · MakeItFrom 3003-O (110 / 40 / 28% / HB 28)"
+      "provenance": "교정: United Aluminum — Aluminum 3003 typical (3003-O: 16/6 ksi, El 30) · tubingchina ASM typical table (3003-O 16/6 ksi, El 40, HB 28) · MakeItFrom 3003-O (110 / 40 / 28% / HB 28) · [경도 스케일] 인용 경도 28 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기."
     },
     "uts": {
       "min": 110,
       "typical": 110,
       "max": 110,
       "confidence": "handbook",
-      "provenance": "교정: United Aluminum — Aluminum 3003 typical (3003-O: 16/6 ksi, El 30) · tubingchina ASM typical table (3003-O 16/6 ksi, El 40, HB 28) · MakeItFrom 3003-O (110 / 40 / 28% / HB 28)"
+      "provenance": "교정: United Aluminum — Aluminum 3003 typical (3003-O: 16/6 ksi, El 30) · tubingchina ASM typical table (3003-O 16/6 ksi, El 40, HB 28) · MakeItFrom 3003-O (110 / 40 / 28% / HB 28) · [경도 스케일] 인용 경도 28 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기."
     },
     "elongation": {
       "min": 30,
       "typical": 30,
       "max": 30,
       "confidence": "handbook",
-      "provenance": "교정: United Aluminum — Aluminum 3003 typical (3003-O: 16/6 ksi, El 30) · tubingchina ASM typical table (3003-O 16/6 ksi, El 40, HB 28) · MakeItFrom 3003-O (110 / 40 / 28% / HB 28)"
+      "provenance": "교정: United Aluminum — Aluminum 3003 typical (3003-O: 16/6 ksi, El 30) · tubingchina ASM typical table (3003-O 16/6 ksi, El 40, HB 28) · MakeItFrom 3003-O (110 / 40 / 28% / HB 28) · [경도 스케일] 인용 경도 28 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기."
     },
     "modulus": {
       "min": 70,
@@ -64,7 +64,12 @@
       "typical": 28,
       "max": 28,
       "confidence": "handbook",
-      "provenance": "교정: United Aluminum — Aluminum 3003 typical (3003-O: 16/6 ksi, El 30) · tubingchina ASM typical table (3003-O 16/6 ksi, El 40, HB 28) · MakeItFrom 3003-O (110 / 40 / 28% / HB 28)"
+      "provenance": "교정: United Aluminum — Aluminum 3003 typical (3003-O: 16/6 ksi, El 30) · tubingchina ASM typical table (3003-O 16/6 ksi, El 40, HB 28) · MakeItFrom 3003-O (110 / 40 / 28% / HB 28) · [경도 스케일] 인용 경도 28 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기.",
+      "scale": "HB",
+      "source_scale": "HB",
+      "source_value": 28,
+      "conversion": null,
+      "scale_note": "ASTM E140 표 밖(또는 해당 표 없음) — 환산하지 않고 원 스케일 그대로 표기"
     },
     "thermal_conductivity": {
       "min": 191,
@@ -94,8 +99,11 @@
       "max": 100,
       "typical": 100,
       "n": 0,
-      "estimated": false,
-      "confidence": "handbook",
+      "estimated": true,
+      "confidence": "derived",
+      "base_value": 50,
+      "factor": 2,
+      "condition": "O (annealed soft, fallback derived from T6)",
       "provenance": "alloy-specific KIC × HT:O (annealed soft, fallback derived from T6) (k×2)"
     },
     "electrical_conductivity": {
@@ -259,7 +267,7 @@
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
   "delivered_price_per_kg": 2.68,
-  "total_cost_estimate": 2.41,
+  "total_cost_estimate": 5.09,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "medium",
@@ -344,7 +352,7 @@
       "val_scalar": 32.9
     },
     "_basis": "AA 3003-O. 합성값(σy 37.6/UTS 103.4/El 28.2/HV 32.9) → AA 대표값 16/6 ksi, El 30, HB 28.",
-    "_src": "United Aluminum — Aluminum 3003 typical (3003-O: 16/6 ksi, El 30) · tubingchina ASM typical table (3003-O 16/6 ksi, El 40, HB 28) · MakeItFrom 3003-O (110 / 40 / 28% / HB 28)",
+    "_src": "United Aluminum — Aluminum 3003 typical (3003-O: 16/6 ksi, El 30) · tubingchina ASM typical table (3003-O 16/6 ksi, El 40, HB 28) · MakeItFrom 3003-O (110 / 40 / 28% / HB 28) · [경도 스케일] 인용 경도 28 는 Brinell(500 kgf) — E140 Table 9 범위(40~160) 밖이라 환산 없이 HB 표기.",
     "points": {
       "from": [
         [
