@@ -2,6 +2,16 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## 2026-09-22 — 감사 R08 성능: 선제 로딩을 단계별·회선 인지로, 샤드 −18%, 샤드 전용 필터는 즉시 로드
+
+- **선제 로딩 정책** — 이전엔 첫 idle 에 4 샤드(9.2 MB)를 한꺼번에 받아 첫 상호작용과 대역폭을 다퉜다(감사 R08). 지금: ① 작은 샤드(Ceramic·Composite·Polymer ≈ 1.3 MB)만 idle 에, ② Metal(6.1 MB)은 **6 s 뒤** idle 에(실측 metal.json 1.3 s → 7.1 s), ③ `navigator.connection.saveData` 또는 2G/3G 면 Metal 을 선제 로딩하지 않는다. `requestIdleCallback` 의 timeout 은 최대 대기지 지연이 아니라 첫 idle 에 바로 불린다는 것을 실측으로 확인해 setTimeout 으로 진짜 지연을 뒀다.
+- **샤드 전용 필터의 즉시 로드** — slim 인덱스에는 14 물성 대표값·이름·계열·공정만 있어 조성·열처리 라벨·정성 등급·출처 권위·고온 데이터·비용/전기 물성 필터와 권위 정렬은 샤드가 와야 답이 된다. `filterNeedsFullData(filters, sortKey)`(filter-state)가 true 가 되는 순간 `ensureAll()` 로 전 샤드를 요청 — 늦춘 선제 로딩이 필터를 빈 결과처럼 보이게 하지 않는다. 환경별 내식 필터가 읽는 `profiles.corr/htc` 는 slim 에 실었다(+40 KB).
+- **샤드 −18%** — 샤드의 `story`(레거시 평문)는 `story_v2`(sections+timeline, 상세가 우선 렌더)와 같은 내용이라 v2 가 있는 1071 entry 에서 제거: metal.json 7.51 → 6.12 MB · polymer 1.15 → 0.94 · ceramic 0.26 → 0.20 · composite 0.24 → 0.19. materials.json(전체)은 그대로라 스토리 SSOT 대조 게이트 불변. 카드·표 스토리 배지와 상세의 스토리 섹션은 `story || story_v2` 로.
+- 부수: SiC/SiC CMC 의 GE 출처가 URL 재점검에서 루트 페이지로 떨어져 verified 강등(low anomaly 1) → GE Aerospace CMC 기사 페이지로 교체(anomaly 0).
+- 테스트 2(filterNeedsFullData). vitest 1305/1305(83) · tsc 0 · lint 0.
+
+---
+
 ## 2026-09-22 — URL 헬스 재점검 (AUD-3 후속): 검증기가 다시 세니 죽은 출처 82 — 81 교체, 1 안티봇
 
 - AUD-3 에서 검증기의 404≠bot-block 오분류를 고친 뒤 `verify:urls` 를 돌리니 감사가 못 본 **Dead 82** 가 더 나왔다(감사 57 과 별개 — copper.org 구 DB 경로 15 · Haynes 구 슬러그 8 · Outokumpu 구 grade 경로 6 · CoorsTek 구 경로 6 · EOS 구 경로 4 · ASTM 구 개정판 3 · 기타 40). 브라우저 UA GET 으로 재확인: **81 실제 404, aisc.org 1 은 403(안티봇 → allowlist)**.

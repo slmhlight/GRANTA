@@ -944,7 +944,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
 
             {/* R76 → R87 — History·개발 스토리. R174: 기본 접힘 (collapse) — 사용자 요청.
                 긴 story 가 detail panel 의 상단 영역을 차지하던 issue 해소. 클릭 시만 펼침. */}
-            {(material.story || material.industry_note) && (
+            {(material.story || material.story_v2 || material.industry_note) && (
               <details className="rounded border p-3" style={{ background: `${famColor}10`, borderColor: `${famColor}55` }} open={isSecOpen('story')} onToggle={(e) => toggleSec('story', e.currentTarget.open)}>
                 <summary className="flex items-center gap-2 text-xs font-semibold cursor-pointer select-none" style={{ color: famColor }}>
                   <BookText className="w-3.5 h-3.5" />

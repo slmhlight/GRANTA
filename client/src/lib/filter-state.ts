@@ -110,3 +110,32 @@ export const DEFAULT_FILTERS: FilterState = {
   query: '',
   specs: [],
 };
+
+/*
+ * R08(2026-09-22) — "이 필터/정렬은 slim 인덱스만으로 답할 수 있는가".
+ * slim(index.json)에는 이름·계열·공정·인기도와 14 물성 대표값·profiles{corr,htc}만 있다. 조성·열처리 라벨·정성 등급·
+ * 출처 권위·고온 곡선·비용 지수·전기/열 물성 등은 카테고리 샤드에만 있으므로, 그런 필터가 켜지면 샤드가 도착하기 전까지
+ * 결과가 갈린다(빈 결과처럼 보인다). Home 은 이 판정이 true 가 되는 순간 ensureAll() 로 전 샤드를 즉시 요청한다 —
+ * 선제 로딩을 단계별·회선 인지로 늦춘 대가를 여기서 갚는다.
+ */
+const SLIM_RANGE_KEYS: ReadonlySet<string> = new Set<FilterRangeKey>([
+  'densityRange', 'yieldStrengthRange', 'utsRange', 'elongationRange', 'modulusRange', 'hardnessRange',
+  'thermalConductivityRange', 'maxServiceTempRange', 'fatigueStrengthRange', 'pricePerKgRange',
+  'thermalExpansionRange', 'fractureToughnessRange', 'impactStrengthRange', 'popularityRange',
+]);
+const SLIM_SORT_KEYS: ReadonlySet<string> = new Set([
+  'name', 'category', 'subcategory', 'manufacturer', 'process', 'tier', 'popularity', 'confidence_tier',
+  'density', 'yield_strength', 'uts', 'modulus', 'max_service_temp', 'price_per_kg', 'delivered_price_per_kg',
+  'elongation', 'hardness', 'fatigue_strength', 'thermal_conductivity', 'thermal_expansion', 'fracture_toughness', 'impact_strength',
+]);
+export function filterNeedsFullData(f: FilterState, sortKey?: string): boolean {
+  if (sortKey && !SLIM_SORT_KEYS.has(sortKey)) return true;
+  if (f.compositions.length || Object.values(f.compositionRanges).some(Boolean)) return true;
+  if (f.corrosion.length || f.machinability.length || f.weldability.length) return true;
+  if (f.hasElevatedData || f.rohsOnly || f.heatTreatments.length || (f.specs && f.specs.length) || f.authorities.length) return true;
+  if (f.query && /\b(spec|comp|ht|heat|weld|corr|mach)\s*[:=]/i.test(f.query)) return true;
+  for (const [k, v] of Object.entries(f)) {
+    if (k.endsWith('Range') && v && !SLIM_RANGE_KEYS.has(k)) return true;
+  }
+  return false;
+}

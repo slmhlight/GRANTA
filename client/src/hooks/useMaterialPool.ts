@@ -29,6 +29,8 @@ export interface MaterialPoolState {
   error: string | null;
   loadedCategories: Set<string>;
   ensureCategory: (cat: string) => Promise<void>;
+  /** R08 — 샤드 전용 필드(조성·열처리·출처·프로파일)를 읽는 필터/정렬이 켜지면 전 카테고리를 즉시 불러온다. */
+  ensureAll: () => Promise<void>;
   /** 디버깅 — 슬림 vs full entry 수 */
   stats: { total: number; slim: number; full: number };
 }
@@ -91,16 +93,27 @@ export function useMaterialPool(): MaterialPoolState {
         if (!Array.isArray(slim)) throw new Error('index.json is not an array');
         setMaterials(slim);
         setLoading(false);
-        // Background lazy prefetch — first paint 직후
-        const prefetchAll = () => {
-          if (cancelled) return;
-          for (const c of CATEGORIES) loadCategoryInternal(c);
+        /* R08(2026-09-22, 감사 R08) — 선제 로딩을 **단계별·회선 인지**로.
+           이전: idle 직후 4 샤드(9.2 MB)를 한꺼번에 — 첫 상호작용과 대역폭을 다퉜다.
+           지금: ① 작은 샤드(Ceramic·Composite·Polymer ≈ 1.6 MB)만 idle 에, ② Metal(7 MB)은 추가 idle 뒤에,
+           ③ Save-Data 또는 2G/3G 회선이면 Metal 은 선제 로딩하지 않는다(상세 열기·전용 필터가 ensureCategory/ensureAll 로 즉시 요청).
+           slim 만으로 표·카드·Ashby·비교가 동작하므로 사용자 체감은 없다. */
+        const conn = typeof navigator !== 'undefined' ? (navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }).connection : undefined;
+        const saveData = !!conn?.saveData;
+        const slow = /(^|-)2g$|^3g$/.test(conn?.effectiveType || '');
+        const idle = (cb: () => void, timeout: number) => {
+          if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+            (window as unknown as { requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => void }).requestIdleCallback(cb, { timeout });
+          } else setTimeout(cb, Math.min(timeout, 80));
         };
-        if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
-          (window as unknown as { requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => void }).requestIdleCallback(prefetchAll, { timeout: 1500 });
-        } else {
-          setTimeout(prefetchAll, 80);
-        }
+        const prefetchSmall = () => {
+          if (cancelled || saveData) return;
+          for (const c of CATEGORIES) if (c !== 'Metal') loadCategoryInternal(c);
+          /* requestIdleCallback 의 timeout 은 '최대 대기'지 지연이 아니다 — 첫 idle 에 바로 불려 Metal 이 1.3 s 에
+             내려왔다(실측). 진짜 지연은 setTimeout 으로 두고, 그 뒤 idle 에 얹는다. */
+          if (!slow) setTimeout(() => { if (!cancelled) idle(() => { if (!cancelled) loadCategoryInternal('Metal'); }, 4000); }, 6000);
+        };
+        idle(prefetchSmall, 1500);
       })
       .catch((e) => {
         if (cancelled) return;
@@ -133,6 +146,10 @@ export function useMaterialPool(): MaterialPoolState {
     (cat: string) => loadCategoryInternal(cat),
     [loadCategoryInternal],
   );
+  const ensureAll = useCallback(
+    () => Promise.all(CATEGORIES.map((c) => loadCategoryInternal(c))).then(() => undefined),
+    [loadCategoryInternal],
+  );
 
   const stats = {
     total: materials.length,
@@ -140,5 +157,5 @@ export function useMaterialPool(): MaterialPoolState {
     slim: materials.filter((m) => !loadedRef.current.has(m.category)).length,
   };
 
-  return { materials, loading, error, loadedCategories, ensureCategory, stats };
+  return { materials, loading, error, loadedCategories, ensureCategory, ensureAll, stats };
 }

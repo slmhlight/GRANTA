@@ -41,6 +41,7 @@ import { ScenarioDialog } from '@/components/ScenarioDialog';
 import { ScenarioCompareSheet } from '@/components/ScenarioCompareSheet';
 import OnboardingTour from '@/components/OnboardingTour';
 import type { FilterState } from '@/hooks/useMaterialFilter';
+import { filterNeedsFullData } from '@/lib/filter-state';   // R08 — 샤드 전용 필터 시 전 샤드 로드
 import { resolveDirectHit } from '@/lib/direct-hit';   // R226e/C4 — 추출된 direct-hit 검색 (normalize·extractTokens·shop-dict 포함)
 import { loadUnitSystem, saveUnitSystem, type UnitSystem } from '@/lib/unit-convert';
 import { UnitSystemContext } from '@/lib/unit-context';   // AUD F01 — 표·상세·비교가 같은 단위계를 읽는다
@@ -63,7 +64,7 @@ export default function Home() {
   usePageMeta(null, '적층제조·구조재료 데이터베이스 — 1,000+ 재료 레코드의 범위 물성·인용 데이터시트, Ashby 차트, 비교, 설계 사례.');   // AUD R13
   /* R154 — useMaterialPool: index.json (slim) 즉시 + 4 카테고리 백그라운드 prefetch.
      첫 페인트 8.15 MB → 670 KB (12배 감소). */
-  const { materials, loading, error, ensureCategory } = useMaterialPool();
+  const { materials, loading, error, ensureCategory, ensureAll } = useMaterialPool();
   /** wouter's search string — re-firing the scenario-apply effect when ScenarioSheet navigates
    *  to /?p=... while Home is already mounted (the empty-dep effect missed in-route URL changes). */
   const search = useSearch();
@@ -264,6 +265,11 @@ export default function Home() {
   } = useMaterialFilter(materials);
 
   // R154 — Data load 는 useMaterialPool 이 담당. 별도 effect 불필요.
+  /* R08(2026-09-22) — 샤드 전용 필드를 읽는 필터/정렬이 켜지면 전 샤드를 즉시 요청(선제 로딩을 늦춘 대가).
+     이미 로드됐으면 no-op. */
+  useEffect(() => {
+    if (filterNeedsFullData(filters, sortKey as string)) ensureAll().catch(() => { /* non-fatal — slim 유지 */ });
+  }, [filters, sortKey, ensureAll]);
 
   // saved collections persist in localStorage
   useEffect(() => {

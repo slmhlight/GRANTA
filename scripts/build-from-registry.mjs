@@ -485,6 +485,9 @@ const slimEntries = all.map(m => {
   if (m.uns?.length) slim.uns = m.uns;               // R226f/축4c — UNS 정규 필드 (외부 연동·검색)
   if (m.manufacturer) slim.manufacturer = m.manufacturer;
   if (m.process) slim.process = m.process;
+  /* R08(2026-09-22) — 환경별 내식 필터(passesCorrosionEnv)가 읽는 두 스탬프만 slim 에 싣는다(entry 당 ~20 B).
+     샤드가 도착하기 전에도 필터 결과가 갈라지지 않게 — 나머지 profiles 는 상세 전용이라 샤드에 남긴다. */
+  if (m.profiles && (m.profiles.corr || m.profiles.htc)) slim.profiles = { ...(m.profiles.corr ? { corr: m.profiles.corr } : {}), ...(m.profiles.htc ? { htc: m.profiles.htc } : {}) };
   if (m.ranges) {
     const slimRanges = {};
     for (const p of SLIM_PROPS) {
@@ -501,12 +504,20 @@ const slimEntries = all.map(m => {
 });
 fs.writeFileSync(path.join(OUT_MATS, 'index.json'), JSON.stringify(slimEntries));
 const categoryFiles = {};
+/* R08(2026-09-22) — 감사 R08: 샤드 4개(9.2 MB)를 idle 에 전부 선제 로딩. 샤드에서 `story`(레거시 평문)는 `story_v2`
+   (sections+timeline, 상세 패널이 우선 렌더)와 같은 내용의 중복이라 v2 가 있는 entry 에선 뺀다 — metal.json 의 12.6%.
+   materials.json(전체)은 그대로라 스토리 SSOT 대조 게이트(alloy-stories.test)는 영향 없다. */
+let shardStoryDropped = 0;
 for (const cat of ['Metal', 'Polymer', 'Ceramic', 'Composite']) {
-  const subset = all.filter(m => m.category === cat);
+  const subset = all.filter(m => m.category === cat).map(m => {
+    if (m.story && m.story_v2 && m.story_v2.sections) { shardStoryDropped++; const { story: _s, ...rest } = m; return rest; }
+    return m;
+  });
   const filename = cat.toLowerCase() + '.json';
   fs.writeFileSync(path.join(OUT_MATS, filename), JSON.stringify(subset));
   categoryFiles[cat] = subset.length;
 }
+if (shardStoryDropped) console.log(`  샤드 story 중복 제거(R08): ${shardStoryDropped} entry (story_v2 보유 — materials.json 은 유지)`);
 
 const buildMeta = {
   buildDate: new Date().toISOString().slice(0, 10),

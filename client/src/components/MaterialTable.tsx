@@ -260,7 +260,7 @@ export function MaterialTable({
                         style={{ background: famColor }}
                         title={m.subcategory}
                       />
-                      {m.story && (
+                      {(m.story || m.story_v2) && (
                         <span
                           className="flex-shrink-0 inline-flex items-center justify-center w-4 h-4 rounded-full"
                           style={{ background: `${famColor}1f`, boxShadow: `inset 0 0 0 1px ${famColor}55` }}
