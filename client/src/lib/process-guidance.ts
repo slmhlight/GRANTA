@@ -181,14 +181,17 @@ const AM_PROC_RE = /lpbf|dmls|slm\b|ebm|binder|waam|\bded\b|direct energy|direct
 export function isAmProcess(m: Material): boolean {
   return AM_PROC_RE.test(m.process || '') || (m.processes || []).some((p) => AM_PROC_RE.test(p));
 }
+/* D8 확장(2026-09-22) — 조회 순서 byHt → byMach → byHtg. byMach 는 ti-cp·cu-crzr 처럼 합금 특정
+ * 키만 담는 명시 목록이라 열처리 가족(byHtg)보다 특이하다. 가족을 먼저 보면 CP-Ti(htg h18-ti-general)가
+ * am-ti-alloy(HIP·STA 처방)로 갔다 — α 단상 CP-Ti 에 STA 는 없다. */
 function amGuidanceKey(m: Material): string | null {
   if (!AM_MAP || m.category !== 'Metal' || !isAmProcess(m)) return null;
   const ht = m.profiles?.ht;
   if (ht) for (const [prefix, key] of Object.entries(AM_MAP.byHt)) if (ht.startsWith(prefix)) return key;
-  const htg = m.profiles?.htg;
-  if (htg && AM_MAP.byHtg?.[htg]) return AM_MAP.byHtg[htg];
   const mach = m.profiles?.mach;
-  return (mach && AM_MAP.byMach[mach]) || null;
+  if (mach && AM_MAP.byMach[mach]) return AM_MAP.byMach[mach];
+  const htg = m.profiles?.htg;
+  return (htg && AM_MAP.byHtg?.[htg]) || null;
 }
 
 export function resolveHtGuidanceTexts(m: Material): string[] {

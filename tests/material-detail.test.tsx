@@ -287,3 +287,25 @@ describe('W4-5 — 물성 라벨 → 용어 링크', () => {
     expect(bad.map((e) => e.getAttribute('href')), '대응 용어 없는 물성에 링크가 생겼다').toEqual([]);
   });
 });
+
+/*
+ * D8 확장(2026-09-22) — AM 후처리 가이드가 **렌더**되는지 (Process 탭).
+ * 배경: alloy-specific HT 카드(htAlloySpecificFor 매칭)가 있으면 그 카드만 그리고 AM 후처리·계열 HT 주의사항
+ * (resolveHtGuidanceTexts)은 통째로 빠졌다 — Ti-6Al-4V (AM)·AlSi10Mg·718·K-500 처럼 조건 설명이 있는 AM 합금이
+ * 정작 후처리 절차를 못 받았다. am-postprocess.test 는 resolver 만 봤으므로 여기서 렌더 계약을 고정한다.
+ */
+describe('D8 — AM 후처리 가이드 렌더 (alloy-specific HT 카드와 공존)', () => {
+  it('Ti-6Al-4V (AM) As-built: 조건 설명 카드 안에 ⚠ AM 후처리 블록이 함께 그려진다', () => {
+    const m = mkMaterial({
+      name: 'Ti-6Al-4V (AM) — As-built', tier: 'curated', process: 'LPBF', processes: ['LPBF'], heat_treatment: 'As-built',
+      subcategory: 'Titanium Alloy - α+β',
+      profiles: { ht: 'Ti-6Al-4V (UNS R56400 Grade 5 / R56407 Grade 23 ELI)', htg: 'h18-ti-general', htc: 'as-built', mach: 'ti-alloy' },
+      ranges: { yield_strength: { typical: 1095 }, uts: { typical: 1230 }, density: { typical: 4.43 } },
+    } as never);
+    const { container } = render(<MaterialDetail {...baseProps} material={m} tab="process" onTabChange={() => {}} />);
+    const txt = container.textContent || '';
+    expect(txt, 'alloy-specific 조건 카드').toContain('Heat Treatment · As-built');
+    expect(txt, 'AM 후처리 블록이 같은 카드에 렌더돼야 한다').toContain('⚠ AM (LPBF/EBM) Ti-6Al-4V');
+    expect(txt).toContain('Post-process guidance');
+  });
+});

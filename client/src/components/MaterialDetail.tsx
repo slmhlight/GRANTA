@@ -647,6 +647,15 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                                 <div className="text-[11px] leading-relaxed text-amber-900">{description.caveat}</div>
                               </div>
                             )}
+                            {/* D8 확장(2026-09-22) — alloy-specific 카드가 있으면 AM 후처리·계열 HT 주의사항(htGuidanceTexts)이
+                                통째로 사라지던 공백: Ti-6Al-4V (AM)·AlSi10Mg·718·K-500 처럼 조건 설명이 있는 AM 합금이 정작
+                                후처리 절차(SR→HIP→STA 순서·분위기)를 못 받았다. 조건 설명 아래에 같은 텍스트를 붙인다. */}
+                            {htGuidanceTexts.length > 0 && (
+                              <div className="rounded border border-sky-300/60 bg-white/60 px-2 py-1.5">
+                                <div className="text-[10px] uppercase tracking-wide text-sky-700/70 mb-0.5">후처리 · 열처리 주의사항 / Post-process guidance</div>
+                                <RecText className="text-[11px] leading-relaxed">{htGuidanceTexts.join('\n\n')}</RecText>
+                              </div>
+                            )}
                             <p className="text-[10px] mt-2 pt-1.5 border-t border-sky-300/40 text-foreground/60">
                               <b>출처</b>: {description.source}
                               {htCost && ` · HT 가공비 가중치: ×${htCost.factor.toFixed(2)} (${htCost.label})`}

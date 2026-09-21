@@ -1081,6 +1081,53 @@ export const FAMILIES: AlloyHtFamily[] = [
   },
 
   // ========================================
+  // A3 Ni / D8 (2026-09-22) — Monel K-500 (UNS N05500): Ni-Cu γ′ (Ni₃(Ti,Al)) 시효경화
+  //   출처: Special Metals MONEL alloy K-500 bulletin (Heat Treatment 절 — 용체화 1600-1900°F WQ ·
+  //   Age-hardening procedures 1-3 · Table 6 nominal 범위) · EOS NickelAlloy K500 MDS (Direct Aging) · Nikon SLM K-500 MDS
+  // ========================================
+  {
+    alloyPattern: /monel\s?k-?500|n05500|alloy\s?k-?500/i,
+    familyName: 'Monel K-500 (UNS N05500, Ni-Cu γ\' age-hardenable)',
+    conditions: {
+      'annealed': {
+        code: 'Solution annealed',
+        title: 'Solution annealed — γ′ 용해, 시효 전 준비 상태',
+        process: 'Solution anneal 870-1040°C (1600-1900°F; hot-finished 980°C · cold-worked 1040°C) / ≤30 min / WQ (지체 없이)',
+        resulting: 'σy 276-414 MPa · UTS 621-758 MPa · El 25-45% · HB 140-185 (rod, annealed — nominal)',
+        useCase: '성형·용접·기계가공 전 상태. 최종 강도는 시효로 — 단독 사용 시 Monel 400 급 강도.',
+        caveat: 'WQ 지연·서냉 시 부분 석출로 시효 응답 손상. 1.5 h 이상 노출 시 TiC 생성 → Ti 가 시효에 못 쓰여 경도 저하(2050°F/30 min 재용체화 필요, 결정립 조대화 감수).',
+        source: 'Special Metals MONEL alloy K-500 bulletin (Heat Treatment · Table 6) · QQ-N-286 Rev. G',
+      },
+      'aged': {
+        code: 'Aged (593-607°C / 16 h FC)',
+        title: 'Age-hardened — Ni₃(Ti,Al) γ′ peak',
+        process: 'Solution anneal + 593-607°C (1100-1125°F) / 16 h → 로냉 8-14°C/h (15-25°F/h) → 482°C (900°F) → AC. 중간 냉간가공재 8 h · 완전 냉간가공재 527-538°C / 6 h',
+        resulting: 'σy 690-1034 MPa · UTS 965-1310 MPa · El 20-30% · HB 265-346 (hot-finished, aged — nominal)',
+        useCase: '펌프 샤프트·밸브 스템·해양 체결구·유정 공구 — Monel 400 급 내식 + 2배 강도 + 비자성.',
+        caveat: '시효재 용접 회피(용접 후 재용체화+시효). 시효 시 체적 2.5×10⁻⁴ 수축. 단계 냉각(100°F 단위 4-6 h)은 로냉보다 강도 약간 낮음.',
+        source: 'Special Metals MONEL alloy K-500 bulletin (Age-hardening procedures 1-3 · Table 6 · Table 27)',
+      },
+      'as-built': {
+        code: 'As-built (LPBF)',
+        title: 'As-built — 급속응고 셀 조직, γ′ 미석출',
+        process: 'LPBF 후 처리 없음 (EOS · Nikon SLM 장비 데이터)',
+        resulting: 'σy 475-540 MPa · UTS 705-755 MPa · El 32-38% (EOS H/V) · Nikon SLM vertical 420/630/44 · HV10 200',
+        useCase: 'AM 시제품·치수 검증. 최종 부품은 직접 시효(강도 우선) 또는 wrought 사이클.',
+        source: 'EOS NickelAlloy K500 MDS · Nikon SLM K-500 MDS 2025-05.1',
+      },
+      'heat-treated': {
+        code: 'Direct aged (595°C / 2 h, AM)',
+        title: 'Direct aged — 용체화 없이 시효 (EOS 권장)',
+        process: 'LPBF 직후 595°C / 2 h / Ar → 서냉(공랭). 용체화 생략 — 급속응고로 Ti·Al 이 이미 과포화',
+        resulting: 'σy 785-840 MPa · UTS 1020-1095 MPa · El 21-28% (EOS 40/80 µm, H/V)',
+        useCase: 'AM 최종 강도 — 강도가 우선인 부품. 내식·연성 균형이 필요하면 wrought 16 h 로냉 사이클 검토.',
+        caveat: 'wrought 시효 사이클(16 h FC)과 다르다 — 규격(QQ-N-286) 적합성은 별도 검증.',
+        source: 'EOS NickelAlloy K500 MDS p.4 Heat Treatment (Direct Aging)',
+      },
+    },
+  },
+
+  // ========================================
   // R141b — Cobalt alloy: Stellite 6 (UNS R30006)
   // ========================================
   {

@@ -304,7 +304,10 @@
    "sources": ["ASTM F3184"],
    "pattern": "(am_map 전용 — 런타임 name 매칭 없음)",
    "field": "am",
-   "text": "⚠ AM (LPBF) 오스테나이트 스테인리스 — 후처리 (as-built 사용이 흔함)\nAs-built 의 미세 셀 조직이 강도원 (σy 가 어닐 판재보다 높음) — 열처리가 오히려 강도를 낮춤:\n  ① 통상: as-built 또는 Stress Relief 550-650°C / 1-2 h (응력·치수 안정, 조직 대체로 유지)\n  ② Solution Anneal 1050-1100°C: 셀 조직 소실 → 강도 ↓ 연성·내식 ↑ (요구 시에만)\n  ③ HIP 1120-1150°C: 기공 폐쇄 (피로·기밀 임계) — 강도 트레이드오프 동반\n【표준】 ASTM F3184 (316L PBF) · F3301"
+   "text": "⚠ AM (LPBF) 오스테나이트 스테인리스 — 후처리 (as-built 사용이 흔함)\nAs-built 의 미세 셀 조직이 강도원 (σy 가 어닐 판재보다 높음) — 열처리가 오히려 강도를 낮춤:\n  ① 통상: as-built 또는 Stress Relief 550-650°C / 1-2 h (응력·치수 안정, 조직 대체로 유지)\n  ② Solution Anneal 1050-1100°C: 셀 조직 소실 → 강도 ↓ 연성·내식 ↑ (요구 시에만)\n  ③ HIP 1120-1150°C: 기공 폐쇄 (피로·기밀 임계) — 강도 트레이드오프 동반\n【표준】 ASTM F3184 (316L PBF) · F3301",
+   "by_grade": {
+    "254 smo": "【254 SMO】 EOS: 선택적 Solution treatment(용체화) 1180°C / 2 h → WQ (치수 변화 ~0.06%). 6Mo 초오스테나이트는 σ/χ 상 회피에 1150°C 이상 + 급냉이 관건 — 316L 의 1050-1100°C 보다 높다. (EOS StainlessSteel 254 MDS · Outokumpu Ultra 254 SMO)"
+   }
   },
   "am-ph": {
    "sources": ["ASTM F3301","AMS 5604/5643"],
@@ -327,10 +330,13 @@
   "am-cu": {
    "pattern": "(am_map 전용 — 런타임 name 매칭 없음)",
    "field": "am",
-   "text": "⚠ AM 고전도 Cu — 후처리 (grade별 상이)\n  석출경화 Cu — grade별로 후처리 상이.\n【주의】 고온 대기 노출 시 산화 — 진공/환원 분위기.\n【표준】 제조사(EOS 등) 데이터시트 · NASA 공정 문헌 (grade별)",
+   "text": "⚠ AM 고전도 Cu — 후처리 (grade별 상이)\n  석출경화 Cu(CuCrZr·CuNi2SiCr)는 Solution treatment(용체화)+Aging(시효) 또는 Direct aging(직접 시효)으로 강도·전도도를 회복하고, 고용체·순 Cu(CuNi30·순 Cu)는 어닐/Stress relief(응력제거)뿐 — 강화 열처리가 없다.\n【주의】 고온 대기 노출 시 산화 — 진공/환원/Ar 분위기.\n【표준】 제조사(EOS·Nikon SLM·GE Additive·3D Systems) MDS · NASA 공정 문헌 (grade별)",
    "by_grade": {
     "cucrzr": "【CuCrZr】 Solution treatment(용체화) 970-1000°C 급냉 + Aging(시효) 450-480°C / 2-4 h — 또는 as-built 직접 Aging(제조사 옵션). Aging으로 전도도·강도 동시 회복.",
-    "grcop": "【GRCop-42/84】 석출이 응고 중 형성 — 별도 Aging 불필요, HIP(기공 폐쇄·연소실 기밀)가 관행 (NASA RAMPT)."
+    "grcop": "【GRCop-42/84】 석출이 응고 중 형성 — 별도 Aging 불필요, HIP(기공 폐쇄·연소실 기밀)가 관행 (NASA RAMPT).",
+    "cuni30": "【CuNi30】 Cu-30Ni 고용체 — 석출 Aging(시효) 개념 없음. Nikon SLM 의 'Direct Aging' 600°C / 1 h / 진공 → 노랭(100°C) → N₂ 급냉은 실질적 Stress relief(응력제거)·회복 어닐이다(σy·El 조정). 3D Systems Certified CuNi30(A)는 열처리 없이 as-built 상태의 데이터. (Nikon SLM CuNi30 MDS(2026-03) · 3D Systems CuNi30(A) MDS)",
+    "cuni2sicr": "【CuNi2SiCr】 Solution treatment(용체화) 950°C / 0.5 h / Ar → WQ → Aging(시효) 540°C / 1.25 h / AC (SOLN+AGE) — Ni₂Si 석출로 강도·전도도(~40% IACS) 회복. (GE Additive/Colibrium M2 Series 5 CuNi2SiCr CMDS 2024-11)",
+    "cu (pure)": "【순 Cu】 강화 열처리 없음. EOS Copper Cu: ~1000°C / 1 h / Ar → Ar 서냉 — 재결정 어닐로 연성·전도도 회복(강도는 ↓). (EOS Copper Cu PDS, 20 µm 파라미터)"
    }
   },
   "am-ti-alloy": {
@@ -348,7 +354,11 @@
   "am-al-advanced": {
    "pattern": "",
    "field": "am",
-   "text": "⚠ AM 특수 Al(Sc·Zr 분산 / MMC·Al-Cu) — 계열이 다르면 절차도 반대다\n  ① Sc·Zr 분산형(Scalmalloy·Aheadd CP1): **Solution treatment(용체화) 없이 직접 Aging(시효)** ~300-400°C.\n     급속 응고로 Sc·Zr 이 이미 과포화라, 통상 T6 를 걸면 석출물이 조대해져 오히려 약해진다.\n  ② 세라믹 강화·Al-Cu 계(A20X 등): 통상 T6/T7 — 다만 급랭 잔류응력이 크므로 Stress relief(응력제거)를 함께.\n【표준】 APWorks Scalmalloy TDS · Constellium Aheadd 가이드 · 제조사 TDS"
+   "text": "⚠ AM 특수 Al(Sc·Zr 분산 / MMC·Al-Cu) — 계열이 다르면 절차도 반대다\n  ① Sc·Zr 분산형(Scalmalloy·Aheadd CP1): **Solution treatment(용체화) 없이 직접 Aging(시효)** ~300-400°C.\n     급속 응고로 Sc·Zr 이 이미 과포화라, 통상 T6 를 걸면 석출물이 조대해져 오히려 약해진다.\n  ② 세라믹 강화·Al-Cu 계(A20X 등): 통상 T6/T7 — 다만 급랭 잔류응력이 크므로 Stress relief(응력제거)를 함께.\n【표준】 APWorks Scalmalloy TDS · Constellium Aheadd 가이드 · 제조사 TDS",
+   "by_grade": {
+    "a205": "【A205 / Al2139 AM (Al-Cu)】 Solution treatment(용체화)가 필수인 계열 — AlSi 의 \"T6 무익\" 과 반대. EOS Al2139 AM 권장 T4: Solution treatment 490°C / 45 min → 즉시 WQ → Natural aging(자연시효) 3일(단일 단계). GE Additive A205: T7 SOLN+AGE(세부 조건은 Colibrium 문의) — σy ~395-400 · UTS 465-470 MPa. (EOS Aluminium Al2139 AM MDS · Colibrium M2 A205 CMDS 2025-08)",
+    "al5x1": "【Al5X1 (Al-Mg-Zr, Sc-free)】 Scalmalloy 형 분산강화 — Solution treatment(용체화) 없이 Direct aging(직접 시효) 400°C / 6 h → 강제 공랭(가스 급냉), 수냉 불필요. Solution treatment 를 걸면 Zr 분산이 조대해져 손해. (EOS Aluminium Al5X1 MDS)"
+   }
   },
   "am-mart-steel": {
    "sources": ["ASTM F3301"],
@@ -385,11 +395,35 @@
    "pattern": "",
    "field": "am",
    "text": "⚠ AM ODS 합금 — 열처리로 강화할 것이 없다\n나노 산화물은 녹지 않으므로 Solution treatment(용체화)·Aging(시효) 개념이 없다:\n  ① Stress Relief · 재결정 어닐 (조직 정리·잔류응력)\n  ② HIP 은 기공 폐쇄 목적 — 분산 상태를 바꾸지는 않는다\n【주의】 분산은 공정 파라미터의 산물이라 후처리로 회복할 수 없다.\n【표준】 ASTM F3301 · NASA GRX-810 공정 문헌"
+  },
+  "am-k500": {
+   "pattern": "(am_map 전용 — 런타임 name 매칭 없음)",
+   "field": "am",
+   "text": "⚠ AM (LPBF) Monel K-500 — 후처리 (γ′ Direct aging(직접 시효) — Solution treatment(용체화)·HIP 는 기본 아님)\nAs-built 는 Ni₃(Ti,Al) γ′ 가 아직 석출되지 않은 상태(σy ~475-540 MPa, EOS) — 강도는 Aging(시효)으로 만든다.\n  ① Direct aging 595°C / 2 h / Ar → 서냉(공랭): EOS 권장 — σy 785-840 · UTS 1020-1095 MPa · El 21-28% (H/V)\n  ② wrought 관행 준용 시: Solution treatment(용체화) 870-1040°C / ≤30 min / WQ → Aging 593-607°C / 16 h → 8-14°C/h 로 482°C 까지 로냉 → AC (Special Metals 절차 1). AM 에서 Solution treatment 는 조직 조대화·이방성 완화가 목적일 때만.\n【주의】 Aging 은 Ar/진공 — 대기 중 Aging 시 산화·TiC 생성으로 Aging 응답 저하. Aging 재 용접 회피(용접 후 재-Aging).\n【표준】 ASTM B865 (K-500 rod/bar/wire/forgings) · Federal QQ-N-286 · EOS NickelAlloy K500 MDS (Heat Treatment — Direct Aging) · Nikon SLM K-500 MDS · Special Metals MONEL alloy K-500 bulletin (Age-hardening procedures)",
+   "sources": ["ASTM B865"]
   }
  },
  "am_map": {
-  "_note": "AM entry 판정은 런타임에서 m.process/processes(구조 필드)로. 조회 순서 byHt(합금 특정) → byHtg(열처리 가족, H6 W3-3 신설) → byMach(거친 폴백). byHtg 는 mach 축이 후처리를 가르기엔 거칠어(al-cast-am 에 AlSi10Mg 와 Scalmalloy 공존) 도입.",
-  "byHtg": {"h19-ni-cast-gp": "am-ni-gammaprime", "h04-inconel": "am-ni-gammaprime", "h12-ni-solidsol": "am-ni-solidsol", "h22-ods": "am-ods", "h18-ti-general": "am-ti-alloy", "h24-al-advanced": "am-al-advanced", "h02-aa": "am-alsi", "h29-tool-general": "am-mart-steel", "h15-ss-mart": "am-mart-steel", "h01-aisi": "am-steel-qt", "h21-case-base": "am-steel-qt", "h38-duplex": "am-duplex", "h14-ss-aust": "am-316l", "h03-17": "am-ph", "h11-cu": "am-cu", "h16-refractory": "am-refractory", "h30-invar": "am-invar"},
+  "_note": "AM entry 판정은 런타임에서 m.process/processes(구조 필드)로. 조회 순서 byHt(합금 특정) → byHtg(열처리 가족, H6 W3-3 신설) → byMach(거친 폴백). byHtg 는 mach 축이 후처리를 가르기엔 거칠어(al-cast-am 에 AlSi10Mg 와 Scalmalloy 공존) 도입. | D8 확장(2026-09-22): 조회 순서를 byHt → **byMach(명시 키만)** → byHtg 로 — byMach 는 ti-cp·cu-crzr 처럼 합금 특정 키만 담으므로 가족(byHtg)보다 특이하다. 이전 순서에선 CP-Ti(htg h18-ti-general)가 am-ti-alloy(HIP·STA 처방)로 갔다. h02-aa(AA 2xxx Al-Cu) → am-al-advanced(용체화 필수 계열) — AlSi 블록의 \"T6 무익\" 문구가 A205/Al2139 에 붙던 오적용 교정. byHt 'Monel K-500' → am-k500(γ′ 시효, HIP 불요 — am-ni-gammaprime 의 HIP 1180°C 처방은 주조 γ′ 초합금용).",
+  "byHtg": {
+   "h19-ni-cast-gp": "am-ni-gammaprime",
+   "h04-inconel": "am-ni-gammaprime",
+   "h12-ni-solidsol": "am-ni-solidsol",
+   "h22-ods": "am-ods",
+   "h18-ti-general": "am-ti-alloy",
+   "h24-al-advanced": "am-al-advanced",
+   "h02-aa": "am-al-advanced",
+   "h29-tool-general": "am-mart-steel",
+   "h15-ss-mart": "am-mart-steel",
+   "h01-aisi": "am-steel-qt",
+   "h21-case-base": "am-steel-qt",
+   "h38-duplex": "am-duplex",
+   "h14-ss-aust": "am-316l",
+   "h03-17": "am-ph",
+   "h11-cu": "am-cu",
+   "h16-refractory": "am-refractory",
+   "h30-invar": "am-invar"
+  },
   "byHt": {
    "Ti-6Al-4V": "am-ti64",
    "AlSi cast / AM": "am-alsi",
@@ -403,7 +437,8 @@
    "17-4 PH": "am-ph",
    "15-5 PH": "am-ph",
    "CoCrMo": "am-cocr",
-   "Maraging 300": "am-maraging"
+   "Maraging 300": "am-maraging",
+   "Monel K-500": "am-k500"
   },
   "byMach": {
    "ti-cp": "am-ti-cp",

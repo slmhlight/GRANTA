@@ -2,6 +2,14 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## 2026-09-22 — D8 확장: AM 후처리 가이드 — 가족 폴백이 CP-Ti 에 STA 를, K-500 에 HIP 1180°C 를 처방하고 있었고, 조건 카드가 있는 AM 합금은 가이드를 아예 못 받았다
+
+- **커버리지 재점검** — 백로그의 "잔여 45" 는 stale(W3-3 byHtg 도입으로 93/93 매핑). 대신 *가족 폴백의 오적용* 5 군을 잡았다: ① **CP-Ti AM**(htg h18-ti-general → am-ti-alloy: HIP·Solution treatment+Aging 처방 — α 단상엔 없다) → 조회 순서를 byHt → **byMach(명시 키만)** → byHtg 로 바꿔 am-ti-cp 로. ② **Monel K-500 AM**(h04-inconel → am-ni-gammaprime: 주조 γ′ 초합금용 HIP 1180-1200°C 전제) → **HT family 'Monel K-500' 신설**(ht-alloy-specific: Solution annealed 870-1040°C WQ · Aged 593-607°C/16 h 로냉 · As-built · Direct aged 595°C/2 h — Special Metals K-500 bulletin Heat Treatment/Age-hardening 절 + EOS/Nikon MDS) + 전용 블록 **am-k500**(EOS Direct aging 595°C/2 h Ar 권장, 용체화·HIP 기본 아님). ③ **Al-Cu AM**(A205/Al2139 — h02-aa → am-alsi 의 "T6 무익" 문구가 붙던 것) → am-al-advanced + grade 문구(EOS Al2139 AM T4: 490°C/45 min WQ + 자연시효 3일 · GE A205 T7 SOLN+AGE) · **Al5X1**(Al-Mg-Zr, Sc-free: 직접 시효 400°C/6 h 가스 급냉, EOS). ④ **Cu 계열 grade 문구**(am-cu 본문이 '석출경화' 만 말하던 것): CuNi30 고용체(Nikon 'Direct Aging' 600°C/1 h 진공 = 실질 응력제거; 3D Systems 는 as-built) · CuNi2SiCr(GE: 950°C/0.5 h WQ + 540°C/1.25 h) · 순 Cu(EOS: ~1000°C/1 h Ar 어닐). ⑤ **254 SMO AM**(EOS 선택적 용체화 1180°C/2 h WQ — 316L 의 1050-1100°C 와 다름).
+- **렌더 공백** — `MaterialDetail` 은 alloy-specific HT 카드(htAlloySpecificFor 매칭)가 있으면 그 카드만 그리고 `resolveHtGuidanceTexts`(AM 후처리·계열 주의)를 통째로 생략했다 — Ti-6Al-4V (AM)·AlSi10Mg·718·282·PH·CoCr·Maraging 등 조건 설명이 있는 AM 합금 전부가 정작 SR→HIP→STA 절차를 못 받고 있었다(am-postprocess 게이트는 resolver 만 봤다). 조건 카드 안에 '후처리 · 열처리 주의사항 / Post-process guidance' 절로 함께 렌더. 렌더 계약 테스트 추가(material-detail.test).
+- 게이트: am-postprocess 앵커 5(CP-Ti·K-500·A205/Al5X1·Cu 3종·254 SMO) · §3.1 용어 병기(Solution treatment(용체화)·Aging(시효)·Stress relief(응력제거)) · guidance-sources(ASTM B865 본문 인용) 통과. vitest 1296/1296(83) · tsc 0 · lint 0.
+
+---
+
 ## 2026-09-22 — A3 Ni 족보 re-verify (2027Q2 앞당김): 718 사다리에 없는 조건이 있었고, 751 은 항복이 29% 낮았고, 31 entry 는 시험온도·무출처·복제였다
 
 - **대상** Nickel Superalloy 120 entry / 62 base 전건 — 판정 대장 `docs/audits/ni-reverify-2027Q2.md`(로컬). 대조: Special Metals 기술 회보 PDF 21종(600·601·617·625·686·690·718·740H·751·783·X-750·800H·825·909·925·Nimonic 80A/90/105/263·Monel 400/K-500·Nickel 200) · Haynes 합금 페이지 9종 · EOS/Nikon SLM/3D Systems MDS · NASA GRX-810 Nature 2023 Extended Data Table 1 · ATI 718Plus TDS.
