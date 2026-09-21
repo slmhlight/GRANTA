@@ -2,6 +2,15 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## 2026-09-22 — 확장 트랙 E9·E10·E11: 얇은 인사이트 그룹 보강, 조건별 가공 노트 64 조합, 유사재료 카드에 다양성 슬롯·용접/비용 델타
+
+- **E9 선택 인사이트** — 시나리오 4 이하였던 5 그룹(cobalt·magnesium·refractory·pol-fluoro·zinc-diecast)과 composite 코어에 **7 시나리오 추가**(136→143), 전부 출처 병기: CoCrMo LPBF 치과·정형(ASTM F3213·ISO 22674) · ZK60/AZ80 고강도 압출(ASM Vol.2) · C-103 노즐(ATI TDS)·Mo-Re/W-Re 고온 연성(Plansee/Rhenium Alloys) · 충전 PTFE 동적 씰(ASTM D4745) · Zamak/ZA-8 hot-chamber 박육 하우징(IZA) · 샌드위치 코어(Evonik ROHACELL·Hexcel HexWeb). Polymer 카테고리의 **PMI 구조용 폼(Rohacell 3 entry)** 이 어느 그룹에도 없던 것(`/foam/ → null`)을 composite(코어) 그룹으로 배정 — 인사이트 미배정 0.
+- **E10 조건별 가공 노트** — DB 에 실재하는 (mach, htc) 조합 중 노트가 없던 **64 조합**을 추가(55→119): AM as-built/HIP(오스테나이트·PH·듀플렉스·Cu·Co·Ti·공구강·maraging·Invar·내화금속) · 냉간가공(Al·Cu·황동·Cu-Ni·인청동·BeCu·W·Mo·Co) · 표면경화(Carburizing·Nitriding) · 핫스탬핑·Hadfield·ADI·백주철·프리하든 금형강 등 — ASM Vol.16 Machining 원칙 + 합금군 datasheet. 합성 라벨('Aged / solution-treated' 5130·440C)엔 라벨이 합성임을 밝히는 정직 노트. **htc 분류 버그**: `case` 패턴이 "ASME Code Case 2702"(740H STA 라벨)에 걸려 시효재를 표면경화로 분류 → `(?<!code )case`. 게이트: **DB 실재 mach|htc 조합 전부 노트 보유**(계약, 수 아님).
+- **E11 유사재료 × 인사이트** — (1) **그룹 다양성 슬롯**: 상세 7 이 전부 같은 용도 그룹이면 접힌 목록의 타그룹 최근접 1 을 상세 마지막 자리로(`withDiversitySlot`, cross-ref pin 존중) — 같은 계열이 클러스터를 지배해 타분야 후보가 한 번도 상세에 못 오르던 R226m 잔여 리스크 해소. (2) **용접성 등급 델타**(`용접성 Fair→Good`)·**납품 단가 배율**(`비용 ×0.45`, delivered price/kg, ±10% 미만은 표시 안 함) 칩 — 절삭성 델타에 이어 대체 판단의 공정·비용 축. 테스트 4(슬롯 규칙·핀·칩).
+- 검증: vitest 1300/1300(83) · tsc 0 · lint 0.
+
+---
+
 ## 2026-09-22 — D8 확장: AM 후처리 가이드 — 가족 폴백이 CP-Ti 에 STA 를, K-500 에 HIP 1180°C 를 처방하고 있었고, 조건 카드가 있는 AM 합금은 가이드를 아예 못 받았다
 
 - **커버리지 재점검** — 백로그의 "잔여 45" 는 stale(W3-3 byHtg 도입으로 93/93 매핑). 대신 *가족 폴백의 오적용* 5 군을 잡았다: ① **CP-Ti AM**(htg h18-ti-general → am-ti-alloy: HIP·Solution treatment+Aging 처방 — α 단상엔 없다) → 조회 순서를 byHt → **byMach(명시 키만)** → byHtg 로 바꿔 am-ti-cp 로. ② **Monel K-500 AM**(h04-inconel → am-ni-gammaprime: 주조 γ′ 초합금용 HIP 1180-1200°C 전제) → **HT family 'Monel K-500' 신설**(ht-alloy-specific: Solution annealed 870-1040°C WQ · Aged 593-607°C/16 h 로냉 · As-built · Direct aged 595°C/2 h — Special Metals K-500 bulletin Heat Treatment/Age-hardening 절 + EOS/Nikon MDS) + 전용 블록 **am-k500**(EOS Direct aging 595°C/2 h Ar 권장, 용체화·HIP 기본 아님). ③ **Al-Cu AM**(A205/Al2139 — h02-aa → am-alsi 의 "T6 무익" 문구가 붙던 것) → am-al-advanced + grade 문구(EOS Al2139 AM T4: 490°C/45 min WQ + 자연시효 3일 · GE A205 T7 SOLN+AGE) · **Al5X1**(Al-Mg-Zr, Sc-free: 직접 시효 400°C/6 h 가스 급냉, EOS). ④ **Cu 계열 grade 문구**(am-cu 본문이 '석출경화' 만 말하던 것): CuNi30 고용체(Nikon 'Direct Aging' 600°C/1 h 진공 = 실질 응력제거; 3D Systems 는 as-built) · CuNi2SiCr(GE: 950°C/0.5 h WQ + 540°C/1.25 h) · 순 Cu(EOS: ~1000°C/1 h Ar 어닐). ⑤ **254 SMO AM**(EOS 선택적 용체화 1180°C/2 h WQ — 316L 의 1050-1100°C 와 다름).

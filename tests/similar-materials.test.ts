@@ -122,3 +122,29 @@ describe('findSimilar', () => {
     expect(r).toHaveLength(0);
   });
 });
+
+/* E11 확장(2026-09-22) — 그룹 다양성 슬롯: 상세 카드가 한 용도 그룹뿐이면 타그룹 최근접 1 을 상세 마지막으로. */
+describe('withDiversitySlot (E11)', () => {
+  const mk = (id: string, insight: string | null, distance: number, crossRef = false) =>
+    ({ material: M({ id, name: id, profiles: insight ? { insight } : undefined } as never), distance, sharedFamily: false, crossRef, diffs: [] });
+  it('상세 3 이 전부 같은 그룹이고 compact 에 타그룹이 있으면 최근접 타그룹을 상세 마지막으로 끌어올리고, 밀린 후보는 compact 첫 자리', async () => {
+    const { withDiversitySlot } = await import('../client/src/lib/similar-materials');
+    const target = M({ id: 't', profiles: { insight: 'stainless' } } as never);
+    const list = [mk('a', 'stainless', 0.1), mk('b', 'stainless', 0.2), mk('c', 'stainless', 0.3), mk('d', 'stainless', 0.4), mk('e', 'titanium', 0.5), mk('f', 'aluminum', 0.6)];
+    const out = withDiversitySlot(list, target, 3);
+    expect(out.map((s) => s.material.id)).toEqual(['a', 'b', 'e', 'c', 'd', 'f']);
+    expect(out[2].diversitySlot).toBe(true);
+    expect(out[3].diversitySlot).toBeUndefined();
+  });
+  it('상세에 이미 타그룹이 있으면 그대로 · 타그룹이 없어도 그대로 · 마지막 자리가 cross-ref pin 이면 그 앞을 쓴다', async () => {
+    const { withDiversitySlot } = await import('../client/src/lib/similar-materials');
+    const target = M({ id: 't', profiles: { insight: 'stainless' } } as never);
+    const already = [mk('a', 'stainless', 0.1), mk('b', 'titanium', 0.2), mk('c', 'stainless', 0.3), mk('d', 'aluminum', 0.4)];
+    expect(withDiversitySlot(already, target, 3).map((s) => s.material.id)).toEqual(['a', 'b', 'c', 'd']);
+    const none = [mk('a', 'stainless', 0.1), mk('b', 'stainless', 0.2), mk('c', 'stainless', 0.3), mk('d', 'stainless', 0.4)];
+    expect(withDiversitySlot(none, target, 3).map((s) => s.material.id)).toEqual(['a', 'b', 'c', 'd']);
+    const pinned = [mk('a', 'stainless', 0.1), mk('b', 'stainless', 0.2), mk('x', 'stainless', -1, true), mk('d', 'titanium', 0.4)];
+    // cross-ref 는 findSimilar 가 맨 앞에 두지만, 슬롯 계산은 위치 기준이라 마지막 자리 pin 을 존중해 그 앞(b)을 내준다
+    expect(withDiversitySlot(pinned, target, 3).map((s) => s.material.id)).toEqual(['a', 'd', 'x', 'b']);
+  });
+});

@@ -197,3 +197,20 @@ describe('조건(variation)별 노트 + 가이드 + 인사이트 (R226j)', () =>
     expect(machinabilitySources(mk({}))).toEqual(machinabilitySources(mk({ profiles: {} })));
   });
 });
+
+/* E11 확장(2026-09-22) — 대체 판단의 공정·비용 축: 용접성 등급 변화·납품 단가 배율 칩. */
+describe('decisionContext — 용접성·비용 델타 (E11)', () => {
+  it('용접성 등급이 다르면 weldChip, 납품 단가가 10% 이상 다르면 costChip(배율), 같으면 null', async () => {
+    const { decisionContext } = await import('../client/src/components/material-detail/SimilarMaterialsCard');
+    const cur = mk({ name: 'AISI 304', weldability: 'Excellent', delivered_price_per_kg: 4.0, profiles: { insight: 'stainless', mach: 'ss-austenitic' } } as never);
+    const cand = mk({ name: '2205 Duplex', weldability: 'Good', delivered_price_per_kg: 7.2, profiles: { insight: 'stainless-highperf', mach: 'ss-duplex' } } as never);
+    const ctx = decisionContext(cur, cand);
+    expect(ctx.weldChip).toBe('용접성 Excellent→Good');
+    expect(ctx.costChip).toBe('비용 ×1.80');
+    const same = decisionContext(cur, mk({ name: 'AISI 304L', weldability: 'Excellent', delivered_price_per_kg: 4.2, profiles: { insight: 'stainless', mach: 'ss-austenitic' } } as never));
+    expect(same.weldChip).toBeNull();
+    expect(same.costChip).toBeNull();   // 5% 차이는 표시하지 않는다
+    const cheap = decisionContext(cur, mk({ name: 'AISI 1018', weldability: 'Excellent', delivered_price_per_kg: 1.0, profiles: { insight: 'carbon-alloy-steel', mach: 'carbon-low' } } as never));
+    expect(cheap.costChip).toBe('비용 ×0.25');
+  });
+});

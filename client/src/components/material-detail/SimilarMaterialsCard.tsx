@@ -9,7 +9,7 @@
  */
 import { Layers, Lightbulb } from 'lucide-react';
 import type { Material } from '@/lib/materials';
-import { findSimilar, type SimilarMaterial } from '@/lib/similar-materials';
+import { findSimilar, withDiversitySlot, type SimilarMaterial } from '@/lib/similar-materials';
 import { resolveInsights, insightPickMatches, resolveMachinability, resolvePolymerMachinability, insightGroupLabel } from '@/lib/process-guidance';
 
 interface SimilarMaterialsCardProps {
@@ -47,6 +47,8 @@ function synthesizeReason(s: SimilarMaterial): string {
  *  crossGroup: 후보가 현재 재료와 다른 인사이트(용도) 그룹인가 — UI 에서 한눈에 배지로 강조. */
 export function decisionContext(cur: Material, cand: Material): {
   whenLine: string | null; machChip: string | null; candGroupTitle: string | null; crossGroup: boolean;
+  /** E11 확장 — 용접성 등급 변화(정성, handbook) · 납품 단가 배율(delivered_price_per_kg, HT·형태 반영). 둘 다 같으면 null. */
+  weldChip: string | null; costChip: string | null;
 } {
   let whenLine: string | null = null;
   const curG = cur.profiles?.insight;
@@ -74,14 +76,26 @@ export function decisionContext(cur: Material, cand: Material): {
     const p2 = resolvePolymerMachinability(cand);
     if (p1 && p2 && p1.label !== p2.label) machChip = `절삭성 ${p1.label}→${p2.label}`;
   }
-  return { whenLine, machChip, candGroupTitle, crossGroup };
+  /* E11 확장(2026-09-22) — 대체 판단의 나머지 두 축: 용접성(정성 등급이 바뀌면 공정이 바뀐다)과 비용(납품 단가 배율).
+     delivered_price_per_kg 는 raw × 조건 × 형태 × 등급 프리미엄이라 같은 합금의 다른 조건끼리도 배율이 난다. */
+  const wq = (m: Material) => (m.weldability || '').trim();
+  const weldChip = wq(cur) && wq(cand) && wq(cur) !== wq(cand) ? `용접성 ${wq(cur)}→${wq(cand)}` : null;
+  const pr = (m: Material) => (typeof m.delivered_price_per_kg === 'number' && m.delivered_price_per_kg > 0 ? m.delivered_price_per_kg : null);
+  const p1 = pr(cur), p2 = pr(cand);
+  let costChip: string | null = null;
+  if (p1 != null && p2 != null) {
+    const ratio = p2 / p1;
+    if (Math.abs(ratio - 1) >= 0.1) costChip = `비용 ×${ratio >= 10 ? ratio.toFixed(0) : ratio.toFixed(ratio >= 2 ? 1 : 2)}`;
+  }
+  return { whenLine, machChip, candGroupTitle, crossGroup, weldChip, costChip };
 }
 
 export function SimilarMaterialsCard({ material, allMaterials, onSelectMaterial, topN = 16 }: SimilarMaterialsCardProps) {
-  const similar = findSimilar(material, allMaterials, { topN });
-  if (!similar.length) return null;
   // R226r — 커버리지 확대: 상세 카드 + compact 오버플로우(물성 근접이나 묻히던 대체 후보까지 노출).
   const DETAIL_N = 7;
+  // E11 확장 — 상세 7 이 전부 같은 용도 그룹이면 타그룹 최근접 1 을 상세 마지막 자리로(다양성 슬롯).
+  const similar = withDiversitySlot(findSimilar(material, allMaterials, { topN }), material, DETAIL_N);
+  if (!similar.length) return null;
   const detailed = similar.slice(0, DETAIL_N);
   const compact = similar.slice(DETAIL_N);
   return (
@@ -108,7 +122,7 @@ export function SimilarMaterialsCard({ material, allMaterials, onSelectMaterial,
                   {/* R226o — 물성은 비슷하지만 통상 다른 분야에 쓰는 재료면 amber 배지로 한눈에. 같은 분야면 배지 없음. */}
                   {ctx.crossGroup && ctx.candGroupTitle && (
                     <span className="text-[9px] px-1 rounded bg-amber-100 text-amber-800 border border-amber-300 font-semibold whitespace-nowrap flex items-center gap-0.5" title={`물성은 비슷하지만 보통 '${ctx.candGroupTitle}' 분야에 쓰는 재료 — 단순 유사가 아니라 쓰임새가 다름. 대체 시 용도 적합성 확인.`}>
-                      <Lightbulb className="w-2.5 h-2.5" />주로 {ctx.candGroupTitle}용
+                      <Lightbulb className="w-2.5 h-2.5" />주로 {ctx.candGroupTitle}용{s.diversitySlot ? ' · 다양성 슬롯' : ''}
                     </span>
                   )}
                 </div>
@@ -139,11 +153,22 @@ export function SimilarMaterialsCard({ material, allMaterials, onSelectMaterial,
               </div>
             )}
             {/* 정량 delta chips (+R226l 절삭성 델타 — 공정 관점). */}
-            {(s.diffs.length > 0 || ctx.machChip) && (
+            {(s.diffs.length > 0 || ctx.machChip || ctx.weldChip || ctx.costChip) && (
               <div className="flex flex-wrap gap-1 mt-1">
                 {ctx.machChip && (
                   <span className="text-[9.5px] px-1.5 py-0.5 rounded font-mono bg-violet-50 text-violet-700 border border-violet-200" title="절삭성 rating 변화 (AISI 1212=100 기준, 공정 프로파일)">
                     {ctx.machChip}
+                  </span>
+                )}
+                {/* E11 확장 — 용접성 등급·납품 단가 배율 (대체 판단의 공정·비용 축). */}
+                {ctx.weldChip && (
+                  <span className="text-[9.5px] px-1.5 py-0.5 rounded font-mono bg-violet-50 text-violet-700 border border-violet-200" title="용접성 정성 등급 변화 (handbook) — 등급이 바뀌면 용접 절차(예열·PWHT·필러)가 바뀐다">
+                    {ctx.weldChip}
+                  </span>
+                )}
+                {ctx.costChip && (
+                  <span className="text-[9.5px] px-1.5 py-0.5 rounded font-mono bg-violet-50 text-violet-700 border border-violet-200" title="납품 단가 배율 (delivered price/kg — raw × 열처리 조건 × 형태 × 등급 프리미엄; 현재 재료 = ×1)">
+                    {ctx.costChip}
                   </span>
                 )}
                 {s.diffs.map((d) => (
@@ -191,7 +216,7 @@ export function SimilarMaterialsCard({ material, allMaterials, onSelectMaterial,
           </div>
         )}
         <p className="text-[10px] text-muted-foreground mt-2 leading-snug">
-          같은 카테고리 · 물성 거리(<span className="font-mono text-sky-700">≈</span>) 가까운 순 · 같은 family 가중 · 각 항목·배지·색은 마우스 오버로 상세.
+          같은 카테고리 · 물성 거리(<span className="font-mono text-sky-700">≈</span>) 가까운 순 · 같은 family 가중 · 상세 7 이 한 분야뿐이면 타분야 최근접 1 을 끌어올림(다양성 슬롯) · 각 항목·배지·색은 마우스 오버로 상세.
         </p>
       </div>
     </details>

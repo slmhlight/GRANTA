@@ -102,7 +102,8 @@ const WELD_SCHAEFFLER_RE = /stainless/i;
 
 /* ── HT 조건 클래스 (구조 필드 heat_treatment → 클래스; 조건별 가공 노트 키) ── */
 const HT_CLASSES = [
-  [/carburiz|nitrid|case|carbonitrid/i, 'case'],
+  /* E10(2026-09-22) — 'case' 가 "ASME Code Case 2702"(740H 의 STA 라벨)에도 걸려 시효재를 표면경화로 분류했다 → 'code case' 제외. */
+  [/carburiz|nitrid|carbonitrid|(?<!code )case/i, 'case'],
   [/aged|aging|\bsta\b|\bt6\b|\bt5\b|\bt73?\b|\bt76\b|\bt8\b|h9[05]0|h1[01]\d{2}|precipitat/i, 'aged'],
   [/q\s*[+&]\s*t|quench|temper|hardened|austemper|martemper/i, 'qt'],
   [/anneal|normaliz|solution|spheroidiz|stress.reliev|\bo\b temper|soft/i, 'soft'],
@@ -178,7 +179,9 @@ export function classifyInsightGroup(category, subcategory) {
     if (/ptfe|pvdf|etfe|fluoro/i.test(sub)) return 'pol-fluoro';
     if (/peek|pekk|pei|ultem|pai|pbi|pps|ppsu|psu|pes|lcp|polyimide/i.test(sub)) return 'pol-highperf';
     if (/elastomer|tpu|tpe|silicone|rubber/i.test(sub)) return 'pol-elastomer';
-    if (/foam/i.test(sub)) return null;
+    /* E9 확장(2026-09-22) — 구조용 폼(PMI Rohacell 등)은 샌드위치 코어라 복합재 그룹의 코어 시나리오가 답이다
+       (Composite 카테고리의 Foam Core·Honeycomb 도 'composite'). 단열·포장 폼은 DB 에 없다(구조재 전용). */
+    if (/foam/i.test(sub)) return 'composite';
     if (/polyamide|pom|polycarbonate|pbt|pet\b|pmma|abs|asa|acetal|nylon|ppa/i.test(sub)) return 'pol-engineering';
     if (/polyethylene|uhmwpe|\bpp\b|pvc|polystyrene|pla|petg|eva|pcl|polyester|epoxy|pvb/i.test(sub)) return 'pol-commodity';
     return null;

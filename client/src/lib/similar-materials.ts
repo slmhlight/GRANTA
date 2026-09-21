@@ -27,6 +27,8 @@ export interface SimilarMaterial {
   crossRef?: boolean;
   /** Property-level percent differences for top-3 most-different. */
   diffs: Array<{ prop: string; label: string; delta: number; unit?: string }>;
+  /** E11 — 그룹 다양성 슬롯으로 상세 카드에 끌어올려진 타그룹 후보 (거리 순위 밖). */
+  diversitySlot?: boolean;
 }
 
 /* R165 — Category-specific property weights for distance calculation.
@@ -236,4 +238,29 @@ export function findSimilar(
 function baseName(name: string): string {
   if (!name) return '';
   return name.split(' — ')[0].split(' (')[0].trim();
+}
+
+/**
+ * E11 확장(2026-09-22) — 그룹 다양성 슬롯. 상세 카드(앞 `detailN`)가 전부 같은 인사이트(용도) 그룹이고
+ * 뒤쪽(compact)에 다른 그룹 후보가 있으면, 물성이 가장 가까운 타그룹 후보 하나를 상세 마지막 자리로 끌어올린다.
+ * 물성 거리 정렬은 그대로 두되 "다른 분야에서 쓰는 비슷한 재료"가 접힌 목록에 묻히지 않게 하는 것이 목적 —
+ * 같은 계열이 클러스터를 지배할 때 타그룹 후보가 상세 카드에 한 번도 못 오르던 것(R226m 잔여 R)을 막는다.
+ * cross-ref pin 이 마지막 자리면 그 앞을 쓴다. 전부 m.profiles.insight 조회(name regex 없음).
+ */
+export function withDiversitySlot(list: SimilarMaterial[], target: Material, detailN: number): SimilarMaterial[] {
+  if (list.length <= detailN) return list;
+  const g = (m: Material) => m.profiles?.insight ?? null;
+  const cur = g(target);
+  const detailed = list.slice(0, detailN);
+  if (detailed.some((s) => g(s.material) && g(s.material) !== cur)) return list;
+  const idx = list.findIndex((s, i) => i >= detailN && g(s.material) && g(s.material) !== cur);
+  if (idx < 0) return list;
+  let slot = detailN - 1;
+  while (slot > 0 && list[slot].crossRef) slot--;
+  if (list[slot].crossRef) return list;
+  const out = list.slice();
+  const [promoted] = out.splice(idx, 1);
+  const [demoted] = out.splice(slot, 1, { ...promoted, diversitySlot: true });
+  out.splice(detailN, 0, demoted);   // 밀려난 후보는 compact 첫 자리(거리 순서 유지)
+  return out;
 }

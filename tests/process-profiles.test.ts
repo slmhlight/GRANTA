@@ -128,6 +128,18 @@ describe('콘텐츠 내부 무결성', () => {
     });
     expect(bad).toEqual([]);
   });
+  /* E10 확장(2026-09-22) — 커버리지 계약: DB 에 실재하는 (mach, htc) 조합은 전부 조건 노트를 가진다.
+     새 합금·새 조건이 들어와 조합이 생기면 노트 없이는 실패한다(수가 아니라 계약을 고정). */
+  it('DB 실재 mach|htc 조합은 전부 condition_notes 를 가진다 (E10 커버리지 계약)', () => {
+    const mats = readJ('client/public/materials.json') as Array<{ category: string; name: string; profiles?: { mach?: string; htc?: string } }>;
+    const missing = new Set<string>();
+    for (const m of mats) {
+      if (m.category !== 'Metal' || !m.profiles?.mach || !m.profiles?.htc) continue;
+      const k = `${m.profiles.mach}|${m.profiles.htc}`;
+      if (!PROFILES.condition_notes[k]) missing.add(k);
+    }
+    expect([...missing].sort(), '조건 노트가 없는 mach|htc 조합 — data/process-profiles.json condition_notes 에 근거와 함께 추가').toEqual([]);
+  });
   it('metal 프로파일 필수 필드 (rating 1..110 · band · label · note)', () => {
     const bad = Object.entries(PROFILES.machinability.metal as Record<string, any>)
       .filter(([, p]) => !(p.rating >= 1 && p.rating <= 110) || !['easy', 'normal', 'hard', 'very_hard'].includes(p.band) || !p.label || !p.note);
