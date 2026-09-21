@@ -2,6 +2,14 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## 2026-09-22 — URL 헬스 재점검 (AUD-3 후속): 검증기가 다시 세니 죽은 출처 82 — 81 교체, 1 안티봇
+
+- AUD-3 에서 검증기의 404≠bot-block 오분류를 고친 뒤 `verify:urls` 를 돌리니 감사가 못 본 **Dead 82** 가 더 나왔다(감사 57 과 별개 — copper.org 구 DB 경로 15 · Haynes 구 슬러그 8 · Outokumpu 구 grade 경로 6 · CoorsTek 구 경로 6 · EOS 구 경로 4 · ASTM 구 개정판 3 · 기타 40). 브라우저 UA GET 으로 재확인: **81 실제 404, aisc.org 1 은 403(안티봇 → allowlist)**.
+- **81 전부 현행 페이지로 교체**(각 후보를 GET 200 으로 확인): alloys.copper.org `/alloy/Cxxxxx` 13 · Haynes alloy-portfolio(B-3·188·25·263·C-2000·**Waspaloy**) · Outokumpu product-ranges(Forta DX 2205·Ultra 904L·Core·Therma·Ultra 계열) · CoorsTek `/en/materials/*` 6 · ASTM A336-23·B652-25·B708-25 · Rolled Alloys products/duplex-stainless(2205·ZERON 100) · EOS MDS(CM55·PA 1101·폴리머 랜딩) · Saint-Gobain Hexoloy SA · Schott BOROFLOAT/ZERODUR · Hexcel Honeycomb · Hyundai Steel product-tech · Arkema hpp(Rilsan·Kynar) · ATI Nb-1Zr TDS · Carpenter alloy-finder(A-286 포함) · Plansee W-MMC · NASA Spinoff(GRX-810) · BS EN 10025-2:2019 등. **단종·이관 브랜드는 승계처로**: Hastelloy B-2 → B-3 · Rynite → Celanese · Therban → ARLANXEO · NovaSpire PEKK → Syensqo · Airware → Constellium · Saflex → Eastman saflex-vanceva · 654 SMO → Outokumpu Ultra 계열 · Heraeus quartz → Heraeus Covantics.
+- 상류 6 파일 텍스트 치환 129 + `r208-url-replacements.json` 맵 +81(재생성 시 normalizeSources 가 재차 보장) → 레지스트리 재생성 119 entry 출처 갱신. 산출물에 옛 주소 0(aisc 만 의도적 잔존). 라운드트립 0 · vitest 1303/1303.
+
+---
+
 ## 2026-09-22 — H8 가이드 내 검색(위키스타일): 본문 노트·사례·단계·FAQ 까지 인덱스, 다중 토큰 점수 검색, 강조·키보드, 사이드바 검색
 
 - **인덱스 심화(파생)** — `gen-guide-index.mjs` 가 H3 헤딩(41)만이 아니라 본문의 구조 요소 **67**(Note title 29 · Scenario title 16 · Step title 12 · FAQ 질문 10)을 문자열 prop 에서 뽑아 `kind` 와 함께 인덱스로(108 엔트리, 직전 H3 를 `under` 로 붙여 스니펫에 경로 표기). "같은 합금이 여러 row" 같은 FAQ 질문·"SF 가 너무 높으면" 같은 노트 제목·사례 제목이 검색된다. 재파생 대조 게이트(staleness)는 그대로 — H3 엔트리 형태 불변.
