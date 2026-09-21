@@ -276,7 +276,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
   }, [materials, groupFilter]);
 
   const unitSys = useUnitSystem();
-  const { data, layout, indexInfo, selectedIds, paretoInfo } = useMemo(() => {
+  const { data, layout, indexInfo, selectedIds, paretoInfo, srSummary } = useMemo(() => {
     const inGroup = (m: Material) => groupFilter === 'all' || classOf(m).key === groupFilter;
     const inSub = (m: Material) => subFilter === 'all' || m.subcategory === subFilter;
     const valid = (m: Material) => (tv(m, xProperty) ?? 0) > 0 && (tv(m, yProperty) ?? 0) > 0;
@@ -597,7 +597,11 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       ...paretoTraces,  // Pareto 는 가장 위 layer
       ...selMarker,
     ];
-    return { data, layout, indexInfo, selectedIds, paretoInfo };
+    /* AUD R16 — 스크린리더 대체 텍스트: 축·스케일·점 수·상위 값(각 축 최대 재료). 표 보기와 같은 데이터임을 안내. */
+    const top = (key: string) => fset.slice().sort((a, b) => (tv(b, key) ?? 0) - (tv(a, key) ?? 0)).slice(0, 3).map((m) => `${m.name} ${Number((tv(m, key) ?? 0).toPrecision(3)).toLocaleString()}`).join(', ');
+    const srSummary = `Ashby 차트 — X축 ${xMeta?.label || xProperty}(${xMeta?.unit || ''}, ${xLog ? '로그' : '선형'}) · Y축 ${yMeta?.label || yProperty}(${yMeta?.unit || ''}, ${yLog ? '로그' : '선형'}) · 필터 통과 재료 ${fset.length}개(회색 배경 ${others.length}개)` +
+      (fset.length ? ` · X 상위: ${top(xProperty)} · Y 상위: ${top(yProperty)}` : '') + (idx ? ` · 성능지수 ${idx.label} 적용` : '') + '. 같은 데이터는 표 보기에서 행 단위로 읽을 수 있습니다.';
+    return { data, layout, indexInfo, selectedIds, paretoInfo, srSummary };
   }, [materials, filtered, xProperty, yProperty, filters, groupFilter, subFilter, selectedId, showEnvelopes, xLog, yLog, compareList, xLimit, yLimit, markerSize, showContext, showGrid, showLabels, showLegend, showGuides, markerOpacity, envOpacity, showMinorGrid, showSelected, darkChart, colorByCategory, indexPreset, indexThreshold, boxedIds, constraints, showMarkers, envelopeBy, envFill, envOutline, isMobile, showPareto, resetCounter, xDomain, yDomain, unitSys]);
 
   const config = {
@@ -869,7 +873,8 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       </div>
 
       {/* Chart — 모바일 min-h 50vh (이전 60vh 는 bottom bar 와 겹침). 데스크탑은 flex-1 자동. */}
-      <div className="flex-1 min-h-[50vh] md:min-h-0 p-1 sm:p-2">
+      <div className="flex-1 min-h-[50vh] md:min-h-0 p-1 sm:p-2" role="img" aria-label={srSummary}>
+        {/* AUD R16 — Plotly 는 SVG 에 접근성 이름을 주지 않는다. 래퍼를 role=img + 요약 라벨로 (축·스케일·점 수·상위 값). */}
         <Plot
           data={data}
           layout={layout}

@@ -7,7 +7,7 @@
  */
 import { useState } from 'react';
 import { Link } from 'wouter';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Search, SlidersHorizontal, MousePointerClick, GitCompareArrows, Rocket, Sparkles, ChevronLeft, ChevronRight, GraduationCap , type LucideIcon } from 'lucide-react';
 import { useLang } from '@/lib/i18n';
@@ -208,6 +208,8 @@ export default function OnboardingTour({ open, onClose, onQuickStart }: Props) {
             <Icon className="w-5 h-5 text-accent" />
             {cur.title}
           </DialogTitle>
+          {/* AUD R16 — 단계 설명을 DialogDescription 으로 연결(스크린리더가 제목 다음에 읽는다). */}
+          <DialogDescription className="sr-only">{`온보딩 ${step + 1}/${STEPS.length} — ${cur.title}`}</DialogDescription>
         </DialogHeader>
         {/* R61 #8 — Step illustration */}
         <div className="rounded-md border border-border bg-muted/30 p-2">

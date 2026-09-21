@@ -10,7 +10,7 @@
  */
 import { Upload, BookmarkPlus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 
 export interface ImportResult {
   matched: Array<{ name: string; matchedTo: string }>;
@@ -37,6 +37,8 @@ export function HomeImportSheet({
       <SheetContent side="right" className="w-full sm:max-w-md flex flex-col gap-0 p-0">
         <SheetHeader className="border-b border-border/60">
           <SheetTitle className="flex items-center gap-2 pr-8"><Upload className="w-4 h-4 text-accent" /> 재료 목록 import 결과</SheetTitle>
+          {/* AUD R16 — 스크린리더용 설명(시각적으로 숨김). Radix Description 경고 정리. */}
+          <SheetDescription className="sr-only">가져온 재료 목록의 매칭 결과 — 매칭된 항목·매칭 실패 항목·후보 제안을 확인하고 선택에 반영합니다.</SheetDescription>
         </SheetHeader>
         {importResult && (
           <div className="flex-1 overflow-y-auto p-4 space-y-4">

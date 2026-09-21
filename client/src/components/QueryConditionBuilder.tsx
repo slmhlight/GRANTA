@@ -16,7 +16,7 @@ import { useLang } from '@/lib/i18n';   // AUD F23
 import { useEffect, useMemo, useState } from 'react';
 import { Plus, X } from 'lucide-react';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { PROP_ALIAS } from '@/lib/query-dsl';
 import type { PropertyStats } from '@/lib/query-autocomplete';
 
@@ -249,6 +249,7 @@ export function QueryConditionBuilder({ value, onAdd, stats }: QueryConditionBui
         <SheetContent side="bottom" className="max-h-[85vh] overflow-y-auto rounded-t-xl">
           <SheetHeader>
             <SheetTitle>{lang === 'en' ? 'Add condition' : '조건 추가'}</SheetTitle>
+            <SheetDescription className="sr-only">{lang === 'en' ? 'Pick a property, an operator and a value to append a numeric condition to the query.' : '물성·연산자·값을 골라 검색식에 수치 조건을 추가합니다.'}</SheetDescription>
           </SheetHeader>
           <div className="mt-3">
             <BuilderForm stats={stats} onSubmit={handleSubmit} onCancel={() => setOpen(false)} />

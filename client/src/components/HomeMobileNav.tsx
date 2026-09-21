@@ -6,7 +6,7 @@
  */
 import { Menu, Table2, BarChart3, LayoutGrid, Bookmark, GraduationCap, Settings, ChevronRight } from 'lucide-react';
 import { Link } from 'wouter';
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { SvgBracket, SvgManifold, SvgShaft, SvgPrecision, SvgMarine, SvgLowcost, SvgSpring, SvgHeatsink, SvgWear, SvgMedical, SvgCryogenic, SvgElectrical, SvgPressureVesselSmall, SvgGear, SvgFastener, SvgDieMold } from '@/pages/guide/svgs';
 import type { ScenarioKey } from '@/lib/scenario-presets';
 import type { Lang } from '@/lib/i18n';
@@ -81,9 +81,9 @@ export function HomeMobileNav({
         <SheetContent side="right" className="w-[88vw] sm:max-w-md overflow-y-auto">
           <SheetHeader>
             <SheetTitle className="flex items-center gap-2"><GraduationCap className="w-4 h-4 text-accent" /> 가이드 · 사례 빠른 시작</SheetTitle>
+            <SheetDescription className="text-[11px] text-muted-foreground text-left">사례를 골라 다이얼로그로 시작. 깊이 학습하려면 전체 가이드.</SheetDescription>
           </SheetHeader>
           <div className="mt-3 space-y-2">
-            <p className="text-[11px] text-muted-foreground">사례를 골라 다이얼로그로 시작. 깊이 학습하려면 전체 가이드.</p>
             <div className="grid grid-cols-2 gap-1.5">
               {[
                 { key: 'bracket' as ScenarioKey, title: '구조 브래킷', Svg: SvgBracket },
@@ -128,6 +128,7 @@ export function HomeMobileNav({
         <SheetContent side="right" className="w-[88vw] sm:max-w-md overflow-y-auto">
           <SheetHeader>
             <SheetTitle className="flex items-center gap-2"><Settings className="w-4 h-4 text-accent" /> Settings</SheetTitle>
+            <SheetDescription className="sr-only">언어·단위계·보기 설정. 변경은 즉시 적용되고 이 브라우저에 저장됩니다.</SheetDescription>
           </SheetHeader>
           {/* R83 — row layout: 라벨(좌) + toggle group(우) 한 줄. 카드 3개 분리보다 자연스러움. */}
           <div className="mt-4 rounded border border-border divide-y divide-border/60">

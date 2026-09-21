@@ -2,6 +2,16 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## 2026-09-22 — 감사 R16 접근성 심층 1차: Dialog Description 경고 정리, 차트 스크린리더 요약, 상세 팝업 dialog 의미·포커스 관리
+
+- **Dialog Description 경고(감사 관찰)** — Radix Sheet/Dialog 6곳(가이드 빠른 시작 ×2·Settings·Import 결과·조건 추가·온보딩)에 `SheetDescription`/`DialogDescription` 을 연결(설명 문단은 그대로 Description 으로, 없던 곳은 sr-only). 콘솔 경고 0.
+- **차트 대체 정보** — Ashby 차트(Plotly SVG 는 접근성 이름이 없다) 래퍼를 `role=img` + 요약 라벨로: 축·단위·로그/선형·필터 통과 점 수·회색 배경 수·각 축 상위 3 재료·적용 성능지수, 그리고 "같은 데이터는 표 보기에서 행 단위로" 안내. Radar·Goodman 은 이미 role=img 라벨 보유.
+- **상세 팝업** — `role="dialog"` + `aria-label="<재료명> 상세"`; 열리면 포커스를 팝업 안으로, 닫히면(Esc/닫기) 열기 전 요소(표 행)로 복귀 — 키보드로 Enter 로 열고 Esc 로 닫아도 Tab 이 표에 남아 있던 문제. 모바일 전체화면 상세도 동일.
+- 색 대비: 홈 화면 텍스트 전수 계산(WCAG 2.x 비율) — 본문·muted 텍스트 전부 4.5:1 이상(계산기가 oklch 배경을 못 읽은 헤더 흰 글자 3건은 오탐). 확대 200~400% 는 R12 모바일 1열 레이아웃(390px 가로 넘침 0)이 그대로 적용된다.
+- 검증: vitest 1305/1305(84) · tsc 0 · lint 0.
+
+---
+
 ## 2026-09-22 — 감사 R08 성능: 선제 로딩을 단계별·회선 인지로, 샤드 −18%, 샤드 전용 필터는 즉시 로드
 
 - **선제 로딩 정책** — 이전엔 첫 idle 에 4 샤드(9.2 MB)를 한꺼번에 받아 첫 상호작용과 대역폭을 다퉜다(감사 R08). 지금: ① 작은 샤드(Ceramic·Composite·Polymer ≈ 1.3 MB)만 idle 에, ② Metal(6.1 MB)은 **6 s 뒤** idle 에(실측 metal.json 1.3 s → 7.1 s), ③ `navigator.connection.saveData` 또는 2G/3G 면 Metal 을 선제 로딩하지 않는다. `requestIdleCallback` 의 timeout 은 최대 대기지 지연이 아니라 첫 idle 에 바로 불린다는 것을 실측으로 확인해 setTimeout 으로 진짜 지연을 뒀다.

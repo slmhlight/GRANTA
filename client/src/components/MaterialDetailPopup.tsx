@@ -4,7 +4,7 @@
  *          the Compare panel stay fully visible/interactive behind it; drag by the header.
  * Mobile : full-screen overlay (dragging makes no sense on a small screen).
  */
-import { useEffect, useState, type CSSProperties } from 'react';
+import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { MaterialDetail } from '@/components/MaterialDetail';
 import type { Material } from '@/lib/materials';
 
@@ -63,6 +63,21 @@ export function MaterialDetailPopup({
     mq.addEventListener('change', on);
     return () => mq.removeEventListener('change', on);
   }, []);
+  /* AUD R16 — 포커스 관리: 팝업이 열리면 포커스를 안으로(제목 영역), 닫히면 열기 전 요소로 되돌린다.
+     키보드 사용자가 표에서 Enter 로 연 뒤 Tab 이 여전히 표에 남아 있던 문제. Esc 닫기는 MaterialDetail 이 담당. */
+  const shellRef = useRef<HTMLDivElement | null>(null);
+  const openerRef = useRef<HTMLElement | null>(null);
+  const materialId = material?.id ?? null;
+  useEffect(() => {
+    if (!materialId) return;
+    openerRef.current = (document.activeElement as HTMLElement | null) ?? null;
+    const t = setTimeout(() => shellRef.current?.focus({ preventScroll: true }), 0);
+    return () => {
+      clearTimeout(t);
+      const back = openerRef.current;
+      if (back && document.contains(back) && typeof back.focus === 'function') back.focus({ preventScroll: true });
+    };
+  }, [materialId]);
 
   const startDrag = (e: React.PointerEvent<HTMLElement> | React.MouseEvent<HTMLElement>) => {
     if ((e.target as HTMLElement | null)?.closest?.('button, a')) return; // ignore clicks on close button / links
@@ -92,7 +107,7 @@ export function MaterialDetailPopup({
     /* R101 — 모바일 Detail 영역: 상단 헤더 (h-12) 아래 ~ 하단 nav (50px) 위 로 한정.
        이전 `fixed inset-0` 은 헤더·하단 nav 까지 가려 다른 view 로 이동 불가. (Compare 와 동일한 패턴) */
     return (
-      <div className="fixed top-12 left-0 right-0 bottom-[50px] z-40 bg-background overflow-auto">
+      <div ref={shellRef} tabIndex={-1} role="dialog" aria-label={`${material.name} 상세`} className="fixed top-12 left-0 right-0 bottom-[50px] z-40 bg-background overflow-auto outline-none">
         <MaterialDetail material={material} compareList={compareList} onToggleCompare={onToggleCompare} onClose={onClose} onBack={onBack} allMaterials={allMaterials} favorites={favorites} onToggleFavorite={onToggleFavorite} onSelectMaterial={onSelectMaterial} tab={tab} onTabChange={onTabChange} openSectionsCsv={openSectionsCsv} onOpenSectionsChange={onOpenSectionsChange} />
       </div>
     );
@@ -104,8 +119,12 @@ export function MaterialDetailPopup({
 
   return (
     <div
+      ref={shellRef}
+      tabIndex={-1}
+      role="dialog"
+      aria-label={`${material.name} 상세`}
       data-detail-popup
-      className="fixed z-50 max-h-[84vh] rounded-lg border border-border shadow-2xl bg-background overflow-hidden flex flex-col ring-1 ring-black/5"
+      className="fixed z-50 max-h-[84vh] rounded-lg border border-border shadow-2xl bg-background overflow-hidden flex flex-col ring-1 ring-black/5 outline-none"
       style={style}
     >
       <MaterialDetail

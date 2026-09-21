@@ -27,7 +27,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { HomeFavoritesDropdown } from '@/components/HomeFavoritesDropdown';
 import { exportMaterialsToCSV, generateCSVFilename } from '@/lib/csv-export';
 import type { Material } from '@/lib/materials';
@@ -327,9 +327,10 @@ export function HomeHeader({
         <SheetContent side="right" className="w-[420px] sm:max-w-md overflow-y-auto">
           <SheetHeader>
             <SheetTitle className="flex items-center gap-2"><GraduationCap className="w-4 h-4 text-accent" /> 가이드 · 사례 빠른 시작</SheetTitle>
+            {/* AUD R16 — Radix Dialog 의 Description 경고 정리: 설명 문단을 SheetDescription 으로 (aria-describedby 자동 연결). */}
+            <SheetDescription className="text-xs text-muted-foreground text-left">자기 상황에 맞는 사례를 골라 다이얼로그로 시작. 깊이 학습하려면 전체 가이드.</SheetDescription>
           </SheetHeader>
           <div className="mt-4 space-y-3">
-            <p className="text-xs text-muted-foreground">자기 상황에 맞는 사례를 골라 다이얼로그로 시작. 깊이 학습하려면 전체 가이드.</p>
             <div className="grid grid-cols-2 gap-2">
               {[
                 { key: 'bracket' as ScenarioKey, title: '구조 브래킷', sub: '경량 + 고강성', Svg: SvgBracket },
