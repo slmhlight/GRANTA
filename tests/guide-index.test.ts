@@ -108,3 +108,35 @@ describe('W4-5 — 용어 → 가이드 챕터 파생', () => {
     expect(greedy.map(([k]) => k), '거의 모든 챕터에 걸린 용어 — 표기 목록이 너무 넓다').toEqual([]);
   });
 });
+
+/*
+ * H8 확장(2026-09-22) — 본문 구조 요소(노트·사례·단계·FAQ) 파생 + 점수 검색(다중 토큰 AND) + 강조.
+ */
+describe('H8 확장 — 본문 요소 파생 · 점수 검색', () => {
+  it('노트·사례·단계·FAQ 가 파생돼 있고(kind), 종류마다 1건 이상', () => {
+    const kinds = new Set(HEADING_ENTRIES.map((e) => e.kind).filter(Boolean));
+    expect([...kinds].sort()).toEqual(['faq', 'note', 'scenario', 'step']);
+    /* 사례 16(Ch.1 실전 사례) — Scenario title 은 examples JSX 뒤에 오므로 창이 좁으면 0 이 된다(회귀) */
+    expect(HEADING_ENTRIES.filter((e) => e.kind === 'scenario').length).toBeGreaterThanOrEqual(10);
+    expect(HEADING_ENTRIES.filter((e) => e.kind === 'faq').length).toBeGreaterThanOrEqual(8);
+  });
+  it('FAQ 질문·노트 제목으로 검색된다 (헤딩만으로는 못 찾던 것)', () => {
+    expect(searchGuide('여러 row').some((r) => r.kind === 'faq')).toBe(true);
+    expect(searchGuide('SF 가 너무 높으면').some((r) => r.kind === 'note')).toBe(true);
+    expect(searchGuide('브래킷').some((r) => r.kind === 'scenario')).toBe(true);
+  });
+  it('다중 토큰은 AND — 두 단어가 모두 있는 엔트리만, 제목 일치가 위로', async () => {
+    const { scoreEntry, searchTokens } = await import('../client/src/pages/guide/index-entries');
+    const hits = searchGuide('AM 후처리');
+    expect(hits.length).toBeGreaterThan(0);
+    for (const h of hits) {
+      const hay = [h.chapterLabel, h.section || '', h.snippet, ...h.keywords].join(' ').toLowerCase();
+      expect(hay.includes('am') && hay.includes('후처리'), h.snippet).toBe(true);
+    }
+    expect(searchTokens('  Ashby   index ')).toEqual(['ashby', 'index']);
+    const e = { ch: 'x', chapterN: 1, chapterLabel: 'Ashby 재료 선택법', section: '성능지수', keywords: ['material index'], snippet: 'Ch.2' };
+    expect(scoreEntry(e, ['성능지수'])).toBe(10);            // 제목 정확 일치
+    expect(scoreEntry(e, ['material'])).toBe(3);             // 키워드
+    expect(scoreEntry(e, ['성능지수', '없는말'])).toBe(0);   // AND
+  });
+});

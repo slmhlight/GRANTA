@@ -9,7 +9,8 @@
 import { Link, useParams, useLocation } from 'wouter';
 import { useState, useMemo } from 'react';
 import { ArrowLeft, GraduationCap, Ruler, Target, LineChart, ListChecks, AlertTriangle, BookText, Sigma, Lightbulb, BookOpen, Compass, Rocket, ChevronDown, Search, X, BookMarked } from 'lucide-react';
-import { searchGuide, type GuideIndexEntry } from './guide/index-entries';
+import { searchGuide, searchTokens, type GuideIndexEntry } from './guide/index-entries';
+import { GuideSearchHit, KIND_BADGE } from './guide/GuideSearchHit';
 // A-5 — 재료 수 동적화 (하드코딩 stale 방지: 총계·카테고리 수는 빌드 산출물 SSOT 에서)
 import BM from '../../public/build-meta.json';
 import type { ScenarioKey } from '@/lib/scenario-presets';
@@ -113,9 +114,12 @@ export default function Guide() {
   // R66 — Guide 안 검색. sticky bar + dropdown. 결과 click → anchor scroll + chapter open.
   const [searchQ, setSearchQ] = useState('');
   const [searchOpen, setSearchOpen] = useState(false);
+  /* H8 확장 — 키보드 탐색(↑↓ Enter Esc) 활성 인덱스. 결과가 바뀌면 0 으로. */
+  const [searchSel, setSearchSel] = useState(0);
   const searchResults: GuideIndexEntry[] = searchQ ? searchGuide(searchQ) : [];
+  const searchTok = searchTokens(searchQ);
   const gotoEntry = (e: GuideIndexEntry) => {
-    setSearchQ(''); setSearchOpen(false);
+    setSearchQ(''); setSearchOpen(false); setSearchSel(0);
     // W6+ — 글로서리 용어는 전용 term 페이지로 SPA 이동.
     if (e.termSlug) { navigate(`/guide/term/${e.termSlug}`); return; }
     // H6 A-1 — 멀티페이지 라우팅에서 챕터는 별도 페이지: hash+getElementById 는 랜딩/타 챕터에
@@ -145,12 +149,24 @@ export default function Guide() {
           <input
             type="text"
             value={searchQ}
-            onChange={(e) => { setSearchQ(e.target.value); setSearchOpen(true); }}
+            onChange={(e) => { setSearchQ(e.target.value); setSearchOpen(true); setSearchSel(0); }}
             onFocus={() => setSearchOpen(searchQ.length >= 2)}
             onBlur={() => setTimeout(() => setSearchOpen(false), 200)}
-            placeholder="가이드 검색 — Ashby · 안전계수 · HIP · ASTM · galvanic …"
+            onKeyDown={(e) => {
+              /* H8 확장 — 키보드로 결과 고르기. */
+              if (!searchOpen || !searchResults.length) { if (e.key === 'Escape') { setSearchQ(''); setSearchOpen(false); } return; }
+              if (e.key === 'ArrowDown') { e.preventDefault(); setSearchSel((i) => (i + 1) % searchResults.length); }
+              else if (e.key === 'ArrowUp') { e.preventDefault(); setSearchSel((i) => (i - 1 + searchResults.length) % searchResults.length); }
+              else if (e.key === 'Enter') { e.preventDefault(); gotoEntry(searchResults[Math.min(searchSel, searchResults.length - 1)]); }
+              else if (e.key === 'Escape') { setSearchQ(''); setSearchOpen(false); }
+            }}
+            placeholder="가이드 검색 — Ashby · 안전계수 · HIP · ASTM · galvanic … (여러 단어 = AND)"
             className="w-full h-7 pl-7 pr-7 text-[12px] rounded border border-sidebar-border bg-[oklch(0.28_0.06_250)] text-white placeholder:text-sidebar-foreground/40 focus:outline-none focus:border-accent"
             aria-label="가이드 검색"
+            role="combobox"
+            aria-expanded={searchOpen && searchResults.length > 0}
+            aria-controls="guide-search-results"
+            aria-autocomplete="list"
           />
           {searchQ && (
             <button
@@ -164,26 +180,19 @@ export default function Guide() {
           )}
           {/* 검색 결과 dropdown */}
           {searchOpen && searchResults.length > 0 && (
-            <div className="absolute top-full left-0 right-0 mt-1 bg-popover border border-border rounded-lg shadow-lg max-h-[400px] overflow-auto z-30">
-              <div className="text-[10px] text-muted-foreground px-3 py-1.5 border-b border-border/50">결과 <b className="text-foreground">{searchResults.length}</b></div>
+            <div id="guide-search-results" role="listbox" className="absolute top-full left-0 right-0 mt-1 bg-popover border border-border rounded-lg shadow-lg max-h-[400px] overflow-auto z-30">
+              <div className="text-[10px] text-muted-foreground px-3 py-1.5 border-b border-border/50 flex items-center justify-between">
+                <span>결과 <b className="text-foreground">{searchResults.length}</b> · ↑↓ 이동 · Enter 열기</span>
+                {/* H8 확장 — 종류별 수(헤딩·노트·사례·단계·FAQ·용어) */}
+                <span className="flex gap-1">
+                  {(['heading', 'note', 'scenario', 'step', 'faq', 'term'] as const).map((k) => {
+                    const n = searchResults.filter((r) => (r.termSlug ? 'term' : r.kind || 'heading') === k).length;
+                    return n ? <span key={k} className={`px-1 rounded ${KIND_BADGE[k].cls}`}>{KIND_BADGE[k].label} {n}</span> : null;
+                  })}
+                </span>
+              </div>
               {searchResults.map((r, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  onMouseDown={(e) => { e.preventDefault(); gotoEntry(r); }}
-                  className="w-full text-left px-3 py-2 hover:bg-muted/40 border-b border-border/30 last:border-0"
-                >
-                  <div className="flex items-baseline gap-2">
-                    {r.termSlug ? (
-                      <span className="text-[10px] bg-violet-500/15 text-violet-700 rounded px-1.5 py-0.5 font-bold flex-shrink-0">용어</span>
-                    ) : (
-                      <span className="text-[10px] bg-accent/15 text-accent rounded px-1.5 py-0.5 font-bold flex-shrink-0">Ch.{r.chapterN}</span>
-                    )}
-                    <span className="text-[12px] font-semibold text-foreground">{r.termSlug ? r.section : r.chapterLabel}</span>
-                    {!r.termSlug && r.section && <span className="text-[10px] text-muted-foreground">› {r.section}</span>}
-                  </div>
-                  <p className="text-[11px] text-foreground/70 mt-0.5 line-clamp-2">{r.snippet}</p>
-                </button>
+                <GuideSearchHit key={i} entry={r} tokens={searchTok} active={i === searchSel} onPick={() => gotoEntry(r)} onHover={() => setSearchSel(i)} />
               ))}
             </div>
           )}
@@ -196,7 +205,7 @@ export default function Guide() {
       </header>
 
       <div className="flex">
-        <GuideSidebar toc={TOC} section={section} isRead={isChapterRead} />
+        <GuideSidebar toc={TOC} section={section} isRead={isChapterRead} onSearchPick={gotoEntry} />
         <div className="mx-auto max-w-3xl px-5 py-10 flex-1 min-w-0">
         {!section && (<div onClick={onLandingAnchorClick}>
         {/* Hero */}

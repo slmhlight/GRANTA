@@ -20,6 +20,8 @@ export interface GuideIndexEntry {
   keywords: string[]; // search keywords (한국어 + 영어 + 약어)
   snippet: string;  // 결과 dropdown 에 보여줄 한 줄 요약
   termSlug?: string; // 있으면 글로서리 용어 — /guide/term/:slug 로 이동 (앵커 스크롤 대신)
+  /** H8 확장 — 본문 구조 요소에서 파생된 엔트리의 종류(노트·사례·단계·FAQ). 없으면 헤딩/수동/용어. */
+  kind?: 'note' | 'scenario' | 'step' | 'faq';
 }
 
 export const GUIDE_INDEX: GuideIndexEntry[] = [
@@ -108,16 +110,44 @@ export const GLOSSARY_ENTRIES: GuideIndexEntry[] = Object.entries(GLOSSARY.terms
   snippet: t.short,
 }));
 
-/** R66 — 단순 substring match (fuzzy 는 너무 노이즈). 다국어 (KO+EN) 동시 매칭 위해 keywords 가 다국어 포함.
- *  W6+ — 챕터 우선, 이어서 글로서리 용어(자동 파생) 매칭. 최대 12. */
-export function searchGuide(q: string): GuideIndexEntry[] {
-  const query = q.trim().toLowerCase();
-  if (query.length < 2) return [];
-  const match = (e: GuideIndexEntry) =>
-    [e.chapterLabel, e.section || '', e.snippet, ...e.keywords].join(' ').toLowerCase().includes(query);
-  /* H6 W3-5 — 수동 엔트리(개요) → 파생 헤딩(본문) → 글로서리 용어 순.
-     같은 챕터의 같은 섹션이 수동에도 있으면 수동을 남기고 파생은 뺀다(중복 표시 방지). */
+/** H8 확장 — 검색어 토큰(공백 분리, 소문자). 2자 미만 토큰은 버린다. */
+export function searchTokens(q: string): string[] {
+  return q.trim().toLowerCase().split(/\s+/).filter((t) => t.length >= 2);
+}
+
+/** H8 확장 — 엔트리 점수. 0 = 미매칭. 모든 토큰이 어딘가에 있어야 한다(AND).
+ *  제목(section/용어 표시명)에 걸리면 높고, 키워드 → 스니펫 순으로 낮아진다. 용어는 표시명 정확 일치 시 최고점. */
+export function scoreEntry(e: GuideIndexEntry, tokens: string[]): number {
+  if (!tokens.length) return 0;
+  const title = (e.section || e.chapterLabel).toLowerCase();
+  const kw = e.keywords.join(' ').toLowerCase();
+  const snip = e.snippet.toLowerCase();
+  const label = e.chapterLabel.toLowerCase();
+  let score = 0;
+  for (const t of tokens) {
+    if (title === t) score += 10;
+    else if (title.startsWith(t)) score += 6;
+    else if (title.includes(t)) score += 4;
+    else if (kw.includes(t)) score += 3;
+    else if (label.includes(t)) score += 2;
+    else if (snip.includes(t)) score += 1;
+    else return 0;   // AND — 한 토큰이라도 없으면 미매칭
+  }
+  return score;
+}
+
+/** R66 — substring match (fuzzy 는 너무 노이즈). 다국어 (KO+EN) 동시 매칭 위해 keywords 가 다국어 포함.
+ *  W6+ — 챕터 우선, 이어서 글로서리 용어(자동 파생) 매칭.
+ *  H8 확장(2026-09-22) — 다중 토큰 AND + 점수 정렬(제목 > 키워드 > 스니펫), 동점은 수동 → 헤딩 → 본문 요소 → 용어 순.
+ *  최대 `limit`(기본 12). */
+export function searchGuide(q: string, limit = 12): GuideIndexEntry[] {
+  const tokens = searchTokens(q);
+  if (!tokens.length || q.trim().length < 2) return [];
+  /* H6 W3-5 — 같은 챕터의 같은 섹션이 수동에도 있으면 수동을 남기고 파생은 뺀다(중복 표시 방지). */
   const manualKey = new Set(GUIDE_INDEX.map((e) => `${e.ch}|${e.section || ''}`));
   const derived = HEADING_ENTRIES.filter((e) => !manualKey.has(`${e.ch}|${e.section || ''}`));
-  return [...GUIDE_INDEX.filter(match), ...derived.filter(match), ...GLOSSARY_ENTRIES.filter(match)].slice(0, 12);
+  const ordered = [...GUIDE_INDEX, ...derived.filter((e) => !e.kind), ...derived.filter((e) => !!e.kind), ...GLOSSARY_ENTRIES];
+  const scored = ordered.map((e, i) => ({ e, i, s: scoreEntry(e, tokens) })).filter((x) => x.s > 0);
+  scored.sort((a, b) => (b.s - a.s) || (a.i - b.i));
+  return scored.slice(0, limit).map((x) => x.e);
 }

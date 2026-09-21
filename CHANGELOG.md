@@ -2,6 +2,16 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## 2026-09-22 — H8 가이드 내 검색(위키스타일): 본문 노트·사례·단계·FAQ 까지 인덱스, 다중 토큰 점수 검색, 강조·키보드, 사이드바 검색
+
+- **인덱스 심화(파생)** — `gen-guide-index.mjs` 가 H3 헤딩(41)만이 아니라 본문의 구조 요소 **67**(Note title 29 · Scenario title 16 · Step title 12 · FAQ 질문 10)을 문자열 prop 에서 뽑아 `kind` 와 함께 인덱스로(108 엔트리, 직전 H3 를 `under` 로 붙여 스니펫에 경로 표기). "같은 합금이 여러 row" 같은 FAQ 질문·"SF 가 너무 높으면" 같은 노트 제목·사례 제목이 검색된다. 재파생 대조 게이트(staleness)는 그대로 — H3 엔트리 형태 불변.
+- **검색 점수** — 공백 분리 다중 토큰 **AND** + 점수(제목 정확 10 · 접두 6 · 포함 4 · 키워드 3 · 챕터명 2 · 스니펫 1), 동점은 수동 → 헤딩 → 본문 요소 → 용어 순. 이전엔 단일 substring 에 삽입 순서뿐이라 "AM 후처리" 처럼 두 단어를 넣으면 못 찾았다.
+- **결과 UI** — 토큰 `<mark>` 강조 · 종류 배지(본문/노트/사례/단계/FAQ/용어)와 종류별 건수 · ↑↓ Enter Esc 키보드 탐색 · combobox/listbox aria. `GuideSearchHit` 컴포넌트를 헤더 드롭다운과 사이드바가 공유.
+- **사이드바 검색** — 챕터 목록 위에 검색 입력(상위 8, compact 결과)을 넣어 모바일 드로어에서도 바로 찾는다. 인라인 컴포넌트(`<Nav/>`)가 렌더마다 remount 돼 입력 포커스를 잃던 것을 렌더 함수로 교체.
+- 게이트: guide-index 3 추가(종류별 파생 ≥1·사례 ≥10·FAQ ≥8 · FAQ/노트/사례 검색 회귀 · AND/점수). vitest 1303/1303(83) · tsc 0 · lint 0.
+
+---
+
 ## 2026-09-22 — 확장 트랙 E9·E10·E11: 얇은 인사이트 그룹 보강, 조건별 가공 노트 64 조합, 유사재료 카드에 다양성 슬롯·용접/비용 델타
 
 - **E9 선택 인사이트** — 시나리오 4 이하였던 5 그룹(cobalt·magnesium·refractory·pol-fluoro·zinc-diecast)과 composite 코어에 **7 시나리오 추가**(136→143), 전부 출처 병기: CoCrMo LPBF 치과·정형(ASTM F3213·ISO 22674) · ZK60/AZ80 고강도 압출(ASM Vol.2) · C-103 노즐(ATI TDS)·Mo-Re/W-Re 고온 연성(Plansee/Rhenium Alloys) · 충전 PTFE 동적 씰(ASTM D4745) · Zamak/ZA-8 hot-chamber 박육 하우징(IZA) · 샌드위치 코어(Evonik ROHACELL·Hexcel HexWeb). Polymer 카테고리의 **PMI 구조용 폼(Rohacell 3 entry)** 이 어느 그룹에도 없던 것(`/foam/ → null`)을 composite(코어) 그룹으로 배정 — 인사이트 미배정 0.

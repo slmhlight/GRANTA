@@ -18,24 +18,42 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 import { guideChapters } from './lib/guide-sources.mjs';
 const OUT = path.join(ROOT, 'client', 'src', 'pages', 'guide', 'index-derived.ts');
 
-/** Guide.tsx → [{ ch, chapterN, chapterLabel, section, keywords, snippet }] */
+/** Guide.tsx → [{ ch, chapterN, chapterLabel, section, keywords, snippet, kind? }]
+ *
+ * H8 확장(2026-09-22) — 헤딩(H3)만이 아니라 **본문의 구조 요소**도 인덱스로 뽑는다:
+ *   Note title · Scenario title · Step title · FAQ 질문(q:). 전부 문자열 prop 만 취해(JSX 섞인 것은 건너뜀)
+ *   가장 가까운 앞 H3 를 `under` 로 붙인다. kind 로 결과 배지를 나눈다(heading|note|scenario|step|faq).
+ *   H3 엔트리는 이전과 동일한 형태(kind 없음)라 기존 stale 검사가 그대로 유효하다. */
 export function deriveHeadings() {
   const out = [];
   /* F1 — 챕터 메타데이터는 Guide.tsx 의 <Chapter> 태그, 본문은 chapters/<id>.tsx.
      통짜 텍스트로 자르면 챕터 경계가 사라진다(헤딩이 전부 마지막 챕터로 귀속됐다). */
+  const KIND_LABEL = { note: '노트', scenario: '사례', step: '단계', faq: 'FAQ' };
   for (const c of guideChapters()) {
     const body = c.body;
+    const label = c.title.split(' — ')[0].trim();
+    /* 문서 순서대로 H3 와 구조 요소를 함께 스캔한다 — 요소는 직전 H3 아래에 귀속. */
+    const items = [];
     /* 텍스트만 있는 H3 만 취한다 — JSX 가 섞인 헤딩은 신뢰할 수 없어 건너뛴다. */
-    for (const h of body.matchAll(/<H3>([^<>{}]{2,90})<\/H3>/g)) {
-      const raw = h[1].trim().replace(/\s+/g, ' ');
+    for (const h of body.matchAll(/<H3>([^<>{}]{2,90})<\/H3>/g)) items.push({ at: h.index, kind: 'heading', text: h[1] });
+    for (const m of body.matchAll(/<Note\b[^>]*?\btitle="([^"{}]{2,120})"/g)) items.push({ at: m.index, kind: 'note', text: m[1] });
+    for (const m of body.matchAll(/<Scenario\b[\s\S]{0,1500}?\btitle="([^"{}]{2,120})"/g)) items.push({ at: m.index, kind: 'scenario', text: m[1] });
+    for (const m of body.matchAll(/<Step\b[^>]*?\btitle="([^"{}]{2,120})"/g)) items.push({ at: m.index, kind: 'step', text: m[1] });
+    for (const m of body.matchAll(/\{\s*q:\s*'([^'{}]{4,160})'/g)) items.push({ at: m.index, kind: 'faq', text: m[1] });
+    items.sort((a, b) => a.at - b.at);
+    let under = null;
+    for (const it of items) {
+      const raw = it.text.trim().replace(/\s+/g, ' ');
       if (!raw) continue;
+      if (it.kind === 'heading') {
+        under = raw;
+        out.push({ ch: c.id, chapterN: c.n, chapterLabel: label, section: raw, keywords: keywordsOf(raw), snippet: `Ch.${c.n} ${label} › ${raw}` });
+        continue;
+      }
       out.push({
-        ch: c.id,
-        chapterN: c.n,
-        chapterLabel: c.title.split(' — ')[0].trim(),
-        section: raw,
+        ch: c.id, chapterN: c.n, chapterLabel: label, section: raw, kind: it.kind,
         keywords: keywordsOf(raw),
-        snippet: `Ch.${c.n} ${c.title.split(' — ')[0].trim()} › ${raw}`,
+        snippet: `Ch.${c.n} ${label}${under ? ' › ' + under : ''} › ${KIND_LABEL[it.kind]}: ${raw}`,
       });
     }
   }
@@ -111,7 +129,7 @@ export interface TermChapterRef { ch: string; chapterN: number; chapterLabel: st
 export const TERM_CHAPTERS: Record<string, TermChapterRef[]> = ${JSON.stringify(termChapters, null, 2)};
 `;
 fs.writeFileSync(OUT, banner, 'utf8');
-console.log(`가이드 헤딩 파생 ${entries.length}건 → ${path.relative(ROOT, OUT)}`);
+console.log(`가이드 인덱스 파생 ${entries.length}건 (헤딩 ${entries.filter((e) => !e.kind).length} · 노트/사례/단계/FAQ ${entries.filter((e) => e.kind).length}) → ${path.relative(ROOT, OUT)}`);
 const byCh = {};
 for (const e of entries) byCh[e.ch] = (byCh[e.ch] || 0) + 1;
 console.log('챕터별:', Object.entries(byCh).map(([k, v]) => `${k}:${v}`).join(' · '));

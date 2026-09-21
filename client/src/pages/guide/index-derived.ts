@@ -5,6 +5,261 @@ import type { GuideIndexEntry } from './index-entries';
 
 export const HEADING_ENTRIES: GuideIndexEntry[] = [
   {
+    "ch": "ch7",
+    "chapterN": 1,
+    "chapterLabel": "실전 사례 16선",
+    "section": "경량 고강성 구조 브래킷 (드론·항공, LPBF 출력)",
+    "kind": "scenario",
+    "keywords": [
+      "경량 고강성 구조 브래킷 (드론·항공, LPBF 출력)",
+      "경량",
+      "고강성",
+      "구조",
+      "브래킷",
+      "드론",
+      "항공",
+      "LPBF",
+      "출력",
+      "lpbf"
+    ],
+    "snippet": "Ch.1 실전 사례 16선 › 사례: 경량 고강성 구조 브래킷 (드론·항공, LPBF 출력)"
+  },
+  {
+    "ch": "ch7",
+    "chapterN": 1,
+    "chapterLabel": "실전 사례 16선",
+    "section": "고온 부품 (배기 매니폴드 · 터빈 디스크)",
+    "kind": "scenario",
+    "keywords": [
+      "고온 부품 (배기 매니폴드 · 터빈 디스크)",
+      "고온",
+      "부품",
+      "배기",
+      "매니폴드",
+      "터빈",
+      "디스크"
+    ],
+    "snippet": "Ch.1 실전 사례 16선 › 사례: 고온 부품 (배기 매니폴드 · 터빈 디스크)"
+  },
+  {
+    "ch": "ch7",
+    "chapterN": 1,
+    "chapterLabel": "실전 사례 16선",
+    "section": "회전·진동 부품 (샤프트 · 임펠러)",
+    "kind": "scenario",
+    "keywords": [
+      "회전·진동 부품 (샤프트 · 임펠러)",
+      "회전",
+      "진동",
+      "부품",
+      "샤프트",
+      "임펠러"
+    ],
+    "snippet": "Ch.1 실전 사례 16선 › 사례: 회전·진동 부품 (샤프트 · 임펠러)"
+  },
+  {
+    "ch": "ch7",
+    "chapterN": 1,
+    "chapterLabel": "실전 사례 16선",
+    "section": "정밀 계측·광학 마운트 (치수 안정성)",
+    "kind": "scenario",
+    "keywords": [
+      "정밀 계측·광학 마운트 (치수 안정성)",
+      "정밀",
+      "계측",
+      "광학",
+      "마운트",
+      "치수",
+      "안정성"
+    ],
+    "snippet": "Ch.1 실전 사례 16선 › 사례: 정밀 계측·광학 마운트 (치수 안정성)"
+  },
+  {
+    "ch": "ch7",
+    "chapterN": 1,
+    "chapterLabel": "실전 사례 16선",
+    "section": "해양·화학 환경 부품",
+    "kind": "scenario",
+    "keywords": [
+      "해양·화학 환경 부품",
+      "해양",
+      "화학",
+      "환경",
+      "부품"
+    ],
+    "snippet": "Ch.1 실전 사례 16선 › 사례: 해양·화학 환경 부품"
+  },
+  {
+    "ch": "ch7",
+    "chapterN": 1,
+    "chapterLabel": "실전 사례 16선",
+    "section": "저원가 대량 생산 부품",
+    "kind": "scenario",
+    "keywords": [
+      "저원가 대량 생산 부품",
+      "저원가",
+      "대량",
+      "생산",
+      "부품"
+    ],
+    "snippet": "Ch.1 실전 사례 16선 › 사례: 저원가 대량 생산 부품"
+  },
+  {
+    "ch": "ch7",
+    "chapterN": 1,
+    "chapterLabel": "실전 사례 16선",
+    "section": "스프링 · 스냅핏 · 탄성 힌지",
+    "kind": "scenario",
+    "keywords": [
+      "스프링 · 스냅핏 · 탄성 힌지",
+      "스프링",
+      "스냅핏",
+      "탄성",
+      "힌지"
+    ],
+    "snippet": "Ch.1 실전 사례 16선 › 사례: 스프링 · 스냅핏 · 탄성 힌지"
+  },
+  {
+    "ch": "ch7",
+    "chapterN": 1,
+    "chapterLabel": "실전 사례 16선",
+    "section": "방열 부품 (히트싱크 · 콜드플레이트)",
+    "kind": "scenario",
+    "keywords": [
+      "방열 부품 (히트싱크 · 콜드플레이트)",
+      "방열",
+      "부품",
+      "히트싱크",
+      "콜드플레이트"
+    ],
+    "snippet": "Ch.1 실전 사례 16선 › 사례: 방열 부품 (히트싱크 · 콜드플레이트)"
+  },
+  {
+    "ch": "ch7",
+    "chapterN": 1,
+    "chapterLabel": "실전 사례 16선",
+    "section": "내마모 부품 (드릴·라이너·절삭공구)",
+    "kind": "scenario",
+    "keywords": [
+      "내마모 부품 (드릴·라이너·절삭공구)",
+      "내마모",
+      "부품",
+      "드릴",
+      "라이너",
+      "절삭공구"
+    ],
+    "snippet": "Ch.1 실전 사례 16선 › 사례: 내마모 부품 (드릴·라이너·절삭공구)"
+  },
+  {
+    "ch": "ch7",
+    "chapterN": 1,
+    "chapterLabel": "실전 사례 16선",
+    "section": "의료 임플란트 (척추 cage · 인공관절)",
+    "kind": "scenario",
+    "keywords": [
+      "의료 임플란트 (척추 cage · 인공관절)",
+      "의료",
+      "임플란트",
+      "척추",
+      "cage",
+      "인공관절"
+    ],
+    "snippet": "Ch.1 실전 사례 16선 › 사례: 의료 임플란트 (척추 cage · 인공관절)"
+  },
+  {
+    "ch": "ch7",
+    "chapterN": 1,
+    "chapterLabel": "실전 사례 16선",
+    "section": "극저온 부품 (LNG 탱크 · 우주 추진제)",
+    "kind": "scenario",
+    "keywords": [
+      "극저온 부품 (LNG 탱크 · 우주 추진제)",
+      "극저온",
+      "부품",
+      "LNG",
+      "탱크",
+      "우주",
+      "추진제",
+      "lng"
+    ],
+    "snippet": "Ch.1 실전 사례 16선 › 사례: 극저온 부품 (LNG 탱크 · 우주 추진제)"
+  },
+  {
+    "ch": "ch7",
+    "chapterN": 1,
+    "chapterLabel": "실전 사례 16선",
+    "section": "전기 전도체 (버스바 · 접점)",
+    "kind": "scenario",
+    "keywords": [
+      "전기 전도체 (버스바 · 접점)",
+      "전기",
+      "전도체",
+      "버스바",
+      "접점"
+    ],
+    "snippet": "Ch.1 실전 사례 16선 › 사례: 전기 전도체 (버스바 · 접점)"
+  },
+  {
+    "ch": "ch7",
+    "chapterN": 1,
+    "chapterLabel": "실전 사례 16선",
+    "section": "압력 용기 (수소 탱크 · 보일러)",
+    "kind": "scenario",
+    "keywords": [
+      "압력 용기 (수소 탱크 · 보일러)",
+      "압력",
+      "용기",
+      "수소",
+      "탱크",
+      "보일러"
+    ],
+    "snippet": "Ch.1 실전 사례 16선 › 사례: 압력 용기 (수소 탱크 · 보일러)"
+  },
+  {
+    "ch": "ch7",
+    "chapterN": 1,
+    "chapterLabel": "실전 사례 16선",
+    "section": "기어 (변속기 · 감속기)",
+    "kind": "scenario",
+    "keywords": [
+      "기어 (변속기 · 감속기)",
+      "기어",
+      "변속기",
+      "감속기"
+    ],
+    "snippet": "Ch.1 실전 사례 16선 › 사례: 기어 (변속기 · 감속기)"
+  },
+  {
+    "ch": "ch7",
+    "chapterN": 1,
+    "chapterLabel": "실전 사례 16선",
+    "section": "체결구 (볼트 · 스터드)",
+    "kind": "scenario",
+    "keywords": [
+      "체결구 (볼트 · 스터드)",
+      "체결구",
+      "볼트",
+      "스터드"
+    ],
+    "snippet": "Ch.1 실전 사례 16선 › 사례: 체결구 (볼트 · 스터드)"
+  },
+  {
+    "ch": "ch7",
+    "chapterN": 1,
+    "chapterLabel": "실전 사례 16선",
+    "section": "다이·금형 (사출 · 단조 · 다이캐스팅)",
+    "kind": "scenario",
+    "keywords": [
+      "다이·금형 (사출 · 단조 · 다이캐스팅)",
+      "다이",
+      "금형",
+      "사출",
+      "단조",
+      "다이캐스팅"
+    ],
+    "snippet": "Ch.1 실전 사례 16선 › 사례: 다이·금형 (사출 · 단조 · 다이캐스팅)"
+  },
+  {
     "ch": "ch6",
     "chapterN": 2,
     "chapterLabel": "Ashby 재료 선택법",
@@ -19,6 +274,21 @@ export const HEADING_ENTRIES: GuideIndexEntry[] = [
       "될까?"
     ],
     "snippet": "Ch.2 Ashby 재료 선택법 › 성능지수(material index) — 왜 거듭제곱이 분수가 될까?"
+  },
+  {
+    "ch": "ch6",
+    "chapterN": 2,
+    "chapterLabel": "Ashby 재료 선택법",
+    "section": "유도 (경량 인장 부재)",
+    "kind": "note",
+    "keywords": [
+      "유도 (경량 인장 부재)",
+      "유도",
+      "경량",
+      "인장",
+      "부재"
+    ],
+    "snippet": "Ch.2 Ashby 재료 선택법 › 성능지수(material index) — 왜 거듭제곱이 분수가 될까? › 노트: 유도 (경량 인장 부재)"
   },
   {
     "ch": "ch6",
@@ -52,6 +322,47 @@ export const HEADING_ENTRIES: GuideIndexEntry[] = [
       "frontier"
     ],
     "snippet": "Ch.2 Ashby 재료 선택법 › Pareto Frontier — 다목적 trade-off 외곽선"
+  },
+  {
+    "ch": "ch6",
+    "chapterN": 2,
+    "chapterLabel": "Ashby 재료 선택법",
+    "section": "언제 쓰나요?",
+    "kind": "note",
+    "keywords": [
+      "언제 쓰나요?",
+      "언제",
+      "쓰나요?"
+    ],
+    "snippet": "Ch.2 Ashby 재료 선택법 › Pareto Frontier — 다목적 trade-off 외곽선 › 노트: 언제 쓰나요?"
+  },
+  {
+    "ch": "ch6",
+    "chapterN": 2,
+    "chapterLabel": "Ashby 재료 선택법",
+    "section": "Index 와의 차이",
+    "kind": "note",
+    "keywords": [
+      "Index 와의 차이",
+      "Index",
+      "와의",
+      "차이",
+      "index"
+    ],
+    "snippet": "Ch.2 Ashby 재료 선택법 › Pareto Frontier — 다목적 trade-off 외곽선 › 노트: Index 와의 차이"
+  },
+  {
+    "ch": "ch6",
+    "chapterN": 2,
+    "chapterLabel": "Ashby 재료 선택법",
+    "section": "주의 사항",
+    "kind": "note",
+    "keywords": [
+      "주의 사항",
+      "주의",
+      "사항"
+    ],
+    "snippet": "Ch.2 Ashby 재료 선택법 › Pareto Frontier — 다목적 trade-off 외곽선 › 노트: 주의 사항"
   },
   {
     "ch": "ch6",
@@ -98,6 +409,37 @@ export const HEADING_ENTRIES: GuideIndexEntry[] = [
     "snippet": "Ch.2 Ashby 재료 선택법 › Ashby 방법 깊은 학습"
   },
   {
+    "ch": "ch6",
+    "chapterN": 2,
+    "chapterLabel": "Ashby 재료 선택법",
+    "section": "성능지수 M 의 일반 유도 (인장 부재 예)",
+    "kind": "note",
+    "keywords": [
+      "성능지수 M 의 일반 유도 (인장 부재 예)",
+      "성능지수",
+      "일반",
+      "유도",
+      "인장",
+      "부재"
+    ],
+    "snippet": "Ch.2 Ashby 재료 선택법 › Ashby 방법 깊은 학습 › 노트: 성능지수 M 의 일반 유도 (인장 부재 예)"
+  },
+  {
+    "ch": "ch6",
+    "chapterN": 2,
+    "chapterLabel": "Ashby 재료 선택법",
+    "section": "📚 더 학습 — 외부 자료",
+    "kind": "note",
+    "keywords": [
+      "📚 더 학습 — 외부 자료",
+      "📚",
+      "학습",
+      "외부",
+      "자료"
+    ],
+    "snippet": "Ch.2 Ashby 재료 선택법 › Ashby 방법 깊은 학습 › 노트: 📚 더 학습 — 외부 자료"
+  },
+  {
     "ch": "ch10",
     "chapterN": 3,
     "chapterLabel": "합금 family 빠른 매핑 + 환경 조건별 선택",
@@ -128,6 +470,20 @@ export const HEADING_ENTRIES: GuideIndexEntry[] = [
     "snippet": "Ch.3 합금 family 빠른 매핑 + 환경 조건별 선택 › 3.2 환경 조건별 적합·회피 합금"
   },
   {
+    "ch": "ch10",
+    "chapterN": 3,
+    "chapterLabel": "합금 family 빠른 매핑 + 환경 조건별 선택",
+    "section": "환경 조건이 복잡하면",
+    "kind": "note",
+    "keywords": [
+      "환경 조건이 복잡하면",
+      "환경",
+      "조건이",
+      "복잡하면"
+    ],
+    "snippet": "Ch.3 합금 family 빠른 매핑 + 환경 조건별 선택 › 3.2 환경 조건별 적합·회피 합금 › 노트: 환경 조건이 복잡하면"
+  },
+  {
     "ch": "ch1",
     "chapterN": 4,
     "chapterLabel": "물성 사전",
@@ -139,6 +495,88 @@ export const HEADING_ENTRIES: GuideIndexEntry[] = [
       "글로서리"
     ],
     "snippet": "Ch.4 물성 사전 › 열처리 · 후처리 글로서리"
+  },
+  {
+    "ch": "ch2",
+    "chapterN": 5,
+    "chapterLabel": "설계 요구를 숫자로 바꾸기 + 안전계수 사전",
+    "section": "작용 응력 계산",
+    "kind": "step",
+    "keywords": [
+      "작용 응력 계산",
+      "작용",
+      "응력",
+      "계산"
+    ],
+    "snippet": "Ch.5 설계 요구를 숫자로 바꾸기 + 안전계수 사전 › 단계: 작용 응력 계산"
+  },
+  {
+    "ch": "ch2",
+    "chapterN": 5,
+    "chapterLabel": "설계 요구를 숫자로 바꾸기 + 안전계수 사전",
+    "section": "안전계수 적용 → 필요 σy",
+    "kind": "step",
+    "keywords": [
+      "안전계수 적용 → 필요 σy",
+      "안전계수",
+      "적용",
+      "필요",
+      "σy"
+    ],
+    "snippet": "Ch.5 설계 요구를 숫자로 바꾸기 + 안전계수 사전 › 단계: 안전계수 적용 → 필요 σy"
+  },
+  {
+    "ch": "ch2",
+    "chapterN": 5,
+    "chapterLabel": "설계 요구를 숫자로 바꾸기 + 안전계수 사전",
+    "section": "앱에서 후보 좁히기",
+    "kind": "step",
+    "keywords": [
+      "앱에서 후보 좁히기",
+      "앱에서",
+      "후보",
+      "좁히기"
+    ],
+    "snippet": "Ch.5 설계 요구를 숫자로 바꾸기 + 안전계수 사전 › 단계: 앱에서 후보 좁히기"
+  },
+  {
+    "ch": "ch2",
+    "chapterN": 5,
+    "chapterLabel": "설계 요구를 숫자로 바꾸기 + 안전계수 사전",
+    "section": "처짐 식 뒤집기",
+    "kind": "step",
+    "keywords": [
+      "처짐 식 뒤집기",
+      "처짐",
+      "뒤집기"
+    ],
+    "snippet": "Ch.5 설계 요구를 숫자로 바꾸기 + 안전계수 사전 › 단계: 처짐 식 뒤집기"
+  },
+  {
+    "ch": "ch2",
+    "chapterN": 5,
+    "chapterLabel": "설계 요구를 숫자로 바꾸기 + 안전계수 사전",
+    "section": "값 대입",
+    "kind": "step",
+    "keywords": [
+      "값 대입",
+      "대입"
+    ],
+    "snippet": "Ch.5 설계 요구를 숫자로 바꾸기 + 안전계수 사전 › 단계: 값 대입"
+  },
+  {
+    "ch": "ch2",
+    "chapterN": 5,
+    "chapterLabel": "설계 요구를 숫자로 바꾸기 + 안전계수 사전",
+    "section": "앱에서 후보 좁히기",
+    "kind": "step",
+    "keywords": [
+      "앱에서 후보 좁히기",
+      "앱에서",
+      "후보",
+      "좁히기"
+    ],
+    "snippet": "Ch.5 설계 요구를 숫자로 바꾸기 + 안전계수 사전 › 단계: 앱에서 후보 좁히기"
   },
   {
     "ch": "ch2",
@@ -193,6 +631,37 @@ export const HEADING_ENTRIES: GuideIndexEntry[] = [
     "ch": "ch2",
     "chapterN": 5,
     "chapterLabel": "설계 요구를 숫자로 바꾸기 + 안전계수 사전",
+    "section": "실무 SF 계산 — 예제",
+    "kind": "note",
+    "keywords": [
+      "실무 SF 계산 — 예제",
+      "실무",
+      "SF",
+      "계산",
+      "예제",
+      "sf"
+    ],
+    "snippet": "Ch.5 설계 요구를 숫자로 바꾸기 + 안전계수 사전 › 5.5.2 조건·하중 종류별 SF 가산 (multiplicative) › 노트: 실무 SF 계산 — 예제"
+  },
+  {
+    "ch": "ch2",
+    "chapterN": 5,
+    "chapterLabel": "설계 요구를 숫자로 바꾸기 + 안전계수 사전",
+    "section": "SF 가 너무 높으면",
+    "kind": "note",
+    "keywords": [
+      "SF 가 너무 높으면",
+      "SF",
+      "너무",
+      "높으면",
+      "sf"
+    ],
+    "snippet": "Ch.5 설계 요구를 숫자로 바꾸기 + 안전계수 사전 › 5.5.2 조건·하중 종류별 SF 가산 (multiplicative) › 노트: SF 가 너무 높으면"
+  },
+  {
+    "ch": "ch2",
+    "chapterN": 5,
+    "chapterLabel": "설계 요구를 숫자로 바꾸기 + 안전계수 사전",
     "section": "5.6 반복하중 — Basquin 식 + Goodman diagram",
     "keywords": [
       "반복하중 — Basquin 식 + Goodman diagram",
@@ -204,6 +673,218 @@ export const HEADING_ENTRIES: GuideIndexEntry[] = [
       "goodman"
     ],
     "snippet": "Ch.5 설계 요구를 숫자로 바꾸기 + 안전계수 사전 › 5.6 반복하중 — Basquin 식 + Goodman diagram"
+  },
+  {
+    "ch": "ch2",
+    "chapterN": 5,
+    "chapterLabel": "설계 요구를 숫자로 바꾸기 + 안전계수 사전",
+    "section": "Basquin 식 (High-Cycle Fatigue)",
+    "kind": "note",
+    "keywords": [
+      "Basquin 식 (High-Cycle Fatigue)",
+      "Basquin",
+      "High",
+      "Cycle",
+      "Fatigue",
+      "basquin",
+      "high",
+      "cycle",
+      "fatigue"
+    ],
+    "snippet": "Ch.5 설계 요구를 숫자로 바꾸기 + 안전계수 사전 › 5.6 반복하중 — Basquin 식 + Goodman diagram › 노트: Basquin 식 (High-Cycle Fatigue)"
+  },
+  {
+    "ch": "ch2",
+    "chapterN": 5,
+    "chapterLabel": "설계 요구를 숫자로 바꾸기 + 안전계수 사전",
+    "section": "Goodman / Soderberg / Gerber — 평균응력 보정",
+    "kind": "note",
+    "keywords": [
+      "Goodman / Soderberg / Gerber — 평균응력 보정",
+      "Goodman",
+      "Soderberg",
+      "Gerber",
+      "평균응력",
+      "보정",
+      "goodman",
+      "soderberg",
+      "gerber"
+    ],
+    "snippet": "Ch.5 설계 요구를 숫자로 바꾸기 + 안전계수 사전 › 5.6 반복하중 — Basquin 식 + Goodman diagram › 노트: Goodman / Soderberg / Gerber — 평균응력 보정"
+  },
+  {
+    "ch": "ch2",
+    "chapterN": 5,
+    "chapterLabel": "설계 요구를 숫자로 바꾸기 + 안전계수 사전",
+    "section": "📚 더 학습 — 응력·피로·SF",
+    "kind": "note",
+    "keywords": [
+      "📚 더 학습 — 응력·피로·SF",
+      "📚",
+      "학습",
+      "응력",
+      "피로",
+      "SF",
+      "sf"
+    ],
+    "snippet": "Ch.5 설계 요구를 숫자로 바꾸기 + 안전계수 사전 › 5.6 반복하중 — Basquin 식 + Goodman diagram › 노트: 📚 더 학습 — 응력·피로·SF"
+  },
+  {
+    "ch": "ch3",
+    "chapterN": 6,
+    "chapterLabel": "단면 모양 도감",
+    "section": "왜 I빔·박스·관이 효율적인가?",
+    "kind": "note",
+    "keywords": [
+      "왜 I빔·박스·관이 효율적인가?",
+      "I빔",
+      "박스",
+      "관이",
+      "효율적인가?",
+      "i빔"
+    ],
+    "snippet": "Ch.6 단면 모양 도감 › 노트: 왜 I빔·박스·관이 효율적인가?"
+  },
+  {
+    "ch": "ch3",
+    "chapterN": 6,
+    "chapterLabel": "단면 모양 도감",
+    "section": "2차 모멘트 I 의 적분 정의",
+    "kind": "note",
+    "keywords": [
+      "차 모멘트 I 의 적분 정의",
+      "모멘트",
+      "적분",
+      "정의"
+    ],
+    "snippet": "Ch.6 단면 모양 도감 › 노트: 2차 모멘트 I 의 적분 정의"
+  },
+  {
+    "ch": "ch3",
+    "chapterN": 6,
+    "chapterLabel": "단면 모양 도감",
+    "section": "📚 더 학습 — 단면·굽힘",
+    "kind": "note",
+    "keywords": [
+      "📚 더 학습 — 단면·굽힘",
+      "📚",
+      "학습",
+      "단면",
+      "굽힘"
+    ],
+    "snippet": "Ch.6 단면 모양 도감 › 노트: 📚 더 학습 — 단면·굽힘"
+  },
+  {
+    "ch": "ch4",
+    "chapterN": 7,
+    "chapterLabel": "보 하중·지지조건 도감",
+    "section": "단면의 I 계산 (Ch.3)",
+    "kind": "step",
+    "keywords": [
+      "단면의 I 계산 (Ch.3)",
+      "단면의",
+      "계산",
+      "Ch.3",
+      "ch.3"
+    ],
+    "snippet": "Ch.7 보 하중·지지조건 도감 › 단계: 단면의 I 계산 (Ch.3)"
+  },
+  {
+    "ch": "ch4",
+    "chapterN": 7,
+    "chapterLabel": "보 하중·지지조건 도감",
+    "section": "필요 E·I 계산",
+    "kind": "step",
+    "keywords": [
+      "필요 E·I 계산",
+      "필요",
+      "계산"
+    ],
+    "snippet": "Ch.7 보 하중·지지조건 도감 › 단계: 필요 E·I 계산"
+  },
+  {
+    "ch": "ch4",
+    "chapterN": 7,
+    "chapterLabel": "보 하중·지지조건 도감",
+    "section": "필요 E",
+    "kind": "step",
+    "keywords": [
+      "필요 E",
+      "필요"
+    ],
+    "snippet": "Ch.7 보 하중·지지조건 도감 › 단계: 필요 E"
+  },
+  {
+    "ch": "ch4",
+    "chapterN": 7,
+    "chapterLabel": "보 하중·지지조건 도감",
+    "section": "단면 키워서 재시도",
+    "kind": "step",
+    "keywords": [
+      "단면 키워서 재시도",
+      "단면",
+      "키워서",
+      "재시도"
+    ],
+    "snippet": "Ch.7 보 하중·지지조건 도감 › 단계: 단면 키워서 재시도"
+  },
+  {
+    "ch": "ch4",
+    "chapterN": 7,
+    "chapterLabel": "보 하중·지지조건 도감",
+    "section": "강도 점검 (σ_b = M/Z)",
+    "kind": "step",
+    "keywords": [
+      "강도 점검 (σ_b = M/Z)",
+      "강도",
+      "점검",
+      "σ_b"
+    ],
+    "snippet": "Ch.7 보 하중·지지조건 도감 › 단계: 강도 점검 (σ_b = M/Z)"
+  },
+  {
+    "ch": "ch4",
+    "chapterN": 7,
+    "chapterLabel": "보 하중·지지조건 도감",
+    "section": "앱에서 후보 보기",
+    "kind": "step",
+    "keywords": [
+      "앱에서 후보 보기",
+      "앱에서",
+      "후보",
+      "보기"
+    ],
+    "snippet": "Ch.7 보 하중·지지조건 도감 › 단계: 앱에서 후보 보기"
+  },
+  {
+    "ch": "ch4",
+    "chapterN": 7,
+    "chapterLabel": "보 하중·지지조건 도감",
+    "section": "Euler-Bernoulli 보 방정식",
+    "kind": "note",
+    "keywords": [
+      "Euler-Bernoulli 보 방정식",
+      "Euler",
+      "Bernoulli",
+      "방정식",
+      "euler",
+      "bernoulli"
+    ],
+    "snippet": "Ch.7 보 하중·지지조건 도감 › 노트: Euler-Bernoulli 보 방정식"
+  },
+  {
+    "ch": "ch4",
+    "chapterN": 7,
+    "chapterLabel": "보 하중·지지조건 도감",
+    "section": "📚 더 학습 — 보·처짐",
+    "kind": "note",
+    "keywords": [
+      "📚 더 학습 — 보·처짐",
+      "📚",
+      "학습",
+      "처짐"
+    ],
+    "snippet": "Ch.7 보 하중·지지조건 도감 › 노트: 📚 더 학습 — 보·처짐"
   },
   {
     "ch": "ch5",
@@ -260,6 +941,62 @@ export const HEADING_ENTRIES: GuideIndexEntry[] = [
       "용기"
     ],
     "snippet": "Ch.8 응용 › 8.4 얇은 압력 용기"
+  },
+  {
+    "ch": "ch5",
+    "chapterN": 8,
+    "chapterLabel": "응용",
+    "section": "Euler 좌굴 vs Johnson 공식 — 짧은 기둥",
+    "kind": "note",
+    "keywords": [
+      "Euler 좌굴 vs Johnson 공식 — 짧은 기둥",
+      "Euler",
+      "좌굴",
+      "vs",
+      "Johnson",
+      "공식",
+      "짧은",
+      "기둥",
+      "euler",
+      "johnson"
+    ],
+    "snippet": "Ch.8 응용 › 8.4 얇은 압력 용기 › 노트: Euler 좌굴 vs Johnson 공식 — 짧은 기둥"
+  },
+  {
+    "ch": "ch5",
+    "chapterN": 8,
+    "chapterLabel": "응용",
+    "section": "Stress concentration factor Kt — 노치·구멍",
+    "kind": "note",
+    "keywords": [
+      "Stress concentration factor Kt — 노치·구멍",
+      "Stress",
+      "concentration",
+      "factor",
+      "Kt",
+      "노치",
+      "구멍",
+      "stress",
+      "kt"
+    ],
+    "snippet": "Ch.8 응용 › 8.4 얇은 압력 용기 › 노트: Stress concentration factor Kt — 노치·구멍"
+  },
+  {
+    "ch": "ch5",
+    "chapterN": 8,
+    "chapterLabel": "응용",
+    "section": "📚 더 학습 — 비틀림·좌굴·파괴·압력",
+    "kind": "note",
+    "keywords": [
+      "📚 더 학습 — 비틀림·좌굴·파괴·압력",
+      "📚",
+      "학습",
+      "비틀림",
+      "좌굴",
+      "파괴",
+      "압력"
+    ],
+    "snippet": "Ch.8 응용 › 8.4 얇은 압력 용기 › 노트: 📚 더 학습 — 비틀림·좌굴·파괴·압력"
   },
   {
     "ch": "ch9",
@@ -321,6 +1058,21 @@ export const HEADING_ENTRIES: GuideIndexEntry[] = [
     "ch": "ch9",
     "chapterN": 10,
     "chapterLabel": "AM (적층제조) 특화 주의사항",
+    "section": "AM 데이터 한계",
+    "kind": "note",
+    "keywords": [
+      "AM 데이터 한계",
+      "AM",
+      "데이터",
+      "한계",
+      "am"
+    ],
+    "snippet": "Ch.10 AM (적층제조) 특화 주의사항 › 10.4 분말 spec · 추적성 › 노트: AM 데이터 한계"
+  },
+  {
+    "ch": "ch9",
+    "chapterN": 10,
+    "chapterLabel": "AM (적층제조) 특화 주의사항",
     "section": "10.5 고온 부품 수명 예측 — Larson-Miller parameter",
     "keywords": [
       "고온 부품 수명 예측 — Larson-Miller parameter",
@@ -335,6 +1087,61 @@ export const HEADING_ENTRIES: GuideIndexEntry[] = [
       "miller"
     ],
     "snippet": "Ch.10 AM (적층제조) 특화 주의사항 › 10.5 고온 부품 수명 예측 — Larson-Miller parameter"
+  },
+  {
+    "ch": "ch9",
+    "chapterN": 10,
+    "chapterLabel": "AM (적층제조) 특화 주의사항",
+    "section": "Larson-Miller parameter (LMP) — creep rupture 예측",
+    "kind": "note",
+    "keywords": [
+      "Larson-Miller parameter (LMP) — creep rupture 예측",
+      "Larson",
+      "Miller",
+      "parameter",
+      "LMP",
+      "creep",
+      "rupture",
+      "예측",
+      "larson",
+      "miller",
+      "lmp"
+    ],
+    "snippet": "Ch.10 AM (적층제조) 특화 주의사항 › 10.5 고온 부품 수명 예측 — Larson-Miller parameter › 노트: Larson-Miller parameter (LMP) — creep rupture 예측"
+  },
+  {
+    "ch": "ch9",
+    "chapterN": 10,
+    "chapterLabel": "AM (적층제조) 특화 주의사항",
+    "section": "Arrhenius equation — 산화·확산 속도",
+    "kind": "note",
+    "keywords": [
+      "Arrhenius equation — 산화·확산 속도",
+      "Arrhenius",
+      "equation",
+      "산화",
+      "확산",
+      "속도",
+      "arrhenius"
+    ],
+    "snippet": "Ch.10 AM (적층제조) 특화 주의사항 › 10.5 고온 부품 수명 예측 — Larson-Miller parameter › 노트: Arrhenius equation — 산화·확산 속도"
+  },
+  {
+    "ch": "ch9",
+    "chapterN": 10,
+    "chapterLabel": "AM (적층제조) 특화 주의사항",
+    "section": "📚 더 학습 — AM·고온·creep",
+    "kind": "note",
+    "keywords": [
+      "📚 더 학습 — AM·고온·creep",
+      "📚",
+      "학습",
+      "AM",
+      "고온",
+      "creep",
+      "am"
+    ],
+    "snippet": "Ch.10 AM (적층제조) 특화 주의사항 › 10.5 고온 부품 수명 예측 — Larson-Miller parameter › 노트: 📚 더 학습 — AM·고온·creep"
   },
   {
     "ch": "ch12",
@@ -379,6 +1186,34 @@ export const HEADING_ENTRIES: GuideIndexEntry[] = [
       "해석"
     ],
     "snippet": "Ch.11 인증·가공·시제품 시험 › 11.3 시제품 시험 → 결과 해석"
+  },
+  {
+    "ch": "ch12",
+    "chapterN": 11,
+    "chapterLabel": "인증·가공·시제품 시험",
+    "section": "결과가 데이터시트와 다르면",
+    "kind": "note",
+    "keywords": [
+      "결과가 데이터시트와 다르면",
+      "결과가",
+      "데이터시트와",
+      "다르면"
+    ],
+    "snippet": "Ch.11 인증·가공·시제품 시험 › 11.3 시제품 시험 → 결과 해석 › 노트: 결과가 데이터시트와 다르면"
+  },
+  {
+    "ch": "ch14",
+    "chapterN": 12,
+    "chapterLabel": "산업 case study 5선",
+    "section": "사례 학습의 정리",
+    "kind": "note",
+    "keywords": [
+      "사례 학습의 정리",
+      "사례",
+      "학습의",
+      "정리"
+    ],
+    "snippet": "Ch.12 산업 case study 5선 › 노트: 사례 학습의 정리"
   },
   {
     "ch": "ch8",
@@ -443,6 +1278,179 @@ export const HEADING_ENTRIES: GuideIndexEntry[] = [
     "ch": "ch8",
     "chapterN": 13,
     "chapterLabel": "데이터 해석·datasheet 읽기·출처·단위·FAQ",
+    "section": "같은 합금이 여러 row 로 나오는 이유?",
+    "kind": "faq",
+    "keywords": [
+      "같은 합금이 여러 row 로 나오는 이유?",
+      "같은",
+      "합금이",
+      "여러",
+      "row",
+      "나오는",
+      "이유?"
+    ],
+    "snippet": "Ch.13 데이터 해석·datasheet 읽기·출처·단위·FAQ › 자주 묻는 질문 (FAQ) › FAQ: 같은 합금이 여러 row 로 나오는 이유?"
+  },
+  {
+    "ch": "ch8",
+    "chapterN": 13,
+    "chapterLabel": "데이터 해석·datasheet 읽기·출처·단위·FAQ",
+    "section": "class 라벨이 붙은 값을 설계에 그대로 쓸 수 있나요?",
+    "kind": "faq",
+    "keywords": [
+      "class 라벨이 붙은 값을 설계에 그대로 쓸 수 있나요?",
+      "class",
+      "라벨이",
+      "붙은",
+      "값을",
+      "설계에",
+      "그대로",
+      "있나요?"
+    ],
+    "snippet": "Ch.13 데이터 해석·datasheet 읽기·출처·단위·FAQ › 자주 묻는 질문 (FAQ) › FAQ: class 라벨이 붙은 값을 설계에 그대로 쓸 수 있나요?"
+  },
+  {
+    "ch": "ch8",
+    "chapterN": 13,
+    "chapterLabel": "데이터 해석·datasheet 읽기·출처·단위·FAQ",
+    "section": "AM 합금 데이터는 어느 빌드 방향 기준?",
+    "kind": "faq",
+    "keywords": [
+      "AM 합금 데이터는 어느 빌드 방향 기준?",
+      "AM",
+      "합금",
+      "데이터는",
+      "어느",
+      "빌드",
+      "방향",
+      "기준?",
+      "am"
+    ],
+    "snippet": "Ch.13 데이터 해석·datasheet 읽기·출처·단위·FAQ › 자주 묻는 질문 (FAQ) › FAQ: AM 합금 데이터는 어느 빌드 방향 기준?"
+  },
+  {
+    "ch": "ch8",
+    "chapterN": 13,
+    "chapterLabel": "데이터 해석·datasheet 읽기·출처·단위·FAQ",
+    "section": "Fatigue strength 가 derived 인 합금은 신뢰할만한가?",
+    "kind": "faq",
+    "keywords": [
+      "Fatigue strength 가 derived 인 합금은 신뢰할만한가?",
+      "Fatigue",
+      "strength",
+      "derived",
+      "합금은",
+      "신뢰할만한가?",
+      "fatigue"
+    ],
+    "snippet": "Ch.13 데이터 해석·datasheet 읽기·출처·단위·FAQ › 자주 묻는 질문 (FAQ) › FAQ: Fatigue strength 가 derived 인 합금은 신뢰할만한가?"
+  },
+  {
+    "ch": "ch8",
+    "chapterN": 13,
+    "chapterLabel": "데이터 해석·datasheet 읽기·출처·단위·FAQ",
+    "section": "Compare 패널에서 Radar 차트는 왜 21개 이상일 때 비활성?",
+    "kind": "faq",
+    "keywords": [
+      "Compare 패널에서 Radar 차트는 왜 21개 이상일 때 비활성?",
+      "Compare",
+      "패널에서",
+      "Radar",
+      "차트는",
+      "21개",
+      "이상일",
+      "비활성?",
+      "compare",
+      "radar"
+    ],
+    "snippet": "Ch.13 데이터 해석·datasheet 읽기·출처·단위·FAQ › 자주 묻는 질문 (FAQ) › FAQ: Compare 패널에서 Radar 차트는 왜 21개 이상일 때 비활성?"
+  },
+  {
+    "ch": "ch8",
+    "chapterN": 13,
+    "chapterLabel": "데이터 해석·datasheet 읽기·출처·단위·FAQ",
+    "section": "KIC 값이 없는 합금이 많은 이유?",
+    "kind": "faq",
+    "keywords": [
+      "KIC 값이 없는 합금이 많은 이유?",
+      "KIC",
+      "값이",
+      "없는",
+      "합금이",
+      "많은",
+      "이유?",
+      "kic"
+    ],
+    "snippet": "Ch.13 데이터 해석·datasheet 읽기·출처·단위·FAQ › 자주 묻는 질문 (FAQ) › FAQ: KIC 값이 없는 합금이 많은 이유?"
+  },
+  {
+    "ch": "ch8",
+    "chapterN": 13,
+    "chapterLabel": "데이터 해석·datasheet 읽기·출처·단위·FAQ",
+    "section": "단위·언어를 어디서 바꾸나요?",
+    "kind": "faq",
+    "keywords": [
+      "단위·언어를 어디서 바꾸나요?",
+      "단위",
+      "언어를",
+      "어디서",
+      "바꾸나요?"
+    ],
+    "snippet": "Ch.13 데이터 해석·datasheet 읽기·출처·단위·FAQ › 자주 묻는 질문 (FAQ) › FAQ: 단위·언어를 어디서 바꾸나요?"
+  },
+  {
+    "ch": "ch8",
+    "chapterN": 13,
+    "chapterLabel": "데이터 해석·datasheet 읽기·출처·단위·FAQ",
+    "section": "필터를 적용했는데 결과가 0개 입니다.",
+    "kind": "faq",
+    "keywords": [
+      "필터를 적용했는데 결과가 0개 입니다.",
+      "필터를",
+      "적용했는데",
+      "결과가",
+      "0개",
+      "입니다."
+    ],
+    "snippet": "Ch.13 데이터 해석·datasheet 읽기·출처·단위·FAQ › 자주 묻는 질문 (FAQ) › FAQ: 필터를 적용했는데 결과가 0개 입니다."
+  },
+  {
+    "ch": "ch8",
+    "chapterN": 13,
+    "chapterLabel": "데이터 해석·datasheet 읽기·출처·단위·FAQ",
+    "section": "결과를 다시 보고 싶을 때 (북마크)?",
+    "kind": "faq",
+    "keywords": [
+      "결과를 다시 보고 싶을 때 (북마크)?",
+      "결과를",
+      "다시",
+      "보고",
+      "싶을",
+      "북마크"
+    ],
+    "snippet": "Ch.13 데이터 해석·datasheet 읽기·출처·단위·FAQ › 자주 묻는 질문 (FAQ) › FAQ: 결과를 다시 보고 싶을 때 (북마크)?"
+  },
+  {
+    "ch": "ch8",
+    "chapterN": 13,
+    "chapterLabel": "데이터 해석·datasheet 읽기·출처·단위·FAQ",
+    "section": "내가 자주 쓰는 합금 set 을 저장?",
+    "kind": "faq",
+    "keywords": [
+      "내가 자주 쓰는 합금 set 을 저장?",
+      "내가",
+      "자주",
+      "쓰는",
+      "합금",
+      "set",
+      "저장?"
+    ],
+    "snippet": "Ch.13 데이터 해석·datasheet 읽기·출처·단위·FAQ › 자주 묻는 질문 (FAQ) › FAQ: 내가 자주 쓰는 합금 set 을 저장?"
+  },
+  {
+    "ch": "ch8",
+    "chapterN": 13,
+    "chapterLabel": "데이터 해석·datasheet 읽기·출처·단위·FAQ",
     "section": "Datasheet 읽기 — 같은 합금이 다르게 보이는 이유",
     "keywords": [
       "Datasheet 읽기 — 같은 합금이 다르게 보이는 이유",
@@ -456,6 +1464,19 @@ export const HEADING_ENTRIES: GuideIndexEntry[] = [
       "datasheet"
     ],
     "snippet": "Ch.13 데이터 해석·datasheet 읽기·출처·단위·FAQ › Datasheet 읽기 — 같은 합금이 다르게 보이는 이유"
+  },
+  {
+    "ch": "ch8",
+    "chapterN": 13,
+    "chapterLabel": "데이터 해석·datasheet 읽기·출처·단위·FAQ",
+    "section": "실무 의사결정",
+    "kind": "note",
+    "keywords": [
+      "실무 의사결정",
+      "실무",
+      "의사결정"
+    ],
+    "snippet": "Ch.13 데이터 해석·datasheet 읽기·출처·단위·FAQ › Datasheet 읽기 — 같은 합금이 다르게 보이는 이유 › 노트: 실무 의사결정"
   },
   {
     "ch": "ch8",
@@ -482,6 +1503,19 @@ export const HEADING_ENTRIES: GuideIndexEntry[] = [
       "인터랙티브"
     ],
     "snippet": "Ch.13 데이터 해석·datasheet 읽기·출처·단위·FAQ › 📚 외부 학습 자료 — 무료 / 인터랙티브"
+  },
+  {
+    "ch": "ch15",
+    "chapterN": 14,
+    "chapterLabel": "재료 family 기본론 (Steel · Al · Ti · Ni · Cu + MMPDS basis + KS grades)",
+    "section": "이 챕터의 출처",
+    "kind": "note",
+    "keywords": [
+      "이 챕터의 출처",
+      "챕터의",
+      "출처"
+    ],
+    "snippet": "Ch.14 재료 family 기본론 (Steel · Al · Ti · Ni · Cu + MMPDS basis + KS grades) › 노트: 이 챕터의 출처"
   },
   {
     "ch": "ch15",
@@ -682,6 +1716,21 @@ export const HEADING_ENTRIES: GuideIndexEntry[] = [
       "d6ac"
     ],
     "snippet": "Ch.14 재료 family 기본론 (Steel · Al · Ti · Ni · Cu + MMPDS basis + KS grades) › 14.9 MMPDS-08 Steel allowables (AISI 4130, AISI 4340, 8740, 300M, D6AC)"
+  },
+  {
+    "ch": "ch15",
+    "chapterN": 14,
+    "chapterLabel": "재료 family 기본론 (Steel · Al · Ti · Ni · Cu + MMPDS basis + KS grades)",
+    "section": "더 자세히 — 외부 학습 자료",
+    "kind": "note",
+    "keywords": [
+      "더 자세히 — 외부 학습 자료",
+      "자세히",
+      "외부",
+      "학습",
+      "자료"
+    ],
+    "snippet": "Ch.14 재료 family 기본론 (Steel · Al · Ti · Ni · Cu + MMPDS basis + KS grades) › 14.9 MMPDS-08 Steel allowables (AISI 4130, AISI 4340, 8740, 300M, D6AC) › 노트: 더 자세히 — 외부 학습 자료"
   }
 ];
 
