@@ -41,19 +41,19 @@ export function ActiveFilterChips({ filters, updateFilter }: ActiveFilterChipsPr
   if (filters.corrosion.length) chips.push({ key: 'corrosion', label: `Corr: ${filters.corrosion.join('/')}`, onRemove: () => updateFilter('corrosion', []) });
   if (filters.corrosionEnvMin && Object.keys(filters.corrosionEnvMin).length) {
     const lbl = Object.entries(filters.corrosionEnvMin).map(([e, v]) => `${e.split('(')[0]}${v === 'excellent' ? '=탁월' : '≥양호'}`).join(' · ');
-    chips.push({ key: 'corrEnv', label: `내식 환경: ${lbl}`, onRemove: () => updateFilter('corrosionEnvMin', {}) });
+    chips.push({ key: 'corrEnv', label: `${lang === 'en' ? 'Corrosion env' : '내식 환경'}: ${lbl}`, onRemove: () => updateFilter('corrosionEnvMin', {}) });
   }
   if (filters.hasElevatedData) chips.push({ key: 'elevData', label: '고온 데이터 보유', onRemove: () => updateFilter('hasElevatedData', false) });
   if (filters.machinability.length) chips.push({ key: 'mach', label: `Mach: ${filters.machinability.join('/')}`, onRemove: () => updateFilter('machinability', []) });
   if (filters.weldability.length) chips.push({ key: 'weld', label: `Weld: ${filters.weldability.join('/')}`, onRemove: () => updateFilter('weldability', []) });
-  if (filters.authorities?.length) chips.push({ key: 'auth', label: `출처: ${filters.authorities.map(a => AUTHORITY_META[a as Authority]?.s ?? a).join('/')}`, onRemove: () => updateFilter('authorities', []) });
-  if (filters.rohsOnly) chips.push({ key: 'rohs', label: `RoHS 통과만`, onRemove: () => updateFilter('rohsOnly', false) });
+  if (filters.authorities?.length) chips.push({ key: 'auth', label: `${lang === 'en' ? 'Source' : '출처'}: ${filters.authorities.map(a => (lang === 'en' ? AUTHORITY_META[a as Authority]?.sEn : AUTHORITY_META[a as Authority]?.s) ?? a).join('/')}`, onRemove: () => updateFilter('authorities', []) });
+  if (filters.rohsOnly) chips.push({ key: 'rohs', label: lang === 'en' ? 'RoHS only' : `RoHS 통과만`, onRemove: () => updateFilter('rohsOnly', false) });
 
   if (chips.length === 0) return null;
   return (
     <div className="px-3 py-2 border-b-2 border-accent/30 bg-accent/5">
       <div className="flex items-center justify-between mb-1.5">
-        <span className="text-[10px] font-bold uppercase tracking-wider text-accent">적용된 필터 · {chips.length}</span>
+        <span className="text-[10px] font-bold uppercase tracking-wider text-accent">{lang === 'en' ? 'Active filters' : '적용된 필터'} · {chips.length}</span>
       </div>
       <div className="flex flex-wrap gap-1">
         {chips.map((c) => (

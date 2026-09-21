@@ -141,6 +141,8 @@ export interface ParsedQuery {
   raw: string;
   /** Tokens we couldn't parse — feedback to user. */
   unknown: string[];
+  /** AUD R10 — 비교식이었는데 못 쓴 토큰의 이유 (알 수 없는 물성 / 숫자가 아닌 값). 구문 오류와 '결과 0' 을 구분한다. */
+  errors: { token: string; reason: string }[];
 }
 
 /**
@@ -211,7 +213,8 @@ function preprocessKoreanComparators(input: string): string {
 export function parseQuery(input: string): ParsedQuery {
   const constraints: Constraint[] = [];
   const unknown: string[] = [];
-  if (!input || !input.trim()) return { constraints, raw: input, unknown };
+  const errors: { token: string; reason: string }[] = [];
+  if (!input || !input.trim()) return { constraints, raw: input, unknown, errors };
 
   /* R167 Phase A — 한국어 자연어 비교어 정규화. */
   const normalizedInput = preprocessKoreanComparators(input);
@@ -249,6 +252,18 @@ export function parseQuery(input: string): ParsedQuery {
       i++;
       continue;
     }
+    /* AUD R10 — 비교 연산자가 있는데 숫자 제약으로 못 읽은 토큰은 자유 텍스트로 넘기지 않는다 ("yield>abc" 가
+       이름 검색이 되어 조용히 0 건). 이유를 붙여 errors 로 돌려주면 QueryBar 가 입력 자리에서 안내한다. */
+    const cmp = t.match(/^([^<>=~]+)(>=|<=|>|<|=|~)(.*)$/);
+    if (cmp) {
+      const propRaw = cmp[1].toLowerCase().trim();
+      const rhs = cmp[3].trim();
+      const known = !!PROP_ALIAS[propRaw];
+      const numeric = /^[+-]?\d*\.?\d+(?:[eE][+-]?\d+)?$/.test(rhs);
+      errors.push({ token: t, reason: !known ? `알 수 없는 물성 '${cmp[1].trim()}'` : !numeric ? `'${rhs || '(빈 값)'}' 은 숫자가 아닙니다` : '해석 불가' });
+      i++;
+      continue;
+    }
 
     // Otherwise treat as free-text fragment (single word OK for fuzzy name match)
     if (/^[a-zA-Z0-9가-힣\-]/.test(t) && t.length >= 2) {
@@ -258,7 +273,7 @@ export function parseQuery(input: string): ParsedQuery {
     }
     i++;
   }
-  return { constraints, raw: input, unknown };
+  return { constraints, raw: input, unknown, errors };
 }
 
 /* ───────── Matching ───────── */

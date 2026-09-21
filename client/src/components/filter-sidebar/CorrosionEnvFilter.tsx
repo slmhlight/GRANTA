@@ -4,6 +4,7 @@
  * 표시 순서·짧은 라벨만 여기서 정한다.
  */
 import { useState } from 'react';
+import { useLang } from '@/lib/i18n';   // AUD F23
 import { type CORROSION_ENV_AXES } from '@/lib/corrosion-guidance';
 
 type CorrEnv = (typeof CORROSION_ENV_AXES)[number];
@@ -24,6 +25,7 @@ interface CorrosionEnvFilterProps {
 }
 
 export function CorrosionEnvFilter({ value, onChange }: CorrosionEnvFilterProps) {
+  const { lang } = useLang();
   const [expanded, setExpanded] = useState(false);
   const active = Object.keys(value).length;
   const set = (env: string, min: EnvMin | null) => {
@@ -35,7 +37,7 @@ export function CorrosionEnvFilter({ value, onChange }: CorrosionEnvFilterProps)
   return (
     <div className="px-3 py-1.5">
       <button onClick={() => setExpanded(!expanded)} className="w-full flex items-center justify-between text-xs font-medium hover:text-accent">
-        <span>내식 환경 <span className="text-[9px] text-muted-foreground font-normal">합금 보정 판정</span></span>
+        <span>{lang === 'en' ? 'Corrosion environment' : '내식 환경'} <span className="text-[9px] text-muted-foreground font-normal">{lang === 'en' ? 'alloy-adjusted rating' : '합금 보정 판정'}</span></span>
         <span className="flex items-center gap-1">
           {active > 0 && <span className="text-[10px] bg-accent/15 text-accent rounded px-1">{active}</span>}
           <span className="text-muted-foreground">{expanded ? '−' : '+'}</span>

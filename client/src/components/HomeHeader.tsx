@@ -228,6 +228,7 @@ export function HomeHeader({
         ] as const).map(({ mode, icon: Icon, label }) => (
           <Tooltip key={mode}>
             <TooltipTrigger asChild>
+              {/* AUD F25 — 아이콘 전용 버튼에 접근성 이름·선택 상태 (툴팁은 hover 전용이라 이름이 되지 않는다). */}
               <button
                 className={`w-7 h-6 flex items-center justify-center rounded transition-all ${
                   viewMode === mode
@@ -235,6 +236,8 @@ export function HomeHeader({
                     : 'text-sidebar-foreground/50 hover:text-sidebar-foreground'
                 }`}
                 onClick={() => setViewMode(mode)}
+                aria-label={`${label} view`}
+                aria-pressed={viewMode === mode}
               >
                 <Icon className="w-3.5 h-3.5" />
               </button>
@@ -282,6 +285,7 @@ export function HomeHeader({
         <TooltipTrigger asChild>
           <Link
             href="/tools"
+            aria-label="Engineering Tools"
             className="h-7 px-2 flex items-center gap-1 rounded border border-sidebar-border text-sidebar-foreground/70 hover:text-white hover:border-accent transition-colors text-[11px] font-medium"
           >
             <Wrench className="w-3.5 h-3.5" />
@@ -378,7 +382,8 @@ export function HomeHeader({
             {lang === 'ko' ? '한' : 'EN'}
           </button>
         </TooltipTrigger>
-        <TooltipContent side="bottom" className="text-xs">{lang === 'ko' ? '언어 전환 — 한국어' : 'Switch language — English'}</TooltipContent>
+        {/* AUD F23 — 번역 범위를 밝힌다: UI(헤더·필터·표·상세 배지·계산기 라벨)는 EN, 학습 가이드·글로서리·산업 노트 본문은 한국어. */}
+        <TooltipContent side="bottom" className="text-xs">{lang === 'ko' ? '언어 전환 — 한국어 / EN (UI 전환; 가이드·글로서리 본문은 한국어)' : 'Switch language — English UI (header, filters, table, badges). Guide, glossary and industry notes are written in Korean.'}</TooltipContent>
       </Tooltip>
 
       {/* R27 — SI / Imperial 단위 토글. R80: 모바일 hidden. */}
@@ -391,7 +396,8 @@ export function HomeHeader({
             {unitSystem === 'si' ? 'SI' : 'IMP'}
           </button>
         </TooltipTrigger>
-        <TooltipContent side="bottom" className="text-xs">{lang === 'ko' ? '단위 전환' : 'Switch units'} — {unitSystem === 'si' ? 'SI (MPa·GPa·°C·g/cm³)' : 'Imperial (ksi·Msi·°F·lb/in³)'}</TooltipContent>
+        {/* AUD F01 — 토글의 적용 범위를 그대로 적는다: 표·카드·상세·비교·CSV 는 변환, 필터 슬라이더·Ashby 축은 SI 고정. */}
+        <TooltipContent side="bottom" className="text-xs">{lang === 'ko' ? '단위 전환' : 'Switch units'} — {unitSystem === 'si' ? 'SI (MPa·GPa·°C·g/cm³)' : 'Imperial (ksi·Msi·°F·lb/in³)'}<br />{lang === 'ko' ? '적용: 표·카드·상세·비교·CSV. 필터 슬라이더·Ashby 축은 SI 고정.' : 'Applies to table, cards, detail, compare, CSV. Filter sliders & Ashby axes stay SI.'}</TooltipContent>
       </Tooltip>
 
       {/* B5: 사례 비교 — 두 사례 동시 입력 + 산출 비교 + 교집합 적용 */}

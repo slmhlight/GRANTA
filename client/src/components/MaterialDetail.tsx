@@ -251,7 +251,7 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
               <Star className={`w-4 h-4 ${favorites?.has(material.id) ? 'fill-amber-400 text-amber-500' : 'text-muted-foreground'}`} />
             </button>
           )}
-          <button onClick={onClose} className="p-1 hover:bg-muted rounded transition-colors">
+          <button onClick={onClose} className="p-1 hover:bg-muted rounded transition-colors" aria-label="상세 패널 닫기" title="닫기 (Esc)">
             <X className="w-4 h-4" />
           </button>
         </div>

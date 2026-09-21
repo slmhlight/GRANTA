@@ -12,6 +12,7 @@
  *
  * 단순성: 한 번에 한 조건만 추가. 여러 조건은 반복 클릭.
  */
+import { useLang } from '@/lib/i18n';   // AUD F23
 import { useEffect, useMemo, useState } from 'react';
 import { Plus, X } from 'lucide-react';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
@@ -210,6 +211,7 @@ function BuilderForm({ stats, onSubmit, onCancel }: BuilderFormProps) {
 /* ─────────── 메인: Popover (desktop) / Sheet (mobile) ─────────── */
 
 export function QueryConditionBuilder({ value, onAdd, stats }: QueryConditionBuilderProps) {
+  const { lang } = useLang();   // AUD F23
   const [open, setOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -237,16 +239,16 @@ export function QueryConditionBuilder({ value, onAdd, stats }: QueryConditionBui
         <SheetTrigger asChild>
           <button
             type="button"
-            aria-label="조건 추가 (visual builder)"
+            aria-label={lang === 'en' ? 'Add condition (visual builder)' : '조건 추가 (visual builder)'}
             className="h-7 px-2 inline-flex items-center gap-1 text-[11px] font-medium rounded border border-border bg-background hover:border-accent hover:text-accent transition-colors"
           >
             <Plus className="w-3 h-3" />
-            조건
+            {lang === 'en' ? 'Condition' : '조건'}
           </button>
         </SheetTrigger>
         <SheetContent side="bottom" className="max-h-[85vh] overflow-y-auto rounded-t-xl">
           <SheetHeader>
-            <SheetTitle>조건 추가</SheetTitle>
+            <SheetTitle>{lang === 'en' ? 'Add condition' : '조건 추가'}</SheetTitle>
           </SheetHeader>
           <div className="mt-3">
             <BuilderForm stats={stats} onSubmit={handleSubmit} onCancel={() => setOpen(false)} />
@@ -261,11 +263,11 @@ export function QueryConditionBuilder({ value, onAdd, stats }: QueryConditionBui
       <PopoverTrigger asChild>
         <button
           type="button"
-          aria-label="조건 추가 (visual builder)"
+          aria-label={lang === 'en' ? 'Add condition (visual builder)' : '조건 추가 (visual builder)'}
           className="h-7 px-2 inline-flex items-center gap-1 text-[11px] font-medium rounded border border-border bg-background hover:border-accent hover:text-accent transition-colors"
         >
           <Plus className="w-3 h-3" />
-          조건
+          {lang === 'en' ? 'Condition' : '조건'}
         </button>
       </PopoverTrigger>
       <PopoverContent className="w-80 p-3" align="start" side="bottom">

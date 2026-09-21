@@ -7,6 +7,7 @@ import { useState, useEffect, type ReactNode } from 'react';
 import { Link } from 'wouter';
 import { ArrowLeft, Calculator, Zap, BookOpen, GraduationCap } from 'lucide-react';
 // R210 B7 — 계산기 수식은 lib/engineering-calcs.ts 순수 함수에서 (테스트 가능). UI 는 그대로.
+import { usePageMeta } from '@/lib/page-meta';   // AUD R13
 import {
   ktFactor, galvanicDeltaV, galvanicBand, galvanicAnode, buckling, thermalMismatchStress,
   hardnessConvert, pressureVesselThickness, larsonMiller, larsonMillerInverseTime,
@@ -15,6 +16,7 @@ import {
   KT_SHAPES, HARDNESS_SCALES, HARDNESS_INPUT_RANGE, VESSEL_SHAPES, SCHAEFFLER_LINES, SCHAEFFLER_EXAMPLES,
   type KtShape, type HardnessScale, type VesselShape, type ValidationIssue,
 } from '@/lib/engineering-calcs';
+import { explorerHref } from '@/lib/explorer-return';   // AUD R15
 
 /* <select> 의 value 는 string 이다. 예전에는 `as any` 로 상태에 그대로 밀어 넣었는데,
    그러면 목록에 없는 값이 들어와도 컴파일도 런타임도 아무 말을 안 한다. 허용 목록에서
@@ -952,6 +954,7 @@ function CalcCard({ id, highlight, children }: { id: string; highlight: boolean;
 }
 
 export default function Tools() {
+  usePageMeta('Engineering Tools', '9 개 기계공학 계산기 — 응력집중 Kt · 갈바닉 · 좌굴 · CTE · ASTM E140 경도 환산 · 압력용기 · Larson-Miller · Mohr · Schaeffler');   // AUD R13
   // H5 W13 — ?calc=<id> 딥링크: 해당 계산기로 스크롤 + 잠깐 하이라이트.
   const [highlight, setHighlight] = useState<string | null>(null);
   useEffect(() => {
@@ -970,7 +973,7 @@ export default function Tools() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-20 h-12 flex items-center gap-3 px-4 border-b border-border bg-[oklch(0.22_0.055_250)] text-sidebar-foreground">
-        <Link href="/" className="flex items-center gap-1.5 text-sm hover:text-white text-sidebar-foreground/80">
+        <Link href={explorerHref()} className="flex items-center gap-1.5 text-sm hover:text-white text-sidebar-foreground/80">
           <ArrowLeft className="w-4 h-4" /> 탐색기로 돌아가기
         </Link>
         <div className="w-px h-5 bg-sidebar-border" />

@@ -15,12 +15,15 @@ import { useReadChapters, GlossaryText, GuideMaterialMapContext, GuideWikiByKeyC
 import { GlossaryFigure, GlossaryPhoto } from './glossary-figures';
 import { useWikiRefs } from '@/hooks/useWikiRefs';
 import { buildAutolinkMap } from '@/lib/wiki-link';
+import { usePageMeta } from '@/lib/page-meta';   // AUD R13
+import { explorerHref } from '@/lib/explorer-return';   // AUD R15
 
 export default function GuideTermPage() {
   const { slug } = useParams<{ slug: string }>();
   const { isRead } = useReadChapters();
   const term = slug ? GLOSSARY.terms[slug] : undefined;
   const catLabel = term ? GLOSSARY.categories[term.category] : '';
+  usePageMeta(term ? `${term.display} · 기술용어` : '기술용어', term ? String(term.short || '').slice(0, 160) : null);   // AUD R13
   const article = slug ? glossaryArticle(slug) : undefined;
   // 본문 내 용어·합금 상호링크용 재료 맵.
   const wikiLookups = useWikiRefs();
@@ -32,7 +35,7 @@ export default function GuideTermPage() {
     <div className="min-h-screen bg-background text-foreground">
       {/* 헤더 */}
       <header className="sticky top-0 z-20 h-12 flex items-center gap-2 sm:gap-3 px-2 sm:px-4 border-b border-border bg-[oklch(0.22_0.055_250)] text-sidebar-foreground">
-        <Link href="/" className="flex items-center gap-1 text-xs sm:text-sm hover:text-white text-sidebar-foreground/80 whitespace-nowrap">
+        <Link href={explorerHref()} className="flex items-center gap-1 text-xs sm:text-sm hover:text-white text-sidebar-foreground/80 whitespace-nowrap">
           <ArrowLeft className="w-4 h-4" /> <span className="hidden sm:inline">탐색기</span>
         </Link>
         <div className="w-px h-5 bg-sidebar-border hidden sm:block" />

@@ -55,7 +55,12 @@ export const TRANSLATIONS: Record<string, Record<Lang, string>> = {
 
   // Filter sidebar
   'filter.title': { ko: '필터', en: 'Filters' },
-  'filter.reset': { ko: '초기화', en: 'Reset' },
+  /* AUD R11 (2026-09-22) — 'Reset' 은 기본값(인기도 4~5)으로 되돌리는 것이지 전체 보기가 아니다. 두 동작을 이름으로 가른다. */
+  'filter.reset': { ko: '기본값 복원', en: 'Reset to defaults' },
+  'filter.reset.tip': { ko: '모든 필터를 기본값으로 — 기본값은 인기도 4~5 (검증된 상용 합금 위주)', en: 'All filters back to defaults — default keeps popularity 4–5 (proven commercial alloys)' },
+  'filter.showAll': { ko: '전체 보기', en: 'Show all' },
+  'filter.showAll.tip': { ko: '기본 인기도 필터(4~5)를 해제해 모든 재료를 표시 — 다른 필터는 유지', en: 'Drop the default popularity filter (4–5) to show every material — other filters stay' },
+  'filter.defaultNote': { ko: '기본: 인기도 4~5', en: 'default: popularity 4–5' },
   'filter.category': { ko: '카테고리', en: 'Category' },
   'filter.elementRange': { ko: '원소 함량', en: 'Element Range' },
   'filter.process': { ko: '공정', en: 'Process' },

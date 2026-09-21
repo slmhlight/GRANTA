@@ -11,6 +11,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import type { Material } from '@/lib/materials';
 import { AUTHORITY_ORDER, AUTHORITY_META, authorityGrades, type Authority } from '@/lib/source-authority';
 import { FilterSection, toggleIn } from './FilterSection';
+import { useLang } from '@/lib/i18n';   // AUD F23
 
 interface AuthorityFilterProps {
   materials: Material[];
@@ -21,6 +22,7 @@ interface AuthorityFilterProps {
 }
 
 export function AuthorityFilter({ materials, selected, onChange, onSort, sortActive }: AuthorityFilterProps) {
+  const { lang } = useLang();
   const counts = useMemo(() => {
     const c = {} as Record<Authority, number>;
     for (const a of AUTHORITY_ORDER) c[a] = 0;
@@ -30,7 +32,7 @@ export function AuthorityFilter({ materials, selected, onChange, onSort, sortAct
   }, [materials]);
 
   return (
-    <FilterSection title="출처 등급" activeCount={selected.length}>
+    <FilterSection title={lang === 'en' ? 'Source authority' : '출처 등급'} activeCount={selected.length}>
       <div className="px-3 py-2 space-y-1.5">
         <p className="text-[10px] text-muted-foreground leading-snug">
           선택한 등급의 <b>출처를 가진</b> 재료를 남깁니다. 선택하지 않으면 전량이 보입니다 —
@@ -39,7 +41,7 @@ export function AuthorityFilter({ materials, selected, onChange, onSort, sortAct
         {AUTHORITY_ORDER.map((a) => (
           <label key={a} className="flex items-center gap-2 cursor-pointer" title={AUTHORITY_META[a].title}>
             <Checkbox checked={selected.includes(a)} onCheckedChange={() => onChange(toggleIn(selected, a))} className="w-3.5 h-3.5 rounded-sm flex-shrink-0" />
-            <span className={`text-[9px] px-1 rounded border font-medium ${AUTHORITY_META[a].cls}`}>{AUTHORITY_META[a].s}</span>
+            <span className={`text-[9px] px-1 rounded border font-medium ${AUTHORITY_META[a].cls}`} title={lang === 'en' ? AUTHORITY_META[a].titleEn : AUTHORITY_META[a].title}>{lang === 'en' ? AUTHORITY_META[a].sEn : AUTHORITY_META[a].s}</span>
             <span className="text-[10px] text-muted-foreground">{counts[a]}</span>
           </label>
         ))}

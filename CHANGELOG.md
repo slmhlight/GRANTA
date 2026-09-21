@@ -2,6 +2,20 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## 2026-09-22 — 외부 감사 대응 2차: 사용성·접근성 (F01·F23~F28·R09~R13·R15)
+
+- **F01 Imperial 토글이 가격만 바꿨다** — `UnitSystemContext`(Home 이 제공) + `displayNumber/displayUnit`(lib/unit-context) 로 표·카드·상세(RangeRow)·비교·CSV 가 같은 단위계를 렌더(값 SSOT 는 SI 그대로; 7075-T6 σy 505 MPa → 73.2 ksi, ρ 2.81 → 0.102 lb/in³, E 72 → 10.4 Msi). 가격 라벨 "(per kg)" → "(per lb)". 필터 슬라이더·Ashby 축은 SI 고정이라 섹션 제목에 '(SI)'·축 제목에 '· SI' 를 붙이고 토글 툴팁에 적용 범위를 적었다.
+- **F23 EN 모드 한글 잔존** — 홈 화면 노출 한글 17 → 0 (필터 섹션 라벨 `labelEn`·적용된 필터·출처 등급·내식 환경·고온 데이터·RoHS·구성 탐색·조건 버튼·Family Tree 그룹 수). 상세 배지(핸드북/유도/계산·가공 난이도·가격 등급·출처 권위 `sEn/titleEn`) EN 화. 가이드·글로서리·산업 노트 본문은 한국어 — 언어 토글 툴팁에 범위 명시.
+- **F24/F25 접근성 이름** — 계산기 입력 28 개 `<label htmlFor>`(1차), 홈 보기 전환 3 버튼(aria-label + aria-pressed)·사이드바 접기(aria-expanded)·상세 닫기·Tools 아이콘 링크에 이름. 강·약축 토글 aria-pressed.
+- **F27 온보딩 "1,200+ 합금"** — build-meta `totalAlloys`·`SCENARIO_PRESETS`·`TOC` 에서 산출 ("1,102 재료 레코드(합금×조건)"), 챕터 수도 SSOT.
+- **F28 정상 라우트가 HTTP 404** — `scripts/build-static-routes.mjs`: vite build 뒤 /tools · /guide · /guide/chN(15) · /guide/term/<slug>(128) 에 `<route>/index.html` 을 생성(Pages 가 200 으로 서빙, 없는 경로만 404.html). 라우트 SSOT 는 App.tsx·toc.ts·glossary.json — `tests/static-routes.test.ts` 가 parity 게이트, `pipeline-integrity` 가 deploy 스텝 존재를 게이트. **R13** 페이지별 `<title>`·description·canonical·OG 를 정적 HTML 에 심고, SPA 이동 시 `usePageMeta` 가 문서 제목을 맞춘다. 홈 index.html 에 description/OG 추가.
+- **R09 검색 관련도** — `fuzzyRank`(정확 0 · 구분자제거 1 · 부분수열 2): 순숫자 질의는 부분수열을 쓰지 않아 '7075' 가 17-4 H1075·Cupronickel 70/30 을 끌어오던 오탐 제거, 기본 정렬일 때 관련도 우선, 별칭/UNS 에서 맞은 행은 배지. **R10** DSL 비교식 오류(`yield>abc`·알 수 없는 물성)를 텍스트 검색으로 넘기지 않고 이유를 입력 아래 표시.
+- **R11 Reset vs 전체 보기** — 기본 인기도 4~5 필터가 살아 있으면 '전체 보기' 버튼(그 필터만 해제)과 '기본값 복원'(Reset) 을 분리, 재료 수 옆 '기본: 인기도 4~5' 표기.
+- **R15 탐색 상태 보존** — 탐색기 URL 상태(?q·p·f.·d#g)를 세션에 남기고 가이드·Tools·용어 페이지의 "탐색기로 돌아가기" 가 그 주소로 복귀. **R12** 420px 미만 카드 1열.
+- 검증: vitest 1275/1275(82) · tsc 0 · lint 0 · vite build + 정적 라우트 145 생성 확인.
+
+---
+
 ## 2026-09-22 — 외부 감사(2026-09-21) 대응 1차: 수치 신뢰성 (F02~F10·F12·R01~R05) · 계산기 전제 (F13~F17·F30·F31·R06·R07) · 가이드 (F18~F22)
 
 외부 감사 보고서(확정 결함 31·검토 16)를 코드베이스와 대조해 진위를 가린 뒤 데이터 진실성부터 고쳤다. 감사 자료의 검사 규칙은 `tests/audit-2026-09.test.ts`(19 게이트)로 옮겨 재발을 막는다.

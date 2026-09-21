@@ -61,6 +61,23 @@ describe('parseQuery', () => {
   });
 });
 
+describe('parseQuery — 구문 오류 피드백 (AUD R10)', () => {
+  it("'yield>abc' 는 텍스트 검색으로 넘어가지 않고 숫자 아님 오류가 된다", () => {
+    const p = parseQuery('yield>abc');
+    expect(p.constraints).toEqual([]);
+    expect(p.errors.length).toBe(1);
+    expect(p.errors[0].reason).toMatch(/숫자가 아닙니다/);
+  });
+  it('알 수 없는 물성은 이유를 명시한다', () => {
+    const p = parseQuery('foo>10');
+    expect(p.constraints).toEqual([]);
+    expect(p.errors[0].reason).toMatch(/알 수 없는 물성/);
+  });
+  it('정상 비교식은 errors 가 비어 있다', () => {
+    expect(parseQuery('yield>500').errors).toEqual([]);
+  });
+});
+
 describe('applyQuery', () => {
   const mats: Material[] = [
     M({ id: 'a', name: 'Steel A', ranges: { yield_strength: { min: 400, max: 600, typical: 500, n: 1 }, density: { min: 7.7, max: 7.9, typical: 7.8, n: 1 } } }),

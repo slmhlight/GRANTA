@@ -8,6 +8,7 @@
  *           tier1 클릭 시 그 카테고리의 모든 leaf 토글 (state 는 filters.subcategories[] 에만 저장).
  */
 import { useState, useMemo } from 'react';
+import { useLang } from '@/lib/i18n';   // AUD F23
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import type { Material } from '@/lib/materials';
 import { FilterSection } from './FilterSection';
@@ -31,6 +32,7 @@ interface FamilyFilterProps {
 }
 
 export function FamilyFilter({ materials, selectedCategories, selected, onChange }: FamilyFilterProps) {
+  const { lang } = useLang();
   const [expandedTier1, setExpandedTier1] = useState<Set<string>>(new Set());
   const [expandedTier2, setExpandedTier2] = useState<Set<string>>(new Set());
   const isActive = selected.length > 0;
@@ -78,7 +80,7 @@ export function FamilyFilter({ materials, selectedCategories, selected, onChange
   };
 
   const groupCountNote = !isActive && tree.length > 0
-    ? <span className="text-[9px] text-muted-foreground">({tree.reduce((s, t) => s + t.tier2Groups.length, 0)} 그룹)</span>
+    ? <span className="text-[9px] text-muted-foreground">({tree.reduce((s, t) => s + t.tier2Groups.length, 0)} {lang === 'en' ? 'groups' : '그룹'})</span>
     : null;
 
   return (

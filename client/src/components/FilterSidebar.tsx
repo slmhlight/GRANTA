@@ -11,12 +11,13 @@
 import { useMemo } from 'react';
 import { useT, useLang } from '@/lib/i18n';
 import { priceUnitLabel, loadUnitSystem } from '@/lib/unit-convert';
+import { useUnitSystem } from '@/lib/unit-context';   // AUD F01
 import { SlidersHorizontal, RotateCcw } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { CompositionFamilyBrowser } from '@/components/CompositionFamilyBrowser';
 import type { Material } from '@/lib/materials';
 import { getPropertyRange, getUniqueValues } from '@/lib/materials';
-import type { FilterState } from '@/hooks/useMaterialFilter';
+import { DEFAULT_FILTERS, type FilterState } from '@/hooks/useMaterialFilter';
 import { RANGE_FILTERS, RANGE_SECTIONS, rangeUnit, type RangeSection } from '@/lib/range-filters';
 import { RangeSlider } from './filter-sidebar/RangeSlider';
 import { FamilyFilter } from './filter-sidebar/FamilyFilter';
@@ -46,7 +47,8 @@ interface FilterSidebarProps {
   sortedByAuthority?: boolean;
 }
 
-const SECTION_LABEL: Record<RangeSection, string> = Object.fromEntries(RANGE_SECTIONS.map((s) => [s.id, s.label])) as Record<RangeSection, string>;
+const SECTION_LABEL_KO: Record<RangeSection, string> = Object.fromEntries(RANGE_SECTIONS.map((s) => [s.id, s.label])) as Record<RangeSection, string>;
+const SECTION_LABEL_EN: Record<RangeSection, string> = Object.fromEntries(RANGE_SECTIONS.map((s) => [s.id, s.labelEn])) as Record<RangeSection, string>;
 
 export default function FilterSidebar({
   materials,
@@ -61,9 +63,15 @@ export default function FilterSidebar({
   sortedByAuthority,
 }: FilterSidebarProps) {
   const t = useT();
-  // R40b — Price slider unit lang/units 인식 ($/kg ↔ ₩/kg).
+  // R40b — Price slider unit lang/units 인식 ($/kg ↔ ₩/kg). (사용 직전 선언 — useMemo 밖이라도 TDZ 정책과 같은 순서)
   const { lang } = useLang();
+  const SECTION_LABEL = lang === 'en' ? SECTION_LABEL_EN : SECTION_LABEL_KO;   // AUD F23
+  const en = lang === 'en';
+  /* AUD R11 — 기본 인기도 필터가 살아 있는지 (Reset 이 복원하는 상태). */
+  const isDefaultPopularity = Array.isArray(filters.popularityRange) && filters.popularityRange[0] === DEFAULT_FILTERS.popularityRange![0] && filters.popularityRange[1] === DEFAULT_FILTERS.popularityRange![1];
   const sidebarPriceLabel = priceUnitLabel(lang, loadUnitSystem(), 'kg');
+  /* AUD F01 — 슬라이더 값은 SI 로 저장·표시한다. 헤더가 Imperial 이면 섹션 제목에 'SI' 를 붙여 범위를 밝힌다. */
+  const siTag = useUnitSystem() === 'imperial' ? ' (SI)' : '';
 
   // 전체 데이터 기준 범위 — materials 가 바뀔 때만 다시 센다.
   const baseRanges = useMemo(() => {
@@ -109,23 +117,38 @@ export default function FilterSidebar({
           <SlidersHorizontal className="w-4 h-4 text-foreground/60" />
           <h2 className="text-xs font-semibold text-foreground">{t('filter.title')}</h2>
         </div>
-        {activeFilterCount > 0 && (
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={resetFilters}
-            className="h-6 px-2 text-[10px] text-muted-foreground hover:text-foreground"
-          >
-            <RotateCcw className="w-3 h-3 mr-1" />
-            Reset
-          </Button>
-        )}
+        <div className="flex items-center gap-1">
+          {/* AUD R11 — 전체 보기(기본 인기도 필터 해제)와 기본값 복원을 별도 동작으로. */}
+          {isDefaultPopularity && (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => updateFilter('popularityRange', null)}
+              title={t('filter.showAll.tip')}
+              className="h-6 px-2 text-[10px] text-accent hover:text-foreground"
+            >
+              {t('filter.showAll')}
+            </Button>
+          )}
+          {activeFilterCount > 0 && (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={resetFilters}
+              title={t('filter.reset.tip')}
+              className="h-6 px-2 text-[10px] text-muted-foreground hover:text-foreground"
+            >
+              <RotateCcw className="w-3 h-3 mr-1" />
+              {t('filter.reset')}
+            </Button>
+          )}
+        </div>
       </div>
 
       {/* Material Count */}
       <div className="px-4 py-2 border-b border-border/50 bg-muted/30">
         <p className="text-[10px] font-mono text-muted-foreground">
-          {resultCount.toLocaleString()} materials
+          {resultCount.toLocaleString()} materials{isDefaultPopularity && <span className="ml-1 text-muted-foreground/70">· {t('filter.defaultNote')}</span>}
         </p>
       </div>
 
@@ -160,11 +183,11 @@ export default function FilterSidebar({
         />
 
         {/* ── 2. 기계적 성질 ── */}
-        <SectionGroup label={SECTION_LABEL.mechanical} />
+        <SectionGroup label={SECTION_LABEL.mechanical + siTag} />
         {sliders('mechanical')}
 
         {/* ── 3. 열적 성질 ── */}
-        <SectionGroup label={SECTION_LABEL.thermal} />
+        <SectionGroup label={SECTION_LABEL.thermal + siTag} />
         {sliders('thermal')}
 
         {/* ── 4. 전기적 성질 ── */}
@@ -176,7 +199,7 @@ export default function FilterSidebar({
         {sliders('cost')}
 
         {/* ── 6. 품질·내환경성 ── */}
-        <SectionGroup label="품질 · Quality" />
+        <SectionGroup label={en ? 'Quality' : '품질 · Quality'} />
         <QualitativeFilter label="Corrosion resistance" options={corrosionOpts} selected={filters.corrosion} onChange={v => updateFilter('corrosion', v)} />
         {/* E15l — 환경별 내식 (부식 카드 합금 보정 판정 기반) */}
         <CorrosionEnvFilter value={filters.corrosionEnvMin || {}} onChange={v => updateFilter('corrosionEnvMin', v)} />
@@ -186,19 +209,19 @@ export default function FilterSidebar({
         {/* E15l — 고온 데이터 보유 (승온/크리프 곡선) */}
         <label className="flex items-center gap-2 px-3 py-2 text-xs cursor-pointer select-none hover:bg-muted/40 rounded">
           <input type="checkbox" checked={!!filters.hasElevatedData} onChange={(e) => updateFilter('hasElevatedData', e.target.checked)} className="accent-accent" />
-          <span className="flex-1">고온 데이터 보유만</span>
-          <span className="text-[10px] text-muted-foreground">승온·크리프 곡선</span>
+          <span className="flex-1">{en ? 'Elevated-temperature data only' : '고온 데이터 보유만'}</span>
+          <span className="text-[10px] text-muted-foreground">{en ? 'elev-temp · creep curves' : '승온·크리프 곡선'}</span>
         </label>
 
         {/* ── 7. 규제 ── */}
-        <SectionGroup label="규제 · Regulatory" />
+        <SectionGroup label={en ? 'Regulatory' : '규제 · Regulatory'} />
         <label className="flex items-center gap-2 px-3 py-2 text-xs cursor-pointer select-none hover:bg-muted/40 rounded">
           <input type="checkbox" checked={!!filters.rohsOnly} onChange={(e) => updateFilter('rohsOnly', e.target.checked)} className="accent-accent" />
-          <span className="flex-1">RoHS 통과만 (EU 규제)</span>
+          <span className="flex-1">{en ? 'RoHS compliant only (EU)' : 'RoHS 통과만 (EU 규제)'}</span>
           <span className="text-[10px] text-muted-foreground">Pb·Cd·Hg</span>
         </label>
         {/* ── 8. Composition Browser (참고용) ── */}
-        <SectionGroup label="구성 탐색 · Composition Tree" />
+        <SectionGroup label={en ? 'Composition Tree' : '구성 탐색 · Composition Tree'} />
         <CompositionFamilyBrowser
           materials={materials}
           onSelectMaterial={onSelectMaterial}

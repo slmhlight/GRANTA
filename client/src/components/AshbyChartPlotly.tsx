@@ -11,6 +11,7 @@ import { Slider } from '@/components/ui/slider';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Material, ALL_NUMERIC_PROPERTIES, CATEGORY_COLORS, propValue, propBound } from '@/lib/materials';
 import { classOf } from '@/lib/material-colors';
+import { useUnitSystem } from '@/lib/unit-context';   // AUD F01
 import { toast } from 'sonner';
 import type { FilterState } from '@/hooks/useMaterialFilter';
 
@@ -274,6 +275,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     return ['all', ...Array.from(s).sort()];
   }, [materials, groupFilter]);
 
+  const unitSys = useUnitSystem();
   const { data, layout, indexInfo, selectedIds, paretoInfo } = useMemo(() => {
     const inGroup = (m: Material) => groupFilter === 'all' || classOf(m).key === groupFilter;
     const inSub = (m: Material) => subFilter === 'all' || m.subcategory === subFilter;
@@ -516,6 +518,8 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
     const minorAxis = showMinorGrid ? { showgrid: true, gridcolor: darkChart ? '#16203a' : '#f5f8fc', gridwidth: 0.5 } : {};
     // 모바일에서는 마진·폰트·title 축약·범례를 줄여 차트 면적·시인성 확보.
     const mTitleFont = isMobile ? 10 : 12;
+    // AUD F01 — 차트 데이터는 SI 다. 헤더가 Imperial 이면 축 제목에 'SI' 를 명시한다 (표·상세와 단위가 다름을 숨기지 않음).
+    const siNote = unitSys === 'imperial' ? ' · SI' : '';
     const mTickFont = isMobile ? 9 : 11;
     const mBaseFont = isMobile ? 10 : 12;
     // R37 — 모바일 b 마진 확장 (44→78) — legend 가 X축 아래 horizontal 로 떨어질 때 X축 라벨과 겹침 방지.
@@ -538,8 +542,8 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       //       indexPreset · indexThreshold · xLimit · yLimit · compareList 등은 axis state 보존.
       //       R97 — resetCounter 포함: reset axes 클릭 시 onRelayout 핸들러가 ++ 해서 uirevision 변경 →
       //              plotly 가 axis state 폐기 + layout.range 적용 (X/Y property 재선택과 같은 효과).
-      xaxis: { title: { text: `${shortLabel(xMeta?.label, xProperty)} (${xMeta?.unit ?? ''})`, font: { size: mTitleFont } }, type: xLog ? 'log' : 'linear', range: xRange, uirevision: `${xProperty}|${xLog}|${groupFilter}|${subFilter}|${resetCounter}`, gridcolor: gridC, showgrid: showGrid, zeroline: false, ticks: 'outside', tickcolor: tickC, tickfont: { size: mTickFont }, minor: minorAxis, automargin: true },
-      yaxis: { title: { text: `${shortLabel(yMeta?.label, yProperty)} (${yMeta?.unit ?? ''})`, font: { size: mTitleFont } }, type: yLog ? 'log' : 'linear', range: yRange, uirevision: `${yProperty}|${yLog}|${groupFilter}|${subFilter}|${resetCounter}`, gridcolor: gridC, showgrid: showGrid, zeroline: false, ticks: 'outside', tickcolor: tickC, tickfont: { size: mTickFont }, minor: minorAxis, automargin: true },
+      xaxis: { title: { text: `${shortLabel(xMeta?.label, xProperty)} (${xMeta?.unit ?? ''}${siNote})`, font: { size: mTitleFont } }, type: xLog ? 'log' : 'linear', range: xRange, uirevision: `${xProperty}|${xLog}|${groupFilter}|${subFilter}|${resetCounter}`, gridcolor: gridC, showgrid: showGrid, zeroline: false, ticks: 'outside', tickcolor: tickC, tickfont: { size: mTickFont }, minor: minorAxis, automargin: true },
+      yaxis: { title: { text: `${shortLabel(yMeta?.label, yProperty)} (${yMeta?.unit ?? ''}${siNote})`, font: { size: mTitleFont } }, type: yLog ? 'log' : 'linear', range: yRange, uirevision: `${yProperty}|${yLog}|${groupFilter}|${subFilter}|${resetCounter}`, gridcolor: gridC, showgrid: showGrid, zeroline: false, ticks: 'outside', tickcolor: tickC, tickfont: { size: mTickFont }, minor: minorAxis, automargin: true },
       hovermode: 'closest', shapes, annotations: guideAnnotations,
       /* R101 — 모바일: 단일 손가락 pan 기본 활성화 (touch zoom 은 두 손가락 pinch). 데스크탑: zoom 박스 기본. */
       dragmode: isMobile ? 'pan' : 'zoom',
@@ -594,7 +598,7 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
       ...selMarker,
     ];
     return { data, layout, indexInfo, selectedIds, paretoInfo };
-  }, [materials, filtered, xProperty, yProperty, filters, groupFilter, subFilter, selectedId, showEnvelopes, xLog, yLog, compareList, xLimit, yLimit, markerSize, showContext, showGrid, showLabels, showLegend, showGuides, markerOpacity, envOpacity, showMinorGrid, showSelected, darkChart, colorByCategory, indexPreset, indexThreshold, boxedIds, constraints, showMarkers, envelopeBy, envFill, envOutline, isMobile, showPareto, resetCounter, xDomain, yDomain]);
+  }, [materials, filtered, xProperty, yProperty, filters, groupFilter, subFilter, selectedId, showEnvelopes, xLog, yLog, compareList, xLimit, yLimit, markerSize, showContext, showGrid, showLabels, showLegend, showGuides, markerOpacity, envOpacity, showMinorGrid, showSelected, darkChart, colorByCategory, indexPreset, indexThreshold, boxedIds, constraints, showMarkers, envelopeBy, envFill, envOutline, isMobile, showPareto, resetCounter, xDomain, yDomain, unitSys]);
 
   const config = {
     responsive: true, displaylogo: false,

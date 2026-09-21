@@ -63,8 +63,11 @@ jobs:
       - name: Build static site
         run: pnpm exec vite build
 
-      - name: SPA fallback (serve index.html for unknown routes)
-        run: cp dist/public/index.html dist/public/404.html
+      # AUD F28/R13 — 정상 라우트(/tools · /guide/chN · /guide/term/<slug>)를 실제 <route>/index.html 로 두어 Pages 가
+      # 200 으로 서빙하게 한다(SPA 셸을 404 상태로 돌려주던 것). 페이지별 title/description/canonical/OG 도 여기서 심는다.
+      # (tests/static-routes.test.ts 가 이 스텝의 존재와 라우트 SSOT 일치를 게이트)
+      - name: Static routes + SPA fallback (200 for known routes, 404.html for the rest)
+        run: node scripts/build-static-routes.mjs dist/public
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

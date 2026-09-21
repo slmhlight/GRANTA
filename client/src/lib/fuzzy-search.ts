@@ -8,6 +8,25 @@
  *
  * 입력 너무 짧으면(<2자) fuzzy 비활성 — false positive 방지.
  */
+/**
+ * AUD R09 (2026-09-22) — 매칭 등급. 0 = 정확 부분문자열 · 1 = 구분자 제거 부분문자열 · 2 = 부분수열(오타·약어) · -1 = 불일치.
+ * 부분수열은 문자가 섞인 질의(≥3자)에만 허용한다 — 순숫자 '7075' 가 '17-4 PH H1075'·'Cupronickel 70/30' 을 끌어오던 원인.
+ */
+export function fuzzyRank(text: string, q: string): number {
+  if (!text) return -1;
+  if (text.includes(q)) return 0;
+  if (q.length < 2) return -1;
+  const cleanText = text.replace(/[-\s./_]/g, '');
+  const cleanQ = q.replace(/[-\s./_]/g, '');
+  if (cleanQ.length >= 2 && cleanText.includes(cleanQ)) return 1;
+  if (cleanQ.length < 3 || /^\d+$/.test(cleanQ)) return -1;
+  let i = 0;
+  for (let j = 0; j < cleanText.length && i < cleanQ.length; j++) {
+    if (cleanText[j] === cleanQ[i]) i++;
+  }
+  return i === cleanQ.length ? 2 : -1;
+}
+
 export function fuzzyContains(text: string, q: string): boolean {
   if (!text) return false;
   if (text.includes(q)) return true;

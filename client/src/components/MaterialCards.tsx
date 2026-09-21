@@ -10,6 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import { propValue } from '@/lib/materials';
 import type { Material } from '@/lib/materials';
 import { formatValue, CATEGORY_COLORS, SUBCATEGORY_COLORS } from '@/lib/materials';
+import { useUnitSystem, displayNumber, displayUnit, displayDigits } from '@/lib/unit-context';   // AUD F01
 import { familyColor } from '@/lib/material-colors';
 
 interface MaterialCardsProps {
@@ -88,6 +89,7 @@ export function MaterialCards({
   activeFilterCount,
   searchQuery,
 }: MaterialCardsProps) {
+  const sys = useUnitSystem();   // AUD F01 — 카드 물성도 단위계를 따른다
   const [page, setPage] = useState(0);
   /* R86 — 표시할 물성 선택 (localStorage 영속). */
   const [selectedProps, setSelectedProps] = useState<CardPropOpt['key'][]>(() => loadCardProps());
@@ -121,7 +123,7 @@ export function MaterialCards({
               key={opt.key}
               type="button"
               onClick={() => toggleProp(opt.key)}
-              title={`${opt.symbol}${opt.unit ? ' (' + opt.unit + ')' : ''}${active ? ' — 해제' : ' — 추가'}`}
+              title={`${opt.symbol}${opt.unit ? ' (' + displayUnit(opt.key, opt.unit, sys) + ')' : ''}${active ? ' — 해제' : ' — 추가'}`}
               className={`flex-shrink-0 px-1.5 py-0.5 rounded text-[10px] font-mono border transition-colors ${
                 active
                   ? 'bg-accent text-white border-accent shadow-sm'
@@ -149,7 +151,8 @@ export function MaterialCards({
             ) : null}
           </div>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-3">
+          <div className="grid grid-cols-1 min-[420px]:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-3">
+            {/* AUD R12 — 390px 폭에서 2열은 이름이 잘리고 물성 글자가 작아진다 → 420px 미만은 1열(요약 카드), 그 위 2열. */}
             {pageData.map((m, i) => {
               const isSelected = m.id === selectedId;
               const isCompare = compareList.includes(m.id);
@@ -238,7 +241,7 @@ export function MaterialCards({
                           <div className="flex justify-between items-baseline gap-1">
                             <span className="text-[9px] text-muted-foreground font-mono">{opt.symbol}</span>
                             <span className="font-mono text-[9px] text-foreground/80 truncate">
-                              {formatValue(v, opt.fmt)}{opt.unit ? ` ${opt.unit}` : ''}
+                              {formatValue(displayNumber(opt.key, v, sys), displayDigits(opt.key, opt.fmt, sys))}{opt.unit ? ` ${displayUnit(opt.key, opt.unit, sys)}` : ''}
                             </span>
                           </div>
                           {showBar && <MiniBar value={v} max={opt.max} color={catColor} />}

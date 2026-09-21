@@ -6,25 +6,26 @@
  */
 import type { PropertyRange } from '@/lib/materials';
 import { useLang } from '@/lib/i18n';
-import { formatPrice, loadUnitSystem } from '@/lib/unit-convert';
+import { formatPrice } from '@/lib/unit-convert';
+import { useUnitSystem, displayNumber, displayUnit } from '@/lib/unit-context';   // AUD F01
 import { CONFIDENCE, type ConfidenceLevel } from '@/lib/material-colors';
 import { Link } from 'wouter';
 import { glossarySlugFor } from '@/lib/property-glossary';
 
 /** 숫자 포맷 helper — 10 미만은 소수 2자리, 10 이상은 1자리, integer 그대로. */
-export const fmt = (v: number) => (Number.isInteger(v) ? String(v) : v.toFixed(Math.abs(v) < 10 ? 2 : 1));
+export const fmt = (v: number | null | undefined) => (v == null ? '—' : Number.isInteger(v) ? String(v) : v.toFixed(Math.abs(v) < 10 ? 2 : 1));
 
 /* R204 #3 — Cost factor / Difficulty factor 의 directness 라벨 helper.
  *   사용자 권장: 1.0 = 보통, 작을수록 쉬움/저렴, 클수록 어려움/비쌈.
  *   Machining / HT factor → 어려움 의미
  *   Price condition/form/grade × → 가격(premium) 의미 */
-export function factorDifficultyLabel(value: number, kind: 'difficulty' | 'price'): { label: string; color: string } | null {
+export function factorDifficultyLabel(value: number, kind: 'difficulty' | 'price', lang: 'ko' | 'en' = 'ko'): { label: string; color: string } | null {
   if (!isFinite(value) || value <= 0) return null;
   const v = value;
   /* 단계 7가지: 매우쉬움/쉬움/조금쉬움/보통/조금어려움/어려움/매우어려움 */
   const labels = kind === 'difficulty'
-    ? ['매우 쉬움', '쉬움', '조금 쉬움', '보통', '조금 어려움', '어려움', '매우 어려움']
-    : ['매우 저렴', '저렴', '약간 저렴', '표준', '약간 비쌈', '비쌈', '매우 비쌈'];
+    ? (lang === 'en' ? ['very easy', 'easy', 'fairly easy', 'average', 'fairly hard', 'hard', 'very hard'] : ['매우 쉬움', '쉬움', '조금 쉬움', '보통', '조금 어려움', '어려움', '매우 어려움'])
+    : (lang === 'en' ? ['very cheap', 'cheap', 'slightly cheap', 'standard', 'slightly costly', 'costly', 'very costly'] : ['매우 저렴', '저렴', '약간 저렴', '표준', '약간 비쌈', '비쌈', '매우 비쌈']);
   const colors = ['text-emerald-700', 'text-emerald-600', 'text-emerald-500', 'text-muted-foreground', 'text-amber-600', 'text-orange-600', 'text-rose-600'];
   let idx: number;
   if (v < 0.72) idx = 0;       // ≤ 0.71
@@ -56,7 +57,13 @@ export function RangeRow({
   const termSlug = glossarySlugFor(propKey);
   const isPrice = /USD\//.test(unit);
   const priceUnit: 'kg' | 'cm3' = unit.includes('cm³') || unit.includes('cm3') ? 'cm3' : 'kg';
-  const sys = isPrice ? loadUnitSystem() : null;
+  const sysAll = useUnitSystem();
+  const sys = isPrice ? sysAll : null;
+  /* AUD F01 — 가격 외 물성도 단위계를 따른다. 값 SSOT 는 SI, 표시만 변환(propKey 가 변환표에 있을 때). */
+  const disp = (v: number | null | undefined) => (propKey && !isPrice ? displayNumber(propKey, v, sysAll) : (v ?? null));
+  const dispUnit = propKey && !isPrice ? displayUnit(propKey, unit, sysAll) : unit;
+  /* AUD F01 — 가격 라벨의 "(per kg)/(per cm³)" 도 단위계를 따른다 ($/lb 인데 라벨은 per kg 이던 것). */
+  const shownLabel = isPrice && sysAll === 'imperial' ? label.replace('(per kg)', '(per lb)').replace('(per cm³)', '(per in³)') : label;
 
   /* 호출부가 fallback 으로 propValue(material, key) 를 넘긴다 — range.typical 이 있으면
      양쪽이 같은 값이고, 없으면 fallback 이 곧 propValue 다. 즉 이 줄은 공용 리더와 동치이며,
@@ -85,7 +92,7 @@ export function RangeRow({
      '≈UTS' 로 찍었지만 실제 규칙은 σy 기반(family:σf≈0.38·σy …)과 UTS 기반(σf≈0.45·UTS)이 섞여 있다. */
   const provStr = String((range as { provenance?: string })?.provenance ?? '');
   const fatigueRule = provStr.match(/σf≈([\d.]+)·(σy|UTS)/);
-  const derivedLabel = isPriceProp ? '계산' : (isFatigueProp ? (fatigueRule ? `≈${fatigueRule[1]}·${fatigueRule[2]}` : '유도') : '유도');
+  const derivedLabel = isPriceProp ? (lang === 'en' ? 'calc' : '계산') : (isFatigueProp ? (fatigueRule ? `≈${fatigueRule[1]}·${fatigueRule[2]}` : (lang === 'en' ? 'derived' : '유도')) : (lang === 'en' ? 'derived' : '유도'));
   const derivedTip = isPriceProp
     ? '계산값 — base price × condition/form/grade 배수 적용 (raw price 의 product)'
     : (isFatigueProp
@@ -99,7 +106,7 @@ export function RangeRow({
      derived 의 라벨·툴팁은 property type 별(가격='계산'/피로='≈UTS'/기타='유도')로 override. */
   const base = conf ? CONFIDENCE[conf as ConfidenceLevel] : null;
   const badge = base ? {
-    label: conf === 'measured' ? `n=${range?.n ?? 0}` : conf === 'derived' ? derivedLabel : base.label,
+    label: conf === 'measured' ? `n=${range?.n ?? 0}` : conf === 'derived' ? derivedLabel : (lang === 'en' ? base.labelEn : base.label),   // AUD F23
     cls: base.twText,
     dot: base.twDot,
     tip: conf === 'derived' ? derivedTip : conf === 'measured' ? measuredTip : base.tip,
@@ -126,19 +133,19 @@ export function RangeRow({
   const specFloorSrc = (range as { basis_source?: string })?.basis_source ?? prov;
   // R48c — price 표시는 formatPrice 사용 — typical 만 항상 평가. range min/max 는 hasRange 조건 안에서만
   //        (이전: range null 인 5 flat-only properties 클릭 시 range!.min eager 평가로 crash).
-  const typicalStr = isPrice && sys ? formatPrice(typical, lang, sys, priceUnit) : `${fmt(typical)}`;
+  const typicalStr = isPrice && sys ? formatPrice(typical, lang, sys, priceUnit) : `${fmt(disp(typical))}`;
   /* R204 #3 — Cost/Difficulty factor (unit=×) 의 directness 라벨.
      Machining/HT factor → 어려움 등급, Condition/Form/Grade × → 가격(premium) 등급. */
   const isFactorRow = unit === '×' && typeof typical === 'number';
   /* AUD F03 (2026-09-22) — range.scale 이 있으면 그 스케일이 표시 단위다 (예: 순알루미늄 소둔 HB 23 — E140 표 밖이라 HV 로 환산하지 않음).
      환산된 값(scale HV + source_scale)은 단위는 HV 그대로, 툴팁에 "HB 95 → HV 111 (ASTM E140-12b Table 9)" 를 보인다. */
   const hs = range as { scale?: string; source_scale?: string; source_value?: number; conversion?: string | null; scale_note?: string } | undefined;
-  const scaleUnit = hs?.scale && hs.scale !== 'HV' && unit === 'HV' ? hs.scale : unit;
+  const scaleUnit = hs?.scale && hs.scale !== 'HV' && unit === 'HV' ? hs.scale : dispUnit;
   const hardnessScaleTip = unit === 'HV' && hs?.source_scale
     ? (hs.conversion ? `원자료 ${hs.source_scale} ${hs.source_value} → HV ${typical} (${hs.conversion})` : `원자료 ${hs.source_scale} ${hs.source_value} — ${hs.scale_note || '환산표 없음, 원 스케일 표기'}`)
     : undefined;
   const isDifficultyFactor = /machining|ht factor|machinability|wear/i.test(label);
-  const factorBadge = isFactorRow ? factorDifficultyLabel(typical as number, isDifficultyFactor ? 'difficulty' : 'price') : null;
+  const factorBadge = isFactorRow ? factorDifficultyLabel(typical as number, isDifficultyFactor ? 'difficulty' : 'price', lang) : null;
   return (
     <div className="flex items-start justify-between py-1.5 border-b border-border/40 last:border-0">
       <span className="text-xs text-muted-foreground pt-0.5 flex items-center gap-1">
@@ -155,8 +162,8 @@ export function RangeRow({
             href={`/guide/term/${termSlug}`}
             className="border-b border-dotted border-muted-foreground/50 hover:text-accent hover:border-accent"
             title={`'${label}' 이(가) 무엇인지 — 용어 설명 보기`}
-          >{label}</Link>
-        ) : label}
+          >{shownLabel}</Link>
+        ) : shownLabel}
       </span>
       <div className="text-right">
         <span className="font-mono text-xs font-medium text-foreground">{typicalStr}</span>
@@ -197,16 +204,16 @@ export function RangeRow({
         {minSpec != null && typeof typical === 'number' && Math.abs(minSpec - typical) > typical * 0.15 && (
           <span
             className="ml-1 text-[10px] text-amber-600 font-medium"
-            title={`Typical: ${fmt(typical)} ${unit} (ASM/Granta 평균)\nMin spec: ${fmt(minSpec)} ${unit}${minSpecSrc ? ` (${minSpecSrc})` : ''}\n\n사용자 의사결정 권장: 안전 임계 시 min spec 사용.`}
+            title={`Typical: ${fmt(disp(typical))} ${dispUnit} (ASM/Granta 평균)\nMin spec: ${fmt(disp(minSpec))} ${dispUnit}${minSpecSrc ? ` (${minSpecSrc})` : ''}\n\n사용자 의사결정 권장: 안전 임계 시 min spec 사용.`}
           >
-            min={fmt(minSpec)}
+            min={fmt(disp(minSpec))}
           </span>
         )}
         {hasRange && range && (
           <div className="text-[10px] font-mono text-muted-foreground/70 leading-tight">
-            {isPrice && sys ? formatPrice(range.min, lang, sys, priceUnit) : fmt(range.min)}
+            {isPrice && sys ? formatPrice(range.min, lang, sys, priceUnit) : fmt(disp(range.min))}
             –
-            {isPrice && sys ? formatPrice(range.max, lang, sys, priceUnit) : fmt(range.max)}
+            {isPrice && sys ? formatPrice(range.max, lang, sys, priceUnit) : fmt(disp(range.max))}
           </div>
         )}
       </div>

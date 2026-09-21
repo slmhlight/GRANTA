@@ -11,7 +11,15 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/u
 import { Button } from '@/components/ui/button';
 import { Search, SlidersHorizontal, MousePointerClick, GitCompareArrows, Rocket, Sparkles, ChevronLeft, ChevronRight, GraduationCap , type LucideIcon } from 'lucide-react';
 import { useLang } from '@/lib/i18n';
-import type { ScenarioKey } from '@/lib/scenario-presets';
+import { SCENARIO_PRESETS, type ScenarioKey } from '@/lib/scenario-presets';
+import { TOC } from '@/pages/guide/toc';
+import BM from '../../public/build-meta.json';   // AUD F27 — 재료 수는 build-meta(SSOT)에서, 하드코딩 금지
+
+/* AUD F27 (2026-09-22) — 온보딩이 "1,200+ 합금" 을 하드코딩해 실제 배포(1,102)와 어긋났다. 재료 수·사례 수·챕터 수를
+   각 SSOT(build-meta · SCENARIO_PRESETS · TOC)에서 읽는다. 집계 단위는 "조건별 레코드" 이므로 문구에 그렇게 적는다. */
+const N_MATERIALS = (BM as { totalAlloys: number }).totalAlloys.toLocaleString();
+const N_SCENARIOS = Object.keys(SCENARIO_PRESETS).length;
+const N_CHAPTERS = TOC.length;
 
 interface Props {
   open: boolean;
@@ -154,7 +162,7 @@ interface StepEntry {
 }
 
 const STEPS_KO: StepEntry[] = [
-  { icon: Sparkles, illust: IllustWelcome, title: '환영합니다', body: 'AM Materials Explorer 는 1,200+ 합금 데이터베이스 · Ashby 차트 · 16 설계 사례를 한 곳에서. 약 1분이면 둘러보기 완료, 곧장 한 사례로 시작할 수 있어요.\n\n💡 처음이라면 Guide 부터 차근차근 학습하는 것을 권장합니다 — 14 chapter (실전 사례 → 이론 → 산업 적용) 의 학습 경로 가 마련되어 있어요.' },
+  { icon: Sparkles, illust: IllustWelcome, title: '환영합니다', body: `AM Materials Explorer 는 ${N_MATERIALS} 재료 레코드(합금×조건) 데이터베이스 · Ashby 차트 · ${N_SCENARIOS} 설계 사례를 한 곳에서. 약 1분이면 둘러보기 완료, 곧장 한 사례로 시작할 수 있어요.\n\n💡 처음이라면 Guide 부터 차근차근 학습하는 것을 권장합니다 — ${N_CHAPTERS} chapter (실전 사례 → 이론 → 산업 적용) 의 학습 경로 가 마련되어 있어요.` },
   { icon: Search, illust: IllustSearch, title: '1. 검색', body: '상단 검색창에서 합금 이름·별칭·공정으로 검색하세요. 구분자·약어도 fuzzy 검색으로 잡힙니다. 예: "ti6al4v", "316l", "ss316".' },
   { icon: SlidersHorizontal, illust: IllustFilter, title: '2. 필터', body: '왼쪽 사이드바에서 카테고리·공정·물성·조성으로 필터링하세요. Granta MI 스타일 — 한 필터가 좁혀지면 다른 필터의 범위도 자동 좁아집니다.' },
   { icon: MousePointerClick, illust: IllustDetail, title: '3. 상세 보기', body: '재료를 클릭하면 우측에 상세 패널이 열립니다. 물성 범위(min/max/typical)와 각 값의 신뢰도 라벨(measured · handbook · class 추정 · derived 유도), Radar 차트, Composition, 출처 datasheet URL 을 확인하세요.\n\n⚠ 일부 값은 핸드북·family 평균 추정치입니다 — 신뢰도 라벨을 확인하고 설계 전 vendor datasheet 로 검증하세요.' },
@@ -163,7 +171,7 @@ const STEPS_KO: StepEntry[] = [
 ];
 
 const STEPS_EN: StepEntry[] = [
-  { icon: Sparkles, illust: IllustWelcome, title: 'Welcome', body: 'AM Materials Explorer combines a 1,200+ alloy database, Ashby charts, and 16 design scenarios in one place. The tour takes about a minute — you can also jump straight into one scenario.\n\n💡 If you are new to materials selection, the Guide (14 chapters: case-study → theory → industry application) is the recommended starting point.' },
+  { icon: Sparkles, illust: IllustWelcome, title: 'Welcome', body: `AM Materials Explorer combines a ${N_MATERIALS}-record (alloy × condition) database, Ashby charts, and ${N_SCENARIOS} design scenarios in one place. The tour takes about a minute — you can also jump straight into one scenario.\n\n💡 If you are new to materials selection, the Guide (${N_CHAPTERS} chapters: case-study → theory → industry application) is the recommended starting point.` },
   { icon: Search, illust: IllustSearch, title: '1. Search', body: 'Search by alloy name, alias, or process in the top search bar. Fuzzy matching handles separators and abbreviations — try "ti6al4v", "316l", or "ss316".' },
   { icon: SlidersHorizontal, illust: IllustFilter, title: '2. Filter', body: 'Use the left sidebar to filter by category, process, properties, or composition. Granta MI-style — narrowing one filter automatically narrows the others.' },
   { icon: MousePointerClick, illust: IllustDetail, title: '3. Material Detail', body: 'Click a material to open the detail panel on the right. See property ranges (min/max/typical) with a confidence label on each value (measured · handbook · class-estimate · derived), a Radar chart, composition, and datasheet sources.\n\n⚠ Some values are handbook or family-average estimates — check the confidence label and verify against a vendor datasheet before design.' },
@@ -213,7 +221,7 @@ export default function OnboardingTour({ open, onClose, onQuickStart }: Props) {
           <Link href="/guide" onClick={onClose}>
             <Button variant="outline" size="sm" className="w-full h-9 text-xs justify-center font-medium border-accent/40 text-accent hover:bg-accent/10">
               <GraduationCap className="w-3.5 h-3.5 mr-1.5" />
-              {lang === 'en' ? 'Start with the Guide (14 chapters)' : 'Guide 로 학습 시작하기 (14 chapter)'}
+              {lang === 'en' ? `Start with the Guide (${N_CHAPTERS} chapters)` : `Guide 로 학습 시작하기 (${N_CHAPTERS} chapter)`}
             </Button>
           </Link>
         )}

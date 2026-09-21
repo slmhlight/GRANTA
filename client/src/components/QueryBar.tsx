@@ -203,6 +203,12 @@ export function QueryBar({ value, onChange, matchedCount, totalCount }: QueryBar
               ? {u}
             </span>
           ))}
+          {/* AUD R10 — 구문 오류(알 수 없는 물성·숫자 아님)는 '결과 0' 과 다르게 이유를 보인다. */}
+          {(parsed.errors ?? []).map((e, i) => (
+            <span key={'e' + i} role="alert" className="px-1.5 py-0.5 rounded bg-rose-50 text-rose-700 border border-rose-200 text-[10px] font-mono" title={e.reason}>
+              ✕ {e.token} — {e.reason}
+            </span>
+          ))}
           {matchedCount != null && totalCount != null && (
             <span className="ml-auto text-[10px] text-muted-foreground self-center whitespace-nowrap">
               {matchedCount.toLocaleString()} / {totalCount.toLocaleString()} {t('query.matched')}

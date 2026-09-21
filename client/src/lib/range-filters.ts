@@ -67,12 +67,13 @@ type Missing = Exclude<FilterRangeKey, Covered>;
 const _everyRangeKeyIsListed: Missing extends never ? true : Missing = true;
 void _everyRangeKeyIsListed;
 
-export const RANGE_SECTIONS: readonly { id: RangeSection; label: string }[] = [
-  { id: 'essentials', label: '기본 검색 · Essentials' },
-  { id: 'mechanical', label: '기계적 성질 · Mechanical' },
-  { id: 'thermal', label: '열적 성질 · Thermal' },
-  { id: 'electrical', label: '전기적 성질 · Electrical' },
-  { id: 'cost', label: '원가·가공 · Cost & Process' },
+/* AUD F23 (2026-09-22) — 섹션 라벨을 언어별로 (EN 모드에 한글 병기 라벨이 남던 것). label 은 ko, labelEn 은 en. */
+export const RANGE_SECTIONS: readonly { id: RangeSection; label: string; labelEn: string }[] = [
+  { id: 'essentials', label: '기본 검색 · Essentials', labelEn: 'Essentials' },
+  { id: 'mechanical', label: '기계적 성질 · Mechanical', labelEn: 'Mechanical' },
+  { id: 'thermal', label: '열적 성질 · Thermal', labelEn: 'Thermal' },
+  { id: 'electrical', label: '전기적 성질 · Electrical', labelEn: 'Electrical' },
+  { id: 'cost', label: '원가·가공 · Cost & Process', labelEn: 'Cost & Process' },
 ];
 
 const META_UNIT = new Map(ALL_NUMERIC_PROPERTIES.map((p) => [p.key, p.unit]));

@@ -43,11 +43,14 @@ import OnboardingTour from '@/components/OnboardingTour';
 import type { FilterState } from '@/hooks/useMaterialFilter';
 import { resolveDirectHit } from '@/lib/direct-hit';   // R226e/C4 — 추출된 direct-hit 검색 (normalize·extractTokens·shop-dict 포함)
 import { loadUnitSystem, saveUnitSystem, type UnitSystem } from '@/lib/unit-convert';
+import { UnitSystemContext } from '@/lib/unit-context';   // AUD F01 — 표·상세·비교가 같은 단위계를 읽는다
 import { useT, useLang } from '@/lib/i18n';
+import { usePageMeta } from '@/lib/page-meta';   // AUD R13
 
 /** Saved collection — pinned material IDs + optional filter snapshot + scenario provenance + viewMode.
  *  Older entries (pre-U10) lack `filters` / `viewMode`; we render conditionally and restore safely. */
 type Collection = { name: string; ids: string[]; filters?: Partial<FilterState>; preset?: { key: string; label: string }; viewMode?: 'table' | 'cards' | 'ashby'; createdAt?: number };
+import { saveExplorerState } from '@/lib/explorer-return';   // AUD R15
 type CollectionSort = 'recent' | 'name' | 'size';
 
 const ChartLoader = () => <div className="flex items-center justify-center h-96">Loading chart...</div>;
@@ -57,6 +60,7 @@ type ViewMode = 'table' | 'cards' | 'ashby';
 const MAX_COMPARE = 500; // generous backstop; the Compare table/chart handle large sets fine
 
 export default function Home() {
+  usePageMeta(null, '적층제조·구조재료 데이터베이스 — 1,000+ 재료 레코드의 범위 물성·인용 데이터시트, Ashby 차트, 비교, 설계 사례.');   // AUD R13
   /* R154 — useMaterialPool: index.json (slim) 즉시 + 4 카테고리 백그라운드 prefetch.
      첫 페인트 8.15 MB → 670 KB (12배 감소). */
   const { materials, loading, error, ensureCategory } = useMaterialPool();
@@ -527,6 +531,7 @@ export default function Home() {
       const target = `${location.pathname}${queryPart}${hashPart}`;
       const current = `${location.pathname}${location.search}${location.hash}`;
       if (target !== current) history.replaceState(null, '', target);
+      saveExplorerState(queryPart, hashPart);   // AUD R15 — 가이드/Tools 의 "탐색기로 돌아가기" 가 이 상태로 복귀
     } catch { /* ignore */ }
   }, [filters, appliedPreset, restrictIds, selectedMaterial, detailTab, detailOpenCsv]);
 
@@ -686,6 +691,7 @@ export default function Home() {
   }
 
   return (
+    <UnitSystemContext.Provider value={unitSystem}>
     <div className="flex flex-col h-screen overflow-hidden bg-background pb-[50px] md:pb-0">
       {/* ─── Top Header ─── */}
       {/* R157b — header → HomeHeader 컴포넌트로 추출. */}
@@ -758,6 +764,8 @@ export default function Home() {
           <button
             className="w-4 h-12 flex items-center justify-center bg-muted/50 hover:bg-muted border-y border-r border-border rounded-r-md text-muted-foreground hover:text-foreground transition-colors"
             onClick={() => setSidebarOpen(o => !o)}
+            aria-label={sidebarOpen ? (lang === 'ko' ? '필터 사이드바 접기' : 'Collapse filter sidebar') : (lang === 'ko' ? '필터 사이드바 펼치기' : 'Expand filter sidebar')}
+            aria-expanded={sidebarOpen}
           >
             {sidebarOpen ? <ChevronLeft className="w-3 h-3" /> : <ChevronRight className="w-3 h-3" />}
           </button>
@@ -1065,5 +1073,6 @@ export default function Home() {
 
       {/* R85 — Status bar 제거 (사용자 요청). 가독성 낮은 10px gray 줄이 1 줄 공간 차지하던 footer. build date 정보는 Detail 패널 footer / Tools 페이지에서 노출. */}
     </div>
+    </UnitSystemContext.Provider>
   );
 }

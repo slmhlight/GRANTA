@@ -19,7 +19,7 @@ import { propValue, type Material } from '@/lib/materials';
 import { parseCompositionRange, getRangeValue } from '@/lib/composition-parser';
 import { applyQuery, parseQuery } from '@/lib/query-dsl';
 // R157b — fuzzyContains → lib/fuzzy-search.ts 로 이동.
-import { fuzzyContains } from '@/lib/fuzzy-search';
+import { fuzzyContains, fuzzyRank } from '@/lib/fuzzy-search';
 // R157b — HT matcher (filter 카테고리 → material.heat_treatment 매칭) → lib/ht-matcher.ts.
 import { matchAnyHeatTreatment } from '@/lib/ht-matcher';
 // R157b — FilterState type + DEFAULT_FILTERS 도 lib 로 이동.
@@ -51,8 +51,13 @@ export function passesRange(m: Material, prop: keyof Material, range: readonly [
  * 수치 범위 필터(RANGE_FILTERS)를 **뺀** 모든 술어. 본필터와 슬라이더 모집단이 이 한 함수를 쓴다 —
  * 술어를 여기 말고 다른 곳에 더 적으면 두 화면이 다시 갈라진다.
  */
+/** AUD R09 — 마지막 텍스트 검색의 매칭 등급·필드 (id → {rank, field}). applyBaseFilters 가 검색이 있을 때마다 다시 채운다.
+ *  정렬(기본 정렬일 때 관련도 우선)과 표시("이름/별칭/UNS 중 어디가 맞았나")가 읽는다 — 데이터에 파생 필드를 심지 않는다. */
+export const searchRank = new Map<string, { rank: number; field: 'name' | 'alias' | 'uns' }>();
+
 export function applyBaseFilters(materials: Material[], filters: FilterState): Material[] {
   let result = materials;
+  if (filters.search.trim()) searchRank.clear();
 
   /* E3 (H6 W4-2) — 출처 권위 등급. 선택한 등급의 출처를 **가진** 재료를 남긴다(OR).
      선택이 비면 전량 통과 — 원칙 8(구분 표시만, 저신뢰 은폐 금지). */
@@ -66,12 +71,20 @@ export function applyBaseFilters(materials: Material[], filters: FilterState): M
   //   현재: name + aliases (+ R226h UNS 정규 코드). 다른 field 는 filter 또는 DSL query 사용.
   if (filters.search.trim()) {
     const q = filters.search.toLowerCase().trim();
-    result = result.filter(m => {
-      if (fuzzyContains(m.name.toLowerCase(), q)) return true;
-      if ((m.aliases || []).some(a => fuzzyContains(a.toLowerCase(), q))) return true;
-      if ((m.uns || []).some(u => fuzzyContains(u.toLowerCase(), q))) return true;   // R226h/P3-8 — UNS 정규 코드 검색 ("N07718")
-      return false;
-    });
+    /* AUD R09 — 등급 매칭: 이름 정확 일치 > 별칭/UNS 정확 > 구분자 제거 > 부분수열(문자 질의만). 등급은 searchRank 에 남겨
+       정렬(기본 정렬일 때 관련도 우선)과 표시("어느 필드가 맞았는가")에 쓴다. */
+    const ranked: Material[] = [];
+    for (const m of result) {
+      const rn = fuzzyRank(m.name.toLowerCase(), q);
+      const ra = Math.min(...(m.aliases || []).map(a => { const r = fuzzyRank(a.toLowerCase(), q); return r < 0 ? 9 : r; }), 9);
+      const ru = Math.min(...(m.uns || []).map(u => { const r = fuzzyRank(u.toLowerCase(), q); return r < 0 ? 9 : r; }), 9);   // R226h/P3-8 — UNS 정규 코드 검색 ("N07718")
+      const best = Math.min(rn < 0 ? 9 : rn, ra, ru);
+      if (best === 9) continue;
+      const field = (rn >= 0 && rn <= Math.min(ra, ru)) ? 'name' : ra <= ru ? 'alias' : 'uns';
+      searchRank.set(m.id, { rank: best, field });
+      ranked.push(m);
+    }
+    result = ranked;
   }
 
   // R144b — Multi-constraint DSL query (AND with other filters)
@@ -226,7 +239,13 @@ export function useMaterialFilter(materials: Material[]) {
   /* R221d — low-confidence 숨김 토글 제거 (R221~c 데이터 정비로 low tier = 0). 정렬만 수행.
      신뢰도 전달은 값별 confidence dot + Generic-tier 배지가 담당. */
   const filtered = useMemo(() => {
+    /* AUD R09 — 텍스트 검색 중이고 사용자가 정렬 열을 고르지 않았으면(기본 'name' asc) 관련도(매칭 등급) 우선. */
+    const byRelevance = filters.search.trim() && sortKey === 'name' && sortDir === 'asc';
     return [...filteredUnsorted].sort((a, b) => {
+      if (byRelevance) {
+        const ra = searchRank.get(a.id)?.rank ?? 9, rb = searchRank.get(b.id)?.rank ?? 9;
+        if (ra !== rb) return ra - rb;
+      }
       /* E3 — '출처 권위' 정렬. Material 의 실제 필드가 아니라 sources[] 에서 도출하는 값이라
          키를 가로채 별도 비교를 쓴다(파생 필드를 데이터에 심지 않는다). */
       if ((sortKey as string) === '__authority') {
@@ -249,7 +268,7 @@ export function useMaterialFilter(materials: Material[]) {
       const cmp = String(av).localeCompare(String(bv));
       return sortDir === 'asc' ? cmp : -cmp;
     });
-  }, [filteredUnsorted, sortKey, sortDir]);
+  }, [filteredUnsorted, sortKey, sortDir, filters.search]);
 
   /* 결과를 거르고 있는 필터의 수 — 'Reset'/'필터 지우기' 버튼의 노출 조건. 예전엔 출처 등급·DSL·규격
      필터가 빠져 있어, 그 셋만 걸린 상태에선 결과가 줄어 있는데 지우기 버튼이 안 보였다. */

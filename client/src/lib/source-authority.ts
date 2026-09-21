@@ -20,12 +20,13 @@ export type Authority = NonNullable<MaterialSource['authority']>;
 export const AUTHORITY_ORDER: readonly Authority[] = ['standard', 'handbook', 'manufacturer', 'aggregator', 'other'];
 
 /** 라벨·색·설명 (SourcesList 배지와 사이드바 chip 이 같은 정의를 공유). */
-export const AUTHORITY_META: Record<Authority, { s: string; cls: string; title: string }> = {
-  standard: { s: '규격', cls: 'bg-emerald-100 text-emerald-700 border-emerald-300', title: '공식 표준 (ASTM · ASME · SAE · JIS · EN · ISO · MIL 등)' },
-  handbook: { s: '핸드북', cls: 'bg-sky-100 text-sky-700 border-sky-300', title: '권위 핸드북 (ASM Handbook · MMPDS · NASA · ECCC)' },
-  manufacturer: { s: '제조사', cls: 'bg-slate-100 text-slate-600 border-slate-300', title: '제조사 datasheet' },
-  aggregator: { s: 'DB', cls: 'bg-amber-100 text-amber-700 border-amber-300', title: '애그리게이터 2차 출처 (MatWeb · AZoM · MakeItFrom)' },
-  other: { s: '기타', cls: 'bg-muted text-muted-foreground border-border/40', title: '인용 / 파생값 마커' },
+/* AUD F23 — sEn/titleEn: EN 모드 배지. (2026-09-22 감사 F12 반영: 발행처가 등급을 정한다 — 제조사 문서는 규격을 인용해도 '제조사') */
+export const AUTHORITY_META: Record<Authority, { s: string; sEn: string; cls: string; title: string; titleEn: string }> = {
+  standard: { s: '규격', sEn: 'standard', cls: 'bg-emerald-100 text-emerald-700 border-emerald-300', title: '공식 표준 문서 (ASTM · ASME · SAE · JIS · EN · ISO · MIL 등 발행처)', titleEn: 'Official standard (published by ASTM · ASME · SAE · JIS · EN · ISO · MIL …)' },
+  handbook: { s: '핸드북', sEn: 'handbook', cls: 'bg-sky-100 text-sky-700 border-sky-300', title: '권위 핸드북·학술 문헌 (ASM Handbook · MMPDS · NASA · ECCC · 동료심사 논문)', titleEn: 'Authoritative handbook / peer-reviewed literature (ASM Handbook · MMPDS · NASA · ECCC · journals)' },
+  manufacturer: { s: '제조사', sEn: 'vendor', cls: 'bg-slate-100 text-slate-600 border-slate-300', title: '제조사·공급사 datasheet (규격을 인용해도 문서 자체는 제조사 것)', titleEn: 'Manufacturer / supplier datasheet (a vendor document even when it cites a standard)' },
+  aggregator: { s: 'DB', sEn: 'DB', cls: 'bg-amber-100 text-amber-700 border-amber-300', title: '애그리게이터 2차 출처 (MatWeb · AZoM · MakeItFrom · eFunda)', titleEn: 'Aggregator / secondary database (MatWeb · AZoM · MakeItFrom · eFunda)' },
+  other: { s: '기타', sEn: 'other', cls: 'bg-muted text-muted-foreground border-border/40', title: '인용 / 파생값 마커', titleEn: 'Citation without URL / derived-value marker' },
 };
 
 /** 이 재료가 가진 출처 등급 집합. */

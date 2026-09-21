@@ -5,14 +5,16 @@
 import { ExternalLink, Check, BookText } from 'lucide-react';
 import type { MaterialSource } from '@/lib/materials';
 import { AUTHORITY_META } from '@/lib/source-authority';
+import { useLang } from '@/lib/i18n';   // AUD F23
 
 /* E3 — 라벨 맵은 lib/source-authority 로 이동(사이드바 chip 과 같은 정의를 공유). */
 const AUTHORITY = AUTHORITY_META;
 
 function AuthorityBadge({ authority }: { authority?: MaterialSource['authority'] }) {
+  const { lang } = useLang();
   if (!authority) return null;
   const a = AUTHORITY[authority];
-  return <span className={`text-[9px] px-1 mt-0.5 rounded border font-medium whitespace-nowrap flex-shrink-0 ${a.cls}`} title={a.title}>{a.s}</span>;
+  return <span className={`text-[9px] px-1 mt-0.5 rounded border font-medium whitespace-nowrap flex-shrink-0 ${a.cls}`} title={lang === 'en' ? a.titleEn : a.title}>{lang === 'en' ? a.sEn : a.s}</span>;
 }
 
 export function SourcesList({ sources }: { sources: MaterialSource[] }) {

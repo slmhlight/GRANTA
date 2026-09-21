@@ -10,6 +10,8 @@ import { Badge } from '@/components/ui/badge';
 import { propValue } from '@/lib/materials';
 import type { Material } from '@/lib/materials';
 import { formatValue, CATEGORY_COLORS, SUBCATEGORY_COLORS } from '@/lib/materials';
+import { useUnitSystem, displayNumber, displayUnit, displayDigits } from '@/lib/unit-context';   // AUD F01
+import { searchRank } from '@/hooks/useMaterialFilter';   // AUD R09
 import { familyColor } from '@/lib/material-colors';
 
 interface MaterialTableProps {
@@ -83,6 +85,7 @@ export function MaterialTable({
   activeFilterCount,
   searchQuery,
 }: MaterialTableProps) {
+  const sys = useUnitSystem();   // AUD F01 — 헤더 단위·숫자 열이 현재 단위계를 따른다
   const [page, setPage] = useState(0);
   const totalPages = Math.ceil(materials.length / PAGE_SIZE);
   const pageData = materials.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
@@ -195,7 +198,7 @@ export function MaterialTable({
                     onClick={() => onSort(col.key)}
                   >
                     <span>{col.label}</span>
-                    {col.unit && <span className="text-[10px] font-normal text-muted-foreground/60">{col.unit}</span>}
+                    {col.unit && <span className="text-[10px] font-normal text-muted-foreground/60">{displayUnit(String(col.key), col.unit, sys)}</span>}
                     <SortIcon col={col.key} sortKey={sortKey} sortDir={sortDir} />
                   </button>
                   {/* R179 — column resize handle (draggable right edge) */}
@@ -269,6 +272,8 @@ export function MaterialTable({
                       )}
                       <span className="font-medium text-foreground truncate max-w-[var(--col-name-w,320px)]" title={m.name}>
                         {m.name}
+                        {/* AUD R09 — 검색어가 이름이 아니라 별칭/UNS 에서 맞았으면 그 사실을 표시 */}
+                        {(() => { const sr = searchQuery ? searchRank.get(m.id) : undefined; return sr && sr.field !== 'name' ? <span className="ml-1 text-[9px] px-1 rounded bg-muted text-muted-foreground align-middle" title={`검색어가 ${sr.field === 'alias' ? '별칭' : 'UNS 코드'}에서 일치`}>{sr.field}</span> : null; })()}
                       </span>
                     </div>
                   </td>
@@ -295,11 +300,11 @@ export function MaterialTable({
 
                   {/* 숫자 열 — 공용 리더(propValue). 교정·인용은 ranges 에 붙으므로 ranges 가 우선이고,
                       평면값만 있는 slim 단계·flat-only 물성은 그대로 읽힌다. */}
-                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(propValue(m, 'density'), 2)}</td>
-                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(propValue(m, 'yield_strength'), 0)}</td>
-                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(propValue(m, 'uts'), 0)}</td>
-                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(propValue(m, 'elongation'), 1)}</td>
-                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(propValue(m, 'modulus'), 0)}</td>
+                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(displayNumber('density', propValue(m, 'density'), sys), displayDigits('density', 2, sys))}</td>
+                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(displayNumber('yield_strength', propValue(m, 'yield_strength'), sys), displayDigits('yield_strength', 0, sys))}</td>
+                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(displayNumber('uts', propValue(m, 'uts'), sys), displayDigits('uts', 0, sys))}</td>
+                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(displayNumber('elongation', propValue(m, 'elongation'), sys), displayDigits('elongation', 1, sys))}</td>
+                  <td className="px-3 py-1.5 data-cell text-right">{formatValue(displayNumber('modulus', propValue(m, 'modulus'), sys), displayDigits('modulus', 0, sys))}</td>
                   {/* AUD F03 — 환산되지 않은 원 스케일(HB) 값은 열 제목(HV)과 다르므로 스케일을 함께 적는다. */}
                   <td className="px-3 py-1.5 data-cell text-right">{formatValue(propValue(m, 'hardness'), 0)}{(() => { const sc = (m.ranges?.hardness as { scale?: string } | undefined)?.scale; return sc && sc !== 'HV' ? <span className="ml-0.5 text-[9px] text-muted-foreground">{sc}</span> : null; })()}</td>
                 </tr>

@@ -13,7 +13,8 @@ import { propValue, propBound, propRange } from '@/lib/materials';
 import type { Material, PropertyRange } from '@/lib/materials';
 import { ALL_NUMERIC_PROPERTIES } from '@/lib/materials';
 import { familyColor, propColor, CONFIDENCE, CONFIDENCE_ORDER, type ConfidenceLevel } from '@/lib/material-colors';
-import { formatPrice, loadUnitSystem } from '@/lib/unit-convert';
+import { formatPrice } from '@/lib/unit-convert';
+import { useUnitSystem, displayNumber, displayUnit } from '@/lib/unit-context';   // AUD F01
 import { machiningCostBand, htCostBand, computeCEIIW, computeCET, computePcm } from '@/lib/welding-machinability';
 import { resolveMachinability, resolvePolymerMachinability } from '@/lib/process-guidance';
 import { RadarChart, RadarConfig, DEFAULT_RADAR_AXES, type RadarAxis } from '@/components/RadarChart';
@@ -50,7 +51,10 @@ type Sort = { key: string; dir: 'asc' | 'desc' } | null;
 export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }: ComparePanelProps) {
   const t = useT();
   const { lang } = useLang();
-  const sysUnits = loadUnitSystem();
+  const sysUnits = useUnitSystem();
+  /* AUD F01 — 가격 외 물성도 현재 단위계로 표시 (값 SSOT 는 SI). 표 헤더·CSV 헤더의 단위도 같이 바뀐다. */
+  const dispN = (k: string, v: number | null | undefined) => displayNumber(k, v, sysUnits);
+  const dispU = (k: string, u: string | undefined) => displayUnit(k, u || '', sysUnits);
   // R50d — export 대상 (table) ref + busy state.
   const tableRef = useRef<HTMLDivElement>(null);
   /* R69 G — 사용자 가중치 score. R113: 기본 비활성화 + 체크박스로 항목별 활성화. score = Σ(w_i · normalized).
@@ -152,13 +156,14 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
   // R50d — CSV export. material × selected columns 표 + UTF-8 BOM (Excel KO 호환).
   const exportCSV = () => {
     if (sortedMaterials.length === 0) return;
-    const headers = ['Material', 'Family', 'Process', ...selected.map((p) => `${p.label} (${p.unit})`)];
+    // AUD F01 — CSV 도 화면과 같은 단위계로 내보내고 헤더에 단위를 적는다 (SI 가 아니면 사용자가 이미 고른 단위).
+    const headers = ['Material', 'Family', 'Process', ...selected.map((p) => `${p.label} (${dispU(p.key as string, p.unit)})`)];
     const rows = sortedMaterials.map((m) => {
       const row: (string | number)[] = [m.name, m.subcategory || '', m.process || ''];
       for (const p of selected) {
         const k = p.key as string;
-        const v = typOf(m, k);
-        const lo = propBound(m, k, 'min'), hi = propBound(m, k, 'max');
+        const v = dispN(k, typOf(m, k));
+        const lo = dispN(k, propBound(m, k, 'min')), hi = dispN(k, propBound(m, k, 'max'));
         if (v == null) row.push('');
         else if (lo != null && hi != null && hi > lo) row.push(`${fmt(v)} [${fmt(lo)}-${fmt(hi)}]`);
         else row.push(fmt(v));
@@ -697,7 +702,7 @@ ${panel.outerHTML}
                   title={`Sort by ${p.label}`}
                 >
                   <span className="block whitespace-normal leading-tight">{p.label}{LOWER_IS_BETTER.has(p.key as string) && <span className="text-emerald-600 ml-0.5" title="작을수록 우수 — 막대 역전">↓</span>}<SortIcon k={p.key as string} /></span>
-                  <span className="block text-[10px] font-normal text-muted-foreground mt-0.5 whitespace-normal leading-tight">{/USD\//.test(p.unit || '') ? (lang === 'ko' ? `₩${(p.unit || '').replace(/^USD/, '')}` : p.unit) : p.unit}</span>
+                  <span className="block text-[10px] font-normal text-muted-foreground mt-0.5 whitespace-normal leading-tight">{/USD\//.test(p.unit || '') ? (lang === 'ko' ? `₩${(sysUnits === 'imperial' ? (p.unit || '').replace('/kg', '/lb').replace('/cm³', '/in³') : (p.unit || '')).replace(/^USD/, '')}` : dispU(p.key as string, p.unit)) : dispU(p.key as string, p.unit)}</span>
                 </th>
               ))}
               {selected.length === 0 && (
@@ -753,9 +758,9 @@ ${panel.outerHTML}
                     // R40b — price 셀은 formatPrice 로 USD/KRW + kg/lb 자동 변환.
                     const isPrice = /USD\//.test(p.unit || '') || /price/.test(k);
                     const priceUnit: 'kg' | 'cm3' = (p.unit || '').includes('cm³') || (p.unit || '').includes('cm3') || k.includes('cm3') ? 'cm3' : 'kg';
-                    const typStr = isPrice && typical != null ? formatPrice(typical, lang, sysUnits, priceUnit) : (typical != null ? fmt(typical) : null);
-                    const minStr = lo == null ? null : (isPrice ? formatPrice(lo, lang, sysUnits, priceUnit) : fmt(lo));
-                    const maxStr = hi == null ? null : (isPrice ? formatPrice(hi, lang, sysUnits, priceUnit) : fmt(hi));
+                    const typStr = isPrice && typical != null ? formatPrice(typical, lang, sysUnits, priceUnit) : (typical != null ? fmt(dispN(k, typical) ?? typical) : null);
+                    const minStr = lo == null ? null : (isPrice ? formatPrice(lo, lang, sysUnits, priceUnit) : fmt(dispN(k, lo) ?? lo));
+                    const maxStr = hi == null ? null : (isPrice ? formatPrice(hi, lang, sysUnits, priceUnit) : fmt(dispN(k, hi) ?? hi));
                     return (
                       <td key={k} className="px-3 py-2 align-top">
                         {typical == null ? (

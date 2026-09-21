@@ -51,6 +51,8 @@ import ch12Body from './guide/chapters/ch12';
 import ch14Body from './guide/chapters/ch14';
 import ch8Body from './guide/chapters/ch8';
 import ch15Body from './guide/chapters/ch15';
+import { usePageMeta } from '@/lib/page-meta';   // AUD R13
+import { explorerHref } from '@/lib/explorer-return';   // AUD R15
 
 /* ─────────────────────────────────────────────────────────────────────────────
  * 메인 페이지
@@ -87,6 +89,9 @@ export default function Guide() {
   const routeParams = useParams<{ section?: string }>();
   const section = routeParams?.section;
   const [, navigate] = useLocation();
+  // AUD R13 — 챕터별 문서 제목 (탭·히스토리·공유). 정적 HTML 메타는 build-static-routes 가 심는다.
+  const tocItem = section ? TOC.find((t) => t.id === section) : undefined;
+  usePageMeta(tocItem ? `${tocItem.label} · Guide` : 'Guide', tocItem ? `학습 가이드: ${tocItem.label}` : '재료 선택 학습 가이드 — 실전 사례 · Ashby 선택법 · 물성 사전 · 데이터 해석 · 글로서리');
   // R227/E14 — 가이드 본문 합금명 자동링크용 재료 맵(wiki-index). 로드 실패 시 null → 재료 링크 생략(용어는 유지).
   const wikiLookups = useWikiRefs();
   const materialMap = useMemo(() => (wikiLookups ? buildAutolinkMap(wikiLookups) : null), [wikiLookups]);
@@ -124,7 +129,7 @@ export default function Guide() {
       <ScenarioDialog scenarioKey={dialogKey} open={dialogKey !== null} onOpenChange={(v) => { if (!v) setDialogKey(null); }} />
       {/* 상단 바 — R66 검색 + R101 모바일 layout fix (whitespace-nowrap + 모바일 라벨 축약 + min-w-0). */}
       <header className="sticky top-0 z-20 h-12 flex items-center gap-2 sm:gap-3 px-2 sm:px-4 border-b border-border bg-[oklch(0.22_0.055_250)] text-sidebar-foreground">
-        <Link href="/" className="flex items-center gap-1 sm:gap-1.5 text-xs sm:text-sm hover:text-white text-sidebar-foreground/80 whitespace-nowrap flex-shrink-0">
+        <Link href={explorerHref()} className="flex items-center gap-1 sm:gap-1.5 text-xs sm:text-sm hover:text-white text-sidebar-foreground/80 whitespace-nowrap flex-shrink-0">
           <ArrowLeft className="w-4 h-4" /> <span className="hidden sm:inline">탐색기로 돌아가기</span><span className="sm:hidden">탐색</span>
         </Link>
         <div className="w-px h-5 bg-sidebar-border hidden sm:block flex-shrink-0" />
