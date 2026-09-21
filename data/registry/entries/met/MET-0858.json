@@ -11,7 +11,7 @@
   "legacy_id": "R_0230",
   "origin": "reference(supplementary)",
   "id": "R_0230",
-  "name": "Beta-21S",
+  "name": "Beta-21S — Aged (538°C)",
   "category": "Metal",
   "subcategory": "Titanium - β",
   "tier": "reference",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": null,
+  "heat_treatment": "Aged (538°C)",
   "ranges": {
     "density": {
       "min": 4.94,
@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 1050,
-      "max": 1100,
-      "typical": 1100,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 1210,
+      "typical": 1210,
+      "max": 1210,
+      "confidence": "handbook",
+      "provenance": "교정: TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 21S Aged 538°C: 1210 · 1310 · 8)"
     },
     "uts": {
-      "min": 1150,
-      "max": 1200,
-      "typical": 1200,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 1310,
+      "typical": 1310,
+      "max": 1310,
+      "confidence": "handbook",
+      "provenance": "교정: TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 21S Aged 538°C: 1210 · 1310 · 8)"
     },
     "elongation": {
-      "min": 6,
-      "max": 8,
+      "min": 8,
       "typical": 8,
-      "n": 2,
-      "confidence": "handbook"
+      "max": 8,
+      "confidence": "handbook",
+      "provenance": "교정: TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 21S Aged 538°C: 1210 · 1310 · 8)"
     },
     "modulus": {
       "min": 105,
@@ -215,20 +215,11 @@
   "points": [
     [
       4.94,
-      1100,
-      1200,
+      1210,
+      1310,
       8,
       105,
       360,
-      8
-    ],
-    [
-      4.94,
-      1050,
-      1150,
-      6,
-      105,
-      340,
       8
     ]
   ],
@@ -248,8 +239,8 @@
   "fracture_toughness": 70,
   "fatigue_strength": 572,
   "density": 4.94,
-  "yield_strength": 1100,
-  "uts": 1200,
+  "yield_strength": 1210,
+  "uts": 1310,
   "elongation": 8,
   "modulus": 105,
   "hardness": 360,
@@ -289,6 +280,78 @@
   "_corrections": {
     "subcategory": {
       "from": "Titanium - Pure / CP Grades"
-    }
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 1050,
+        "max": 1100,
+        "typical": 1100,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1100
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 1150,
+        "max": 1200,
+        "typical": 1200,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1200
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 6,
+        "max": 8,
+        "typical": 8,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 8
+    },
+    "_basis": "조건 없는 단독 entry 의 1100/1200/8 은 TIMET 표의 어느 조건(소둔 880/915/15 · 538°C 시효 1210/1310/8 · 593°C 시효 1035/1100/10 · 과시효 860/930/14)과도 맞지 않았다. 연신율 8 과 '고강도 β 합금' 용도가 가리키는 표준 시효(538°C/8h, AMS 4914)로 확정.",
+    "_src": "TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 21S Aged 538°C: 1210 · 1310 · 8)",
+    "points": {
+      "from": [
+        [
+          4.94,
+          1100,
+          1200,
+          8,
+          105,
+          360,
+          8
+        ],
+        [
+          4.94,
+          1050,
+          1150,
+          6,
+          105,
+          340,
+          8
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "Beta-21S",
+        "had": true
+      },
+      "heat_treatment": {
+        "from": null,
+        "had": true
+      }
+    },
+    "_fbasis": "조건 미상 단독 entry 를 값이 가리키는 표준 시효 조건으로 확정(값 교정과 세트).",
+    "_fsrc": "TIMET Titanium Alloys manual — TIMETAL 21S Aged 538°C"
   }
 }

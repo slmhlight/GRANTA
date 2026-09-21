@@ -23,13 +23,13 @@ const GOLDEN: G[] = [
   { name: 'AA 7075', ht: 'T6', y: [470, 540], u: [545, 600] },
   { name: 'AA 2024 ', ht: 'T3', y: [325, 360], u: [465, 500], d: [2.72, 2.85] },
   { name: 'AA 5052', ht: 'Anneal', y: [75, 110], u: [180, 215] },
-  { name: 'Ti-6Al-4V (Gr', ht: 'Anneal', y: [850, 1050], d: [4.35, 4.5] },
+  { name: 'Ti-6Al-4V (Grade 5)', ht: 'Anneal', y: [850, 1050], d: [4.35, 4.5] },   // A3 Ti: '(Gr5)' 중복 base 제거 → 표기 변형 예외 소멸
   { name: 'AISI 304 ', ht: 'Anneal', y: [185, 225], u: [490, 560], d: [7.9, 8.05] },
   { name: 'AISI 316 ', ht: 'Anneal', y: [185, 225], u: [490, 560] },
   { name: '17-4 PH', ht: 'H900', y: [1120, 1230], u: [1270, 1360], d: [7.7, 7.85] },
   { name: 'C11000', y: [55, 90], u: [200, 240], d: [8.85, 8.98] },
   { name: 'AISI 1045', y: [490, 570], d: [7.75, 7.95] },
-  { name: 'Ti Grade 2 —', ht: 'Anneal', y: [255, 320], u: [340, 400], d: [4.4, 4.6] },
+  { name: 'Ti Grade 2 —', ht: 'Anneal', y: [310, 380], u: [440, 520], d: [4.4, 4.6] },   // A3 Ti: 구 밴드는 B265 최소값(275/345) 중심 — TIMET 50A 대표값(345/485)으로 재캘리브레이션
   { name: 'Inconel 718 ', d: [8.1, 8.3], yMax: 1000 },       // aged 조건 σy ≥ 1000 존재
   { name: 'Inconel 625', d: [8.35, 8.5] },
   { name: 'Maraging 300', d: [7.95, 8.2], yMax: 1700 },     // aged 조건 σy ≥ 1700 존재
@@ -53,9 +53,9 @@ const GOLDEN: G[] = [
   { name: 'AA 2014', ht: 'T6', y: [390, 445], u: [455, 510] },
   { name: 'AA 2219', ht: 'T87', y: [365, 420], u: [445, 500] },
   { name: 'AA 7050', ht: 'T7451', y: [440, 500], u: [500, 560] },
-  { name: 'Ti Grade 1', ht: 'Anneal', y: [140, 220], u: [220, 290], d: [4.48, 4.54] },
+  { name: 'Ti Grade 1', ht: 'Anneal', y: [200, 260], u: [320, 380], d: [4.48, 4.54] },   // A3 Ti: 구 밴드는 B265 최소값 중심 — TIMET 35A 대표값(220/345)
   { name: 'Ti Grade 9', y: [460, 560], u: [580, 680], d: [4.44, 4.52] },          // 3Al-2.5V ann
-  { name: 'Ti Grade 23', ht: 'Aged', y: [840, 990], u: [900, 1040] },             // ELI STA
+  { name: 'Ti-6Al-4V Grade 23 ELI', ht: 'Anneal', y: [760, 830], u: [830, 900] },   // A3 Ti: generic 'Ti Grade 23' 중복 base 제거 → ELI 소둔(AZoM/MatWeb 790/860)
   { name: 'Inconel 718 (UNS N07718, AMS 5662', y: [1030, 1180], u: [1240, 1400] },// AMS 5662 min 1034/1276
   { name: 'Inconel 625 — Anneal', y: [410, 640], u: [820, 990] },                 // Gr1 min 414/827
   { name: 'Inconel 600', ht: 'Anneal', y: [200, 320], u: [540, 700], d: [8.4, 8.52] },
@@ -206,7 +206,6 @@ describe('golden 앵커 정밀도 — 한 앵커 = 한 합금 (검출력 상실 
     'Silicon Carbide': 'SiC 소결법 변형(sintered · reaction-bonded) — 동일 재료, ρ/E 앵커는 공통',
     'Silicon Nitride': 'Si₃N₄ 소결법 변형(HIP · sintered) — 동일 재료',
     'Tungsten Carbide (WC-Co': 'WC-Co 바인더 함량 변형(6% · 12%) — 동일 재료계, ρ 앵커는 6% 가 만족',
-    'Ti-6Al-4V (Gr': 'Grade 5 표기 변형(Grade 5 · Gr5) — 동일 grade',
     'Inconel 718 ': 'IN718 표기 변형(단독 vs UNS/AMS 병기) — 동일 합금. 718Plus 는 후행 공백으로 배제됨',
     'AISI 304L ': '304L 표기 변형(— · (Wrought) · / STS304L · / STS304 ULC) — 동일 합금. 304LN 은 후행 공백으로 배제됨',
   };

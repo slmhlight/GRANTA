@@ -104,10 +104,13 @@ describe('corrosion-guidance SSOT 스키마', () => {
 });
 
 describe('커버리지 (profiles.corr 스탬프)', () => {
-  it('Metal ≥900 · Polymer/Ceramic 전량 · Composite 0 (의도적 hide)', () => {
+  it('Metal ≥98% · Polymer/Ceramic 전량 · Composite 0 (의도적 hide)', () => {
     const has = (m: Material) => !!(m.profiles as any)?.corr;
     const cnt = (cat: string) => mats.filter((m) => m.category === cat && has(m)).length;
-    expect(cnt('Metal')).toBeGreaterThanOrEqual(900);
+    /* A3(2026-09-21): 절대 900 은 재료 수에 묶인 값이라 정당한 제거(A17·A3 Al·Ti)로 깨진다 — 비율로 본다.
+       미스탬프 금속은 Nitinol·전기강판·백주철 2종처럼 부식 그룹이 없는 것뿐(실측 4/894). */
+    const metals = mats.filter((m) => m.category === 'Metal').length;
+    expect(cnt('Metal') / metals).toBeGreaterThanOrEqual(0.98);
     expect(cnt('Polymer')).toBe(mats.filter((m) => m.category === 'Polymer').length);
     expect(cnt('Ceramic')).toBe(mats.filter((m) => m.category === 'Ceramic').length);
     expect(cnt('Composite')).toBe(0);

@@ -1,6 +1,6 @@
 {
  "_note": "생성물: pnpm build:profiles (scripts/build-process-profiles.mjs). 직접 수정 금지 — 교정은 data/process-profile-overrides.json (stable_id + src). 키 의미: mach=절삭성 프로파일(process-profiles.json), weld=용접성 모델(ce|schaeffler|none), ht=HT family(ht-alloy-specific.ts familyName), htc=조건 클래스, insight=선택 인사이트 그룹(selection-insights.json).",
- "entries": 1113,
+ "entries": 1102,
  "ht_families_parsed": 34,
  "assignments": {
   "CER-0001": {
@@ -8610,6 +8610,7 @@
    "colorf": "Titanium",
    "mach": "ti-alloy",
    "weld": "none",
+   "htc": "aged",
    "htg": "h08-beta",
    "wg": "w25-beta",
    "insight": "titanium",
@@ -8691,28 +8692,6 @@
    "cg": "ti",
    "corr": "ti"
   },
-  "MET-0866": {
-   "colorf": "Titanium",
-   "mach": "ti-cp",
-   "weld": "none",
-   "htc": "soft",
-   "htg": "h18-ti-general",
-   "wg": "w22-ti",
-   "insight": "titanium",
-   "cg": "ti",
-   "corr": "ti"
-  },
-  "MET-0867": {
-   "colorf": "Titanium",
-   "mach": "ti-cp",
-   "weld": "none",
-   "htc": "soft",
-   "htg": "h18-ti-general",
-   "wg": "w22-ti",
-   "insight": "titanium",
-   "cg": "ti",
-   "corr": "ti"
-  },
   "MET-0868": {
    "colorf": "Titanium",
    "mach": "ti-cp",
@@ -8720,16 +8699,6 @@
    "htc": "soft",
    "htg": "h18-ti-general",
    "wg": "w22-ti",
-   "insight": "titanium",
-   "cg": "ti",
-   "corr": "ti"
-  },
-  "MET-0872": {
-   "colorf": "Titanium",
-   "mach": "ti-cp",
-   "weld": "none",
-   "htg": "h18-ti-general",
-   "wg": "w24-ti",
    "insight": "titanium",
    "cg": "ti",
    "corr": "ti"
@@ -8755,30 +8724,6 @@
    "cg": "ti",
    "corr": "ti"
   },
-  "MET-0878": {
-   "colorf": "Titanium",
-   "mach": "ti-alloy",
-   "weld": "none",
-   "htc": "aged",
-   "ht": "Ti-6Al-4V (UNS R56400 Grade 5 / R56407 Grade 23 ELI)",
-   "htg": "h07-ti",
-   "wg": "w24-ti",
-   "insight": "titanium",
-   "cg": "ti",
-   "corr": "ti"
-  },
-  "MET-0879": {
-   "colorf": "Titanium",
-   "mach": "ti-alloy",
-   "weld": "none",
-   "htc": "soft",
-   "ht": "Ti-6Al-4V (UNS R56400 Grade 5 / R56407 Grade 23 ELI)",
-   "htg": "h07-ti",
-   "wg": "w24-ti",
-   "insight": "titanium",
-   "cg": "ti",
-   "corr": "ti"
-  },
   "MET-0883": {
    "colorf": "Titanium",
    "mach": "ti-cp",
@@ -8797,17 +8742,6 @@
    "htc": "soft",
    "htg": "h18-ti-general",
    "wg": "w22-ti",
-   "insight": "titanium",
-   "cg": "ti",
-   "corr": "ti"
-  },
-  "MET-0891": {
-   "colorf": "Titanium",
-   "mach": "ti-cp",
-   "weld": "none",
-   "htc": "aged",
-   "htg": "h18-ti-general",
-   "wg": "w24-ti",
    "insight": "titanium",
    "cg": "ti",
    "corr": "ti"
@@ -8894,27 +8828,6 @@
    "htc": "qt",
    "htg": "h08-beta",
    "wg": "w25-beta",
-   "insight": "titanium",
-   "cg": "ti",
-   "corr": "ti"
-  },
-  "MET-0903": {
-   "colorf": "Titanium",
-   "mach": "ti-alloy",
-   "weld": "none",
-   "htg": "h08-beta",
-   "wg": "w25-beta",
-   "insight": "titanium",
-   "cg": "ti",
-   "corr": "ti"
-  },
-  "MET-0904": {
-   "colorf": "Titanium",
-   "mach": "ti-alloy",
-   "weld": "none",
-   "htc": "aged",
-   "htg": "h18-ti-general",
-   "wg": "w24-ti",
    "insight": "titanium",
    "cg": "ti",
    "corr": "ti"
@@ -9006,17 +8919,6 @@
    "cg": "ti",
    "corr": "ti"
   },
-  "MET-0919": {
-   "colorf": "Titanium",
-   "mach": "ti-alloy",
-   "weld": "none",
-   "htc": "aged",
-   "htg": "h18-ti-general",
-   "wg": "w24-ti",
-   "insight": "titanium",
-   "cg": "ti",
-   "corr": "ti"
-  },
   "MET-0920": {
    "colorf": "Titanium",
    "mach": "ti-alloy",
@@ -9065,18 +8967,6 @@
    "corr": "ti"
   },
   "MET-0924": {
-   "colorf": "Titanium",
-   "mach": "ti-alloy",
-   "weld": "none",
-   "htc": "soft",
-   "ht": "Ti-6Al-4V (UNS R56400 Grade 5 / R56407 Grade 23 ELI)",
-   "htg": "h07-ti",
-   "wg": "w23-ti",
-   "insight": "titanium",
-   "cg": "ti",
-   "corr": "ti"
-  },
-  "MET-0925": {
    "colorf": "Titanium",
    "mach": "ti-alloy",
    "weld": "none",
@@ -9165,17 +9055,6 @@
    "mach": "ti-alloy",
    "weld": "none",
    "htg": "h07-ti",
-   "wg": "w24-ti",
-   "insight": "titanium",
-   "cg": "ti",
-   "corr": "ti"
-  },
-  "MET-0933": {
-   "colorf": "Titanium",
-   "mach": "ti-alloy",
-   "weld": "none",
-   "htc": "aged",
-   "htg": "h18-ti-general",
    "wg": "w24-ti",
    "insight": "titanium",
    "cg": "ti",

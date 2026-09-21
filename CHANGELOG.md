@@ -2,6 +2,19 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## 2026-09-21 — A3 Ti 족보 re-verify (2027Q1 앞당김 — CP 사다리가 ASTM 최소값을 typical 로 싣고 있었다)
+
+Ti 56 entry / 34 base 전건 판정. 대장 `docs/audits/ti-reverify-2027Q1.md`(로컬). 대조: **TIMET Titanium Alloys technical manual**의 "Typical Mechanical Properties of TIMETAL alloys" 표(제조사 대표값, PDF 좌표 복원) · AZoM/MakeItFrom · ASTM B265/B348/F136 최소.
+
+- **CP 사다리 6 이 B265 최소값을 typical 자리에** — Gr1 170/240 → **220/345/35**(TIMETAL 35A) · Gr2 275/345 → **345/485/28** · Gr3 → 450/585/25 · Gr4 → 560/680/23 · Gr12 → 460/600/22 · Gr9 → 550/650/15. 최소값은 min-spec 표가 그대로 보유(E4 배지). golden 앵커 'Ti Grade 1'·'Ti Grade 2 —' 는 최소값 중심 밴드였다(D9 의 1030 앵커 부류) → TIMET 대표값으로 재캘리브레이션. Gr7·Gr11 은 MakeItFrom 대표값.
+- **Ti-15-3-3-3 시효 값이 온도에 거꾸로** — 480°C 1000/1100 · 540°C 1240/1310 로 실려 있었다. β 합금은 낮은 시효온도가 더 강하다(TIMET: 482°C 1210/1300/9 · 538°C 1050/1160/11) → 교정, 경도도 강도 순으로 교환. **Beta-21S**(조건 없음)는 TIMET 표의 어느 조건과도 안 맞아 표준 시효(538°C)로 확정 1210/1310/8.
+- **제거 11**: 소둔 형제와 완전 동일한 합성 'Aged' 3(Ti-5-2-5·Ti-8-1-1·Gr7 — A17 이 Strain-hardened 만 걷어내 남은 것; 감사기 REVIEWED 예외 3 키 함께 삭제) · 중복 base 8('(Gr5)' 단독 → '(Grade 5)' 사다리 · 6242 단독 → 사다리 · generic Gr23 2 → ELI base · 'Ti Grade 11' → 'Titanium Grade 11' · CP Gr3 base 2 · 'Ti-15V-3Cr-3Al-3Sn' 단독). 재료 **1,113 → 1,102**.
+- REVIEWED: 6-4 사다리(TIMET rod 885/985 · STA 1075/1205 ±5%) · 6-2-4-2 · 6-2-4-6 · 10-2-3 · 13-11-3 · 5553 · Beta-C · Gr23 ELI 소둔(AZoM 정확 일치) · 주조 · AM 11. 잔여 4(ELI STA 828/895 = B348 최소 숫자 · 6242 STA · B367 C-5 min 행 · CP 경도 인용).
+- **게이트 3 을 인구 종속 절대치에서 계약/비율로**: `spec-floor` ">100" → "패턴에 걸리고 min ±2% 이면 반드시 스탬프"(정당한 교정으로 116→91 로 준 것을 오류로 보지 않게) · `unexposed-data` 100→40 · `corrosion-guidance` Metal ≥900 → ≥98%.
+- 검증: 라운드트립 0 · vitest 1235/1235(80) · tsc 0 · lint 0.
+
+---
+
 ## 2026-09-20 — A3 잔여 ⑤ 2차 (Al 8건 — 인용을 찾은 7건 종결)
 
 - **7050**: 인용된 Kaiser 7050 Sheet/Coil/Plate 데이터시트를 PDF 로 다시 판독 — typical 표는 **T7451·T7651 두 행뿐**. 'Annealed'(235/90)는 어디에도 없는 값이라 **제거**, T7451 은 표대로 524/469/11/**HB 140**(DB El 10·HB 165 정정), 'T74' 560/510/HB 175 는 표에 없고 T7651 보다 높아 **T7651**(552/489/11/150)로 교정·재라벨.

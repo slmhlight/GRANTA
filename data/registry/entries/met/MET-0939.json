@@ -11,7 +11,7 @@
   "legacy_id": "R_0044_0",
   "origin": "reference(supplementary)",
   "id": "R_0044_0",
-  "name": "Titanium Grade 11 (Ti-0.2Pd, corrosion-resistant α-Ti) — Annealed (mill product, AMS 4941, ASTM B265 Gr11)",
+  "name": "Titanium Grade 11 (Ti-0.2Pd, corrosion-resistant α-Ti) — Annealed",
   "category": "Metal",
   "subcategory": "Titanium - Pure / CP Grades",
   "tier": "reference",
@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 200,
-      "max": 200,
-      "typical": 200,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 230,
+      "typical": 230,
+      "max": 230,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom — Grade 11 (3.7225, R52250) Titanium, annealed (310 / 230 / 29% / HB 120)"
     },
     "uts": {
-      "min": 295,
-      "max": 295,
-      "typical": 295,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 310,
+      "typical": 310,
+      "max": 310,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom — Grade 11 (3.7225, R52250) Titanium, annealed (310 / 230 / 29% / HB 120)"
     },
     "elongation": {
-      "min": 30,
-      "max": 30,
-      "typical": 30,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 29,
+      "typical": 29,
+      "max": 29,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom — Grade 11 (3.7225, R52250) Titanium, annealed (310 / 230 / 29% / HB 120)"
     },
     "modulus": {
       "min": 103,
@@ -61,10 +61,10 @@
     },
     "hardness": {
       "min": 120,
-      "max": 120,
       "typical": 120,
-      "n": 1,
-      "confidence": "handbook"
+      "max": 120,
+      "confidence": "handbook",
+      "provenance": "교정: MakeItFrom — Grade 11 (3.7225, R52250) Titanium, annealed (310 / 230 / 29% / HB 120)"
     },
     "thermal_conductivity": {
       "min": 17,
@@ -208,9 +208,9 @@
   "points": [
     [
       4.51,
-      200,
-      295,
-      30,
+      230,
+      310,
+      29,
       103,
       120,
       17
@@ -236,9 +236,9 @@
   },
   "fracture_toughness": 70,
   "density": 4.51,
-  "yield_strength": 200,
-  "uts": 295,
-  "elongation": 30,
+  "yield_strength": 230,
+  "uts": 310,
+  "elongation": 29,
   "modulus": 103,
   "hardness": 120,
   "thermal_conductivity": 17,
@@ -295,6 +295,77 @@
           "verified": false
         }
       ]
-    }
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 200,
+        "max": 200,
+        "typical": 200,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 200
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 295,
+        "max": 295,
+        "typical": 295,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 295
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 30,
+        "max": 30,
+        "typical": 30,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 30
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 120,
+        "max": 120,
+        "typical": 120,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 120
+    },
+    "_basis": "Titanium Grade 11(Ti-0.2Pd)의 200/295/30 은 인용 미상(단독 'Ti Grade 11' 170/240 은 B265 최소값). Gr11 = Gr1 + Pd — 대표값 인용(MakeItFrom)으로 교정. 두 base 를 이 entry 로 통합.",
+    "_src": "MakeItFrom — Grade 11 (3.7225, R52250) Titanium, annealed (310 / 230 / 29% / HB 120)",
+    "points": {
+      "from": [
+        [
+          4.51,
+          200,
+          295,
+          30,
+          103,
+          120,
+          17
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "Titanium Grade 11 (Ti-0.2Pd, corrosion-resistant α-Ti) — Annealed (mill product, AMS 4941, ASTM B265 Gr11)",
+        "had": true
+      }
+    },
+    "_fbasis": "이름 말미의 규격 나열(mill product, AMS 4941, ASTM B265 Gr11)은 sources 가 담는 정보 — 사다리 표기 통일.",
+    "_fsrc": "A3 Ti re-verify 2027Q1(앞당김)"
   }
 }

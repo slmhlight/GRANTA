@@ -52,6 +52,7 @@ describe('W4-2b — 죽은 필드는 산출물에서 뺀다', () => {
   it('은퇴한 spec_type 대신 basis 가 실제로 쓰인다 (역할 이관 확인)', () => {
     let n = 0;
     for (const m of ALL) for (const r of Object.values(m.ranges ?? {})) if (r && (r as { basis?: string }).basis === 'min_spec') n++;
-    expect(n, 'basis 스탬프 0 — 역할을 넘겨받을 대상이 없다').toBeGreaterThan(100);
+    // A3 Al·Ti(2026-09-20/21)가 '최소값이 typical 자리에 실린 행' 을 대표값으로 교정해 스탬프가 116 → 91 로 정당하게 줄었다 — 하한 재기준(계약 검사는 spec-floor.test).
+    expect(n, 'basis 스탬프 0 — 역할을 넘겨받을 대상이 없다').toBeGreaterThan(40);
   });
 });

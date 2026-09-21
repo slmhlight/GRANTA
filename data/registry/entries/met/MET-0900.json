@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 1000,
-      "max": 1000,
-      "typical": 1000,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 1210,
+      "typical": 1210,
+      "max": 1210,
+      "confidence": "handbook",
+      "provenance": "교정: TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 15-3 Aged 482°C: 1210 · 1300 · 9)"
     },
     "uts": {
-      "min": 1100,
-      "max": 1100,
-      "typical": 1100,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 1300,
+      "typical": 1300,
+      "max": 1300,
+      "confidence": "handbook",
+      "provenance": "교정: TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 15-3 Aged 482°C: 1210 · 1300 · 9)"
     },
     "elongation": {
-      "min": 10,
-      "max": 10,
-      "typical": 10,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 9,
+      "typical": 9,
+      "max": 9,
+      "confidence": "handbook",
+      "provenance": "교정: TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 15-3 Aged 482°C: 1210 · 1300 · 9)"
     },
     "modulus": {
       "min": 100,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 360,
-      "max": 360,
-      "typical": 360,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 410,
+      "typical": 410,
+      "max": 410,
+      "confidence": "handbook",
+      "provenance": "교정: TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 15-3 Aged 482°C: 1210 · 1300 · 9)"
     },
     "thermal_conductivity": {
       "min": 8,
@@ -211,11 +211,11 @@
   "points": [
     [
       4.76,
-      1000,
-      1100,
-      10,
+      1210,
+      1300,
+      9,
       100,
-      360,
+      410,
       8
     ]
   ],
@@ -236,11 +236,11 @@
   "fracture_toughness": 50,
   "fatigue_strength": 580,
   "density": 4.76,
-  "yield_strength": 1000,
-  "uts": 1100,
-  "elongation": 10,
+  "yield_strength": 1210,
+  "uts": 1300,
+  "elongation": 9,
   "modulus": 100,
-  "hardness": 360,
+  "hardness": 410,
   "thermal_conductivity": 8,
   "impact_strength": 22,
   "manufacturer": "Reference data",
@@ -277,6 +277,69 @@
   "_corrections": {
     "subcategory": {
       "from": "Titanium - Pure / CP Grades"
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 1000,
+        "max": 1000,
+        "typical": 1000,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1000
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 1100,
+        "max": 1100,
+        "typical": 1100,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1100
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 10,
+        "max": 10,
+        "typical": 10,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 10
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 360,
+        "max": 360,
+        "typical": 360,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 360
+    },
+    "_basis": "Ti-15-3-3-3 의 두 시효 조건 값이 **온도에 거꾸로** 붙어 있었다(480°C 1000/1100 · 540°C 1240/1310). β 합금은 낮은 시효온도가 더 미세한 α 석출로 더 강하다 — TIMET 표: 482°C 1210/1300/9, 538°C 1050/1160/11. 경도 두 값(360·410)도 강도를 따라 교환.",
+    "_src": "TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 15-3 Aged 482°C: 1210 · 1300 · 9)",
+    "points": {
+      "from": [
+        [
+          4.76,
+          1000,
+          1100,
+          10,
+          100,
+          360,
+          8
+        ]
+      ]
     }
   }
 }

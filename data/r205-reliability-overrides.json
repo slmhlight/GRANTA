@@ -125,82 +125,6 @@
    "_namePattern_ref": "^AISI 440C — Quenched / tempered"
   },
   {
-   "composition": {
-    "Ti": "balance",
-    "Al": "5.5~6.5",
-    "V": "3.5~4.5",
-    "Fe": "≤0.25",
-    "O": "≤0.13"
-   },
-   "ranges": {
-    "yield_strength": {
-     "typical": 790,
-     "min": 760,
-     "max": 875,
-     "confidence": "handbook"
-    },
-    "uts": {
-     "typical": 860,
-     "min": 825,
-     "max": 930,
-     "confidence": "handbook"
-    },
-    "elongation": {
-     "typical": 15,
-     "min": 10,
-     "max": 18,
-     "confidence": "handbook"
-    },
-    "modulus": {
-     "typical": 113,
-     "min": 110,
-     "max": 115,
-     "confidence": "handbook"
-    },
-    "hardness": {
-     "typical": 320,
-     "min": 300,
-     "max": 350,
-     "confidence": "handbook"
-    },
-    "density": {
-     "typical": 4.43,
-     "min": 4.43,
-     "max": 4.43,
-     "confidence": "handbook"
-    },
-    "thermal_conductivity": {
-     "typical": 6.7,
-     "min": 6.5,
-     "max": 7,
-     "confidence": "handbook"
-    },
-    "max_service_temp": {
-     "typical": 350,
-     "min": 315,
-     "max": 400,
-     "confidence": "handbook"
-    },
-    "melting_point": {
-     "typical": 1660,
-     "min": 1650,
-     "max": 1670,
-     "confidence": "handbook"
-    }
-   },
-   "qual": {
-    "machinability": "Poor",
-    "weldability": "Good",
-    "corrosion_resistance": "Excellent"
-   },
-   "reason": "C17 CRITICAL: Grade 23 = Ti-6Al-4V ELI 인데 CP-Ti 값 (275/345) 박힘. 2.8× 오차. [ASTM F136 / AMS 4931]",
-   "stableIds": [
-    "MET-0878",
-    "MET-0879"
-   ],
-   "_namePattern_ref": "^Ti Grade 23 — "
-  },
-  {
    "ranges": {
     "yield_strength": {
      "typical": 170,
@@ -347,7 +271,6 @@
    },
    "reason": "E12+C: Tmax 170/300 불일치 + 2 conds mach=Exce/corr=Good mock 통일. [ASTM B265 Gr7]",
    "stableIds": [
-    "MET-0891",
     "MET-0892"
    ],
    "_namePattern_ref": "^Ti Grade 7 — "
@@ -379,7 +302,6 @@
    },
    "reason": "C18: σy flatten 후 HV mock (294-338) 잔존 통일.",
    "stableIds": [
-    "MET-0904",
     "MET-0905"
    ],
    "_namePattern_ref": "^Ti-5-2-5 — "
@@ -415,7 +337,6 @@
    },
    "reason": "C18: HV mock 통일.",
    "stableIds": [
-    "MET-0933",
     "MET-0934"
    ],
    "_namePattern_ref": "^Ti-8-1-1 — "

@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 170,
-      "max": 485,
-      "typical": 275,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 345,
+      "typical": 345,
+      "max": 345,
+      "confidence": "handbook",
+      "provenance": "교정: TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 50A / ASTM Gr.2: 345 · 485 · 28)"
     },
     "uts": {
-      "min": 240,
-      "max": 550,
-      "typical": 345,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 485,
+      "typical": 485,
+      "max": 485,
+      "confidence": "handbook",
+      "provenance": "교정: TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 50A / ASTM Gr.2: 345 · 485 · 28)"
     },
     "elongation": {
-      "min": 15,
-      "max": 40,
+      "min": 28,
       "typical": 28,
-      "n": 2,
-      "confidence": "handbook"
+      "max": 28,
+      "confidence": "handbook",
+      "provenance": "교정: TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 50A / ASTM Gr.2: 345 · 485 · 28)"
     },
     "modulus": {
       "min": 102,
@@ -212,20 +212,11 @@
   "points": [
     [
       4.51,
-      353.40000000000003,
-      418.5,
-      16.6,
-      103,
-      120.9,
-      21.8
-    ],
-    [
-      4.51,
-      399,
-      472.5,
-      17,
-      103,
-      136.5,
+      345,
+      485,
+      28,
+      105,
+      200,
       21.8
     ]
   ],
@@ -252,8 +243,8 @@
   "fracture_toughness": 70,
   "fatigue_strength": 207,
   "density": 4.51,
-  "yield_strength": 275,
-  "uts": 345,
+  "yield_strength": 345,
+  "uts": 485,
   "elongation": 28,
   "modulus": 105,
   "hardness": 200,
@@ -331,6 +322,66 @@
           "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=8b32f4f7d4a04a6a8a82dfc4d35aebab",
           "verified": false
         }
+      ]
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 170,
+        "max": 485,
+        "typical": 275,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 275
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 240,
+        "max": 550,
+        "typical": 345,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 345
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 15,
+        "max": 40,
+        "typical": 28,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 28
+    },
+    "_basis": "Ti Grade 2 소둔의 275/345/28 은 B265 Gr2 최소값(275/345/20). 제조사 대표값(TIMETAL 50A = ASTM Gr.2)으로 교정.",
+    "_src": "TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 50A / ASTM Gr.2: 345 · 485 · 28)",
+    "points": {
+      "from": [
+        [
+          4.51,
+          353.40000000000003,
+          418.5,
+          16.6,
+          103,
+          120.9,
+          21.8
+        ],
+        [
+          4.51,
+          399,
+          472.5,
+          17,
+          103,
+          136.5,
+          21.8
+        ]
       ]
     }
   }

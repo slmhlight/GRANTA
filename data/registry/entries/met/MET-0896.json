@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 450,
-      "max": 585,
-      "typical": 500,
-      "n": 3,
-      "confidence": "measured"
+      "min": 550,
+      "typical": 550,
+      "max": 550,
+      "confidence": "handbook",
+      "provenance": "교정: TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 3-2.5 / ASTM Gr.9: 550 · 650 · 15)"
     },
     "uts": {
-      "min": 590,
-      "max": 690,
-      "typical": 620,
-      "n": 3,
-      "confidence": "measured"
+      "min": 650,
+      "typical": 650,
+      "max": 650,
+      "confidence": "handbook",
+      "provenance": "교정: TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 3-2.5 / ASTM Gr.9: 550 · 650 · 15)"
     },
     "elongation": {
       "min": 15,
-      "max": 18,
       "typical": 15,
-      "n": 3,
-      "confidence": "measured"
+      "max": 15,
+      "confidence": "handbook",
+      "provenance": "교정: TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 3-2.5 / ASTM Gr.9: 550 · 650 · 15)"
     },
     "modulus": {
       "min": 100,
@@ -217,29 +217,11 @@
   "points": [
     [
       4.48,
-      500,
-      620,
+      550,
+      650,
       15,
       100,
       300,
-      8.3
-    ],
-    [
-      4.48,
-      450,
-      590,
-      18,
-      100,
-      290,
-      8.3
-    ],
-    [
-      4.48,
-      585,
-      690,
-      15,
-      100,
-      320,
       8.3
     ]
   ],
@@ -267,8 +249,8 @@
   "fracture_toughness": 60,
   "fatigue_strength": 260,
   "density": 4.48,
-  "yield_strength": 500,
-  "uts": 620,
+  "yield_strength": 550,
+  "uts": 650,
   "elongation": 15,
   "modulus": 100,
   "hardness": 300,
@@ -331,6 +313,75 @@
   "_corrections": {
     "subcategory": {
       "from": "Titanium - Pure / CP Grades"
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 450,
+        "max": 585,
+        "typical": 500,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 500
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 590,
+        "max": 690,
+        "typical": 620,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 620
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 15,
+        "max": 18,
+        "typical": 15,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 15
+    },
+    "_basis": "Ti Grade 9 (Ti-3Al-2.5V) 소둔의 500/620 은 B265 Gr9 최소값(483/620) 근방. 제조사 대표값(TIMETAL 3-2.5 = ASTM Gr.9)으로 교정.",
+    "_src": "TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 3-2.5 / ASTM Gr.9: 550 · 650 · 15)",
+    "points": {
+      "from": [
+        [
+          4.48,
+          500,
+          620,
+          15,
+          100,
+          300,
+          8.3
+        ],
+        [
+          4.48,
+          450,
+          590,
+          18,
+          100,
+          290,
+          8.3
+        ],
+        [
+          4.48,
+          585,
+          690,
+          15,
+          100,
+          320,
+          8.3
+        ]
+      ]
     }
   }
 }

@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 380,
+      "min": 450,
+      "typical": 450,
       "max": 450,
-      "typical": 380,
-      "n": 2,
-      "confidence": "handbook"
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter CP Titanium Grade 2 datasheet (CTE 8.6×10⁻⁶/°C 20~100°C · 비열 522 J/kg·K · 융점 1665°C) — DB CP Ti 계열 typical(8.8 / 560)이 이 범위임을 확인 · TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 65A / ASTM Gr.3: 450 · 585 · 25)"
     },
     "uts": {
-      "min": 450,
-      "max": 550,
-      "typical": 450,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 585,
+      "typical": 585,
+      "max": 585,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter CP Titanium Grade 2 datasheet (CTE 8.6×10⁻⁶/°C 20~100°C · 비열 522 J/kg·K · 융점 1665°C) — DB CP Ti 계열 typical(8.8 / 560)이 이 범위임을 확인 · TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 65A / ASTM Gr.3: 450 · 585 · 25)"
     },
     "elongation": {
-      "min": 18,
-      "max": 28,
-      "typical": 18,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 25,
+      "typical": 25,
+      "max": 25,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter CP Titanium Grade 2 datasheet (CTE 8.6×10⁻⁶/°C 20~100°C · 비열 522 J/kg·K · 융점 1665°C) — DB CP Ti 계열 typical(8.8 / 560)이 이 범위임을 확인 · TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 65A / ASTM Gr.3: 450 · 585 · 25)"
     },
     "modulus": {
       "min": 102,
@@ -103,7 +103,7 @@
       "typical": 1.5,
       "max": 1.5,
       "confidence": "handbook",
-      "provenance": "교정: Carpenter CP Titanium Grade 2 datasheet (CTE 8.6×10⁻⁶/°C 20~100°C · 비열 522 J/kg·K · 융점 1665°C) — DB CP Ti 계열 typical(8.8 / 560)이 이 범위임을 확인"
+      "provenance": "교정: Carpenter CP Titanium Grade 2 datasheet (CTE 8.6×10⁻⁶/°C 20~100°C · 비열 522 J/kg·K · 융점 1665°C) — DB CP Ti 계열 typical(8.8 / 560)이 이 범위임을 확인 · TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 65A / ASTM Gr.3: 450 · 585 · 25)"
     },
     "max_service_temp": {
       "min": 300,
@@ -119,21 +119,21 @@
       "typical": 8.8,
       "max": 8.8,
       "confidence": "handbook",
-      "provenance": "교정: Carpenter CP Titanium Grade 2 datasheet (CTE 8.6×10⁻⁶/°C 20~100°C · 비열 522 J/kg·K · 융점 1665°C) — DB CP Ti 계열 typical(8.8 / 560)이 이 범위임을 확인"
+      "provenance": "교정: Carpenter CP Titanium Grade 2 datasheet (CTE 8.6×10⁻⁶/°C 20~100°C · 비열 522 J/kg·K · 융점 1665°C) — DB CP Ti 계열 typical(8.8 / 560)이 이 범위임을 확인 · TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 65A / ASTM Gr.3: 450 · 585 · 25)"
     },
     "poisson_ratio": {
       "min": 0.34,
       "typical": 0.34,
       "max": 0.34,
       "confidence": "handbook",
-      "provenance": "교정: Carpenter CP Titanium Grade 2 datasheet (CTE 8.6×10⁻⁶/°C 20~100°C · 비열 522 J/kg·K · 융점 1665°C) — DB CP Ti 계열 typical(8.8 / 560)이 이 범위임을 확인"
+      "provenance": "교정: Carpenter CP Titanium Grade 2 datasheet (CTE 8.6×10⁻⁶/°C 20~100°C · 비열 522 J/kg·K · 융점 1665°C) — DB CP Ti 계열 typical(8.8 / 560)이 이 범위임을 확인 · TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 65A / ASTM Gr.3: 450 · 585 · 25)"
     },
     "specific_heat": {
       "min": 560,
       "typical": 560,
       "max": 560,
       "confidence": "handbook",
-      "provenance": "교정: Carpenter CP Titanium Grade 2 datasheet (CTE 8.6×10⁻⁶/°C 20~100°C · 비열 522 J/kg·K · 융점 1665°C) — DB CP Ti 계열 typical(8.8 / 560)이 이 범위임을 확인"
+      "provenance": "교정: Carpenter CP Titanium Grade 2 datasheet (CTE 8.6×10⁻⁶/°C 20~100°C · 비열 522 J/kg·K · 융점 1665°C) — DB CP Ti 계열 typical(8.8 / 560)이 이 범위임을 확인 · TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 65A / ASTM Gr.3: 450 · 585 · 25)"
     },
     "melting_point": {
       "min": 1660,
@@ -204,9 +204,9 @@
   "points": [
     [
       4.51,
-      380,
       450,
-      18,
+      585,
+      25,
       105,
       225,
       21.8
@@ -235,9 +235,9 @@
   "fracture_toughness": 70,
   "fatigue_strength": 150,
   "density": 4.51,
-  "yield_strength": 380,
-  "uts": 450,
-  "elongation": 18,
+  "yield_strength": 450,
+  "uts": 585,
+  "elongation": 25,
   "modulus": 105,
   "hardness": 225,
   "thermal_conductivity": 21.8,
@@ -387,8 +387,44 @@
       "had_scalar": true,
       "val_scalar": 900
     },
-    "_basis": "CP Ti Grade 3 가 알루미늄 계열 typical 을 상속(CTE 23·비열 900·%IACS 40 — 알루미늄 값). 조성의 주원소가 \"balance\" 문자열이라 계열 태깅에서 탈락한 결과다. 같은 CP Ti 계열의 다른 entry 들이 이미 갖고 있는 계열 typical 로 정렬 — 융점 1668 은 이미 CP Ti 실측이라 유지.",
-    "_src": "Carpenter CP Titanium Grade 2 datasheet (CTE 8.6×10⁻⁶/°C 20~100°C · 비열 522 J/kg·K · 융점 1665°C) — DB CP Ti 계열 typical(8.8 / 560)이 이 범위임을 확인",
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 380,
+        "max": 450,
+        "typical": 380,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 380
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 450,
+        "max": 550,
+        "typical": 450,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 450
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 18,
+        "max": 28,
+        "typical": 18,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 18
+    },
+    "_basis": "CP Ti Grade 3 가 알루미늄 계열 typical 을 상속(CTE 23·비열 900·%IACS 40 — 알루미늄 값). 조성의 주원소가 \"balance\" 문자열이라 계열 태깅에서 탈락한 결과다. 같은 CP Ti 계열의 다른 entry 들이 이미 갖고 있는 계열 typical 로 정렬 — 융점 1668 은 이미 CP Ti 실측이라 유지. | A3 Ti (2026-09-21): Ti Grade 3 소둔의 380/450/18 은 B265 Gr3 최소값. 제조사 대표값(TIMETAL 65A = ASTM Gr.3)으로 교정.",
+    "_src": "Carpenter CP Titanium Grade 2 datasheet (CTE 8.6×10⁻⁶/°C 20~100°C · 비열 522 J/kg·K · 융점 1665°C) — DB CP Ti 계열 typical(8.8 / 560)이 이 범위임을 확인 · TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 65A / ASTM Gr.3: 450 · 585 · 25)",
     "points": {
       "from": [
         [

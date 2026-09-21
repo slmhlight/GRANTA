@@ -280,32 +280,45 @@
    "thermal_expansion": 8.8,
    "poisson_ratio": 0.34,
    "specific_heat": 560,
-   "basis": "CP Ti Grade 1 가 알루미늄 계열 typical 을 상속(CTE 23·비열 900·%IACS 40 — 알루미늄 값). 조성의 주원소가 \"balance\" 문자열이라 계열 태깅에서 탈락한 결과다. 같은 CP Ti 계열의 다른 entry 들이 이미 갖고 있는 계열 typical 로 정렬 — 융점 1668 은 이미 CP Ti 실측이라 유지.",
-   "src": "Carpenter CP Titanium Grade 2 datasheet (CTE 8.6×10⁻⁶/°C 20~100°C · 비열 522 J/kg·K · 융점 1665°C) — DB CP Ti 계열 typical(8.8 / 560)이 이 범위임을 확인"
+   "basis": "CP Ti Grade 1 가 알루미늄 계열 typical 을 상속(CTE 23·비열 900·%IACS 40 — 알루미늄 값). 조성의 주원소가 \"balance\" 문자열이라 계열 태깅에서 탈락한 결과다. 같은 CP Ti 계열의 다른 entry 들이 이미 갖고 있는 계열 typical 로 정렬 — 융점 1668 은 이미 CP Ti 실측이라 유지. | A3 Ti (2026-09-21): Ti Grade 1 소둔의 170/240/28 은 ASTM B265 Gr1 **최소값**(170/240/24)이 typical 자리에 실린 것. 제조사 대표값(TIMETAL 35A = ASTM Gr.1)으로 교정. 최소값은 standard-min-specs 표가 따로 보유(E4 배지).",
+   "src": "Carpenter CP Titanium Grade 2 datasheet (CTE 8.6×10⁻⁶/°C 20~100°C · 비열 522 J/kg·K · 융점 1665°C) — DB CP Ti 계열 typical(8.8 / 560)이 이 범위임을 확인 · TIMET — Titanium Alloys technical manual, Typical Mechanical Properties of TIMETAL alloys (TIMETAL 35A / ASTM Gr.1: 0.2% PS 220 · TS 345 · El 35)",
+   "yield_strength": 220,
+   "uts": 345,
+   "elongation": 35
   },
   "MET-0883": {
    "electrical_conductivity": 1.5,
    "thermal_expansion": 8.8,
    "poisson_ratio": 0.34,
    "specific_heat": 560,
-   "basis": "CP Ti Grade 3 가 알루미늄 계열 typical 을 상속(CTE 23·비열 900·%IACS 40 — 알루미늄 값). 조성의 주원소가 \"balance\" 문자열이라 계열 태깅에서 탈락한 결과다. 같은 CP Ti 계열의 다른 entry 들이 이미 갖고 있는 계열 typical 로 정렬 — 융점 1668 은 이미 CP Ti 실측이라 유지.",
-   "src": "Carpenter CP Titanium Grade 2 datasheet (CTE 8.6×10⁻⁶/°C 20~100°C · 비열 522 J/kg·K · 융점 1665°C) — DB CP Ti 계열 typical(8.8 / 560)이 이 범위임을 확인"
+   "basis": "CP Ti Grade 3 가 알루미늄 계열 typical 을 상속(CTE 23·비열 900·%IACS 40 — 알루미늄 값). 조성의 주원소가 \"balance\" 문자열이라 계열 태깅에서 탈락한 결과다. 같은 CP Ti 계열의 다른 entry 들이 이미 갖고 있는 계열 typical 로 정렬 — 융점 1668 은 이미 CP Ti 실측이라 유지. | A3 Ti (2026-09-21): Ti Grade 3 소둔의 380/450/18 은 B265 Gr3 최소값. 제조사 대표값(TIMETAL 65A = ASTM Gr.3)으로 교정.",
+   "src": "Carpenter CP Titanium Grade 2 datasheet (CTE 8.6×10⁻⁶/°C 20~100°C · 비열 522 J/kg·K · 융점 1665°C) — DB CP Ti 계열 typical(8.8 / 560)이 이 범위임을 확인 · TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 65A / ASTM Gr.3: 450 · 585 · 25)",
+   "yield_strength": 450,
+   "uts": 585,
+   "elongation": 25
   },
   "MET-0887": {
    "electrical_conductivity": 1.5,
    "thermal_expansion": 8.8,
    "poisson_ratio": 0.34,
    "specific_heat": 560,
-   "basis": "CP Ti Grade 4 가 알루미늄 계열 typical 을 상속(CTE 23·비열 900·%IACS 40 — 알루미늄 값). 조성의 주원소가 \"balance\" 문자열이라 계열 태깅에서 탈락한 결과다. 같은 CP Ti 계열의 다른 entry 들이 이미 갖고 있는 계열 typical 로 정렬 — 융점 1668 은 이미 CP Ti 실측이라 유지.",
-   "src": "Carpenter CP Titanium Grade 2 datasheet (CTE 8.6×10⁻⁶/°C 20~100°C · 비열 522 J/kg·K · 융점 1665°C) — DB CP Ti 계열 typical(8.8 / 560)이 이 범위임을 확인"
+   "basis": "CP Ti Grade 4 가 알루미늄 계열 typical 을 상속(CTE 23·비열 900·%IACS 40 — 알루미늄 값). 조성의 주원소가 \"balance\" 문자열이라 계열 태깅에서 탈락한 결과다. 같은 CP Ti 계열의 다른 entry 들이 이미 갖고 있는 계열 typical 로 정렬 — 융점 1668 은 이미 CP Ti 실측이라 유지. | A3 Ti (2026-09-21): Ti Grade 4 소둔의 480/550/15 은 B265 Gr4 최소값(483/550/15). 제조사 대표값(TIMETAL 75A = ASTM Gr.4)으로 교정.",
+   "src": "Carpenter CP Titanium Grade 2 datasheet (CTE 8.6×10⁻⁶/°C 20~100°C · 비열 522 J/kg·K · 융점 1665°C) — DB CP Ti 계열 typical(8.8 / 560)이 이 범위임을 확인 · TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 75A / ASTM Gr.4: 560 · 680 · 23)",
+   "yield_strength": 560,
+   "uts": 680,
+   "elongation": 23
   },
   "MET-0892": {
    "electrical_conductivity": 1.5,
    "thermal_expansion": 8.8,
    "poisson_ratio": 0.34,
    "specific_heat": 560,
-   "basis": "CP Ti Grade 7 가 알루미늄 계열 typical 을 상속(CTE 23·비열 900·%IACS 40 — 알루미늄 값). 조성의 주원소가 \"balance\" 문자열이라 계열 태깅에서 탈락한 결과다. 같은 CP Ti 계열의 다른 entry 들이 이미 갖고 있는 계열 typical 로 정렬 — 융점 1668 은 이미 CP Ti 실측이라 유지.",
-   "src": "Carpenter CP Titanium Grade 2 datasheet (CTE 8.6×10⁻⁶/°C 20~100°C · 비열 522 J/kg·K · 융점 1665°C) — DB CP Ti 계열 typical(8.8 / 560)이 이 범위임을 확인"
+   "basis": "CP Ti Grade 7 가 알루미늄 계열 typical 을 상속(CTE 23·비열 900·%IACS 40 — 알루미늄 값). 조성의 주원소가 \"balance\" 문자열이라 계열 태깅에서 탈락한 결과다. 같은 CP Ti 계열의 다른 entry 들이 이미 갖고 있는 계열 typical 로 정렬 — 융점 1668 은 이미 CP Ti 실측이라 유지. | A3 Ti (2026-09-21): Ti Grade 7 소둔의 275/345/20 은 B265 Gr7 최소값(= Gr2 최소). Gr7 은 Gr2 + 0.15Pd 라 기계적 성질이 Gr2 급(TIMET 50A 345/485)이나 Gr7 자체의 대표값 인용(MakeItFrom)을 채택 — 420 은 Gr2 대표(485)보다 낮은 산포.",
+   "src": "Carpenter CP Titanium Grade 2 datasheet (CTE 8.6×10⁻⁶/°C 20~100°C · 비열 522 J/kg·K · 융점 1665°C) — DB CP Ti 계열 typical(8.8 / 560)이 이 범위임을 확인 · MakeItFrom — Grade 7 (3.7235, R52400) Titanium, annealed (420 / 340 / 24% / HB 150)",
+   "yield_strength": 340,
+   "uts": 420,
+   "elongation": 24,
+   "hardness": 150
   },
   "MET-0543": {
    "electrical_conductivity": 1.3,
@@ -460,13 +473,6 @@
    "basis": "Ti-5Al-2.5Sn Grade6 α annealed (열처리 불가)",
    "src": "ASTM B265 Gr6 · alloysintl Ti 5-2.5"
   },
-  "MET-0904": {
-   "yield_strength": 827,
-   "uts": 861,
-   "elongation": 15,
-   "basis": "Grade6 α 비-열처리 → aged ≈ annealed",
-   "src": "ASTM B265 Gr6"
-  },
   "MET-0911": {
    "yield_strength": 1000,
    "uts": 1100,
@@ -487,20 +493,6 @@
    "elongation": 18,
    "basis": "Ti-8Al-1Mo-1V near-α duplex annealed",
    "src": "AZoM UNS R54810"
-  },
-  "MET-0933": {
-   "yield_strength": 910,
-   "uts": 937,
-   "elongation": 18,
-   "basis": "near-α 시효응답 미미 → aged ≈ annealed",
-   "src": "AZoM R54810"
-  },
-  "MET-0878": {
-   "yield_strength": 900,
-   "uts": 965,
-   "elongation": 10,
-   "basis": "Ti-6Al-4V ELI STA (solution+age)",
-   "src": "ASTM F136 + AMS Ti-6-4 STA"
   },
   "MET-0799": {
    "yield_strength": 450,
@@ -910,6 +902,58 @@
    "hardness": 74,
    "basis": "'6463 (architectural) — T6' 의 207/172 는 EN 755-2 6463-T6 최소(Rm 205 / Rp 170)와 일치 — 규격 최소가 typical 자리에 실린 것. 대표값으로 교정. 같은 base 의 T4(135/81)는 EN T4 최소(125/75) 근방이나 T1 typical 과도 겹쳐 판정 보류.",
    "src": "MakeItFrom 6463-T6 Aluminum (230 / 200 / 11% / HB 74)"
+  },
+  "MET-0874": {
+   "yield_strength": 345,
+   "uts": 485,
+   "elongation": 28,
+   "basis": "Ti Grade 2 소둔의 275/345/28 은 B265 Gr2 최소값(275/345/20). 제조사 대표값(TIMETAL 50A = ASTM Gr.2)으로 교정.",
+   "src": "TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 50A / ASTM Gr.2: 345 · 485 · 28)"
+  },
+  "MET-0873": {
+   "yield_strength": 460,
+   "uts": 600,
+   "elongation": 22,
+   "basis": "Ti Grade 12 의 380/500/18 은 최소값(345/483)과 대표값 사이의 근거 없는 값. 제조사 대표값(TIMETAL Code 12 = ASTM Gr.12)으로 교정.",
+   "src": "TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL Code 12 / ASTM Gr.12: 460 · 600 · 22)"
+  },
+  "MET-0896": {
+   "yield_strength": 550,
+   "uts": 650,
+   "elongation": 15,
+   "basis": "Ti Grade 9 (Ti-3Al-2.5V) 소둔의 500/620 은 B265 Gr9 최소값(483/620) 근방. 제조사 대표값(TIMETAL 3-2.5 = ASTM Gr.9)으로 교정.",
+   "src": "TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 3-2.5 / ASTM Gr.9: 550 · 650 · 15)"
+  },
+  "MET-0939": {
+   "yield_strength": 230,
+   "uts": 310,
+   "elongation": 29,
+   "hardness": 120,
+   "basis": "Titanium Grade 11(Ti-0.2Pd)의 200/295/30 은 인용 미상(단독 'Ti Grade 11' 170/240 은 B265 최소값). Gr11 = Gr1 + Pd — 대표값 인용(MakeItFrom)으로 교정. 두 base 를 이 entry 로 통합.",
+   "src": "MakeItFrom — Grade 11 (3.7225, R52250) Titanium, annealed (310 / 230 / 29% / HB 120)"
+  },
+  "MET-0900": {
+   "yield_strength": 1210,
+   "uts": 1300,
+   "elongation": 9,
+   "hardness": 410,
+   "basis": "Ti-15-3-3-3 의 두 시효 조건 값이 **온도에 거꾸로** 붙어 있었다(480°C 1000/1100 · 540°C 1240/1310). β 합금은 낮은 시효온도가 더 미세한 α 석출로 더 강하다 — TIMET 표: 482°C 1210/1300/9, 538°C 1050/1160/11. 경도 두 값(360·410)도 강도를 따라 교환.",
+   "src": "TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 15-3 Aged 482°C: 1210 · 1300 · 9)"
+  },
+  "MET-0901": {
+   "yield_strength": 1050,
+   "uts": 1160,
+   "elongation": 11,
+   "hardness": 360,
+   "basis": "MET-0900 과 세트 — 540°C 시효는 과시효 쪽이라 480°C 보다 약하다. TIMET 표의 538°C 행으로 교정, 경도는 강도 순서에 맞춰 교환.",
+   "src": "TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 15-3 Aged 538°C: 1050 · 1160 · 11)"
+  },
+  "MET-0858": {
+   "yield_strength": 1210,
+   "uts": 1310,
+   "elongation": 8,
+   "basis": "조건 없는 단독 entry 의 1100/1200/8 은 TIMET 표의 어느 조건(소둔 880/915/15 · 538°C 시효 1210/1310/8 · 593°C 시효 1035/1100/10 · 과시효 860/930/14)과도 맞지 않았다. 연신율 8 과 '고강도 β 합금' 용도가 가리키는 표준 시효(538°C/8h, AMS 4914)로 확정.",
+   "src": "TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 21S Aged 538°C: 1210 · 1310 · 8)"
   }
  },
  "fields": {
@@ -1094,6 +1138,17 @@
    "heat_treatment": "H116",
    "basis": "조건 미상 단독 entry 를 값이 가리키는 템퍼(H116)로 확정.",
    "src": "MakeItFrom 5456-H116"
+  },
+  "MET-0858": {
+   "name": "Beta-21S — Aged (538°C)",
+   "heat_treatment": "Aged (538°C)",
+   "basis": "조건 미상 단독 entry 를 값이 가리키는 표준 시효 조건으로 확정(값 교정과 세트).",
+   "src": "TIMET Titanium Alloys manual — TIMETAL 21S Aged 538°C"
+  },
+  "MET-0939": {
+   "name": "Titanium Grade 11 (Ti-0.2Pd, corrosion-resistant α-Ti) — Annealed",
+   "basis": "이름 말미의 규격 나열(mill product, AMS 4941, ASTM B265 Gr11)은 sources 가 담는 정보 — 사다리 표기 통일.",
+   "src": "A3 Ti re-verify 2027Q1(앞당김)"
   }
  }
 }

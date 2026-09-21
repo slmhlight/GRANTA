@@ -28,7 +28,25 @@ const floors = (() => {
 
 describe('E4 — 규격 하한(basis=min_spec) 표기', () => {
   it('스탬프가 실제로 존재한다 (파이프가 죽으면 배지도 사라진다)', () => {
-    expect(floors.length, 'basis=min_spec 스탬프가 100 미만 — min-spec 파이프 회귀 의심').toBeGreaterThan(100);
+    /* A3 Ti(2026-09-21): 절대 하한 100 은 '최소값이 typical 자리에 실린 행' 의 수였다 — A3 Al·Ti 가 그 행들을 대표값으로
+       교정하면서 스탬프가 116 → 91 로 **정당하게** 줄었다(값이 더는 규격 하한이 아니다). 그래서 수가 아니라 계약을 본다:
+       min-spec 표의 패턴에 걸리고 typical 이 min ±2% 이면 반드시 스탬프가 있어야 한다(파이프가 죽으면 여기서 0 이 된다). */
+    const specs: Array<{ pattern: string; min: Record<string, number> }> = JSON.parse(fs.readFileSync(path.resolve('data/standard-min-specs.json'), 'utf8')).specs;
+    const missing: string[] = [];
+    let due = 0;
+    for (const m of ALL) {
+      const sp = specs.find((x) => m.name.includes(x.pattern));
+      if (!sp) continue;
+      for (const [prop, min] of Object.entries(sp.min)) {
+        const r = m.ranges?.[prop];
+        if (!r || typeof r.typical !== 'number' || Math.abs(r.typical - min) > min * 0.02) continue;
+        due++;
+        if (r.basis !== 'min_spec') missing.push(`${m.name.slice(0, 40)} · ${prop}`);
+      }
+    }
+    expect(due, 'min ±2% 에 든 range 가 0 — 표나 데이터가 통째로 어긋났다').toBeGreaterThan(40);
+    expect(missing, `규격 하한인데 스탬프가 없다 ${missing.length}건:\n  ${missing.join('\n  ')}`).toEqual([]);
+    expect(floors.length).toBe(due);
   });
 
   it('모든 floor 값이 근거를 갖는다 (basis_source 또는 provenance)', () => {
