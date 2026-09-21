@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 650,
-      "max": 740,
-      "typical": 690,
-      "n": 3,
-      "confidence": "measured"
+      "min": 976,
+      "typical": 976,
+      "max": 976,
+      "confidence": "handbook",
+      "provenance": "교정: Special Metals INCONEL alloy 751 bulletin Table 3 — Tensile Properties, Room: 141.5 ksi/976 MPa YS · 190.0 ksi/1310 MPa UTS · 22.5% · RA 38.2% · BHN 352 · [경도 스케일] HB 352 → HV 369 (ASTM E140-12b Table 3)"
     },
     "uts": {
-      "min": 1120,
-      "max": 1230,
-      "typical": 1170,
-      "n": 3,
-      "confidence": "measured"
+      "min": 1310,
+      "typical": 1310,
+      "max": 1310,
+      "confidence": "handbook",
+      "provenance": "교정: Special Metals INCONEL alloy 751 bulletin Table 3 — Tensile Properties, Room: 141.5 ksi/976 MPa YS · 190.0 ksi/1310 MPa UTS · 22.5% · RA 38.2% · BHN 352 · [경도 스케일] HB 352 → HV 369 (ASTM E140-12b Table 3)"
     },
     "elongation": {
-      "min": 18,
-      "max": 26,
-      "typical": 22,
-      "n": 3,
-      "confidence": "measured"
+      "min": 22.5,
+      "typical": 22.5,
+      "max": 22.5,
+      "confidence": "handbook",
+      "provenance": "교정: Special Metals INCONEL alloy 751 bulletin Table 3 — Tensile Properties, Room: 141.5 ksi/976 MPa YS · 190.0 ksi/1310 MPa UTS · 22.5% · RA 38.2% · BHN 352 · [경도 스케일] HB 352 → HV 369 (ASTM E140-12b Table 3)"
     },
     "modulus": {
       "min": 214,
@@ -60,11 +60,15 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 300,
-      "max": 340,
-      "typical": 320,
-      "n": 3,
-      "confidence": "measured"
+      "min": 369,
+      "typical": 369,
+      "max": 369,
+      "confidence": "handbook",
+      "provenance": "교정: Special Metals INCONEL alloy 751 bulletin Table 3 — Tensile Properties, Room: 141.5 ksi/976 MPa YS · 190.0 ksi/1310 MPa UTS · 22.5% · RA 38.2% · BHN 352 · [경도 스케일] HB 352 → HV 369 (ASTM E140-12b Table 3)",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 352,
+      "conversion": "ASTM E140-12b Table 3"
     },
     "thermal_conductivity": {
       "min": 12,
@@ -212,29 +216,11 @@
   "points": [
     [
       8.24,
-      690,
-      1170,
-      22,
+      976,
+      1310,
+      22.5,
       214,
-      320,
-      12
-    ],
-    [
-      8.24,
-      650,
-      1120,
-      18,
-      214,
-      300,
-      12
-    ],
-    [
-      8.24,
-      740,
-      1230,
-      26,
-      214,
-      340,
+      369,
       12
     ]
   ],
@@ -254,11 +240,11 @@
   "fracture_toughness": 100,
   "fatigue_strength": 331,
   "density": 8.24,
-  "yield_strength": 690,
-  "uts": 1170,
-  "elongation": 22,
+  "yield_strength": 976,
+  "uts": 1310,
+  "elongation": 22.5,
   "modulus": 214,
-  "hardness": 320,
+  "hardness": 369,
   "thermal_conductivity": 12,
   "impact_strength": 60,
   "manufacturer": "PCC / Special Metals (Inconel)",
@@ -311,6 +297,87 @@
           "url": null,
           "verified": false
         }
+      ]
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 650,
+        "max": 740,
+        "typical": 690,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 690
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 1120,
+        "max": 1230,
+        "typical": 1170,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 1170
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 18,
+        "max": 26,
+        "typical": 22,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 22
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 300,
+        "max": 340,
+        "typical": 320,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 320
+    },
+    "_basis": "σy 690 은 데이터시트 976 대비 −29% — 시효재 751(밸브 합금)의 값이 아니다(UTS 1170 도 1310 대비 −11%). Special Metals Table 3 RT 행(생산재 평균)으로 교정.",
+    "_src": "Special Metals INCONEL alloy 751 bulletin Table 3 — Tensile Properties, Room: 141.5 ksi/976 MPa YS · 190.0 ksi/1310 MPa UTS · 22.5% · RA 38.2% · BHN 352 · [경도 스케일] HB 352 → HV 369 (ASTM E140-12b Table 3)",
+    "points": {
+      "from": [
+        [
+          8.24,
+          690,
+          1170,
+          22,
+          214,
+          320,
+          12
+        ],
+        [
+          8.24,
+          650,
+          1120,
+          18,
+          214,
+          300,
+          12
+        ],
+        [
+          8.24,
+          740,
+          1230,
+          26,
+          214,
+          340,
+          12
+        ]
       ]
     }
   }

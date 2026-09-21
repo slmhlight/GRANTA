@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 500,
-      "max": 620,
-      "typical": 555,
-      "n": 3,
-      "confidence": "measured"
+      "min": 577,
+      "typical": 577,
+      "max": 577,
+      "confidence": "handbook",
+      "provenance": "교정: Haynes International — HAYNES 214 alloy, Tensile Properties (Cold-Rolled and Solution Annealed Sheet 0.078~0.125 in / 2.0~3.2 mm), RT: 83.6 ksi/577 MPa YS · 141.4 ksi/975 MPa UTS · 37.3% (haynesintl.com/en/alloys/alloy-portfolio/high-temperature-alloys/haynes-214/)"
     },
     "uts": {
-      "min": 860,
-      "max": 1010,
-      "typical": 935,
-      "n": 3,
-      "confidence": "measured"
+      "min": 975,
+      "typical": 975,
+      "max": 975,
+      "confidence": "handbook",
+      "provenance": "교정: Haynes International — HAYNES 214 alloy, Tensile Properties (Cold-Rolled and Solution Annealed Sheet 0.078~0.125 in / 2.0~3.2 mm), RT: 83.6 ksi/577 MPa YS · 141.4 ksi/975 MPa UTS · 37.3% (haynesintl.com/en/alloys/alloy-portfolio/high-temperature-alloys/haynes-214/)"
     },
     "elongation": {
-      "min": 38,
-      "max": 60,
-      "typical": 50,
-      "n": 3,
-      "confidence": "measured"
+      "min": 37.3,
+      "typical": 37.3,
+      "max": 37.3,
+      "confidence": "handbook",
+      "provenance": "교정: Haynes International — HAYNES 214 alloy, Tensile Properties (Cold-Rolled and Solution Annealed Sheet 0.078~0.125 in / 2.0~3.2 mm), RT: 83.6 ksi/577 MPa YS · 141.4 ksi/975 MPa UTS · 37.3% (haynesintl.com/en/alloys/alloy-portfolio/high-temperature-alloys/haynes-214/)"
     },
     "modulus": {
       "min": 218,
@@ -211,29 +211,11 @@
   "points": [
     [
       8.05,
-      555,
-      935,
-      50,
+      577,
+      975,
+      37.3,
       218,
       245,
-      10
-    ],
-    [
-      8.05,
-      500,
-      860,
-      38,
-      218,
-      235,
-      10
-    ],
-    [
-      8.05,
-      620,
-      1010,
-      60,
-      218,
-      260,
       10
     ]
   ],
@@ -247,9 +229,9 @@
   "fracture_toughness": 140,
   "fatigue_strength": 266,
   "density": 8.05,
-  "yield_strength": 555,
-  "uts": 935,
-  "elongation": 50,
+  "yield_strength": 577,
+  "uts": 975,
+  "elongation": 37.3,
   "modulus": 218,
   "hardness": 245,
   "thermal_conductivity": 10,
@@ -303,6 +285,75 @@
           "url": null,
           "verified": false
         }
+      ]
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 500,
+        "max": 620,
+        "typical": 555,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 555
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 860,
+        "max": 1010,
+        "typical": 935,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 935
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 38,
+        "max": 60,
+        "typical": 50,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 50
+    },
+    "_basis": "연신율 50 은 Haynes 시트 데이터(37.3)와 ASM typical(38)을 모두 벗어난다. Haynes 냉간압연·용체화 시트 RT 행으로 교정(σy 555→577 · UTS 935→975 는 같은 행의 값).",
+    "_src": "Haynes International — HAYNES 214 alloy, Tensile Properties (Cold-Rolled and Solution Annealed Sheet 0.078~0.125 in / 2.0~3.2 mm), RT: 83.6 ksi/577 MPa YS · 141.4 ksi/975 MPa UTS · 37.3% (haynesintl.com/en/alloys/alloy-portfolio/high-temperature-alloys/haynes-214/)",
+    "points": {
+      "from": [
+        [
+          8.05,
+          555,
+          935,
+          50,
+          218,
+          245,
+          10
+        ],
+        [
+          8.05,
+          500,
+          860,
+          38,
+          218,
+          235,
+          10
+        ],
+        [
+          8.05,
+          620,
+          1010,
+          60,
+          218,
+          260,
+          10
+        ]
       ]
     }
   }

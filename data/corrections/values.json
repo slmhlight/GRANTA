@@ -303,14 +303,6 @@
    "basis": "AISI 1040 소둔 연신율이 16.74% 로 핸드북 범위(24~36%) 아래였다. Quenched/tempered(18%)×0.93 과 일치 — MET-0234 와 같은 합성 배율 역적용. 범위 중앙값으로 교정.",
    "src": "Modulus Metal AISI 1040 Carbon Steel (Annealed) — 인장 475~575 MPa · 항복 315~390 MPa · 연신율 24~36% strain"
   },
-  "MET-0542": {
-   "electrical_conductivity": 1.3,
-   "thermal_expansion": 13,
-   "poisson_ratio": 0.3,
-   "specific_heat": 440,
-   "basis": "Inconel 100 (cast) 의 Aged/solution-treated 조건만 **티타늄** 계열 typical 을 상속했다(CTE 8.8·비열 560·ν 0.34·%IACS 1.5 — CP Ti 값). 같은 합금의 Annealed 조건은 알루미늄 계열을 상속했었다(MET-0543, 같은 회차에 교정) — 조건마다 다른 엉뚱한 계열로 갈린 것이다. 나머지 3 조건(As-supplied·Strain-hardened·AMS 5397)은 정상적으로 Ni 초합금 typical 을 갖고 있어 그 값으로 정렬한다.",
-   "src": "DB 내 Inconel 100 동일 합금 정상 조건 entry (%IACS 1.3 · CTE 13 · ν 0.30 · 비열 440) · ASM Handbook Vol.1 Ni-base superalloy family — A11 물리 밴드 게이트(tests/physical-family-sanity)가 검출"
-  },
   "MET-0868": {
    "electrical_conductivity": 1.5,
    "thermal_expansion": 8.8,
@@ -360,14 +352,6 @@
     "family": "titanium",
     "keep": true
    }
-  },
-  "MET-0543": {
-   "electrical_conductivity": 1.3,
-   "thermal_expansion": 13,
-   "poisson_ratio": 0.3,
-   "specific_heat": 440,
-   "basis": "Inconel 100 (cast) Annealed 조건만 알루미늄 계열 typical 을 상속(CTE 23·비열 900). 같은 합금의 다른 조건(As-supplied·Strain-hardened·Aged)은 이미 Ni 초합금 typical(1.3 / 13 / 0.3 / 440)을 갖고 있어 조건 간 모순 상태였다. Ni 초합금 계열값으로 정렬.",
-   "src": "DB 내 Inconel 100 동일 합금 타 조건 entry (Ni 초합금 계열 typical) · ASM Handbook Vol.1 Ni-base superalloy family"
   },
   "MET-0375": {
    "electrical_conductivity": 98,
@@ -1144,14 +1128,152 @@
    "elongation": 8,
    "basis": "조건 없는 단독 entry 의 1100/1200/8 은 TIMET 표의 어느 조건(소둔 880/915/15 · 538°C 시효 1210/1310/8 · 593°C 시효 1035/1100/10 · 과시효 860/930/14)과도 맞지 않았다. 연신율 8 과 '고강도 β 합금' 용도가 가리키는 표준 시효(538°C/8h, AMS 4914)로 확정.",
    "src": "TIMET — Titanium Alloys technical manual, Typical Mechanical Properties (TIMETAL 21S Aged 538°C: 1210 · 1310 · 8)"
+  },
+  "MET-0601": {
+   "elongation": 24.5,
+   "basis": "EOS K500 MDS 열처리(시효) 행의 연신율은 Horizontal 21·22 / Vertical 27·28 % 인데 entry 의 6 points 중 3 행이 36.5·35·38 — as-built Vertical 행(35·38)의 연신율이 열처리 행에 섞여 typical 35 가 됐다(σy 840·UTS 1085 는 datasheet 정합). H/V 4 행 평균 24.5 로 교정.",
+   "src": "EOS NickelAlloy K500 MDS (Material_DataSheet_EOS_NickelAlloyK500_en.pdf) p.7·p.11 — Heat treated: Horizontal 840/1095/21 · 840/1085/22, Vertical 810/1030/27 · 785/1020/28 (σy/UTS MPa, El %)"
+  },
+  "MET-0529": {
+   "yield_strength": 711,
+   "uts": 1185,
+   "elongation": 26.5,
+   "hardness": 390,
+   "basis": "entry 의 11 points 중 7 행이 as-built(729/1010/33.9 · 623/916/36.3 = EOS 'As manufactured') 라 typical 이 623/916/35 = as-built 값이었다 — 실제 열처리 행(724/1204/26.5 · 699/1162/25.6)은 소수라 묻혔다. EOS Heat Treatment Option 1(재결정 용체화 1250°C + 1010°C/2h + 788°C/8h) 40/80 µm H·V 4 행 평균으로 교정. 경도는 EOS 미기재 → Nikon SLM MDS 열처리(용체화+시효) HV10 390.",
+   "src": "EOS NickelAlloy HAYNES 282 MDS p.8~9 — Heat treated (Option 1): H 726/1207/26.6 · V 695/1166/27.1 · H 724/1204/26.5 · V 699/1162/25.6 · Nikon SLM Haynes 282 MDS 2025-05.1 (mds5147.pdf) — Heat-treated (Solution annealing + Aging) Vertical 940/1125/31, Vickers HV10 390"
+  },
+  "MET-0554": {
+   "yield_strength": 479,
+   "uts": 965,
+   "elongation": 54,
+   "basis": "415/830/42 는 ASTM B446/AMS 5666 최소값(414/827/30) 바로 위의 값이라 같은 조건의 spec-min entry(MET-0560 Wrought, Annealed AMS 5666)와 사실상 중복이었다. Special Metals 데이터시트의 열간압연 어닐드 바 typical(노출 전 기준값)로 교정 — 어닐드 nominal 범위(σy 414~655 · UTS 827~1034 · El 30~60)의 중앙.",
+   "src": "Special Metals INCONEL alloy 625 bulletin Table 6 (Effect of Intermediate-Temperature Exposure on Hot-Rolled Annealed Bar — No Exposure: 140.0 ksi/965.3 MPa UTS · 69.5 ksi/479.2 MPa YS · 54%) · Table 5 Nominal RT Mechanical Properties (Rod/Bar/Plate Annealed 827-1034 / 414-655 MPa, El 60-30, HB 145-220)"
+  },
+  "MET-0565": {
+   "yield_strength": 483,
+   "uts": 918,
+   "elongation": 50.6,
+   "hardness_src": {
+    "scale": "HRB",
+    "value": 95.4,
+    "family": "nickel"
+   },
+   "basis": "552/980/35 — 연신율 35 는 데이터시트 1750°F(954°C) 어닐드 바 범위(45~55)를 벗어나고 UTS 980 은 상한(976) 위. Table 8 의 5개 바 지름(0.625~4 in) 1750°F/1h 어닐 행 평균으로 교정(범위 σy 379~572 · UTS 810~976 · El 45~55 · HRB 90~99).",
+   "src": "Special Metals INCONEL alloy 718 technical bulletin (specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-718.pdf) Table 8 — Room-Temperature Tensile Properties of Hot-Rolled Bar, 1750°F/1 hr: 140.0/83.0/45 · 138.0/75.5/54 · 129.0/64.5/55 · 141.5/72.5/46 · 117.5/55.0/53 (UTS ksi / YS ksi / El %), HRB 99·97·94·97·90 → 평균 133.2 ksi(918 MPa) / 70.1 ksi(483 MPa) / 50.6% / 95.4 HRB · [경도 스케일] HRB 95.4 → HV 217 (ASTM E140-12b Table 3, 니켈·고니켈 합금)"
+  },
+  "MET-0570": {
+   "yield_strength": 347,
+   "uts": 797,
+   "elongation": 60.8,
+   "hardness_src": {
+    "scale": "HRB",
+    "value": 86.6,
+    "family": "nickel"
+   },
+   "basis": "480/1000/30 은 1950°F(1065°C) 용체화 바의 데이터시트 범위(σy 331~379 · UTS 776~827 · El 58~64)를 세 값 모두 벗어난다 — 용체화 라벨에 다른 조건의 값이 실린 오염. Table 8 1950°F/1h 5개 지름 평균으로 교정.",
+   "src": "Special Metals INCONEL alloy 718 technical bulletin (specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-718.pdf) Table 8 — 1950°F/1 hr: 117.5/48.5/58 · 115.5/48.0/64 · 112.5/52.0/64 · 120.0/55.0/58 · 112.5/48.0/60 (UTS ksi / YS ksi / El %), HRB 85·85·87·89·87 → 평균 115.6 ksi(797 MPa) / 50.3 ksi(347 MPa) / 60.8% / 86.6 HRB · [경도 스케일] HRB 86.6 → HV 173 (ASTM E140-12b Table 3)"
+  },
+  "MET-0569": {
+   "yield_strength": 1082,
+   "uts": 1328,
+   "elongation": 21.8,
+   "hardness_src": {
+    "scale": "HRC",
+    "value": 44,
+    "family": "nickel"
+   },
+   "basis": "라벨 교정(fields: 'Solution + Single age' → AMS 5664 형 1065°C 어닐 + 760/650°C 2단 시효)과 함께 Table 8 1950°F/1h + Age(1400°F/10h FC 1200°F, 총 20h) 5개 지름 평균으로 교정(범위 σy 1048~1138 · UTS 1296~1348 · El 20~24 · HRC 43~45). 기존 1100/1280/18 은 이 사이클 평균에 가까웠지만 출처가 없었다.",
+   "src": "Special Metals INCONEL alloy 718 technical bulletin (specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-718.pdf) Table 8 — 1950°F/1 hr, Age: 194.0/157.0/23 · 194.5/158.0/20 · 188.0/152.0/21 · 191.0/153.0/24 · 195.5/165.0/21 (UTS ksi / YS ksi / El %), HRC 45·44·45·43·43 → 평균 192.6 ksi(1328 MPa) / 157.0 ksi(1082 MPa) / 21.8% / 44 HRC · [경도 스케일] HRC 44 → HV 427 (ASTM E140-12b Table 3)"
+  },
+  "MET-0568": {
+   "yield_strength": 1196,
+   "uts": 1400,
+   "elongation": 19.6,
+   "hardness_src": {
+    "scale": "HRC",
+    "value": 45.8,
+    "family": "nickel"
+   },
+   "basis": "'Solution + Double age (DSA, full 718 cycle)' = AMS 5662 사이클(1750°F 어닐 + 1325°F/8h FC 1150°F 총 18h). 기존 1180/1310/16 의 UTS 1310 은 데이터시트 범위(1324~1438) 아래. Table 8 1750°F/1h + Age 5개 지름 평균으로 교정(범위 σy 1138~1241 · UTS 1324~1438 · El 17~21 · HRC 45~46).",
+   "src": "Special Metals INCONEL alloy 718 technical bulletin (specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-718.pdf) Table 8 — 1750°F/1 hr, Age: 208.0/180.0/21 · 208.5/179.5/20 · 201.5/175.0/20 · 205.0/167.5/20 · 192.0/165.0/17 (UTS ksi / YS ksi / El %), HRC 46·45·46·46·46 → 평균 203.0 ksi(1400 MPa) / 173.4 ksi(1196 MPa) / 19.6% / 45.8 HRC · [경도 스케일] HRC 45.8 → HV 449 (ASTM E140-12b Table 3)"
+  },
+  "MET-0579": {
+   "yield_strength": 976,
+   "uts": 1310,
+   "elongation": 22.5,
+   "hardness_src": {
+    "scale": "HB",
+    "value": 352,
+    "family": "nickel"
+   },
+   "basis": "σy 690 은 데이터시트 976 대비 −29% — 시효재 751(밸브 합금)의 값이 아니다(UTS 1170 도 1310 대비 −11%). Special Metals Table 3 RT 행(생산재 평균)으로 교정.",
+   "src": "Special Metals INCONEL alloy 751 bulletin Table 3 — Tensile Properties, Room: 141.5 ksi/976 MPa YS · 190.0 ksi/1310 MPa UTS · 22.5% · RA 38.2% · BHN 352 · [경도 스케일] HB 352 → HV 369 (ASTM E140-12b Table 3)"
+  },
+  "MET-0580": {
+   "yield_strength": 779,
+   "uts": 1194,
+   "elongation": 24,
+   "basis": "σy 1020 은 데이터시트 779 대비 +31%, UTS 1280 vs 1194 — 무출처('Datasheet 2'). 표준 열처리(1121°C/1h AC 용체화 + 845°C/4h β-age + 718°C/8h FC 621°C/8h 시효)의 RT 값으로 교정. 같은 합금의 'Solution annealed (1120°C)' entry(σy 800 > 시효재 779 — 물리 역전, 데이터시트에 용체화 단독 값 없음)는 제거.",
+   "src": "Special Metals INCONEL alloy 783 bulletin Table 6 — Tensile Properties, 70°F/21°C: 113.0 ksi/779 MPa YS · 171.0 ksi/1194 MPa UTS · 24% · RA 44%"
+  },
+  "MET-0541": {
+   "yield_strength": 832,
+   "uts": 1154,
+   "elongation": 27,
+   "hardness_src": {
+    "scale": "HRC",
+    "value": 32,
+    "family": "nickel"
+   },
+   "basis": "740/1170/25 의 σy 740 은 SMC 내부규격 HA46 하한(724~758) 수준이라 typical 이 아니다. 용체화+시효 환봉 typical 로 교정.",
+   "src": "Special Metals INCOLOY alloy 925 bulletin Table 6 — Round/Solution-Annealed and Aged: 167.3 ksi/1154 MPa UTS · 120.6 ksi/832 MPa YS · 27% · 32 HRC · [경도 스케일] HRC 32 → HV 309 (ASTM E140-12b Table 3)"
+  },
+  "MET-0522": {
+   "yield_strength": 577,
+   "uts": 975,
+   "elongation": 37.3,
+   "basis": "연신율 50 은 Haynes 시트 데이터(37.3)와 ASM typical(38)을 모두 벗어난다. Haynes 냉간압연·용체화 시트 RT 행으로 교정(σy 555→577 · UTS 935→975 는 같은 행의 값).",
+   "src": "Haynes International — HAYNES 214 alloy, Tensile Properties (Cold-Rolled and Solution Annealed Sheet 0.078~0.125 in / 2.0~3.2 mm), RT: 83.6 ksi/577 MPa YS · 141.4 ksi/975 MPa UTS · 37.3% (haynesintl.com/en/alloys/alloy-portfolio/high-temperature-alloys/haynes-214/)"
+  },
+  "MET-0513": {
+   "yield_strength": 314,
+   "uts": 794,
+   "elongation": 50.7,
+   "basis": "'Datasheet 1'·'MatWeb 1' 무명 출처의 280/760/50 을 Haynes 공식 시트 데이터(2150°F/1177°C 용체화)로 교정. 같은 합금의 'Aged (704°C/100h)' entry 는 데이터시트에 없는 조건(Haynes 는 816°C/128h 노출 후 340/796/46.8 한 행만 제공)이라 제거.",
+   "src": "Haynes International — HASTELLOY N alloy, Short-Time Tensile Data (Sheet 0.063 in., heat-treated at 2150°F/1177°C, RAC), RT: 45.5 ksi/314 MPa YS · 115.1 ksi/794 MPa UTS · 50.7% (haynesintl.com/en/alloys/alloy-portfolio/high-temperature-alloys/hastelloy-n/)"
+  },
+  "MET-0576": {
+   "yield_strength": 763,
+   "uts": 1138,
+   "elongation": 27.4,
+   "basis": "라벨(1100°C 용체화 + 800°C/16h 시효)과 정확히 같은 조건의 데이터시트 행이 있다(열간압연 용체화 판, 800°C/16hr/AC). 기존 700/1050/30 은 압출관 횡방향(724/1066/24)과 판 값 사이의 무출처 값이라 판 데이터로 교정. 같은 라벨의 중복 entry(R_0326_1: 850/1170/22 — 데이터시트 최대치 782 초과)와 용체화 단독 entry(데이터시트 값 없음)는 제거.",
+   "src": "Special Metals INCONEL alloy 740H bulletin Table 6 — Aging Response of Hot-Rolled/Solution Annealed Plate, Room Temperature, 800°C/16hr/AC: 110.6 ksi(763 MPa) YS · 165.1 ksi(1138 MPa) UTS · 27.4% · RA 27.6% (specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-740h.pdf)"
+  },
+  "MET-0502": {
+   "yield_strength": 641,
+   "uts": 883,
+   "elongation": 33,
+   "basis": "'LPBF + Solution + Aged' 는 존재하지 않는 조건 — GRX-810 은 Y2O3 산화물분산강화 NiCoCr 고용체 합금으로 NASA 논문은 as-built 와 HIP 두 상태만 시험했다(시효 처리 없음). 820/1240/15 는 무출처. 라벨(fields)과 값을 논문 Extended Data Table 1 의 As-built 21.1°C 행으로 교정.",
+   "src": "Smith T.M. et al., 'A 3D printable alloy designed for extreme environments', Nature 617 (2023) 513–518 — Extended Data Table 1 (Overview of tensile results for As-built and HIP GRX-810) — As-built 21.1°C: 882.5 MPa UTS · 641.2 MPa YS · 33% El (nature.com/articles/s41586-023-05893-0)"
+  },
+  "MET-0503": {
+   "yield_strength": 515,
+   "uts": 848,
+   "elongation": 43,
+   "basis": "'LPBF as-built (HIP)' 라벨은 as-built 와 HIP 를 뒤섞었고 690/1100/18 은 논문의 어느 행과도 다르다. HIP(1185°C, Ta foil 포장) 21.1°C 행으로 라벨·값 교정 — HIP 는 잔류응력 제거·결정립 성장으로 as-built(641/883)보다 낮다.",
+   "src": "Smith T.M. et al., 'A 3D printable alloy designed for extreme environments', Nature 617 (2023) 513–518 — Extended Data Table 1 (Overview of tensile results for As-built and HIP GRX-810) — HIP 21.1°C: 848.1 MPa UTS · 515 MPa YS · 43% El (nature.com/articles/s41586-023-05893-0)"
+  },
+  "MET-1011": {
+   "hardness_src": {
+    "scale": "HRB",
+    "value": 98,
+    "family": "nickel"
+   },
+   "basis": "HV 350 은 Granta MI 추정치(*)로 Monel 400 이 도달할 수 없는 경도(HRC 36 급 — K-500 시효재 수준). Special Metals Table 4 냉간압연 spring temper 스트립 경도 98 HRB(min)를 E140 Table 3 로 환산해 HV 234. 인장값(760/828/8.5)은 nominal 범위(σy 621~896 · UTS 690~965 · El 15~2) 안이라 유지.",
+   "src": "Special Metals MONEL alloy 400 bulletin Table 4 — Nominal RT Tensile Properties, Strip Cold-Rolled Spring Temper: 100-140 ksi (690-965 MPa) UTS · 90-130 ksi (621-896 MPa) YS · El 15-2% · 98 HRB min. · [경도 스케일] HRB 98 → HV 234 (ASTM E140-12b Table 3, 니켈·고니켈 합금)"
   }
  },
  "fields": {
-  "MET-0588": {
-   "heat_treatment": "Precipitation-aged (AMS 5670 equiv)",
-   "basis": "815/1230 = aged X-750 (datasheet 확인, AMS 5670 typical σy115ksi/UTS170ksi min ~ 137ksi/192ksi). 'As-built (no post-processing)' 라벨은 야금학적 불가 — γ'-합금은 시효 없이 이 강도 도달 불가. 값 유지, 라벨만 aged 로 교정.",
-   "src": "Special Metals SMC-067 INCONEL X-750 datasheet (사용자 첨부)"
-  },
   "MET-0662": {
    "name": "Tantalum (Ta) — Wrought, Annealed",
    "process": "Wrought",
@@ -1339,6 +1461,36 @@
    "name": "Titanium Grade 11 (Ti-0.2Pd, corrosion-resistant α-Ti) — Annealed",
    "basis": "이름 말미의 규격 나열(mill product, AMS 4941, ASTM B265 Gr11)은 sources 가 담는 정보 — 사다리 표기 통일.",
    "src": "A3 Ti re-verify 2027Q1(앞당김)"
+  },
+  "MET-0569": {
+   "name": "Inconel 718 — Solution 1065°C + Double age 760/650°C (AMS 5664)",
+   "heat_treatment": "Solution 1065°C/1h AC + Age 760°C/10h FC 650°C/20h total (AMS 5664)",
+   "basis": "'Solution + Single age (STA)' 는 Special Metals 의 두 표준 사이클(AMS 5662: 1750°F 어닐 + 1325/1150°F 2단 시효 · AMS 5664: 1950°F 어닐 + 1400/1200°F 2단 시효) 어디에도 없는 라벨 — 718 은 단일 시효 규격이 없다(γ″ 석출은 2단 시효). 값(1100/1280/18)이 1950°F 사이클 평균(1082/1328/21.8)에 가장 가까워 그 조건으로 명명하고 ranges 를 같은 표로 교정.",
+   "src": "Special Metals INCONEL alloy 718 technical bulletin (specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-718.pdf) — Heat Treatment 절 (1950°F/1 hr anneal + 1400°F/10 hr, F.C. to 1200°F, hold for total aging time of 20 hr) · Table 8"
+  },
+  "MET-0568": {
+   "name": "Inconel 718 — Solution 980°C + Double age 720/620°C (AMS 5662)",
+   "heat_treatment": "Solution 980°C/1h AC + Age 720°C/8h FC 620°C/8h, 18h total (AMS 5662)",
+   "basis": "'Solution + Double age (DSA, full 718 cycle)' 를 데이터시트 표기(1750°F/954~980°C 어닐 + 1325°F/720°C 8h 로냉 1150°F/620°C 총 18h = AMS 5662/5663)로 명시. 같은 조건의 중복 entry 'Inconel 718 (UNS N07718, AMS 5662 STA spec)'(1100/1280/12 — 규격 하한도 typical 도 아닌 값)은 제거, spec-min 은 'Wrought, Aged (AMS 5662)' entry 가 담당.",
+   "src": "Special Metals INCONEL alloy 718 technical bulletin (specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-718.pdf) — Heat Treatment 절 (1700°-1850°F anneal and age: 1325°F/8 hr, F.C. to 1150°F, total aging time 18 hr) · Table 8"
+  },
+  "MET-0545": {
+   "name": "Inconel 100 — As-cast",
+   "heat_treatment": "As-cast",
+   "basis": "'As-supplied (Cast)' / 'As-cast/forged (no temper)' 는 generic CSV 의 placeholder 라벨. IN-100 은 등축 주조 γ′ 합금이고 출처의 RT 값(850/1010/9)은 as-cast 기준. 같은 합금의 generic 3 조건(Annealed · Strain-hardened · Aged/solution-treated)은 동일값 복제라 제거(remove.ids)하고 이 entry 를 유일 조건으로 정직화. 값 불변.",
+   "src": "entry 기존 출처 — Nickel Institute 'Engineering Properties of IN-100 Alloy' (as-cast RT typical) · Howmet/Special Metals IN-100 datasheet"
+  },
+  "MET-0502": {
+   "name": "GRX-810 (NASA ODS Ni superalloy) — LPBF as-built",
+   "heat_treatment": "As-built",
+   "basis": "'LPBF + Solution + Aged' → 'LPBF as-built'. GRX-810 에는 용체화·시효 조건이 없다(NASA 논문: as-built 와 HIP 만). ranges 교정과 한 쌍.",
+   "src": "Smith T.M. et al., 'A 3D printable alloy designed for extreme environments', Nature 617 (2023) 513–518 — Extended Data Table 1 (Overview of tensile results for As-built and HIP GRX-810)"
+  },
+  "MET-0503": {
+   "name": "GRX-810 (NASA ODS Ni superalloy) — LPBF + HIP (1185°C)",
+   "heat_treatment": "HIP (1185°C)",
+   "basis": "'LPBF as-built (HIP)' → 'LPBF + HIP (1185°C)'. as-built 와 HIP 는 별개 상태(논문 Extended Data Table 1). ranges 교정과 한 쌍.",
+   "src": "Smith T.M. et al., 'A 3D printable alloy designed for extreme environments', Nature 617 (2023) 513–518 — Extended Data Table 1 (Overview of tensile results for As-built and HIP GRX-810) · Methods: HIP cycle at 1,185 °C while wrapped in Ta foil"
   }
  }
 }

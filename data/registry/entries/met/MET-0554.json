@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 415,
-      "max": 415,
-      "typical": 415,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 479,
+      "typical": 479,
+      "max": 479,
+      "confidence": "handbook",
+      "provenance": "교정: Special Metals INCONEL alloy 625 bulletin Table 6 (Effect of Intermediate-Temperature Exposure on Hot-Rolled Annealed Bar — No Exposure: 140.0 ksi/965.3 MPa UTS · 69.5 ksi/479.2 MPa YS · 54%) · Table 5 Nominal RT Mechanical Properties (Rod/Bar/Plate Annealed 827-1034 / 414-655 MPa, El 60-30, HB 145-220)"
     },
     "uts": {
-      "min": 830,
-      "max": 830,
-      "typical": 830,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 965,
+      "typical": 965,
+      "max": 965,
+      "confidence": "handbook",
+      "provenance": "교정: Special Metals INCONEL alloy 625 bulletin Table 6 (Effect of Intermediate-Temperature Exposure on Hot-Rolled Annealed Bar — No Exposure: 140.0 ksi/965.3 MPa UTS · 69.5 ksi/479.2 MPa YS · 54%) · Table 5 Nominal RT Mechanical Properties (Rod/Bar/Plate Annealed 827-1034 / 414-655 MPa, El 60-30, HB 145-220)"
     },
     "elongation": {
-      "min": 42,
-      "max": 42,
-      "typical": 42,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 54,
+      "typical": 54,
+      "max": 54,
+      "confidence": "handbook",
+      "provenance": "교정: Special Metals INCONEL alloy 625 bulletin Table 6 (Effect of Intermediate-Temperature Exposure on Hot-Rolled Annealed Bar — No Exposure: 140.0 ksi/965.3 MPa UTS · 69.5 ksi/479.2 MPa YS · 54%) · Table 5 Nominal RT Mechanical Properties (Rod/Bar/Plate Annealed 827-1034 / 414-655 MPa, El 60-30, HB 145-220)"
     },
     "modulus": {
       "min": 207,
@@ -217,9 +217,9 @@
   "points": [
     [
       8.44,
-      415,
-      830,
-      42,
+      479,
+      965,
+      54,
       207,
       180,
       9.8
@@ -249,9 +249,9 @@
   "fracture_toughness": 110,
   "fatigue_strength": 415,
   "density": 8.44,
-  "yield_strength": 415,
-  "uts": 830,
-  "elongation": 42,
+  "yield_strength": 479,
+  "uts": 965,
+  "elongation": 54,
   "modulus": 207,
   "hardness": 180,
   "thermal_conductivity": 9.8,
@@ -352,6 +352,57 @@
         "EN 2.4856",
         "NiCr22Mo9Nb",
         "Alloy 625"
+      ]
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 415,
+        "max": 415,
+        "typical": 415,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 415
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 830,
+        "max": 830,
+        "typical": 830,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 830
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 42,
+        "max": 42,
+        "typical": 42,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 42
+    },
+    "_basis": "415/830/42 는 ASTM B446/AMS 5666 최소값(414/827/30) 바로 위의 값이라 같은 조건의 spec-min entry(MET-0560 Wrought, Annealed AMS 5666)와 사실상 중복이었다. Special Metals 데이터시트의 열간압연 어닐드 바 typical(노출 전 기준값)로 교정 — 어닐드 nominal 범위(σy 414~655 · UTS 827~1034 · El 30~60)의 중앙.",
+    "_src": "Special Metals INCONEL alloy 625 bulletin Table 6 (Effect of Intermediate-Temperature Exposure on Hot-Rolled Annealed Bar — No Exposure: 140.0 ksi/965.3 MPa UTS · 69.5 ksi/479.2 MPa YS · 54%) · Table 5 Nominal RT Mechanical Properties (Rod/Bar/Plate Annealed 827-1034 / 414-655 MPa, El 60-30, HB 145-220)",
+    "points": {
+      "from": [
+        [
+          8.44,
+          415,
+          830,
+          42,
+          207,
+          180,
+          9.8
+        ]
       ]
     }
   }

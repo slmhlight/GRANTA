@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 1020,
-      "max": 1020,
-      "typical": 1020,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 779,
+      "typical": 779,
+      "max": 779,
+      "confidence": "handbook",
+      "provenance": "교정: Special Metals INCONEL alloy 783 bulletin Table 6 — Tensile Properties, 70°F/21°C: 113.0 ksi/779 MPa YS · 171.0 ksi/1194 MPa UTS · 24% · RA 44%"
     },
     "uts": {
-      "min": 1280,
-      "max": 1280,
-      "typical": 1280,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 1194,
+      "typical": 1194,
+      "max": 1194,
+      "confidence": "handbook",
+      "provenance": "교정: Special Metals INCONEL alloy 783 bulletin Table 6 — Tensile Properties, 70°F/21°C: 113.0 ksi/779 MPa YS · 171.0 ksi/1194 MPa UTS · 24% · RA 44%"
     },
     "elongation": {
-      "min": 20,
-      "max": 20,
-      "typical": 20,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 24,
+      "typical": 24,
+      "max": 24,
+      "confidence": "handbook",
+      "provenance": "교정: Special Metals INCONEL alloy 783 bulletin Table 6 — Tensile Properties, 70°F/21°C: 113.0 ksi/779 MPa YS · 171.0 ksi/1194 MPa UTS · 24% · RA 44%"
     },
     "modulus": {
       "min": 165,
@@ -218,9 +218,9 @@
   "points": [
     [
       7.81,
-      1020,
-      1280,
-      20,
+      779,
+      1194,
+      24,
       165,
       380,
       16.6
@@ -244,9 +244,9 @@
   "fracture_toughness": 100,
   "fatigue_strength": 490,
   "density": 7.81,
-  "yield_strength": 1020,
-  "uts": 1280,
-  "elongation": 20,
+  "yield_strength": 779,
+  "uts": 1194,
+  "elongation": 24,
   "modulus": 165,
   "hardness": 380,
   "thermal_conductivity": 16.6,
@@ -285,5 +285,58 @@
     "Ni 30% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)",
     "Co 37% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 1020,
+        "max": 1020,
+        "typical": 1020,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1020
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 1280,
+        "max": 1280,
+        "typical": 1280,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1280
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 20,
+        "max": 20,
+        "typical": 20,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 20
+    },
+    "_basis": "σy 1020 은 데이터시트 779 대비 +31%, UTS 1280 vs 1194 — 무출처('Datasheet 2'). 표준 열처리(1121°C/1h AC 용체화 + 845°C/4h β-age + 718°C/8h FC 621°C/8h 시효)의 RT 값으로 교정. 같은 합금의 'Solution annealed (1120°C)' entry(σy 800 > 시효재 779 — 물리 역전, 데이터시트에 용체화 단독 값 없음)는 제거.",
+    "_src": "Special Metals INCONEL alloy 783 bulletin Table 6 — Tensile Properties, 70°F/21°C: 113.0 ksi/779 MPa YS · 171.0 ksi/1194 MPa UTS · 24% · RA 44%",
+    "points": {
+      "from": [
+        [
+          7.81,
+          1020,
+          1280,
+          20,
+          165,
+          380,
+          16.6
+        ]
+      ]
+    }
+  }
 }

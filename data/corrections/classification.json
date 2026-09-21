@@ -1,5 +1,5 @@
 {
- "_note": "Ti subcategory 재분류 (R226b) — 빌드 분류 깨져 33 Ti 합금 전부 'Pure / CP Grades'에 떨어졌던 것을 ASM 미세조직 분류(CP·α/near-α·α+β·β)로 교정. CP 10종은 유지. 'Titanium - α+β'는 build-materials anomaly 정규식이 이미 기대하던 명칭. H6 E15e — 듀플렉스 3 base(2304·Superduplex·Zeron 100)가 Austenitic 오분류 → Duplex 교정 (UNS S32304/S32750/S32760 는 ASTM A240 듀플렉스 등급; mach/insight/corr 연쇄 파생도 자동 치유).",
+ "_note": "Ti subcategory 재분류 (R226b) — 빌드 분류 깨져 33 Ti 합금 전부 'Pure / CP Grades'에 떨어졌던 것을 ASM 미세조직 분류(CP·α/near-α·α+β·β)로 교정. CP 10종은 유지. 'Titanium - α+β'는 build-materials anomaly 정규식이 이미 기대하던 명칭. H6 E15e — 듀플렉스 3 base(2304·Superduplex·Zeron 100)가 Austenitic 오분류 → Duplex 교정 (UNS S32304/S32750/S32760 는 ASTM A240 듀플렉스 등급; mach/insight/corr 연쇄 파생도 자동 치유). | A3 Ni(2026-09-22): Nickel 200 조성 — 제거된 중복 entry(MET-0501)가 갖고 있던 ASTM B160/Special Metals Nickel 200 bulletin Table 1 한계 조성을 잔존 entry 로 승계(기존 'Ni 99~99.9' 단일 원소 표기 대체).",
  "subcategoryByBase": {
   "2304 lean duplex": "Stainless Steel - Duplex",
   "Superduplex Stainless": "Stainless Steel - Duplex",
@@ -100,6 +100,15 @@
    "C": "≤0.08",
    "N": "≤0.03",
    "H": "≤0.015"
+  },
+  "Nickel 200": {
+   "Ni": "≥99.0",
+   "Cu": "≤0.25",
+   "Fe": "≤0.40",
+   "Mn": "≤0.35",
+   "C": "≤0.15",
+   "Si": "≤0.35",
+   "S": "≤0.01"
   }
  }
 }

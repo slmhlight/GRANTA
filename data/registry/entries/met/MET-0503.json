@@ -11,7 +11,7 @@
   "legacy_id": "R_0301_0",
   "origin": "reference(supplementary)",
   "id": "R_0301_0",
-  "name": "GRX-810 (NASA ODS Ni superalloy) — LPBF as-built (HIP)",
+  "name": "GRX-810 (NASA ODS Ni superalloy) — LPBF + HIP (1185°C)",
   "category": "Metal",
   "subcategory": "Nickel Superalloy",
   "tier": "reference",
@@ -22,7 +22,7 @@
   "processes": [
     "LPBF"
   ],
-  "heat_treatment": "LPBF as-built (HIP)",
+  "heat_treatment": "HIP (1185°C)",
   "ranges": {
     "density": {
       "min": 8.4,
@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 690,
-      "max": 690,
-      "typical": 690,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 515,
+      "typical": 515,
+      "max": 515,
+      "confidence": "handbook",
+      "provenance": "교정: Smith T.M. et al., 'A 3D printable alloy designed for extreme environments', Nature 617 (2023) 513–518 — Extended Data Table 1 (Overview of tensile results for As-built and HIP GRX-810) — HIP 21.1°C: 848.1 MPa UTS · 515 MPa YS · 43% El (nature.com/articles/s41586-023-05893-0)"
     },
     "uts": {
-      "min": 1100,
-      "max": 1100,
-      "typical": 1100,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 848,
+      "typical": 848,
+      "max": 848,
+      "confidence": "handbook",
+      "provenance": "교정: Smith T.M. et al., 'A 3D printable alloy designed for extreme environments', Nature 617 (2023) 513–518 — Extended Data Table 1 (Overview of tensile results for As-built and HIP GRX-810) — HIP 21.1°C: 848.1 MPa UTS · 515 MPa YS · 43% El (nature.com/articles/s41586-023-05893-0)"
     },
     "elongation": {
-      "min": 18,
-      "max": 18,
-      "typical": 18,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 43,
+      "typical": 43,
+      "max": 43,
+      "confidence": "handbook",
+      "provenance": "교정: Smith T.M. et al., 'A 3D printable alloy designed for extreme environments', Nature 617 (2023) 513–518 — Extended Data Table 1 (Overview of tensile results for As-built and HIP GRX-810) — HIP 21.1°C: 848.1 MPa UTS · 515 MPa YS · 43% El (nature.com/articles/s41586-023-05893-0)"
     },
     "modulus": {
       "min": 200,
@@ -205,9 +205,9 @@
   "points": [
     [
       8.4,
-      690,
-      1100,
-      18,
+      515,
+      848,
+      43,
       200,
       350,
       11
@@ -226,9 +226,9 @@
     "_r173_note_applied": true
   },
   "density": 8.4,
-  "yield_strength": 690,
-  "uts": 1100,
-  "elongation": 18,
+  "yield_strength": 515,
+  "uts": 848,
+  "elongation": 43,
   "modulus": 200,
   "hardness": 350,
   "thermal_conductivity": 11,
@@ -268,5 +268,70 @@
   "svhc_concerns": [
     "Co 7% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 690,
+        "max": 690,
+        "typical": 690,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 690
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 1100,
+        "max": 1100,
+        "typical": 1100,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1100
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 18,
+        "max": 18,
+        "typical": 18,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 18
+    },
+    "_basis": "'LPBF as-built (HIP)' 라벨은 as-built 와 HIP 를 뒤섞었고 690/1100/18 은 논문의 어느 행과도 다르다. HIP(1185°C, Ta foil 포장) 21.1°C 행으로 라벨·값 교정 — HIP 는 잔류응력 제거·결정립 성장으로 as-built(641/883)보다 낮다.",
+    "_src": "Smith T.M. et al., 'A 3D printable alloy designed for extreme environments', Nature 617 (2023) 513–518 — Extended Data Table 1 (Overview of tensile results for As-built and HIP GRX-810) — HIP 21.1°C: 848.1 MPa UTS · 515 MPa YS · 43% El (nature.com/articles/s41586-023-05893-0)",
+    "points": {
+      "from": [
+        [
+          8.4,
+          690,
+          1100,
+          18,
+          200,
+          350,
+          11
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "GRX-810 (NASA ODS Ni superalloy) — LPBF as-built (HIP)",
+        "had": true
+      },
+      "heat_treatment": {
+        "from": "LPBF as-built (HIP)",
+        "had": true
+      }
+    },
+    "_fbasis": "'LPBF as-built (HIP)' → 'LPBF + HIP (1185°C)'. as-built 와 HIP 는 별개 상태(논문 Extended Data Table 1). ranges 교정과 한 쌍.",
+    "_fsrc": "Smith T.M. et al., 'A 3D printable alloy designed for extreme environments', Nature 617 (2023) 513–518 — Extended Data Table 1 (Overview of tensile results for As-built and HIP GRX-810) · Methods: HIP cycle at 1,185 °C while wrapped in Ta foil"
+  }
 }

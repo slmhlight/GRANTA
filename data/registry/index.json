@@ -1,5 +1,5 @@
 {
-  "count": 1102,
+  "count": 1071,
   "generated_from": "client/public/materials (1198)",
   "entries": [
     {
@@ -9397,24 +9397,6 @@
       "origin": "curated(material_db)"
     },
     {
-      "stable_id": "MET-0499",
-      "name": "CP-Nickel — Heat-Treated",
-      "category": "Metal",
-      "subcategory": "Nickel Superalloy",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-nickel-superalloy",
-        "alloy_base": "F-AB-cp-nickel",
-        "element_families": [
-          "F-EL-nickel-based"
-        ]
-      },
-      "tier": "curated",
-      "popularity": 2.3,
-      "legacy_id": "C_0058",
-      "origin": "curated(material_db)"
-    },
-    {
       "stable_id": "MET-0500",
       "name": "CP-Nickel — Stress-relieved",
       "category": "Metal",
@@ -9433,26 +9415,8 @@
       "origin": "curated(material_db)"
     },
     {
-      "stable_id": "MET-0501",
-      "name": "CP-Nickel (Ni 200) — Wrought, Annealed",
-      "category": "Metal",
-      "subcategory": "Nickel Superalloy",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-nickel-superalloy",
-        "alloy_base": "F-AB-cp-nickel-ni-200",
-        "element_families": [
-          "F-EL-nickel-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 1.5,
-      "legacy_id": "R_0259",
-      "origin": "reference(supplementary)"
-    },
-    {
       "stable_id": "MET-0502",
-      "name": "GRX-810 (NASA ODS Ni superalloy) — LPBF + Solution + Aged",
+      "name": "GRX-810 (NASA ODS Ni superalloy) — LPBF as-built",
       "category": "Metal",
       "subcategory": "Nickel Superalloy",
       "family": {
@@ -9470,7 +9434,7 @@
     },
     {
       "stable_id": "MET-0503",
-      "name": "GRX-810 (NASA ODS Ni superalloy) — LPBF as-built (HIP)",
+      "name": "GRX-810 (NASA ODS Ni superalloy) — LPBF + HIP (1185°C)",
       "category": "Metal",
       "subcategory": "Nickel Superalloy",
       "family": {
@@ -9559,24 +9523,6 @@
       "origin": "generic(csv)"
     },
     {
-      "stable_id": "MET-0510",
-      "name": "Hastelloy C-276 — Strain-hardened (Wrought)",
-      "category": "Metal",
-      "subcategory": "Nickel Superalloy",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-nickel-superalloy",
-        "alloy_base": "F-AB-hastelloy-c-276",
-        "element_families": [
-          "F-EL-nickel-based"
-        ]
-      },
-      "tier": "generic",
-      "popularity": 3.03,
-      "legacy_id": "G_0147",
-      "origin": "generic(csv)"
-    },
-    {
       "stable_id": "MET-0511",
       "name": "Hastelloy C22 (N06022)",
       "category": "Metal",
@@ -9593,24 +9539,6 @@
       "popularity": 3,
       "legacy_id": "C_0091",
       "origin": "curated(material_db)"
-    },
-    {
-      "stable_id": "MET-0512",
-      "name": "Hastelloy N (molten-salt reactor alloy) — Aged (704°C/100h)",
-      "category": "Metal",
-      "subcategory": "Nickel Superalloy",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-nickel-superalloy",
-        "alloy_base": "F-AB-hastelloy-n-molten-salt-reactor-alloy",
-        "element_families": [
-          "F-EL-nickel-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 1.57,
-      "legacy_id": "R_0304_1",
-      "origin": "reference(supplementary)"
     },
     {
       "stable_id": "MET-0513",
@@ -9665,78 +9593,6 @@
       "popularity": 3.07,
       "legacy_id": "C_0094",
       "origin": "curated(material_db)"
-    },
-    {
-      "stable_id": "MET-0516",
-      "name": "Hastelloy X — Heat-Treated",
-      "category": "Metal",
-      "subcategory": "Nickel Superalloy",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-nickel-superalloy",
-        "alloy_base": "F-AB-hastelloy-x",
-        "element_families": [
-          "F-EL-nickel-based"
-        ]
-      },
-      "tier": "curated",
-      "popularity": 3.15,
-      "legacy_id": "C_0096",
-      "origin": "curated(material_db)"
-    },
-    {
-      "stable_id": "MET-0517",
-      "name": "Hastelloy X — Solution + Aged (760°C/16h)",
-      "category": "Metal",
-      "subcategory": "Nickel Superalloy",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-nickel-superalloy",
-        "alloy_base": "F-AB-hastelloy-x",
-        "element_families": [
-          "F-EL-nickel-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 3.22,
-      "legacy_id": "R_0007_1",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0518",
-      "name": "Hastelloy X — Solution annealed (1175°C WQ)",
-      "category": "Metal",
-      "subcategory": "Nickel Superalloy",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-nickel-superalloy",
-        "alloy_base": "F-AB-hastelloy-x",
-        "element_families": [
-          "F-EL-nickel-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 3.15,
-      "legacy_id": "R_0007_0",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0519",
-      "name": "Hastelloy X — Stress relieved (650°C)",
-      "category": "Metal",
-      "subcategory": "Nickel Superalloy",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-nickel-superalloy",
-        "alloy_base": "F-AB-hastelloy-x",
-        "element_families": [
-          "F-EL-nickel-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 3.12,
-      "legacy_id": "R_0007_2",
-      "origin": "reference(supplementary)"
     },
     {
       "stable_id": "MET-0520",
@@ -9811,78 +9667,6 @@
       "origin": "reference(supplementary)"
     },
     {
-      "stable_id": "MET-0524",
-      "name": "Haynes 230 — LPBF — As-built",
-      "category": "Metal",
-      "subcategory": "Nickel Superalloy",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-nickel-superalloy",
-        "alloy_base": "F-AB-haynes-230",
-        "element_families": [
-          "F-EL-nickel-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 3.07,
-      "legacy_id": "R_0010_0",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0525",
-      "name": "Haynes 230 — LPBF — HIP + solution + age",
-      "category": "Metal",
-      "subcategory": "Nickel Superalloy",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-nickel-superalloy",
-        "alloy_base": "F-AB-haynes-230",
-        "element_families": [
-          "F-EL-nickel-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 3.19,
-      "legacy_id": "R_0010_1",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0526",
-      "name": "Haynes 230 — LPBF — Stress-relieved",
-      "category": "Metal",
-      "subcategory": "Nickel Superalloy",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-nickel-superalloy",
-        "alloy_base": "F-AB-haynes-230",
-        "element_families": [
-          "F-EL-nickel-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 3.12,
-      "legacy_id": "R_0010_2",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0527",
-      "name": "Haynes 282 — Aged",
-      "category": "Metal",
-      "subcategory": "Nickel Superalloy",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-nickel-superalloy",
-        "alloy_base": "F-AB-haynes-282",
-        "element_families": [
-          "F-EL-nickel-based"
-        ]
-      },
-      "tier": "curated",
-      "popularity": 2.07,
-      "legacy_id": "C_0044",
-      "origin": "curated(material_db)"
-    },
-    {
       "stable_id": "MET-0528",
       "name": "Haynes 282 — As-built",
       "category": "Metal",
@@ -9919,78 +9703,6 @@
       "origin": "curated(material_db)"
     },
     {
-      "stable_id": "MET-0530",
-      "name": "Haynes 282 — Solution + Aged, tested at 704°C (1300°F service)",
-      "category": "Metal",
-      "subcategory": "Nickel Superalloy",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-nickel-superalloy",
-        "alloy_base": "F-AB-haynes-282",
-        "element_families": [
-          "F-EL-nickel-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 2.07,
-      "legacy_id": "R_0062_2",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0531",
-      "name": "Haynes 282 — Solution + Aged, tested at 760°C (1400°F service)",
-      "category": "Metal",
-      "subcategory": "Nickel Superalloy",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-nickel-superalloy",
-        "alloy_base": "F-AB-haynes-282",
-        "element_families": [
-          "F-EL-nickel-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 2.07,
-      "legacy_id": "R_0062_3",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0532",
-      "name": "Haynes 282 — Solution + Aged, tested at 871°C (1600°F service)",
-      "category": "Metal",
-      "subcategory": "Nickel Superalloy",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-nickel-superalloy",
-        "alloy_base": "F-AB-haynes-282",
-        "element_families": [
-          "F-EL-nickel-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 2.07,
-      "legacy_id": "R_0062_4",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0533",
-      "name": "Haynes 282 — Solution Age",
-      "category": "Metal",
-      "subcategory": "Nickel Superalloy",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-nickel-superalloy",
-        "alloy_base": "F-AB-haynes-282",
-        "element_families": [
-          "F-EL-nickel-based"
-        ]
-      },
-      "tier": "curated",
-      "popularity": 2,
-      "legacy_id": "C_0046",
-      "origin": "curated(material_db)"
-    },
-    {
       "stable_id": "MET-0534",
       "name": "Haynes 282 — Solution Annealed + Aged (plate, 1135°C + 1010°C 2h + 788°C 8h)",
       "category": "Metal",
@@ -10024,24 +9736,6 @@
       "tier": "reference",
       "popularity": 2.07,
       "legacy_id": "R_0062_0",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0536",
-      "name": "Haynes 282 — Wrought, Aged",
-      "category": "Metal",
-      "subcategory": "Nickel Superalloy",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-nickel-superalloy",
-        "alloy_base": "F-AB-haynes-282",
-        "element_families": [
-          "F-EL-nickel-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 2.07,
-      "legacy_id": "R_0254",
       "origin": "reference(supplementary)"
     },
     {
@@ -10153,44 +9847,8 @@
       "origin": "reference(supplementary)"
     },
     {
-      "stable_id": "MET-0542",
-      "name": "Inconel 100 — Aged / solution-treated (Cast)",
-      "category": "Metal",
-      "subcategory": "Nickel Superalloy",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-nickel-superalloy",
-        "alloy_base": "F-AB-inconel-100",
-        "element_families": [
-          "F-EL-nickel-based"
-        ]
-      },
-      "tier": "generic",
-      "popularity": 2.37,
-      "legacy_id": "G_0057",
-      "origin": "generic(csv)"
-    },
-    {
-      "stable_id": "MET-0543",
-      "name": "Inconel 100 — Annealed (Cast)",
-      "category": "Metal",
-      "subcategory": "Nickel Superalloy",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-nickel-superalloy",
-        "alloy_base": "F-AB-inconel-100",
-        "element_families": [
-          "F-EL-nickel-based"
-        ]
-      },
-      "tier": "generic",
-      "popularity": 2.3,
-      "legacy_id": "G_0058",
-      "origin": "generic(csv)"
-    },
-    {
       "stable_id": "MET-0545",
-      "name": "Inconel 100 — As-supplied (Cast)",
+      "name": "Inconel 100 — As-cast",
       "category": "Metal",
       "subcategory": "Nickel Superalloy",
       "family": {
@@ -10204,24 +9862,6 @@
       "tier": "generic",
       "popularity": 2.22,
       "legacy_id": "G_0061",
-      "origin": "generic(csv)"
-    },
-    {
-      "stable_id": "MET-0546",
-      "name": "Inconel 100 — Strain-hardened (Cast)",
-      "category": "Metal",
-      "subcategory": "Nickel Superalloy",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-nickel-superalloy",
-        "alloy_base": "F-AB-inconel-100",
-        "element_families": [
-          "F-EL-nickel-based"
-        ]
-      },
-      "tier": "generic",
-      "popularity": 2.33,
-      "legacy_id": "G_0060",
       "origin": "generic(csv)"
     },
     {
@@ -10405,24 +10045,6 @@
       "origin": "curated(material_db)"
     },
     {
-      "stable_id": "MET-0559",
-      "name": "Inconel 625 — Stress-relieved (650°C/24h)",
-      "category": "Metal",
-      "subcategory": "Nickel Superalloy",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-nickel-superalloy",
-        "alloy_base": "F-AB-inconel-625",
-        "element_families": [
-          "F-EL-nickel-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 4.22,
-      "legacy_id": "R_0001_2",
-      "origin": "reference(supplementary)"
-    },
-    {
       "stable_id": "MET-0560",
       "name": "Inconel 625 — Wrought, Annealed (AMS 5666)",
       "category": "Metal",
@@ -10568,7 +10190,7 @@
     },
     {
       "stable_id": "MET-0568",
-      "name": "Inconel 718 — Solution + Double age (DSA, full 718 cycle)",
+      "name": "Inconel 718 — Solution 980°C + Double age 720/620°C (AMS 5662)",
       "category": "Metal",
       "subcategory": "Nickel Superalloy",
       "family": {
@@ -10586,7 +10208,7 @@
     },
     {
       "stable_id": "MET-0569",
-      "name": "Inconel 718 — Solution + Single age (STA)",
+      "name": "Inconel 718 — Solution 1065°C + Double age 760/650°C (AMS 5664)",
       "category": "Metal",
       "subcategory": "Nickel Superalloy",
       "family": {
@@ -10636,42 +10258,6 @@
       "tier": "reference",
       "popularity": 5,
       "legacy_id": "R_0244",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0572",
-      "name": "Inconel 718 (UNS N07718, AMS 5662 STA spec) — STA (Solution treated 980°C + Aged 720°C + 620°C, AMS 5662)",
-      "category": "Metal",
-      "subcategory": "Nickel Superalloy",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-nickel-superalloy",
-        "alloy_base": "F-AB-inconel-718-uns-n07718-ams-5662-sta-spec",
-        "element_families": [
-          "F-EL-nickel-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 5,
-      "legacy_id": "R_0027_0",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0573",
-      "name": "Inconel 718Plus",
-      "category": "Metal",
-      "subcategory": "Nickel Superalloy",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-nickel-superalloy",
-        "alloy_base": "F-AB-inconel-718plus",
-        "element_families": [
-          "F-EL-nickel-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 5,
-      "legacy_id": "R_0213",
       "origin": "reference(supplementary)"
     },
     {
@@ -10747,42 +10333,6 @@
       "origin": "reference(supplementary)"
     },
     {
-      "stable_id": "MET-0577",
-      "name": "Inconel 740H (USC boiler superalloy) — Sol. + Aged (800°C/16h)",
-      "category": "Metal",
-      "subcategory": "Nickel Superalloy",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-nickel-superalloy",
-        "alloy_base": "F-AB-inconel-740h-usc-boiler-superalloy",
-        "element_families": [
-          "F-EL-nickel-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 2.07,
-      "legacy_id": "R_0326_1",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0578",
-      "name": "Inconel 740H (USC boiler superalloy) — Solution treated (1135°C)",
-      "category": "Metal",
-      "subcategory": "Nickel Superalloy",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-nickel-superalloy",
-        "alloy_base": "F-AB-inconel-740h-usc-boiler-superalloy",
-        "element_families": [
-          "F-EL-nickel-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 2,
-      "legacy_id": "R_0326_0",
-      "origin": "reference(supplementary)"
-    },
-    {
       "stable_id": "MET-0579",
       "name": "Inconel 751",
       "category": "Metal",
@@ -10816,24 +10366,6 @@
       "tier": "reference",
       "popularity": 2.37,
       "legacy_id": "R_0300_1",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0581",
-      "name": "Inconel 783 (Low-CTE Ni-Co superalloy) — Solution annealed (1120°C)",
-      "category": "Metal",
-      "subcategory": "Nickel Superalloy",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-nickel-superalloy",
-        "alloy_base": "F-AB-inconel-783-low-cte-ni-co-superalloy",
-        "element_families": [
-          "F-EL-nickel-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 2.3,
-      "legacy_id": "R_0300_0",
       "origin": "reference(supplementary)"
     },
     {
@@ -10927,42 +10459,6 @@
       "origin": "generic(csv)"
     },
     {
-      "stable_id": "MET-0588",
-      "name": "Inconel X-750 — As-supplied (LPBF)",
-      "category": "Metal",
-      "subcategory": "Nickel Superalloy",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-nickel-superalloy",
-        "alloy_base": "F-AB-inconel-x-750",
-        "element_families": [
-          "F-EL-nickel-based"
-        ]
-      },
-      "tier": "am_vendor",
-      "popularity": 1.92,
-      "legacy_id": "V_0149",
-      "origin": "am_vendor(csv)"
-    },
-    {
-      "stable_id": "MET-0590",
-      "name": "Inconel X-750 — Strain-hardened (Wrought)",
-      "category": "Metal",
-      "subcategory": "Nickel Superalloy",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-nickel-superalloy",
-        "alloy_base": "F-AB-inconel-x-750",
-        "element_families": [
-          "F-EL-nickel-based"
-        ]
-      },
-      "tier": "generic",
-      "popularity": 2.03,
-      "legacy_id": "G_0158",
-      "origin": "generic(csv)"
-    },
-    {
       "stable_id": "MET-0591",
       "name": "MA754 (ODS)",
       "category": "Metal",
@@ -10996,24 +10492,6 @@
       "tier": "reference",
       "popularity": 2.22,
       "legacy_id": "R_0366_0",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0593",
-      "name": "MAR-M 247 — aerospace blade & turbo wheel — As-cast + Sustained 800°C (creep regime)",
-      "category": "Metal",
-      "subcategory": "Nickel Superalloy",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-nickel-superalloy",
-        "alloy_base": "F-AB-mar-m-247",
-        "element_families": [
-          "F-EL-nickel-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 2.22,
-      "legacy_id": "R_0366_2",
       "origin": "reference(supplementary)"
     },
     {
@@ -11087,24 +10565,6 @@
       "popularity": 2.33,
       "legacy_id": "G_0142",
       "origin": "generic(csv)"
-    },
-    {
-      "stable_id": "MET-0599",
-      "name": "Monel K-500 — Aged",
-      "category": "Metal",
-      "subcategory": "Nickel Superalloy",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-nickel-superalloy",
-        "alloy_base": "F-AB-monel-k-500",
-        "element_families": [
-          "F-EL-nickel-based"
-        ]
-      },
-      "tier": "curated",
-      "popularity": 1.57,
-      "legacy_id": "C_0048",
-      "origin": "curated(material_db)"
     },
     {
       "stable_id": "MET-0600",
@@ -11356,24 +10816,6 @@
       "tier": "reference",
       "popularity": 2.07,
       "legacy_id": "R_0128",
-      "origin": "reference(supplementary)"
-    },
-    {
-      "stable_id": "MET-0614",
-      "name": "Udimet 720Li (low-interstitial, P/M disc) — S+S+A + tested 700°C (hot strength)",
-      "category": "Metal",
-      "subcategory": "Nickel Superalloy",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-nickel-superalloy",
-        "alloy_base": "F-AB-udimet-720li-low-interstitial-p-m-disc",
-        "element_families": [
-          "F-EL-nickel-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 2,
-      "legacy_id": "R_0367_2",
       "origin": "reference(supplementary)"
     },
     {

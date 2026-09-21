@@ -11,7 +11,7 @@
   "legacy_id": "R_0000_3",
   "origin": "reference(supplementary)",
   "id": "R_0000_3",
-  "name": "Inconel 718 — Solution + Double age (DSA, full 718 cycle)",
+  "name": "Inconel 718 — Solution 980°C + Double age 720/620°C (AMS 5662)",
   "category": "Metal",
   "subcategory": "Nickel Superalloy",
   "tier": "reference",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Solution + Double age (DSA, full 718 cycle)",
+  "heat_treatment": "Solution 980°C/1h AC + Age 720°C/8h FC 620°C/8h, 18h total (AMS 5662)",
   "ranges": {
     "density": {
       "min": 8.19,
@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 1180,
-      "max": 1180,
-      "typical": 1180,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 1196,
+      "typical": 1196,
+      "max": 1196,
+      "confidence": "handbook",
+      "provenance": "교정: Special Metals INCONEL alloy 718 technical bulletin (specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-718.pdf) Table 8 — 1750°F/1 hr, Age: 208.0/180.0/21 · 208.5/179.5/20 · 201.5/175.0/20 · 205.0/167.5/20 · 192.0/165.0/17 (UTS ksi / YS ksi / El %), HRC 46·45·46·46·46 → 평균 203.0 ksi(1400 MPa) / 173.4 ksi(1196 MPa) / 19.6% / 45.8 HRC · [경도 스케일] HRC 45.8 → HV 449 (ASTM E140-12b Table 3)"
     },
     "uts": {
-      "min": 1310,
-      "max": 1310,
-      "typical": 1310,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 1400,
+      "typical": 1400,
+      "max": 1400,
+      "confidence": "handbook",
+      "provenance": "교정: Special Metals INCONEL alloy 718 technical bulletin (specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-718.pdf) Table 8 — 1750°F/1 hr, Age: 208.0/180.0/21 · 208.5/179.5/20 · 201.5/175.0/20 · 205.0/167.5/20 · 192.0/165.0/17 (UTS ksi / YS ksi / El %), HRC 46·45·46·46·46 → 평균 203.0 ksi(1400 MPa) / 173.4 ksi(1196 MPa) / 19.6% / 45.8 HRC · [경도 스케일] HRC 45.8 → HV 449 (ASTM E140-12b Table 3)"
     },
     "elongation": {
-      "min": 16,
-      "max": 16,
-      "typical": 16,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 19.6,
+      "typical": 19.6,
+      "max": 19.6,
+      "confidence": "handbook",
+      "provenance": "교정: Special Metals INCONEL alloy 718 technical bulletin (specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-718.pdf) Table 8 — 1750°F/1 hr, Age: 208.0/180.0/21 · 208.5/179.5/20 · 201.5/175.0/20 · 205.0/167.5/20 · 192.0/165.0/17 (UTS ksi / YS ksi / El %), HRC 46·45·46·46·46 → 평균 203.0 ksi(1400 MPa) / 173.4 ksi(1196 MPa) / 19.6% / 45.8 HRC · [경도 스케일] HRC 45.8 → HV 449 (ASTM E140-12b Table 3)"
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,15 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 410,
-      "max": 410,
-      "typical": 410,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 449,
+      "typical": 449,
+      "max": 449,
+      "confidence": "handbook",
+      "provenance": "교정: Special Metals INCONEL alloy 718 technical bulletin (specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-718.pdf) Table 8 — 1750°F/1 hr, Age: 208.0/180.0/21 · 208.5/179.5/20 · 201.5/175.0/20 · 205.0/167.5/20 · 192.0/165.0/17 (UTS ksi / YS ksi / El %), HRC 46·45·46·46·46 → 평균 203.0 ksi(1400 MPa) / 173.4 ksi(1196 MPa) / 19.6% / 45.8 HRC · [경도 스케일] HRC 45.8 → HV 449 (ASTM E140-12b Table 3)",
+      "scale": "HV",
+      "source_scale": "HRC",
+      "source_value": 45.8,
+      "conversion": "ASTM E140-12b Table 3"
     },
     "thermal_conductivity": {
       "min": 11.4,
@@ -222,11 +226,11 @@
   "points": [
     [
       8.19,
-      1180,
-      1310,
-      16,
+      1196,
+      1400,
+      19.6,
       200,
-      410,
+      449,
       11.4
     ]
   ],
@@ -254,11 +258,11 @@
   "fracture_toughness": 100,
   "fatigue_strength": 535,
   "density": 8.19,
-  "yield_strength": 1180,
-  "uts": 1310,
-  "elongation": 16,
+  "yield_strength": 1196,
+  "uts": 1400,
+  "elongation": 19.6,
   "modulus": 200,
-  "hardness": 410,
+  "hardness": 449,
   "thermal_conductivity": 11.4,
   "impact_strength": 40,
   "manufacturer": "PCC / Special Metals (Inconel)",
@@ -374,6 +378,81 @@
         "GH4169",
         "NC19FeNb"
       ]
-    }
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 1180,
+        "max": 1180,
+        "typical": 1180,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1180
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 1310,
+        "max": 1310,
+        "typical": 1310,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1310
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 16,
+        "max": 16,
+        "typical": 16,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 16
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 410,
+        "max": 410,
+        "typical": 410,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 410
+    },
+    "_basis": "'Solution + Double age (DSA, full 718 cycle)' = AMS 5662 사이클(1750°F 어닐 + 1325°F/8h FC 1150°F 총 18h). 기존 1180/1310/16 의 UTS 1310 은 데이터시트 범위(1324~1438) 아래. Table 8 1750°F/1h + Age 5개 지름 평균으로 교정(범위 σy 1138~1241 · UTS 1324~1438 · El 17~21 · HRC 45~46).",
+    "_src": "Special Metals INCONEL alloy 718 technical bulletin (specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-718.pdf) Table 8 — 1750°F/1 hr, Age: 208.0/180.0/21 · 208.5/179.5/20 · 201.5/175.0/20 · 205.0/167.5/20 · 192.0/165.0/17 (UTS ksi / YS ksi / El %), HRC 46·45·46·46·46 → 평균 203.0 ksi(1400 MPa) / 173.4 ksi(1196 MPa) / 19.6% / 45.8 HRC · [경도 스케일] HRC 45.8 → HV 449 (ASTM E140-12b Table 3)",
+    "points": {
+      "from": [
+        [
+          8.19,
+          1180,
+          1310,
+          16,
+          200,
+          410,
+          11.4
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "Inconel 718 — Solution + Double age (DSA, full 718 cycle)",
+        "had": true
+      },
+      "heat_treatment": {
+        "from": "Solution + Double age (DSA, full 718 cycle)",
+        "had": true
+      }
+    },
+    "_fbasis": "'Solution + Double age (DSA, full 718 cycle)' 를 데이터시트 표기(1750°F/954~980°C 어닐 + 1325°F/720°C 8h 로냉 1150°F/620°C 총 18h = AMS 5662/5663)로 명시. 같은 조건의 중복 entry 'Inconel 718 (UNS N07718, AMS 5662 STA spec)'(1100/1280/12 — 규격 하한도 typical 도 아닌 값)은 제거, spec-min 은 'Wrought, Aged (AMS 5662)' entry 가 담당.",
+    "_fsrc": "Special Metals INCONEL alloy 718 technical bulletin (specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-718.pdf) — Heat Treatment 절 (1700°-1850°F anneal and age: 1325°F/8 hr, F.C. to 1150°F, total aging time 18 hr) · Table 8"
   }
 }

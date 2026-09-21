@@ -56,7 +56,16 @@ const GOLDEN: G[] = [
   { name: 'Ti Grade 1', ht: 'Anneal', y: [200, 260], u: [320, 380], d: [4.48, 4.54] },   // A3 Ti: 구 밴드는 B265 최소값 중심 — TIMET 35A 대표값(220/345)
   { name: 'Ti Grade 9', y: [460, 560], u: [580, 680], d: [4.44, 4.52] },          // 3Al-2.5V ann
   { name: 'Ti-6Al-4V Grade 23 ELI', ht: 'Anneal', y: [760, 830], u: [830, 900] },   // A3 Ti: generic 'Ti Grade 23' 중복 base 제거 → ELI 소둔(AZoM/MatWeb 790/860)
-  { name: 'Inconel 718 (UNS N07718, AMS 5662', y: [1030, 1180], u: [1240, 1400] },// AMS 5662 min 1034/1276
+  { name: 'Inconel 718 — Wrought, Aged (AMS 5662)', y: [1030, 1180], u: [1240, 1400] },   // AMS 5662 min 1034/1276 (A3 Ni: 구 'AMS 5662 STA spec' 중복 entry 제거)
+  /* A3 Ni(2026-09-22) — Special Metals 718 bulletin Table 8 열간압연 바 5개 지름 평균. 두 표준 사이클을 분리해 고정:
+     1750°F 어닐 + 1325/1150°F 시효(AMS 5662) 1196/1400 · 1950°F 어닐 + 1400/1200°F 시효(AMS 5664) 1082/1328. */
+  { name: 'Inconel 718 — Solution 980°C + Double age', y: [1130, 1250], u: [1320, 1440], el: [17, 22] },
+  { name: 'Inconel 718 — Solution 1065°C + Double age', y: [1040, 1140], u: [1290, 1350], el: [20, 24] },
+  { name: 'Inconel 718 — Solution treated (1065°C', y: [330, 380], u: [770, 830], el: [58, 64] },
+  { name: 'Inconel 751', y: [930, 1020], u: [1250, 1370], el: [20, 25] },                  // Special Metals Table 3: 976/1310/22.5
+  { name: 'Incoloy 925', y: [790, 870], u: [1100, 1200], el: [24, 30] },                   // SM Table 6 SA+aged round 832/1154/27
+  { name: 'Inconel 783', y: [740, 820], u: [1140, 1250], el: [21, 27] },                   // SM Table 6 70°F 779/1194/24
+  { name: 'GRX-810', ht: 'HIP', y: [490, 540], u: [810, 890], el: [40, 46] },              // Nature 2023 Ext. Data Table 1 HIP 515/848/43
   { name: 'Inconel 625 — Anneal', y: [410, 640], u: [820, 990] },                 // Gr1 min 414/827
   { name: 'Inconel 600', ht: 'Anneal', y: [200, 320], u: [540, 700], d: [8.4, 8.52] },
   { name: 'Monel 400', ht: 'Anneal', y: [200, 300], u: [500, 620], d: [8.75, 8.9] },
@@ -206,7 +215,6 @@ describe('golden 앵커 정밀도 — 한 앵커 = 한 합금 (검출력 상실 
     'Silicon Carbide': 'SiC 소결법 변형(sintered · reaction-bonded) — 동일 재료, ρ/E 앵커는 공통',
     'Silicon Nitride': 'Si₃N₄ 소결법 변형(HIP · sintered) — 동일 재료',
     'Tungsten Carbide (WC-Co': 'WC-Co 바인더 함량 변형(6% · 12%) — 동일 재료계, ρ 앵커는 6% 가 만족',
-    'Inconel 718 ': 'IN718 표기 변형(단독 vs UNS/AMS 병기) — 동일 합금. 718Plus 는 후행 공백으로 배제됨',
     'AISI 304L ': '304L 표기 변형(— · (Wrought) · / STS304L · / STS304 ULC) — 동일 합금. 304LN 은 후행 공백으로 배제됨',
   };
   const baseOf = (m: any) => (m.name || '').split('—')[0].trim();

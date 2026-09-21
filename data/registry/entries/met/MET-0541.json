@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 690,
-      "max": 740,
-      "typical": 740,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 832,
+      "typical": 832,
+      "max": 832,
+      "confidence": "handbook",
+      "provenance": "교정: Special Metals INCOLOY alloy 925 bulletin Table 6 — Round/Solution-Annealed and Aged: 167.3 ksi/1154 MPa UTS · 120.6 ksi/832 MPa YS · 27% · 32 HRC · [경도 스케일] HRC 32 → HV 309 (ASTM E140-12b Table 3)"
     },
     "uts": {
-      "min": 1110,
-      "max": 1170,
-      "typical": 1170,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 1154,
+      "typical": 1154,
+      "max": 1154,
+      "confidence": "handbook",
+      "provenance": "교정: Special Metals INCOLOY alloy 925 bulletin Table 6 — Round/Solution-Annealed and Aged: 167.3 ksi/1154 MPa UTS · 120.6 ksi/832 MPa YS · 27% · 32 HRC · [경도 스케일] HRC 32 → HV 309 (ASTM E140-12b Table 3)"
     },
     "elongation": {
-      "min": 20,
-      "max": 25,
-      "typical": 25,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 27,
+      "typical": 27,
+      "max": 27,
+      "confidence": "handbook",
+      "provenance": "교정: Special Metals INCOLOY alloy 925 bulletin Table 6 — Round/Solution-Annealed and Aged: 167.3 ksi/1154 MPa UTS · 120.6 ksi/832 MPa YS · 27% · 32 HRC · [경도 스케일] HRC 32 → HV 309 (ASTM E140-12b Table 3)"
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,15 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 300,
-      "max": 320,
-      "typical": 320,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 309,
+      "typical": 309,
+      "max": 309,
+      "confidence": "handbook",
+      "provenance": "교정: Special Metals INCOLOY alloy 925 bulletin Table 6 — Round/Solution-Annealed and Aged: 167.3 ksi/1154 MPa UTS · 120.6 ksi/832 MPa YS · 27% · 32 HRC · [경도 스케일] HRC 32 → HV 309 (ASTM E140-12b Table 3)",
+      "scale": "HV",
+      "source_scale": "HRC",
+      "source_value": 32,
+      "conversion": "ASTM E140-12b Table 3"
     },
     "thermal_conductivity": {
       "min": 11,
@@ -213,20 +217,11 @@
   "points": [
     [
       8.08,
-      740,
-      1170,
-      25,
+      832,
+      1154,
+      27,
       200,
-      320,
-      11
-    ],
-    [
-      8.08,
-      690,
-      1110,
-      20,
-      200,
-      300,
+      309,
       11
     ]
   ],
@@ -245,11 +240,11 @@
   },
   "fracture_toughness": 100,
   "density": 8.08,
-  "yield_strength": 740,
-  "uts": 1170,
-  "elongation": 25,
+  "yield_strength": 832,
+  "uts": 1154,
+  "elongation": 27,
   "modulus": 200,
-  "hardness": 320,
+  "hardness": 309,
   "thermal_conductivity": 11,
   "fatigue_strength": 526.5,
   "impact_strength": 35,
@@ -307,6 +302,78 @@
           "url": null,
           "verified": false
         }
+      ]
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 690,
+        "max": 740,
+        "typical": 740,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 740
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 1110,
+        "max": 1170,
+        "typical": 1170,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1170
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 20,
+        "max": 25,
+        "typical": 25,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 25
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 300,
+        "max": 320,
+        "typical": 320,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 320
+    },
+    "_basis": "740/1170/25 의 σy 740 은 SMC 내부규격 HA46 하한(724~758) 수준이라 typical 이 아니다. 용체화+시효 환봉 typical 로 교정.",
+    "_src": "Special Metals INCOLOY alloy 925 bulletin Table 6 — Round/Solution-Annealed and Aged: 167.3 ksi/1154 MPa UTS · 120.6 ksi/832 MPa YS · 27% · 32 HRC · [경도 스케일] HRC 32 → HV 309 (ASTM E140-12b Table 3)",
+    "points": {
+      "from": [
+        [
+          8.08,
+          740,
+          1170,
+          25,
+          200,
+          320,
+          11
+        ],
+        [
+          8.08,
+          690,
+          1110,
+          20,
+          200,
+          300,
+          11
+        ]
       ]
     }
   }

@@ -11,7 +11,7 @@
   "legacy_id": "G_0061",
   "origin": "generic(csv)",
   "id": "G_0061",
-  "name": "Inconel 100 — As-supplied (Cast)",
+  "name": "Inconel 100 — As-cast",
   "category": "Metal",
   "subcategory": "Nickel Superalloy",
   "tier": "generic",
@@ -22,7 +22,7 @@
   "processes": [
     "Cast"
   ],
-  "heat_treatment": "As-cast/forged (no temper)",
+  "heat_treatment": "As-cast",
   "ranges": {
     "density": {
       "min": 7.7,
@@ -304,6 +304,18 @@
         }
       ]
     },
+    "fields": {
+      "name": {
+        "from": "Inconel 100 — As-supplied (Cast)",
+        "had": true
+      },
+      "heat_treatment": {
+        "from": "As-cast/forged (no temper)",
+        "had": true
+      }
+    },
+    "_fbasis": "'As-supplied (Cast)' / 'As-cast/forged (no temper)' 는 generic CSV 의 placeholder 라벨. IN-100 은 등축 주조 γ′ 합금이고 출처의 RT 값(850/1010/9)은 as-cast 기준. 같은 합금의 generic 3 조건(Annealed · Strain-hardened · Aged/solution-treated)은 동일값 복제라 제거(remove.ids)하고 이 entry 를 유일 조건으로 정직화. 값 불변.",
+    "_fsrc": "entry 기존 출처 — Nickel Institute 'Engineering Properties of IN-100 Alloy' (as-cast RT typical) · Howmet/Special Metals IN-100 datasheet",
     "points": {
       "from": [
         [

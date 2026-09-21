@@ -51,11 +51,11 @@
       "confidence": "measured"
     },
     "elongation": {
-      "min": 21,
-      "max": 38,
-      "typical": 35,
-      "n": 8,
-      "confidence": "measured"
+      "min": 24.5,
+      "typical": 24.5,
+      "max": 24.5,
+      "confidence": "handbook",
+      "provenance": "교정: EOS NickelAlloy K500 MDS (Material_DataSheet_EOS_NickelAlloyK500_en.pdf) p.7·p.11 — Heat treated: Horizontal 840/1095/21 · 840/1085/22, Vertical 810/1030/27 · 785/1020/28 (σy/UTS MPa, El %)"
     },
     "modulus": {
       "min": 179,
@@ -210,53 +210,8 @@
     [
       8.46,
       840,
-      1090,
-      36.5,
-      179,
-      null,
-      17.5
-    ],
-    [
-      8.46,
-      797.5,
-      1025,
-      21.5,
-      179,
-      null,
-      17.5
-    ],
-    [
-      8.46,
-      840,
-      1095,
-      35,
-      179,
-      null,
-      17.5
-    ],
-    [
-      8.46,
-      810,
-      1030,
-      21,
-      179,
-      null,
-      17.5
-    ],
-    [
-      8.46,
-      840,
       1085,
-      38,
-      179,
-      null,
-      17.5
-    ],
-    [
-      8.46,
-      785,
-      1020,
-      22,
+      24.5,
       179,
       null,
       17.5
@@ -282,7 +237,7 @@
   "density": 8.46,
   "yield_strength": 840,
   "uts": 1085,
-  "elongation": 35,
+  "elongation": 24.5,
   "modulus": 179,
   "hardness": null,
   "thermal_conductivity": 17.5,
@@ -344,6 +299,78 @@
           "url": "https://www.eos.info/var/assets/05-datasheet-images/Assets_MDS_Metal/EOS_NickelAlloy_K500/Material_DataSheet_EOS_NickelAlloyK500_en.pdf?v=9",
           "verified": true
         }
+      ]
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 21,
+        "max": 38,
+        "typical": 35,
+        "n": 8,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 35
+    },
+    "_basis": "EOS K500 MDS 열처리(시효) 행의 연신율은 Horizontal 21·22 / Vertical 27·28 % 인데 entry 의 6 points 중 3 행이 36.5·35·38 — as-built Vertical 행(35·38)의 연신율이 열처리 행에 섞여 typical 35 가 됐다(σy 840·UTS 1085 는 datasheet 정합). H/V 4 행 평균 24.5 로 교정.",
+    "_src": "EOS NickelAlloy K500 MDS (Material_DataSheet_EOS_NickelAlloyK500_en.pdf) p.7·p.11 — Heat treated: Horizontal 840/1095/21 · 840/1085/22, Vertical 810/1030/27 · 785/1020/28 (σy/UTS MPa, El %)",
+    "points": {
+      "from": [
+        [
+          8.46,
+          840,
+          1090,
+          36.5,
+          179,
+          null,
+          17.5
+        ],
+        [
+          8.46,
+          797.5,
+          1025,
+          21.5,
+          179,
+          null,
+          17.5
+        ],
+        [
+          8.46,
+          840,
+          1095,
+          35,
+          179,
+          null,
+          17.5
+        ],
+        [
+          8.46,
+          810,
+          1030,
+          21,
+          179,
+          null,
+          17.5
+        ],
+        [
+          8.46,
+          840,
+          1085,
+          38,
+          179,
+          null,
+          17.5
+        ],
+        [
+          8.46,
+          785,
+          1020,
+          22,
+          179,
+          null,
+          17.5
+        ]
       ]
     }
   }

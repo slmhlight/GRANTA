@@ -1,5 +1,5 @@
 {
- "_note": "R226f/축2a — 표준 최소값 테이블 (A/B-basis 의 spec-min 시드, 축4a). 이름에 규격·grade 를 인용한 entry 는 적합성 주장 -> 해당 규격 min 을 충족해야 함 (tests/standard-min-specs.test.ts 가 게이트, 허용오차 -2%). A588 형 오염(σy 를 타 합금 값으로 오기)을 '인용 표준만으로' 잡는 일반해 — golden-values(entry 별 bound)와 달리 패턴 단위로 확장. 값은 각 표준의 최소 요구치(MPa). | H6 W2-1: +40 (46→86). 전건 floor probe(전 조건 ≥ min×0.98) 통과분만 채택. 다이캐스트(A380·ADC12·AZ91D)·Mg 압출(AZ31B)은 해당 규격의 기계적 최소값 보증 여부를 확인하지 못해 미채택 — 거짓 인용 금지. 패턴 \"AISI 434 —\" 는 AISI 4340 오매칭 방지용 구분자 포함. | W2 재점검: 패턴 오매칭 4건 교정 — Ti Gr1→Gr11/12 · Ti Gr2→Gr23 · 304L→304LN · H900(템퍼명)→Custom 455 등 타 PH 합금. 게이트는 통과하던(오매칭 합금이 더 강해서) 거짓 인용. Custom 455 는 공개 H900 수치가 typical 이라 미등재.",
+ "_note": "R226f/축2a — 표준 최소값 테이블 (A/B-basis 의 spec-min 시드, 축4a). 이름에 규격·grade 를 인용한 entry 는 적합성 주장 -> 해당 규격 min 을 충족해야 함 (tests/standard-min-specs.test.ts 가 게이트, 허용오차 -2%). A588 형 오염(σy 를 타 합금 값으로 오기)을 '인용 표준만으로' 잡는 일반해 — golden-values(entry 별 bound)와 달리 패턴 단위로 확장. 값은 각 표준의 최소 요구치(MPa). | H6 W2-1: +40 (46→86). 전건 floor probe(전 조건 ≥ min×0.98) 통과분만 채택. 다이캐스트(A380·ADC12·AZ91D)·Mg 압출(AZ31B)은 해당 규격의 기계적 최소값 보증 여부를 확인하지 못해 미채택 — 거짓 인용 금지. 패턴 \"AISI 434 —\" 는 AISI 4340 오매칭 방지용 구분자 포함. | W2 재점검: 패턴 오매칭 4건 교정 — Ti Gr1→Gr11/12 · Ti Gr2→Gr23 · 304L→304LN · H900(템퍼명)→Custom 455 등 타 PH 합금. 게이트는 통과하던(오매칭 합금이 더 강해서) 거짓 인용. Custom 455 는 공개 H900 수치가 typical 이라 미등재. | A3 Ni(2026-09-22): 이름·출처 라벨이 규격 최소값을 typical 자리에 싣고 있던 Ni 5 entry(625 AMS 5666 · 718 AMS 5662(기존 행에 El 12 추가) · Astroloy AMS 5846 · IN-100 AMS 5397 · 740H ASME CC2702)를 표에 등재 — basis=min_spec 스탬프로 \"규격 하한\" 표기.",
  "specs": [
   {
    "pattern": "ASTM A36",
@@ -131,10 +131,11 @@
   },
   {
    "pattern": "AMS 5662",
-   "std": "AMS 5662 (IN718 STA)",
+   "std": "AMS 5662 (IN718 solution + precipitation heat treated bar/forging)",
    "min": {
     "yield_strength": 1034,
-    "uts": 1276
+    "uts": 1276,
+    "elongation": 12
    }
   },
   {
@@ -686,6 +687,42 @@
    "min": {
     "yield_strength": 205,
     "uts": 515
+   }
+  },
+  {
+   "pattern": "Inconel 625 — Wrought, Annealed (AMS 5666)",
+   "std": "AMS 5666 / ASTM B446 Gr1 (annealed bar)",
+   "min": {
+    "yield_strength": 414,
+    "uts": 827,
+    "elongation": 30
+   }
+  },
+  {
+   "pattern": "Astroloy (Ni-Co-Cr",
+   "std": "AMS 5846 (Astroloy bar/forging, STA)",
+   "min": {
+    "yield_strength": 965,
+    "uts": 1275,
+    "elongation": 10
+   }
+  },
+  {
+   "pattern": "IN-100 (cast Ni superalloy, AMS 5397)",
+   "std": "SAE AMS 5397 (IN-100 investment castings)",
+   "min": {
+    "yield_strength": 655,
+    "uts": 795,
+    "elongation": 5
+   }
+  },
+  {
+   "pattern": "Inconel 740H (Ni-Cr-Co A-USC",
+   "std": "ASME Code Case 2702 (N07740 solution annealed + aged)",
+   "min": {
+    "yield_strength": 620,
+    "uts": 1035,
+    "elongation": 20
    }
   }
  ]

@@ -13,6 +13,7 @@ const E140 = e140 as unknown as {
   steel: { hrc: Table; hrb: Table };
   aluminum: Table;
   brass: Table;
+  nickel: Table;
 };
 
 /** [x,y] 쌍에서 선형 보간 — x 가 표 밖이면 null(외삽 금지). */
@@ -70,3 +71,7 @@ export function steelHardness(scale: 'HV' | 'HRC' | 'HRB' | 'HB', value: number)
 /* 단조 알루미늄 (Table 9) · 70/30 황동 (Table 4) — 데이터 표시·교정 참조용. */
 export const alHvFromHB500 = (hb: number) => interpPairs(pairsOf(E140.aluminum, 'HB500', 'HV'), hb);
 export const brassHvFromHRB = (hrb: number) => interpPairs(pairsOf(E140.brass, 'HRB', 'HV'), hrb);
+/* 니켈·고니켈 합금 (Table 3) — A3 Ni 족보(2026-09-22): 데이터시트 HRB/HRC/BHN → HV. mjs 커널과 같은 표·같은 규칙. */
+export const nickelHvFromHRC = (hrc: number) => interpPairs(flip(pairsOf(E140.nickel, 'HV', 'HRC')), hrc);
+export const nickelHvFromHRB = (hrb: number) => interpPairs(flip(pairsOf(E140.nickel, 'HV', 'HRB')), hrb);
+export const nickelHvFromHB = (hb: number) => interpPairs(flip(pairsOf(E140.nickel, 'HV', 'HB3000')), hb);

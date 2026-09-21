@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 280,
-      "max": 280,
-      "typical": 280,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 314,
+      "typical": 314,
+      "max": 314,
+      "confidence": "handbook",
+      "provenance": "교정: Haynes International — HASTELLOY N alloy, Short-Time Tensile Data (Sheet 0.063 in., heat-treated at 2150°F/1177°C, RAC), RT: 45.5 ksi/314 MPa YS · 115.1 ksi/794 MPa UTS · 50.7% (haynesintl.com/en/alloys/alloy-portfolio/high-temperature-alloys/hastelloy-n/)"
     },
     "uts": {
-      "min": 760,
-      "max": 760,
-      "typical": 760,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 794,
+      "typical": 794,
+      "max": 794,
+      "confidence": "handbook",
+      "provenance": "교정: Haynes International — HASTELLOY N alloy, Short-Time Tensile Data (Sheet 0.063 in., heat-treated at 2150°F/1177°C, RAC), RT: 45.5 ksi/314 MPa YS · 115.1 ksi/794 MPa UTS · 50.7% (haynesintl.com/en/alloys/alloy-portfolio/high-temperature-alloys/hastelloy-n/)"
     },
     "elongation": {
-      "min": 50,
-      "max": 50,
-      "typical": 50,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 50.7,
+      "typical": 50.7,
+      "max": 50.7,
+      "confidence": "handbook",
+      "provenance": "교정: Haynes International — HASTELLOY N alloy, Short-Time Tensile Data (Sheet 0.063 in., heat-treated at 2150°F/1177°C, RAC), RT: 45.5 ksi/314 MPa YS · 115.1 ksi/794 MPa UTS · 50.7% (haynesintl.com/en/alloys/alloy-portfolio/high-temperature-alloys/hastelloy-n/)"
     },
     "modulus": {
       "min": 218,
@@ -213,9 +213,9 @@
   "points": [
     [
       8.86,
-      280,
-      760,
-      50,
+      314,
+      794,
+      50.7,
       218,
       180,
       11.8
@@ -232,9 +232,9 @@
   "fracture_toughness": 100,
   "fatigue_strength": 134,
   "density": 8.86,
-  "yield_strength": 280,
-  "uts": 760,
-  "elongation": 50,
+  "yield_strength": 314,
+  "uts": 794,
+  "elongation": 50.7,
   "modulus": 218,
   "hardness": 180,
   "thermal_conductivity": 11.8,
@@ -286,6 +286,57 @@
           "url": null,
           "verified": false
         }
+      ]
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 280,
+        "max": 280,
+        "typical": 280,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 280
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 760,
+        "max": 760,
+        "typical": 760,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 760
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 50,
+        "max": 50,
+        "typical": 50,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 50
+    },
+    "_basis": "'Datasheet 1'·'MatWeb 1' 무명 출처의 280/760/50 을 Haynes 공식 시트 데이터(2150°F/1177°C 용체화)로 교정. 같은 합금의 'Aged (704°C/100h)' entry 는 데이터시트에 없는 조건(Haynes 는 816°C/128h 노출 후 340/796/46.8 한 행만 제공)이라 제거.",
+    "_src": "Haynes International — HASTELLOY N alloy, Short-Time Tensile Data (Sheet 0.063 in., heat-treated at 2150°F/1177°C, RAC), RT: 45.5 ksi/314 MPa YS · 115.1 ksi/794 MPa UTS · 50.7% (haynesintl.com/en/alloys/alloy-portfolio/high-temperature-alloys/hastelloy-n/)",
+    "points": {
+      "from": [
+        [
+          8.86,
+          280,
+          760,
+          50,
+          218,
+          180,
+          11.8
+        ]
       ]
     }
   }

@@ -11,7 +11,7 @@
   "legacy_id": "R_0301_1",
   "origin": "reference(supplementary)",
   "id": "R_0301_1",
-  "name": "GRX-810 (NASA ODS Ni superalloy) — LPBF + Solution + Aged",
+  "name": "GRX-810 (NASA ODS Ni superalloy) — LPBF as-built",
   "category": "Metal",
   "subcategory": "Nickel Superalloy",
   "tier": "reference",
@@ -22,7 +22,7 @@
   "processes": [
     "LPBF"
   ],
-  "heat_treatment": "LPBF + Solution + Aged",
+  "heat_treatment": "As-built",
   "ranges": {
     "density": {
       "min": 8.4,
@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 820,
-      "max": 820,
-      "typical": 820,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 641,
+      "typical": 641,
+      "max": 641,
+      "confidence": "handbook",
+      "provenance": "교정: Smith T.M. et al., 'A 3D printable alloy designed for extreme environments', Nature 617 (2023) 513–518 — Extended Data Table 1 (Overview of tensile results for As-built and HIP GRX-810) — As-built 21.1°C: 882.5 MPa UTS · 641.2 MPa YS · 33% El (nature.com/articles/s41586-023-05893-0)"
     },
     "uts": {
-      "min": 1240,
-      "max": 1240,
-      "typical": 1240,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 883,
+      "typical": 883,
+      "max": 883,
+      "confidence": "handbook",
+      "provenance": "교정: Smith T.M. et al., 'A 3D printable alloy designed for extreme environments', Nature 617 (2023) 513–518 — Extended Data Table 1 (Overview of tensile results for As-built and HIP GRX-810) — As-built 21.1°C: 882.5 MPa UTS · 641.2 MPa YS · 33% El (nature.com/articles/s41586-023-05893-0)"
     },
     "elongation": {
-      "min": 15,
-      "max": 15,
-      "typical": 15,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 33,
+      "typical": 33,
+      "max": 33,
+      "confidence": "handbook",
+      "provenance": "교정: Smith T.M. et al., 'A 3D printable alloy designed for extreme environments', Nature 617 (2023) 513–518 — Extended Data Table 1 (Overview of tensile results for As-built and HIP GRX-810) — As-built 21.1°C: 882.5 MPa UTS · 641.2 MPa YS · 33% El (nature.com/articles/s41586-023-05893-0)"
     },
     "modulus": {
       "min": 200,
@@ -205,9 +205,9 @@
   "points": [
     [
       8.4,
-      820,
-      1240,
-      15,
+      641,
+      883,
+      33,
       200,
       400,
       11
@@ -225,9 +225,9 @@
     "_r173_note_applied": true
   },
   "density": 8.4,
-  "yield_strength": 820,
-  "uts": 1240,
-  "elongation": 15,
+  "yield_strength": 641,
+  "uts": 883,
+  "elongation": 33,
   "modulus": 200,
   "hardness": 400,
   "thermal_conductivity": 11,
@@ -267,5 +267,70 @@
   "svhc_concerns": [
     "Co 7% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 820,
+        "max": 820,
+        "typical": 820,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 820
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 1240,
+        "max": 1240,
+        "typical": 1240,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1240
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 15,
+        "max": 15,
+        "typical": 15,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 15
+    },
+    "_basis": "'LPBF + Solution + Aged' 는 존재하지 않는 조건 — GRX-810 은 Y2O3 산화물분산강화 NiCoCr 고용체 합금으로 NASA 논문은 as-built 와 HIP 두 상태만 시험했다(시효 처리 없음). 820/1240/15 는 무출처. 라벨(fields)과 값을 논문 Extended Data Table 1 의 As-built 21.1°C 행으로 교정.",
+    "_src": "Smith T.M. et al., 'A 3D printable alloy designed for extreme environments', Nature 617 (2023) 513–518 — Extended Data Table 1 (Overview of tensile results for As-built and HIP GRX-810) — As-built 21.1°C: 882.5 MPa UTS · 641.2 MPa YS · 33% El (nature.com/articles/s41586-023-05893-0)",
+    "points": {
+      "from": [
+        [
+          8.4,
+          820,
+          1240,
+          15,
+          200,
+          400,
+          11
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "GRX-810 (NASA ODS Ni superalloy) — LPBF + Solution + Aged",
+        "had": true
+      },
+      "heat_treatment": {
+        "from": "LPBF + Solution + Aged",
+        "had": true
+      }
+    },
+    "_fbasis": "'LPBF + Solution + Aged' → 'LPBF as-built'. GRX-810 에는 용체화·시효 조건이 없다(NASA 논문: as-built 와 HIP 만). ranges 교정과 한 쌍.",
+    "_fsrc": "Smith T.M. et al., 'A 3D printable alloy designed for extreme environments', Nature 617 (2023) 513–518 — Extended Data Table 1 (Overview of tensile results for As-built and HIP GRX-810)"
+  }
 }

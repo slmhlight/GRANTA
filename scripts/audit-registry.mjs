@@ -86,7 +86,8 @@ const REVIEWED = {
      단일표준 없음")이 바로 제거 근거였고, 규격 재확인(ASTM B348·A276·A331 폐지)도 같은 결론이었다.
      Ti-5-2-5·Ti-8-1-1·Ti Grade 7 은 **aged 라벨**까지 함께 덮고 있어 남겨 뒀었는데, A3 Ti(2026-09-21)에서
      그 합성 'Aged' entry 3건(소둔 형제와 완전 동일값)을 제거해 세 키도 함께 지웠다. */
-  'Inconel 100': '주조 Ni superalloy — 주조+시효 단일조건; annealed/as-forged 라벨 합성(값 정상)',
+  /* 'Inconel 100' 은 A3 Ni(2026-09-22) 제거 — 이 예외가 봐주던 generic 합성 조건 3건(Annealed·Strain-hardened·
+     Aged/solution-treated, 850/1010/9 동일값 복제)을 remove.json 으로 지웠고 As-cast 단일 조건만 남아 충돌이 사라졌다. */
   /* 'CuNi2SiCr' 은 2026-09-11 제거 — 충돌의 한 축이 'Heat-Treated'(상태 불명)였고,
      A6 에서 그것을 UNKNOWN 으로 빼면서 충돌 자체가 사라졌다. 필요 없어진 예외는 지운다. */
 };

@@ -766,33 +766,6 @@
   {
    "ranges": {
     "yield_strength": {
-     "typical": 470,
-     "min": 420,
-     "max": 580,
-     "confidence": "handbook"
-    },
-    "uts": {
-     "typical": 950,
-     "min": 870,
-     "max": 1060,
-     "confidence": "handbook"
-    },
-    "elongation": {
-     "typical": 25,
-     "min": 18,
-     "max": 35,
-     "confidence": "handbook"
-    }
-   },
-   "reason": "C14: CW 차별값.",
-   "stableIds": [
-    "MET-0590"
-   ],
-   "_namePattern_ref": "^Inconel X-750 — Strain-hardened"
-  },
-  {
-   "ranges": {
-    "yield_strength": {
      "typical": 585,
      "min": 520,
      "max": 690,
@@ -822,39 +795,6 @@
     "MET-0598"
    ],
    "_namePattern_ref": "^Monel 400 — Strain-hardened"
-  },
-  {
-   "ranges": {
-    "yield_strength": {
-     "typical": 690,
-     "min": 620,
-     "max": 800,
-     "confidence": "handbook"
-    },
-    "uts": {
-     "typical": 950,
-     "min": 870,
-     "max": 1060,
-     "confidence": "handbook"
-    },
-    "elongation": {
-     "typical": 30,
-     "min": 20,
-     "max": 40,
-     "confidence": "handbook"
-    },
-    "hardness": {
-     "typical": 280,
-     "min": 250,
-     "max": 330,
-     "confidence": "handbook"
-    }
-   },
-   "reason": "C15: CW 차별값. [Haynes C-276]",
-   "stableIds": [
-    "MET-0510"
-   ],
-   "_namePattern_ref": "^Hastelloy C-276 — Strain-hardened"
   },
   {
    "ranges": {
@@ -1240,9 +1180,7 @@
    "reason": "D29: 동일 재료 (Ni 200) 의 등급 불일치 통일. [Special Metals]",
    "stableIds": [
     "MET-0498",
-    "MET-0499",
     "MET-0500",
-    "MET-0501",
     "MET-0602"
    ],
    "_namePattern_ref": "^Nickel 200|^CP-Nickel"
@@ -1393,10 +1331,7 @@
    },
    "reason": "E6: HV 88-105 = HRB 를 HV 로 오기. 실제 HV ~210 (HRB 95). [Haynes 230 datasheet]",
    "stableIds": [
-    "MET-0523",
-    "MET-0524",
-    "MET-0525",
-    "MET-0526"
+    "MET-0523"
    ],
    "_namePattern_ref": "^Haynes 230"
   },
@@ -1412,9 +1347,7 @@
    "reason": "E7: Ni 200 한계 315°C (graphitization). 900/800 → 315. [ASTM B162]",
    "stableIds": [
     "MET-0498",
-    "MET-0499",
-    "MET-0500",
-    "MET-0501"
+    "MET-0500"
    ],
    "_namePattern_ref": "^CP-Nickel"
   },

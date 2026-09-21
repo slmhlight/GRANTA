@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 660,
-      "max": 700,
-      "typical": 700,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 763,
+      "typical": 763,
+      "max": 763,
+      "confidence": "handbook",
+      "provenance": "교정: Special Metals INCONEL alloy 740H bulletin Table 6 — Aging Response of Hot-Rolled/Solution Annealed Plate, Room Temperature, 800°C/16hr/AC: 110.6 ksi(763 MPa) YS · 165.1 ksi(1138 MPa) UTS · 27.4% · RA 27.6% (specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-740h.pdf)"
     },
     "uts": {
-      "min": 1000,
-      "max": 1050,
-      "typical": 1050,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 1138,
+      "typical": 1138,
+      "max": 1138,
+      "confidence": "handbook",
+      "provenance": "교정: Special Metals INCONEL alloy 740H bulletin Table 6 — Aging Response of Hot-Rolled/Solution Annealed Plate, Room Temperature, 800°C/16hr/AC: 110.6 ksi(763 MPa) YS · 165.1 ksi(1138 MPa) UTS · 27.4% · RA 27.6% (specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-740h.pdf)"
     },
     "elongation": {
-      "min": 25,
-      "max": 30,
-      "typical": 30,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 27.4,
+      "typical": 27.4,
+      "max": 27.4,
+      "confidence": "handbook",
+      "provenance": "교정: Special Metals INCONEL alloy 740H bulletin Table 6 — Aging Response of Hot-Rolled/Solution Annealed Plate, Room Temperature, 800°C/16hr/AC: 110.6 ksi(763 MPa) YS · 165.1 ksi(1138 MPa) UTS · 27.4% · RA 27.6% (specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-740h.pdf)"
     },
     "modulus": {
       "min": 221,
@@ -212,20 +212,11 @@
   "points": [
     [
       8.05,
-      700,
-      1050,
-      30,
+      763,
+      1138,
+      27.4,
       221,
       320,
-      12
-    ],
-    [
-      8.05,
-      660,
-      1000,
-      25,
-      221,
-      300,
       12
     ]
   ],
@@ -239,9 +230,9 @@
   "fracture_toughness": 100,
   "fatigue_strength": 336,
   "density": 8.05,
-  "yield_strength": 700,
-  "uts": 1050,
-  "elongation": 30,
+  "yield_strength": 763,
+  "uts": 1138,
+  "elongation": 27.4,
   "modulus": 221,
   "hardness": 320,
   "thermal_conductivity": 12,
@@ -306,6 +297,66 @@
       "from": [
         "UNS N07740",
         "Alloy 740H"
+      ]
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 660,
+        "max": 700,
+        "typical": 700,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 700
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 1000,
+        "max": 1050,
+        "typical": 1050,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1050
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 25,
+        "max": 30,
+        "typical": 30,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 30
+    },
+    "_basis": "라벨(1100°C 용체화 + 800°C/16h 시효)과 정확히 같은 조건의 데이터시트 행이 있다(열간압연 용체화 판, 800°C/16hr/AC). 기존 700/1050/30 은 압출관 횡방향(724/1066/24)과 판 값 사이의 무출처 값이라 판 데이터로 교정. 같은 라벨의 중복 entry(R_0326_1: 850/1170/22 — 데이터시트 최대치 782 초과)와 용체화 단독 entry(데이터시트 값 없음)는 제거.",
+    "_src": "Special Metals INCONEL alloy 740H bulletin Table 6 — Aging Response of Hot-Rolled/Solution Annealed Plate, Room Temperature, 800°C/16hr/AC: 110.6 ksi(763 MPa) YS · 165.1 ksi(1138 MPa) UTS · 27.4% · RA 27.6% (specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-740h.pdf)",
+    "points": {
+      "from": [
+        [
+          8.05,
+          700,
+          1050,
+          30,
+          221,
+          320,
+          12
+        ],
+        [
+          8.05,
+          660,
+          1000,
+          25,
+          221,
+          300,
+          12
+        ]
       ]
     }
   }

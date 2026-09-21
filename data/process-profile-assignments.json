@@ -1,6 +1,6 @@
 {
  "_note": "생성물: pnpm build:profiles (scripts/build-process-profiles.mjs). 직접 수정 금지 — 교정은 data/process-profile-overrides.json (stable_id + src). 키 의미: mach=절삭성 프로파일(process-profiles.json), weld=용접성 모델(ce|schaeffler|none), ht=HT family(ht-alloy-specific.ts familyName), htc=조건 클래스, insight=선택 인사이트 그룹(selection-insights.json).",
- "entries": 1102,
+ "entries": 1071,
  "ht_families_parsed": 34,
  "assignments": {
   "CER-0001": {
@@ -5056,28 +5056,7 @@
    "cg": "ni-super",
    "corr": "ni-super"
   },
-  "MET-0499": {
-   "colorf": "Nickel",
-   "mach": "ni-super",
-   "weld": "none",
-   "htg": "h12-ni-solidsol",
-   "wg": "w26-inconel",
-   "insight": "ni-superalloy",
-   "cg": "ni-super",
-   "corr": "ni-super"
-  },
   "MET-0500": {
-   "colorf": "Nickel",
-   "mach": "ni-super",
-   "weld": "none",
-   "htc": "soft",
-   "htg": "h12-ni-solidsol",
-   "wg": "w26-inconel",
-   "insight": "ni-superalloy",
-   "cg": "ni-super",
-   "corr": "ni-super"
-  },
-  "MET-0501": {
    "colorf": "Nickel",
    "mach": "ni-super",
    "weld": "none",
@@ -5092,7 +5071,7 @@
    "colorf": "Nickel",
    "mach": "ni-super",
    "weld": "none",
-   "htc": "aged",
+   "htc": "as-built",
    "htg": "h22-ods",
    "wg": "w81-ods",
    "insight": "ni-superalloy",
@@ -5103,7 +5082,7 @@
    "colorf": "Nickel",
    "mach": "ni-super",
    "weld": "none",
-   "htc": "as-built",
+   "htc": "hip",
    "htg": "h22-ods",
    "wg": "w81-ods",
    "insight": "ni-superalloy",
@@ -5154,34 +5133,12 @@
    "cg": "ni-super",
    "corr": "ni-super"
   },
-  "MET-0510": {
-   "colorf": "Nickel",
-   "mach": "ni-super",
-   "weld": "none",
-   "htc": "qt",
-   "htg": "h12-ni-solidsol",
-   "wg": "w31-hastelloy",
-   "insight": "ni-superalloy",
-   "cg": "ni-super",
-   "corr": "ni-super"
-  },
   "MET-0511": {
    "colorf": "Nickel",
    "mach": "ni-super",
    "weld": "none",
    "htg": "h12-ni-solidsol",
    "wg": "w31-hastelloy",
-   "insight": "ni-superalloy",
-   "cg": "ni-super",
-   "corr": "ni-super"
-  },
-  "MET-0512": {
-   "colorf": "Nickel",
-   "mach": "ni-super",
-   "weld": "none",
-   "htc": "aged",
-   "htg": "h12-ni-solidsol",
-   "wg": "w26-inconel",
    "insight": "ni-superalloy",
    "cg": "ni-super",
    "corr": "ni-super"
@@ -5214,53 +5171,6 @@
    "mach": "ni-super-solidsol",
    "weld": "none",
    "htc": "as-built",
-   "ht": "Hastelloy X (UNS N06002, Ni-Cr-Mo-Fe-Co)",
-   "htg": "h12-ni-solidsol",
-   "wg": "w32-hastelloy",
-   "insight": "ni-superalloy",
-   "cg": "ni-super",
-   "corr": "ni-super"
-  },
-  "MET-0516": {
-   "colorf": "Nickel",
-   "mach": "ni-super-solidsol",
-   "weld": "none",
-   "ht": "Hastelloy X (UNS N06002, Ni-Cr-Mo-Fe-Co)",
-   "htg": "h12-ni-solidsol",
-   "wg": "w32-hastelloy",
-   "insight": "ni-superalloy",
-   "cg": "ni-super",
-   "corr": "ni-super"
-  },
-  "MET-0517": {
-   "colorf": "Nickel",
-   "mach": "ni-super-solidsol",
-   "weld": "none",
-   "htc": "aged",
-   "ht": "Hastelloy X (UNS N06002, Ni-Cr-Mo-Fe-Co)",
-   "htg": "h12-ni-solidsol",
-   "wg": "w32-hastelloy",
-   "insight": "ni-superalloy",
-   "cg": "ni-super",
-   "corr": "ni-super"
-  },
-  "MET-0518": {
-   "colorf": "Nickel",
-   "mach": "ni-super-solidsol",
-   "weld": "none",
-   "htc": "soft",
-   "ht": "Hastelloy X (UNS N06002, Ni-Cr-Mo-Fe-Co)",
-   "htg": "h12-ni-solidsol",
-   "wg": "w32-hastelloy",
-   "insight": "ni-superalloy",
-   "cg": "ni-super",
-   "corr": "ni-super"
-  },
-  "MET-0519": {
-   "colorf": "Nickel",
-   "mach": "ni-super-solidsol",
-   "weld": "none",
-   "htc": "soft",
    "ht": "Hastelloy X (UNS N06002, Ni-Cr-Mo-Fe-Co)",
    "htg": "h12-ni-solidsol",
    "wg": "w32-hastelloy",
@@ -5313,54 +5223,6 @@
    "cg": "ni-super",
    "corr": "ni-super"
   },
-  "MET-0524": {
-   "colorf": "Nickel",
-   "mach": "ni-super-solidsol",
-   "weld": "none",
-   "htc": "as-built",
-   "ht": "Haynes 230 (UNS N06230, Ni-Cr-W-Mo)",
-   "htg": "h12-ni-solidsol",
-   "wg": "w34-haynes",
-   "insight": "ni-superalloy",
-   "cg": "ni-super",
-   "corr": "ni-super"
-  },
-  "MET-0525": {
-   "colorf": "Nickel",
-   "mach": "ni-super-solidsol",
-   "weld": "none",
-   "htc": "soft",
-   "ht": "Haynes 230 (UNS N06230, Ni-Cr-W-Mo)",
-   "htg": "h12-ni-solidsol",
-   "wg": "w34-haynes",
-   "insight": "ni-superalloy",
-   "cg": "ni-super",
-   "corr": "ni-super"
-  },
-  "MET-0526": {
-   "colorf": "Nickel",
-   "mach": "ni-super-solidsol",
-   "weld": "none",
-   "htc": "soft",
-   "ht": "Haynes 230 (UNS N06230, Ni-Cr-W-Mo)",
-   "htg": "h12-ni-solidsol",
-   "wg": "w34-haynes",
-   "insight": "ni-superalloy",
-   "cg": "ni-super",
-   "corr": "ni-super"
-  },
-  "MET-0527": {
-   "colorf": "Nickel",
-   "mach": "ni-super-solidsol",
-   "weld": "none",
-   "htc": "aged",
-   "ht": "Haynes 282 (UNS N07208, γ' precipitation strengthened)",
-   "htg": "h12-ni-solidsol",
-   "wg": "w35-haynes",
-   "insight": "ni-superalloy",
-   "cg": "ni-super",
-   "corr": "ni-super"
-  },
   "MET-0528": {
    "colorf": "Nickel",
    "mach": "ni-super-solidsol",
@@ -5384,54 +5246,6 @@
    "cg": "ni-super",
    "corr": "ni-super"
   },
-  "MET-0530": {
-   "colorf": "Nickel",
-   "mach": "ni-super-solidsol",
-   "weld": "none",
-   "htc": "aged",
-   "ht": "Haynes 282 (UNS N07208, γ' precipitation strengthened)",
-   "htg": "h12-ni-solidsol",
-   "wg": "w35-haynes",
-   "insight": "ni-superalloy",
-   "cg": "ni-super",
-   "corr": "ni-super"
-  },
-  "MET-0531": {
-   "colorf": "Nickel",
-   "mach": "ni-super-solidsol",
-   "weld": "none",
-   "htc": "aged",
-   "ht": "Haynes 282 (UNS N07208, γ' precipitation strengthened)",
-   "htg": "h12-ni-solidsol",
-   "wg": "w35-haynes",
-   "insight": "ni-superalloy",
-   "cg": "ni-super",
-   "corr": "ni-super"
-  },
-  "MET-0532": {
-   "colorf": "Nickel",
-   "mach": "ni-super-solidsol",
-   "weld": "none",
-   "htc": "aged",
-   "ht": "Haynes 282 (UNS N07208, γ' precipitation strengthened)",
-   "htg": "h12-ni-solidsol",
-   "wg": "w35-haynes",
-   "insight": "ni-superalloy",
-   "cg": "ni-super",
-   "corr": "ni-super"
-  },
-  "MET-0533": {
-   "colorf": "Nickel",
-   "mach": "ni-super-solidsol",
-   "weld": "none",
-   "htc": "soft",
-   "ht": "Haynes 282 (UNS N07208, γ' precipitation strengthened)",
-   "htg": "h12-ni-solidsol",
-   "wg": "w35-haynes",
-   "insight": "ni-superalloy",
-   "cg": "ni-super",
-   "corr": "ni-super"
-  },
   "MET-0534": {
    "colorf": "Nickel",
    "mach": "ni-super-solidsol",
@@ -5445,18 +5259,6 @@
    "corr": "ni-super"
   },
   "MET-0535": {
-   "colorf": "Nickel",
-   "mach": "ni-super-solidsol",
-   "weld": "none",
-   "htc": "aged",
-   "ht": "Haynes 282 (UNS N07208, γ' precipitation strengthened)",
-   "htg": "h12-ni-solidsol",
-   "wg": "w35-haynes",
-   "insight": "ni-superalloy",
-   "cg": "ni-super",
-   "corr": "ni-super"
-  },
-  "MET-0536": {
    "colorf": "Nickel",
    "mach": "ni-super-solidsol",
    "weld": "none",
@@ -5523,44 +5325,10 @@
    "cg": "ni-super",
    "corr": "ni-super"
   },
-  "MET-0542": {
-   "colorf": "Nickel",
-   "mach": "ni-super",
-   "weld": "none",
-   "htc": "aged",
-   "htg": "h19-ni-cast-gp",
-   "wg": "w30-inconel",
-   "insight": "ni-superalloy",
-   "cg": "ni-super",
-   "corr": "ni-super"
-  },
-  "MET-0543": {
-   "colorf": "Nickel",
-   "mach": "ni-super",
-   "weld": "none",
-   "htc": "soft",
-   "htg": "h19-ni-cast-gp",
-   "wg": "w30-inconel",
-   "insight": "ni-superalloy",
-   "cg": "ni-super",
-   "corr": "ni-super"
-  },
   "MET-0545": {
    "colorf": "Nickel",
    "mach": "ni-super",
    "weld": "none",
-   "htc": "qt",
-   "htg": "h19-ni-cast-gp",
-   "wg": "w30-inconel",
-   "insight": "ni-superalloy",
-   "cg": "ni-super",
-   "corr": "ni-super"
-  },
-  "MET-0546": {
-   "colorf": "Nickel",
-   "mach": "ni-super",
-   "weld": "none",
-   "htc": "qt",
    "htg": "h19-ni-cast-gp",
    "wg": "w30-inconel",
    "insight": "ni-superalloy",
@@ -5685,18 +5453,6 @@
    "cg": "ni-super",
    "corr": "ni-super"
   },
-  "MET-0559": {
-   "colorf": "Nickel",
-   "mach": "ni-super",
-   "weld": "none",
-   "htc": "soft",
-   "ht": "Inconel 625 (UNS N06625, Ni-Cr-Mo-Nb solid solution)",
-   "htg": "h12-ni-solidsol",
-   "wg": "w26-inconel",
-   "insight": "ni-superalloy",
-   "cg": "ni-super",
-   "corr": "ni-super"
-  },
   "MET-0560": {
    "colorf": "Nickel",
    "mach": "ni-super",
@@ -5803,7 +5559,7 @@
    "colorf": "Nickel",
    "mach": "ni-super",
    "weld": "none",
-   "htc": "aged",
+   "htc": "soft",
    "ht": "Inconel 718 (UNS N07718)",
    "htg": "h04-inconel",
    "wg": "w27-inconel",
@@ -5831,29 +5587,6 @@
    "ht": "Inconel 718 (UNS N07718)",
    "htg": "h04-inconel",
    "wg": "w27-inconel",
-   "insight": "ni-superalloy",
-   "cg": "ni-super",
-   "corr": "ni-super"
-  },
-  "MET-0572": {
-   "colorf": "Nickel",
-   "mach": "ni-super",
-   "weld": "none",
-   "htc": "aged",
-   "ht": "Inconel 718 (UNS N07718)",
-   "htg": "h04-inconel",
-   "wg": "w27-inconel",
-   "insight": "ni-superalloy",
-   "cg": "ni-super",
-   "corr": "ni-super"
-  },
-  "MET-0573": {
-   "colorf": "Nickel",
-   "mach": "ni-super",
-   "weld": "none",
-   "htc": "aged",
-   "htg": "h04-inconel",
-   "wg": "w28-inconel",
    "insight": "ni-superalloy",
    "cg": "ni-super",
    "corr": "ni-super"
@@ -5891,28 +5624,6 @@
    "cg": "ni-super",
    "corr": "ni-super"
   },
-  "MET-0577": {
-   "colorf": "Nickel",
-   "mach": "ni-super",
-   "weld": "none",
-   "htc": "aged",
-   "htg": "h19-ni-cast-gp",
-   "wg": "w30-inconel",
-   "insight": "ni-superalloy",
-   "cg": "ni-super",
-   "corr": "ni-super"
-  },
-  "MET-0578": {
-   "colorf": "Nickel",
-   "mach": "ni-super",
-   "weld": "none",
-   "htc": "soft",
-   "htg": "h19-ni-cast-gp",
-   "wg": "w30-inconel",
-   "insight": "ni-superalloy",
-   "cg": "ni-super",
-   "corr": "ni-super"
-  },
   "MET-0579": {
    "colorf": "Nickel",
    "mach": "ni-super",
@@ -5929,17 +5640,6 @@
    "mach": "ni-super",
    "weld": "none",
    "htc": "aged",
-   "htg": "h19-ni-cast-gp",
-   "wg": "w30-inconel",
-   "insight": "ni-superalloy",
-   "cg": "ni-super",
-   "corr": "ni-super"
-  },
-  "MET-0581": {
-   "colorf": "Nickel",
-   "mach": "ni-super",
-   "weld": "none",
-   "htc": "soft",
    "htg": "h19-ni-cast-gp",
    "wg": "w30-inconel",
    "insight": "ni-superalloy",
@@ -6000,28 +5700,6 @@
    "cg": "ni-super",
    "corr": "ni-super"
   },
-  "MET-0588": {
-   "colorf": "Nickel",
-   "mach": "ni-super",
-   "weld": "none",
-   "htc": "aged",
-   "htg": "h19-ni-cast-gp",
-   "wg": "w29-inconel",
-   "insight": "ni-superalloy",
-   "cg": "ni-super",
-   "corr": "ni-super"
-  },
-  "MET-0590": {
-   "colorf": "Nickel",
-   "mach": "ni-super",
-   "weld": "none",
-   "htc": "qt",
-   "htg": "h19-ni-cast-gp",
-   "wg": "w29-inconel",
-   "insight": "ni-superalloy",
-   "cg": "ni-super",
-   "corr": "ni-super"
-  },
   "MET-0591": {
    "colorf": "Nickel",
    "mach": "ni-super",
@@ -6034,16 +5712,6 @@
    "corr": "ni-super"
   },
   "MET-0592": {
-   "colorf": "Nickel",
-   "mach": "ni-super",
-   "weld": "none",
-   "htg": "h19-ni-cast-gp",
-   "wg": "w30-inconel",
-   "insight": "ni-superalloy",
-   "cg": "ni-super",
-   "corr": "ni-super"
-  },
-  "MET-0593": {
    "colorf": "Nickel",
    "mach": "ni-super",
    "weld": "none",
@@ -6081,17 +5749,6 @@
    "htc": "qt",
    "htg": "h12-ni-solidsol",
    "wg": "w39-monel",
-   "insight": "ni-superalloy",
-   "cg": "ni-super",
-   "corr": "ni-super"
-  },
-  "MET-0599": {
-   "colorf": "Nickel",
-   "mach": "ni-super",
-   "weld": "none",
-   "htc": "aged",
-   "htg": "h04-inconel",
-   "wg": "w40-monel",
    "insight": "ni-superalloy",
    "cg": "ni-super",
    "corr": "ni-super"
@@ -6242,16 +5899,6 @@
    "mach": "ni-super",
    "weld": "none",
    "htc": "aged",
-   "htg": "h05-waspaloy",
-   "wg": "w37-waspaloyb",
-   "insight": "ni-superalloy",
-   "cg": "ni-super",
-   "corr": "ni-super"
-  },
-  "MET-0614": {
-   "colorf": "Nickel",
-   "mach": "ni-super",
-   "weld": "none",
    "htg": "h05-waspaloy",
    "wg": "w37-waspaloyb",
    "insight": "ni-superalloy",

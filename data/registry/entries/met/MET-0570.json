@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 480,
-      "max": 480,
-      "typical": 480,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 347,
+      "typical": 347,
+      "max": 347,
+      "confidence": "handbook",
+      "provenance": "교정: Special Metals INCONEL alloy 718 technical bulletin (specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-718.pdf) Table 8 — 1950°F/1 hr: 117.5/48.5/58 · 115.5/48.0/64 · 112.5/52.0/64 · 120.0/55.0/58 · 112.5/48.0/60 (UTS ksi / YS ksi / El %), HRB 85·85·87·89·87 → 평균 115.6 ksi(797 MPa) / 50.3 ksi(347 MPa) / 60.8% / 86.6 HRB · [경도 스케일] HRB 86.6 → HV 173 (ASTM E140-12b Table 3)"
     },
     "uts": {
-      "min": 1000,
-      "max": 1000,
-      "typical": 1000,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 797,
+      "typical": 797,
+      "max": 797,
+      "confidence": "handbook",
+      "provenance": "교정: Special Metals INCONEL alloy 718 technical bulletin (specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-718.pdf) Table 8 — 1950°F/1 hr: 117.5/48.5/58 · 115.5/48.0/64 · 112.5/52.0/64 · 120.0/55.0/58 · 112.5/48.0/60 (UTS ksi / YS ksi / El %), HRB 85·85·87·89·87 → 평균 115.6 ksi(797 MPa) / 50.3 ksi(347 MPa) / 60.8% / 86.6 HRB · [경도 스케일] HRB 86.6 → HV 173 (ASTM E140-12b Table 3)"
     },
     "elongation": {
-      "min": 30,
-      "max": 30,
-      "typical": 30,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 60.8,
+      "typical": 60.8,
+      "max": 60.8,
+      "confidence": "handbook",
+      "provenance": "교정: Special Metals INCONEL alloy 718 technical bulletin (specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-718.pdf) Table 8 — 1950°F/1 hr: 117.5/48.5/58 · 115.5/48.0/64 · 112.5/52.0/64 · 120.0/55.0/58 · 112.5/48.0/60 (UTS ksi / YS ksi / El %), HRB 85·85·87·89·87 → 평균 115.6 ksi(797 MPa) / 50.3 ksi(347 MPa) / 60.8% / 86.6 HRB · [경도 스케일] HRB 86.6 → HV 173 (ASTM E140-12b Table 3)"
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,15 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 220,
-      "max": 220,
-      "typical": 220,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 173,
+      "typical": 173,
+      "max": 173,
+      "confidence": "handbook",
+      "provenance": "교정: Special Metals INCONEL alloy 718 technical bulletin (specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-718.pdf) Table 8 — 1950°F/1 hr: 117.5/48.5/58 · 115.5/48.0/64 · 112.5/52.0/64 · 120.0/55.0/58 · 112.5/48.0/60 (UTS ksi / YS ksi / El %), HRB 85·85·87·89·87 → 평균 115.6 ksi(797 MPa) / 50.3 ksi(347 MPa) / 60.8% / 86.6 HRB · [경도 스케일] HRB 86.6 → HV 173 (ASTM E140-12b Table 3)",
+      "scale": "HV",
+      "source_scale": "HRB",
+      "source_value": 86.6,
+      "conversion": "ASTM E140-12b Table 3"
     },
     "thermal_conductivity": {
       "min": 11.4,
@@ -225,11 +229,11 @@
   "points": [
     [
       8.19,
-      480,
-      1000,
-      30,
+      347,
+      797,
+      60.8,
       200,
-      220,
+      173,
       11.4
     ]
   ],
@@ -257,11 +261,11 @@
   "fracture_toughness": 130,
   "fatigue_strength": 492,
   "density": 8.19,
-  "yield_strength": 480,
-  "uts": 1000,
-  "elongation": 30,
+  "yield_strength": 347,
+  "uts": 797,
+  "elongation": 60.8,
   "modulus": 200,
-  "hardness": 220,
+  "hardness": 173,
   "thermal_conductivity": 11.4,
   "impact_strength": 56,
   "manufacturer": "PCC / Special Metals (Inconel)",
@@ -317,6 +321,69 @@
         "AMS 5662",
         "GH4169",
         "NC19FeNb"
+      ]
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 480,
+        "max": 480,
+        "typical": 480,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 480
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 1000,
+        "max": 1000,
+        "typical": 1000,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1000
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 30,
+        "max": 30,
+        "typical": 30,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 30
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 220,
+        "max": 220,
+        "typical": 220,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 220
+    },
+    "_basis": "480/1000/30 은 1950°F(1065°C) 용체화 바의 데이터시트 범위(σy 331~379 · UTS 776~827 · El 58~64)를 세 값 모두 벗어난다 — 용체화 라벨에 다른 조건의 값이 실린 오염. Table 8 1950°F/1h 5개 지름 평균으로 교정.",
+    "_src": "Special Metals INCONEL alloy 718 technical bulletin (specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-718.pdf) Table 8 — 1950°F/1 hr: 117.5/48.5/58 · 115.5/48.0/64 · 112.5/52.0/64 · 120.0/55.0/58 · 112.5/48.0/60 (UTS ksi / YS ksi / El %), HRB 85·85·87·89·87 → 평균 115.6 ksi(797 MPa) / 50.3 ksi(347 MPa) / 60.8% / 86.6 HRB · [경도 스케일] HRB 86.6 → HV 173 (ASTM E140-12b Table 3)",
+    "points": {
+      "from": [
+        [
+          8.19,
+          480,
+          1000,
+          30,
+          200,
+          220,
+          11.4
+        ]
       ]
     }
   }

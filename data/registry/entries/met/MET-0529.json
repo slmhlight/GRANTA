@@ -41,25 +41,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 570,
-      "max": 729,
-      "typical": 623,
-      "n": 13,
-      "confidence": "measured"
+      "min": 711,
+      "typical": 711,
+      "max": 711,
+      "confidence": "handbook",
+      "provenance": "교정: EOS NickelAlloy HAYNES 282 MDS p.8~9 — Heat treated (Option 1): H 726/1207/26.6 · V 695/1166/27.1 · H 724/1204/26.5 · V 699/1162/25.6 · Nikon SLM Haynes 282 MDS 2025-05.1 (mds5147.pdf) — Heat-treated (Solution annealing + Aging) Vertical 940/1125/31, Vickers HV10 390"
     },
     "uts": {
-      "min": 805,
-      "max": 1204,
-      "typical": 916,
-      "n": 13,
-      "confidence": "measured"
+      "min": 1185,
+      "typical": 1185,
+      "max": 1185,
+      "confidence": "handbook",
+      "provenance": "교정: EOS NickelAlloy HAYNES 282 MDS p.8~9 — Heat treated (Option 1): H 726/1207/26.6 · V 695/1166/27.1 · H 724/1204/26.5 · V 699/1162/25.6 · Nikon SLM Haynes 282 MDS 2025-05.1 (mds5147.pdf) — Heat-treated (Solution annealing + Aging) Vertical 940/1125/31, Vickers HV10 390"
     },
     "elongation": {
-      "min": 25.6,
-      "max": 49,
-      "typical": 35.4,
-      "n": 18,
-      "confidence": "measured"
+      "min": 26.5,
+      "typical": 26.5,
+      "max": 26.5,
+      "confidence": "handbook",
+      "provenance": "교정: EOS NickelAlloy HAYNES 282 MDS p.8~9 — Heat treated (Option 1): H 726/1207/26.6 · V 695/1166/27.1 · H 724/1204/26.5 · V 699/1162/25.6 · Nikon SLM Haynes 282 MDS 2025-05.1 (mds5147.pdf) — Heat-treated (Solution annealing + Aging) Vertical 940/1125/31, Vickers HV10 390"
     },
     "modulus": {
       "min": 215,
@@ -69,11 +69,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 280,
-      "max": 280,
-      "typical": 280,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 390,
+      "typical": 390,
+      "max": 390,
+      "confidence": "handbook",
+      "provenance": "교정: EOS NickelAlloy HAYNES 282 MDS p.8~9 — Heat treated (Option 1): H 726/1207/26.6 · V 695/1166/27.1 · H 724/1204/26.5 · V 699/1162/25.6 · Nikon SLM Haynes 282 MDS 2025-05.1 (mds5147.pdf) — Heat-treated (Solution annealing + Aging) Vertical 940/1125/31, Vickers HV10 390"
     },
     "thermal_conductivity": {
       "min": 11,
@@ -220,101 +220,11 @@
   "points": [
     [
       8.27,
-      724,
-      1010,
-      33.9,
-      215,
-      null,
-      11
-    ],
-    [
-      8.27,
-      623,
-      916,
-      36.3,
-      215,
-      null,
-      11
-    ],
-    [
-      8.27,
-      729,
-      1010,
-      33.9,
-      215,
-      null,
-      11
-    ],
-    [
-      8.27,
-      623,
-      915,
-      36.3,
-      215,
-      null,
-      11
-    ],
-    [
-      8.27,
-      724,
-      1204,
+      711,
+      1185,
       26.5,
       215,
-      null,
-      11
-    ],
-    [
-      8.27,
-      699,
-      1162,
-      25.6,
-      215,
-      null,
-      11
-    ],
-    [
-      8.27,
-      729,
-      1010,
-      33.9,
-      215,
-      null,
-      11
-    ],
-    [
-      8.27,
-      623,
-      916,
-      36.3,
-      215,
-      null,
-      11
-    ],
-    [
-      8.27,
-      678,
-      972,
-      35.4,
-      215,
-      null,
-      11
-    ],
-    [
-      8.27,
-      585,
-      910,
-      39.7,
-      215,
-      null,
-      11
-    ],
-    [
-      8.27,
-      585,
-      855,
-      49,
-      215,
-      280,
+      390,
       11
     ]
   ],
@@ -345,11 +255,11 @@
   "fracture_toughness": 100,
   "fatigue_strength": 475,
   "density": 8.27,
-  "yield_strength": 623,
-  "uts": 916,
-  "elongation": 35.4,
+  "yield_strength": 711,
+  "uts": 1185,
+  "elongation": 26.5,
   "modulus": 215,
-  "hardness": 280,
+  "hardness": 390,
   "thermal_conductivity": 11,
   "impact_strength": 80,
   "manufacturer": "EOS, Nikon SLM Solutions, Velo3D",
@@ -421,5 +331,160 @@
   "svhc_concerns": [
     "Co 12% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 570,
+        "max": 729,
+        "typical": 623,
+        "n": 13,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 623
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 805,
+        "max": 1204,
+        "typical": 916,
+        "n": 13,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 916
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 25.6,
+        "max": 49,
+        "typical": 35.4,
+        "n": 18,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 35.4
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 280,
+        "max": 280,
+        "typical": 280,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 280
+    },
+    "_basis": "entry 의 11 points 중 7 행이 as-built(729/1010/33.9 · 623/916/36.3 = EOS 'As manufactured') 라 typical 이 623/916/35 = as-built 값이었다 — 실제 열처리 행(724/1204/26.5 · 699/1162/25.6)은 소수라 묻혔다. EOS Heat Treatment Option 1(재결정 용체화 1250°C + 1010°C/2h + 788°C/8h) 40/80 µm H·V 4 행 평균으로 교정. 경도는 EOS 미기재 → Nikon SLM MDS 열처리(용체화+시효) HV10 390.",
+    "_src": "EOS NickelAlloy HAYNES 282 MDS p.8~9 — Heat treated (Option 1): H 726/1207/26.6 · V 695/1166/27.1 · H 724/1204/26.5 · V 699/1162/25.6 · Nikon SLM Haynes 282 MDS 2025-05.1 (mds5147.pdf) — Heat-treated (Solution annealing + Aging) Vertical 940/1125/31, Vickers HV10 390",
+    "points": {
+      "from": [
+        [
+          8.27,
+          724,
+          1010,
+          33.9,
+          215,
+          null,
+          11
+        ],
+        [
+          8.27,
+          623,
+          916,
+          36.3,
+          215,
+          null,
+          11
+        ],
+        [
+          8.27,
+          729,
+          1010,
+          33.9,
+          215,
+          null,
+          11
+        ],
+        [
+          8.27,
+          623,
+          915,
+          36.3,
+          215,
+          null,
+          11
+        ],
+        [
+          8.27,
+          724,
+          1204,
+          26.5,
+          215,
+          null,
+          11
+        ],
+        [
+          8.27,
+          699,
+          1162,
+          25.6,
+          215,
+          null,
+          11
+        ],
+        [
+          8.27,
+          729,
+          1010,
+          33.9,
+          215,
+          null,
+          11
+        ],
+        [
+          8.27,
+          623,
+          916,
+          36.3,
+          215,
+          null,
+          11
+        ],
+        [
+          8.27,
+          678,
+          972,
+          35.4,
+          215,
+          null,
+          11
+        ],
+        [
+          8.27,
+          585,
+          910,
+          39.7,
+          215,
+          null,
+          11
+        ],
+        [
+          8.27,
+          585,
+          855,
+          49,
+          215,
+          280,
+          11
+        ]
+      ]
+    }
+  }
 }

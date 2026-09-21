@@ -241,7 +241,11 @@
   "process": "Wrought",
   "source": "Datasheet 2",
   "aliases": [
-    "high-temp 718 variant"
+    "high-temp 718 variant",
+    "ATI 718Plus",
+    "Inconel 718Plus",
+    "718Plus",
+    "UNS N07818"
   ],
   "families": [
     "Metal",
@@ -294,5 +298,12 @@
   "svhc_concerns": [
     "Co 10% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "aliases": {
+      "from": [
+        "high-temp 718 variant"
+      ]
+    }
+  }
 }

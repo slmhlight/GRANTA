@@ -60,11 +60,15 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 350,
-      "max": 350,
-      "typical": 350,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 234,
+      "typical": 234,
+      "max": 234,
+      "confidence": "handbook",
+      "provenance": "교정: Special Metals MONEL alloy 400 bulletin Table 4 — Nominal RT Tensile Properties, Strip Cold-Rolled Spring Temper: 100-140 ksi (690-965 MPa) UTS · 90-130 ksi (621-896 MPa) YS · El 15-2% · 98 HRB min. · [경도 스케일] HRB 98 → HV 234 (ASTM E140-12b Table 3, 니켈·고니켈 합금)",
+      "scale": "HV",
+      "source_scale": "HRB",
+      "source_value": 98,
+      "conversion": "ASTM E140-12b Table 3"
     },
     "thermal_conductivity": {
       "min": 21.8,
@@ -219,7 +223,7 @@
       828,
       8.5,
       179,
-      350,
+      234,
       21.8
     ]
   ],
@@ -237,7 +241,7 @@
   "uts": 828,
   "elongation": 8.5,
   "modulus": 179,
-  "hardness": 350,
+  "hardness": 234,
   "thermal_conductivity": 21.8,
   "impact_strength": 105,
   "manufacturer": "PCC / Special Metals (Monel)",
@@ -297,6 +301,33 @@
     },
     "aliases": {
       "from": []
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 350,
+        "max": 350,
+        "typical": 350,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 350
+    },
+    "_basis": "HV 350 은 Granta MI 추정치(*)로 Monel 400 이 도달할 수 없는 경도(HRC 36 급 — K-500 시효재 수준). Special Metals Table 4 냉간압연 spring temper 스트립 경도 98 HRB(min)를 E140 Table 3 로 환산해 HV 234. 인장값(760/828/8.5)은 nominal 범위(σy 621~896 · UTS 690~965 · El 15~2) 안이라 유지.",
+    "_src": "Special Metals MONEL alloy 400 bulletin Table 4 — Nominal RT Tensile Properties, Strip Cold-Rolled Spring Temper: 100-140 ksi (690-965 MPa) UTS · 90-130 ksi (621-896 MPa) YS · El 15-2% · 98 HRB min. · [경도 스케일] HRB 98 → HV 234 (ASTM E140-12b Table 3, 니켈·고니켈 합금)",
+    "points": {
+      "from": [
+        [
+          8.8,
+          760,
+          828,
+          8.5,
+          179,
+          350,
+          21.8
+        ]
+      ]
     }
   }
 }

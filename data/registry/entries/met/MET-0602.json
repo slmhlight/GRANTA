@@ -173,7 +173,13 @@
     }
   },
   "composition": {
-    "Ni": "99~99.9"
+    "Ni": "≥99.0",
+    "Cu": "≤0.25",
+    "Fe": "≤0.40",
+    "Mn": "≤0.35",
+    "C": "≤0.15",
+    "Si": "≤0.35",
+    "S": "≤0.01"
   },
   "sources": [
     {
@@ -250,7 +256,11 @@
     "UNS N02200",
     "EN 2.4066",
     "Ni 99.6",
-    "NW2200"
+    "NW2200",
+    "Ni 200",
+    "CP Nickel",
+    "CP-Nickel (Ni 200)",
+    "ASTM B160"
   ],
   "families": [
     "Metal",
@@ -282,6 +292,11 @@
   ],
   "confidence_tier": "high",
   "_corrections": {
+    "composition": {
+      "from": {
+        "Ni": "99~99.9"
+      }
+    },
     "sources": {
       "from": [
         {

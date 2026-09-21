@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 552,
-      "max": 552,
-      "typical": 552,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 483,
+      "typical": 483,
+      "max": 483,
+      "confidence": "handbook",
+      "provenance": "교정: Special Metals INCONEL alloy 718 technical bulletin (specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-718.pdf) Table 8 — Room-Temperature Tensile Properties of Hot-Rolled Bar, 1750°F/1 hr: 140.0/83.0/45 · 138.0/75.5/54 · 129.0/64.5/55 · 141.5/72.5/46 · 117.5/55.0/53 (UTS ksi / YS ksi / El %), HRB 99·97·94·97·90 → 평균 133.2 ksi(918 MPa) / 70.1 ksi(483 MPa) / 50.6% / 95.4 HRB · [경도 스케일] HRB 95.4 → HV 217 (ASTM E140-12b Table 3, 니켈·고니켈 합금)"
     },
     "uts": {
-      "min": 980,
-      "max": 980,
-      "typical": 980,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 918,
+      "typical": 918,
+      "max": 918,
+      "confidence": "handbook",
+      "provenance": "교정: Special Metals INCONEL alloy 718 technical bulletin (specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-718.pdf) Table 8 — Room-Temperature Tensile Properties of Hot-Rolled Bar, 1750°F/1 hr: 140.0/83.0/45 · 138.0/75.5/54 · 129.0/64.5/55 · 141.5/72.5/46 · 117.5/55.0/53 (UTS ksi / YS ksi / El %), HRB 99·97·94·97·90 → 평균 133.2 ksi(918 MPa) / 70.1 ksi(483 MPa) / 50.6% / 95.4 HRB · [경도 스케일] HRB 95.4 → HV 217 (ASTM E140-12b Table 3, 니켈·고니켈 합금)"
     },
     "elongation": {
-      "min": 35,
-      "max": 35,
-      "typical": 35,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 50.6,
+      "typical": 50.6,
+      "max": 50.6,
+      "confidence": "handbook",
+      "provenance": "교정: Special Metals INCONEL alloy 718 technical bulletin (specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-718.pdf) Table 8 — Room-Temperature Tensile Properties of Hot-Rolled Bar, 1750°F/1 hr: 140.0/83.0/45 · 138.0/75.5/54 · 129.0/64.5/55 · 141.5/72.5/46 · 117.5/55.0/53 (UTS ksi / YS ksi / El %), HRB 99·97·94·97·90 → 평균 133.2 ksi(918 MPa) / 70.1 ksi(483 MPa) / 50.6% / 95.4 HRB · [경도 스케일] HRB 95.4 → HV 217 (ASTM E140-12b Table 3, 니켈·고니켈 합금)"
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,15 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 200,
-      "max": 200,
-      "typical": 200,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 217,
+      "typical": 217,
+      "max": 217,
+      "confidence": "handbook",
+      "provenance": "교정: Special Metals INCONEL alloy 718 technical bulletin (specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-718.pdf) Table 8 — Room-Temperature Tensile Properties of Hot-Rolled Bar, 1750°F/1 hr: 140.0/83.0/45 · 138.0/75.5/54 · 129.0/64.5/55 · 141.5/72.5/46 · 117.5/55.0/53 (UTS ksi / YS ksi / El %), HRB 99·97·94·97·90 → 평균 133.2 ksi(918 MPa) / 70.1 ksi(483 MPa) / 50.6% / 95.4 HRB · [경도 스케일] HRB 95.4 → HV 217 (ASTM E140-12b Table 3, 니켈·고니켈 합금)",
+      "scale": "HV",
+      "source_scale": "HRB",
+      "source_value": 95.4,
+      "conversion": "ASTM E140-12b Table 3"
     },
     "thermal_conductivity": {
       "min": 11.4,
@@ -225,11 +229,11 @@
   "points": [
     [
       8.19,
-      552,
-      980,
-      35,
+      483,
+      918,
+      50.6,
       200,
-      200,
+      217,
       11.4
     ]
   ],
@@ -257,11 +261,11 @@
   "fracture_toughness": 140,
   "fatigue_strength": 508,
   "density": 8.19,
-  "yield_strength": 552,
-  "uts": 980,
-  "elongation": 35,
+  "yield_strength": 483,
+  "uts": 918,
+  "elongation": 50.6,
   "modulus": 200,
-  "hardness": 200,
+  "hardness": 217,
   "thermal_conductivity": 11.4,
   "impact_strength": 60,
   "manufacturer": "PCC / Special Metals (Inconel)",
@@ -317,6 +321,69 @@
         "AMS 5662",
         "GH4169",
         "NC19FeNb"
+      ]
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 552,
+        "max": 552,
+        "typical": 552,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 552
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 980,
+        "max": 980,
+        "typical": 980,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 980
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 35,
+        "max": 35,
+        "typical": 35,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 35
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 200,
+        "max": 200,
+        "typical": 200,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 200
+    },
+    "_basis": "552/980/35 — 연신율 35 는 데이터시트 1750°F(954°C) 어닐드 바 범위(45~55)를 벗어나고 UTS 980 은 상한(976) 위. Table 8 의 5개 바 지름(0.625~4 in) 1750°F/1h 어닐 행 평균으로 교정(범위 σy 379~572 · UTS 810~976 · El 45~55 · HRB 90~99).",
+    "_src": "Special Metals INCONEL alloy 718 technical bulletin (specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-718.pdf) Table 8 — Room-Temperature Tensile Properties of Hot-Rolled Bar, 1750°F/1 hr: 140.0/83.0/45 · 138.0/75.5/54 · 129.0/64.5/55 · 141.5/72.5/46 · 117.5/55.0/53 (UTS ksi / YS ksi / El %), HRB 99·97·94·97·90 → 평균 133.2 ksi(918 MPa) / 70.1 ksi(483 MPa) / 50.6% / 95.4 HRB · [경도 스케일] HRB 95.4 → HV 217 (ASTM E140-12b Table 3, 니켈·고니켈 합금)",
+    "points": {
+      "from": [
+        [
+          8.19,
+          552,
+          980,
+          35,
+          200,
+          200,
+          11.4
+        ]
       ]
     }
   }

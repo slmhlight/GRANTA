@@ -74,9 +74,20 @@ const BR_HB_HV = pairsOf(E140.brass, 'HB500', 'HV');
 export const brassHvFromHRB = (hrb) => interpPairs(BR_HRB_HV, hrb);
 export const brassHvFromHB500 = (hb) => interpPairs(BR_HB_HV, hb);
 
+/* 니켈·고니켈 합금(Ni > 50%) — Table 3 (HV ↔ HB 3000 kgf ↔ HRB ↔ HRC). A3 Ni 족보(2026-09-22):
+   Special Metals 데이터시트는 경도를 HRB/HRC/BHN 으로 주는데 Ni 합금은 강 표(Table 1·2)와 모집단이 달라
+   전용 표로 환산한다(HRC 32 → HV 309 · HRB 98 → HV 234 · HB 352 → HV 369). */
+const NI_HV_HRC = pairsOf(E140.nickel, 'HV', 'HRC');
+const NI_HV_HRB = pairsOf(E140.nickel, 'HV', 'HRB');
+const NI_HV_HB = pairsOf(E140.nickel, 'HV', 'HB3000');
+const flipPairs = (pairs) => pairs.map(([a, b]) => [b, a]);
+export const nickelHvFromHRC = (hrc) => interpPairs(flipPairs(NI_HV_HRC), hrc);
+export const nickelHvFromHRB = (hrb) => interpPairs(flipPairs(NI_HV_HRB), hrb);
+export const nickelHvFromHB = (hb) => interpPairs(flipPairs(NI_HV_HB), hb);
+
 /**
  * 데이터 교정용 단일 진입점 — 원자료 스케일·값·재료군 → { hv, table } 또는 null(표 밖/미지원).
- * family: 'steel' | 'aluminum' | 'brass'. scale: 'HB' (강 3000 kgf · Al/황동 500 kgf) | 'HRB' | 'HRC'.
+ * family: 'steel' | 'aluminum' | 'brass' | 'nickel'. scale: 'HB' (강·Ni 3000 kgf · Al/황동 500 kgf) | 'HRB' | 'HRC'.
  */
 export function toHV(family, scale, value) {
   const r = (hv, table) => (hv == null ? null : { hv: Math.round(hv), table });
@@ -92,6 +103,12 @@ export function toHV(family, scale, value) {
   if (family === 'brass') {
     if (scale === 'HRB') return r(brassHvFromHRB(value), 'ASTM E140-12b Table 4');
     if (scale === 'HB') return r(brassHvFromHB500(value), 'ASTM E140-12b Table 4');
+    return null;
+  }
+  if (family === 'nickel') {
+    if (scale === 'HRC') return r(nickelHvFromHRC(value), 'ASTM E140-12b Table 3');
+    if (scale === 'HRB') return r(nickelHvFromHRB(value), 'ASTM E140-12b Table 3');
+    if (scale === 'HB') return r(nickelHvFromHB(value), 'ASTM E140-12b Table 3');
     return null;
   }
   return null;

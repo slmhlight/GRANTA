@@ -1,7 +1,7 @@
 {
  "_note": "R226g/축3d — elevated-temp/creep 곡선 외부 확장 테이블 (build-materials 동결 유지 — 여기만 편집). 매칭: entry name substring(lowercase). 형식: curves[\"<substring>\"] = { elevated_temp: [{temp(°C), ys(MPa), uts(MPa), E?(GPa)}...], creep_rupture?: [{temp, stress, hours}...], src: \"인용(필수 권장)\" }. 값 정책: 검증된 datasheet/핸드북 수치만 — 미검증 근사 금지. 후보 우선순위: docs/COVERAGE-GAPS.md §3 (인기≥4.0 곡선부재 44종). 인라인 ELEV_DATA 보유 entry 는 불변(인라인 우선).",
  "curves": {},
- "_note_by_id": "R226l — stable_id 키 곡선 (build-from-registry 가 entry.elevated_temp 부재 시 부착; ID 기반 — 이름 매칭 없음). 출처: Ansys Granta MI datasheet (사용자 제공 PDF, 벡터 좌표 추출 — 23°C 앵커 검증). E-only 곡선 허용 (TempCurveChart 필드 옵션).",
+ "_note_by_id": "R226l — stable_id 키 곡선 (build-from-registry 가 entry.elevated_temp 부재 시 부착; ID 기반 — 이름 매칭 없음). 출처: Ansys Granta MI datasheet (사용자 제공 PDF, 벡터 좌표 추출 — 23°C 앵커 검증). E-only 곡선 허용 (TempCurveChart 필드 옵션). | A3 Ni(2026-09-22): GRX-810 MET-0502/0503 — Nature 2023 Extended Data Table 1 (as-built·HIP, 21.1~1093.3°C) 표 전사(이미지 판독).",
  "by_id": {
   "POL-0034": {
    "elevated_temp": [
@@ -1387,6 +1387,71 @@
     }
    ],
    "src": "Ansys Granta MI — Stainless steel, austenitic, 316FR, annealed (Materials Data for Simulation datasheet)"
+  },
+  "MET-0502": {
+   "elevated_temp": [
+    {
+     "temp": 21.1,
+     "ys": 641.2,
+     "uts": 882.5
+    },
+    {
+     "temp": 426.7,
+     "ys": 527.4,
+     "uts": 710.2
+    },
+    {
+     "temp": 648.9,
+     "ys": 479.2,
+     "uts": 675.7
+    },
+    {
+     "temp": 871.1,
+     "ys": 249.6,
+     "uts": 292.3
+    },
+    {
+     "temp": 1093.3,
+     "ys": 127.6,
+     "uts": 128.9
+    }
+   ],
+   "src": "Smith T.M. et al., 'A 3D printable alloy designed for extreme environments', Nature 617 (2023) 513–518 — Extended Data Table 1 (Overview of tensile results for As-built and HIP GRX-810) — As-built column (nature.com/articles/s41586-023-05893-0)"
+  },
+  "MET-0503": {
+   "elevated_temp": [
+    {
+     "temp": 21.1,
+     "ys": 515,
+     "uts": 848.1
+    },
+    {
+     "temp": 426.7,
+     "ys": 410.2,
+     "uts": 655
+    },
+    {
+     "temp": 648.9,
+     "ys": 368.9,
+     "uts": 630.9
+    },
+    {
+     "temp": 871.1,
+     "ys": 206.2,
+     "uts": 262.7
+    },
+    {
+     "temp": 1000,
+     "ys": 161.3,
+     "uts": 164.1
+    },
+    {
+     "temp": 1093.3,
+     "ys": 115.8,
+     "uts": 119.3
+    }
+   ],
+   "src": "Smith T.M. et al., 'A 3D printable alloy designed for extreme environments', Nature 617 (2023) 513–518 — Extended Data Table 1 (Overview of tensile results for As-built and HIP GRX-810) — HIP column (nature.com/articles/s41586-023-05893-0)"
   }
  }
 }

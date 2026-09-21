@@ -1,5 +1,5 @@
 {
- "_note": "R226d 대응합금 — cross-standard 지역명(JIS/KS) 보강 → 검색·식별성. 누적 gap 해소: die-cast Al(ADC)·Carbon Steel(S_C/SM_C)·Aluminum(JIS A)·Copper(JIS C 4자리)·Tool Steel(SKD/STD·SKH)·Inconel(NCF). 한국 사용자 위해 KS 병기(SM45C·STD11 등). AlSi10Mg≈ADC-3(Al-Si-Mg)·A380≈ADC-10(Al-Si-Cu). 1018/1080/1095·P20·M50 등 깨끗한 JIS 대응 없는 것은 제외. structural steel 은 표준간 근사 대응(다른 규격·유사 grade)이라 '≈' 마커 명기 — A36≈SS400/Q235·A572Gr50≈SM490/S355/Q345·A992≈SN490/S355·A516Gr70≈SGV480/SB480·A588GrA≈SMA490W/S355J2W. A588 은 σy 250(A36 오기)→345 교정 후 weathering cross-ref 추가(ranges MET-0459).",
+ "_note": "R226d 대응합금 — cross-standard 지역명(JIS/KS) 보강 → 검색·식별성. 누적 gap 해소: die-cast Al(ADC)·Carbon Steel(S_C/SM_C)·Aluminum(JIS A)·Copper(JIS C 4자리)·Tool Steel(SKD/STD·SKH)·Inconel(NCF). 한국 사용자 위해 KS 병기(SM45C·STD11 등). AlSi10Mg≈ADC-3(Al-Si-Mg)·A380≈ADC-10(Al-Si-Cu). 1018/1080/1095·P20·M50 등 깨끗한 JIS 대응 없는 것은 제외. structural steel 은 표준간 근사 대응(다른 규격·유사 grade)이라 '≈' 마커 명기 — A36≈SS400/Q235·A572Gr50≈SM490/S355/Q345·A992≈SN490/S355·A516Gr70≈SGV480/SB480·A588GrA≈SMA490W/S355J2W. A588 은 σy 250(A36 오기)→345 교정 후 weathering cross-ref 추가(ranges MET-0459). | A3 Ni(2026-09-22): Nickel 200 ← CP-Nickel (Ni 200) 중복 entry 제거분의 검색성 승계 · Allvac 718Plus ← 'Inconel 718Plus' 오칭 entry 제거분 승계(ATI 상표).",
  "aliasesByBase": {
   "ZK60": [
    "ZK60A",
@@ -260,7 +260,11 @@
    "Monell"
   ],
   "Nickel 200": [
-   "NW2200"
+   "NW2200",
+   "Ni 200",
+   "CP Nickel",
+   "CP-Nickel (Ni 200)",
+   "ASTM B160"
   ],
   "ASTM A36": [
    "SS400 (JIS/KS ≈)",
@@ -321,6 +325,12 @@
   ],
   "Nickel-Aluminium Bronze C63000": [
    "C6300 (JIS ≈)"
+  ],
+  "Allvac 718Plus": [
+   "ATI 718Plus",
+   "Inconel 718Plus",
+   "718Plus",
+   "UNS N07818"
   ]
  }
 }

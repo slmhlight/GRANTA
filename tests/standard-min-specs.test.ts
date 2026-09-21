@@ -43,7 +43,6 @@ describe('min-spec 패턴 정밀도 — 한 패턴 = 한 합금 (거짓 인용 �
   const SAME_ALLOY: Record<string, string> = {
     'API 5L X65': 'X65 표기 변형(/ L450 PSL2 · PSL2) — 동일 grade',
     'API 5L X70': 'X70 표기 변형(/ L485 PSL2 · PSL2 · line pipe) — 동일 grade',
-    'AMS 5662': 'IN718 STA 표기 변형(UNS 병기 vs 미병기) — 동일 규격·조건',
     'AISI 316L': '316L 표기 변형(AM · Wrought · / STS316L) — 동일 합금',
     'AISI 304L ': '304L 표기 변형(— · (Wrought) · / STS304L · / STS304 ULC) — 동일 합금',
     '254 SMO': 'S31254 표기 변형(AISI 접두 유무) — 동일 합금',
