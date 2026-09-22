@@ -148,6 +148,8 @@ export function RangeRow({
   /* 인용은 두 경로로 들어온다: min-spec 표 매칭은 basis_source(규격명), 교정 경로는
      provenance("교정: AMS 5662 RT 최소 …"). 둘 중 있는 것을 쓴다 — 인용 없는 floor 는 없어야 한다. */
   const specFloorSrc = (range as { basis_source?: string })?.basis_source ?? prov;
+  const specFloorNote = (range as { basis_note?: string })?.basis_note;
+  const specFloorVerified = (range as { basis_verified?: string })?.basis_verified;
   // R48c — price 표시는 formatPrice 사용 — typical 만 항상 평가. range min/max 는 hasRange 조건 안에서만
   //        (이전: range null 인 5 flat-only properties 클릭 시 range!.min eager 평가로 crash).
   const typicalStr = isPrice && sys ? formatPrice(typical, lang, sys, priceUnit) : `${fmt(disp(typical))}`;
@@ -213,11 +215,13 @@ ${en ? 'Basis' : '근거'}: ${prov}` : ''}`}
             className="ml-1 text-[10px] px-1 py-px rounded bg-sky-100 text-sky-800 border border-sky-300 font-medium"
             title={en
               ? `This value is the **specification minimum (floor)**, not an average.${specFloorSrc ? `
-Standard: ${specFloorSrc}` : ''}
+Standard: ${specFloorSrc}` : ''}${specFloorNote ? `
+Checked: ${specFloorNote}` : ''}${specFloorVerified ? ` (${specFloorVerified})` : ''}
 
 Real material is usually higher. Do not compare it directly with typical rows — for safety-critical design this floor is the right value.`
               : `이 값은 평균이 아니라 **규격 보증 최소값(floor)** 입니다.${specFloorSrc ? `
-근거 규격: ${specFloorSrc}` : ''}
+근거 규격: ${specFloorSrc}` : ''}${specFloorNote ? `
+원문 대조: ${specFloorNote}` : ''}${specFloorVerified ? ` (${specFloorVerified})` : ''}
 
 실제 재료는 대개 이보다 높습니다. 평균값 행과 직접 비교하지 마세요 — 안전 임계 설계에는 이 값을 쓰는 것이 맞습니다.`}
           >

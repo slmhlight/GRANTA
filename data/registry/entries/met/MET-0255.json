@@ -11,7 +11,7 @@
   "legacy_id": "G_0102",
   "origin": "generic(csv)",
   "id": "G_0102",
-  "name": "AISI 1030 — Annealed (Wrought)",
+  "name": "AISI 1030 — Annealed",
   "category": "Metal",
   "subcategory": "Carbon Steel",
   "tier": "generic",
@@ -389,6 +389,14 @@
           51
         ]
       ]
-    }
+    },
+    "fields": {
+      "name": {
+        "from": "AISI 1030 — Annealed (Wrought)",
+        "had": true
+      }
+    },
+    "_fbasis": "A3 철강 2027Q3 — 같은 base 의 Q+T 행을 원전의 뜨임조건 표기('Q+T (540°C)')로 바꾸면서 사다리 안에서 '(Wrought)' 접미가 붙은 행과 안 붙은 행이 섞였다. 공정은 별도 필드로 이미 보이므로 접미를 떼어 AA 6061·AA 1050 사다리와 같은 형식으로 통일한다. 값·공정·열처리는 불변.",
+    "_fsrc": "A3 철강 re-verify 2027Q3 (표기 통일 — A3 Al 2026Q4 와 같은 규칙)"
   }
 }

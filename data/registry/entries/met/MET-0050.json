@@ -11,7 +11,7 @@
   "legacy_id": "G_0017",
   "origin": "generic(csv)",
   "id": "G_0017",
-  "name": "AISI 6150 — Quenched / tempered (Wrought)",
+  "name": "AISI 6150 — Q+T (540°C)",
   "category": "Metal",
   "subcategory": "Alloy Steel",
   "tier": "generic",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Quenched / tempered",
+  "heat_treatment": "Quenched + Tempered (540°C, oil-quenched)",
   "ranges": {
     "density": {
       "min": 7.85,
@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 1200,
-      "max": 1700,
-      "typical": 1500,
-      "n": 5,
-      "confidence": "handbook"
+      "min": 1157,
+      "typical": 1157,
+      "max": 1157,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 6150 Oil-quenched MASS EFFECT, 1 in. round, 1550 F 담금 + 1000 F 뜨임 (173,500 / 167,750 psi · 14.5% · RA 48.2% · HB 352) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "uts": {
-      "min": 1400,
-      "max": 1900,
-      "typical": 1700,
-      "n": 5,
-      "confidence": "handbook"
+      "min": 1196,
+      "typical": 1196,
+      "max": 1196,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 6150 Oil-quenched MASS EFFECT, 1 in. round, 1550 F 담금 + 1000 F 뜨임 (173,500 / 167,750 psi · 14.5% · RA 48.2% · HB 352) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "elongation": {
-      "min": 12.22,
-      "max": 13.26,
-      "typical": 13,
-      "n": 5,
-      "confidence": "measured"
+      "min": 14.5,
+      "typical": 14.5,
+      "max": 14.5,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 6150 Oil-quenched MASS EFFECT, 1 in. round, 1550 F 담금 + 1000 F 뜨임 (173,500 / 167,750 psi · 14.5% · RA 48.2% · HB 352) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 500,
-      "typical": 500,
-      "max": 500,
+      "min": 352,
+      "typical": 352,
+      "max": 352,
       "confidence": "handbook",
-      "provenance": "교정: ISO 18265 금속 경도 환산 — 인장 1700 MPa ↔ 약 500 HV · SteelPRO AISI 6150 (소둔 667 MPa / 197 HB, DB 소둔값 정합 확인)"
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 6150 Oil-quenched MASS EFFECT, 1 in. round, 1550 F 담금 + 1000 F 뜨임 (173,500 / 167,750 psi · 14.5% · RA 48.2% · HB 352) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "thermal_conductivity": {
       "min": 42,
@@ -74,12 +74,13 @@
       "confidence": "measured"
     },
     "fatigue_strength": {
-      "min": 620,
-      "max": 850,
-      "typical": 760,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:6150"
+      "min": 508,
+      "max": 688,
+      "typical": 598,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "R214 σf 물리상한 보정 (≈0.5·UTS, medium): 계열 밴드 620/760/850 은 6150 을 스프링용 저온뜨임(인장 1700 MPa 대)으로 본 값이었다. A3 철강 2027Q3 에서 이 entry 를 원전의 1 in. 봉 · 540°C 뜨임행(인장 1196 MPa)으로 교정하자 760 이 강재 내구한도 상한(0.63·UTS = 753)을 넘었다. 이 조건의 공표 피로값이 없으므로 Shigley 회전굽힘 내구한도 규칙 Se′ ≈ 0.5·Sut (Sut ≤ 1400 MPa) 로 598 MPa 를 쓴다."
     },
     "impact_strength": {
       "min": 25,
@@ -207,11 +208,11 @@
   "points": [
     [
       7.85,
-      1500,
-      1700,
-      13,
+      1157,
+      1196,
+      14.5,
       205,
-      500,
+      352,
       42
     ]
   ],
@@ -238,13 +239,13 @@
     ]
   },
   "fracture_toughness": 80,
-  "fatigue_strength": 760,
+  "fatigue_strength": 598,
   "density": 7.85,
-  "yield_strength": 1500,
-  "uts": 1700,
-  "elongation": 13,
+  "yield_strength": 1157,
+  "uts": 1196,
+  "elongation": 14.5,
   "modulus": 205,
-  "hardness": 500,
+  "hardness": 352,
   "thermal_conductivity": 42,
   "impact_strength": 35,
   "manufacturer": "Generic",
@@ -261,7 +262,7 @@
     "Alloy Steel",
     "Iron-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 6.5,
   "max_service_temp": 480,
   "thermal_expansion": 12,
@@ -307,6 +308,42 @@
         }
       ]
     },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 1200,
+        "max": 1700,
+        "typical": 1500,
+        "n": 5,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1500
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 1400,
+        "max": 1900,
+        "typical": 1700,
+        "n": 5,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1700
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 12.22,
+        "max": 13.26,
+        "typical": 13,
+        "n": 5,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 13
+    },
     "hardness": {
       "had_range": true,
       "val_range": {
@@ -319,8 +356,8 @@
       "had_scalar": true,
       "val_scalar": 313.1
     },
-    "_basis": "AISI 6150 Q+T 의 경도 313 이 UTS 1700 MPa 와 맞지 않았다(비 5.4 — DB 강재 418건 중앙값 3.28·p95 3.70). 같은 합금 Normalized(MET-1003)가 UTS 943/경도 276 이라, Q+T 는 UTS 1.8배인데 경도는 1.13배뿐. 소둔값(MET-0047 UTS 670/경도 200)은 출처(667 MPa/197 HB)와 일치해 정상 — Q+T 경도만 조건 미반영.",
-    "_src": "ISO 18265 금속 경도 환산 — 인장 1700 MPa ↔ 약 500 HV · SteelPRO AISI 6150 (소둔 667 MPa / 197 HB, DB 소둔값 정합 확인)",
+    "_basis": "1500 / 1700 MPa · HB 500 은 출처가 없고, 경도 500 HB 는 원전 Q+T 표의 최고값(1/2 in. 봉 1000 F 뜨임 363 HB)을 훌쩍 넘는다 — 400~500 F 저온뜨임에서나 나오는 경도를 1000 F 대 강도와 함께 적어 놓은 셈이라 한 조건의 값이 아니다. 원전의 1 in. 봉 · 1550 F 유담금 · 1000 F(540°C) 뜨임행으로 바꾸고 이름·열처리에 조건을 명시한다. (선행 부분교정을 대체한다 — 이전: {\"hardness\": 500} / ISO 18265 금속 경도 환산 — 인장 1700 MPa ↔ 약 500 HV · SteelPRO AISI 6150 (소둔 667 MPa / 197 HB, DB 소둔값 정합 확인))",
+    "_src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 6150 Oil-quenched MASS EFFECT, 1 in. round, 1550 F 담금 + 1000 F 뜨임 (173,500 / 167,750 psi · 14.5% · RA 48.2% · HB 352) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf",
     "points": {
       "from": [
         [
@@ -369,6 +406,18 @@
           42
         ]
       ]
-    }
+    },
+    "fields": {
+      "name": {
+        "from": "AISI 6150 — Quenched / tempered (Wrought)",
+        "had": true
+      },
+      "heat_treatment": {
+        "from": "Quenched / tempered",
+        "had": true
+      }
+    },
+    "_fbasis": "경화강의 Q+T 값은 뜨임온도와 단면 치수가 정해져야 의미가 있다 — 뜨임온도가 빠진 \"Quenched / tempered\" 는 같은 강에서 항복이 두 배 넘게 갈리는 구간 전체를 한 줄로 뭉갠 표기다. 값을 원전의 1 in. 봉 · 1000 F(540°C) 뜨임행으로 교정하면서, 이름과 열처리 표기도 그 조건으로 바꿔 값과 라벨이 같은 것을 가리키게 한다(4130 \"Q+T (550°C)\" · 4340 \"Q+T (200°C, full hard)\" 와 같은 형식).",
+    "_fsrc": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — grade 별 MASS EFFECT 표의 뜨임온도·단면 표기 · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
   }
 }

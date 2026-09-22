@@ -1469,6 +1469,27 @@
    },
    "reason": "R221c — basis-locked 값 정정: uts=14.4 (parallel-to-grain ASTM C297, end-grain balsa ~152 kg/m³ (CoreLite BALSASUD Std))",
    "stableId": "CMP-0033"
+  },
+  {
+   "name": "A516 Grade 70",
+   "ranges": {
+    "uts": {
+     "typical": 485,
+     "min": 485,
+     "max": 620,
+     "confidence": "handbook",
+     "n": 1
+    },
+    "yield_strength": {
+     "typical": 260,
+     "min": 260,
+     "max": 290,
+     "confidence": "handbook",
+     "n": 1
+    }
+   },
+   "reason": "A3 철강 2027Q3 — 저장된 인장 범위의 하한 460 MPa 이 규격 대역 밖이었다(ASTM A516/A516M Gr 70 은 485–620 MPa 를 요구한다 — 460 인 판은 규격 미달이라 이 이름으로 실릴 수 없다). 표시값 485 는 그대로 두고(= 규격 하한, spec-floor-declarations 에 선언) 범위를 규격 대역으로 맞춘다. 항복은 최소 260 MPa 규정만 있으므로 상단은 기존 DB 대표 범위(290)를 유지. (ASTM A516/A516M-17 Grade 70)",
+   "stableId": "MET-0233"
   }
  ]
 }

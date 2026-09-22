@@ -89,7 +89,19 @@
    "MET-0524",
    "MET-0525",
    "MET-0526",
-   "MET-0512"
+   "MET-0512",
+   "MET-0234",
+   "MET-0237",
+   "MET-0242",
+   "MET-0248",
+   "MET-0250",
+   "MET-0253",
+   "MET-0034",
+   "MET-0035",
+   "MET-0038",
+   "MET-0039",
+   "MET-0090",
+   "MET-0044"
   ],
   "_reasons_note": "AUD Q03 (2026-09-22) — 제거 사유 원장(stable_id 키): reason·date·ref·superseded_by(선택, 같은 합금의 살아남은 entry). build-registry 가 data/registry/removed.json 으로 구조화 출력(값 동일 시 duplicate 로 표기), 앱은 ?d=<옛 id> 딥링크에서 이를 안내한다. 이전 회차 제거(R226b~A17)는 _ids_note 서술만 있고 여기 미기재 — 자동 분류 코드만 붙는다.",
   "reasons": {
@@ -266,6 +278,74 @@
     "date": "2026-09-22",
     "ref": "docs/audits/ni-reverify-2027Q2.md · commit 28e0d8b (A3 Ni)",
     "superseded_by": "MET-0602"
+   },
+   "MET-0234": {
+    "reason": "AISI 1010 Annealed — 값이 같은 base 의 Q+T 행과 세 물성 모두 0.87129 배율로 맞물린 합성값이고, 1010 은 Modern Steels 에 데이터 페이지가 없고 ASM 탄소강 대표물성 표(1015~1144)에도 없다 — 소둔 1010 의 공표 물성이 존재하지 않아 교정할 대상이 없다",
+    "date": "2026-09-22",
+    "ref": "docs/audits/steel-reverify-2027Q3.md · A3 철강 로테이션",
+    "superseded_by": "MET-0238"
+   },
+   "MET-0237": {
+    "reason": "AISI 1010 Q+T — 위와 같은 배율쌍의 다른 쪽. 0.10%C 평탄소강은 실용 단면에서 경화되지 않아 담금질·뜨임 상태로 공급되지 않고, 어느 표에도 해당 행이 없다",
+    "date": "2026-09-22",
+    "ref": "docs/audits/steel-reverify-2027Q3.md · A3 철강 로테이션",
+    "superseded_by": "MET-0238"
+   },
+   "MET-0242": {
+    "reason": "AISI 1015 Q+T — 경도 95.95 HB 가 AISI 1010 Q+T 와 완전히 같은 값이다(탄소량이 다른 두 강이 같을 수 없다). 0.15%C 평탄소강의 Q+T 공표 물성도 없다",
+    "date": "2026-09-22",
+    "ref": "docs/audits/steel-reverify-2027Q3.md · A3 철강 로테이션",
+    "superseded_by": "MET-0239"
+   },
+   "MET-0248": {
+    "reason": "AISI 1020 Q+T — 인장 590 MPa 에 연신 36% 로 적혀 있었다. 강도가 소둔재(395 MPa)의 1.5 배인데 연신은 소둔재와 같을 수 없다. 저장 범위도 33.84~36.72 로 대표값에 ±2% 를 씌운 합성 폭이었고, 1020 의 Q+T 공표 물성도 없다",
+    "date": "2026-09-22",
+    "ref": "docs/audits/steel-reverify-2027Q3.md · A3 철강 로테이션",
+    "superseded_by": "MET-0245"
+   },
+   "MET-0250": {
+    "reason": "AISI 1025 Annealed — Q+T 행과 0.87118 배율로 맞물린 합성값. 1025 는 Modern Steels 데이터 페이지와 ASM 탄소강 대표물성 표 어디에도 없다",
+    "date": "2026-09-22",
+    "ref": "docs/audits/steel-reverify-2027Q3.md · A3 철강 로테이션",
+    "superseded_by": "MET-0254"
+   },
+   "MET-0253": {
+    "reason": "AISI 1025 Q+T — 위와 같은 배율쌍의 다른 쪽. 0.25%C 평탄소강의 Q+T 공표 물성 없음",
+    "date": "2026-09-22",
+    "ref": "docs/audits/steel-reverify-2027Q3.md · A3 철강 로테이션",
+    "superseded_by": "MET-0254"
+   },
+   "MET-0034": {
+    "reason": "AISI 5130 Aged / solution-treated — 석출경화 합금이 아닌 Cr 강에 시효·용체화 조건이 붙어 있었다. 값도 같은 base 의 냉간가공 행 × 0.94444 로 나온 합성값이다",
+    "date": "2026-09-22",
+    "ref": "docs/audits/steel-reverify-2027Q3.md · A3 철강 로테이션"
+   },
+   "MET-0035": {
+    "reason": "AISI 5130 Annealed — 냉간가공 행 × 0.81481 합성값. 5130 은 Modern Steels·Shigley A-21·ASM 합금강 대표물성 표 어디에도 데이터 행이 없어 교정할 원전이 없다",
+    "date": "2026-09-22",
+    "ref": "docs/audits/steel-reverify-2027Q3.md · A3 철강 로테이션"
+   },
+   "MET-0038": {
+    "reason": "AISI 5130 Q+T — 항복 790 MPa 에 연신 25% 로 적혀 있었고(뜨임 마르텐사이트에서 나오지 않는 조합) 출처가 없다. 5130 의 공표 Q+T 행이 없어 교정 불가",
+    "date": "2026-09-22",
+    "ref": "docs/audits/steel-reverify-2027Q3.md · A3 철강 로테이션"
+   },
+   "MET-0039": {
+    "reason": "AISI 5130 Strain-hardened — 소둔·시효 행과 같은 배율 체인의 base. 5130 냉간인발 봉의 공표 물성 없음",
+    "date": "2026-09-22",
+    "ref": "docs/audits/steel-reverify-2027Q3.md · A3 철강 로테이션"
+   },
+   "MET-0090": {
+    "reason": "AISI 4150 Strain-hardened — 소둔·Q+T 행이 이 값 × 0.81481 · 0.93519 로 나온 배율 체인의 base. 4150 은 0.50%C·Cr-Mo 경화강이라 냉간인발 봉 제품형이 없고 공표 물성도 없다",
+    "date": "2026-09-22",
+    "ref": "docs/audits/steel-reverify-2027Q3.md · A3 철강 로테이션",
+    "superseded_by": "MET-0086"
+   },
+   "MET-0044": {
+    "reason": "AISI 5140 Strain-hardened — Q+T 행이 이 값 × 0.93519 로 나온 배율 체인의 base. 5140 냉간인발 봉의 공표 물성이 없다",
+    "date": "2026-09-22",
+    "ref": "docs/audits/steel-reverify-2027Q3.md · A3 철강 로테이션",
+    "superseded_by": "MET-0040"
    }
   }
  }

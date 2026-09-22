@@ -61,6 +61,10 @@ for (const cc of fs.readdirSync(REG)) {
     const rec = JSON.parse(fs.readFileSync(path.join(REG, cc, fn), 'utf8'));
     const entry = {};
     for (const [k, v] of Object.entries(rec)) if (!R226_FIELDS.has(k)) entry[k] = v;   // points 는 build-registry 가 교정 시 이미 재생성 (레지스트리가 self-consistent)
+    /* A3 철강 2027Q3 / AUD-3 Q03 — stable_id 는 산출물에도 싣는다. 레지스트리 내부 키가 아니라 **공개 식별자**다:
+       이름·조건이 바뀌어도 불변이라 CSV·보고서·제거 원장이 같은 재료를 가리킬 수 있는 유일한 키.
+       (family/legacy_id/origin/_corrections 는 계속 내부 전용.) */
+    entry.stable_id = rec.stable_id;
     seenSids.add(rec.stable_id);
     const a = PROFILE_ASSIGN[rec.stable_id];
     if (!a) {
@@ -231,6 +235,25 @@ if (sanitized) console.log(`  내부마커 새니타이즈: ${sanitized} 필드 
  * `basis='min_spec'` 은 교정이 `basis_kind` 로 **직접 선언**한 경우에만 남는다. 근접(±2%)은 "대표값인지 하한인지 확인 대상"
  * 이라는 표시(near_min_spec)로만 쓰고, UI 가 그렇게 읽어 준다. */
 const MINSPECS = (() => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'standard-min-specs.json'), 'utf8')).specs || []; } catch { return []; } })();
+/* A3 철강 2027Q3 / AUD-3 D04 — 규격 하한 **선언**(data/spec-floor-declarations.json). 사람이 원문을 대조해
+   "이 entry 의 이 물성은 인용 규격의 최소값" 이라고 적은 것만 basis 를 바꾼다. 수치 근접은 근거가 아니다. */
+const FLOOR_DECL = (() => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'spec-floor-declarations.json'), 'utf8')).declarations || []; } catch { return []; } })();
+const floorBySid = new Map(FLOOR_DECL.map(d => [d.stable_id, d]));
+let floorDeclared = 0;
+for (const m of all) {
+  const d = floorBySid.get(m.stable_id);
+  if (!d) continue;
+  for (const prop of d.props || []) {
+    const r = m.ranges?.[prop];
+    if (!r || typeof r.typical !== 'number') { console.warn(`  ⚠ 규격 하한 선언 대상 없음: ${d.stable_id} ${prop}`); continue; }
+    r.basis = 'min_spec';
+    r.basis_source = d.std;
+    r.basis_note = d.note;
+    r.basis_verified = d.verified;
+    floorDeclared++;
+  }
+}
+if (floorDeclared) console.log(`  규격 하한 선언(D04): ${floorDeclared} 필드 / ${FLOOR_DECL.length} entry — 원문 대조 기록 있음`);
 let specMinStamped = 0, nearMin = 0;
 for (const m of all) {
   const sp = MINSPECS.find(s => (m.name || '').includes(s.pattern));
@@ -238,7 +261,7 @@ for (const m of all) {
   for (const [prop, min] of Object.entries(sp.min)) {
     const r = m.ranges?.[prop];
     if (!r || typeof r.typical !== 'number') continue;
-    if (r.basis === 'min_spec') continue;   // 교정이 "이 값이 곧 하한" 이라고 선언한 행 — 같은 축을 두 번 말하지 않는다
+    if (r.basis === 'min_spec') continue;   // 선언된 행 — 같은 축을 두 번 말하지 않는다
     r.min_spec_value = min;
     if (sp.std) r.min_spec_source = sp.std;
     specMinStamped++;
@@ -540,7 +563,7 @@ try {
 const SLIM_PROPS = ['density', 'yield_strength', 'uts', 'modulus', 'max_service_temp', 'price_per_kg', 'delivered_price_per_kg'];
 const EXTRA_TOP = ['elongation', 'hardness', 'fatigue_strength', 'thermal_conductivity', 'thermal_expansion', 'fracture_toughness', 'impact_strength'];
 const slimEntries = all.map(m => {
-  const slim = { id: m.id, name: m.name, category: m.category, subcategory: m.subcategory, popularity: m.popularity, tier: m.tier, confidence_tier: m.confidence_tier };
+  const slim = { id: m.id, stable_id: m.stable_id, name: m.name, category: m.category, subcategory: m.subcategory, popularity: m.popularity, tier: m.tier, confidence_tier: m.confidence_tier };
   if (m.aliases?.length) slim.aliases = m.aliases;
   if (m.families?.length) slim.families = m.families;
   if (m.related?.length) slim.related = m.related;   // R226c — cross-ref (cast↔wrought, 유사재료 상단 pin)

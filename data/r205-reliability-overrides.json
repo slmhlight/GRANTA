@@ -35,8 +35,7 @@
    "reason": "A1+D5: stainless 오분류 + Annealed cond 만 mach Exce/weld Good 불일치 (4150 rating ~40%). [MDH]",
    "stableIds": [
     "MET-0086",
-    "MET-0089",
-    "MET-0090"
+    "MET-0089"
    ],
    "_namePattern_ref": "^AISI 4150 — .*\\(Wrought\\)"
   },
@@ -569,27 +568,6 @@
   {
    "ranges": {
     "yield_strength": {
-     "typical": 440,
-     "min": 400,
-     "max": 520,
-     "confidence": "handbook"
-    },
-    "uts": {
-     "typical": 590,
-     "min": 540,
-     "max": 660,
-     "confidence": "handbook"
-    }
-   },
-   "reason": "C6: Q+T (207/333) < Annealed (350/510) 방향 모순. [ASM Vol.1 1020 WQ+T]",
-   "stableIds": [
-    "MET-0248"
-   ],
-   "_namePattern_ref": "^AISI 1020 — Quenched / tempered"
-  },
-  {
-   "ranges": {
-    "yield_strength": {
      "typical": 330,
      "min": 290,
      "max": 390,
@@ -638,33 +616,6 @@
     "MET-0040"
    ],
    "_namePattern_ref": "^AISI 5140 — Annealed"
-  },
-  {
-   "ranges": {
-    "yield_strength": {
-     "typical": 790,
-     "min": 720,
-     "max": 900,
-     "confidence": "handbook"
-    },
-    "uts": {
-     "typical": 940,
-     "min": 860,
-     "max": 1060,
-     "confidence": "handbook"
-    },
-    "hardness": {
-     "typical": 280,
-     "min": 255,
-     "max": 320,
-     "confidence": "handbook"
-    }
-   },
-   "reason": "C4: Q+T mock (419/566) 너무 낮음. [ASM Vol.1 5130 Q+T]",
-   "stableIds": [
-    "MET-0038"
-   ],
-   "_namePattern_ref": "^AISI 5130 — Quenched / tempered"
   },
   {
    "ranges": {
@@ -977,7 +928,6 @@
    "reason": "D16: 탄소강 corr=Poor 일괄 (Annealed 만 Excellent mock).",
    "stableIds": [
     "MET-0239",
-    "MET-0250",
     "MET-0255"
    ],
    "_namePattern_ref": "^AISI 10(15|25|30) — Annealed"
@@ -988,17 +938,11 @@
    },
    "reason": "D17: 저탄소 연질 gummy ~55% → Good (Excellent 과대). [MDH]",
    "stableIds": [
-    "MET-0234",
-    "MET-0237",
     "MET-0238",
     "MET-0239",
-    "MET-0242",
     "MET-0243",
     "MET-0245",
-    "MET-0248",
     "MET-0249",
-    "MET-0250",
-    "MET-0253",
     "MET-0254",
     "MET-0255",
     "MET-0258",
@@ -1958,8 +1902,6 @@
    },
    "reason": "L12: R199 공용 조성 'C 0.10~0.95' 가 평균 0.525 로 파싱 → 1010 실제 C 0.08-0.13. [SAE J403]",
    "stableIds": [
-    "MET-0234",
-    "MET-0237",
     "MET-0238"
    ],
    "_namePattern_ref": "^AISI 1010 — "
@@ -1975,7 +1917,6 @@
    "reason": "L12: 1015 C 0.13-0.18. [SAE J403]",
    "stableIds": [
     "MET-0239",
-    "MET-0242",
     "MET-0243",
     "MET-1004",
     "MET-1005"
@@ -1993,7 +1934,6 @@
    "reason": "L12: 1020 C 0.18-0.23. [SAE J403]",
    "stableIds": [
     "MET-0245",
-    "MET-0248",
     "MET-0249",
     "MET-1006",
     "MET-1007"
@@ -2010,8 +1950,6 @@
    },
    "reason": "L12: 1025 C 0.22-0.28. [SAE J403]",
    "stableIds": [
-    "MET-0250",
-    "MET-0253",
     "MET-0254"
    ],
    "_namePattern_ref": "^AISI 1025 — "

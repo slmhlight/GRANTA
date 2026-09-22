@@ -11,7 +11,7 @@
   "legacy_id": "G_0257",
   "origin": "generic(csv)",
   "id": "G_0257",
-  "name": "AISI 4150 — Annealed (Wrought)",
+  "name": "AISI 4150 — Annealed",
   "category": "Metal",
   "subcategory": "Alloy Steel - Cr-Mo",
   "tier": "generic",
@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 704,
-      "max": 704,
-      "typical": 704,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 379,
+      "typical": 379,
+      "max": 379,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 4150 Oil-quenched 페이지의 Annealed 행, 1 in. round, 1525 F 소둔 (105,750 / 55,000 psi · 20.2% · RA 40.2% · HB 197) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "uts": {
-      "min": 968,
-      "max": 968,
-      "typical": 968,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 729,
+      "typical": 729,
+      "max": 729,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 4150 Oil-quenched 페이지의 Annealed 행, 1 in. round, 1525 F 소둔 (105,750 / 55,000 psi · 20.2% · RA 40.2% · HB 197) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "elongation": {
-      "min": 12.09,
-      "max": 12.09,
-      "typical": 12.09,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 20.2,
+      "typical": 20.2,
+      "max": 20.2,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 4150 Oil-quenched 페이지의 Annealed 행, 1 in. round, 1525 F 소둔 (105,750 / 55,000 psi · 20.2% · RA 40.2% · HB 197) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 272.8,
-      "max": 272.8,
-      "typical": 272.8,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 197,
+      "typical": 197,
+      "max": 197,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 4150 Oil-quenched 페이지의 Annealed 행, 1 in. round, 1525 F 소둔 (105,750 / 55,000 psi · 20.2% · RA 40.2% · HB 197) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "thermal_conductivity": {
       "min": 42,
@@ -232,11 +232,11 @@
   "points": [
     [
       7.85,
-      704,
-      968,
-      12.09,
-      210,
-      272.8,
+      379,
+      729,
+      20.2,
+      205,
+      197,
       42
     ]
   ],
@@ -255,11 +255,11 @@
   "fracture_toughness": 96,
   "fatigue_strength": 245,
   "density": 7.85,
-  "yield_strength": 704,
-  "uts": 968,
-  "elongation": 12.09,
+  "yield_strength": 379,
+  "uts": 729,
+  "elongation": 20.2,
   "modulus": 205,
-  "hardness": 272.8,
+  "hardness": 197,
   "thermal_conductivity": 42,
   "impact_strength": 62,
   "manufacturer": "Generic",
@@ -330,6 +330,77 @@
           "verified": false
         }
       ]
-    }
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 704,
+        "max": 704,
+        "typical": 704,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 704
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 968,
+        "max": 968,
+        "typical": 968,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 968
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 12.09,
+        "max": 12.09,
+        "typical": 12.09,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 12.09
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 272.8,
+        "max": 272.8,
+        "typical": 272.8,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 272.8
+    },
+    "_basis": "저장값은 같은 base 안에서 ys·uts·경도 세 물성이 **같은 배율**로 맞물려 있었다 — 표에서 옮긴 값이 아니라 한 줄을 곱해 찍어낸 합성값이라는 뜻이다(memory/project_csv_generic_fabrication). 4150 세 조건(소둔·Q+T·냉간가공)이 서로 0.81481 · 0.93519 배율로 정확히 맞물려 있었다. 소둔값 704 / 968 MPa 는 원전 소둔행(379 / 729)의 두 배 가까운 강도로, 소둔재로 성립하지 않는다. 원전의 1 in. 봉 · 1525 F 소둔행으로 바꾼다.",
+    "_src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 4150 Oil-quenched 페이지의 Annealed 행, 1 in. round, 1525 F 소둔 (105,750 / 55,000 psi · 20.2% · RA 40.2% · HB 197) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf",
+    "points": {
+      "from": [
+        [
+          7.85,
+          704,
+          968,
+          12.09,
+          210,
+          272.8,
+          42
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "AISI 4150 — Annealed (Wrought)",
+        "had": true
+      }
+    },
+    "_fbasis": "A3 철강 2027Q3 — 같은 base 의 Q+T 행을 원전의 뜨임조건 표기('Q+T (540°C)')로 바꾸면서 사다리 안에서 '(Wrought)' 접미가 붙은 행과 안 붙은 행이 섞였다. 공정은 별도 필드로 이미 보이므로 접미를 떼어 AA 6061·AA 1050 사다리와 같은 형식으로 통일한다. 값·공정·열처리는 불변.",
+    "_fsrc": "A3 철강 re-verify 2027Q3 (표기 통일 — A3 Al 2026Q4 와 같은 규칙)"
   }
 }

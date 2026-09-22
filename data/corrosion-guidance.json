@@ -1453,7 +1453,10 @@
   }
  },
  "alloy_notes": {
-  "AF1410 (Ni-Co secondary hardening UHS steel)": {"t":"Cr 2% 는 경화능용이지 내식용이 아니다 — 잠수함 선체 출신이라도 도장·피복이 전제. σy 1500MPa 급이라 도금 후 수소 베이킹(ASTM F519) 영역이고, 높은 파괴인성이 SCC 저항을 대신하지는 않는다 — AerMet 100 과 같은 도금+베이킹 체계를 그대로 쓴다.","src":"Latrobe Lescalloy AF1410 데이터시트 (Cr 2.0% · σy 1517MPa) · ASTM F519"},
+  "AF1410 (Ni-Co secondary hardening UHS steel)": {
+   "t": "Cr 2% 는 경화능용이지 내식용이 아니다 — 잠수함 선체 출신이라도 도장·피복이 전제. σy 1500MPa 급이라 도금 후 수소 베이킹(ASTM F519) 영역이고, 높은 파괴인성이 SCC 저항을 대신하지는 않는다 — AerMet 100 과 같은 도금+베이킹 체계를 그대로 쓴다.",
+   "src": "Latrobe Lescalloy AF1410 데이터시트 (Cr 2.0% · σy 1517MPa) · ASTM F519"
+  },
   "_note": "개별 합금 1줄 노트 — 키는 primary designation(base 의 괄호 제거형). 리졸버가 [base, 괄호제거 base] 순 exact 조회. 계열 공통과 중복 금지 — 이 합금만의 차별점(PREN 실측·조건 제한·클래딩 관례 등)만. 근거: Outokumpu·IMOA·MMPDS·제조사 datasheet.",
   "AISI 304": {
    "t": "PREN ~19 — 담수·식품 표준. 연안 대기부터는 316 급 검토, 용접 구조는 304L 로 예민화 회피.",
@@ -1947,8 +1950,14 @@
    "t": "NBR — 연료·광유 표준 씰 — 오존·UV·옥외 취약(균열), 케톤·염소계 팽윤.",
    "src": "제조사 TPU/TPE/고무 자료"
   },
-  "EPDM": {"t": "EPDM — 오존·UV·수증기·글리콜 부동액·브레이크액(Skydrol)에 강하다. 약점은 하나로 분명하다: **기름·연료에 팽윤** — 연료 계통에는 쓰지 않는다.", "src": "ASTM D2000 · Mykin/TSE EPDM 기술자료"},
-  "FKM": {"t": "FKM(Viton) — 연료·광유·대부분의 산과 200°C 를 동시에 견딘다. 약점은 케톤·에스터·아민·열수/스팀과 저온(표준 타입 −20°C 대)이며, 그 자리는 저온 등급(GLT/GFLT)이나 EPDM 이 맡는다.", "src": "Chemours Viton Chemical Resistance Guide · ASTM D1418"},
+  "EPDM": {
+   "t": "EPDM — 오존·UV·수증기·글리콜 부동액·브레이크액(Skydrol)에 강하다. 약점은 하나로 분명하다: **기름·연료에 팽윤** — 연료 계통에는 쓰지 않는다.",
+   "src": "ASTM D2000 · Mykin/TSE EPDM 기술자료"
+  },
+  "FKM": {
+   "t": "FKM(Viton) — 연료·광유·대부분의 산과 200°C 를 동시에 견딘다. 약점은 케톤·에스터·아민·열수/스팀과 저온(표준 타입 −20°C 대)이며, 그 자리는 저온 등급(GLT/GFLT)이나 EPDM 이 맡는다.",
+   "src": "Chemours Viton Chemical Resistance Guide · ASTM D1418"
+  },
   "HNBR": {
    "t": "HNBR — NBR 의 수소화판: 내열·오존 개선 — 엔진룸·냉매 씰 표준.",
    "src": "제조사 TPU/TPE/고무 자료"
@@ -2440,10 +2449,6 @@
   "AISI 4340 / SNCM439": {
    "t": "고인성 대단면 조질 — HRC 40+ 상태는 습윤 SCC·수소취성 문턱: 도금 후 베이킹 필수 영역, 해양 샤프트는 클래드/슬리브 관례.",
    "src": "ASM Vol.13B · ASTM F519"
-  },
-  "AISI 5130": {
-   "t": "크롬 조질강(볼트·차축) — 도금 밀착 무난: 강도급 따라 베이킹 여부 판단.",
-   "src": "ASM Handbook Vol.1"
   },
   "AISI 5140": {
    "t": "차축·스티어링 너클 표준 — 고주파 경화부의 압축응력이 부식피로 방어에 기여.",

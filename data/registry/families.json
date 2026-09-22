@@ -1,7 +1,7 @@
 {
-  "count": 819,
+  "count": 818,
   "kinds": {
-    "alloy-base": 671,
+    "alloy-base": 670,
     "category": 4,
     "subcategory": 134,
     "element-family": 10
@@ -1078,10 +1078,8 @@
       "label": "AISI 1010",
       "kind": "alloy-base",
       "parent": "F-MET-carbon-steel",
-      "member_count": 3,
+      "member_count": 1,
       "members": [
-        "MET-0234",
-        "MET-0237",
         "MET-0238"
       ]
     },
@@ -1090,12 +1088,11 @@
       "label": "AISI 1015",
       "kind": "alloy-base",
       "parent": "F-MET-carbon-steel",
-      "member_count": 5,
+      "member_count": 4,
       "members": [
         "MET-0239",
         "MET-1004",
         "MET-1005",
-        "MET-0242",
         "MET-0243"
       ]
     },
@@ -1114,12 +1111,11 @@
       "label": "AISI 1020",
       "kind": "alloy-base",
       "parent": "F-MET-carbon-steel",
-      "member_count": 5,
+      "member_count": 4,
       "members": [
         "MET-0245",
         "MET-1006",
         "MET-1007",
-        "MET-0248",
         "MET-0249"
       ]
     },
@@ -1140,10 +1136,8 @@
       "label": "AISI 1025",
       "kind": "alloy-base",
       "parent": "F-MET-carbon-steel",
-      "member_count": 3,
+      "member_count": 1,
       "members": [
-        "MET-0250",
-        "MET-0253",
         "MET-0254"
       ]
     },
@@ -1549,11 +1543,10 @@
       "label": "AISI 4150",
       "kind": "alloy-base",
       "parent": "F-MET-alloy-steel-cr-mo",
-      "member_count": 3,
+      "member_count": 2,
       "members": [
         "MET-0086",
-        "MET-0089",
-        "MET-0090"
+        "MET-0089"
       ]
     },
     {
@@ -1645,28 +1638,14 @@
       ]
     },
     {
-      "id": "F-AB-aisi-5130",
-      "label": "AISI 5130",
-      "kind": "alloy-base",
-      "parent": "F-MET-alloy-steel",
-      "member_count": 4,
-      "members": [
-        "MET-0034",
-        "MET-0035",
-        "MET-0038",
-        "MET-0039"
-      ]
-    },
-    {
       "id": "F-AB-aisi-5140",
       "label": "AISI 5140",
       "kind": "alloy-base",
       "parent": "F-MET-alloy-steel",
-      "member_count": 3,
+      "member_count": 2,
       "members": [
         "MET-0040",
-        "MET-0043",
-        "MET-0044"
+        "MET-0043"
       ]
     },
     {
@@ -7569,7 +7548,7 @@
       "label": "Iron-based",
       "kind": "element-family",
       "parent": null,
-      "member_count": 447,
+      "member_count": 435,
       "members": [
         "MET-0001",
         "MET-0002",
@@ -7605,13 +7584,8 @@
         "MET-0031",
         "MET-0032",
         "MET-0033",
-        "MET-0034",
-        "MET-0035",
-        "MET-0038",
-        "MET-0039",
         "MET-0040",
         "MET-0043",
-        "MET-0044",
         "MET-1001",
         "MET-1002",
         "MET-0045",
@@ -7645,7 +7619,6 @@
         "MET-0075",
         "MET-0086",
         "MET-0089",
-        "MET-0090",
         "MET-0226",
         "MET-0227",
         "MET-0228",
@@ -7653,25 +7626,19 @@
         "MET-0230",
         "MET-0232",
         "MET-0233",
-        "MET-0234",
-        "MET-0237",
         "MET-0238",
         "MET-0239",
         "MET-1004",
         "MET-1005",
-        "MET-0242",
         "MET-0243",
         "MET-0244",
         "MET-0245",
         "MET-1006",
         "MET-1007",
-        "MET-0248",
         "MET-0249",
         "MET-1008",
         "MET-1009",
         "MET-1010",
-        "MET-0250",
-        "MET-0253",
         "MET-0254",
         "MET-0255",
         "MET-0258",
@@ -8257,7 +8224,7 @@
       "label": "Metal",
       "kind": "category",
       "parent": null,
-      "member_count": 863
+      "member_count": 851
     },
     {
       "id": "F-MET-advanced-high-strength-steel",
@@ -8271,7 +8238,7 @@
       "label": "Alloy Steel",
       "kind": "subcategory",
       "parent": "F-MET",
-      "member_count": 57
+      "member_count": 52
     },
     {
       "id": "F-MET-alloy-steel-case-hardening",
@@ -8285,7 +8252,7 @@
       "label": "Alloy Steel - Cr-Mo",
       "kind": "subcategory",
       "parent": "F-MET",
-      "member_count": 3
+      "member_count": 2
     },
     {
       "id": "F-MET-aluminum-cu-alloys-2xxx",
@@ -8369,7 +8336,7 @@
       "label": "Carbon Steel",
       "kind": "subcategory",
       "parent": "F-MET",
-      "member_count": 85
+      "member_count": 79
     },
     {
       "id": "F-MET-cast-iron",

@@ -1,6 +1,6 @@
 {
  "_note": "생성물: pnpm build:profiles (scripts/build-process-profiles.mjs). 직접 수정 금지 — 교정은 data/process-profile-overrides.json (stable_id + src). 키 의미: mach=절삭성 프로파일(process-profiles.json), weld=용접성 모델(ce|schaeffler|none), ht=HT family(ht-alloy-specific.ts familyName), htc=조건 클래스, insight=선택 인사이트 그룹(selection-insights.json).",
- "entries": 1071,
+ "entries": 1059,
  "ht_families_parsed": 35,
  "assignments": {
   "CER-0001": {
@@ -727,50 +727,6 @@
    "cg": "steel-alloy",
    "corr": "steel-alloy"
   },
-  "MET-0034": {
-   "colorf": "Steel",
-   "mach": "crmo",
-   "weld": "ce",
-   "htc": "aged",
-   "htg": "h13-fe-anneal",
-   "wg": "w03-aisi",
-   "insight": "carbon-alloy-steel",
-   "cg": "steel-alloy",
-   "corr": "steel-alloy"
-  },
-  "MET-0035": {
-   "colorf": "Steel",
-   "mach": "crmo",
-   "weld": "ce",
-   "htc": "soft",
-   "htg": "h13-fe-anneal",
-   "wg": "w03-aisi",
-   "insight": "carbon-alloy-steel",
-   "cg": "steel-alloy",
-   "corr": "steel-alloy"
-  },
-  "MET-0038": {
-   "colorf": "Steel",
-   "mach": "crmo",
-   "weld": "ce",
-   "htc": "qt",
-   "htg": "h13-fe-anneal",
-   "wg": "w03-aisi",
-   "insight": "carbon-alloy-steel",
-   "cg": "steel-alloy",
-   "corr": "steel-alloy"
-  },
-  "MET-0039": {
-   "colorf": "Steel",
-   "mach": "crmo",
-   "weld": "ce",
-   "htc": "qt",
-   "htg": "h13-fe-anneal",
-   "wg": "w03-aisi",
-   "insight": "carbon-alloy-steel",
-   "cg": "steel-alloy",
-   "corr": "steel-alloy"
-  },
   "MET-0040": {
    "colorf": "Steel",
    "mach": "crmo",
@@ -783,17 +739,6 @@
    "corr": "steel-alloy"
   },
   "MET-0043": {
-   "colorf": "Steel",
-   "mach": "crmo",
-   "weld": "ce",
-   "htc": "qt",
-   "htg": "h13-fe-anneal",
-   "wg": "w03-aisi",
-   "insight": "carbon-alloy-steel",
-   "cg": "steel-alloy",
-   "corr": "steel-alloy"
-  },
-  "MET-0044": {
    "colorf": "Steel",
    "mach": "crmo",
    "weld": "ce",
@@ -1120,17 +1065,6 @@
    "corr": "steel-alloy"
   },
   "MET-0089": {
-   "colorf": "Steel",
-   "mach": "crmo",
-   "weld": "ce",
-   "htc": "qt",
-   "htg": "h01-aisi",
-   "wg": "w03-aisi",
-   "insight": "carbon-alloy-steel",
-   "cg": "steel-alloy",
-   "corr": "steel-alloy"
-  },
-  "MET-0090": {
    "colorf": "Steel",
    "mach": "crmo",
    "weld": "ce",
@@ -2467,28 +2401,6 @@
    "cg": "steel-low",
    "corr": "steel-low"
   },
-  "MET-0234": {
-   "colorf": "Steel",
-   "mach": "carbon-low",
-   "weld": "ce",
-   "htc": "soft",
-   "htg": "h13-fe-anneal",
-   "wg": "w01-aisi",
-   "insight": "carbon-alloy-steel",
-   "cg": "steel-low",
-   "corr": "steel-low"
-  },
-  "MET-0237": {
-   "colorf": "Steel",
-   "mach": "carbon-low",
-   "weld": "ce",
-   "htc": "qt",
-   "htg": "h13-fe-anneal",
-   "wg": "w01-aisi",
-   "insight": "carbon-alloy-steel",
-   "cg": "steel-low",
-   "corr": "steel-low"
-  },
   "MET-0238": {
    "colorf": "Steel",
    "mach": "carbon-low",
@@ -2505,17 +2417,6 @@
    "mach": "carbon-low",
    "weld": "ce",
    "htc": "soft",
-   "htg": "h13-fe-anneal",
-   "wg": "w01-aisi",
-   "insight": "carbon-alloy-steel",
-   "cg": "steel-low",
-   "corr": "steel-low"
-  },
-  "MET-0242": {
-   "colorf": "Steel",
-   "mach": "carbon-low",
-   "weld": "ce",
-   "htc": "qt",
    "htg": "h13-fe-anneal",
    "wg": "w01-aisi",
    "insight": "carbon-alloy-steel",
@@ -2555,40 +2456,7 @@
    "cg": "steel-low",
    "corr": "steel-low"
   },
-  "MET-0248": {
-   "colorf": "Steel",
-   "mach": "carbon-low",
-   "weld": "ce",
-   "htc": "qt",
-   "htg": "h13-fe-anneal",
-   "wg": "w01-aisi",
-   "insight": "carbon-alloy-steel",
-   "cg": "steel-low",
-   "corr": "steel-low"
-  },
   "MET-0249": {
-   "colorf": "Steel",
-   "mach": "carbon-low",
-   "weld": "ce",
-   "htc": "qt",
-   "htg": "h13-fe-anneal",
-   "wg": "w01-aisi",
-   "insight": "carbon-alloy-steel",
-   "cg": "steel-low",
-   "corr": "steel-low"
-  },
-  "MET-0250": {
-   "colorf": "Steel",
-   "mach": "carbon-low",
-   "weld": "ce",
-   "htc": "soft",
-   "htg": "h13-fe-anneal",
-   "wg": "w01-aisi",
-   "insight": "carbon-alloy-steel",
-   "cg": "steel-low",
-   "corr": "steel-low"
-  },
-  "MET-0253": {
    "colorf": "Steel",
    "mach": "carbon-low",
    "weld": "ce",

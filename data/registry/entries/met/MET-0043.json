@@ -11,7 +11,7 @@
   "legacy_id": "G_0011",
   "origin": "generic(csv)",
   "id": "G_0011",
-  "name": "AISI 5140 — Quenched / tempered (Wrought)",
+  "name": "AISI 5140 — Q+T (540°C)",
   "category": "Metal",
   "subcategory": "Alloy Steel",
   "tier": "generic",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Quenched / tempered",
+  "heat_treatment": "Quenched + Tempered (540°C, oil-quenched)",
   "ranges": {
     "density": {
       "min": 7.85,
@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 617.7,
-      "max": 759.7,
-      "typical": 717.1,
-      "n": 5,
-      "confidence": "measured"
+      "min": 838,
+      "typical": 838,
+      "max": 838,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 5140 Oil-quenched MASS EFFECT, 1 in. round, 1550 F 담금 + 1000 F 뜨임 (141,000 / 121,500 psi · 18.5% · RA 58.9% · HB 293) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "uts": {
-      "min": 870,
-      "max": 1070,
-      "typical": 1010,
-      "n": 5,
-      "confidence": "measured"
+      "min": 972,
+      "typical": 972,
+      "max": 972,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 5140 Oil-quenched MASS EFFECT, 1 in. round, 1550 F 담금 + 1000 F 뜨임 (141,000 / 121,500 psi · 18.5% · RA 58.9% · HB 293) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "elongation": {
-      "min": 15.98,
-      "max": 17.34,
-      "typical": 17,
-      "n": 5,
-      "confidence": "measured"
+      "min": 18.5,
+      "typical": 18.5,
+      "max": 18.5,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 5140 Oil-quenched MASS EFFECT, 1 in. round, 1550 F 담금 + 1000 F 뜨임 (141,000 / 121,500 psi · 18.5% · RA 58.9% · HB 293) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "modulus": {
       "min": 210,
@@ -60,11 +60,11 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 243.6,
-      "max": 299.6,
-      "typical": 282.8,
-      "n": 5,
-      "confidence": "measured"
+      "min": 293,
+      "typical": 293,
+      "max": 293,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 5140 Oil-quenched MASS EFFECT, 1 in. round, 1550 F 담금 + 1000 F 뜨임 (141,000 / 121,500 psi · 18.5% · RA 58.9% · HB 293) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "thermal_conductivity": {
       "min": 42,
@@ -208,47 +208,11 @@
   "points": [
     [
       7.85,
-      631.9,
-      890,
-      15.98,
+      838,
+      972,
+      18.5,
       210,
-      249.2,
-      42
-    ],
-    [
-      7.85,
-      617.7,
-      870,
-      17.34,
-      210,
-      243.6,
-      42
-    ],
-    [
-      7.85,
-      717.1,
-      1010,
-      16.32,
-      210,
-      282.8,
-      42
-    ],
-    [
-      7.85,
-      759.7,
-      1070,
-      17.34,
-      210,
-      299.6,
-      42
-    ],
-    [
-      7.85,
-      745.5,
-      1050,
-      17,
-      210,
-      294,
+      293,
       42
     ]
   ],
@@ -277,11 +241,11 @@
   "fracture_toughness": 65,
   "fatigue_strength": 415,
   "density": 7.85,
-  "yield_strength": 717.1,
-  "uts": 1010,
-  "elongation": 17,
+  "yield_strength": 838,
+  "uts": 972,
+  "elongation": 18.5,
   "modulus": 210,
-  "hardness": 282.8,
+  "hardness": 293,
   "thermal_conductivity": 42,
   "impact_strength": 35,
   "manufacturer": "Generic",
@@ -348,6 +312,117 @@
           "verified": false
         }
       ]
-    }
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 617.7,
+        "max": 759.7,
+        "typical": 717.1,
+        "n": 5,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 717.1
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 870,
+        "max": 1070,
+        "typical": 1010,
+        "n": 5,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 1010
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 15.98,
+        "max": 17.34,
+        "typical": 17,
+        "n": 5,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 17
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 243.6,
+        "max": 299.6,
+        "typical": 282.8,
+        "n": 5,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 282.8
+    },
+    "_basis": "저장값은 같은 base 안에서 ys·uts·경도 세 물성이 **같은 배율**로 맞물려 있었다 — 표에서 옮긴 값이 아니라 한 줄을 곱해 찍어낸 합성값이라는 뜻이다(memory/project_csv_generic_fabrication). 5140 의 Q+T(717.1 / 1010)와 냉간가공(766.8 / 1080) 행이 0.93519 배율로 맞물려 있었다. 원전의 1 in. 봉 · 1550 F 유담금 · 1000 F(540°C) 뜨임행으로 바꾸고 이름·열처리에 조건을 명시한다.",
+    "_src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 5140 Oil-quenched MASS EFFECT, 1 in. round, 1550 F 담금 + 1000 F 뜨임 (141,000 / 121,500 psi · 18.5% · RA 58.9% · HB 293) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf",
+    "points": {
+      "from": [
+        [
+          7.85,
+          631.9,
+          890,
+          15.98,
+          210,
+          249.2,
+          42
+        ],
+        [
+          7.85,
+          617.7,
+          870,
+          17.34,
+          210,
+          243.6,
+          42
+        ],
+        [
+          7.85,
+          717.1,
+          1010,
+          16.32,
+          210,
+          282.8,
+          42
+        ],
+        [
+          7.85,
+          759.7,
+          1070,
+          17.34,
+          210,
+          299.6,
+          42
+        ],
+        [
+          7.85,
+          745.5,
+          1050,
+          17,
+          210,
+          294,
+          42
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "AISI 5140 — Quenched / tempered (Wrought)",
+        "had": true
+      },
+      "heat_treatment": {
+        "from": "Quenched / tempered",
+        "had": true
+      }
+    },
+    "_fbasis": "경화강의 Q+T 값은 뜨임온도와 단면 치수가 정해져야 의미가 있다 — 뜨임온도가 빠진 \"Quenched / tempered\" 는 같은 강에서 항복이 두 배 넘게 갈리는 구간 전체를 한 줄로 뭉갠 표기다. 값을 원전의 1 in. 봉 · 1000 F(540°C) 뜨임행으로 교정하면서, 이름과 열처리 표기도 그 조건으로 바꿔 값과 라벨이 같은 것을 가리키게 한다(4130 \"Q+T (550°C)\" · 4340 \"Q+T (200°C, full hard)\" 와 같은 형식).",
+    "_fsrc": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — grade 별 MASS EFFECT 표의 뜨임온도·단면 표기 · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
   }
 }

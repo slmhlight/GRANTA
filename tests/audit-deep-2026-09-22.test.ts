@@ -14,7 +14,7 @@ import { normFormula, fuzzyRank } from '@/lib/fuzzy-search';
 const ROOT = process.cwd();
 const ALL: Material[] = JSON.parse(fs.readFileSync(path.resolve(ROOT, 'client/public/materials.json'), 'utf8'));
 const SLIM: Array<Material & { hardness_scale?: string }> = JSON.parse(fs.readFileSync(path.resolve(ROOT, 'client/public/materials/index.json'), 'utf8'));
-type R = { typical?: number; min?: number; max?: number; confidence?: string; estimated?: boolean; provenance?: string; base_value?: number; factor?: number; condition?: string; model?: string; basis?: string; min_spec_value?: number; min_spec_source?: string; near_min_spec?: boolean; scale?: string };
+type R = { typical?: number; min?: number; max?: number; confidence?: string; estimated?: boolean; provenance?: string; base_value?: number; factor?: number; condition?: string; model?: string; basis?: string; basis_source?: string; basis_note?: string; basis_verified?: string; min_spec_value?: number; min_spec_source?: string; near_min_spec?: boolean; scale?: string };
 const rg = (m: Material, k: string): R | undefined => (m.ranges as Record<string, R | undefined> | undefined)?.[k];
 const ranges = (m: Material) => Object.entries((m.ranges ?? {}) as Record<string, R | null>).filter(([, r]) => !!r) as Array<[string, R]>;
 
@@ -93,13 +93,15 @@ describe('AUD-3 D03 — 경도는 값과 척도를 함께 읽는다', () => {
 });
 
 describe('AUD-3 D04 — 수치 근접으로 근거의 종류를 바꾸지 않는다', () => {
-  it("basis='min_spec' 은 교정이 선언한 것만 (자동 ±2% 스탬프 없음)", () => {
+  it("basis='min_spec' 은 사람이 선언한 것만 (자동 ±2% 스탬프 없음)", () => {
     const declared = ALL.flatMap((m) => ranges(m).filter(([, r]) => r.basis === 'min_spec').map(([k, r]) => ({ id: m.id, k, r })));
     for (const d of declared) {
-      expect(String(d.r.provenance ?? ''), `${d.id} ${d.k} — 선언 근거(교정 인용)가 없다`).toMatch(/교정:/);
+      /* 근거는 원문 대조 기록(spec-floor-declarations 의 std·note·verified) 또는 교정 인용 중 하나. */
+      const hasDecl = !!(d.r.basis_source && d.r.basis_note && d.r.basis_verified);
+      expect(hasDecl || /교정:/.test(String(d.r.provenance ?? '')), `${d.id} ${d.k} — 선언 근거가 없다`).toBe(true);
     }
     // 자동 스탬프였다면 100건 안팎이었다 — 선언분만 남는다
-    expect(declared.length).toBeLessThan(20);
+    expect(declared.length).toBeLessThan(40);
   });
   it('규격 최소값은 별도 축(min_spec_value·source)에 실리고, 근접은 near_min_spec 로만 표시된다', () => {
     const withMin = ALL.flatMap((m) => ranges(m).filter(([, r]) => r.min_spec_value != null).map(([k, r]) => ({ id: m.id, k, r })));

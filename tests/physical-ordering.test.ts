@@ -27,20 +27,13 @@ const LEGITIMATE: Record<string, string> = {
   'AA 2025': '동상 — 2xxx 계 T4/용체화 조건의 공인 연신율이 O 보다 높다',
 };
 
-/* 미해소 잔여 — **숨기지 않고 공개**(원칙: 그룹 잔존 시 정직 공개). W2-2 에서 냉간가공(strain-hardened)
- * 계열은 웹 검증 후 전건 교정했으나, 아래는 진단이 다르다: Q&T 값은 실제와 맞고 **annealed 쪽 연신율이
- * 저평가**돼 역전이 생긴다(예 1040 annealed El 16.7 — ASM 실제 ~30%). generic 탄소강 annealed 층의
- * 별개 오염이라 base 값 재검증이 선행돼야 한다 → 백로그 D9. 신규 위배는 여전히 게이트가 잡는다. */
-const KNOWN_OPEN: Record<string, string> = {
-  'AISI 1010': 'annealed El 저평가 의심 (Q&T 값은 정합) — D9 큐',
-  'AISI 1020': 'annealed El 저평가 의심 — D9 큐',
-  'AISI 1025': 'annealed El 저평가 의심 — D9 큐',
-  'AISI 1030': 'annealed El 저평가 의심 — D9 큐',
-  'AISI 1040': 'annealed El 16.7 (ASM ~30%) — D9 큐',
-  'AISI 1050': 'annealed El 14.0 (ASM ~24%) — D9 큐',
-  'AISI 4150': 'annealed El 12.1 저평가 + 냉간인발 검증 소스 미확보 — D9 큐',
-  'AISI 5130': 'annealed El 23.3 대비 Q&T 25 — 냉간인발 검증 소스 미확보 — D9 큐',
-};
+/* 미해소 잔여 — **숨기지 않고 공개**(원칙: 그룹 잔존 시 정직 공개).
+ * 2026-09-22 (A3 철강 2027Q3) 로 **비었다**. W2-2 가 남긴 8 base 는 전부 같은 원인이었다:
+ * generic 탄소·합금강의 조건별 값이 한 줄 × 배율로 찍혀 있어 annealed 연신율이 저평가되거나
+ * Q&T 가 소둔보다 약했던 것. Modern Steels(Bethlehem) 원전 행으로 교정 13 · 원전에 조건 자체가
+ * 없는 행 제거 12 로 8 base 모두 역전이 사라졌다(대장 docs/audits/steel-reverify-2027Q3.md).
+ * 이제 이 목록이 비어 있으므로 같은 유형의 재발은 곧바로 게이트 실패가 된다. */
+const KNOWN_OPEN: Record<string, string> = {};
 
 const SOFT = /anneal|solution|as-supplied|as-cast|hot.?roll|normali/i;
 const HARD = /strain.?harden|cold.?work|hard|quench|temper|aged|aging|H\d|T\d/i;
@@ -84,8 +77,8 @@ describe('물리 정합 (W2-2) — 조건 간 강도·연성 역전 검출', () 
     }
   });
 
-  /* 미해소 잔여가 늘지 않게 상한 고정 — 줄면 목록에서 지우고 이 수를 낮춘다. */
-  it('KNOWN_OPEN(미해소 공개 목록)은 8 base 이하', () => {
-    expect(Object.keys(KNOWN_OPEN).length).toBeLessThanOrEqual(8);
+  /* 미해소 잔여가 늘지 않게 상한 고정 — 줄면 목록에서 지우고 이 수를 낮춘다. 지금은 0. */
+  it('KNOWN_OPEN(미해소 공개 목록)은 비어 있다', () => {
+    expect(Object.keys(KNOWN_OPEN)).toEqual([]);
   });
 });

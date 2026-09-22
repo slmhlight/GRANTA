@@ -236,9 +236,12 @@
    }
   },
   "MET-0050": {
-   "hardness": 500,
-   "basis": "AISI 6150 Q+T 의 경도 313 이 UTS 1700 MPa 와 맞지 않았다(비 5.4 — DB 강재 418건 중앙값 3.28·p95 3.70). 같은 합금 Normalized(MET-1003)가 UTS 943/경도 276 이라, Q+T 는 UTS 1.8배인데 경도는 1.13배뿐. 소둔값(MET-0047 UTS 670/경도 200)은 출처(667 MPa/197 HB)와 일치해 정상 — Q+T 경도만 조건 미반영.",
-   "src": "ISO 18265 금속 경도 환산 — 인장 1700 MPa ↔ 약 500 HV · SteelPRO AISI 6150 (소둔 667 MPa / 197 HB, DB 소둔값 정합 확인)"
+   "yield_strength": 1157,
+   "uts": 1196,
+   "elongation": 14.5,
+   "hardness": 352,
+   "basis": "1500 / 1700 MPa · HB 500 은 출처가 없고, 경도 500 HB 는 원전 Q+T 표의 최고값(1/2 in. 봉 1000 F 뜨임 363 HB)을 훌쩍 넘는다 — 400~500 F 저온뜨임에서나 나오는 경도를 1000 F 대 강도와 함께 적어 놓은 셈이라 한 조건의 값이 아니다. 원전의 1 in. 봉 · 1550 F 유담금 · 1000 F(540°C) 뜨임행으로 바꾸고 이름·열처리에 조건을 명시한다. (선행 부분교정을 대체한다 — 이전: {\"hardness\": 500} / ISO 18265 금속 경도 환산 — 인장 1700 MPa ↔ 약 500 HV · SteelPRO AISI 6150 (소둔 667 MPa / 197 HB, DB 소둔값 정합 확인))",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 6150 Oil-quenched MASS EFFECT, 1 in. round, 1550 F 담금 + 1000 F 뜨임 (173,500 / 167,750 psi · 14.5% · RA 48.2% · HB 352) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
   },
   "MET-0666": {
    "melting_point": 1465,
@@ -272,15 +275,6 @@
     "family": "steel"
    }
   },
-  "MET-0248": {
-   "basis": "AISI 1020 Quenched/tempered 의 경도 95.95 는 UTS 590 MPa 와 맞지 않는다(비 6.1). 95.95 는 같은 CSV 계열의 1010·1015 Q+T 에도 동일하게 찍혀 있어 합금별 실측이 아니라 합성값이다(D9 부류).",
-   "src": "ISO 18265 금속 경도 환산 — 인장 590 MPa ↔ 약 175 HB · [경도 스케일] 원자료 175 HB(3000 kgf) → HV 175 (ASTM E140-12b Table 2 — 이 범위에서 HV=HB).",
-   "hardness_src": {
-    "scale": "HB",
-    "value": 175,
-    "family": "steel"
-   }
-  },
   "MET-0243": {
    "yield_strength": 370,
    "uts": 440,
@@ -293,15 +287,13 @@
     "family": "steel"
    }
   },
-  "MET-0234": {
-   "elongation": 37,
-   "basis": "AISI 1010 소둔 연신율이 26.04% 로 핸드북 범위(29~45%) 아래였다. 값이 같은 합금 Quenched/tempered(28%)×0.93 과 정확히 일치 — generic CSV 의 조건별 합성 배율이 거꾸로 적용된 흔적이다(소둔은 그 합금에서 가장 연한 상태라 담금질+뜨임보다 연신율이 낮을 수 없다). 범위 중앙값으로 교정.",
-   "src": "Modulus Metal AISI 1010 Annealed (연신율 29~45% strain) · tubingchina AISI 1010 mechanical properties"
-  },
   "MET-0260": {
-   "elongation": 30,
-   "basis": "AISI 1040 소둔 연신율이 16.74% 로 핸드북 범위(24~36%) 아래였다. Quenched/tempered(18%)×0.93 과 일치 — MET-0234 와 같은 합성 배율 역적용. 범위 중앙값으로 교정.",
-   "src": "Modulus Metal AISI 1040 Carbon Steel (Annealed) — 인장 475~575 MPa · 항복 315~390 MPa · 연신율 24~36% strain"
+   "yield_strength": 353,
+   "uts": 519,
+   "elongation": 30.2,
+   "hardness": 149,
+   "basis": "연신 30.2% 와 경도 149.6 HB 는 원전 소둔행과 맞는데 강도만 272.8 / 497.2 MPa 로 어긋나 있었다. uts/ys 비가 1.82 로, 소둔 상태 0.40%C 강에서 나올 수 없는 비(원전 1.47)다. 원전의 1450 F 소둔행 (75,250 / 51,250 psi · 30.2% · 149 HB)으로 네 값을 한 행에서 맞춘다. EMJ Sec.R 의 별개 heat 소둔행(80,000 / 48,000 psi · 30% · 159 HB)도 같은 대역이라 교차확인된다. (선행 부분교정을 대체한다 — 이전: {\"elongation\": 30} / Modulus Metal AISI 1040 Carbon Steel (Annealed) — 인장 475~575 MPa · 항복 315~390 MPa · 연신율 24~36% strain)",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 1040 Oil-quenched 페이지의 Annealed 행, 1 in. round, 1450 F 소둔 (75,250 / 51,250 psi · 30.2% · RA 57.2% · HB 149) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
   },
   "MET-0868": {
    "electrical_conductivity": 1.5,
@@ -468,8 +460,9 @@
    "yield_strength": 285,
    "uts": 385,
    "elongation": 37,
-   "basis": "AISI 1015 annealed — DB 167/286/26 은 annealed 1015 표준 대비 과소(1008급 오염). Granta 밴드 255~315/345~430/29~45 midpoint 로 교정",
-   "src": "Ansys Granta MI — Carbon steel AISI 1015 annealed (사용자 제공 R226l) · ASM Vol.1 1015 annealed (σy 284/UTS 386/El 37)"
+   "hardness": 111,
+   "basis": "AISI 1015 annealed — DB 167/286/26 은 annealed 1015 표준 대비 과소(1008급 오염). Granta 밴드 255~315/345~430/29~45 midpoint 로 교정 | A3 철강 2027Q3 — 경도 83.6 HB 는 **AISI 1010 Annealed 의 경도와 글자 그대로 같은 값**이었다 — 탄소량이 다른 두 강이 같은 소둔 경도를 가질 수는 없으니, 계열 base 에 배율을 곱해 찍은 합성값이다. 이 entry 의 ys 285 / uts 385 / 연신 37% 는 이미 R226l 에서 Granta MI 데이터시트로 교정됐고, 그 세 값은 ASM 탄소강 표의 1015 소둔행(56,000 / 41,250 psi · 37.0% · 111 HB)과 사실상 일치한다. 같은 행의 경도를 가져와 행 전체를 한 출처로 맞춘다.",
+   "src": "Ansys Granta MI — Carbon steel AISI 1015 annealed (사용자 제공 R226l) · ASM Vol.1 1015 annealed (σy 284/UTS 386/El 37) | 경도: ASM 탄소강 대표물성 표 — AISI 1015, annealed 1600 F (56,000 / 41,250 psi · 37.0% · 111 HB); Engineers Edge 재수록 https://www.engineersedge.com/materials/carbon-steel-properties.htm"
   },
   "MET-0245": {
    "elongation": 36.5,
@@ -480,9 +473,12 @@
    "src": "Ansys Granta MI — Carbon steel AISI 1020 annealed (사용자 제공 R226l) · ASM Vol.1 1020 annealed (σy 295/UTS 395)"
   },
   "MET-0047": {
-   "elongation": 23,
-   "basis": "AISI 6150 annealed — DB El 12.1% 는 annealed 대역(18~28) 미달 (Q+T 값 혼입 의심). σy/UTS 는 대역 내 → El 만 교정",
-   "src": "Ansys Granta MI — Low alloy steel AISI 6150 annealed (사용자 제공 R226l: El 18~28) · ASM Vol.1 6150 annealed El ~23%"
+   "yield_strength": 412,
+   "uts": 667,
+   "elongation": 23.0,
+   "hardness": 197,
+   "basis": "인장 670 · 연신 23 · 경도 200 은 원전 소둔행(667 · 23.0 · 197)과 맞는데 **항복만 480 MPa 로 실제(412)보다 17% 높았다**. 소둔 상태 값으로 부품을 설계하면 안전쪽이 아니라 위험쪽으로 어긋나는 오류라 우선 교정한다. EMJ Sec.R 6150 소둔행(96,000 / 59,000 psi)도 같은 대역이다. (선행 부분교정을 대체한다 — 이전: {\"elongation\": 23} / Ansys Granta MI — Low alloy steel AISI 6150 annealed (사용자 제공 R226l: El 18~28) · ASM Vol.1 6150 annealed El ~23%)",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 6150 Oil-quenched 페이지의 Annealed 행, 1 in. round, 1500 F 소둔 (96,750 / 59,750 psi · 23.0% · RA 48.4% · HB 197) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
   },
   "MET-0780": {
    "yield_strength": 293,
@@ -1288,6 +1284,78 @@
    "density": 7.8,
    "basis": "AUD-3 D06(2026-09-22): 분포점(7.46)과 범위(7.83~7.87)가 서로 다른 입력이었다. Crucible CPM 3V 데이터시트 밀도는 0.28 lb/in³ = 7.80 g/cm³ — 7.46 은 CPM S30V(0.27 lb/in³) 값으로 보이고, 7.85 는 일반 강 계열 폴백이다. 데이터시트 값으로 통일하고 점은 재생성한다.",
    "src": "Crucible Industries CPM® 3V 데이터시트 — density 0.28 lb/in³ (7.80 g/cm³), E 30×10⁶ psi (207 GPa)"
+  },
+  "MET-0258": {
+   "yield_strength": 472,
+   "uts": 607,
+   "elongation": 28.0,
+   "hardness": 179,
+   "basis": "저장값 262.6 / 383.8 MPa 는 **같은 강의 소둔행(341 / 464)보다 낮았다** — 담금질·뜨임한 강이 소둔재보다 무른 경우는 없으므로 값 자체가 성립하지 않는다. 연신 28.0% 만 원전의 1000 F 뜨임행과 일치해서, 실제 행에서 연신만 살아남고 강도·경도는 배율로 덮인 흔적이다. 1 in. 봉 · 1600 F 수담금 · 1000 F(540°C) 뜨임행 전체로 바꾼다.",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 1030 Water-quenched MASS EFFECT, 1 in. round, 1600 F 담금 + 1000 F 뜨임 (88,000 / 68,500 psi · 28.0% · RA 68.6% · HB 179) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
+  },
+  "MET-0263": {
+   "yield_strength": 541,
+   "uts": 743,
+   "elongation": 23.2,
+   "hardness": 217,
+   "basis": "590 / 860 MPa · HB 250 은 어느 표에도 없는 값이었다 — 경도가 uts/3.4 로 계산돼 있어(HB/uts=0.291) 강도에서 역산한 파생값임이 드러난다. 1040 은 얕게 경화하는 강이라 뜸임온도·단면이 정해지지 않은 \"Q+T\" 는 의미가 없다. 원전의 1 in. 봉 · 1550 F 수담금 · 1000 F(540°C) 뜨임행으로 바꾸고, 이름·열처리 표기에 그 조건을 명시한다. EMJ Sec.R 1040 mass-effect 표가 같은 수치를 싣고 있어 이중 확인된다.",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 1040 Water-quenched MASS EFFECT, 1 in. round, 1550 F 담금 + 1000 F 뜨임 (107,750 / 78,500 psi · 23.2% · RA 62.6% · HB 217) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
+  },
+  "MET-0269": {
+   "yield_strength": 524,
+   "uts": 851,
+   "elongation": 20.2,
+   "hardness": 248,
+   "basis": "580 / 830 MPa · HB 245 는 출처가 없고, 1080·1095 의 Q+T 행과 **ys/uts 0.70 · HB/uts 0.295 라는 같은 비**를 공유했다 — 한 공식으로 함께 찍어낸 계열이다. 원전의 1 in. 봉 · 1550 F 유담금 · 1000 F(540°C) 뜨임행으로 바꾼다.",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 1050 Oil-quenched MASS EFFECT, 1 in. round, 1550 F 담금 + 1000 F 뜨임 (123,500 / 76,000 psi · 20.2% · RA 53.3% · HB 248) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
+  },
+  "MET-0274": {
+   "yield_strength": 714,
+   "uts": 1145,
+   "elongation": 15.0,
+   "hardness": 331,
+   "basis": "700 / 980 MPa · HB 290 은 출처가 없고 1050·1095 Q+T 와 같은 고정비(ys/uts 0.71 · HB/uts 0.296)를 따랐다. 원전의 1 in. 봉 · 1500 F 유담금 · 1000 F(540°C) 뜨임행으로 바꾼다.",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 1080 Oil-quenched MASS EFFECT, 1 in. round, 1500 F 담금 + 1000 F 뜨임 (166,000 / 103,500 psi · 15.0% · RA 37.6% · HB 331) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
+  },
+  "MET-0279": {
+   "yield_strength": 657,
+   "uts": 1101,
+   "elongation": 13.2,
+   "hardness": 321,
+   "basis": "인장 1100 MPa 는 원전 1000 F 뜨임행(1101)과 거의 같은데 항복만 770 MPa 로 실제(657)보다 17% 높았다 — 항복을 인장의 0.70 배로 계산해 넣은 자리다. 같은 행 전체(항복·연신·경도)로 맞춘다.",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 1095 Oil-quenched MASS EFFECT, 1 in. round, 1475 F 담금 + 1000 F 뜨임 (159,750 / 95,250 psi · 13.2% · RA 32.4% · HB 321) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
+  },
+  "MET-0086": {
+   "yield_strength": 379,
+   "uts": 729,
+   "elongation": 20.2,
+   "hardness": 197,
+   "basis": "저장값은 같은 base 안에서 ys·uts·경도 세 물성이 **같은 배율**로 맞물려 있었다 — 표에서 옮긴 값이 아니라 한 줄을 곱해 찍어낸 합성값이라는 뜻이다(memory/project_csv_generic_fabrication). 4150 세 조건(소둔·Q+T·냉간가공)이 서로 0.81481 · 0.93519 배율로 정확히 맞물려 있었다. 소둔값 704 / 968 MPa 는 원전 소둔행(379 / 729)의 두 배 가까운 강도로, 소둔재로 성립하지 않는다. 원전의 1 in. 봉 · 1525 F 소둔행으로 바꾼다.",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 4150 Oil-quenched 페이지의 Annealed 행, 1 in. round, 1525 F 소둔 (105,750 / 55,000 psi · 20.2% · RA 40.2% · HB 197) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
+  },
+  "MET-0089": {
+   "yield_strength": 1100,
+   "uts": 1208,
+   "elongation": 14.0,
+   "hardness": 352,
+   "basis": "저장값은 같은 base 안에서 ys·uts·경도 세 물성이 **같은 배율**로 맞물려 있었다 — 표에서 옮긴 값이 아니라 한 줄을 곱해 찍어낸 합성값이라는 뜻이다(memory/project_csv_generic_fabrication). 808 / 1111 MPa 는 냉간가공 행 × 0.93519 로 나온 자리였다. 원전의 1 in. 봉 · 1525 F 유담금 · 1000 F(540°C) 뜨임행으로 바꾸고 이름·열처리에 조건을 명시한다.",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 4150 Oil-quenched MASS EFFECT, 1 in. round, 1525 F 담금 + 1000 F 뜨임 (175,250 / 159,500 psi · 14.0% · RA 46.5% · HB 352) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
+  },
+  "MET-0040": {
+   "yield_strength": 293,
+   "uts": 572,
+   "elongation": 28.6,
+   "hardness": 167,
+   "basis": "ys 290 / uts 570 은 원전 소둔행(293 / 572)과 거의 맞았지만 연신 22% · 경도 170 HB 는 원전(28.6% · 167 HB)과 어긋나 있었다 — 행의 절반만 옮겨진 상태다. 네 값을 같은 행으로 통일한다.",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 5140 Oil-quenched 페이지의 Annealed 행, 1 in. round, 1525 F 소둔 (83,000 / 42,500 psi · 28.6% · RA 57.3% · HB 167) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
+  },
+  "MET-0043": {
+   "yield_strength": 838,
+   "uts": 972,
+   "elongation": 18.5,
+   "hardness": 293,
+   "basis": "저장값은 같은 base 안에서 ys·uts·경도 세 물성이 **같은 배율**로 맞물려 있었다 — 표에서 옮긴 값이 아니라 한 줄을 곱해 찍어낸 합성값이라는 뜻이다(memory/project_csv_generic_fabrication). 5140 의 Q+T(717.1 / 1010)와 냉간가공(766.8 / 1080) 행이 0.93519 배율로 맞물려 있었다. 원전의 1 in. 봉 · 1550 F 유담금 · 1000 F(540°C) 뜨임행으로 바꾸고 이름·열처리에 조건을 명시한다.",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 5140 Oil-quenched MASS EFFECT, 1 in. round, 1550 F 담금 + 1000 F 뜨임 (141,000 / 121,500 psi · 18.5% · RA 58.9% · HB 293) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
   }
  },
  "fields": {
@@ -1518,6 +1586,124 @@
    "name": "PSU Eviva (Syensqo/Solvay implantable-grade PSU) — Annealed",
    "basis": "AUD F11 잔여(2026-09-22): 이름의 \"(BASF clear PSU)\" 는 오귀속 — Eviva® 는 BASF 가 아니라 Syensqo(구 Solvay) 의 이식용(implantable) 폴리설폰 상표(EV-25000/26000, ISO 13485 공장, FDA MAF). 출처의 BASF Eviva URL 도 존재하지 않았다. 값(Udel PSU 급 PSU 물성)은 그대로, 귀속만 바로잡는다.",
    "src": "Syensqo Eviva® EV-25000 product page (2026-09-22 확인) · UL Prospector Eviva® datasheet"
+  },
+  "MET-0258": {
+   "name": "AISI 1030 — Q+T (540°C)",
+   "heat_treatment": "Quenched + Tempered (540°C, water-quenched)",
+   "basis": "경화강의 Q+T 값은 뜨임온도와 단면 치수가 정해져야 의미가 있다 — 뜨임온도가 빠진 \"Quenched / tempered\" 는 같은 강에서 항복이 두 배 넘게 갈리는 구간 전체를 한 줄로 뭉갠 표기다. 값을 원전의 1 in. 봉 · 1000 F(540°C) 뜨임행으로 교정하면서, 이름과 열처리 표기도 그 조건으로 바꿔 값과 라벨이 같은 것을 가리키게 한다(4130 \"Q+T (550°C)\" · 4340 \"Q+T (200°C, full hard)\" 와 같은 형식).",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — grade 별 MASS EFFECT 표의 뜨임온도·단면 표기 · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
+  },
+  "MET-0263": {
+   "name": "AISI 1040 — Q+T (540°C)",
+   "heat_treatment": "Quenched + Tempered (540°C, water-quenched)",
+   "basis": "경화강의 Q+T 값은 뜨임온도와 단면 치수가 정해져야 의미가 있다 — 뜨임온도가 빠진 \"Quenched / tempered\" 는 같은 강에서 항복이 두 배 넘게 갈리는 구간 전체를 한 줄로 뭉갠 표기다. 값을 원전의 1 in. 봉 · 1000 F(540°C) 뜨임행으로 교정하면서, 이름과 열처리 표기도 그 조건으로 바꿔 값과 라벨이 같은 것을 가리키게 한다(4130 \"Q+T (550°C)\" · 4340 \"Q+T (200°C, full hard)\" 와 같은 형식).",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — grade 별 MASS EFFECT 표의 뜨임온도·단면 표기 · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
+  },
+  "MET-0269": {
+   "name": "AISI 1050 — Q+T (540°C)",
+   "heat_treatment": "Quenched + Tempered (540°C, oil-quenched)",
+   "basis": "경화강의 Q+T 값은 뜨임온도와 단면 치수가 정해져야 의미가 있다 — 뜨임온도가 빠진 \"Quenched / tempered\" 는 같은 강에서 항복이 두 배 넘게 갈리는 구간 전체를 한 줄로 뭉갠 표기다. 값을 원전의 1 in. 봉 · 1000 F(540°C) 뜨임행으로 교정하면서, 이름과 열처리 표기도 그 조건으로 바꿔 값과 라벨이 같은 것을 가리키게 한다(4130 \"Q+T (550°C)\" · 4340 \"Q+T (200°C, full hard)\" 와 같은 형식).",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — grade 별 MASS EFFECT 표의 뜨임온도·단면 표기 · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
+  },
+  "MET-0274": {
+   "name": "AISI 1080 — Q+T (540°C)",
+   "heat_treatment": "Quenched + Tempered (540°C, oil-quenched)",
+   "basis": "경화강의 Q+T 값은 뜨임온도와 단면 치수가 정해져야 의미가 있다 — 뜨임온도가 빠진 \"Quenched / tempered\" 는 같은 강에서 항복이 두 배 넘게 갈리는 구간 전체를 한 줄로 뭉갠 표기다. 값을 원전의 1 in. 봉 · 1000 F(540°C) 뜨임행으로 교정하면서, 이름과 열처리 표기도 그 조건으로 바꿔 값과 라벨이 같은 것을 가리키게 한다(4130 \"Q+T (550°C)\" · 4340 \"Q+T (200°C, full hard)\" 와 같은 형식).",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — grade 별 MASS EFFECT 표의 뜨임온도·단면 표기 · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
+  },
+  "MET-0279": {
+   "name": "AISI 1095 — Q+T (540°C)",
+   "heat_treatment": "Quenched + Tempered (540°C, oil-quenched)",
+   "basis": "경화강의 Q+T 값은 뜨임온도와 단면 치수가 정해져야 의미가 있다 — 뜨임온도가 빠진 \"Quenched / tempered\" 는 같은 강에서 항복이 두 배 넘게 갈리는 구간 전체를 한 줄로 뭉갠 표기다. 값을 원전의 1 in. 봉 · 1000 F(540°C) 뜨임행으로 교정하면서, 이름과 열처리 표기도 그 조건으로 바꿔 값과 라벨이 같은 것을 가리키게 한다(4130 \"Q+T (550°C)\" · 4340 \"Q+T (200°C, full hard)\" 와 같은 형식).",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — grade 별 MASS EFFECT 표의 뜨임온도·단면 표기 · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
+  },
+  "MET-0089": {
+   "name": "AISI 4150 — Q+T (540°C)",
+   "heat_treatment": "Quenched + Tempered (540°C, oil-quenched)",
+   "basis": "경화강의 Q+T 값은 뜨임온도와 단면 치수가 정해져야 의미가 있다 — 뜨임온도가 빠진 \"Quenched / tempered\" 는 같은 강에서 항복이 두 배 넘게 갈리는 구간 전체를 한 줄로 뭉갠 표기다. 값을 원전의 1 in. 봉 · 1000 F(540°C) 뜨임행으로 교정하면서, 이름과 열처리 표기도 그 조건으로 바꿔 값과 라벨이 같은 것을 가리키게 한다(4130 \"Q+T (550°C)\" · 4340 \"Q+T (200°C, full hard)\" 와 같은 형식).",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — grade 별 MASS EFFECT 표의 뜨임온도·단면 표기 · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
+  },
+  "MET-0043": {
+   "name": "AISI 5140 — Q+T (540°C)",
+   "heat_treatment": "Quenched + Tempered (540°C, oil-quenched)",
+   "basis": "경화강의 Q+T 값은 뜨임온도와 단면 치수가 정해져야 의미가 있다 — 뜨임온도가 빠진 \"Quenched / tempered\" 는 같은 강에서 항복이 두 배 넘게 갈리는 구간 전체를 한 줄로 뭉갠 표기다. 값을 원전의 1 in. 봉 · 1000 F(540°C) 뜨임행으로 교정하면서, 이름과 열처리 표기도 그 조건으로 바꿔 값과 라벨이 같은 것을 가리키게 한다(4130 \"Q+T (550°C)\" · 4340 \"Q+T (200°C, full hard)\" 와 같은 형식).",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — grade 별 MASS EFFECT 표의 뜨임온도·단면 표기 · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
+  },
+  "MET-0050": {
+   "name": "AISI 6150 — Q+T (540°C)",
+   "heat_treatment": "Quenched + Tempered (540°C, oil-quenched)",
+   "basis": "경화강의 Q+T 값은 뜨임온도와 단면 치수가 정해져야 의미가 있다 — 뜨임온도가 빠진 \"Quenched / tempered\" 는 같은 강에서 항복이 두 배 넘게 갈리는 구간 전체를 한 줄로 뭉갠 표기다. 값을 원전의 1 in. 봉 · 1000 F(540°C) 뜨임행으로 교정하면서, 이름과 열처리 표기도 그 조건으로 바꿔 값과 라벨이 같은 것을 가리키게 한다(4130 \"Q+T (550°C)\" · 4340 \"Q+T (200°C, full hard)\" 와 같은 형식).",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — grade 별 MASS EFFECT 표의 뜨임온도·단면 표기 · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
+  },
+  "MET-0255": {
+   "name": "AISI 1030 — Annealed",
+   "basis": "A3 철강 2027Q3 — 같은 base 의 Q+T 행을 원전의 뜨임조건 표기('Q+T (540°C)')로 바꾸면서 사다리 안에서 '(Wrought)' 접미가 붙은 행과 안 붙은 행이 섞였다. 공정은 별도 필드로 이미 보이므로 접미를 떼어 AA 6061·AA 1050 사다리와 같은 형식으로 통일한다. 값·공정·열처리는 불변.",
+   "src": "A3 철강 re-verify 2027Q3 (표기 통일 — A3 Al 2026Q4 와 같은 규칙)"
+  },
+  "MET-0259": {
+   "name": "AISI 1030 — Strain-hardened",
+   "basis": "A3 철강 2027Q3 — 같은 base 의 Q+T 행을 원전의 뜨임조건 표기('Q+T (540°C)')로 바꾸면서 사다리 안에서 '(Wrought)' 접미가 붙은 행과 안 붙은 행이 섞였다. 공정은 별도 필드로 이미 보이므로 접미를 떼어 AA 6061·AA 1050 사다리와 같은 형식으로 통일한다. 값·공정·열처리는 불변.",
+   "src": "A3 철강 re-verify 2027Q3 (표기 통일 — A3 Al 2026Q4 와 같은 규칙)"
+  },
+  "MET-0260": {
+   "name": "AISI 1040 — Annealed",
+   "basis": "A3 철강 2027Q3 — 같은 base 의 Q+T 행을 원전의 뜨임조건 표기('Q+T (540°C)')로 바꾸면서 사다리 안에서 '(Wrought)' 접미가 붙은 행과 안 붙은 행이 섞였다. 공정은 별도 필드로 이미 보이므로 접미를 떼어 AA 6061·AA 1050 사다리와 같은 형식으로 통일한다. 값·공정·열처리는 불변.",
+   "src": "A3 철강 re-verify 2027Q3 (표기 통일 — A3 Al 2026Q4 와 같은 규칙)"
+  },
+  "MET-0264": {
+   "name": "AISI 1040 — Strain-hardened",
+   "basis": "A3 철강 2027Q3 — 같은 base 의 Q+T 행을 원전의 뜨임조건 표기('Q+T (540°C)')로 바꾸면서 사다리 안에서 '(Wrought)' 접미가 붙은 행과 안 붙은 행이 섞였다. 공정은 별도 필드로 이미 보이므로 접미를 떼어 AA 6061·AA 1050 사다리와 같은 형식으로 통일한다. 값·공정·열처리는 불변.",
+   "src": "A3 철강 re-verify 2027Q3 (표기 통일 — A3 Al 2026Q4 와 같은 규칙)"
+  },
+  "MET-0266": {
+   "name": "AISI 1050 — Annealed",
+   "basis": "A3 철강 2027Q3 — 같은 base 의 Q+T 행을 원전의 뜨임조건 표기('Q+T (540°C)')로 바꾸면서 사다리 안에서 '(Wrought)' 접미가 붙은 행과 안 붙은 행이 섞였다. 공정은 별도 필드로 이미 보이므로 접미를 떼어 AA 6061·AA 1050 사다리와 같은 형식으로 통일한다. 값·공정·열처리는 불변.",
+   "src": "A3 철강 re-verify 2027Q3 (표기 통일 — A3 Al 2026Q4 와 같은 규칙)"
+  },
+  "MET-0270": {
+   "name": "AISI 1050 — Strain-hardened",
+   "basis": "A3 철강 2027Q3 — 같은 base 의 Q+T 행을 원전의 뜨임조건 표기('Q+T (540°C)')로 바꾸면서 사다리 안에서 '(Wrought)' 접미가 붙은 행과 안 붙은 행이 섞였다. 공정은 별도 필드로 이미 보이므로 접미를 떼어 AA 6061·AA 1050 사다리와 같은 형식으로 통일한다. 값·공정·열처리는 불변.",
+   "src": "A3 철강 re-verify 2027Q3 (표기 통일 — A3 Al 2026Q4 와 같은 규칙)"
+  },
+  "MET-0271": {
+   "name": "AISI 1080 — Annealed",
+   "basis": "A3 철강 2027Q3 — 같은 base 의 Q+T 행을 원전의 뜨임조건 표기('Q+T (540°C)')로 바꾸면서 사다리 안에서 '(Wrought)' 접미가 붙은 행과 안 붙은 행이 섞였다. 공정은 별도 필드로 이미 보이므로 접미를 떼어 AA 6061·AA 1050 사다리와 같은 형식으로 통일한다. 값·공정·열처리는 불변.",
+   "src": "A3 철강 re-verify 2027Q3 (표기 통일 — A3 Al 2026Q4 와 같은 규칙)"
+  },
+  "MET-0275": {
+   "name": "AISI 1080 — Strain-hardened",
+   "basis": "A3 철강 2027Q3 — 같은 base 의 Q+T 행을 원전의 뜨임조건 표기('Q+T (540°C)')로 바꾸면서 사다리 안에서 '(Wrought)' 접미가 붙은 행과 안 붙은 행이 섞였다. 공정은 별도 필드로 이미 보이므로 접미를 떼어 AA 6061·AA 1050 사다리와 같은 형식으로 통일한다. 값·공정·열처리는 불변.",
+   "src": "A3 철강 re-verify 2027Q3 (표기 통일 — A3 Al 2026Q4 와 같은 규칙)"
+  },
+  "MET-0276": {
+   "name": "AISI 1095 — Annealed",
+   "basis": "A3 철강 2027Q3 — 같은 base 의 Q+T 행을 원전의 뜨임조건 표기('Q+T (540°C)')로 바꾸면서 사다리 안에서 '(Wrought)' 접미가 붙은 행과 안 붙은 행이 섞였다. 공정은 별도 필드로 이미 보이므로 접미를 떼어 AA 6061·AA 1050 사다리와 같은 형식으로 통일한다. 값·공정·열처리는 불변.",
+   "src": "A3 철강 re-verify 2027Q3 (표기 통일 — A3 Al 2026Q4 와 같은 규칙)"
+  },
+  "MET-0280": {
+   "name": "AISI 1095 — Strain-hardened",
+   "basis": "A3 철강 2027Q3 — 같은 base 의 Q+T 행을 원전의 뜨임조건 표기('Q+T (540°C)')로 바꾸면서 사다리 안에서 '(Wrought)' 접미가 붙은 행과 안 붙은 행이 섞였다. 공정은 별도 필드로 이미 보이므로 접미를 떼어 AA 6061·AA 1050 사다리와 같은 형식으로 통일한다. 값·공정·열처리는 불변.",
+   "src": "A3 철강 re-verify 2027Q3 (표기 통일 — A3 Al 2026Q4 와 같은 규칙)"
+  },
+  "MET-0086": {
+   "name": "AISI 4150 — Annealed",
+   "basis": "A3 철강 2027Q3 — 같은 base 의 Q+T 행을 원전의 뜨임조건 표기('Q+T (540°C)')로 바꾸면서 사다리 안에서 '(Wrought)' 접미가 붙은 행과 안 붙은 행이 섞였다. 공정은 별도 필드로 이미 보이므로 접미를 떼어 AA 6061·AA 1050 사다리와 같은 형식으로 통일한다. 값·공정·열처리는 불변.",
+   "src": "A3 철강 re-verify 2027Q3 (표기 통일 — A3 Al 2026Q4 와 같은 규칙)"
+  },
+  "MET-0040": {
+   "name": "AISI 5140 — Annealed",
+   "basis": "A3 철강 2027Q3 — 같은 base 의 Q+T 행을 원전의 뜨임조건 표기('Q+T (540°C)')로 바꾸면서 사다리 안에서 '(Wrought)' 접미가 붙은 행과 안 붙은 행이 섞였다. 공정은 별도 필드로 이미 보이므로 접미를 떼어 AA 6061·AA 1050 사다리와 같은 형식으로 통일한다. 값·공정·열처리는 불변.",
+   "src": "A3 철강 re-verify 2027Q3 (표기 통일 — A3 Al 2026Q4 와 같은 규칙)"
+  },
+  "MET-0047": {
+   "name": "AISI 6150 — Annealed",
+   "basis": "A3 철강 2027Q3 — 같은 base 의 Q+T 행을 원전의 뜨임조건 표기('Q+T (540°C)')로 바꾸면서 사다리 안에서 '(Wrought)' 접미가 붙은 행과 안 붙은 행이 섞였다. 공정은 별도 필드로 이미 보이므로 접미를 떼어 AA 6061·AA 1050 사다리와 같은 형식으로 통일한다. 값·공정·열처리는 불변.",
+   "src": "A3 철강 re-verify 2027Q3 (표기 통일 — A3 Al 2026Q4 와 같은 규칙)"
+  },
+  "MET-1003": {
+   "name": "AISI 6150 — Normalized",
+   "basis": "A3 철강 2027Q3 — 같은 base 의 Q+T 행을 원전의 뜨임조건 표기('Q+T (540°C)')로 바꾸면서 사다리 안에서 '(Wrought)' 접미가 붙은 행과 안 붙은 행이 섞였다. 공정은 별도 필드로 이미 보이므로 접미를 떼어 AA 6061·AA 1050 사다리와 같은 형식으로 통일한다. 값·공정·열처리는 불변.",
+   "src": "A3 철강 re-verify 2027Q3 (표기 통일 — A3 Al 2026Q4 와 같은 규칙)"
   }
  }
 }

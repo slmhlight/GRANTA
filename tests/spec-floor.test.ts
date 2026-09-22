@@ -19,7 +19,7 @@ import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 
-type Range = { typical?: number; basis?: string; basis_source?: string; provenance?: string };
+type Range = { typical?: number; basis?: string; basis_source?: string; basis_note?: string; basis_verified?: string; provenance?: string };
 type Mat = { id: string; stable_id?: string; name: string; ranges?: Record<string, Range | undefined> };
 
 const raw = JSON.parse(fs.readFileSync(path.resolve('client/public/materials.json'), 'utf8'));
@@ -59,10 +59,15 @@ describe('E4 — 규격 하한(basis=min_spec) 표기', () => {
     expect(near, '근접(±2%) 사례가 0 — 확인 대상 표시가 공회전').toBeGreaterThan(10);
   });
 
-  it("basis='min_spec' 은 교정이 선언한 것만 남는다 (자동 부여 중단)", () => {
-    expect(floors.length).toBeLessThan(20);
+  it("basis='min_spec' 은 사람이 선언한 것만 남는다 (자동 부여 중단)", () => {
+    /* 선언 경로는 두 가지다. ① data/spec-floor-declarations.json — 원문을 대조하고 std·note·verified 를 적은 것
+       ② data/corrections/ 의 basis_kind 교정 — provenance 에 인용이 남는 것. 둘 중 하나가 없으면 그 배지는
+       "왜 하한인지" 를 못 댄다. 자동 ±2% 스탬프였다면 100건 안팎이었을 자리다. */
+    expect(floors.length).toBeLessThan(40);
     for (const { m, prop, r } of floors) {
-      expect(String(r.provenance ?? ''), `${m.id} ${prop} — 선언 근거(교정 인용)가 없다`).toMatch(/교정:/);
+      const declared = !!(r.basis_source && r.basis_note && r.basis_verified);
+      const corrected = /교정:/.test(String(r.provenance ?? ''));
+      expect(declared || corrected, `${m.id} ${prop} — 선언 근거(원문 대조 기록 또는 교정 인용)가 없다`).toBe(true);
     }
   });
 

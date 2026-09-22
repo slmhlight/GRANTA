@@ -1,0 +1,123 @@
+{
+ "_note": "AUD-3 D04 (2026-09-22) — 규격 하한 **선언** 파일. 표시값이 규격의 보증 최소값과 같다는 사실은 수치 근접(±2%)으로 판정하지 않는다(그 규칙은 폐기). 이 파일에 사람이 원문을 대조해 '이 entry 의 이 물성 값은 인용 규격의 최소값이다' 라고 적은 것만 build-from-registry 가 basis='min_spec' 으로 스탬프한다. 근거 없는 선언을 막기 위해 std(규격·판/등급)·note(원문에서 확인한 내용)·verified(대조일) 가 전부 필수이며, 게이트 tests/spec-floor.test.ts 가 형식과 값 일치(표시값 = 표의 최소값)를 검사한다.",
+ "_how": "props 에 적은 물성만 선언 대상. 선언된 (entry, prop) 은 min_spec_value 병기 대상에서 빠진다 — 같은 축을 두 번 말하지 않기 위해서다.",
+ "declarations": [
+  {
+   "stable_id": "MET-0847",
+   "legacy_id": "R_0115_0",
+   "name": "ASTM A36 — As-rolled (minimum spec)",
+   "props": ["yield_strength"],
+   "std": "ASTM A36/A36M-19",
+   "note": "A36 은 항복강도를 최소값으로만 규정한다(250 MPa / 36 ksi, 두께 ≤8 in). 이 행의 σy 250 은 대표값이 아니라 그 하한이다. 인장강도는 400–550 MPa 대역이라 이 행의 475 는 대역 중앙(하한 아님).",
+   "verified": "2026-09-22"
+  },
+  {
+   "stable_id": "MET-0849",
+   "legacy_id": "R_0115_1",
+   "name": "ASTM A36 — As-rolled (thinner section, lower UTS)",
+   "props": ["yield_strength", "uts"],
+   "std": "ASTM A36/A36M-19",
+   "note": "σy 250 = 규격 최소, UTS 400 = 규격 인장 대역(400–550)의 하한. 두 값 모두 이 행이 대역의 아래 끝을 나타내려고 실은 숫자다.",
+   "verified": "2026-09-22"
+  },
+  {
+   "stable_id": "MET-0848",
+   "legacy_id": "R_0115_2",
+   "name": "ASTM A36 — As-rolled (thicker section, higher UTS)",
+   "props": ["yield_strength"],
+   "std": "ASTM A36/A36M-19",
+   "note": "σy 250 = 규격 최소. UTS 550 은 대역(400–550)의 위 끝이라 하한이 아니다.",
+   "verified": "2026-09-22"
+  },
+  {
+   "stable_id": "MET-0851",
+   "legacy_id": "R_0116_0",
+   "name": "ASTM A572 Grade 50 — hot-rolled",
+   "props": ["yield_strength", "uts"],
+   "std": "ASTM A572/A572M-21 Grade 50",
+   "note": "Grade 50 은 σy ≥ 345 MPa(50 ksi) · UTS ≥ 450 MPa(65 ksi) 를 최소값으로 규정한다. 이 행의 345/450 은 그 하한 그대로다.",
+   "verified": "2026-09-22"
+  },
+  {
+   "stable_id": "MET-0850",
+   "legacy_id": "R_0116_1",
+   "name": "ASTM A572 Grade 50 — heavy section",
+   "props": ["yield_strength"],
+   "std": "ASTM A572/A572M-21 Grade 50",
+   "note": "σy 345 = 규격 최소. UTS 485 는 두꺼운 단면의 대표값으로 실린 값이라 하한이 아니다.",
+   "verified": "2026-09-22"
+  },
+  {
+   "stable_id": "MET-0459",
+   "legacy_id": "R_0432_0",
+   "name": "ASTM A588 Grade A — as-rolled",
+   "props": ["yield_strength", "uts"],
+   "std": "ASTM A588/A588M-19 Grade A (두께 ≤100 mm)",
+   "note": "Grade A ≤4 in 은 σy ≥ 345 MPa(50 ksi) · UTS ≥ 485 MPa(70 ksi). 이 entry 는 AUD-1 에서 σy 250(A36 값 오기) → 345 로 교정하며 규격 숫자를 그대로 쓴 행이다.",
+   "verified": "2026-09-22"
+  },
+  {
+   "stable_id": "MET-0843",
+   "legacy_id": "R_0375_0",
+   "name": "ASTM A992 — as-rolled W-shape",
+   "props": ["yield_strength", "uts"],
+   "std": "ASTM A992/A992M-22",
+   "note": "A992 는 σy 345–450 MPa(50–65 ksi) 범위와 UTS ≥ 450 MPa(65 ksi) 를 규정한다. 이 행의 345/450 은 각각 항복 범위의 하한과 인장 최소값이다.",
+   "verified": "2026-09-22"
+  },
+  {
+   "stable_id": "MET-0233",
+   "legacy_id": "R_0117",
+   "name": "ASTM A516 Grade 70 (pressure-vessel plate)",
+   "props": ["yield_strength", "uts"],
+   "std": "ASTM A516/A516M-17 Grade 70",
+   "note": "Grade 70 은 σy ≥ 260 MPa(38 ksi) · UTS 485–620 MPa(70–90 ksi). 표시값 260/485 는 각각 그 최소값이다(UTS 는 규정 대역의 하한). 같은 행의 범위는 규격 대역으로 맞췄다.",
+   "verified": "2026-09-22"
+  },
+  {
+   "stable_id": "MET-0491",
+   "legacy_id": "R_0026_0",
+   "name": "API 5L X42N / L290N (PSL2, normalized)",
+   "props": ["yield_strength", "uts"],
+   "std": "API 5L 46th / ISO 3183 PSL2 X42N (L290N)",
+   "note": "PSL2 X42N 은 σy 290–495 MPa · UTS 415–655 MPa 를 규정한다. 표시값 290/415 는 각각 그 하한이다.",
+   "verified": "2026-09-22"
+  },
+  {
+   "stable_id": "MET-0285",
+   "legacy_id": "R_0428_0",
+   "name": "API 5L X70 / L485 (PSL2, TMCP)",
+   "props": ["yield_strength", "uts"],
+   "std": "API 5L / ISO 3183 PSL2 X70 (L485)",
+   "note": "PSL2 X70 은 σy ≥ 485 MPa(70,300 psi) · UTS ≥ 570 MPa(82,700 psi). UTS 는 AUD-3 에서 565 → 570 으로 규격 숫자에 맞췄고, 두 값 모두 하한이다.",
+   "verified": "2026-09-22"
+  },
+  {
+   "stable_id": "MET-0286",
+   "legacy_id": "R_0427_0",
+   "name": "API 5L X80 / L555 (PSL2, TMCP)",
+   "props": ["yield_strength", "uts"],
+   "std": "API 5L / ISO 3183 PSL2 X80 (L555)",
+   "note": "PSL2 X80 은 σy ≥ 555 MPa(80,500 psi) · UTS ≥ 625 MPa(90,600 psi). 표시값이 그 하한이다.",
+   "verified": "2026-09-22"
+  },
+  {
+   "stable_id": "MET-0993",
+   "legacy_id": "R_0450",
+   "name": "ASTM A216 WCB (cast carbon steel)",
+   "props": ["yield_strength"],
+   "std": "ASTM A216/A216M-18 Grade WCB",
+   "note": "WCB 는 σy ≥ 250 MPa(36 ksi) · UTS 485–655 MPa(70–95 ksi). σy 250 은 하한이고, UTS 520 은 대역 안의 대표값이라 하한이 아니다.",
+   "verified": "2026-09-22"
+  },
+  {
+   "stable_id": "MET-0994",
+   "legacy_id": "R_0451",
+   "name": "ASTM A216 WCC (cast carbon steel)",
+   "props": ["yield_strength"],
+   "std": "ASTM A216/A216M-18 Grade WCC",
+   "note": "WCC 는 σy ≥ 275 MPa(40 ksi) · UTS 485–655 MPa(70–95 ksi). σy 275 은 하한, UTS 520 은 대역 안 대표값.",
+   "verified": "2026-09-22"
+  }
+ ]
+}

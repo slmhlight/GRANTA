@@ -224,6 +224,9 @@ export interface PropertyRange {
   basis?: 'min_spec';
   /** AUD-3 D04 — 표시값이 인용 규격의 최소값 ±2% 안. "대표값인지 하한인지 출처 확인 대상" 이라는 표시일 뿐, 하한 선언이 아니다. */
   near_min_spec?: boolean;
+  /** A3 철강/D04 — 규격 하한 선언의 원문 대조 기록(무엇을 확인했는가)·대조일. */
+  basis_note?: string;
+  basis_verified?: string;
   /** E4 — basis 의 근거 규격 (예: "ASTM A240/A240M", "EN 10025-2"). min-spec 표의 std. */
   basis_source?: string;
 }
