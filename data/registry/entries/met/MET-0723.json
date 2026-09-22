@@ -168,15 +168,16 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived",
-      "provenance": "R205-R price_per_kg × ρ 재계산"
+      "provenance": "price_per_kg × ρ 재계산"
     },
     "delivered_price_per_kg": {
-      "min": 5.75,
-      "max": 5.75,
-      "typical": 5.75,
+      "min": 6.36,
+      "max": 6.36,
+      "typical": 6.36,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 5.2 × condition 1.02 × form 1.2 × grade 1 = 6.36 USD/kg"
     }
   },
   "composition": {
@@ -264,7 +265,7 @@
   "poisson_ratio": 0.29,
   "specific_heat": 500,
   "melting_point": 1450,
-  "price_per_kg": 4.7,
+  "price_per_kg": 5.2,
   "price_per_cm3": 0.0412,
   "popularity": 4,
   "machining_cost_factor": 1.3,
@@ -272,8 +273,8 @@
   "price_condition_factor": 1.02,
   "price_form_factor": 1.2,
   "price_grade_premium": 1,
-  "delivered_price_per_kg": 5.75,
-  "total_cost_estimate": 13.23,
+  "delivered_price_per_kg": 6.36,
+  "total_cost_estimate": 14.63,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "svhc_concerns": [

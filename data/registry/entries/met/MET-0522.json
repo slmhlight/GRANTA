@@ -88,7 +88,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "class",
-      "provenance": "class:Ni-based superalloy × HT:annealed (i×1.5)"
+      "provenance": "class:Ni-based superalloy × HT:annealed (i×1.5)",
+      "base_value": 60,
+      "base_range": [
+        30,
+        100
+      ],
+      "factor": 1.5,
+      "condition": "annealed",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 98,
@@ -96,7 +104,16 @@
       "typical": 140,
       "n": 0,
       "confidence": "class",
-      "provenance": "class:Special Metals/Haynes general × HT:annealed (k×1.4)"
+      "provenance": "class:Special Metals/Haynes general × HT:annealed (k×1.4)",
+      "estimated": true,
+      "base_value": 100,
+      "base_range": [
+        70,
+        130
+      ],
+      "factor": 1.4,
+      "condition": "annealed",
+      "model": "ht-multiplier:kic"
     },
     "electrical_conductivity": {
       "min": 0.85,
@@ -176,7 +193,8 @@
       "typical": 105,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 80 × condition 1.25 × form 1.05 × grade 1 = 105 USD/kg"
     }
   },
   "composition": {

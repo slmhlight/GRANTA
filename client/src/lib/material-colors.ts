@@ -78,11 +78,12 @@ export const propColor = (key: string): string => GROUP_COLORS[PROP_GROUP[key] |
  * ─────────────────────────────────────────────────────────────────────── */
 export type ConfidenceLevel = 'measured' | 'handbook' | 'subfamily' | 'family' | 'class' | 'derived';
 export const CONFIDENCE_ORDER: ConfidenceLevel[] = ['measured', 'handbook', 'subfamily', 'family', 'class', 'derived'];
-export const CONFIDENCE: Record<ConfidenceLevel, { hex: string; twDot: string; twText: string; label: string; labelEn: string; tip: string }> = {
-  measured:  { hex: '#10b981', twDot: 'bg-emerald-500', twText: 'text-foreground/50', label: '실측',    labelEn: 'measured', tip: '실측(측정) 값 — 배지의 n=N 이 표본 수. n 이 작으면 단일 대표값에 가깝고, 실측이라도 시험 조건·통계 기준은 출처에서 확인' },
-  handbook:  { hex: '#0ea5e9', twDot: 'bg-sky-500',     twText: 'text-sky-600',       label: '핸드북',  labelEn: 'handbook', tip: '표준 데이터시트 기반 (개별 alloy 1차 자료)' },
-  subfamily: { hex: '#3b82f6', twDot: 'bg-blue-500',    twText: 'text-blue-600',      label: 'sub-fam', labelEn: 'sub-fam',  tip: '3rd family typical (예: 스테인리스 austenitic / Al 7xxx 등 — 특정 subgroup)' },
-  family:    { hex: '#06b6d4', twDot: 'bg-cyan-500',    twText: 'text-cyan-600',      label: 'family',  labelEn: 'family',   tip: '2nd family typical (예: 스테인리스 일반 / Al 일반 등 — group)' },
-  class:     { hex: '#f59e0b', twDot: 'bg-amber-500',   twText: 'text-amber-600',     label: 'class',   labelEn: 'class',    tip: '1st family / category typical (예: Iron-based 일반 / Polymer 일반)' },
-  derived:   { hex: '#f43f5e', twDot: 'bg-rose-500',    twText: 'text-rose-500',      label: '유도',    labelEn: 'derived',  tip: '다른 물성에서 유도된 값' },
+/* AUD F23 (2026-09-22) — tipEn: 영어 모드 툴팁(RangeRow 가 lang 에 따라 고른다). */
+export const CONFIDENCE: Record<ConfidenceLevel, { hex: string; twDot: string; twText: string; label: string; labelEn: string; tip: string; tipEn: string }> = {
+  measured:  { hex: '#10b981', twDot: 'bg-emerald-500', twText: 'text-foreground/50', label: '실측',    labelEn: 'measured', tip: '실측(측정) 값 — 배지의 n=N 이 표본 수. n 이 작으면 단일 대표값에 가깝고, 실측이라도 시험 조건·통계 기준은 출처에서 확인', tipEn: 'Measured value — n=N on the badge is the sample count. Small n is close to a single representative value; check test conditions and statistics in the source.' },
+  handbook:  { hex: '#0ea5e9', twDot: 'bg-sky-500',     twText: 'text-sky-600',       label: '핸드북',  labelEn: 'handbook', tip: '표준 데이터시트 기반 (개별 alloy 1차 자료)', tipEn: 'From a standard datasheet / handbook (primary data for this alloy)' },
+  subfamily: { hex: '#3b82f6', twDot: 'bg-blue-500',    twText: 'text-blue-600',      label: 'sub-fam', labelEn: 'sub-fam',  tip: '3rd family typical (예: 스테인리스 austenitic / Al 7xxx 등 — 특정 subgroup)', tipEn: 'Sub-family typical (e.g. austenitic stainless / Al 7xxx — a specific subgroup), not this alloy' },
+  family:    { hex: '#06b6d4', twDot: 'bg-cyan-500',    twText: 'text-cyan-600',      label: 'family',  labelEn: 'family',   tip: '2nd family typical (예: 스테인리스 일반 / Al 일반 등 — group)', tipEn: 'Family typical (e.g. stainless in general / aluminium in general — a group), not this alloy' },
+  class:     { hex: '#f59e0b', twDot: 'bg-amber-500',   twText: 'text-amber-600',     label: 'class',   labelEn: 'class',    tip: '1st family / category typical (예: Iron-based 일반 / Polymer 일반)', tipEn: 'Class / category typical (e.g. iron-based in general / polymers in general) — an estimate' },
+  derived:   { hex: '#f43f5e', twDot: 'bg-rose-500',    twText: 'text-rose-500',      label: '유도',    labelEn: 'derived',  tip: '다른 물성에서 유도된 값', tipEn: 'Derived from other properties' },
 };

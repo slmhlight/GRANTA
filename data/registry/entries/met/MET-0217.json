@@ -91,17 +91,28 @@
       "min": 60,
       "max": 110,
       "typical": 80,
-      "n": 3,
+      "n": 0,
       "confidence": "handbook",
-      "provenance": "realprops:alsi10mg × HT:O (annealed soft, fallback derived from T6) (f×0.4, i×3)"
+      "provenance": "realprops:alsi10mg × HT:O (annealed soft, fallback derived from T6) (f×0.4, i×3)",
+      "estimated": false
     },
     "impact_strength": {
       "min": 9,
       "max": 15,
       "typical": 12,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:alsi10mg × HT:O (annealed soft, fallback derived from T6) (f×0.4, i×3)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:alsi10mg × HT:O (annealed soft, fallback derived from T6) (f×0.4, i×3)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 4,
+      "base_range": [
+        3,
+        5
+      ],
+      "factor": 3,
+      "condition": "O (annealed soft, fallback derived from T6)",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 36,
@@ -193,7 +204,8 @@
       "typical": 20.4,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 8 × condition 1.02 × form 2.5 × grade 1 = 20.4 USD/kg"
     }
   },
   "composition": {
@@ -314,7 +326,7 @@
     "Aluminum",
     "Aluminum-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "elevated_temp": [
     {
       "temp": 20,

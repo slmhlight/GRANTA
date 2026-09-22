@@ -28,16 +28,39 @@ export const basePath = () => {
 /** 라우트 목록 — App.tsx 와 동일 (게이트: tests/static-routes.test.ts) */
 export function listRoutes() {
   const toc = fs.readFileSync(path.join(ROOT, 'client/src/pages/guide/toc.ts'), 'utf8');
-  const chapters = [...toc.matchAll(/\{\s*id:\s*'([^']+)',\s*n:\s*\d+,\s*label:\s*[`'"]([^`'"]+)/g)].map((m) => ({ id: m[1], label: m[2] }));
   const glossary = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/glossary.json'), 'utf8'));
   const terms = Object.entries(glossary.terms).map(([slug, t]) => ({ slug, display: t.display, short: String(t.short || '') }));
+  /* AUD N07 (2026-09-22) — toc.ts 의 라벨은 템플릿 리터럴(`글로서리 ${GLOSS_COUNT}종`)이라 정규식으로 긁어 오면 `${GLOSS_COUNT}` 가
+     그대로 title·og 메타에 박혔다(배포본 /guide/chGloss). 라벨의 템플릿 토큰은 여기서 실제 값으로 치환하고, 남는 `${…}` 는 실패시킨다. */
+  const tokenValues = { GLOSS_COUNT: String(terms.length) };
+  const fillTokens = (label) => label.replace(/\$\{(\w+)\}/g, (all, name) => {
+    if (!(name in tokenValues)) throw new Error(`build-static-routes: toc.ts 라벨의 알 수 없는 템플릿 토큰 ${all} — tokenValues 에 추가하라`);
+    return tokenValues[name];
+  });
+  const chapters = [...toc.matchAll(/\{\s*id:\s*'([^']+)',\s*n:\s*\d+,\s*label:\s*[`'"]([^`'"]+)/g)].map((m) => ({ id: m[1], label: fillTokens(m[2]) }));
   const routes = [
     { route: 'tools', title: 'Engineering Tools — AM Materials Explorer', desc: '9 개 기계공학 계산기 — 응력집중 Kt · 갈바닉 부식 · 좌굴 · CTE mismatch · ASTM E140 경도 환산 · 압력용기 · Larson-Miller · Mohr 원 · Schaeffler.' },
     { route: 'guide', title: 'Guide — AM Materials Explorer', desc: `재료 선택 학습 가이드 ${chapters.length} 챕터 — 실전 사례 · Ashby 선택법 · 물성 사전 · 단면·보·좌굴 · AM 특화 · 데이터 해석 · 글로서리.` },
     ...chapters.map((c) => ({ route: `guide/${c.id}`, title: `${c.label} — Guide · AM Materials Explorer`, desc: `학습 가이드: ${c.label}.` })),
     ...terms.map((t) => ({ route: `guide/term/${t.slug}`, title: `${t.display} — 기술용어 · AM Materials Explorer`, desc: t.short.slice(0, 160) })),
   ];
+  for (const r of routes) {
+    if (/\$\{/.test(`${r.title}\n${r.desc}`)) throw new Error(`build-static-routes: 미치환 템플릿 토큰 — ${r.route}: ${r.title} / ${r.desc}`);
+  }
   return routes;
+}
+
+/* AUD R13 잔여 (2026-09-22) — sitemap.xml: 정상 라우트 전부(홈 포함)를 canonical 형태로. 검색엔진·링크 검사기가 SPA 셸 대신 목록을 얻는다. */
+export function renderSitemap(routes) {
+  const base = `${siteOrigin()}${basePath()}`;
+  const urls = ['', ...routes.map((r) => `${r.route}/`)].map((u) => `  <url><loc>${esc(`${base}/${u}`)}</loc></url>`);
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>\n`;
+}
+/** 홈 셸 — canonical(홈 URL) 과 og:url 이 없던 것을 심는다(R13 잔여). 셸의 다른 메타는 그대로. */
+export function renderHome(shellHtml) {
+  const url = `${siteOrigin()}${basePath()}/`;
+  if (/<link rel="canonical"/.test(shellHtml)) return shellHtml;
+  return shellHtml.replace('</head>', `    <link rel="canonical" href="${esc(url)}" />\n    <meta property="og:url" content="${esc(url)}" />\n  </head>`);
 }
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -73,5 +96,9 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   }
   // 없는 경로는 여전히 404 — 셸을 404.html 로 (deploy 스텝과 동일, 여기서도 보장)
   fs.writeFileSync(path.join(DIST, '404.html'), shell);
-  console.log(`정적 라우트 ${n} 생성 (${DIST}) — tools · guide · chapters ${routes.filter((r) => /^guide\/ch/.test(r.route)).length} · terms ${routes.filter((r) => /^guide\/term\//.test(r.route)).length} · 404.html`);
+  // R13 잔여 — 홈 canonical/og:url + sitemap.xml + robots.txt
+  fs.writeFileSync(indexPath, renderHome(shell));
+  fs.writeFileSync(path.join(DIST, 'sitemap.xml'), renderSitemap(routes));
+  if (!fs.existsSync(path.join(DIST, 'robots.txt'))) fs.writeFileSync(path.join(DIST, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${siteOrigin()}${basePath()}/sitemap.xml\n`);
+  console.log(`정적 라우트 ${n} 생성 (${DIST}) — tools · guide · chapters ${routes.filter((r) => /^guide\/ch/.test(r.route)).length} · terms ${routes.filter((r) => /^guide\/term\//.test(r.route)).length} · 404.html · sitemap.xml(${n + 1}) · 홈 canonical`);
 }

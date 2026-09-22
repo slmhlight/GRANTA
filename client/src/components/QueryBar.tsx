@@ -171,7 +171,8 @@ export function QueryBar({ value, onChange, matchedCount, totalCount }: QueryBar
         </Popover>
       </div>
 
-      {parsed.constraints.length > 0 && (
+      {/* AUD R10 잔여 (2026-09-22) — 유효 제약이 하나도 없어도 오류·미해석 토큰은 보여야 한다("yield>abc" 만 입력하면 안내가 전혀 없었다). */}
+      {(parsed.constraints.length > 0 || (parsed.errors ?? []).length > 0 || parsed.unknown.length > 0) && (
         <div className="flex flex-wrap gap-1 pl-5">
           {parsed.constraints.map((c, i) => (
             <span
@@ -203,12 +204,20 @@ export function QueryBar({ value, onChange, matchedCount, totalCount }: QueryBar
               ? {u}
             </span>
           ))}
-          {/* AUD R10 — 구문 오류(알 수 없는 물성·숫자 아님)는 '결과 0' 과 다르게 이유를 보인다. */}
-          {(parsed.errors ?? []).map((e, i) => (
-            <span key={'e' + i} role="alert" className="px-1.5 py-0.5 rounded bg-rose-50 text-rose-700 border border-rose-200 text-[10px] font-mono" title={e.reason}>
-              ✕ {e.token} — {e.reason}
-            </span>
-          ))}
+          {/* AUD R10 — 구문 오류(알 수 없는 물성·숫자 아님)는 '결과 0' 과 다르게 이유를 보인다.
+              R10 잔여 — 입력 중(draft ≠ 적용값)이면 amber "입력 중" 으로, Enter/blur 로 적용된 뒤에도 남으면 rose 오류(role=alert)로 구별. */}
+          {(parsed.errors ?? []).map((e, i) => {
+            const editing = draft !== value;
+            return editing ? (
+              <span key={'e' + i} role="status" className="px-1.5 py-0.5 rounded bg-amber-50 text-amber-800 border border-amber-200 text-[10px] font-mono" title={e.reason}>
+                … {e.token} — {e.reason} ({t('query.editing')})
+              </span>
+            ) : (
+              <span key={'e' + i} role="alert" className="px-1.5 py-0.5 rounded bg-rose-50 text-rose-700 border border-rose-200 text-[10px] font-mono" title={e.reason}>
+                ✕ {e.token} — {e.reason}
+              </span>
+            );
+          })}
           {matchedCount != null && totalCount != null && (
             <span className="ml-auto text-[10px] text-muted-foreground self-center whitespace-nowrap">
               {matchedCount.toLocaleString()} / {totalCount.toLocaleString()} {t('query.matched')}

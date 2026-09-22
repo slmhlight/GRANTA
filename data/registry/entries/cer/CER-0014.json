@@ -97,6 +97,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 375,
+      "max": 375,
+      "typical": 375,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 250 × condition 1 × form 1.5 × grade 1 = 375 USD/kg"
     }
   },
   "composition": {
@@ -159,5 +168,7 @@
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "industry_note": "Lithium Aluminosilicate (LAS) glass-ceramic (Zerodur by Schott, Clearceram-Z by Ohara). Crystal phase: β-quartz solid solution (Li₂O·Al₂O₃·SiO₂). CTE 0.02 ± 0.05 ppm/°C (20-100°C) — 사실상 zero. σf 110 / E 88 / ρ 2.5 / Tmax 800°C continuous, 1000°C short. 대형 telescope mirror substrate (VLT, ELT, JWST mirror substrate — 8m diameter Zerodur), wafer stepper precision mirror, EUV lithography reticle (~$5M each). 매우 비싼 ($500-2000/kg)."
+  "industry_note": "Lithium Aluminosilicate (LAS) glass-ceramic (Zerodur by Schott, Clearceram-Z by Ohara). Crystal phase: β-quartz solid solution (Li₂O·Al₂O₃·SiO₂). CTE 0.02 ± 0.05 ppm/°C (20-100°C) — 사실상 zero. σf 110 / E 88 / ρ 2.5 / Tmax 800°C continuous, 1000°C short. 대형 telescope mirror substrate (VLT, ELT, JWST mirror substrate — 8m diameter Zerodur), wafer stepper precision mirror, EUV lithography reticle (~$5M each). 매우 비싼 ($500-2000/kg).",
+  "price_per_kg": 250,
+  "delivered_price_per_kg": 375
 }

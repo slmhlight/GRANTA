@@ -71,17 +71,37 @@
       "min": 289,
       "max": 391,
       "typical": 340,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:4140 × HT:as-built (no Q+T) (f×0.85, i×0.9)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:4140 × HT:as-built (no Q+T) (f×0.85, i×0.9)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 400,
+      "base_range": [
+        340,
+        460
+      ],
+      "factor": 0.85,
+      "condition": "as-built (no Q+T)",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 36,
       "max": 63,
       "typical": 50,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:4140 × HT:as-built (no Q+T) (f×0.85, i×0.9)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:4140 × HT:as-built (no Q+T) (f×0.85, i×0.9)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 55,
+      "base_range": [
+        40,
+        70
+      ],
+      "factor": 0.9,
+      "condition": "as-built (no Q+T)",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 50.6,
@@ -89,7 +109,16 @@
       "typical": 69,
       "n": 0,
       "confidence": "class",
-      "provenance": "class:AMS 6415 alloy steel × HT:as-built (no Q+T) (k×0.92)"
+      "provenance": "class:AMS 6415 alloy steel × HT:as-built (no Q+T) (k×0.92)",
+      "estimated": true,
+      "base_value": 75,
+      "base_range": [
+        55,
+        100
+      ],
+      "factor": 0.92,
+      "condition": "as-built (no Q+T)",
+      "model": "ht-multiplier:kic"
     },
     "electrical_conductivity": {
       "min": 5.95,
@@ -169,7 +198,8 @@
       "typical": 7.5,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 3 × condition 1 × form 2.5 × grade 1 = 7.5 USD/kg"
     }
   },
   "composition": {
@@ -194,8 +224,8 @@
       "verified": true
     },
     {
-      "label": "DIN EN 10083-3 — Quenched & tempered steels",
-      "url": "https://www.dinmedia.de/en/standard/din-en-10083-3/",
+      "label": "DIN EN ISO 683-2:2018 — Alloy steels for quenching and tempering, 42CrMo4 (supersedes DIN EN 10083-3:2007)",
+      "url": "https://www.dinmedia.de/en/standard/din-en-iso-683-2/291176306",
       "verified": true
     },
     {
@@ -206,6 +236,11 @@
     {
       "label": "MatWeb — AISI 4140 Q+T",
       "url": "https://www.matweb.com/search/DataSheet.aspx?MatGUID=fd0a82eb691f4be08b2bf5d04eee9f97",
+      "verified": false
+    },
+    {
+      "label": "DIN EN ISO 683-2:2018 — Alloy steels for quenching and tempering, 42CrMo4 (supersedes DIN EN 10083-3:2007)",
+      "url": "https://www.dinmedia.de/en/standard/din-en-iso-683-2/291176306",
       "verified": false
     }
   ],
@@ -297,7 +332,7 @@
     "Alloy Steel",
     "Iron-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 7,
   "max_service_temp": 425,
   "thermal_expansion": 12.3,

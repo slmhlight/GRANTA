@@ -97,6 +97,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 120,
+      "max": 120,
+      "typical": 120,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 80 × condition 1 × form 1.5 × grade 1 = 120 USD/kg"
     }
   },
   "composition": {
@@ -166,5 +175,7 @@
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "industry_note": "Fused Silica (amorphous SiO₂, 99.99%+) — synthetic vitreous silica. ρ 2.20 g/cc (crystalline quartz 의 83%), Tg ≈ 1100°C (softening point), Tm ≈ 1700°C, max use 1100°C continuous / 1300°C short."
+  "industry_note": "Fused Silica (amorphous SiO₂, 99.99%+) — synthetic vitreous silica. ρ 2.20 g/cc (crystalline quartz 의 83%), Tg ≈ 1100°C (softening point), Tm ≈ 1700°C, max use 1100°C continuous / 1300°C short.",
+  "price_per_kg": 80,
+  "delivered_price_per_kg": 120
 }

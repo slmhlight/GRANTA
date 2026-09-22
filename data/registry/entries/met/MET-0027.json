@@ -77,17 +77,37 @@
       "min": 238,
       "max": 322,
       "typical": 280,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:4140 × HT:normalized (f×0.7, i×1.8)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:4140 × HT:normalized (f×0.7, i×1.8)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 400,
+      "base_range": [
+        340,
+        460
+      ],
+      "factor": 0.7,
+      "condition": "normalized",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 72,
       "max": 126,
       "typical": 99,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:4140 × HT:normalized (f×0.7, i×1.8)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:4140 × HT:normalized (f×0.7, i×1.8)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 55,
+      "base_range": [
+        40,
+        70
+      ],
+      "factor": 1.8,
+      "condition": "normalized",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 120,
@@ -179,7 +199,8 @@
       "typical": 3.21,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 2.8 × condition 1.05 × form 1.05 × grade 1.04 = 3.21 USD/kg"
     }
   },
   "composition": {
@@ -216,8 +237,8 @@
       "verified": false
     },
     {
-      "label": "DIN EN 10083-3 — 42CrMo4 quenched & tempered steel",
-      "url": "https://www.dinmedia.de/en/standard/din-en-10083-3/",
+      "label": "DIN EN ISO 683-2:2018 — Alloy steels for quenching and tempering, 42CrMo4 (supersedes DIN EN 10083-3:2007)",
+      "url": "https://www.dinmedia.de/en/standard/din-en-iso-683-2/291176306",
       "verified": false
     }
   ],
@@ -278,7 +299,7 @@
     "Alloy Steel",
     "Iron-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "elevated_temp": [
     {
       "temp": 20,

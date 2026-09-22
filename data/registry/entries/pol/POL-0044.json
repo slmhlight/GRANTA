@@ -140,6 +140,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 1.43,
+      "max": 1.43,
+      "typical": 1.43,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 1.43 × condition 1 × form 1 × grade 1 = 1.43 USD/kg"
     }
   },
   "composition": {
@@ -217,6 +226,9 @@
   "rohs_compliant": true,
   "confidence_tier": "high",
   "industry_note": "PET (Polyethylene Terephthalate, semi-crystalline thermoplastic). Tg ≈ 75°C, Tm ≈ 245°C, HDT (1.8 MPa) ≈ 105°C unfilled, max service 100-130°C. Unfilled: σy 60-70 / UTS 60-75 / El 30-70% / E 2.",
+  "price_per_kg": 1.43,
+  "delivered_price_per_kg": 1.43,
+  "total_cost_estimate": 2.43,
   "_corrections": {
     "sources": {
       "from": [

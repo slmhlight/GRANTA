@@ -77,17 +77,37 @@
       "min": 151,
       "max": 209,
       "typical": 179,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:8620 × HT:annealed (f×0.55, i×2.2)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:8620 × HT:annealed (f×0.55, i×2.2)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 325,
+      "base_range": [
+        275,
+        380
+      ],
+      "factor": 0.55,
+      "condition": "annealed",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 88,
       "max": 176,
       "typical": 132,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:8620 × HT:annealed (f×0.55, i×2.2)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:8620 × HT:annealed (f×0.55, i×2.2)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 60,
+      "base_range": [
+        40,
+        80
+      ],
+      "factor": 2.2,
+      "condition": "annealed",
+      "model": "ht-multiplier:impact"
     },
     "electrical_conductivity": {
       "min": 7,
@@ -179,7 +199,8 @@
       "typical": 2.95,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 2.7 × condition 1.02 × form 1.05 × grade 1.02 = 2.95 USD/kg"
     }
   },
   "composition": {
@@ -261,7 +282,7 @@
     "Case-Hardening Steel",
     "Iron-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 7,
   "max_service_temp": 400,
   "thermal_expansion": 11.9,

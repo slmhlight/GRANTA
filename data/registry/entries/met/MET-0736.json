@@ -94,17 +94,37 @@
       "min": 252,
       "max": 284,
       "typical": 268,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:316l × HT:as-built (fine columnar) (f×1.05, i×0.95)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:316l × HT:as-built (fine columnar) (f×1.05, i×0.95)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 255,
+      "base_range": [
+        240,
+        270
+      ],
+      "factor": 1.05,
+      "condition": "as-built (fine columnar)",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 95,
       "max": 171,
       "typical": 133,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:316l × HT:as-built (fine columnar) (f×1.05, i×0.95)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:316l × HT:as-built (fine columnar) (f×1.05, i×0.95)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 140,
+      "base_range": [
+        100,
+        180
+      ],
+      "factor": 0.95,
+      "condition": "as-built (fine columnar)",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 190,
@@ -188,15 +208,16 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived",
-      "provenance": "R205-R price_per_kg × ρ 재계산"
+      "provenance": "price_per_kg × ρ 재계산"
     },
     "delivered_price_per_kg": {
-      "min": 14.5,
-      "max": 14.5,
-      "typical": 14.5,
+      "min": 15.5,
+      "max": 15.5,
+      "typical": 15.5,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 6.2 × condition 1 × form 2.5 × grade 1 = 15.5 USD/kg"
     }
   },
   "composition": {
@@ -600,14 +621,14 @@
     "Stainless Steel",
     "Iron-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 2.3,
   "max_service_temp": 870,
   "thermal_expansion": 16,
   "poisson_ratio": 0.3,
   "specific_heat": 500,
   "melting_point": 1400,
-  "price_per_kg": 5.8,
+  "price_per_kg": 6.2,
   "price_per_cm3": 0.0495,
   "popularity": 3.5,
   "machining_cost_factor": 1.8,
@@ -615,8 +636,8 @@
   "price_condition_factor": 1,
   "price_form_factor": 2.5,
   "price_grade_premium": 1,
-  "delivered_price_per_kg": 14.5,
-  "total_cost_estimate": 40.6,
+  "delivered_price_per_kg": 15.5,
+  "total_cost_estimate": 43.4,
   "min_wall_thickness": 0.4,
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",

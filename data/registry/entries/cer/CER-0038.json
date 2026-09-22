@@ -103,6 +103,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 8250,
+      "max": 8250,
+      "typical": 8250,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 5500 × condition 1 × form 1.5 × grade 1 = 8250 USD/kg"
     }
   },
   "composition": {
@@ -129,16 +138,6 @@
       "label": "ASM Engineered Materials Handbook Vol.4",
       "url": "https://dl.asminternational.org/handbooks/edited-volume/18/chapter-abstract/204993/Engineering-Ceramics",
       "verified": false
-    },
-    {
-      "label": "ATI Wah Chang Hafnium technical data",
-      "url": "https://www.atimaterials.com/Products/Documents/datasheets/niobium-hafnium-tantalum-vanadium/hafnium/hafnium_v1.pdf",
-      "verified": true
-    },
-    {
-      "label": "ASTM B776 — Hafnium / Hafnium Alloy Bar/Wire",
-      "url": "https://store.astm.org/b0776-15.html",
-      "verified": false
     }
   ],
   "machinability": null,
@@ -149,13 +148,7 @@
     "applications": "재진입체 sharp leading edge, 핵 cladding, MHD 발전 전극",
     "limitations": "ZrB₂ 보다 더 고가, 산화 보호 SiC 필수",
     "no_yield": "취성 세라믹 — 항복점 없음. 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
-    "_r173_note_applied": true,
-    "specs": [
-      {
-        "id": "ASTM B776",
-        "org": "ASTM"
-      }
-    ]
+    "_r173_note_applied": true
   },
   "popularity": 1,
   "density": 11.2,
@@ -185,6 +178,8 @@
   "surface_finish_typical": 3.2,
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
-  "confidence_tier": "medium",
-  "industry_note": "HfB₂ (Hafnium Diboride, hexagonal AlB₂-type) — Ultra-High Temperature Ceramic. Tm 3380°C, ρ 11.2 g/cc. σf 350-400 / E 480 / KIC 4.5 / Tmax 2300°C inert (oxidation 1700°C+ → HfO₂ 보호 layer). Thermal conductivity 105 W/m·K (가장 conductive UHTC). HfB₂-SiC composite (30% SiC) 은 oxidation 저항 boost. 항공 hypersonic leading edge, 군용 missile nose tip, 우주 RCS thruster nozzle insert. Hot-press 또는 SPS (Spark Plasma Sinter) 가공."
+  "confidence_tier": "medium-low",
+  "industry_note": "HfB₂ (Hafnium Diboride, hexagonal AlB₂-type) — Ultra-High Temperature Ceramic. Tm 3380°C, ρ 11.2 g/cc. σf 350-400 / E 480 / KIC 4.5 / Tmax 2300°C inert (oxidation 1700°C+ → HfO₂ 보호 layer). Thermal conductivity 105 W/m·K (가장 conductive UHTC). HfB₂-SiC composite (30% SiC) 은 oxidation 저항 boost. 항공 hypersonic leading edge, 군용 missile nose tip, 우주 RCS thruster nozzle insert. Hot-press 또는 SPS (Spark Plasma Sinter) 가공.",
+  "price_per_kg": 5500,
+  "delivered_price_per_kg": 8250
 }

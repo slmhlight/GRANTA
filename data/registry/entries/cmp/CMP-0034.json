@@ -97,14 +97,23 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived",
-      "provenance": "R205-R price_per_kg × ρ 재계산"
+      "provenance": "price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 2,
+      "max": 2,
+      "typical": 2,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 2 × condition 1 × form 1 × grade 1 = 2 USD/kg"
     }
   },
   "composition": {},
   "sources": [
     {
-      "label": "ASM Engineered Materials Handbook Vol.1 — Composites",
-      "url": "https://www.asminternational.org/engineered-materials-handbook-volume-1-composites",
+      "label": "ASM Handbook Vol.21 — Composites (successor of Engineered Materials Handbook Vol.1)",
+      "url": "https://my.asminternational.org/asm-store?store-path=/products/06781G",
       "verified": false
     },
     {
@@ -153,6 +162,8 @@
   "price_per_cm3": 0.0013,
   "rohs_compliant": true,
   "confidence_tier": "medium",
+  "price_per_kg": 2,
+  "delivered_price_per_kg": 2,
   "_corrections": {
     "sources": {
       "from": [

@@ -77,17 +77,37 @@
       "min": 190,
       "max": 280,
       "typical": 235,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:4340 × HT:fully annealed (f×0.5, i×2.5)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:4340 × HT:fully annealed (f×0.5, i×2.5)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 470,
+      "base_range": [
+        380,
+        560
+      ],
+      "factor": 0.5,
+      "condition": "fully annealed",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 50,
       "max": 125,
       "typical": 88,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:4340 × HT:fully annealed (f×0.5, i×2.5)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:4340 × HT:fully annealed (f×0.5, i×2.5)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 35,
+      "base_range": [
+        20,
+        50
+      ],
+      "factor": 2.5,
+      "condition": "fully annealed",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 135,
@@ -171,15 +191,16 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived",
-      "provenance": "R205-R price_per_kg × ρ 재계산"
+      "provenance": "price_per_kg × ρ 재계산"
     },
     "delivered_price_per_kg": {
-      "min": 4.82,
-      "max": 4.82,
-      "typical": 4.82,
+      "min": 2.57,
+      "max": 2.57,
+      "typical": 2.57,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 2.4 × condition 1.02 × form 1.05 × grade 1 = 2.57 USD/kg"
     }
   },
   "composition": {
@@ -280,14 +301,14 @@
     "Alloy Steel",
     "Iron-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 6.5,
   "max_service_temp": 425,
   "thermal_expansion": 12.3,
   "poisson_ratio": 0.29,
   "specific_heat": 475,
   "melting_point": 1425,
-  "price_per_kg": 4.5,
+  "price_per_kg": 2.4,
   "price_per_cm3": 0.0188,
   "popularity": 4.25,
   "machining_cost_factor": 1.1,
@@ -295,8 +316,8 @@
   "price_condition_factor": 1.02,
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
-  "delivered_price_per_kg": 4.82,
-  "total_cost_estimate": 10.12,
+  "delivered_price_per_kg": 2.57,
+  "total_cost_estimate": 5.4,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "svhc_concerns": [

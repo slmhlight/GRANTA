@@ -77,17 +77,37 @@
       "min": 336,
       "max": 424,
       "typical": 380,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:mp35n × HT:solution annealed (soft) (f×0.55, i×3.5)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:mp35n × HT:solution annealed (soft) (f×0.55, i×3.5)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 690,
+      "base_range": [
+        610,
+        770
+      ],
+      "factor": 0.55,
+      "condition": "solution annealed (soft)",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 158,
       "max": 315,
       "typical": 228,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:mp35n × HT:solution annealed (soft) (f×0.55, i×3.5)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:mp35n × HT:solution annealed (soft) (f×0.55, i×3.5)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 65,
+      "base_range": [
+        45,
+        90
+      ],
+      "factor": 3.5,
+      "condition": "solution annealed (soft)",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 150,
@@ -179,7 +199,8 @@
       "typical": 105,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 80 × condition 1.25 × form 1.05 × grade 1 = 105 USD/kg"
     }
   },
   "composition": {
@@ -264,7 +285,7 @@
     "Cobalt Alloy - Multiphase",
     "Cobalt-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 1.5,
   "max_service_temp": 425,
   "thermal_expansion": 12.8,

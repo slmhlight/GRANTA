@@ -140,6 +140,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 140,
+      "max": 140,
+      "typical": 140,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 140 × condition 1 × form 1 × grade 1 = 140 USD/kg"
     }
   },
   "composition": {
@@ -221,6 +230,9 @@
   "rohs_compliant": true,
   "confidence_tier": "high",
   "industry_note": "Nylon 12 (Polylauryllactam) — semi-crystalline thermoplastic. Tg ≈ 50°C, Tm ≈ 178°C, HDT (0.46 MPa) ≈ 145°C, **max service 80-100°C continuous** (σy 45-50 / UTS 45-50 / El 200-300% / E 1.5-1.7 GPa / ρ 1.01 g/cc. SLS / MJF 3D printing 의 가장 흔한 폴리머 (EOS PA 2200 = Vestamid L). 의료 카테터, 자동차 fuel line, 케이블 sheath, 화장품 패키지. 흡습률 낮음 (1.5% — PA66 대비 절반).",
+  "price_per_kg": 140,
+  "delivered_price_per_kg": 140,
+  "total_cost_estimate": 238,
   "_corrections": {
     "fields": {
       "name": {

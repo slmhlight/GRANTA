@@ -77,17 +77,37 @@
       "min": 373,
       "max": 477,
       "typical": 425,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:inconel x-750 × HT:annealed (f×0.95, i×1.5) · R212b cap σf≤0.50·UTS (soft X-750 물리 상한)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:inconel x-750 × HT:annealed (f×0.95, i×1.5) · R212b cap σf≤0.50·UTS (soft X-750 물리 상한)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 490,
+      "base_range": [
+        430,
+        550
+      ],
+      "factor": 0.95,
+      "condition": "annealed",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 30,
       "max": 83,
       "typical": 53,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:inconel x-750 × HT:annealed (f×0.95, i×1.5)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:inconel x-750 × HT:annealed (f×0.95, i×1.5)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 35,
+      "base_range": [
+        20,
+        55
+      ],
+      "factor": 1.5,
+      "condition": "annealed",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 112,
@@ -179,7 +199,8 @@
       "typical": 53.55,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 50 × condition 1.02 × form 1.05 × grade 1 = 53.55 USD/kg"
     }
   },
   "composition": {
@@ -252,7 +273,7 @@
     "Aluminum-based",
     "Superalloy"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 1.5,
   "max_service_temp": 815,
   "thermal_expansion": 12.6,

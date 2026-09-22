@@ -97,6 +97,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 185.25,
+      "max": 185.25,
+      "typical": 185.25,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 95 × condition 1.3 × form 1.5 × grade 1 = 185.25 USD/kg"
     }
   },
   "composition": {
@@ -106,7 +115,7 @@
   "sources": [
     {
       "label": "ASM Engineered Materials Handbook Vol.4 — Ceramics and Glasses",
-      "url": "https://www.asminternational.org/engineered-materials-handbook-volume-4-ceramics-and-glasses",
+      "url": "https://my.asminternational.org/asm-store?store-path=/products/06009G",
       "verified": false
     },
     {
@@ -164,6 +173,8 @@
   "rohs_compliant": true,
   "confidence_tier": "high",
   "industry_note": "Si₃N₄ (Silicon Nitride) — covalent ceramic. 변종: • Sintered (SSN, pressureless): σf 600-800 / E 290 / KIC 6.5 / Tmax 1300°C • HIP'd (Hot Isostatic Press): σf 800-1000 / E 310-320 / KIC 8 / Tmax 1400°C — 가장 high-Q • Reaction-bonded (RBSN): σf 200-300 / E 200 / lower density • Sintered Reaction-Bonded (SRBSN): σf 600-800 ρ 3.17-3.",
+  "price_per_kg": 95,
+  "delivered_price_per_kg": 185.25,
   "_corrections": {
     "sources": {
       "from": [

@@ -88,7 +88,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "class",
-      "provenance": "class:Martensitic/Tool steel × HT:spheroidized annealed (i×4)"
+      "provenance": "class:Martensitic/Tool steel × HT:spheroidized annealed (i×4)",
+      "base_value": 12,
+      "base_range": [
+        4,
+        25
+      ],
+      "factor": 4,
+      "condition": "spheroidized annealed",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 33,
@@ -96,7 +104,16 @@
       "typical": 55,
       "n": 0,
       "confidence": "class",
-      "provenance": "class:ASM Vol.1 Tool Steels × HT:spheroidized annealed (k×2.2)"
+      "provenance": "class:ASM Vol.1 Tool Steels × HT:spheroidized annealed (k×2.2)",
+      "estimated": true,
+      "base_value": 25,
+      "base_range": [
+        15,
+        40
+      ],
+      "factor": 2.2,
+      "condition": "spheroidized annealed",
+      "model": "ht-multiplier:kic"
     },
     "electrical_conductivity": {
       "min": 4.25,
@@ -176,7 +193,8 @@
       "typical": 6.43,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 6 × condition 1.02 × form 1.05 × grade 1 = 6.43 USD/kg"
     }
   },
   "composition": {

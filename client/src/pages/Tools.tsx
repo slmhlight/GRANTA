@@ -10,13 +10,14 @@ import { ArrowLeft, Calculator, Zap, BookOpen, GraduationCap } from 'lucide-reac
 import { usePageMeta } from '@/lib/page-meta';   // AUD R13
 import {
   ktFactor, galvanicDeltaV, galvanicBand, galvanicAnode, buckling, thermalMismatchStress,
-  hardnessConvert, pressureVesselThickness, larsonMiller, larsonMillerInverseTime,
+  hardnessConvert, pressureVesselThickness,
   mohrCircle, schaefflerEq, schaefflerRegion,
-  validateKt, validateBuckling, validateHardness, validateVessel, validateLMP, validateSchaeffler,
+  validateKt, validateBuckling, validateHardness, validateVessel, validateLMP, validateSchaeffler, lmpResult, LMP_T_RANGE,
   KT_SHAPES, HARDNESS_SCALES, HARDNESS_INPUT_RANGE, VESSEL_SHAPES, SCHAEFFLER_LINES, SCHAEFFLER_EXAMPLES,
   type KtShape, type HardnessScale, type VesselShape, type ValidationIssue,
 } from '@/lib/engineering-calcs';
 import { explorerHref } from '@/lib/explorer-return';   // AUD R15
+import { KoreanContentNotice } from '@/components/KoreanContentNotice';   // AUD F23 잔여 — 한국어 전용 문서 표시
 
 /* <select> 의 value 는 string 이다. 예전에는 `as any` 로 상태에 그대로 밀어 넣었는데,
    그러면 목록에 없는 값이 들어와도 컴파일도 런타임도 아무 말을 안 한다. 허용 목록에서
@@ -666,11 +667,9 @@ function LMPCalc() {
   const [t, setT_h] = useState(1000); // h
   const [C, setC] = useState(20);
   const [T2, setT2] = useState(650);
-  // Larson-Miller — lib/engineering-calcs. LMP = T(K)·(C+log₁₀ t)/1000. 절대온도>0·t>0 검증 (AUD F13).
+  // Larson-Miller — lib/engineering-calcs. LMP = T(K)·(C+log₁₀ t)/1000. 절대온도>0·t>0 + 모델 적용 온도 범위·유한성 검증 (AUD F13 + 잔여).
   const issues = validateLMP({ T, t, C, T2 });
-  const LMP = issues.length ? Number.NaN : larsonMiller(T, t, C);
-  // 같은 LMP 에서 T₂ 의 파단 시간 역산.
-  const t2 = issues.length ? Number.NaN : larsonMillerInverseTime(LMP, T2, C);
+  const res = lmpResult({ T, t, C, T2 });
   return (
     <div className={W}>
       <p className="text-xs font-semibold uppercase tracking-wide text-accent mb-2 flex items-center gap-1.5"><Calculator className="w-3.5 h-3.5" /> Larson-Miller parameter (creep 수명)</p>
@@ -711,13 +710,19 @@ function LMPCalc() {
         <NumField id="lmp-T2" label="예측 T₂ (°C)" value={T2} onChange={setT2} issue={issueOf(issues, 'T2')} />
       </div>
       <Issues issues={issues} />
-      {!issues.length && (
-        <div className="rounded bg-muted/30 p-2 text-sm font-mono space-y-0.5">
-          <div>LMP = <b className="text-base">{LMP.toFixed(2)}</b> × 10³</div>
-          <div className="text-emerald-700">→ T₂={T2}°C 에서 같은 LMP 의 수명 ≈ <b className="text-base">{t2.toExponential(2)} h</b></div>
+      {res && res.finite && (
+        <div className="rounded bg-muted/30 p-2 text-sm font-mono space-y-0.5" data-testid="lmp-result">
+          <div>LMP = <b className="text-base">{res.LMP.toFixed(2)}</b> × 10³</div>
+          <div className="text-emerald-700">→ T₂={T2}°C 에서 같은 LMP 의 수명 ≈ <b className="text-base">{res.t2.toExponential(2)} h</b> <span className="text-muted-foreground">(log₁₀ t₂ = {res.log10t2.toFixed(2)})</span></div>
+          {res.extrapolated && <div className="text-[11px] text-amber-700 font-sans">주의: T₂ 가 T 와 150°C 넘게 떨어져 있습니다 — 마스터 곡선 밖 외삽이라 실제 수명과 크게 다를 수 있습니다.</div>}
         </div>
       )}
-      <p className="text-[11px] text-muted-foreground mt-1">전형: P91 σ=100 MPa LMP ≈ 22.5. Inconel 718 σ=400 MPa LMP ≈ 24. ECCC datasheets 참고.</p>
+      {res && !res.finite && (
+        <div className="rounded bg-rose-50 border border-rose-200 p-2 text-[11px] text-rose-700" role="alert" data-testid="lmp-nonfinite">
+          결과가 계산 범위를 벗어났습니다(수명이 무한대·0 으로 발산). 입력 온도·시간·상수를 확인하세요.
+        </div>
+      )}
+      <p className="text-[11px] text-muted-foreground mt-1">전형: P91 σ=100 MPa LMP ≈ 22.5. Inconel 718 σ=400 MPa LMP ≈ 24. ECCC datasheets 참고. 적용 범위: {LMP_T_RANGE[0]}–{LMP_T_RANGE[1]}°C(금속 크리프 영역), 같은 응력 수준의 마스터 곡선 안에서만 유효.</p>
       <Link href="/guide/ch9" className="text-[11px] text-accent hover:underline flex items-center gap-0.5 mt-1"><BookOpen className="w-3 h-3" /> Guide Ch.10 LMP →</Link>
     </div>
   );
@@ -971,7 +976,7 @@ export default function Tools() {
     return () => { clearTimeout(scroll); clearTimeout(timer); };
   }, []);
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground" lang="ko">
       <header className="sticky top-0 z-20 h-12 flex items-center gap-3 px-4 border-b border-border bg-[oklch(0.22_0.055_250)] text-sidebar-foreground">
         <Link href={explorerHref()} className="flex items-center gap-1.5 text-sm hover:text-white text-sidebar-foreground/80">
           <ArrowLeft className="w-4 h-4" /> 탐색기로 돌아가기
@@ -984,6 +989,7 @@ export default function Tools() {
           <BookOpen className="w-3.5 h-3.5" /> Guide
         </Link>
       </header>
+      <KoreanContentNotice what="calculator page" />
 
       <div className="mx-auto max-w-5xl px-5 py-8">
         <div className="rounded-lg border border-accent/30 bg-accent/5 p-4 mb-6">

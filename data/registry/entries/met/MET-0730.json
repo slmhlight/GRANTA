@@ -89,7 +89,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "class",
-      "provenance": "class:Stainless Austenitic × HT:cold worked (i×0.5)"
+      "provenance": "class:Stainless Austenitic × HT:cold worked (i×0.5)",
+      "base_value": 130,
+      "base_range": [
+        80,
+        180
+      ],
+      "factor": 0.5,
+      "condition": "cold worked",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 65,
@@ -97,7 +105,16 @@
       "typical": 91,
       "n": 0,
       "confidence": "class",
-      "provenance": "class:ASM Vol.1 Austenitic SS × HT:cold worked (k×0.65)"
+      "provenance": "class:ASM Vol.1 Austenitic SS × HT:cold worked (k×0.65)",
+      "estimated": true,
+      "base_value": 140,
+      "base_range": [
+        100,
+        200
+      ],
+      "factor": 0.65,
+      "condition": "cold worked",
+      "model": "ht-multiplier:kic"
     },
     "electrical_conductivity": {
       "min": 2.04,
@@ -177,7 +194,8 @@
       "typical": 6.24,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 5.5 × condition 1.08 × form 1.05 × grade 1 = 6.24 USD/kg"
     }
   },
   "composition": {

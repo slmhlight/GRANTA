@@ -4,7 +4,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   ktFactor, validateKt, galvanicDeltaV, galvanicBand, galvanicAnode, buckling, validateBuckling, thermalMismatchStress,
-  hardnessConvert, validateHardness, pressureVesselThickness, validateVessel, larsonMiller, larsonMillerInverseTime, validateLMP,
+  hardnessConvert, validateHardness, pressureVesselThickness, validateVessel, larsonMiller, larsonMillerInverseTime, validateLMP, lmpResult,
   mohrCircle, schaefflerEq, schaefflerRegion, validateSchaeffler, SCHAEFFLER_EXAMPLES, SCHAEFFLER_LINES,
 } from '@/lib/engineering-calcs';
 import { steelHardness } from '@/lib/hardness-convert';
@@ -152,6 +152,28 @@ describe('Larson-Miller', () => {
     expect(validateLMP({ T: -273.15, t: 1000, C: 20, T2: -273.15 }).map((i) => i.field)).toEqual(['T', 'T2']);
     expect(validateLMP({ T: 600, t: 0, C: 20, T2: 650 }).map((i) => i.field)).toEqual(['t']);
     expect(validateLMP({ T: 600, t: 1000, C: 20, T2: 650 })).toEqual([]);
+  });
+  /* AUD F13 잔여 (2026-09-22) — 절대영도보다 0.01 K 높은 T₂ 는 검사를 통과했고 결과가 Infinity h 였다. */
+  it('validateLMP — 모델 적용 온도 범위(0–1500°C) 밖·t/C 상한 초과를 거부한다', () => {
+    for (const T2 of [-273.16, -273.15, -273.14, -1, 1501]) {
+      expect(validateLMP({ T: 600, t: 1000, C: 20, T2 }).map((i) => i.field), `T2=${T2}`).toEqual(['T2']);
+    }
+    expect(validateLMP({ T: 600, t: 1e12, C: 20, T2: 650 }).map((i) => i.field)).toEqual(['t']);
+    expect(validateLMP({ T: 600, t: 1000, C: 400, T2: 650 }).map((i) => i.field)).toEqual(['C']);
+    expect(validateLMP({ T: 0, t: 1000, C: 20, T2: 1500 })).toEqual([]);
+  });
+  it('lmpResult — 유효 입력에서만 유한 결과, 그 밖은 null; 극단 입력에서도 NaN/Infinity 가 결과로 나오지 않는다', () => {
+    const r = lmpResult({ T: 600, t: 1000, C: 20, T2: 650 })!;
+    expect(r.finite).toBe(true);
+    expect(Number.isFinite(r.t2) && Number.isFinite(r.log10t2)).toBe(true);
+    expect(r.log10t2).toBeCloseTo(Math.log10(r.t2), 6);
+    expect(r.extrapolated).toBe(false);
+    expect(lmpResult({ T: 600, t: 1000, C: 20, T2: -273.14 })).toBeNull();
+    expect(lmpResult({ T: 600, t: 1000, C: 20, T2: 1e9 })).toBeNull();
+    // 범위 안의 극단 조합(1500°C·10⁹ h·C 60 → 0°C)은 숫자로 유한하지 않을 수 있다 — 그때 finite=false 로 표시가 막힌다
+    const ex = lmpResult({ T: 1500, t: 1e9, C: 60, T2: 0 });
+    expect(ex).not.toBeNull();
+    if (ex!.finite) expect(Number.isFinite(ex!.t2)).toBe(true);
   });
 });
 

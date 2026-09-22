@@ -81,17 +81,37 @@
       "min": 98,
       "max": 129,
       "typical": 113,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:7050 × HT:T7351/T7451 over-aged SCC-resistant (f×0.78, i×1.5)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:7050 × HT:T7351/T7451 over-aged SCC-resistant (f×0.78, i×1.5)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 145,
+      "base_range": [
+        125,
+        165
+      ],
+      "factor": 0.78,
+      "condition": "T7351/T7451 over-aged SCC-resistant",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 8,
       "max": 21,
       "typical": 14,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:7050 × HT:T7351/T7451 over-aged SCC-resistant (f×0.78, i×1.5)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:7050 × HT:T7351/T7451 over-aged SCC-resistant (f×0.78, i×1.5)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 9,
+      "base_range": [
+        5,
+        14
+      ],
+      "factor": 1.5,
+      "condition": "T7351/T7451 over-aged SCC-resistant",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 44.8,
@@ -183,7 +203,8 @@
       "typical": 8.09,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 7 × condition 1 × form 1.05 × grade 1.1 = 8.09 USD/kg"
     }
   },
   "composition": {
@@ -264,7 +285,7 @@
     "Aluminum Alloy",
     "Aluminum-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 41,
   "max_service_temp": 120,
   "thermal_expansion": 23.5,

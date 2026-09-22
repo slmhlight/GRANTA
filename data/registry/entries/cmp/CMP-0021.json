@@ -101,7 +101,16 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived",
-      "provenance": "R205-R price_per_kg × ρ 재계산"
+      "provenance": "price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 250,
+      "max": 250,
+      "typical": 250,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 250 × condition 1 × form 1 × grade 1 = 250 USD/kg"
     }
   },
   "composition": [
@@ -112,8 +121,8 @@
   ],
   "sources": [
     {
-      "label": "ASM Engineered Materials Handbook Vol.1 — Composites",
-      "url": "https://www.asminternational.org/engineered-materials-handbook-volume-1-composites",
+      "label": "ASM Handbook Vol.21 — Composites (successor of Engineered Materials Handbook Vol.1)",
+      "url": "https://my.asminternational.org/asm-store?store-path=/products/06781G",
       "verified": false
     },
     {
@@ -162,6 +171,8 @@
   "rohs_compliant": true,
   "confidence_tier": "high",
   "industry_note": "Sandwich panel core foam: • PMI (Rohacell, Evonik): ρ 0.05-0.3 g/cc, σy 1-9 MPa, E 50-400 MPa, Tmax 180°C (autoclave-compatible). 항공 honeycomb 대안.",
+  "price_per_kg": 250,
+  "delivered_price_per_kg": 250,
   "_corrections": {
     "sources": {
       "from": [

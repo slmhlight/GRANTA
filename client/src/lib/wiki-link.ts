@@ -27,7 +27,9 @@ export function buildAutolinkMap(lk: WikiLookups): AutolinkMap {
   for (const e of Array.from(lk.byKey.values())) {
     for (const sf of e.surface_forms) {
       if (sf.autolink && !sf.ambiguous && !m.has(sf.form)) {
-        m.set(sf.form, { entityId: e.id, repId: e.rep_id, display: e.display });
+        /* AUD N05 (2026-09-22) — 링크 대상은 그 form 을 만든 재료(sf.id)다. 엔티티 대표(rep_id)로 보내면 "Ti CP Gr2" 가
+           CP-Ti 엔티티의 대표인 Gr1 annealed 로 갔다. form 에 재료 id 가 없을 때만 대표로. */
+        m.set(sf.form, { entityId: e.id, repId: sf.id || e.rep_id, display: e.display });
       }
     }
   }

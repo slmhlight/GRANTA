@@ -11,6 +11,7 @@
  * 훅을 쓰면 안 된다(컴포넌트가 아니라 호출되는 함수다). 내용은 원본 그대로 — 옮기기만 했다.
  */
 import { X } from 'lucide-react';
+import { Link } from 'wouter';
 import { F, Note, ExtLink, Chapter, H3 } from '../components';
 
 export default function ch15Body() {
@@ -26,7 +27,7 @@ export default function ch15Body() {
             <li><b>4단계 열처리</b> = Annealing (전체 풀림) → Normalizing (공냉 결정립 균질) → Quenching (급랭 Martensite) → Tempering (변태 응력 완화). <F>TTT/CCT/Jominy</F> 곡선으로 경화능 (hardenability) 예측.</li>
             <li><b>Stainless 5 family</b>: ① Austenitic (AISI 304/316, FCC, 비자성, 인성 ↑) ② Ferritic (AISI 430, BCC, Mg/Cr 자성, 비싼 Ni 회피) ③ Martensitic (AISI 410/420, Q+T, 칼날) ④ Duplex (2205, α+γ 혼합, 강도+부식) ⑤ PH (17-4PH H900, 석출 경화).</li>
             <li><b>부식 메커니즘</b> 5: passivation (Cr₂O₃ 막) · pitting (Cl⁻ 침공) · sensitization (450-850°C, Cr 결정립계 carbide) · SCC (응력+환경) · galvanic (이종금속).</li>
-            <li><b>경도 변환</b>: HRC ≈ HV/10 (대략, 글로서리와 통일 — HV 300≈HRC 30, HV 500≈HRC 49, HV 600≈HRC 55), HB ≈ HV × 0.95 (단, 700 HV 초과 시 HRC 표만 사용). 정확값은 ASTM E140 표 (비선형).</li>
+            <li><b>경도 변환</b>: 스케일 사이에 단순 비례식은 없다(비선형). 강(비오스테나이트)은 <b>ASTM E140-12b Table 1</b> 보간으로 — HV 300 ≈ HRC 29.8 · HV 400 ≈ HRC 40.8 · HV 500 ≈ HRC 49.1 · HV 600 ≈ HRC 55.3 · HV 700 ≈ HRC 60.1, HB 200 ≈ HV 200 (HB 는 표의 3000 kgf 기준, 상한 ~650 HB). 표 밖(HRC 20 미만·HV 940 초과)은 환산하지 않는다. 같은 표를 쓰는 <Link href="/tools?calc=hardness" className="text-accent hover:underline">Tools 경도 환산기</Link>로 확인.</li>
             <li><b>한국·일본·EU 매핑</b>: SUS304 (JIS) = STS304 (KS) = AISI 304 = EN 1.4301. SCM440 (JIS/KS) = AISI 4140.</li>
             <li className="text-muted-foreground">출처: ASM Desk Edition Section "Carbon and Alloy Steels" + "Stainless Steels" + ASTM E140 + KS D 3705/3753.</li>
           </ul>

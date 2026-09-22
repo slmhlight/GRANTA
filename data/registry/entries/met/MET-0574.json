@@ -80,17 +80,37 @@
       "min": 320,
       "max": 400,
       "typical": 360,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:inconel738 × HT:as-cast (defect-limited) (f×0.8, i×1.2)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:inconel738 × HT:as-cast (defect-limited) (f×0.8, i×1.2)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 450,
+      "base_range": [
+        400,
+        500
+      ],
+      "factor": 0.8,
+      "condition": "as-cast (defect-limited)",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 12,
       "max": 26,
       "typical": 18,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:inconel738 × HT:as-cast (defect-limited) (f×0.8, i×1.2)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:inconel738 × HT:as-cast (defect-limited) (f×0.8, i×1.2)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 15,
+      "base_range": [
+        10,
+        22
+      ],
+      "factor": 1.2,
+      "condition": "as-cast (defect-limited)",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 33,
@@ -182,7 +202,8 @@
       "typical": 550,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 220 × condition 1 × form 2.5 × grade 1 = 550 USD/kg"
     }
   },
   "composition": {
@@ -219,9 +240,9 @@
       "verified": true
     },
     {
-      "label": "Special Metals — Inconel 738 reference",
-      "url": "https://web.archive.org/web/2024/https://www.specialmetals.com/documents/technical-bulletins/inconel-738.pdf",
-      "verified": false
+      "label": "EOS NickelAlloy IN738 — Material Data Sheet (powder 9030-0020, AMS 5410C composition)",
+      "url": "https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-nickelalloy-in738",
+      "verified": true
     },
     {
       "label": "Cannon-Muskegon IN-738 / IN-738LC reference",
@@ -230,7 +251,7 @@
     },
     {
       "label": "Reed RC, The Superalloys (Cambridge 2006) Ch.5",
-      "url": "https://www.cambridge.org/core/books/superalloys/",
+      "url": "https://www.cambridge.org/core/books/superalloys/00CEE7E1026FA82BBC9F335E75D57AB2",
       "verified": false
     }
   ],
@@ -304,7 +325,13 @@
     "anisotropy": true,
     "anisotropic": true,
     "anisotropy_note": "AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로 ~10–30% 편차 — 데이터시트의 방향·후처리(HIP) 조건 확인 필수.",
-    "_r173_note_applied": true
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "AMS 5410C",
+        "org": "AMS"
+      }
+    ]
   },
   "fracture_toughness": 33,
   "fatigue_strength": 360,
@@ -329,7 +356,7 @@
     "Nickel-based",
     "Superalloy"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "elevated_temp": [
     {
       "temp": 20,
@@ -397,7 +424,7 @@
       "hours": 1000
     }
   ],
-  "confidence_tier": "medium",
+  "confidence_tier": "high",
   "industry_note": "Inconel 738 / IN-738LC (Cannon-Muskegon) — vacuum-cast Ni-base γ' precipitation-hardened superalloy (Ni bal, Cr 16, Co 8.5, Mo 1.75, W 2.6, Ta 1.75, Nb 0.9, Al 3.4, Ti 3.4, B/Zr trace, C 0.11 (LC=0.10 low-C)). γ' ≈ 43 vol%. Investment Tmax 980°C continuous (oxidation 우수 — Cr 16% high). 산업 가스 터빈 first-stage blade (Siemens SGT-700/750, GE 7HA.02, Westinghouse W501F). 1965년 GE 개발.",
   "_corrections": {
     "sources": {
@@ -413,9 +440,9 @@
           "verified": true
         },
         {
-          "label": "Special Metals — Inconel 738 reference",
-          "url": "https://web.archive.org/web/2024/https://www.specialmetals.com/documents/technical-bulletins/inconel-738.pdf",
-          "verified": false
+          "label": "EOS NickelAlloy IN738 — Material Data Sheet (powder 9030-0020, AMS 5410C composition)",
+          "url": "https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-nickelalloy-in738",
+          "verified": true
         },
         {
           "label": "Cannon-Muskegon IN-738 / IN-738LC reference",
@@ -424,7 +451,7 @@
         },
         {
           "label": "Reed RC, The Superalloys (Cambridge 2006) Ch.5",
-          "url": "https://www.cambridge.org/core/books/superalloys/",
+          "url": "https://www.cambridge.org/core/books/superalloys/00CEE7E1026FA82BBC9F335E75D57AB2",
           "verified": false
         }
       ]

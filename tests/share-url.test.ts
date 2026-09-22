@@ -55,4 +55,17 @@ describe('share URL 라운드트립', () => {
     const f = { compositionRanges: { Fe: [10, 50], Cr: [5, 20] } };
     expect(roundtrip(f)).toEqual(f);
   });
+
+  /* AUD R15 잔여 (2026-09-22) — "전체 보기"(기본 인기도 4–5 해제 = null)가 URL 에 남아 왕복 뒤 기본값이 다시 적용되지 않는다. */
+  it('popularityRange null(전체 보기)은 popm=all 로 인코딩되고 null 로 복원된다; 기본값이 null 인 범위는 생략', () => {
+    const qs = encodeFiltersToParams({ popularityRange: null, densityRange: null, search: '7050' } as any);
+    expect(qs).toContain('popm=all');
+    expect(qs).not.toContain('dnm');
+    const decoded = roundtrip({ popularityRange: null, search: '7050' });
+    expect(decoded).toEqual({ popularityRange: null, search: '7050' });
+    expect('popularityRange' in decoded).toBe(true);
+  });
+  it('popularityRange 가 undefined(부분 필터) 면 아무것도 쓰지 않는다', () => {
+    expect(encodeFiltersToParams({ search: 'x' })).not.toContain('popm');
+  });
 });

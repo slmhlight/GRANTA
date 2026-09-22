@@ -88,7 +88,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "class",
-      "provenance": "class:Iron-based generic × HT:fully annealed (i×2.5)"
+      "provenance": "class:Iron-based generic × HT:fully annealed (i×2.5)",
+      "base_value": 35,
+      "base_range": [
+        15,
+        60
+      ],
+      "factor": 2.5,
+      "condition": "fully annealed",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 99,
@@ -96,7 +104,16 @@
       "typical": 135,
       "n": 0,
       "confidence": "class",
-      "provenance": "class:AMS 6415 alloy steel × HT:fully annealed (k×1.8)"
+      "provenance": "class:AMS 6415 alloy steel × HT:fully annealed (k×1.8)",
+      "estimated": true,
+      "base_value": 75,
+      "base_range": [
+        55,
+        100
+      ],
+      "factor": 1.8,
+      "condition": "fully annealed",
+      "model": "ht-multiplier:kic"
     },
     "electrical_conductivity": {
       "min": 5.95,
@@ -176,7 +193,8 @@
       "typical": 3.21,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 3 × condition 1.02 × form 1.05 × grade 1 = 3.21 USD/kg"
     }
   },
   "composition": {

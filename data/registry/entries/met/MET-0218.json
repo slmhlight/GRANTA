@@ -97,17 +97,37 @@
       "min": 99,
       "max": 154,
       "typical": 127,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:alsi10mg × HT:as-built (fine grain) (f×1.1, i×0.95)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:alsi10mg × HT:as-built (fine grain) (f×1.1, i×0.95)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 115,
+      "base_range": [
+        90,
+        140
+      ],
+      "factor": 1.1,
+      "condition": "as-built (fine grain)",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 3,
       "max": 5,
       "typical": 4,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:alsi10mg × HT:as-built (fine grain) (f×1.1, i×0.95)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:alsi10mg × HT:as-built (fine grain) (f×1.1, i×0.95)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 4,
+      "base_range": [
+        3,
+        5
+      ],
+      "factor": 0.95,
+      "condition": "as-built (fine grain)",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 18,
@@ -196,7 +216,8 @@
       "typical": 20,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 8 × condition 1 × form 2.5 × grade 1 = 20 USD/kg"
     }
   },
   "composition": {
@@ -767,7 +788,7 @@
     "Aluminum",
     "Aluminum-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "elevated_temp": [
     {
       "temp": 20,

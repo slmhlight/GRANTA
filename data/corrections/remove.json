@@ -90,6 +90,183 @@
    "MET-0525",
    "MET-0526",
    "MET-0512"
-  ]
+  ],
+  "_reasons_note": "AUD Q03 (2026-09-22) — 제거 사유 원장(stable_id 키): reason·date·ref·superseded_by(선택, 같은 합금의 살아남은 entry). build-registry 가 data/registry/removed.json 으로 구조화 출력(값 동일 시 duplicate 로 표기), 앱은 ?d=<옛 id> 딥링크에서 이를 안내한다. 이전 회차 제거(R226b~A17)는 _ids_note 서술만 있고 여기 미기재 — 자동 분류 코드만 붙는다.",
+  "reasons": {
+   "MET-0599": {
+    "reason": "AM 오염 — Monel K-500 Aged (LPBF): points 가 EOS \"As manufactured\" 행 그대로(as-built MET-0600 과 동일), 시효 상태의 실측이 아님",
+    "date": "2026-09-22",
+    "ref": "docs/audits/ni-reverify-2027Q2.md · commit 28e0d8b (A3 Ni)",
+    "superseded_by": "MET-0600"
+   },
+   "MET-0499": {
+    "reason": "AM 오염 — CP-Nickel Heat-Treated (LPBF): EOS NiCP 열처리는 580°C 응력제거 1종뿐, Stress-relieved MET-0500 과 6 points 동일",
+    "date": "2026-09-22",
+    "ref": "docs/audits/ni-reverify-2027Q2.md · commit 28e0d8b (A3 Ni)",
+    "superseded_by": "MET-0500"
+   },
+   "MET-0588": {
+    "reason": "AM 오염 — Inconel X-750 As-supplied (LPBF): 815/1230/20 이 wrought 시효재 MET-0585 복제, 출처 \"EOS\" 는 URL 없음·EOS 에 X-750 제품 없음",
+    "date": "2026-09-22",
+    "ref": "docs/audits/ni-reverify-2027Q2.md · commit 28e0d8b (A3 Ni)",
+    "superseded_by": "MET-0585"
+   },
+   "MET-0527": {
+    "reason": "AM 오염 — Haynes 282 Aged (LPBF): 729/1010 = EOS as-manufactured 값에 타 연신율, 어느 벤더에도 \"시효 단독\" 상태 없음",
+    "date": "2026-09-22",
+    "ref": "docs/audits/ni-reverify-2027Q2.md · commit 28e0d8b (A3 Ni)"
+   },
+   "MET-0533": {
+    "reason": "AM 오염 — Haynes 282 Solution Age (LPBF): Heat-Treated 와 같은 조건, 단일 point 743/1158/34.5 출처 추적 불가(Velo3D 페이지에 수치 없음)",
+    "date": "2026-09-22",
+    "ref": "docs/audits/ni-reverify-2027Q2.md · commit 28e0d8b (A3 Ni)"
+   },
+   "MET-0516": {
+    "reason": "AM 오염 — Hastelloy X Heat-Treated (LPBF): 610/740/38 의 σy/UTS 0.82 는 용체화 X(0.4~0.45)와 모순, X 의 열처리 = 용체화 = Annealed MET-0514",
+    "date": "2026-09-22",
+    "ref": "docs/audits/ni-reverify-2027Q2.md · commit 28e0d8b (A3 Ni)",
+    "superseded_by": "MET-0514"
+   },
+   "MET-0530": {
+    "reason": "시험온도를 조건으로 오기 — Haynes 282 \"tested at 704°C\": Haynes 시트의 고온 인장 행이지 RT 조건이 아님(고온 데이터는 elevated_temp 축)",
+    "date": "2026-09-22",
+    "ref": "docs/audits/ni-reverify-2027Q2.md · commit 28e0d8b (A3 Ni)",
+    "superseded_by": "MET-0529"
+   },
+   "MET-0531": {
+    "reason": "시험온도를 조건으로 오기 — Haynes 282 \"tested at 760°C\" (고온 인장 행)",
+    "date": "2026-09-22",
+    "ref": "docs/audits/ni-reverify-2027Q2.md · commit 28e0d8b (A3 Ni)",
+    "superseded_by": "MET-0529"
+   },
+   "MET-0532": {
+    "reason": "시험온도를 조건으로 오기 — Haynes 282 \"tested at 871°C\" (고온 인장 행)",
+    "date": "2026-09-22",
+    "ref": "docs/audits/ni-reverify-2027Q2.md · commit 28e0d8b (A3 Ni)",
+    "superseded_by": "MET-0529"
+   },
+   "MET-0593": {
+    "reason": "시험온도를 조건으로 오기 — MAR-M 247 \"As-cast + Sustained 800°C (creep regime)\": RT 조건이 아닌 고온 시험 행",
+    "date": "2026-09-22",
+    "ref": "docs/audits/ni-reverify-2027Q2.md · commit 28e0d8b (A3 Ni)"
+   },
+   "MET-0614": {
+    "reason": "시험온도를 조건으로 오기 — Udimet 720Li \"S+S+A + tested 700°C (hot strength)\": 고온 시험 행",
+    "date": "2026-09-22",
+    "ref": "docs/audits/ni-reverify-2027Q2.md · commit 28e0d8b (A3 Ni)"
+   },
+   "MET-0517": {
+    "reason": "데이터시트에 없는 조건 — Hastelloy X Solution+Aged 760°C/16h: Haynes 시효 데이터는 1000 h 부터(450/945/23), 16 h 행 없음",
+    "date": "2026-09-22",
+    "ref": "docs/audits/ni-reverify-2027Q2.md · commit 28e0d8b (A3 Ni)"
+   },
+   "MET-0519": {
+    "reason": "데이터시트에 없는 조건 — Hastelloy X Stress relieved 650°C: 출처 없는 값",
+    "date": "2026-09-22",
+    "ref": "docs/audits/ni-reverify-2027Q2.md · commit 28e0d8b (A3 Ni)"
+   },
+   "MET-0559": {
+    "reason": "데이터시트에 없는 조건 — Inconel 625 Stress-relieved 650°C/24h: 625 는 650°C 노출 시 γ″ 로 오히려 경화(SMC-063 Table 6: 2000 h → 872/1213/30)",
+    "date": "2026-09-22",
+    "ref": "docs/audits/ni-reverify-2027Q2.md · commit 28e0d8b (A3 Ni)"
+   },
+   "MET-0581": {
+    "reason": "데이터시트에 없는 조건 — Inconel 783 Solution annealed: σy 800 > 시효재 779 의 물리 역전, 출처 없음",
+    "date": "2026-09-22",
+    "ref": "docs/audits/ni-reverify-2027Q2.md · commit 28e0d8b (A3 Ni)",
+    "superseded_by": "MET-0580"
+   },
+   "MET-0578": {
+    "reason": "데이터시트에 없는 조건 — Inconel 740H Solution treated 1135°C: 출처 없는 값",
+    "date": "2026-09-22",
+    "ref": "docs/audits/ni-reverify-2027Q2.md · commit 28e0d8b (A3 Ni)",
+    "superseded_by": "MET-0576"
+   },
+   "MET-0512": {
+    "reason": "데이터시트에 없는 조건 — Hastelloy N Aged 704°C/100h: Haynes 는 816°C/128 h 한 행만 공개",
+    "date": "2026-09-22",
+    "ref": "docs/audits/ni-reverify-2027Q2.md · commit 28e0d8b (A3 Ni)",
+    "superseded_by": "MET-0513"
+   },
+   "MET-0524": {
+    "reason": "출처 소멸 — Haynes 230 LPBF As-built: 출처 도메인 additive.oerlikon.com NXDOMAIN, Haynes 는 AM 230 값 미공개 (검증 소스 확보 시 재추가)",
+    "date": "2026-09-22",
+    "ref": "docs/audits/ni-reverify-2027Q2.md · commit 28e0d8b (A3 Ni)"
+   },
+   "MET-0525": {
+    "reason": "출처 소멸 + 물리 모순 — Haynes 230 LPBF HIP+solution+age: 고용체 합금에 \"age\" 조건 불가, 용체화 후 σy 480 > as-built 380 역전",
+    "date": "2026-09-22",
+    "ref": "docs/audits/ni-reverify-2027Q2.md · commit 28e0d8b (A3 Ni)"
+   },
+   "MET-0526": {
+    "reason": "출처 소멸 — Haynes 230 LPBF Stress-relieved: additive.oerlikon.com NXDOMAIN",
+    "date": "2026-09-22",
+    "ref": "docs/audits/ni-reverify-2027Q2.md · commit 28e0d8b (A3 Ni)"
+   },
+   "MET-0542": {
+    "reason": "generic 합성 조건 — Inconel 100 Aged (Cast): 주조 γ′ 합금에 850/1010/9 동일값 4중 복제, As-cast MET-0545 만 보존",
+    "date": "2026-09-22",
+    "ref": "docs/audits/ni-reverify-2027Q2.md · commit 28e0d8b (A3 Ni)",
+    "superseded_by": "MET-0545"
+   },
+   "MET-0543": {
+    "reason": "generic 합성 조건 — Inconel 100 Annealed (Cast): 동일값 복제",
+    "date": "2026-09-22",
+    "ref": "docs/audits/ni-reverify-2027Q2.md · commit 28e0d8b (A3 Ni)",
+    "superseded_by": "MET-0545"
+   },
+   "MET-0546": {
+    "reason": "generic 합성 조건 — Inconel 100 Strain-hardened (Cast): 주조 합금에 냉간가공 조건은 성립하지 않음",
+    "date": "2026-09-22",
+    "ref": "docs/audits/ni-reverify-2027Q2.md · commit 28e0d8b (A3 Ni)",
+    "superseded_by": "MET-0545"
+   },
+   "MET-0590": {
+    "reason": "generic 합성 조건 — Inconel X-750 Strain-hardened 470/950: 실제 냉간가공 X-750(No.1/spring temper 선재)은 UTS 1069~1517 MPa(AMS 5698/5699), 합성값과 무관",
+    "date": "2026-09-22",
+    "ref": "docs/audits/ni-reverify-2027Q2.md · commit 28e0d8b (A3 Ni)"
+   },
+   "MET-0510": {
+    "reason": "generic 합성 조건 — Hastelloy C-276 Strain-hardened 690/950: C-276 은 ASTM B574/B575 용체화 공급 전용, 냉간가공 datasheet 없음",
+    "date": "2026-09-22",
+    "ref": "docs/audits/ni-reverify-2027Q2.md · commit 28e0d8b (A3 Ni)"
+   },
+   "MET-0572": {
+    "reason": "중복 — Inconel 718 \"AMS 5662 STA spec\" 1100/1280/12: MET-0568 과 같은 조건이면서 규격 하한(1034/1276)도 typical(1196/1400)도 아닌 값",
+    "date": "2026-09-22",
+    "ref": "docs/audits/ni-reverify-2027Q2.md · commit 28e0d8b (A3 Ni)",
+    "superseded_by": "MET-0568"
+   },
+   "MET-0536": {
+    "reason": "중복 — Haynes 282 Wrought Aged 730/1110/32: Haynes 시트(MET-0535)·판(MET-0534) 형태별 entry 와 중복",
+    "date": "2026-09-22",
+    "ref": "docs/audits/ni-reverify-2027Q2.md · commit 28e0d8b (A3 Ni)",
+    "superseded_by": "MET-0535"
+   },
+   "MET-0518": {
+    "reason": "중복 — Hastelloy X Solution annealed 1175°C WQ 340/703/30: Wrought Annealed MET-0520(=SHT 1177°C) 과 같은 조건, UTS 703·El 30 은 Haynes 판/시트(760~783/46~49) 아래",
+    "date": "2026-09-22",
+    "ref": "docs/audits/ni-reverify-2027Q2.md · commit 28e0d8b (A3 Ni)",
+    "superseded_by": "MET-0520"
+   },
+   "MET-0577": {
+    "reason": "중복 — Inconel 740H Sol.+Aged 800°C/16h 850/1170/22: MET-0576 과 같은 라벨, σy 850 은 데이터시트 최대 782 초과",
+    "date": "2026-09-22",
+    "ref": "docs/audits/ni-reverify-2027Q2.md · commit 28e0d8b (A3 Ni)",
+    "superseded_by": "MET-0576"
+   },
+   "MET-0573": {
+    "reason": "중복·오칭 — \"Inconel 718Plus\": ATI Allvac 합금의 오칭, Allvac 718Plus STA MET-0493 과 중복 (별칭은 aliasesByBase 로 이관)",
+    "date": "2026-09-22",
+    "ref": "docs/audits/ni-reverify-2027Q2.md · commit 28e0d8b (A3 Ni)",
+    "superseded_by": "MET-0493"
+   },
+   "MET-0501": {
+    "reason": "중복 — CP-Nickel (Ni 200) Wrought Annealed 148/462/47: Nickel 200 MET-0602 와 동일 합금·동일값 (조성은 compositionByBase 로 이관)",
+    "date": "2026-09-22",
+    "ref": "docs/audits/ni-reverify-2027Q2.md · commit 28e0d8b (A3 Ni)",
+    "superseded_by": "MET-0602"
+   }
+  }
  }
 }

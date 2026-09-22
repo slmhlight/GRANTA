@@ -77,17 +77,37 @@
       "min": 275,
       "max": 352,
       "typical": 314,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:177ph × HT:solution annealed (soft) (f×0.55, i×3.5)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:177ph × HT:solution annealed (soft) (f×0.55, i×3.5)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 570,
+      "base_range": [
+        500,
+        640
+      ],
+      "factor": 0.55,
+      "condition": "solution annealed (soft)",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 63,
       "max": 175,
       "typical": 105,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:177ph × HT:solution annealed (soft) (f×0.55, i×3.5)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:177ph × HT:solution annealed (soft) (f×0.55, i×3.5)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 30,
+      "base_range": [
+        18,
+        50
+      ],
+      "factor": 3.5,
+      "condition": "solution annealed (soft)",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 97.5,
@@ -179,7 +199,8 @@
       "typical": 8.03,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 7.5 × condition 1.02 × form 1.05 × grade 1 = 8.03 USD/kg"
     }
   },
   "composition": {
@@ -273,7 +294,7 @@
     "Iron-based",
     "Stainless Steel"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 2.5,
   "max_service_temp": 315,
   "thermal_expansion": 11,

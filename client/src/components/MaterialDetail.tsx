@@ -38,6 +38,7 @@ import { RecText, joinRecs } from '@/components/material-detail/RecText';
 import { useT, useLang } from '@/lib/i18n';
 import { familyColor, CONFIDENCE, CONFIDENCE_ORDER } from '@/lib/material-colors';
 import { formatPrice, loadUnitSystem } from '@/lib/unit-convert';
+import { useUnitSystem, displayNumber, displayUnit } from '@/lib/unit-context';   // AUD F01 잔여 — 온도 곡선 표
 import { splitDesignations, SPEC_ORG_META } from '@/lib/spec-matcher';
 import { RefText } from '@/lib/ref-link';
 import { useState as useStateRD, useEffect as useEffectRD, useMemo as useMemoRD, useRef as useRefRD, lazy as lazyRD, Suspense as SuspenseRD, type PointerEvent as ReactPointerEvent, type ReactNode } from 'react';
@@ -123,6 +124,9 @@ const SPEC_BADGE_COLOR: Record<string, { color: string; bg: string }> = {
 
 export function MaterialDetail({ material, compareList, onToggleCompare, onClose, onBack, dragHandleProps, floating, allMaterials, favorites, onToggleFavorite, onSelectMaterial, onPin, isPinned, tab, onTabChange, openSectionsCsv, onOpenSectionsChange }: MaterialDetailProps) {
   const t = useT();
+  /* AUD F01 잔여 (2026-09-22) — 온도 곡선 표(°C·MPa·GPa)도 단위계를 따른다. 값 SSOT 는 SI, 표시만 변환. */
+  const sysUnits = useUnitSystem();
+  const tempCol = (v: number | null | undefined, key: string) => { const d = displayNumber(key, v, sysUnits); return d == null ? '—' : (sysUnits === 'imperial' ? +d.toFixed(key === 'temp' ? 0 : 1) : d); };
   // R227/E14 — 접힘 섹션 펼침 상태. null/undefined=기본값, 문자열=복원값(라우트 왕복에도 URL 로 보존).
   const [openSecs, setOpenSecs] = useStateRD<Set<string>>(() =>
     openSectionsCsv != null
@@ -414,14 +418,14 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                   <TempCurveChart series={[{ name: material.name, color: '#0066CC', points: material.elevated_temp }]} mode="single" height={200} />
                 </SuspenseRD>
                 <table className="w-full text-[11px] mt-2">
-                  <thead><tr className="text-muted-foreground"><th className="text-left font-normal py-0.5">Temp</th><th className="text-right font-normal">σy (MPa)</th><th className="text-right font-normal">UTS (MPa)</th><th className="text-right font-normal">E (GPa)</th></tr></thead>
+                  <thead><tr className="text-muted-foreground"><th className="text-left font-normal py-0.5">Temp ({displayUnit('temp', '°C', sysUnits)})</th><th className="text-right font-normal">σy ({displayUnit('yield_strength', 'MPa', sysUnits)})</th><th className="text-right font-normal">UTS ({displayUnit('uts', 'MPa', sysUnits)})</th><th className="text-right font-normal">E ({displayUnit('modulus', 'GPa', sysUnits)})</th></tr></thead>
                   <tbody>
                     {material.elevated_temp.map((e) => (
                       <tr key={e.temp} className="border-t border-border/30">
-                        <td className="py-0.5 font-mono">{e.temp}°C</td>
-                        <td className="text-right font-mono">{e.ys ?? '—'}</td>
-                        <td className="text-right font-mono">{e.uts ?? '—'}</td>
-                        <td className="text-right font-mono text-emerald-700">{e.E ?? '—'}</td>
+                        <td className="py-0.5 font-mono">{tempCol(e.temp, 'temp')}{displayUnit('temp', '°C', sysUnits)}</td>
+                        <td className="text-right font-mono">{tempCol(e.ys, 'yield_strength')}</td>
+                        <td className="text-right font-mono">{tempCol(e.uts, 'uts')}</td>
+                        <td className="text-right font-mono text-emerald-700">{tempCol(e.E, 'modulus')}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -430,6 +434,23 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                 {material.elevated_temp_src && (
                   <p className="text-[10px] text-muted-foreground mt-1">출처: {material.elevated_temp_src}</p>
                 )}
+                {/* AUD Q01 (2026-09-22) — 곡선은 합금(계열) 대표 곡선이라 이 entry 의 조건(열처리·방향·제품형태)과 다를 수 있다.
+                    상온(≤30°C) 곡선값이 이 entry 의 상온 대표값과 10% 넘게 다르면 그 사실을 숫자로 밝힌다 — 곡선을 이 조건의 실측으로 읽지 않도록. */}
+                {(() => {
+                  const rt = material.elevated_temp.find((e) => e.temp <= 30) ?? material.elevated_temp[0];
+                  const diffs: string[] = [];
+                  for (const [k, cv, lab] of [['yield_strength', rt?.ys, 'σy'], ['uts', rt?.uts, 'UTS'], ['modulus', rt?.E, 'E']] as Array<[string, number | null | undefined, string]>) {
+                    const rec = propValue(material, k);
+                    if (typeof cv !== 'number' || rec == null || rec <= 0) continue;
+                    const dev = Math.abs(cv - rec) / rec;
+                    if (dev > 0.10) diffs.push(`${lab} ${tempCol(cv, k)} vs ${tempCol(rec, k)} (${Math.round(dev * 100)}%)`);
+                  }
+                  return diffs.length > 0 ? (
+                    <p className="text-[10px] text-amber-700 mt-1" data-testid="temp-curve-condition-note">
+                      {t('detail.tempCurve.conditionNote')} {diffs.join(' · ')}
+                    </p>
+                  ) : null;
+                })()}
               </div>
             )}
             {/* R20: Creep rupture (log–log, one line per temperature) */}

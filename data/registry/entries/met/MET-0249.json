@@ -77,17 +77,28 @@
       "min": 170,
       "max": 240,
       "typical": 200,
-      "n": 3,
+      "n": 0,
       "confidence": "handbook",
-      "provenance": "alloy:1020 × HT:cold worked (f×1.25, i×0.6)"
+      "provenance": "alloy:1020 × HT:cold worked (f×1.25, i×0.6)",
+      "estimated": false
     },
     "impact_strength": {
       "min": 33,
       "max": 66,
       "typical": 48,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:1020 × HT:cold worked (f×1.25, i×0.6)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:1020 × HT:cold worked (f×1.25, i×0.6)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 80,
+      "base_range": [
+        55,
+        110
+      ],
+      "factor": 0.6,
+      "condition": "cold worked",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 48,
@@ -179,7 +190,8 @@
       "typical": 0.98,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 0.9 × condition 1.08 × form 1.05 × grade 0.96 = 0.98 USD/kg"
     }
   },
   "composition": {
@@ -265,7 +277,7 @@
     "Carbon Steel",
     "Iron-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 16,
   "max_service_temp": 540,
   "thermal_expansion": 11.7,

@@ -97,6 +97,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 600,
+      "max": 600,
+      "typical": 600,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 400 × condition 1 × form 1.5 × grade 1 = 600 USD/kg"
     }
   },
   "composition": {
@@ -159,5 +168,7 @@
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
   "confidence_tier": "medium-low",
-  "industry_note": "α-Quartz (trigonal, P3₂21, single-crystal SiO₂) — natural form (Brazil) 또는 hydrothermally grown (Sawyer, Toyo). ρ 2.65 g/cc, **α→β transition 573°C** (Tmax 자료의 의미 — 이 온도 위에서 더 이상 piezoelectric 안 됨), Tm 1670°C (β-cristobalite 형태). σf 50 MPa, E 95 GPa (anisotropic: a-axis 87, c-axis 105), CTE 14."
+  "industry_note": "α-Quartz (trigonal, P3₂21, single-crystal SiO₂) — natural form (Brazil) 또는 hydrothermally grown (Sawyer, Toyo). ρ 2.65 g/cc, **α→β transition 573°C** (Tmax 자료의 의미 — 이 온도 위에서 더 이상 piezoelectric 안 됨), Tm 1670°C (β-cristobalite 형태). σf 50 MPa, E 95 GPa (anisotropic: a-axis 87, c-axis 105), CTE 14.",
+  "price_per_kg": 400,
+  "delivered_price_per_kg": 600
 }

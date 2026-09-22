@@ -91,6 +91,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 110,
+      "max": 110,
+      "typical": 110,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 110 × condition 1 × form 1 × grade 1 = 110 USD/kg"
     }
   },
   "composition": {},
@@ -156,5 +165,7 @@
   "price_per_cm3": 0.1738,
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "industry_note": "CFRP (Carbon Fiber Reinforced Polymer). Fiber: T300 (PAN, σf 3530 MPa, E 230 GPa) / T700 (4900 / 230) / T800 (5880 / 294) / IM7 (5650 / 276) / M40J (4400 / 377, high-modulus). Matrix: epoxy (가장 흔함, max service 100-180°C), BMI (250°C), cyanate ester (180°C), PEEK (250°C). UD 0° T300/Epoxy: σf 1800 / E 130 / ρ 1."
+  "industry_note": "CFRP (Carbon Fiber Reinforced Polymer). Fiber: T300 (PAN, σf 3530 MPa, E 230 GPa) / T700 (4900 / 230) / T800 (5880 / 294) / IM7 (5650 / 276) / M40J (4400 / 377, high-modulus). Matrix: epoxy (가장 흔함, max service 100-180°C), BMI (250°C), cyanate ester (180°C), PEEK (250°C). UD 0° T300/Epoxy: σf 1800 / E 130 / ρ 1.",
+  "price_per_kg": 110,
+  "delivered_price_per_kg": 110
 }

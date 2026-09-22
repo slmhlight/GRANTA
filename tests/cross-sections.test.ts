@@ -3,7 +3,7 @@
  * 표준 핸드북 (Hibbeler, AISC) 값 대비 ±2% 이내.
  */
 import { describe, it, expect } from 'vitest';
-import { SCENARIO_PRESETS } from '@/lib/scenario-presets';
+import { SCENARIO_PRESETS, axisVerdict, axisSummaryValue } from '@/lib/scenario-presets';
 
 const sections = SCENARIO_PRESETS.bracket.configurator!.sections!;
 const get = (id: string) => sections.find((s) => s.id === id)!;
@@ -182,5 +182,38 @@ describe('precision 시나리오 compute', () => {
     const cteMax = (r.filters.thermalExpansionRange as [number, number])[1];
     // ΔL/L/ΔT = 10/(100·50·0.001) = 2.0
     expect(cteMax).toBeCloseTo(2.0, 0.1);
+  });
+});
+
+/* AUD F17 잔여 (2026-09-22) — 선택 버튼과 결과 요약이 같은 축 판정 함수를 쓴다. b<h / b>h / b=h 회귀. */
+describe('축 판정 SSOT — axisVerdict · 결과 요약 (AUD F17 잔여)', () => {
+  const rect = get('rect');
+  const cfg = SCENARIO_PRESETS.bracket.configurator!;
+  const summaryAxis = (b: number, h: number, axis: 'strong' | 'weak') =>
+    cfg.compute({ b, h, F: 1000, w: 1, L: 200, dmax: 1, SF: 2, pattern: 'cant_tip', process: [], _axis: axis }, rect).summary.find((r) => r.label === '하중 방향')!.value;
+
+  it('b=20·h=10: h 방향(I 1,667) 은 약축, b 방향(I 6,667) 은 강축 — 버튼 판정 = 요약', () => {
+    const vH = axisVerdict(rect, { b: 20, h: 10 }, 'strong')!, vB = axisVerdict(rect, { b: 20, h: 10 }, 'weak')!;
+    expect(vH.verdict).toBe('weak'); expect(vH.iMine).toBeCloseTo(1666.67, 1);
+    expect(vB.verdict).toBe('strong'); expect(vB.iMine).toBeCloseTo(6666.67, 1);
+    expect(summaryAxis(20, 10, 'strong')).toContain('약축');
+    expect(summaryAxis(20, 10, 'strong')).toContain('h/H');
+    expect(summaryAxis(20, 10, 'weak')).toContain('강축');
+    expect(summaryAxis(20, 10, 'weak')).toContain('b/B');
+  });
+  it('b=10·h=20: h 방향이 강축', () => {
+    expect(axisVerdict(rect, { b: 10, h: 20 }, 'strong')!.verdict).toBe('strong');
+    expect(summaryAxis(10, 20, 'strong')).toContain('강축');
+    expect(summaryAxis(10, 20, 'weak')).toContain('약축');
+  });
+  it('b=h=20: 동등 — 어느 방향을 골라도 요약에 강축·약축이 아니라 동등', () => {
+    expect(axisVerdict(rect, { b: 20, h: 20 }, 'weak')!.verdict).toBe('equal');
+    expect(summaryAxis(20, 20, 'weak')).toContain('동등');
+    expect(summaryAxis(20, 20, 'strong')).toContain('동등');
+  });
+  it('대칭 단면(축 구분 없음)은 null / 요약은 "대칭 단면"', () => {
+    const sq = get('sq');
+    expect(axisVerdict(sq, { a: 12 }, 'strong')).toBeNull();
+    expect(axisSummaryValue(sq, { a: 12 }, 'strong')).toContain('대칭');
   });
 });

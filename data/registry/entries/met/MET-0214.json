@@ -81,17 +81,37 @@
       "min": 109,
       "max": 140,
       "typical": 124,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:aa7075 × HT:T7351/T7451 over-aged SCC-resistant (f×0.78, i×1.5)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:aa7075 × HT:T7351/T7451 over-aged SCC-resistant (f×0.78, i×1.5)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 159,
+      "base_range": [
+        140,
+        180
+      ],
+      "factor": 0.78,
+      "condition": "T7351/T7451 over-aged SCC-resistant",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 8,
       "max": 18,
       "typical": 12,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:aa7075 × HT:T7351/T7451 over-aged SCC-resistant (f×0.78, i×1.5)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:aa7075 × HT:T7351/T7451 over-aged SCC-resistant (f×0.78, i×1.5)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 8,
+      "base_range": [
+        5,
+        12
+      ],
+      "factor": 1.5,
+      "condition": "T7351/T7451 over-aged SCC-resistant",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 36.4,
@@ -183,7 +203,8 @@
       "typical": 7.94,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 5.5 × condition 1.25 × form 1.05 × grade 1.1 = 7.94 USD/kg"
     }
   },
   "composition": {
@@ -272,7 +293,7 @@
     "Aluminum - Zn Alloys (7xxx)",
     "Aluminum-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "elevated_temp": [
     {
       "temp": 20,

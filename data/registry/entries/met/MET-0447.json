@@ -81,17 +81,37 @@
       "min": 46,
       "max": 66,
       "typical": 56,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:c26000 × HT:annealed (austenitic) (f×0.4, i×3.5)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:c26000 × HT:annealed (austenitic) (f×0.4, i×3.5)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 140,
+      "base_range": [
+        115,
+        165
+      ],
+      "factor": 0.4,
+      "condition": "annealed (austenitic)",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 140,
       "max": 350,
       "typical": 245,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:c26000 × HT:annealed (austenitic) (f×0.4, i×3.5)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:c26000 × HT:annealed (austenitic) (f×0.4, i×3.5)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 70,
+      "base_range": [
+        40,
+        100
+      ],
+      "factor": 3.5,
+      "condition": "annealed (austenitic)",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 82.5,
@@ -183,7 +203,8 @@
       "typical": 7.88,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 7.5 × condition 1 × form 1.05 × grade 1 = 7.88 USD/kg"
     }
   },
   "composition": {
@@ -210,7 +231,7 @@
     },
     {
       "label": "ASTM B19 — Cartridge Brass Sheet/Plate",
-      "url": "https://store.astm.org/b0019-22.html",
+      "url": "https://store.astm.org/b0019-20.html",
       "verified": false
     }
   ],
@@ -265,7 +286,7 @@
     "Metal",
     "Copper Alloy - Brass"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 28,
   "max_service_temp": 200,
   "thermal_expansion": 19.9,
@@ -311,7 +332,7 @@
         },
         {
           "label": "ASTM B19 — Cartridge Brass Sheet/Plate",
-          "url": "https://store.astm.org/b0019-22.html",
+          "url": "https://store.astm.org/b0019-20.html",
           "verified": false
         }
       ]

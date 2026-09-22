@@ -77,17 +77,28 @@
       "min": 90,
       "max": 150,
       "typical": 110,
-      "n": 3,
+      "n": 0,
       "confidence": "handbook",
-      "provenance": "alloy:c36000 × HT:annealed (austenitic) (f×0.4, i×3.5)"
+      "provenance": "alloy:c36000 × HT:annealed (austenitic) (f×0.4, i×3.5)",
+      "estimated": false
     },
     "impact_strength": {
       "min": 53,
       "max": 158,
       "typical": 98,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:c36000 × HT:annealed (austenitic) (f×0.4, i×3.5)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:c36000 × HT:annealed (austenitic) (f×0.4, i×3.5)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 28,
+      "base_range": [
+        15,
+        45
+      ],
+      "factor": 3.5,
+      "condition": "annealed (austenitic)",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 60,
@@ -179,7 +190,8 @@
       "typical": 7.88,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 7.5 × condition 1 × form 1.05 × grade 1 = 7.88 USD/kg"
     }
   },
   "composition": {
@@ -323,7 +335,7 @@
     "Titanium - Pure/Other",
     "Copper-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 26,
   "max_service_temp": 200,
   "thermal_expansion": 20.5,

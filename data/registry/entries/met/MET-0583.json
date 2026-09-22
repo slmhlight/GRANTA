@@ -80,17 +80,37 @@
       "min": 304,
       "max": 384,
       "typical": 344,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:inconel939 × HT:as-cast (defect-limited) (f×0.8, i×1.2)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:inconel939 × HT:as-cast (defect-limited) (f×0.8, i×1.2)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 430,
+      "base_range": [
+        380,
+        480
+      ],
+      "factor": 0.8,
+      "condition": "as-cast (defect-limited)",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 12,
       "max": 24,
       "typical": 17,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:inconel939 × HT:as-cast (defect-limited) (f×0.8, i×1.2)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:inconel939 × HT:as-cast (defect-limited) (f×0.8, i×1.2)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 14,
+      "base_range": [
+        10,
+        20
+      ],
+      "factor": 1.2,
+      "condition": "as-cast (defect-limited)",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 44,
@@ -98,7 +118,16 @@
       "typical": 60.5,
       "n": 0,
       "confidence": "class",
-      "provenance": "class:Cast Ni superalloy × HT:as-cast (defect-limited) (k×1.1)"
+      "provenance": "class:Cast Ni superalloy × HT:as-cast (defect-limited) (k×1.1)",
+      "estimated": true,
+      "base_value": 55,
+      "base_range": [
+        40,
+        75
+      ],
+      "factor": 1.1,
+      "condition": "as-cast (defect-limited)",
+      "model": "ht-multiplier:kic"
     },
     "electrical_conductivity": {
       "min": 1.105,
@@ -178,7 +207,8 @@
       "typical": 500,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 200 × condition 1 × form 2.5 × grade 1 = 500 USD/kg"
     }
   },
   "composition": {
@@ -319,7 +349,7 @@
     "Nickel-based",
     "Superalloy"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "elevated_temp": [
     {
       "temp": 20,

@@ -140,6 +140,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 2.5,
+      "max": 2.5,
+      "typical": 2.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 2.5 × condition 1 × form 1 × grade 1 = 2.5 USD/kg"
     }
   },
   "composition": {
@@ -220,5 +229,8 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "industry_note": "PBT (Polybutylene Terephthalate, Valox/Crastin) — semi-crystalline engineering thermoplastic. Tg ≈ 60°C, Tm ≈ 225°C, HDT (1.8 MPa) ≈ 60°C unfilled / 200°C GF30, max service 120°C. σy 55-60 / UTS 60-65 / El 50-200% / E 2."
+  "industry_note": "PBT (Polybutylene Terephthalate, Valox/Crastin) — semi-crystalline engineering thermoplastic. Tg ≈ 60°C, Tm ≈ 225°C, HDT (1.8 MPa) ≈ 60°C unfilled / 200°C GF30, max service 120°C. σy 55-60 / UTS 60-65 / El 50-200% / E 2.",
+  "price_per_kg": 2.5,
+  "delivered_price_per_kg": 2.5,
+  "total_cost_estimate": 4.25
 }

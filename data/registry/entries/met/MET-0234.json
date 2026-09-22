@@ -88,7 +88,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "class",
-      "provenance": "class:Iron-based generic × HT:annealed/as-cast (i×1.2)"
+      "provenance": "class:Iron-based generic × HT:annealed/as-cast (i×1.2)",
+      "base_value": 35,
+      "base_range": [
+        15,
+        60
+      ],
+      "factor": 1.2,
+      "condition": "annealed/as-cast",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 71.5,
@@ -180,7 +188,8 @@
       "typical": 0.82,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 0.8 × condition 1.02 × form 1.05 × grade 0.955 = 0.82 USD/kg"
     }
   },
   "composition": {
@@ -198,7 +207,7 @@
     },
     {
       "label": "MakeItFrom — AISI 1010 / SAE 1010 Carbon Steel",
-      "url": "https://www.makeitfrom.com/material-properties/SAE-AISI-1010-G10100-Carbon-Steel",
+      "url": "https://www.makeitfrom.com/material-properties/SAE-AISI-1010-S10C-G10100-Carbon-Steel",
       "verified": false
     },
     {
@@ -294,7 +303,7 @@
       "from": [
         {
           "label": "MakeItFrom — AISI 1010 / SAE 1010 Carbon Steel",
-          "url": "https://www.makeitfrom.com/material-properties/SAE-AISI-1010-G10100-Carbon-Steel",
+          "url": "https://www.makeitfrom.com/material-properties/SAE-AISI-1010-S10C-G10100-Carbon-Steel",
           "verified": false
         },
         {

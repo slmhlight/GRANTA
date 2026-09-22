@@ -93,23 +93,39 @@ export function RangeRow({
   const provStr = String((range as { provenance?: string })?.provenance ?? '');
   const fatigueRule = provStr.match(/σf≈([\d.]+)·(σy|UTS)/);
   const derivedLabel = isPriceProp ? (lang === 'en' ? 'calc' : '계산') : (isFatigueProp ? (fatigueRule ? `≈${fatigueRule[1]}·${fatigueRule[2]}` : (lang === 'en' ? 'derived' : '유도')) : (lang === 'en' ? 'derived' : '유도'));
-  const derivedTip = isPriceProp
-    ? '계산값 — base price × condition/form/grade 배수 적용 (raw price 의 product)'
+  const en = lang === 'en';
+  /* AUD N01 (2026-09-22) — HT 보정계수를 곱한 모델값(피로·충격·KIC): 기초값 × 계수 (조건) 을 툴팁에 그대로 노출. */
+  const htm = range as { base_value?: number; base_range?: number[]; factor?: number; condition?: string; model?: string; base_n?: number } | undefined;
+  const isHtModel = !!(htm && typeof htm.base_value === 'number' && typeof htm.factor === 'number' && String(htm.model || '').startsWith('ht-multiplier'));
+  const htModelTip = isHtModel
+    ? (en
+      ? `Model value — handbook base ${fmt(disp(htm!.base_value))}${htm!.base_range ? ` (${fmt(disp(htm!.base_range[0]))}–${fmt(disp(htm!.base_range[1]))})` : ''} ${dispUnit} × heat-treatment factor ${htm!.factor} (${htm!.condition}) = ${fmt(disp(typical))}. Not a measurement for this condition; the base is a handbook value for the peak/reference condition.`
+      : `모델값 — 핸드북 기초값 ${fmt(disp(htm!.base_value))}${htm!.base_range ? ` (${fmt(disp(htm!.base_range[0]))}–${fmt(disp(htm!.base_range[1]))})` : ''} ${dispUnit} × 열처리 보정계수 ${htm!.factor} (${htm!.condition}) = ${fmt(disp(typical))}. 이 조건의 실측이 아니라 기준 조건 핸드북 값에 계수를 곱한 추정입니다.`)
+    : null;
+  const derivedTip = htModelTip ?? (isPriceProp
+    ? (en ? 'Calculated — base price × condition/form/grade multipliers (product of raw price)' : '계산값 — base price × condition/form/grade 배수 적용 (raw price 의 product)')
     : (isFatigueProp
-      ? (fatigueRule ? `피로 한도 ≈ ${fatigueRule[1]} × ${fatigueRule[2]} (계열 대표 비율 — 10⁷ cycles·R=−1·매끈 시편 가정, 실측 아님)` : '다른 물성에서 유도된 피로값')
-      : '다른 물성에서 유도된 값');
-  /* AUD F26 — measured 툴팁은 표본 수를 그대로 말한다. n=1 은 "실측 데이터 다수" 가 아니다. */
+      ? (fatigueRule
+        ? (en ? `Endurance limit ≈ ${fatigueRule[1]} × ${fatigueRule[2]} (family-typical ratio — 10⁷ cycles, R=−1, smooth specimen; not measured)` : `피로 한도 ≈ ${fatigueRule[1]} × ${fatigueRule[2]} (계열 대표 비율 — 10⁷ cycles·R=−1·매끈 시편 가정, 실측 아님)`)
+        : (en ? 'Fatigue value derived from other properties' : '다른 물성에서 유도된 피로값'))
+      : (en ? 'Value derived from other properties' : '다른 물성에서 유도된 값')));
+  /* AUD F26 — measured 툴팁은 표본 수를 그대로 말한다. n=1 은 "실측 데이터 다수" 가 아니다.
+     AUD Q02 (2026-09-22) — 가격의 n 은 시험 표본이 아니라 시세·견적 출처 수다. */
   const nPts = range?.n ?? 0;
-  const measuredTip = nPts >= 3 ? `실측 데이터 ${nPts}점 (평균 ± 범위)` : nPts === 1 || nPts === 2 ? `실측 ${nPts}점 — 단일 대표값에 가깝습니다. 조건·시험법·표본 수를 출처에서 확인하세요.` : '실측으로 표기됐지만 표본 수 정보가 없습니다 — 출처를 확인하세요.';
+  const measuredTip = isPrice
+    ? (en ? `Market price citation${nPts === 1 ? '' : 's'}: ${nPts} — n counts price sources/quotes, not test specimens.` : `시장 단가 인용 ${nPts}건 — n 은 시험 표본 수가 아니라 시세·견적 출처 수입니다.`)
+    : nPts >= 3 ? (en ? `Measured data: ${nPts} points (mean ± range)` : `실측 데이터 ${nPts}점 (평균 ± 범위)`)
+      : nPts === 1 || nPts === 2 ? (en ? `Measured: ${nPts} point${nPts === 2 ? 's' : ''} — close to a single representative value. Check condition, test method and sample size in the source.` : `실측 ${nPts}점 — 단일 대표값에 가깝습니다. 조건·시험법·표본 수를 출처에서 확인하세요.`)
+        : (en ? 'Labelled measured but no sample-size information — check the source.' : '실측으로 표기됐지만 표본 수 정보가 없습니다 — 출처를 확인하세요.');
 
   /* R210 B5 — 색/툴팁은 material-colors.ts 의 CONFIDENCE 단일 소스에서. measured 의 라벨은 n=N,
      derived 의 라벨·툴팁은 property type 별(가격='계산'/피로='≈UTS'/기타='유도')로 override. */
   const base = conf ? CONFIDENCE[conf as ConfidenceLevel] : null;
   const badge = base ? {
-    label: conf === 'measured' ? `n=${range?.n ?? 0}` : conf === 'derived' ? derivedLabel : (lang === 'en' ? base.labelEn : base.label),   // AUD F23
+    label: conf === 'measured' ? `n=${range?.n ?? 0}` : conf === 'derived' ? (isHtModel ? `HT×${htm!.factor}` : derivedLabel) : (lang === 'en' ? base.labelEn : base.label),   // AUD F23 · N01 (HT×계수 라벨)
     cls: base.twText,
     dot: base.twDot,
-    tip: conf === 'derived' ? derivedTip : conf === 'measured' ? measuredTip : base.tip,
+    tip: conf === 'derived' ? derivedTip : conf === 'measured' ? measuredTip : (en && (base as { tipEn?: string }).tipEn) || base.tip,
   } : null;
   /* R129 — fallback 출처/조정 표시 (provenance). hover tooltip 에 fallback chain 명시.
             예: "alloy:174ph × HT:H1025 (f×0.9, i×1.4)" → 17-4 PH peak 값에서 H1025 condition 조정. */
@@ -142,7 +158,9 @@ export function RangeRow({
   const hs = range as { scale?: string; source_scale?: string; source_value?: number; conversion?: string | null; scale_note?: string } | undefined;
   const scaleUnit = hs?.scale && hs.scale !== 'HV' && unit === 'HV' ? hs.scale : dispUnit;
   const hardnessScaleTip = unit === 'HV' && hs?.source_scale
-    ? (hs.conversion ? `원자료 ${hs.source_scale} ${hs.source_value} → HV ${typical} (${hs.conversion})` : `원자료 ${hs.source_scale} ${hs.source_value} — ${hs.scale_note || '환산표 없음, 원 스케일 표기'}`)
+    ? (hs.conversion
+      ? (en ? `Source ${hs.source_scale} ${hs.source_value} → HV ${typical} (${hs.conversion})` : `원자료 ${hs.source_scale} ${hs.source_value} → HV ${typical} (${hs.conversion})`)
+      : (en ? `Source ${hs.source_scale} ${hs.source_value} — ${hs.scale_note || 'no conversion table; shown in the original scale'}` : `원자료 ${hs.source_scale} ${hs.source_value} — ${hs.scale_note || '환산표 없음, 원 스케일 표기'}`))
     : undefined;
   const isDifficultyFactor = /machining|ht factor|machinability|wear/i.test(label);
   const factorBadge = isFactorRow ? factorDifficultyLabel(typical as number, isDifficultyFactor ? 'difficulty' : 'price', lang) : null;
@@ -153,7 +171,7 @@ export function RangeRow({
         {badge && (
           <span
             className={`inline-block w-1.5 h-1.5 rounded-full ${badge.dot} flex-shrink-0`}
-            title={prov ? `${badge.tip}\n출처: ${prov}` : badge.tip}
+            title={prov ? `${badge.tip}\n${en ? 'Source' : '출처'}: ${prov}` : badge.tip}
           />
         )}
         {/* W4-5 — 대응 용어가 있으면 라벨을 글로서리로 연결. 없으면 그냥 텍스트(억지 링크 금지). */}
@@ -161,7 +179,7 @@ export function RangeRow({
           <Link
             href={`/guide/term/${termSlug}`}
             className="border-b border-dotted border-muted-foreground/50 hover:text-accent hover:border-accent"
-            title={`'${label}' 이(가) 무엇인지 — 용어 설명 보기`}
+            title={en ? `What '${label}' means — open the glossary entry` : `'${label}' 이(가) 무엇인지 — 용어 설명 보기`}
           >{shownLabel}</Link>
         ) : shownLabel}
       </span>
@@ -176,23 +194,28 @@ export function RangeRow({
           </span>
         )}
         {badge && !isFactorRow && (
-          <span className={`ml-1 text-[10px] ${badge.cls}`} title={prov ? `${badge.tip}\n출처: ${prov}` : badge.tip}>{badge.label}</span>
+          <span className={`ml-1 text-[10px] ${badge.cls}`} title={prov ? `${badge.tip}\n${en ? 'Source' : '출처'}: ${prov}` : badge.tip}>{badge.label}</span>
         )}
         {/* W4-6 — 출처는 실재하지만 값은 추정 (배지가 직접 증거를 시사할 때만) */}
         {isEstimated && (
           <span
             className="ml-1 text-[10px] px-1 py-px rounded bg-amber-100 text-amber-800 border border-amber-300 font-medium"
-            title={`추정값 — 출처는 있으나 직접 측정치가 아닙니다.${prov ? `
-근거: ${prov}` : ''}`}
+            title={`${en ? 'Estimated — a source exists but this is not a direct measurement.' : '추정값 — 출처는 있으나 직접 측정치가 아닙니다.'}${prov ? `
+${en ? 'Basis' : '근거'}: ${prov}` : ''}`}
           >
-            추정
+            {en ? 'est.' : '추정'}
           </span>
         )}
         {/* E4 — 이 값 자체가 규격 하한임을 명시 (평균값 행과 섞이지 않도록) */}
         {isSpecFloor && (
           <span
             className="ml-1 text-[10px] px-1 py-px rounded bg-sky-100 text-sky-800 border border-sky-300 font-medium"
-            title={`이 값은 평균이 아니라 **규격 보증 최소값(floor)** 입니다.${specFloorSrc ? `
+            title={en
+              ? `This value is the **specification minimum (floor)**, not an average.${specFloorSrc ? `
+Standard: ${specFloorSrc}` : ''}
+
+Real material is usually higher. Do not compare it directly with typical rows — for safety-critical design this floor is the right value.`
+              : `이 값은 평균이 아니라 **규격 보증 최소값(floor)** 입니다.${specFloorSrc ? `
 근거 규격: ${specFloorSrc}` : ''}
 
 실제 재료는 대개 이보다 높습니다. 평균값 행과 직접 비교하지 마세요 — 안전 임계 설계에는 이 값을 쓰는 것이 맞습니다.`}
@@ -204,7 +227,7 @@ export function RangeRow({
         {minSpec != null && typeof typical === 'number' && Math.abs(minSpec - typical) > typical * 0.15 && (
           <span
             className="ml-1 text-[10px] text-amber-600 font-medium"
-            title={`Typical: ${fmt(disp(typical))} ${dispUnit} (ASM/Granta 평균)\nMin spec: ${fmt(disp(minSpec))} ${dispUnit}${minSpecSrc ? ` (${minSpecSrc})` : ''}\n\n사용자 의사결정 권장: 안전 임계 시 min spec 사용.`}
+            title={`Typical: ${fmt(disp(typical))} ${dispUnit} (${en ? 'ASM/Granta average' : 'ASM/Granta 평균'})\nMin spec: ${fmt(disp(minSpec))} ${dispUnit}${minSpecSrc ? ` (${minSpecSrc})` : ''}\n\n${en ? 'Recommendation: use the min spec for safety-critical design.' : '사용자 의사결정 권장: 안전 임계 시 min spec 사용.'}`}
           >
             min={fmt(disp(minSpec))}
           </span>

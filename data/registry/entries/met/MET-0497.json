@@ -176,7 +176,8 @@
       "typical": 1740,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 300 × condition 1.45 × form 1 × grade 4 = 1740 USD/kg"
     }
   },
   "composition": {
@@ -191,14 +192,9 @@
   },
   "sources": [
     {
-      "label": "ASM Handbook Vol.2 — Nonferrous Alloys (Ni & Co Superalloys)",
-      "url": "https://dl.asminternational.org/handbooks/edited-volume/14/Properties-and-Selection-Nonferrous-Alloys-and",
+      "label": "ASM Alloy Digest Ni-447 — CMSX-4 second-generation single-crystal Ni-base superalloy (Cannon-Muskegon)",
+      "url": "https://dl.asminternational.org/alloy-digest/article/43/3/Ni-447/5729/CMSX-4-ALLOYSecond-Generation-Single-Crystal",
       "verified": true
-    },
-    {
-      "label": "Wikipedia — CMSX-4 single crystal superalloy",
-      "url": "https://en.wikipedia.org/wiki/CMSX",
-      "verified": false
     },
     {
       "label": "Cannon-Muskegon — CMSX-4 single-crystal superalloy",
@@ -217,7 +213,7 @@
     },
     {
       "label": "Reed RC, The Superalloys (Cambridge 2006) Ch.6",
-      "url": "https://www.cambridge.org/core/books/superalloys/",
+      "url": "https://www.cambridge.org/core/books/superalloys/00CEE7E1026FA82BBC9F335E75D57AB2",
       "verified": false
     }
   ],
@@ -297,37 +293,8 @@
   "svhc_concerns": [
     "Co 9% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],
-  "confidence_tier": "medium",
+  "confidence_tier": "high",
   "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "Wikipedia — CMSX-4 single crystal superalloy",
-          "url": "https://en.wikipedia.org/wiki/CMSX",
-          "verified": false
-        },
-        {
-          "label": "Cannon-Muskegon — CMSX-4 single-crystal superalloy",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "KIC fallback: GE Aviation Single Crystal",
-          "url": null,
-          "verified": false
-        },
-        {
-          "label": "Cannon-Muskegon CMSX-4 single-crystal datasheet",
-          "url": "https://www.cannonmuskegon.com/products/vacuum-melt-alloy/",
-          "verified": true
-        },
-        {
-          "label": "Reed RC, The Superalloys (Cambridge 2006) Ch.6",
-          "url": "https://www.cambridge.org/core/books/superalloys/",
-          "verified": false
-        }
-      ]
-    },
     "aliases": {
       "from": [
         "CMSX-4",

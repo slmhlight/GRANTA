@@ -159,7 +159,8 @@
       "typical": 375,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 250 × condition 1 × form 1.5 × grade 1 = 375 USD/kg"
     }
   },
   "composition": {
@@ -181,16 +182,6 @@
       "label": "Plansee TaC technical data",
       "url": "https://www.plansee.com/en/materials/w-mmc.html",
       "verified": true
-    },
-    {
-      "label": "Plansee Tantalum technical data",
-      "url": "https://www.plansee.com/en/materials/tantalum.html",
-      "verified": true
-    },
-    {
-      "label": "ASTM B708 — Tantalum/Tantalum Alloy Sheet/Plate/Strip",
-      "url": "https://store.astm.org/b0708-15.html",
-      "verified": false
     }
   ],
   "machinability": null,
@@ -201,13 +192,7 @@
     "applications": "로켓 노즐 throat, 핵 분야 thermal couple sheath, 초고온 도가니",
     "limitations": "고가 (Ta 원료), 가공 매우 어려움",
     "no_yield": "취성 세라믹 — 항복점 없음. 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
-    "_r173_note_applied": true,
-    "specs": [
-      {
-        "id": "ASTM B708",
-        "org": "ASTM"
-      }
-    ]
+    "_r173_note_applied": true
   },
   "popularity": 2,
   "density": 14.5,
@@ -247,6 +232,6 @@
   "surface_finish_typical": 3.2,
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
-  "confidence_tier": "high",
+  "confidence_tier": "medium",
   "industry_note": "TaC (Tantalum Carbide, NaCl structure) — Tm 3880°C (가장 high-Tm carbide 의 하나 — HfC 와 비슷). ρ 14.5 g/cc (dense — W heavy alloy 와 비슷), σf 300-400, E 470 GPa. Tmax 1500°C inert. WC 보다 wear superior — 코팅 표준 (TaC 코팅 ball end mill). TaC + HfC ternary (4:1 ratio) 는 가장 high-Tm 알려진 (4200°C). 우주 hypersonic leading edge (X-43A scramjet inlet), nuclear thermal rocket throat (fuel temperature 2600°C+)."
 }

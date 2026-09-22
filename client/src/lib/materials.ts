@@ -230,6 +230,10 @@ export interface MaterialSource {
   verified: boolean;
   /** R226e/D3 — 출처 권위 등급 (build-from-registry 도출). */
   authority?: 'standard' | 'handbook' | 'manufacturer' | 'aggregator' | 'other';
+  /** AUD F11 잔여 — 링크 접근 상태(verify:urls 원장, build 스탬프). verified(내용 검증)와 별개의 축. */
+  link_status?: 'ok' | 'redirected' | 'dead' | 'bot-blocked' | 'bot-blocked-candidate' | 'error' | 'unchecked';
+  /** 마지막 접근 검사일 (YYYY-MM-DD). */
+  link_checked?: string;
 }
 
 export interface PropertyMeta {

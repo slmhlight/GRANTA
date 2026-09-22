@@ -77,17 +77,37 @@
       "min": 198,
       "max": 255,
       "typical": 225,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:4135 × HT:fully annealed (f×0.5, i×2.5)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:4135 × HT:fully annealed (f×0.5, i×2.5)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 450,
+      "base_range": [
+        395,
+        510
+      ],
+      "factor": 0.5,
+      "condition": "fully annealed",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 60,
       "max": 105,
       "typical": 80,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:4135 × HT:fully annealed (f×0.5, i×2.5)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:4135 × HT:fully annealed (f×0.5, i×2.5)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 32,
+      "base_range": [
+        24,
+        42
+      ],
+      "factor": 2.5,
+      "condition": "fully annealed",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 135,
@@ -179,7 +199,8 @@
       "typical": 2.99,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 2.7 × condition 1.02 × form 1.05 × grade 1.035 = 2.99 USD/kg"
     }
   },
   "composition": {
@@ -256,7 +277,7 @@
     "Alloy Steel",
     "Iron-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 7.2,
   "max_service_temp": 425,
   "thermal_expansion": 12.3,

@@ -84,7 +84,10 @@ export function applyBaseFilters(materials: Material[], filters: FilterState): M
       searchRank.set(m.id, { rank: best, field });
       ranked.push(m);
     }
-    result = ranked;
+    /* AUD R09 잔여 (2026-09-22) — 정확/구분자무시 일치(rank 0·1)가 하나라도 있으면 부분수열 일치(rank 2)는 버린다.
+       "B4C" 가 B4C-Al MMC 2건 외에 b…4…c 순서만 맞는 22건을 끌고 왔다. 직접 일치가 하나도 없을 때만(오타 보정) 부분수열을 쓴다. */
+    const hasDirect = ranked.some((m) => (searchRank.get(m.id)?.rank ?? 9) <= 1);
+    result = hasDirect ? ranked.filter((m) => (searchRank.get(m.id)?.rank ?? 9) <= 1) : ranked;
   }
 
   // R144b — Multi-constraint DSL query (AND with other filters)

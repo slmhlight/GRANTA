@@ -97,6 +97,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 12 × condition 1 × form 1 × grade 1 = 12 USD/kg"
     }
   },
   "composition": {},
@@ -152,5 +161,7 @@
   "price_grade_premium": 1,
   "price_per_cm3": 0.0019,
   "rohs_compliant": true,
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "price_per_kg": 12,
+  "delivered_price_per_kg": 12
 }

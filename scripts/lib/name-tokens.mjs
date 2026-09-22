@@ -105,8 +105,13 @@ export function suggestAutolink(form, ambiguous) {
   if (!/[a-z]/i.test(form)) return false;      // 순수 숫자(4150·304)는 명시링크만 (§A 오탐 방지)
   if (AUTOLINK_STOP.has(form)) return false;   // 원소명·흔한 영어단어·서술어(§D — 산문 상시등장 → 과링크 재앙)
   if (!/[0-9]/.test(form) && GENERIC_WORDS.has(form)) return false; // 설명어 leak (wing·tank·marine…)
+  /* AUD N05 (2026-09-22) — "grade 2"·"Gr70"·"Type 2"·"Class 1" 같은 등급 토큰 홀로는 규격마다 뜻이 달라(AGMA grade 2 ≠ Ti CP Grade 2)
+     자동 링크 금지. 합금명이 붙은 합성 form(ticpgr2·cpgr2·a516gr70)만 링크한다. */
+  if (GRADE_TOKEN_RE.test(form)) return false;
   return true;
 }
+/** 등급 토큰 단독 형태 — grade2 · gr70 · type316 · class1 (합금명 없는 등급 번호). */
+export const GRADE_TOKEN_RE = /^(?:grade|gr|type|class|cl|no|nr)\d{1,3}[a-z]?$/;
 
 /** autolink 제외 — 산문에 흔히 등장하는 단독 토큰(원소명·일반 영어단어·서술어).
  *  §D "원소기호/명·약어·일반어 기본 false". 재료 지정력이 낮거나 과링크 위험이 큰 form 만.
@@ -118,6 +123,14 @@ export const AUTOLINK_STOP = new Set([
   'copper', 'silicon', 'zirconium', 'hafnium', 'beryllium', 'carbon', 'iron', 'diamond',
   'purechromium', 'purerhenium', 'ethylene', 'terephthalate', 'copolymer',
   // 흔한 영어단어(단독 토큰) — 물성/공정 서술에 상시 등장
+  // AUD N05 (2026-09-22) — 'standard'(PC 표준 등급 → "NIST Standard Reference Data" 오링크)·'tube'(CF3 별칭 → "heater tube" 오링크) 등
+  // 제품 형태·일반 형용사는 재료 지정자가 아니다.
+  'standard', 'tube', 'tubes', 'tubing', 'bar', 'bars', 'rod', 'sheet', 'strip', 'forging', 'casting', 'powder', 'wire',
+  // AUD N05 — 제조사·공급사 이름 단독 토큰(carpenter → A-286, victrex → PEEK 등): 회사명은 재료 지정자가 아니다
+  'carpenter', 'daido', 'allvac', 'markforged', 'victrex', 'solvay', 'syensqo', 'sabic', 'crucible', 'materion', 'timet', 'alcoa', 'sandvik',
+  'outokumpu', 'renishaw', 'basf', 'dupont', 'celanese', 'arkema', 'evonik', 'covestro', 'hexcel', 'toray', 'plansee', 'kennametal',
+  'coorstek', 'kyocera', 'ceramtec', 'corning', 'schott', 'wacker', 'lanxess', 'envalior', 'huntsman', 'stratasys', 'uddeholm', 'bohler',
+  'hitachi', 'posco', 'hyundai', 'nippon', 'kobe', 'jfe', 'ensinger', 'gurit', 'zeon', 'lubrizol', 'chemours', 'eastman', 'honeywell',
   'yield', 'peak', 'cycle', 'depth', 'ratio', 'target', 'spec', 'full', 'more', 'soft', 'rigid',
   'lean', 'single', 'ahead', 'glass', 'gray', 'naval', 'music', 'rail', 'fused', 'woven', 'twill', 'creep',
   'nasa', 'alli', 'density', 'derivative', 'natural', 'section', 'variant', 'crystal', 'cryogenic',

@@ -170,6 +170,7 @@ export const TRANSLATIONS: Record<string, Record<Lang, string>> = {
   'detail.confidence.class': { ko: '클래스 대표(추정)', en: 'class typical (estimated)' },
   'detail.confidence.derived': { ko: '다른 물성에서 유도', en: 'derived from other properties' },
   'detail.tempCurve.title': { ko: '온도 의존성 — 강도·강성', en: 'Strength & Modulus vs Temperature' },
+  'detail.tempCurve.conditionNote': { ko: '주의: 이 곡선은 합금 대표 곡선입니다. 곡선의 상온값이 이 조건의 대표값과 다릅니다 —', en: 'Note: this curve is the alloy-level reference curve; its room-temperature values differ from this condition —' },
   'detail.creep.title': { ko: '크리프 파단 (응력 vs 시간)', en: 'Creep Rupture (stress vs time)' },
   'detail.creep.dataPts': { ko: '데이터 포인트', en: 'data pts' },
   'detail.creep.source': { ko: 'Larson-Miller 보간 — 데이터시트 (Special Metals SMC, Haynes International) 표준값. 실 사용 시 안전계수 적용.', en: 'Larson-Miller interpolation — datasheet (Special Metals SMC, Haynes International) values. Apply safety factor in practice.' },
@@ -223,6 +224,7 @@ export const TRANSLATIONS: Record<string, Record<Lang, string>> = {
 
   /* R186 — wizard.* keys 영구 제거 (Wizard 기능 삭제). */
 
+  'query.editing': { ko: '입력 중 — Enter 로 적용', en: 'editing — press Enter to apply' },
   'cost.verified': { ko: '검증', en: 'verified' },
   'cost.handbookEstimate': { ko: '(handbook 추정)', en: '(handbook estimate)' },
 };

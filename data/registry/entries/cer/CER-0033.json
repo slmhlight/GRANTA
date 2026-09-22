@@ -97,6 +97,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 82.5,
+      "max": 82.5,
+      "typical": 82.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 55 × condition 1 × form 1.5 × grade 1 = 82.5 USD/kg"
     }
   },
   "composition": {
@@ -116,7 +125,7 @@
     },
     {
       "label": "ASTM F1873 — Y-TZP Surgical Implants",
-      "url": "https://store.astm.org/f1873-21.html",
+      "url": "https://store.astm.org/f1873-98.html",
       "verified": false
     }
   ],
@@ -164,5 +173,7 @@
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "industry_note": "Zirconia 변종: • Y-TZP (3 mol% Y₂O₃ stabilized tetragonal, Tosoh TZ-3Y-E): σf 1200 / E 200 / ρ 6.05 / KIC 8.0 / Tmax 1000°C . Transformation toughening — 가장 toughest ceramic."
+  "industry_note": "Zirconia 변종: • Y-TZP (3 mol% Y₂O₃ stabilized tetragonal, Tosoh TZ-3Y-E): σf 1200 / E 200 / ρ 6.05 / KIC 8.0 / Tmax 1000°C . Transformation toughening — 가장 toughest ceramic.",
+  "price_per_kg": 55,
+  "delivered_price_per_kg": 82.5
 }

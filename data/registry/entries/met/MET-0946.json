@@ -95,7 +95,16 @@
       "typical": 55,
       "n": 0,
       "confidence": "class",
-      "provenance": "class:ASM Vol.1 Tool Steels × HT:spheroidized annealed (k×2.2)"
+      "provenance": "class:ASM Vol.1 Tool Steels × HT:spheroidized annealed (k×2.2)",
+      "estimated": true,
+      "base_value": 25,
+      "base_range": [
+        15,
+        40
+      ],
+      "factor": 2.2,
+      "condition": "spheroidized annealed",
+      "model": "ht-multiplier:kic"
     },
     "electrical_conductivity": {
       "min": 4.25,
@@ -175,7 +184,8 @@
       "typical": 6.3,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 6 × condition 1 × form 1.05 × grade 1 = 6.3 USD/kg"
     }
   },
   "composition": {

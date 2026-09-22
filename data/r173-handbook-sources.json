@@ -1610,11 +1610,9 @@
     }
    ],
    "industry_note": "R173 — Pure Hafnium (Hf, UNS R02001) — refractory metal (Zr 동족, but ~600× higher neutron absorption cross-section). Tm 2233°C, ρ 13.31 g/cc, E 78 GPa. Annealed: σy 240 / UTS 445. Tmax 800°C continuous (HfO₂ formation). 핵 reactor control rod (submarine reactor — Hf 의 thermal neutron capture σ ≈ 105 barn vs Zr 의 0.2 barn), 항공기 jet engine HP turbine vane (Re + Hf doped CMSX-4/10 SX), 플라즈마 cutting torch electrode tip.",
-   "_namePattern_ref": "^Hafnium\\b|^Hf\\b\\s*(?:\\(|pure)",
+   "_namePattern_ref": "^Hafnium\\b(?!\\s+(?:Carbide|Diboride))|^Hf\\b\\s*(?:\\(|pure)",
    "_reI": true,
    "stableIds": [
-    "CER-0037",
-    "CER-0038",
     "MET-0643"
    ]
   },
@@ -2444,10 +2442,9 @@
     }
    ],
    "industry_note": "R173 — UNS R05200 (unalloyed Ta) / UNS R05252 (Ta-10W high-strength) / EN 2.4060 — refractory metal (Tm 3017°C, ρ 16.65 g/cc). Excellent corrosion resistance — all acids except HF + fuming H₂SO₄ (matches Pt/glass tier). Annealed: σy 165-205 / UTS 207-345 / El 25%. CW: σy 690 / UTS 760. E 186 GPa. Tmax 1500°C (inert atmosphere, oxidizes in air >300°C). 화학 plant heat exchanger / valve / piping (특히 HCl/H₂SO₄), 의료 임플란트 (radiopaque marker), capacitor (high-K dielectric), 군용 KE armor-piercing penetrator (Ta-10W), 반도체 sputtering target.",
-   "_namePattern_ref": "^Tantalum\\b|^Ta\\s|^UNS R05200\\b|^UNS R05400\\b",
+   "_namePattern_ref": "^Tantalum\\b(?!\\s+Carbide)|^Ta\\s|^UNS R05200\\b|^UNS R05400\\b",
    "_reI": true,
    "stableIds": [
-    "CER-0007",
     "MET-0661",
     "MET-0662"
    ]

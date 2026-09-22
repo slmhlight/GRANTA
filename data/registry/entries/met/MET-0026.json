@@ -77,17 +77,37 @@
       "min": 170,
       "max": 230,
       "typical": 200,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:4140 × HT:fully annealed (f×0.5, i×2.5)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:4140 × HT:fully annealed (f×0.5, i×2.5)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 400,
+      "base_range": [
+        340,
+        460
+      ],
+      "factor": 0.5,
+      "condition": "fully annealed",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 100,
       "max": 175,
       "typical": 138,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:4140 × HT:fully annealed (f×0.5, i×2.5)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:4140 × HT:fully annealed (f×0.5, i×2.5)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 55,
+      "base_range": [
+        40,
+        70
+      ],
+      "factor": 2.5,
+      "condition": "fully annealed",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 144,
@@ -179,7 +199,8 @@
       "typical": 3.12,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 2.8 × condition 1.02 × form 1.05 × grade 1.04 = 3.12 USD/kg"
     }
   },
   "composition": {
@@ -216,8 +237,8 @@
       "verified": false
     },
     {
-      "label": "DIN EN 10083-3 — 42CrMo4 quenched & tempered steel",
-      "url": "https://www.dinmedia.de/en/standard/din-en-10083-3/",
+      "label": "DIN EN ISO 683-2:2018 — Alloy steels for quenching and tempering, 42CrMo4 (supersedes DIN EN 10083-3:2007)",
+      "url": "https://www.dinmedia.de/en/standard/din-en-iso-683-2/291176306",
       "verified": false
     }
   ],
@@ -278,7 +299,7 @@
     "Alloy Steel",
     "Iron-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 7,
   "max_service_temp": 425,
   "thermal_expansion": 12.3,

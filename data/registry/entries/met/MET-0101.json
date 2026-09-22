@@ -82,17 +82,37 @@
       "min": 88,
       "max": 112,
       "typical": 100,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:2014 × HT:T4 solution + naturally aged (f×0.8, i×1.4)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:2014 × HT:T4 solution + naturally aged (f×0.8, i×1.4)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 125,
+      "base_range": [
+        110,
+        140
+      ],
+      "factor": 0.8,
+      "condition": "T4 solution + naturally aged",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 7,
       "max": 21,
       "typical": 13,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:2014 × HT:T4 solution + naturally aged (f×0.8, i×1.4)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:2014 × HT:T4 solution + naturally aged (f×0.8, i×1.4)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 9,
+      "base_range": [
+        5,
+        15
+      ],
+      "factor": 1.4,
+      "condition": "T4 solution + naturally aged",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 29.7,
@@ -184,7 +204,8 @@
       "typical": 4.96,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 4.5 × condition 1 × form 1.05 × grade 1.05 = 4.96 USD/kg"
     }
   },
   "composition": {
@@ -267,7 +288,7 @@
     "Aluminum - Cu Alloys (2xxx)",
     "Aluminum-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 38,
   "max_service_temp": 150,
   "thermal_expansion": 22.5,

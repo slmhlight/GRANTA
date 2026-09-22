@@ -33,7 +33,7 @@ const SYM_GLOSSARY: Record<string, string> = {
   'K': '열전도도 (Thermal Conductivity) — 단위 시간·면적·온도구배당 열류',
   'k': '열전도도 (Thermal Conductivity) — 단위 시간·면적·온도구배당 열류',
   'HV': 'Vickers 경도 — 다이아몬드 압자 압흔 면적 기준',
-  'HRC': 'Rockwell C 경도 — HV ≈ 10 × HRC',
+  'HRC': 'Rockwell C 경도 — HV 와 비례식 없음(ASTM E140 표 보간: HRC 30 ≈ HV 302 · HRC 55 ≈ HV 595)',
   'CTE': '열팽창계수 (Coefficient of Thermal Expansion) — 온도 변화당 길이 변화율',
   'σf': '피로한도 (Fatigue Strength) — 무한수명 응력진폭 한계',
   'σ_f': '피로한도 (Fatigue Strength) — 무한수명 응력진폭 한계',

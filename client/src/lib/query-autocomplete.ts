@@ -185,6 +185,9 @@ export function suggest(
     const [, prop, _op, partialValue] = opMatch;
     /* 사용자가 이미 값을 다 적었으면 (숫자) hint 표시 안 함. */
     if (/^\d+(\.\d+)?$/.test(partialValue.trim())) return [];
+    /* AUD R10 잔여 (2026-09-22) — 값 자리에 숫자가 아닌 글자(yield>abc)가 있으면 힌트를 붙이지 않는다 — Tab 이 'abc70;' 을 만들었다.
+       빈 값 또는 숫자 앞부분('5', '5.', '.')일 때만 제안. */
+    if (partialValue.trim() && !/^[+-]?\d*\.?\d*$/.test(partialValue.trim())) return [];
     return suggestValueHints(prop, stats);
   }
 
@@ -231,10 +234,12 @@ export function applySuggestion(
       /* token 끝에 operator append (token 자체는 유지). */
       replaced = token + suggestion.insert;
       break;
-    case 'value-hint':
-      /* R169 — token 뒤에 숫자 + `; ` (세미콜론 + 공백) append. 명확한 시각적 구분. */
-      replaced = token + suggestion.insert + '; ';
+    case 'value-hint': {
+      /* R169 — 숫자 + `; ` (세미콜론 + 공백) 를 붙인다. AUD R10 잔여 — 입력 중이던 부분 값('5')은 힌트 값으로 **교체**한다(append 금지). */
+      const m = token.match(/^([^<>=~]+)(>=|<=|>|<|=|~)(.*)$/);
+      replaced = (m ? m[1] + m[2] : token) + suggestion.insert + '; ';
       break;
+    }
   }
   const newInput = input.slice(0, tokenStart) + replaced + input.slice(tokenEnd);
   const newCursor = tokenStart + replaced.length;

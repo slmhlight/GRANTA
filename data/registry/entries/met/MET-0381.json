@@ -88,9 +88,19 @@
       "min": 53,
       "max": 140,
       "typical": 88,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:c17200 × HT:TB00 solution annealed (f×0.35, i×3.5)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:c17200 × HT:TB00 solution annealed (f×0.35, i×3.5)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 25,
+      "base_range": [
+        15,
+        40
+      ],
+      "factor": 3.5,
+      "condition": "TB00 solution annealed",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 126,
@@ -174,15 +184,16 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived",
-      "provenance": "R205-R price_per_kg × ρ 재계산"
+      "provenance": "price_per_kg × ρ 재계산"
     },
     "delivered_price_per_kg": {
-      "min": 42,
-      "max": 42,
-      "typical": 42,
+      "min": 99.75,
+      "max": 99.75,
+      "typical": 99.75,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 95 × condition 1 × form 1.05 × grade 1 = 99.75 USD/kg"
     }
   },
   "composition": {
@@ -274,14 +285,14 @@
     "Copper - Pure/Other",
     "Copper-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 22,
   "max_service_temp": 200,
   "thermal_expansion": 17.5,
   "poisson_ratio": 0.3,
   "specific_heat": 420,
   "melting_point": 980,
-  "price_per_kg": 40,
+  "price_per_kg": 95,
   "price_per_cm3": 0.7942,
   "popularity": 3,
   "machining_cost_factor": 0.9,
@@ -289,8 +300,8 @@
   "price_condition_factor": 1,
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
-  "delivered_price_per_kg": 42,
-  "total_cost_estimate": 79.8,
+  "delivered_price_per_kg": 99.75,
+  "total_cost_estimate": 189.52,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "elevated_temp": [
@@ -409,9 +420,10 @@
         "min": 300,
         "max": 450,
         "typical": 380,
-        "n": 3,
+        "n": 0,
         "confidence": "handbook",
-        "provenance": "alloy:c17200 × HT:TB00 solution annealed (f×0.35, i×3.5)"
+        "provenance": "alloy:c17200 × HT:TB00 solution annealed (f×0.35, i×3.5)",
+        "estimated": false
       },
       "had_scalar": true,
       "val_scalar": 380

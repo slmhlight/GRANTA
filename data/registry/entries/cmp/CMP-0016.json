@@ -92,7 +92,16 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived",
-      "provenance": "R205-R price_per_kg × ρ 재계산"
+      "provenance": "price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 3500,
+      "max": 3500,
+      "typical": 3500,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 3500 × condition 1 × form 1 × grade 1 = 3500 USD/kg"
     }
   },
   "composition": [
@@ -158,5 +167,7 @@
   "price_per_cm3": 9.275,
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "industry_note": "Jet engine combustor liner (GE GEnx, Rolls-Royce Trent XWB 의 일부 hot section), 군용 missile thermal protection. Carbon-based CMC 보다 산화 환경에서 우수."
+  "industry_note": "Jet engine combustor liner (GE GEnx, Rolls-Royce Trent XWB 의 일부 hot section), 군용 missile thermal protection. Carbon-based CMC 보다 산화 환경에서 우수.",
+  "price_per_kg": 3500,
+  "delivered_price_per_kg": 3500
 }

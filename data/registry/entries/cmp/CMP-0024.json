@@ -91,6 +91,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 6,
+      "max": 6,
+      "typical": 6,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 6 × condition 1 × form 1 × grade 1 = 6 USD/kg"
     }
   },
   "composition": {},
@@ -155,5 +164,7 @@
   "price_per_cm3": 0.0111,
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "industry_note": "GFRP (Glass Fiber Reinforced Polymer). E-glass (가장 흔함, 저렴, σf fiber 3.4 GPa) / S-2 glass (고강도, σf fiber 4.9 GPa, 30% 강성↑)."
+  "industry_note": "GFRP (Glass Fiber Reinforced Polymer). E-glass (가장 흔함, 저렴, σf fiber 3.4 GPa) / S-2 glass (고강도, σf fiber 4.9 GPa, 30% 강성↑).",
+  "price_per_kg": 6,
+  "delivered_price_per_kg": 6
 }

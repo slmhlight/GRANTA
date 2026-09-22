@@ -92,6 +92,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 8000,
+      "max": 8000,
+      "typical": 8000,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 8000 × condition 1 × form 1 × grade 1 = 8000 USD/kg"
     }
   },
   "composition": [
@@ -164,5 +173,7 @@
   "price_per_cm3": 21.6,
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "industry_note": "SiC/SiC CMC (Ceramic Matrix Composite) — SiC fiber (Hi-Nicalon S, Tyranno SA3) + CVI / PIP / MI matrix densification. σf 350-450 / E 200-250 / KIC 25 (Al₂O₃ 의 5× — fiber bridging) / ρ 2.7-2.9 g/cc."
+  "industry_note": "SiC/SiC CMC (Ceramic Matrix Composite) — SiC fiber (Hi-Nicalon S, Tyranno SA3) + CVI / PIP / MI matrix densification. σf 350-450 / E 200-250 / KIC 25 (Al₂O₃ 의 5× — fiber bridging) / ρ 2.7-2.9 g/cc.",
+  "price_per_kg": 8000,
+  "delivered_price_per_kg": 8000
 }

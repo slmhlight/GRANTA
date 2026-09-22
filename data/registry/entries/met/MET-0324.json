@@ -88,7 +88,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "class",
-      "provenance": "class:Iron-based generic × HT:cold worked (i×0.6)"
+      "provenance": "class:Iron-based generic × HT:cold worked (i×0.6)",
+      "base_value": 35,
+      "base_range": [
+        15,
+        60
+      ],
+      "factor": 0.6,
+      "condition": "cold worked",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 44,
@@ -96,7 +104,16 @@
       "typical": 60,
       "n": 0,
       "confidence": "class",
-      "provenance": "class:ASTM A36 / EN structural × HT:cold worked (k×0.8)"
+      "provenance": "class:ASTM A36 / EN structural × HT:cold worked (k×0.8)",
+      "estimated": true,
+      "base_value": 75,
+      "base_range": [
+        55,
+        95
+      ],
+      "factor": 0.8,
+      "condition": "cold worked",
+      "model": "ht-multiplier:kic"
     },
     "electrical_conductivity": {
       "min": 11.9,
@@ -176,7 +193,8 @@
       "typical": 1.63,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 1.2 × condition 1.13 × form 1.2 × grade 1 = 1.63 USD/kg"
     }
   },
   "composition": {

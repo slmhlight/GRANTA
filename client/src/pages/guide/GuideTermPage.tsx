@@ -17,6 +17,7 @@ import { useWikiRefs } from '@/hooks/useWikiRefs';
 import { buildAutolinkMap } from '@/lib/wiki-link';
 import { usePageMeta } from '@/lib/page-meta';   // AUD R13
 import { explorerHref } from '@/lib/explorer-return';   // AUD R15
+import { KoreanContentNotice } from '@/components/KoreanContentNotice';   // AUD F23 잔여 — 한국어 전용 문서 표시
 
 export default function GuideTermPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -32,7 +33,7 @@ export default function GuideTermPage() {
   return (
     <GuideMaterialMapContext.Provider value={materialMap}>
     <GuideWikiByKeyContext.Provider value={wikiLookups?.byKey ?? null}>
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground" lang="ko">
       {/* 헤더 */}
       <header className="sticky top-0 z-20 h-12 flex items-center gap-2 sm:gap-3 px-2 sm:px-4 border-b border-border bg-[oklch(0.22_0.055_250)] text-sidebar-foreground">
         <Link href={explorerHref()} className="flex items-center gap-1 text-xs sm:text-sm hover:text-white text-sidebar-foreground/80 whitespace-nowrap">
@@ -46,6 +47,7 @@ export default function GuideTermPage() {
           <BookMarked className="w-3.5 h-3.5" /> 용어 사전
         </Link>
       </header>
+      <KoreanContentNotice what="glossary article" />
 
       <div className="flex">
         <GuideSidebar toc={TOC} section="chGloss" isRead={isRead} />

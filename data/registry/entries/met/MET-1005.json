@@ -88,7 +88,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "class",
-      "provenance": "class:Iron-based generic × HT:normalized (i×1.15)"
+      "provenance": "class:Iron-based generic × HT:normalized (i×1.15)",
+      "base_value": 35,
+      "base_range": [
+        15,
+        60
+      ],
+      "factor": 1.15,
+      "condition": "normalized",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 66,
@@ -180,7 +188,8 @@
       "typical": 0.95,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 0.9 × condition 1.05 × form 1.05 × grade 0.957 = 0.95 USD/kg"
     }
   },
   "composition": {

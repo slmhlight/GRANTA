@@ -92,7 +92,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "class",
-      "provenance": "class:Al-based × HT:strain-hardened (fallback) (i×1.1)"
+      "provenance": "class:Al-based × HT:strain-hardened (fallback) (i×1.1)",
+      "base_value": 10,
+      "base_range": [
+        5,
+        18
+      ],
+      "factor": 1.1,
+      "condition": "strain-hardened (fallback)",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 23.1,
@@ -100,7 +108,16 @@
       "typical": 31.5,
       "n": 0,
       "confidence": "class",
-      "provenance": "class:Aluminum Association handbook × HT:strain-hardened (fallback) (k×1.05)"
+      "provenance": "class:Aluminum Association handbook × HT:strain-hardened (fallback) (k×1.05)",
+      "estimated": true,
+      "base_value": 30,
+      "base_range": [
+        22,
+        40
+      ],
+      "factor": 1.05,
+      "condition": "strain-hardened (fallback)",
+      "model": "ht-multiplier:kic"
     },
     "electrical_conductivity": {
       "min": 42.5,
@@ -180,7 +197,8 @@
       "typical": 2.84,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 2.5 × condition 1.08 × form 1.05 × grade 1 = 2.84 USD/kg"
     }
   },
   "composition": {

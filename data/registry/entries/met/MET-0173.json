@@ -94,7 +94,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "class",
-      "provenance": "class:Al-based × HT:as-built (fine grain) (i×0.95)"
+      "provenance": "class:Al-based × HT:as-built (fine grain) (i×0.95)",
+      "base_value": 10,
+      "base_range": [
+        5,
+        18
+      ],
+      "factor": 0.95,
+      "condition": "as-built (fine grain)",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 22,
@@ -182,7 +190,8 @@
       "typical": 10,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 4 × condition 1 × form 2.5 × grade 1 = 10 USD/kg"
     }
   },
   "composition": {

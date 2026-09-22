@@ -3,10 +3,13 @@
  *
  * 사용 방법:
  *   node scripts/verify-datasheet-urls.mjs               # 모든 verified URL 검증
+ *   node scripts/verify-datasheet-urls.mjs --all         # verified=false 출처까지 전부 (AUD F11 잔여 — 54 dead 가 전부 미검증 출처였다)
  *   node scripts/verify-datasheet-urls.mjs --max 50      # 처음 50개만
  *   node scripts/verify-datasheet-urls.mjs --concurrent 5 # 동시 5개
  *
  * 결과: data/dead-urls-report.md (broken / redirected / 200 OK 분류)
+ *       data/url-health.json — URL 별 접근 상태 원장(link_access_status). `verified`(내용 검증) 와 별개의 축 —
+ *       build-from-registry 가 각 출처에 link_status·link_checked 로 붙이고, tests/url-health.test.ts 가 dead 잔존을 막는다.
  *
  * 본 script 는 prebuild 에 포함하지 않음 (네트워크 의존 + 시간 소요).
  * 분기마다 수동 실행 권장 — vendor 사이트 URL 구조 변경 감지.
@@ -23,6 +26,7 @@ const maxIdx = args.indexOf('--max');
 const concurrentIdx = args.indexOf('--concurrent');
 const MAX = maxIdx >= 0 ? parseInt(args[maxIdx + 1], 10) : Infinity;
 const CONCURRENT = concurrentIdx >= 0 ? parseInt(args[concurrentIdx + 1], 10) : 3;
+const CHECK_ALL = args.includes('--all');   // AUD F11 잔여 — 미검증 출처 URL 도 검사
 
 const materials = JSON.parse(fs.readFileSync(path.join(ROOT, 'client', 'public', 'materials.json'), 'utf8'));
 
@@ -31,7 +35,7 @@ const urlSet = new Set();
 const urlMeta = new Map(); // url → { firstAlloy, count }
 for (const m of materials) {
   for (const s of m.sources || []) {
-    if (s.verified && s.url && /^https?:\/\//.test(s.url)) {
+    if ((CHECK_ALL || s.verified) && s.url && /^https?:\/\//.test(s.url)) {
       if (!urlSet.has(s.url)) {
         urlSet.add(s.url);
         urlMeta.set(s.url, { firstAlloy: m.name, count: 1 });
@@ -43,7 +47,7 @@ for (const m of materials) {
 }
 
 const urls = Array.from(urlSet).slice(0, MAX);
-console.log(`Checking ${urls.length} unique verified URLs (concurrent ${CONCURRENT})...`);
+console.log(`Checking ${urls.length} unique ${CHECK_ALL ? 'source' : 'verified'} URLs (concurrent ${CONCURRENT})...`);
 
 const results = { ok: [], redirected: [], dead: [], error: [], 'bot-blocked': [], 'bot-blocked-candidate': [] };
 
@@ -184,6 +188,13 @@ const BOT_BLOCKED_DOMAINS = new Set([
   'www.aalco.co.uk', 'aalco.co.uk',
   /* 전수 verify 에서 추가 검출된 LIVE 안티봇 (WebFetch 콘텐츠 확인): regentsteel(IN939 조성)·sunrise-metal(AlSi12)·shspecialsteel(AAR M-107 PDF 719KB) */
   'www.regentsteel.com', 'regentsteel.com',
+  /* AUD F11 잔여 (2026-09-22) — 54 dead 교체 중 브라우저로 LIVE 확인된 안티봇: tandfonline(J. Asian Ceram. Soc. 스피넬 논문 403)·crystran(사파이어 데이터시트 403) */
+  'www.tandfonline.com', 'tandfonline.com',
+  'www.crystran.com', 'crystran.com',
+  /* --all 전수 검사(2026-09-22)에서 드러난 안티봇: ISO 카탈로그(403, 브라우저 정상 — TC 17 페이지 확인)·DTIC 인용 페이지(403) */
+  'www.iso.org', 'iso.org',
+  'apps.dtic.mil',
+  'www.investmentcastchina.com', 'investmentcastchina.com',   // CFS Foundry CF3/CF3M 비교 페이지 — 403 이나 브라우저 정상(2026-09-22 확인)
   'www.sunrise-metal.com', 'sunrise-metal.com',
   'shspecialsteel.com', 'www.shspecialsteel.com',
 ]);
@@ -297,6 +308,34 @@ if (results.error.length > 0) {
 }
 fs.writeFileSync(path.join(DATA, 'dead-urls-report.md'), rep.join('\n'));
 console.log('\nReport written: data/dead-urls-report.md');
+
+/* AUD F11 잔여 (2026-09-22) — 접근 상태 원장. 검사한 URL 만 갱신(merge), 검사하지 않은 URL 의 이전 기록은 유지.
+   status: ok · redirected · dead · bot-blocked · bot-blocked-candidate · error. 여기의 'dead' 는 HTTP 404/410(브라우저 UA 재시도 포함).
+   `verified`(사람이 내용을 대조했는가)와는 다른 축이다 — 내용이 맞아도 링크는 죽을 수 있고, 링크가 살아 있어도 내용은 검증 전일 수 있다. */
+{
+  const healthPath = path.join(DATA, 'url-health.json');
+  let health = { _note: '', checked_at: '', results: {} };
+  try { health = JSON.parse(fs.readFileSync(healthPath, 'utf8')); } catch { /* 첫 생성 */ }
+  const today = new Date().toISOString().slice(0, 10);
+  health._note = 'AUD F11 — 출처 URL 접근 상태 원장 (pnpm verify:urls [--all] 이 갱신). status = link_access_status; verified(내용 검증)와 별개. dead 는 404/410(브라우저 UA 재시도 포함).';
+  health.checked_at = today;
+  health.results = health.results || {};
+  for (const r of all) {
+    const rec = { status: r.type, code: r.status ?? null, checked_at: today };
+    if (r.type === 'redirected' && r.location) rec.location = r.location;
+    if (r.type === 'bot-blocked-candidate') rec.browser_code = r.browserStatus;
+    health.results[r.url] = rec;
+  }
+  // 산출물에 더는 없는 URL 은 원장에서 제거(교체된 옛 주소가 dead 로 남아 게이트를 오염시키지 않도록)
+  const live = new Set();
+  for (const m of materials) for (const s of m.sources || []) if (s.url) live.add(s.url);
+  for (const u of Object.keys(health.results)) if (!live.has(u)) delete health.results[u];
+  const sorted = Object.fromEntries(Object.keys(health.results).sort().map((k) => [k, health.results[k]]));
+  health.results = sorted;
+  fs.writeFileSync(healthPath, JSON.stringify(health, null, 1) + '\n');
+  const deadN = Object.values(sorted).filter((x) => x.status === 'dead').length;
+  console.log(`URL health ledger: data/url-health.json — ${Object.keys(sorted).length} URLs (dead ${deadN})`);
+}
 
 /* R144a — CI 통합: `--fail-on-dead` 또는 `--fail-threshold N` 옵션 시 dead URL 검출 시 exit 1.
    GitHub Actions weekly cron 이 실패 시 issue 자동 생성 → URL rot 즉시 인지. */

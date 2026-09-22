@@ -97,6 +97,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 195,
+      "max": 195,
+      "typical": 195,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 130 × condition 1 × form 1.5 × grade 1 = 195 USD/kg"
     }
   },
   "composition": {
@@ -108,7 +117,7 @@
   "sources": [
     {
       "label": "ASM Engineered Materials Handbook Vol.4 — Ceramics and Glasses",
-      "url": "https://www.asminternational.org/engineered-materials-handbook-volume-4-ceramics-and-glasses",
+      "url": "https://my.asminternational.org/asm-store?store-path=/products/06009G",
       "verified": false
     },
     {
@@ -166,6 +175,8 @@
   "rohs_compliant": true,
   "confidence_tier": "high",
   "industry_note": "β-SiAlON (Si₃N₄ + Al₂O₃ + AlN solid solution) — sintering 우수 + Si₃N₄ properties 유지. ρ 3.20-3.30 g/cc, σf 650-900, E 280-300, KIC 5-7. Tmax 1400°C continuous in air (Si₃N₄ 와 비슷 oxidation 저항). 가공 cost Si₃N₄ 보다 낮음 (lower sintering T). 절삭 공구 insert (gray cast iron 가공 표준 — Si₃N₄/SiAlON tool 가 carbide 대비 4× life), 자동차 valve seat, molten Al 처리 furnace 부품, glass forming.",
+  "price_per_kg": 130,
+  "delivered_price_per_kg": 195,
   "_corrections": {
     "sources": {
       "from": [

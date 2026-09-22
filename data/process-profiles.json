@@ -93,6 +93,13 @@
     "note": "BeCu — Be 분진 발암성, wet 가공 전용 + 안전 절차 필수.",
     "guidance_key": "becu"
    },
+   "be-pure": {
+    "rating": 25,
+    "band": "hard",
+    "label": "어려움",
+    "note": "순 베릴륨 — 절삭 자체는 초경 공구로 가능(취성·낮은 절삭저항)하나 미세 칩이 곧 BeO 분진(발암성·만성 베릴륨증). 밀폐 습식 가공·HEPA 배기 없이는 절삭 금지, 가공 후 쌍정 손상층은 에칭/전해연마로 제거.",
+    "guidance_key": "be-pure"
+   },
    "cu-pure": {
     "rating": 20,
     "band": "hard",
@@ -561,7 +568,8 @@
   "magnesium|qt": "주조 상태(F) AZ91D — 다이캐스트 Mg 는 절삭성 최상급이지만 표면 칠층·기공이 날에 충격을 준다. 첫 패스 절입을 칠층보다 깊게, 발화 안전 절차는 동일.",
   "electrical-steel|soft": "방향성 전기강판 — 절삭이 아니라 전단·레이저·와이어 EDM 으로 적층 형상을 만드는 재료. 절단부 가공경화가 철손을 키우므로 Stress relief(응력제거) Annealing(어닐링, 780-820°C)이 관행.",
   "crmo|aged": "'Aged / solution-treated' 라벨의 Cr-Mo 저합금강(5130 등) — 이 강은 Aging(시효) 강화 합금이 아니다. 라벨은 generic 자료의 합성 조건명이고 값은 Annealing(어닐링)/Normalizing(노멀라이징) 급이므로 가공 조건은 crmo|soft(어닐재)로 본다. 실제 강화는 Quenching(담금질)+Tempering(뜨임).",
-  "ss-martensitic|aged": "'Aged / solution-treated' 라벨의 마르텐사이트계(440C) — Aging(시효) 합금이 아니라 Quenching(담금질)+Tempering(뜨임) 경화강이다(라벨은 generic 합성 조건명, 값 σy 1900 급은 경화재 datasheet). 가공은 ss-martensitic|qt 와 같다: HRC 55+ 라 연삭·hard turning(CBN) 전용, 형상은 Annealing(어닐링) 상태에서."
+  "ss-martensitic|aged": "'Aged / solution-treated' 라벨의 마르텐사이트계(440C) — Aging(시효) 합금이 아니라 Quenching(담금질)+Tempering(뜨임) 경화강이다(라벨은 generic 합성 조건명, 값 σy 1900 급은 경화재 datasheet). 가공은 ss-martensitic|qt 와 같다: HRC 55+ 라 연삭·hard turning(CBN) 전용, 형상은 Annealing(어닐링) 상태에서.",
+  "be-pure|soft": "순 베릴륨(열간 등압 성형·압연 소재) — 열처리로 조질을 바꾸는 재료가 아니라 조건 보정 없음. 절삭 손상층(표면 쌍정, 피로 −)은 0.05~0.1 mm 화학 에칭·전해연마로 제거하는 것이 표준(Materion Beryllium Metal 가공 안내). 분진 관리는 OSHA 1910.1024."
  },
  "weld_condition_notes": {
   "_note": "R226r — 용접성 *rating*(Schaeffler/CE_IIW/CET/Pcm)은 조성 기반이라 조건(HT) 무관(=올바름). 다만 열처리 상태는 용접 열영향부(HAZ)에서 강도 손실을 유발 → 조건(htc)별 HAZ 주의 노트. 키=htc 클래스(m.profiles.htc, stable_id 스탬프). soft/hip/as-built 는 노트 없음(연화 이슈 없음).",

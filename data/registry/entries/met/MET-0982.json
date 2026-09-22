@@ -77,17 +77,37 @@
       "min": 108,
       "max": 138,
       "typical": 123,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:420 × HT:spheroidized annealed (f×0.3, i×4)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:420 × HT:spheroidized annealed (f×0.3, i×4)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 410,
+      "base_range": [
+        360,
+        460
+      ],
+      "factor": 0.3,
+      "condition": "spheroidized annealed",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 40,
       "max": 120,
       "typical": 72,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:420 × HT:spheroidized annealed (f×0.3, i×4)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:420 × HT:spheroidized annealed (f×0.3, i×4)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 18,
+      "base_range": [
+        10,
+        30
+      ],
+      "factor": 4,
+      "condition": "spheroidized annealed",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 66,
@@ -179,7 +199,8 @@
       "typical": 3.96,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 3.7 × condition 1.02 × form 1.05 × grade 1 = 3.96 USD/kg"
     }
   },
   "composition": {
@@ -264,7 +285,7 @@
     "Iron-based",
     "Tool Steel"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 3,
   "max_service_temp": 650,
   "thermal_expansion": 10.3,

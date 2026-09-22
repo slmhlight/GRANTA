@@ -82,17 +82,37 @@
       "min": 53,
       "max": 70,
       "typical": 59,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:aa5052 × HT:O (annealed soft) (f×0.5, i×1.8)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:aa5052 × HT:O (annealed soft) (f×0.5, i×1.8)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 117,
+      "base_range": [
+        105,
+        140
+      ],
+      "factor": 0.5,
+      "condition": "O (annealed soft)",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 36,
       "max": 72,
       "typical": 54,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:aa5052 × HT:O (annealed soft) (f×0.5, i×1.8)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:aa5052 × HT:O (annealed soft) (f×0.5, i×1.8)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 30,
+      "base_range": [
+        20,
+        40
+      ],
+      "factor": 1.8,
+      "condition": "O (annealed soft)",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 57,
@@ -184,7 +204,8 @@
       "typical": 3.21,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 3 × condition 1.02 × form 1.05 × grade 1 = 3.21 USD/kg"
     }
   },
   "composition": {
@@ -217,8 +238,8 @@
       "verified": true
     },
     {
-      "label": "Aluminum Association — 5052 Data Sheet",
-      "url": "https://www.aluminum.org/sites/default/files/2021-11/TeachingTheStudents.pdf",
+      "label": "United Aluminum — Alloy 5052 data sheet (Aluminum Standards & Data typicals: O / H34 / H38)",
+      "url": "https://unitedaluminum.com/5052-aluminum-alloy/",
       "verified": false
     },
     {
@@ -271,7 +292,7 @@
     "Aluminum - Mg Alloys (5xxx)",
     "Aluminum-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 35,
   "max_service_temp": 200,
   "thermal_expansion": 23.8,

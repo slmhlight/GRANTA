@@ -77,17 +77,37 @@
       "min": 216,
       "max": 312,
       "typical": 264,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:inconel600 × HT:cold worked (f×1.2, i×0.7)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:inconel600 × HT:cold worked (f×1.2, i×0.7)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 220,
+      "base_range": [
+        180,
+        260
+      ],
+      "factor": 1.2,
+      "condition": "cold worked",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 56,
       "max": 98,
       "typical": 77,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:inconel600 × HT:cold worked (f×1.2, i×0.7)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:inconel600 × HT:cold worked (f×1.2, i×0.7)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 110,
+      "base_range": [
+        80,
+        140
+      ],
+      "factor": 0.7,
+      "condition": "cold worked",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 85,
@@ -171,15 +191,16 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived",
-      "provenance": "R205-R price_per_kg × ρ 재계산"
+      "provenance": "price_per_kg × ρ 재계산"
     },
     "delivered_price_per_kg": {
-      "min": 39.69,
-      "max": 39.69,
-      "typical": 39.69,
+      "min": 51.03,
+      "max": 51.03,
+      "typical": 51.03,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 45 × condition 1.08 × form 1.05 × grade 1 = 51.03 USD/kg"
     }
   },
   "composition": {
@@ -252,14 +273,14 @@
     "Nickel-based",
     "Superalloy"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 1.5,
   "max_service_temp": 1095,
   "thermal_expansion": 13.3,
   "poisson_ratio": 0.32,
   "specific_heat": 444,
   "melting_point": 1410,
-  "price_per_kg": 35,
+  "price_per_kg": 45,
   "price_per_cm3": 0.3812,
   "popularity": 3.03,
   "machining_cost_factor": 2.6,
@@ -267,8 +288,8 @@
   "price_condition_factor": 1.08,
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
-  "delivered_price_per_kg": 39.69,
-  "total_cost_estimate": 142.88,
+  "delivered_price_per_kg": 51.03,
+  "total_cost_estimate": 183.71,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "svhc_concerns": [

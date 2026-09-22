@@ -97,6 +97,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 900,
+      "max": 900,
+      "typical": 900,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 600 × condition 1 × form 1.5 × grade 1 = 900 USD/kg"
     }
   },
   "composition": {
@@ -115,8 +124,8 @@
       "verified": false
     },
     {
-      "label": "ASTM F1041 — Sapphire bearing standard",
-      "url": "https://store.astm.org/f1041-19.html",
+      "label": "Crystran — Sapphire (Al2O3) optical material data sheet (density, E, Knoop hardness, k, CTE)",
+      "url": "https://www.crystran.com/optical-materials/sapphire-al2o3",
       "verified": false
     }
   ],
@@ -128,13 +137,7 @@
     "applications": "고급 시계 윈도우, 스캐너 윈도우, LED 기재, 광학 lens (UV-IR)",
     "limitations": "다이아몬드급 가공 — 고가",
     "no_yield": "취성 세라믹 — 항복점 없음. 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
-    "_r173_note_applied": true,
-    "specs": [
-      {
-        "id": "ASTM F1041",
-        "org": "ASTM"
-      }
-    ]
+    "_r173_note_applied": true
   },
   "popularity": 2,
   "density": 3.98,
@@ -165,5 +168,7 @@
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
   "confidence_tier": "medium-low",
-  "industry_note": "Single-crystal α-Al₂O₃ (Sapphire — same as ruby/sapphire gem). Czochralski / Kyropoulos / EFG (Edge-defined Film-fed Growth — Saint-Gobain) 가공. ρ 3.98 g/cc, σf 400-1000 (orientation-dependent), E 345-435 GPa (a-axis 345, c-axis 435), KIC 2."
+  "industry_note": "Single-crystal α-Al₂O₃ (Sapphire — same as ruby/sapphire gem). Czochralski / Kyropoulos / EFG (Edge-defined Film-fed Growth — Saint-Gobain) 가공. ρ 3.98 g/cc, σf 400-1000 (orientation-dependent), E 345-435 GPa (a-axis 345, c-axis 435), KIC 2.",
+  "price_per_kg": 600,
+  "delivered_price_per_kg": 900
 }

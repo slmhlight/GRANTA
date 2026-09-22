@@ -168,15 +168,16 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived",
-      "provenance": "R205-R price_per_kg × ρ 재계산"
+      "provenance": "price_per_kg × ρ 재계산"
     },
     "delivered_price_per_kg": {
-      "min": 105,
-      "max": 105,
-      "typical": 105,
+      "min": 111.56,
+      "max": 111.56,
+      "typical": 111.56,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 85 × condition 1.25 × form 1.05 × grade 1 = 111.56 USD/kg"
     }
   },
   "composition": {
@@ -208,7 +209,7 @@
     },
     {
       "label": "ASTM B435 — Ni-Cr-W-Mo alloy plate/sheet",
-      "url": "https://store.astm.org/b0435-17.html",
+      "url": "https://store.astm.org/b0435-22.html",
       "verified": false
     }
   ],
@@ -298,7 +299,7 @@
   "poisson_ratio": 0.31,
   "specific_heat": 397,
   "melting_point": 1290,
-  "price_per_kg": 80,
+  "price_per_kg": 85,
   "price_per_cm3": 0.7625,
   "popularity": 3.15,
   "machining_cost_factor": 2.6,
@@ -306,8 +307,8 @@
   "price_condition_factor": 1.25,
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
-  "delivered_price_per_kg": 105,
-  "total_cost_estimate": 378,
+  "delivered_price_per_kg": 111.56,
+  "total_cost_estimate": 401.62,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "svhc_concerns": [

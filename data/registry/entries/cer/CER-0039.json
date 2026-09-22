@@ -103,6 +103,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 1200,
+      "max": 1200,
+      "typical": 1200,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 800 × condition 1 × form 1.5 × grade 1 = 1200 USD/kg"
     }
   },
   "composition": {
@@ -165,5 +174,7 @@
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
   "confidence_tier": "medium-low",
-  "industry_note": "ZrB₂ (Zirconium Diboride, hexagonal AlB₂-type) — sister UHTC of HfB₂ (lower cost). Tm 3245°C, ρ 6.10 g/cc (HfB₂ 의 55% — 가벼움 advantage). σf 360-450 / E 510 / KIC 3.5 / Tmax 2200°C inert. ZrB₂-SiC composite oxidation 저항 1700°C+. Hypersonic leading edge (DARPA Falcon HTV-2), refractory crucible (molten metal contact), 우주 thermal protection. SPS sintering 표준."
+  "industry_note": "ZrB₂ (Zirconium Diboride, hexagonal AlB₂-type) — sister UHTC of HfB₂ (lower cost). Tm 3245°C, ρ 6.10 g/cc (HfB₂ 의 55% — 가벼움 advantage). σf 360-450 / E 510 / KIC 3.5 / Tmax 2200°C inert. ZrB₂-SiC composite oxidation 저항 1700°C+. Hypersonic leading edge (DARPA Falcon HTV-2), refractory crucible (molten metal contact), 우주 thermal protection. SPS sintering 표준.",
+  "price_per_kg": 800,
+  "delivered_price_per_kg": 1200
 }

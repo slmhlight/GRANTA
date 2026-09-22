@@ -115,6 +115,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 37.5,
+      "max": 37.5,
+      "typical": 37.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 25 × condition 1 × form 1.5 × grade 1 = 37.5 USD/kg"
     }
   },
   "composition": {
@@ -173,6 +182,8 @@
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
   "confidence_tier": "medium",
+  "price_per_kg": 25,
+  "delivered_price_per_kg": 37.5,
   "_corrections": {
     "sources": {
       "from": [

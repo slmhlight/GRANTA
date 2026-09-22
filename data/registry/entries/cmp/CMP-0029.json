@@ -94,6 +94,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 80,
+      "max": 80,
+      "typical": 80,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 80 × condition 1 × form 1 × grade 1 = 80 USD/kg"
     }
   },
   "composition": [
@@ -160,5 +169,7 @@
   "price_per_cm3": 0.0038,
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "industry_note": "Honeycomb sandwich core variants: • **Al 5052 (Hexcel HexWeb CR III)**: ρ 32-130 kg/m³, σc compression 0.5-9 MPa, σs shear 0.4-7 MPa, Tmax 200°C — 항공 floor panel, helicopter blade, 위성 truss. • **Nomex (DuPont aramid honeycomb HRH-10)**: ρ 32-144 kg/m³, σc 0."
+  "industry_note": "Honeycomb sandwich core variants: • **Al 5052 (Hexcel HexWeb CR III)**: ρ 32-130 kg/m³, σc compression 0.5-9 MPa, σs shear 0.4-7 MPa, Tmax 200°C — 항공 floor panel, helicopter blade, 위성 truss. • **Nomex (DuPont aramid honeycomb HRH-10)**: ρ 32-144 kg/m³, σc 0.",
+  "price_per_kg": 80,
+  "delivered_price_per_kg": 80
 }

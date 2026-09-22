@@ -202,6 +202,18 @@ describe('applySuggestion', () => {
     expect(r.newCursor).toBe(6);
   });
 
+  /* AUD R10 잔여 (2026-09-22) — 잘못된 값 뒤에 힌트가 붙어 'yield>abc70;' 이 되던 것. */
+  it('value-hint: 입력 중이던 부분 값은 교체된다(append 아님) — yield>5 + 70 → yield>70; ', () => {
+    const r = applySuggestion('yield>5', 7, { kind: 'value-hint', label: '70', insert: '70', priority: 0 });
+    expect(r.newInput).toBe('yield>70; ');
+  });
+  it('값 자리에 숫자가 아닌 글자가 있으면 value-hint 를 제안하지 않는다 (yield>abc)', () => {
+    const stats = { yield_strength: { p10: 100, median: 300, p90: 900, min: 1, max: 2000, count: 10 } } as any;
+    expect(suggest('yield>abc', 9, stats)).toEqual([]);
+    expect(suggest('yield>', 6, stats).length).toBeGreaterThan(0);
+    expect(suggest('yield>5', 7, stats)).toEqual([]);   // 완성된 숫자 — 기존 규칙(힌트 없음)
+  });
+
   it('prefix: token 을 prefix 로 교체', () => {
     const r = applySuggestion('s', 1, { kind: 'prefix', label: 'spec:', insert: 'spec:', priority: 0 });
     expect(r.newInput).toBe('spec:');

@@ -54,6 +54,7 @@ import ch8Body from './guide/chapters/ch8';
 import ch15Body from './guide/chapters/ch15';
 import { usePageMeta } from '@/lib/page-meta';   // AUD R13
 import { explorerHref } from '@/lib/explorer-return';   // AUD R15
+import { KoreanContentNotice } from '@/components/KoreanContentNotice';   // AUD F23 잔여 — 한국어 전용 문서 표시
 
 /* ─────────────────────────────────────────────────────────────────────────────
  * 메인 페이지
@@ -129,7 +130,7 @@ export default function Guide() {
   return (
     <GuideMaterialMapContext.Provider value={materialMap}>
     <GuideWikiByKeyContext.Provider value={wikiLookups?.byKey ?? null}>
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground" lang="ko">
       <ScenarioDialog scenarioKey={dialogKey} open={dialogKey !== null} onOpenChange={(v) => { if (!v) setDialogKey(null); }} />
       {/* 상단 바 — R66 검색 + R101 모바일 layout fix (whitespace-nowrap + 모바일 라벨 축약 + min-w-0). */}
       <header className="sticky top-0 z-20 h-12 flex items-center gap-2 sm:gap-3 px-2 sm:px-4 border-b border-border bg-[oklch(0.22_0.055_250)] text-sidebar-foreground">
@@ -203,6 +204,7 @@ export default function Guide() {
           )}
         </div>
       </header>
+      <KoreanContentNotice what="learning guide" />
 
       <div className="flex">
         <GuideSidebar toc={TOC} section={section} isRead={isChapterRead} onSearchPick={gotoEntry} />

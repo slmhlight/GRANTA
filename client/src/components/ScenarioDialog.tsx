@@ -8,7 +8,7 @@ import { useLocation } from 'wouter';
 import { Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { Play, Sigma, ChevronDown, ChevronRight } from 'lucide-react';
-import { SCENARIO_PRESETS, encodeFiltersToParams, indexKeyFromHint, type ScenarioKey, type ConfigField, type CrossSection } from '@/lib/scenario-presets';
+import { SCENARIO_PRESETS, encodeFiltersToParams, indexKeyFromHint, axisVerdict, AXIS_VERDICT_KEY, type ScenarioKey, type ConfigField, type CrossSection } from '@/lib/scenario-presets';
 import { useT } from '@/lib/i18n';
 
 /** 접을 수 있는 그룹 — defaultOpen 첫 그룹은 열려, 나머지는 닫혀 시작.
@@ -451,13 +451,11 @@ export function ScenarioDialog({ scenarioKey, open, onOpenChange }: { scenarioKe
                           {(() => {
                             /* AUD F17 — 두 방향의 I 를 현재 치수로 계산해 실제 강·약축 배지를 붙인다 (이름은 방향만). */
                             const dims = Object.fromEntries(section.dimFields.map((f) => [f.id, Number(values[f.id] ?? f.default)]));
-                            const iS = section.I(dims, 'strong'), iW = section.I(dims, 'weak');
-                            const badge = (mine: number, other: number) =>
-                              Math.abs(mine - other) <= 1e-9 * Math.max(1, Math.abs(mine)) ? t('scenario.axis.equalBadge') : mine > other ? t('scenario.axis.strongBadge') : t('scenario.axis.weakBadge');
+                            const vS = axisVerdict(section, dims, 'strong')!, vW = axisVerdict(section, dims, 'weak')!;   // 판정 SSOT (요약과 같은 함수)
                             const fmtI = (v: number) => (v >= 1e5 ? `${(v / 1e4).toFixed(1)}×10⁴` : v.toFixed(0));
                             return [
-                              { v: 'strong', label: t('scenario.axisH'), sub: `I = ${fmtI(iS)} mm⁴ · ${badge(iS, iW)}`, strong: iS >= iW },
-                              { v: 'weak', label: t('scenario.axisB'), sub: `I = ${fmtI(iW)} mm⁴ · ${badge(iW, iS)}`, strong: iW > iS },
+                              { v: 'strong', label: t('scenario.axisH'), sub: `I = ${fmtI(vS.iMine)} mm⁴ · ${t(AXIS_VERDICT_KEY[vS.verdict])}`, strong: vS.verdict !== 'weak' },
+                              { v: 'weak', label: t('scenario.axisB'), sub: `I = ${fmtI(vW.iMine)} mm⁴ · ${t(AXIS_VERDICT_KEY[vW.verdict])}`, strong: vW.verdict === 'strong' },
                             ].map((opt) => (
                               <button
                                 key={opt.v}

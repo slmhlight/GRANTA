@@ -82,17 +82,37 @@
       "min": 48,
       "max": 64,
       "typical": 55,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:aa2024 × HT:O (annealed soft, fallback derived from T6) (f×0.4, i×3)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:aa2024 × HT:O (annealed soft, fallback derived from T6) (f×0.4, i×3)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 138,
+      "base_range": [
+        120,
+        160
+      ],
+      "factor": 0.4,
+      "condition": "O (annealed soft, fallback derived from T6)",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 30,
       "max": 60,
       "typical": 45,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:aa2024 × HT:O (annealed soft, fallback derived from T6) (f×0.4, i×3)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:aa2024 × HT:O (annealed soft, fallback derived from T6) (f×0.4, i×3)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 15,
+      "base_range": [
+        10,
+        20
+      ],
+      "factor": 3,
+      "condition": "O (annealed soft, fallback derived from T6)",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 50,
@@ -184,7 +204,8 @@
       "typical": 5.62,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 5 × condition 1.02 × form 1.05 × grade 1.05 = 5.62 USD/kg"
     }
   },
   "composition": {
@@ -273,7 +294,7 @@
     "Aluminum - Cu Alloys (2xxx)",
     "Aluminum-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 30,
   "max_service_temp": 150,
   "thermal_expansion": 22.9,

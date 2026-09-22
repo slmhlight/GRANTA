@@ -89,7 +89,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "class",
-      "provenance": "class:Iron-based generic × HT:carburized case (i×0.85)"
+      "provenance": "class:Iron-based generic × HT:carburized case (i×0.85)",
+      "base_value": 35,
+      "base_range": [
+        15,
+        60
+      ],
+      "factor": 0.85,
+      "condition": "carburized case",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 22.5,
@@ -97,7 +105,16 @@
       "typical": 28.8,
       "n": 0,
       "confidence": "class",
-      "provenance": "class:AA 6xxx Al-Mg-Si × HT:carburized case (k×0.9)"
+      "provenance": "class:AA 6xxx Al-Mg-Si × HT:carburized case (k×0.9)",
+      "estimated": true,
+      "base_value": 32,
+      "base_range": [
+        25,
+        40
+      ],
+      "factor": 0.9,
+      "condition": "carburized case",
+      "model": "ht-multiplier:kic"
     },
     "electrical_conductivity": {
       "min": 5.95,
@@ -177,7 +194,8 @@
       "typical": 4.96,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 3.5 × condition 1.35 × form 1.05 × grade 1 = 4.96 USD/kg"
     }
   },
   "composition": {

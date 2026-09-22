@@ -53,12 +53,12 @@ export function HomeMobileNav({
     <nav className="md:hidden fixed left-0 right-0 bottom-0 grid grid-cols-5 border-t border-border bg-background z-50">
       {/* R115 — nav 의 다른 버튼 클릭 시 Compare 자동 닫힘. */}
       <button onClick={() => { setShowCompare(false); setMobileSidebarOpen(true); }} className="flex flex-col items-center justify-center gap-0.5 py-1.5 text-[10px] text-muted-foreground hover:text-accent hover:bg-accent/5 transition-colors">
-        <Menu className="w-4 h-4" /> 필터{activeFilterCount > 0 && <span className="absolute mt-2 -mr-6 inline-block w-3 h-3 rounded-full bg-accent text-white text-[8px] leading-3 text-center font-bold">{activeFilterCount}</span>}
+        <Menu className="w-4 h-4" /> {lang === 'en' ? 'Filters' : '필터'}{activeFilterCount > 0 && <span className="absolute mt-2 -mr-6 inline-block w-3 h-3 rounded-full bg-accent text-white text-[8px] leading-3 text-center font-bold">{activeFilterCount}</span>}
       </button>
       <button
         onClick={() => { setShowCompare(false); setViewMode(viewMode === 'table' ? 'ashby' : viewMode === 'ashby' ? 'cards' : 'table'); }}
         className="relative flex flex-col items-center justify-center gap-0.5 py-1.5 text-[10px] text-accent hover:bg-accent/5 transition-colors"
-        title="다음 뷰로 전환 · Compare 자동 닫힘"
+        title={lang === 'en' ? 'Switch to next view · closes Compare' : '다음 뷰로 전환 · Compare 자동 닫힘'}
       >
         <span className="absolute top-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-accent" aria-hidden />
         {viewMode === 'table' ? <Table2 className="w-4 h-4" /> : viewMode === 'ashby' ? <BarChart3 className="w-4 h-4" /> : <LayoutGrid className="w-4 h-4" />}
@@ -76,32 +76,32 @@ export function HomeMobileNav({
       </button>
       <Sheet open={guideMobileOpen} onOpenChange={(v) => { if (v) setShowCompare(false); setGuideMobileOpen(v); }}>
         <SheetTrigger className="flex flex-col items-center justify-center gap-0.5 py-1.5 text-[10px] text-muted-foreground hover:text-accent hover:bg-accent/5 transition-colors w-full">
-          <GraduationCap className="w-4 h-4" /> 가이드
+          <GraduationCap className="w-4 h-4" /> {lang === 'en' ? 'Guide' : '가이드'}
         </SheetTrigger>
         <SheetContent side="right" className="w-[88vw] sm:max-w-md overflow-y-auto">
           <SheetHeader>
-            <SheetTitle className="flex items-center gap-2"><GraduationCap className="w-4 h-4 text-accent" /> 가이드 · 사례 빠른 시작</SheetTitle>
-            <SheetDescription className="text-[11px] text-muted-foreground text-left">사례를 골라 다이얼로그로 시작. 깊이 학습하려면 전체 가이드.</SheetDescription>
+            <SheetTitle className="flex items-center gap-2"><GraduationCap className="w-4 h-4 text-accent" /> {lang === 'en' ? 'Guide · quick start from a case' : '가이드 · 사례 빠른 시작'}</SheetTitle>
+            <SheetDescription className="text-[11px] text-muted-foreground text-left">{lang === 'en' ? 'Pick a case to start in a dialog. The full guide (Korean) covers the theory.' : '사례를 골라 다이얼로그로 시작. 깊이 학습하려면 전체 가이드.'}</SheetDescription>
           </SheetHeader>
           <div className="mt-3 space-y-2">
             <div className="grid grid-cols-2 gap-1.5">
               {[
-                { key: 'bracket' as ScenarioKey, title: '구조 브래킷', Svg: SvgBracket },
-                { key: 'hightemp' as ScenarioKey, title: '고온 부품', Svg: SvgManifold },
-                { key: 'fatigue' as ScenarioKey, title: '회전·진동축', Svg: SvgShaft },
-                { key: 'precision' as ScenarioKey, title: '정밀 마운트', Svg: SvgPrecision },
-                { key: 'corrosion' as ScenarioKey, title: '해양·화학', Svg: SvgMarine },
-                { key: 'lowcost' as ScenarioKey, title: '저원가 양산', Svg: SvgLowcost },
-                { key: 'spring' as ScenarioKey, title: '스프링·힌지', Svg: SvgSpring },
-                { key: 'heatsink' as ScenarioKey, title: '히트싱크', Svg: SvgHeatsink },
-                { key: 'wear' as ScenarioKey, title: '내마모', Svg: SvgWear },
-                { key: 'medical' as ScenarioKey, title: '의료 임플란트', Svg: SvgMedical },
-                { key: 'cryogenic' as ScenarioKey, title: '극저온', Svg: SvgCryogenic },
-                { key: 'electrical' as ScenarioKey, title: '전기 전도체', Svg: SvgElectrical },
-                { key: 'pressure_vessel' as ScenarioKey, title: '압력용기', Svg: SvgPressureVesselSmall },
-                { key: 'gear' as ScenarioKey, title: '기어', Svg: SvgGear },
-                { key: 'fastener' as ScenarioKey, title: '체결구', Svg: SvgFastener },
-                { key: 'die_mold' as ScenarioKey, title: '다이·금형', Svg: SvgDieMold },
+                { key: 'bracket' as ScenarioKey, title: '구조 브래킷', en: 'Structural bracket', Svg: SvgBracket },
+                { key: 'hightemp' as ScenarioKey, title: '고온 부품', en: 'High-temperature part', Svg: SvgManifold },
+                { key: 'fatigue' as ScenarioKey, title: '회전·진동축', en: 'Rotating / vibrating shaft', Svg: SvgShaft },
+                { key: 'precision' as ScenarioKey, title: '정밀 마운트', en: 'Precision mount', Svg: SvgPrecision },
+                { key: 'corrosion' as ScenarioKey, title: '해양·화학', en: 'Marine / chemical', Svg: SvgMarine },
+                { key: 'lowcost' as ScenarioKey, title: '저원가 양산', en: 'Low-cost mass production', Svg: SvgLowcost },
+                { key: 'spring' as ScenarioKey, title: '스프링·힌지', en: 'Spring / hinge', Svg: SvgSpring },
+                { key: 'heatsink' as ScenarioKey, title: '히트싱크', en: 'Heat sink', Svg: SvgHeatsink },
+                { key: 'wear' as ScenarioKey, title: '내마모', en: 'Wear resistance', Svg: SvgWear },
+                { key: 'medical' as ScenarioKey, title: '의료 임플란트', en: 'Medical implant', Svg: SvgMedical },
+                { key: 'cryogenic' as ScenarioKey, title: '극저온', en: 'Cryogenic', Svg: SvgCryogenic },
+                { key: 'electrical' as ScenarioKey, title: '전기 전도체', en: 'Electrical conductor', Svg: SvgElectrical },
+                { key: 'pressure_vessel' as ScenarioKey, title: '압력용기', en: 'Pressure vessel', Svg: SvgPressureVesselSmall },
+                { key: 'gear' as ScenarioKey, title: '기어', en: 'Gear', Svg: SvgGear },
+                { key: 'fastener' as ScenarioKey, title: '체결구', en: 'Fastener', Svg: SvgFastener },
+                { key: 'die_mold' as ScenarioKey, title: '다이·금형', en: 'Die / mold', Svg: SvgDieMold },
               ].map(t => (
                 <button
                   key={t.key}
@@ -110,12 +110,12 @@ export function HomeMobileNav({
                   className="group rounded border border-border bg-card hover:border-accent hover:bg-accent/5 transition-all p-1.5 text-left flex items-center gap-1.5"
                 >
                   <div className="w-9 h-7 flex-shrink-0 rounded bg-muted/40 p-0.5 flex items-center justify-center"><t.Svg /></div>
-                  <p className="text-[11px] font-medium text-foreground truncate leading-tight">{t.title}</p>
+                  <p className="text-[11px] font-medium text-foreground truncate leading-tight">{lang === 'en' ? t.en : t.title}</p>
                 </button>
               ))}
             </div>
             <Link href="/guide" className="block text-center text-xs font-medium px-3 py-2 rounded border border-accent text-accent hover:bg-accent/10 transition-colors mt-2">
-              전체 가이드 페이지 열기 →
+              {lang === 'en' ? 'Open the full guide (Korean) →' : '전체 가이드 페이지 열기 →'}
             </Link>
           </div>
         </SheetContent>
@@ -128,7 +128,7 @@ export function HomeMobileNav({
         <SheetContent side="right" className="w-[88vw] sm:max-w-md overflow-y-auto">
           <SheetHeader>
             <SheetTitle className="flex items-center gap-2"><Settings className="w-4 h-4 text-accent" /> Settings</SheetTitle>
-            <SheetDescription className="sr-only">언어·단위계·보기 설정. 변경은 즉시 적용되고 이 브라우저에 저장됩니다.</SheetDescription>
+            <SheetDescription className="sr-only">{lang === 'en' ? 'Language, unit system and view settings. Changes apply immediately and are saved in this browser.' : '언어·단위계·보기 설정. 변경은 즉시 적용되고 이 브라우저에 저장됩니다.'}</SheetDescription>
           </SheetHeader>
           {/* R83 — row layout: 라벨(좌) + toggle group(우) 한 줄. 카드 3개 분리보다 자연스러움. */}
           <div className="mt-4 rounded border border-border divide-y divide-border/60">

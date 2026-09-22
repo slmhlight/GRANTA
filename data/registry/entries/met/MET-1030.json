@@ -88,7 +88,16 @@
       "typical": 42,
       "n": 0,
       "confidence": "class",
-      "provenance": "class:Aluminum Association handbook × HT:as-cast / forged (no T-temper) (k×1.4)"
+      "provenance": "class:Aluminum Association handbook × HT:as-cast / forged (no T-temper) (k×1.4)",
+      "estimated": true,
+      "base_value": 30,
+      "base_range": [
+        22,
+        40
+      ],
+      "factor": 1.4,
+      "condition": "as-cast / forged (no T-temper)",
+      "model": "ht-multiplier:kic"
     }
   },
   "composition": {

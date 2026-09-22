@@ -20,7 +20,7 @@ export default function ch8Body() {
           <ul className="list-disc pl-6 mt-1 space-y-1.5 leading-relaxed text-sm">
             <li>값은 <b>대표값(typical) + min–max 범위</b>입니다. 같은 합금도 공정·열처리·빌드 방향에 따라 크게 달라집니다. 상세 패널의 <b>Process 탭</b>에서 condition 옆에 한 줄 효과 설명을 함께 표시합니다 (H900 = "최대 σy", HIP = "기공 제거·피로 ↑", T6 = "Al peak hardness" 등).</li>
             <li><F>est.</F> 라벨은 confidence 가 <F>handbook</F>(표준 데이터시트), <F>class</F>(클래스 대표 추정), <F>derived</F>(다른 물성에서 유도) 인 경우. 설계 확정 전 출처를 직접 확인하세요. 출처 탭에 <b>"Fatigue fallback"</b> · <b>"KIC fallback"</b> 같은 라벨로 출처 종류를 명시했습니다.</li>
-            <li><b>AM(적층제조)은 이방성</b>이 있습니다(XY vs Z). 방향·후처리(HIP/열처리)에 따른 차이를 반드시 고려하세요. 자세한 내용은 <a href="#ch9" className="text-accent hover:underline">AM 특화 챕터</a>.</li>
+            <li><b>AM(적층제조)은 이방성</b>이 있습니다(XY vs Z). 방향·후처리(HIP/열처리)에 따른 차이를 반드시 고려하세요. 자세한 내용은 <Link href="/guide/ch9" className="text-accent hover:underline">AM 특화 챕터</Link>.</li>
             <li>최종 판단은 항상 <b>출처(데이터시트·규격)</b>로 검증하고, 안전계수·인증 요구를 적용하세요. 이 앱은 <b>후보를 좁히는 도구</b>이지 설계 승인 근거가 아닙니다.</li>
           </ul>
 
@@ -174,7 +174,10 @@ export default function ch8Body() {
                 <li><ExtLink href="https://www.iso.org/standards.html">ISO</ExtLink> — 6892 (인장) · 14801 (임플란트 피로)</li>
                 <li><ExtLink href="https://www.asme.org/codes-standards">ASME B&PV Code</ExtLink> — 압력용기·발전소</li>
                 <li><ExtLink href="https://www.aluminum.org/standards">Aluminum Association</ExtLink> — Al designation</li>
-                <li><ExtLink href="https://www.iss.it/">IISI / ISO TC 17 Steel</ExtLink></li>
+                {/* AUD N06 (2026-09-22) — 예전 링크 iss.it 는 이탈리아 보건기관(Istituto Superiore di Sanità)이었다. 의도한 자료는
+                    철강협회(IISI, 2008년부터 worldsteel)와 ISO 철강 기술위원회 TC 17 — 기관명과 링크 대상을 일치시킨다. */}
+                <li><ExtLink href="https://worldsteel.org/">worldsteel (World Steel Association, 구 IISI)</ExtLink> — 철강 통계·규격 안내</li>
+                <li><ExtLink href="https://www.iso.org/committee/46232.html">ISO/TC 17 Steel</ExtLink> — ISO 철강 기술위원회 (ISO 6892 · 683 계열)</li>
               </ul>
             </div>
             <div className="rounded border border-border bg-card p-3">

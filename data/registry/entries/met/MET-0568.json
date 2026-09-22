@@ -175,15 +175,16 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived",
-      "provenance": "R205-R price_per_kg × ρ 재계산"
+      "provenance": "price_per_kg × ρ 재계산"
     },
     "delivered_price_per_kg": {
-      "min": 76.13,
-      "max": 76.13,
-      "typical": 76.13,
+      "min": 106.58,
+      "max": 106.58,
+      "typical": 106.58,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 70 × condition 1.45 × form 1.05 × grade 1 = 106.58 USD/kg"
     }
   },
   "composition": {
@@ -219,7 +220,7 @@
     },
     {
       "label": "ASTM B637 — Precipitation-Hardening Ni-base Bar (718)",
-      "url": "https://store.astm.org/b0637-22.html",
+      "url": "https://store.astm.org/b0637-26.html",
       "verified": false
     }
   ],
@@ -319,7 +320,7 @@
   "poisson_ratio": 0.29,
   "specific_heat": 435,
   "melting_point": 1336,
-  "price_per_kg": 50,
+  "price_per_kg": 70,
   "price_per_cm3": 0.5733,
   "popularity": 5,
   "machining_cost_factor": 2.6,
@@ -327,8 +328,8 @@
   "price_condition_factor": 1.45,
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
-  "delivered_price_per_kg": 76.13,
-  "total_cost_estimate": 274.05,
+  "delivered_price_per_kg": 106.58,
+  "total_cost_estimate": 383.69,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "svhc_concerns": [

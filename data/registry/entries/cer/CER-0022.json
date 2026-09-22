@@ -109,6 +109,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 18,
+      "max": 18,
+      "typical": 18,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 12 × condition 1 × form 1.5 × grade 1 = 18 USD/kg"
     }
   },
   "composition": {
@@ -128,7 +137,7 @@
     },
     {
       "label": "ASTM C773 — Alumina Compressive Strength",
-      "url": "https://store.astm.org/c0773-88r22.html",
+      "url": "https://store.astm.org/c0773-88r25.html",
       "verified": false
     }
   ],
@@ -178,5 +187,7 @@
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "industry_note": "Alumina (α-Al₂O₃, corundum) — most common engineering ceramic. Purity 96% (CoorsTek AD-96) vs 99.5% (AD-995) vs 99.9% (AD-998)."
+  "industry_note": "Alumina (α-Al₂O₃, corundum) — most common engineering ceramic. Purity 96% (CoorsTek AD-96) vs 99.5% (AD-995) vs 99.9% (AD-998).",
+  "price_per_kg": 12,
+  "delivered_price_per_kg": 18
 }

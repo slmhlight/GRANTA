@@ -82,17 +82,37 @@
       "min": 94,
       "max": 121,
       "typical": 106,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:6061 × HT:as-built (fine grain) (f×1.1, i×0.95)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:6061 × HT:as-built (fine grain) (f×1.1, i×0.95)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 96,
+      "base_range": [
+        85,
+        110
+      ],
+      "factor": 1.1,
+      "condition": "as-built (fine grain)",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 8,
       "max": 19,
       "typical": 12,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:6061 × HT:as-built (fine grain) (f×1.1, i×0.95)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:6061 × HT:as-built (fine grain) (f×1.1, i×0.95)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 13,
+      "base_range": [
+        8,
+        20
+      ],
+      "factor": 0.95,
+      "condition": "as-built (fine grain)",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 29,
@@ -181,7 +201,8 @@
       "typical": 7.5,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 3 × condition 1 × form 2.5 × grade 1 = 7.5 USD/kg"
     }
   },
   "composition": {
@@ -303,7 +324,7 @@
     "Aluminum",
     "Aluminum-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 43,
   "max_service_temp": 170,
   "thermal_expansion": 23.6,

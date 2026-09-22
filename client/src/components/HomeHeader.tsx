@@ -253,15 +253,17 @@ export function HomeHeader({
           <button
             className="h-7 w-7 flex items-center justify-center rounded border border-sidebar-border text-sidebar-foreground/60 hover:text-sidebar-foreground hover:border-accent transition-colors"
             onClick={() => {
-              const filename = generateCSVFilename();
-              exportMaterialsToCSV(filtered, filename);
+              /* AUD N03/F01 — 화면과 같은 리더(propValue)·같은 단위계로 내보낸다. */
+              const filename = generateCSVFilename(unitSystem);
+              exportMaterialsToCSV(filtered, filename, { unitSystem });
             }}
-            title="Export filtered results to CSV"
+            title={`Export filtered results to CSV (${unitSystem === 'si' ? 'SI' : 'Imperial'} units)`}
+            aria-label={`Export filtered results to CSV (${unitSystem === 'si' ? 'SI' : 'Imperial'} units)`}
           >
             <Download className="w-3.5 h-3.5" />
           </button>
         </TooltipTrigger>
-        <TooltipContent side="bottom" className="text-xs">Export to CSV ({filtered.length} items)</TooltipContent>
+        <TooltipContent side="bottom" className="text-xs">Export to CSV ({filtered.length} items · {unitSystem === 'si' ? 'SI: MPa·GPa·g/cm³' : 'Imperial: ksi·Msi·lb/in³'})</TooltipContent>
       </Tooltip>
 
       {/* R61 #5 — 헤더 ? 도움말 버튼: 모바일·데스크탑 공통 Onboarding 재시작 trigger.

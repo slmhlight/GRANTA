@@ -31,6 +31,12 @@ const UNIT_FACTORS: Record<string, { si: string; imp: string; toImp: number; fro
   // 온도 — °C ↔ °F (선형 변환은 별도).
   max_service_temp:      { si: '°C',     imp: '°F',      toImp: 1, from: 'add' },
   melting_point:         { si: '°C',     imp: '°F',      toImp: 1, from: 'add' },
+  glass_transition_temp: { si: '°C',     imp: '°F',      toImp: 1, from: 'add' },
+  hdt_182:               { si: '°C',     imp: '°F',      toImp: 1, from: 'add' },
+  // AUD F01 잔여 (2026-09-22) — 온도 곡선 표의 온도 축(°C↔°F) 과 보조 치수(벽 두께 mm↔in · 표면 거칠기 μm↔μin) 도 단위계를 따른다.
+  temp:                  { si: '°C',     imp: '°F',      toImp: 1, from: 'add' },
+  min_wall_thickness:    { si: 'mm',     imp: 'in',      toImp: 1 / 25.4 },
+  surface_finish_typical: { si: 'μm',    imp: 'μin',     toImp: 39.37 },
   // 가격 — USD/kg ↔ USD/lb (1 lb = 0.4536 kg).
   price_per_kg:          { si: 'USD/kg', imp: 'USD/lb',  toImp: 0.4536 },
   price_per_cm3:         { si: 'USD/cm³', imp: 'USD/in³', toImp: 16.387 },

@@ -86,17 +86,37 @@
       "min": 320,
       "max": 440,
       "typical": 380,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:haynes282 × HT:as-built (no age) (f×0.8, i×1.3)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:haynes282 × HT:as-built (no age) (f×0.8, i×1.3)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 475,
+      "base_range": [
+        400,
+        550
+      ],
+      "factor": 0.8,
+      "condition": "as-built (no age)",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 65,
       "max": 143,
       "typical": 104,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:haynes282 × HT:as-built (no age) (f×0.8, i×1.3)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:haynes282 × HT:as-built (no age) (f×0.8, i×1.3)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 80,
+      "base_range": [
+        50,
+        110
+      ],
+      "factor": 1.3,
+      "condition": "as-built (no age)",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 96,
@@ -104,7 +124,16 @@
       "typical": 120,
       "n": 0,
       "confidence": "class",
-      "provenance": "class:Haynes International × HT:as-built (no age) (k×1.2)"
+      "provenance": "class:Haynes International × HT:as-built (no age) (k×1.2)",
+      "estimated": true,
+      "base_value": 100,
+      "base_range": [
+        80,
+        120
+      ],
+      "factor": 1.2,
+      "condition": "as-built (no age)",
+      "model": "ht-multiplier:kic"
     },
     "electrical_conductivity": {
       "min": 0.85,
@@ -176,15 +205,16 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived",
-      "provenance": "R205-R price_per_kg × ρ 재계산"
+      "provenance": "price_per_kg × ρ 재계산"
     },
     "delivered_price_per_kg": {
-      "min": 200,
-      "max": 200,
-      "typical": 200,
+      "min": 325,
+      "max": 325,
+      "typical": 325,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 130 × condition 1 × form 2.5 × grade 1 = 325 USD/kg"
     }
   },
   "composition": {
@@ -355,7 +385,7 @@
     "Nickel-based",
     "Superalloy"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "elevated_temp": [
     {
       "temp": 20,
@@ -395,7 +425,7 @@
   "poisson_ratio": 0.31,
   "specific_heat": 397,
   "melting_point": 1290,
-  "price_per_kg": 80,
+  "price_per_kg": 130,
   "price_per_cm3": 1.0751,
   "popularity": 1.92,
   "machining_cost_factor": 1.8,
@@ -403,8 +433,8 @@
   "price_condition_factor": 1,
   "price_form_factor": 2.5,
   "price_grade_premium": 1,
-  "delivered_price_per_kg": 200,
-  "total_cost_estimate": 560,
+  "delivered_price_per_kg": 325,
+  "total_cost_estimate": 910,
   "min_wall_thickness": 0.4,
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",

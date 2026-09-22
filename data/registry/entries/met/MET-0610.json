@@ -77,17 +77,37 @@
       "min": 385,
       "max": 517,
       "typical": 451,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:rene80 × HT:HIP densified (cast) (f×1.1, i×1.05)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:rene80 × HT:HIP densified (cast) (f×1.1, i×1.05)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 410,
+      "base_range": [
+        350,
+        470
+      ],
+      "factor": 1.1,
+      "condition": "HIP densified (cast)",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 16,
       "max": 32,
       "typical": 23,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:rene80 × HT:HIP densified (cast) (f×1.1, i×1.05)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:rene80 × HT:HIP densified (cast) (f×1.1, i×1.05)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 22,
+      "base_range": [
+        15,
+        30
+      ],
+      "factor": 1.05,
+      "condition": "HIP densified (cast)",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 31.5,
@@ -179,7 +199,8 @@
       "typical": 660,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 200 × condition 1.65 × form 1 × grade 2 = 660 USD/kg"
     }
   },
   "composition": {
@@ -268,7 +289,7 @@
     "Nickel-based",
     "Superalloy"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 1.3,
   "max_service_temp": 950,
   "thermal_expansion": 12.7,

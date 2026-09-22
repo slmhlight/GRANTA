@@ -89,7 +89,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "class",
-      "provenance": "class:Iron-based generic × HT:normalized (i×1.6)"
+      "provenance": "class:Iron-based generic × HT:normalized (i×1.6)",
+      "base_value": 35,
+      "base_range": [
+        15,
+        60
+      ],
+      "factor": 1.6,
+      "condition": "normalized",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 112,
@@ -97,7 +105,16 @@
       "typical": 140,
       "n": 0,
       "confidence": "class",
-      "provenance": "class:ASME B&PV Sec.II heat-resistant × HT:normalized (k×1.4)"
+      "provenance": "class:ASME B&PV Sec.II heat-resistant × HT:normalized (k×1.4)",
+      "estimated": true,
+      "base_value": 100,
+      "base_range": [
+        80,
+        130
+      ],
+      "factor": 1.4,
+      "condition": "normalized",
+      "model": "ht-multiplier:kic"
     },
     "electrical_conductivity": {
       "min": 5.6,
@@ -177,7 +194,8 @@
       "typical": 2.58,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 2 × condition 1.23 × form 1.05 × grade 1 = 2.58 USD/kg"
     }
   },
   "composition": {
@@ -205,7 +223,7 @@
     },
     {
       "label": "ASTM A335 / A335M — Seamless Ferritic Alloy-Steel Pipe (P91)",
-      "url": "https://store.astm.org/a0335_a0335m-23a.html",
+      "url": "https://store.astm.org/a0335_a0335m-26.html",
       "verified": false
     },
     {
@@ -215,7 +233,7 @@
     },
     {
       "label": "ASME B&PV Sec.II — Material Properties for SA-335 P91",
-      "url": "https://www.asme.org/codes-standards/find-codes-standards/bpvc-ii-materials",
+      "url": "https://www.asme.org/codes-standards/find-codes-standards/bpvc-iid-bpvc-section-ii-materials-part-d-properties-(1)",
       "verified": false
     }
   ],

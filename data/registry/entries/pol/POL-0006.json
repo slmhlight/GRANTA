@@ -128,6 +128,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 16,
+      "max": 16,
+      "typical": 16,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 16 × condition 1 × form 1 × grade 1 = 16 USD/kg"
     }
   },
   "composition": {
@@ -234,5 +243,8 @@
     }
   ],
   "elevated_temp_src": "Victrex·Solvay·Celanese·Arkema·SABIC·BASF·Stratasys datasheet 측정값",
-  "industry_note": "HNBR (Hydrogenated Acrylonitrile Butadiene Rubber). NBR (Buna-N) 의 hydrogenation → 잔존 C=C 결합 제거 → 우수한 heat / ozone / oil 저항. σy 22 / UTS 28 / El 200-500% (elastomer — hyperelastic) / Shore A 65-90 / ρ 0.95."
+  "industry_note": "HNBR (Hydrogenated Acrylonitrile Butadiene Rubber). NBR (Buna-N) 의 hydrogenation → 잔존 C=C 결합 제거 → 우수한 heat / ozone / oil 저항. σy 22 / UTS 28 / El 200-500% (elastomer — hyperelastic) / Shore A 65-90 / ρ 0.95.",
+  "price_per_kg": 16,
+  "delivered_price_per_kg": 16,
+  "total_cost_estimate": 27.2
 }

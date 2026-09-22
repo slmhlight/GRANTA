@@ -91,6 +91,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 130,
+      "max": 130,
+      "typical": 130,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 130 × condition 1 × form 1 × grade 1 = 130 USD/kg"
     }
   },
   "composition": {},
@@ -165,5 +174,7 @@
   "price_per_cm3": 0.2054,
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "industry_note": "CFRP UD 0° (Vf 60% standard) tensile values: • **T300/Epoxy**: σf 1800 / E 130 — 기본급 (Boeing 737/787 boards) • **T700SC/Epoxy**: σf 2400 / E 135 — sporting goods (자전거 frame, 골프 shaft) • **T800/Epoxy**: σf 2900 / E 165 — 항공 wing primary (B787 wing box partial) • **IM7/8552 (Hexcel HexPly)**: σf 2820 / E 164 — 항공 표준 prepreg (F-35 wing, Boeing 787 fuselage barrel) • **IM9/8552**: σf 3000 / E 170 — F-22 / F-35 inlet duct • **M40J/Cyanate Ester**: σf"
+  "industry_note": "CFRP UD 0° (Vf 60% standard) tensile values: • **T300/Epoxy**: σf 1800 / E 130 — 기본급 (Boeing 737/787 boards) • **T700SC/Epoxy**: σf 2400 / E 135 — sporting goods (자전거 frame, 골프 shaft) • **T800/Epoxy**: σf 2900 / E 165 — 항공 wing primary (B787 wing box partial) • **IM7/8552 (Hexcel HexPly)**: σf 2820 / E 164 — 항공 표준 prepreg (F-35 wing, Boeing 787 fuselage barrel) • **IM9/8552**: σf 3000 / E 170 — F-22 / F-35 inlet duct • **M40J/Cyanate Ester**: σf",
+  "price_per_kg": 130,
+  "delivered_price_per_kg": 130
 }

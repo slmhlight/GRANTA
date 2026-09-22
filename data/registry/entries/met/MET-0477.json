@@ -165,7 +165,7 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived",
-      "provenance": "R205-R price_per_kg × ρ 재계산"
+      "provenance": "price_per_kg × ρ 재계산"
     },
     "delivered_price_per_kg": {
       "min": 6.3,
@@ -173,7 +173,8 @@
       "typical": 6.3,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 6 × condition 1 × form 1.05 × grade 1 = 6.3 USD/kg"
     }
   },
   "composition": {

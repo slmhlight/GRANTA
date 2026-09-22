@@ -97,6 +97,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 180,
+      "max": 180,
+      "typical": 180,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 120 × condition 1 × form 1.5 × grade 1 = 180 USD/kg"
     }
   },
   "composition": {
@@ -164,5 +173,7 @@
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
   "confidence_tier": "medium-low",
-  "industry_note": "HA (Hydroxyapatite, Ca₁₀(PO₄)₆(OH)₂, hexagonal P6₃/m) — bone main mineral component (인체 뼈의 65% by weight). Tm 1670°C (decomposes), ρ 3.16 g/cc, σf 80-120, E 80-120 GPa (bone E 18-25 와 비슷). Tmax 1200°C."
+  "industry_note": "HA (Hydroxyapatite, Ca₁₀(PO₄)₆(OH)₂, hexagonal P6₃/m) — bone main mineral component (인체 뼈의 65% by weight). Tm 1670°C (decomposes), ρ 3.16 g/cc, σf 80-120, E 80-120 GPa (bone E 18-25 와 비슷). Tmax 1200°C.",
+  "price_per_kg": 120,
+  "delivered_price_per_kg": 180
 }

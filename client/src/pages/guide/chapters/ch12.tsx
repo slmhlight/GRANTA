@@ -10,6 +10,7 @@
  *     호출하면 트리를 돌려주는 함수라야 둘 다 만족한다.
  * 훅을 쓰면 안 된다(컴포넌트가 아니라 호출되는 함수다). 내용은 원본 그대로 — 옮기기만 했다.
  */
+import { Link } from 'wouter';
 import { Note, H3 } from '../components';
 
 export default function ch12Body() {
@@ -45,7 +46,7 @@ export default function ch12Body() {
                 <tr><td className="p-2 font-medium">성형 (forming)</td><td className="p-2 font-mono">N-value (변형 경화 지수) · r-value</td><td className="p-2">Deep drawing 은 n &gt; 0.2, r &gt; 1.4 권장. 304 SS / 6022-T4 Al 우수. AA 7075 / 마라징 어려움.</td></tr>
                 <tr><td className="p-2 font-medium">단조 (forging)</td><td className="p-2 font-mono">Forgeability rating</td><td className="p-2">Al · AISI 1018 강 우수. Ti · Ni superalloy 는 좁은 온도창 (Ti-6Al-4V 950–1000 °C). 정밀 단조 (closed die) 는 부품마다 다이 비용 ↑.</td></tr>
                 <tr><td className="p-2 font-medium">주조 (casting)</td><td className="p-2 font-mono">유동성 · 수축률 · 결함률</td><td className="p-2">Investment casting (Ti · CoCrMo · 304SS · Inconel 718) — 정밀 ±0.5%. Die casting (Al · Zn · Mg). Sand casting (탄소강 · Al · 청동).</td></tr>
-                <tr><td className="p-2 font-medium">AM (LPBF · EBM · DED)</td><td className="p-2 font-mono">분말 spec · 빌드 방향 · 후처리</td><td className="p-2">표준화된 alloy 만 (Ti-6Al-4V · Inconel 718 · 17-4 PH · AISI 316L · AlSi10Mg · CoCrMo). HIP 후처리로 ±20% 성능 변동. <a href="#ch9" className="text-accent hover:underline">Ch.10 AM 특화</a> 참고.</td></tr>
+                <tr><td className="p-2 font-medium">AM (LPBF · EBM · DED)</td><td className="p-2 font-mono">분말 spec · 빌드 방향 · 후처리</td><td className="p-2">표준화된 alloy 만 (Ti-6Al-4V · Inconel 718 · 17-4 PH · AISI 316L · AlSi10Mg · CoCrMo). HIP 후처리로 ±20% 성능 변동. <Link href="/guide/ch9" className="text-accent hover:underline">Ch.10 AM 특화</Link> 참고.</td></tr>
                 <tr><td className="p-2 font-medium">표면처리</td><td className="p-2 font-mono">밀착성 · 두께 · 환경 적합성</td><td className="p-2">Al 양극산화 (anodize) · 강 도금 (Zn · Cd · Cr) · Ti TiN/DLC · stainless passivation. 의료 임플란트는 micro arc oxidation 또는 plasma electrolytic oxidation.</td></tr>
               </tbody>
             </table>

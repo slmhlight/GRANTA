@@ -103,6 +103,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 5250,
+      "max": 5250,
+      "typical": 5250,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 3500 × condition 1 × form 1.5 × grade 1 = 5250 USD/kg"
     }
   },
   "composition": {
@@ -129,16 +138,6 @@
       "label": "NASA TM-2003-212442 — UHTC for Hypersonic Vehicles",
       "url": "https://ntrs.nasa.gov/citations/20030063084",
       "verified": true
-    },
-    {
-      "label": "ATI Wah Chang Hafnium technical data",
-      "url": "https://www.atimaterials.com/Products/Documents/datasheets/niobium-hafnium-tantalum-vanadium/hafnium/hafnium_v1.pdf",
-      "verified": true
-    },
-    {
-      "label": "ASTM B776 — Hafnium / Hafnium Alloy Bar/Wire",
-      "url": "https://store.astm.org/b0776-15.html",
-      "verified": false
     }
   ],
   "machinability": null,
@@ -149,13 +148,7 @@
     "applications": "재진입체 (re-entry vehicle) 리딩 엣지, 핵 reactor 컨트롤 rod",
     "limitations": "세계 최고 융점급 — 가공 거의 불가, 산화 1500°C 이상",
     "no_yield": "취성 세라믹 — 항복점 없음. 원자료의 항복값은 인장강도 복사본이라 싣지 않음(uts 참조).",
-    "_r173_note_applied": true,
-    "specs": [
-      {
-        "id": "ASTM B776",
-        "org": "ASTM"
-      }
-    ]
+    "_r173_note_applied": true
   },
   "popularity": 1,
   "density": 12.7,
@@ -185,6 +178,8 @@
   "surface_finish_typical": 3.2,
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
-  "confidence_tier": "high",
-  "industry_note": "HfC (Hafnium Carbide, NaCl-structure) — **highest melting point known compound** (Tm ≈ 3900°C). ρ 12.2-12.7 g/cc. σf 270-400 / E 461 / KIC 4.0 / Mohs 9.5 / Tmax 3000°C inert (oxidation 시 HfO₂ 형성 1700°C 이상). Hypersonic vehicle leading edge (Mach 7+ — X-43A, X-51 Waverider), 핵 추진 (nuclear thermal rocket throat), 진공 chamber electrode. 매우 비싸 ($2000-5000/kg). Hf-Ta-C 같은 ternary 더 high-Tm 가능 (4200°C)."
+  "confidence_tier": "medium",
+  "industry_note": "HfC (Hafnium Carbide, NaCl-structure) — **highest melting point known compound** (Tm ≈ 3900°C). ρ 12.2-12.7 g/cc. σf 270-400 / E 461 / KIC 4.0 / Mohs 9.5 / Tmax 3000°C inert (oxidation 시 HfO₂ 형성 1700°C 이상). Hypersonic vehicle leading edge (Mach 7+ — X-43A, X-51 Waverider), 핵 추진 (nuclear thermal rocket throat), 진공 chamber electrode. 매우 비싸 ($2000-5000/kg). Hf-Ta-C 같은 ternary 더 high-Tm 가능 (4200°C).",
+  "price_per_kg": 3500,
+  "delivered_price_per_kg": 5250
 }

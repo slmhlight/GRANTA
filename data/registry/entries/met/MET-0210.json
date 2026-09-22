@@ -82,17 +82,37 @@
       "min": 56,
       "max": 72,
       "typical": 64,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:aa7075 × HT:O (annealed soft, fallback derived from T6) (f×0.4, i×3)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:aa7075 × HT:O (annealed soft, fallback derived from T6) (f×0.4, i×3)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 159,
+      "base_range": [
+        140,
+        180
+      ],
+      "factor": 0.4,
+      "condition": "O (annealed soft, fallback derived from T6)",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 15,
       "max": 36,
       "typical": 24,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:aa7075 × HT:O (annealed soft, fallback derived from T6) (f×0.4, i×3)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:aa7075 × HT:O (annealed soft, fallback derived from T6) (f×0.4, i×3)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 8,
+      "base_range": [
+        5,
+        12
+      ],
+      "factor": 3,
+      "condition": "O (annealed soft, fallback derived from T6)",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 52,
@@ -184,7 +204,8 @@
       "typical": 6.48,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 5.5 × condition 1.02 × form 1.05 × grade 1.1 = 6.48 USD/kg"
     }
   },
   "composition": {
@@ -273,7 +294,7 @@
     "Aluminum - Zn Alloys (7xxx)",
     "Aluminum-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 33,
   "max_service_temp": 120,
   "thermal_expansion": 23.4,

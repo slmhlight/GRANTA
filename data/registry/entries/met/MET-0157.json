@@ -93,7 +93,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "class",
-      "provenance": "class:Al-based × HT:O (annealed soft, fallback derived from T6) (i×3)"
+      "provenance": "class:Al-based × HT:O (annealed soft, fallback derived from T6) (i×3)",
+      "base_value": 10,
+      "base_range": [
+        5,
+        18
+      ],
+      "factor": 3,
+      "condition": "O (annealed soft, fallback derived from T6)",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 44,
@@ -101,7 +109,16 @@
       "typical": 60,
       "n": 0,
       "confidence": "class",
-      "provenance": "class:Aluminum Association handbook × HT:O (annealed soft, fallback derived from T6) (k×2)"
+      "provenance": "class:Aluminum Association handbook × HT:O (annealed soft, fallback derived from T6) (k×2)",
+      "estimated": true,
+      "base_value": 30,
+      "base_range": [
+        22,
+        40
+      ],
+      "factor": 2,
+      "condition": "O (annealed soft, fallback derived from T6)",
+      "model": "ht-multiplier:kic"
     },
     "electrical_conductivity": {
       "min": 42.5,
@@ -181,7 +198,8 @@
       "typical": 2.68,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 2.5 × condition 1.02 × form 1.05 × grade 1 = 2.68 USD/kg"
     }
   },
   "composition": {

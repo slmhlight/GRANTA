@@ -84,17 +84,37 @@
       "min": 429,
       "max": 507,
       "typical": 468,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:174ph × HT:H1150 over-aged (f×0.78, i×3)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:174ph × HT:H1150 over-aged (f×0.78, i×3)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 600,
+      "base_range": [
+        550,
+        650
+      ],
+      "factor": 0.78,
+      "condition": "H1150 over-aged",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 60,
       "max": 120,
       "typical": 90,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:174ph × HT:H1150 over-aged (f×0.78, i×3)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:174ph × HT:H1150 over-aged (f×0.78, i×3)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 30,
+      "base_range": [
+        20,
+        40
+      ],
+      "factor": 3,
+      "condition": "H1150 over-aged",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 144,
@@ -186,7 +206,8 @@
       "typical": 20.31,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 6.5 × condition 1.25 × form 2.5 × grade 1 = 20.31 USD/kg"
     }
   },
   "composition": {
@@ -305,7 +326,7 @@
     "Iron-based",
     "Stainless Steel"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "elevated_temp": [
     {
       "temp": 20,

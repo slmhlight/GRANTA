@@ -97,6 +97,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 12,
+      "max": 12,
+      "typical": 12,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 8 × condition 1 × form 1.5 × grade 1 = 12 USD/kg"
     }
   },
   "composition": {
@@ -158,5 +167,7 @@
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
   "confidence_tier": "medium",
-  "industry_note": "Cordierite (2MgO·2Al₂O₃·5SiO₂, orthorhombic Cccm) — **lowest CTE silicate ceramic** (1.5-2.5×10⁻⁶/K — Zerodur 의 5×). Tm 1450°C, ρ 2.65 g/cc, σf 70-130, E 70 GPa, KIC 1.5. Tmax 1400°C continuous. **자동차 catalytic converter substrate** (가장 흔한 — NGK / Corning Celcor honeycomb 표준) — exhaust 800°C cycle thermal shock 견딤. Refractory kiln furniture, glass-melting tool, electric stove burner."
+  "industry_note": "Cordierite (2MgO·2Al₂O₃·5SiO₂, orthorhombic Cccm) — **lowest CTE silicate ceramic** (1.5-2.5×10⁻⁶/K — Zerodur 의 5×). Tm 1450°C, ρ 2.65 g/cc, σf 70-130, E 70 GPa, KIC 1.5. Tmax 1400°C continuous. **자동차 catalytic converter substrate** (가장 흔한 — NGK / Corning Celcor honeycomb 표준) — exhaust 800°C cycle thermal shock 견딤. Refractory kiln furniture, glass-melting tool, electric stove burner.",
+  "price_per_kg": 8,
+  "delivered_price_per_kg": 12
 }

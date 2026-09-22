@@ -88,7 +88,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "class",
-      "provenance": "class:Iron-based generic × HT:carburized case (i×0.85)"
+      "provenance": "class:Iron-based generic × HT:carburized case (i×0.85)",
+      "base_value": 35,
+      "base_range": [
+        15,
+        60
+      ],
+      "factor": 0.85,
+      "condition": "carburized case",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 49.5,
@@ -96,7 +104,16 @@
       "typical": 67.5,
       "n": 0,
       "confidence": "class",
-      "provenance": "class:AMS 6415 alloy steel × HT:carburized case (k×0.9)"
+      "provenance": "class:AMS 6415 alloy steel × HT:carburized case (k×0.9)",
+      "estimated": true,
+      "base_value": 75,
+      "base_range": [
+        55,
+        100
+      ],
+      "factor": 0.9,
+      "condition": "carburized case",
+      "model": "ht-multiplier:kic"
     },
     "electrical_conductivity": {
       "min": 5.95,
@@ -176,7 +193,8 @@
       "typical": 4.25,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 3 × condition 1.35 × form 1.05 × grade 1 = 4.25 USD/kg"
     }
   },
   "composition": {

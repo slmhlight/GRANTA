@@ -97,6 +97,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 4000,
+      "max": 4000,
+      "typical": 4000,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 4000 × condition 1 × form 1 × grade 1 = 4000 USD/kg"
     }
   },
   "composition": {},
@@ -156,5 +165,7 @@
   "price_per_cm3": 15.4,
   "rohs_compliant": true,
   "confidence_tier": "medium-low",
-  "industry_note": "Titanium Matrix Composite — Ti-6Al-4V or Ti Beta-21S + continuous SiC monofilament fiber (Specialty Materials SCS-6, TISICS Sigma SM1140+). UD 0°: σf 1400-1800 / E 200-240 / ρ 3.85-3.9 g/cc (Ti 보다 가벼움). Tmax 600°C continuous (matrix-limited). 우주 jet engine rotor disc (F119/F135 LP turbine bladed-rings BLINGs — F-22 / F-35), 우주 landing gear strut. Cost 매우 비싸 ($5000-10000/kg) — 극한 부품 전용. 가공 매우 어려움 (PCD/CBN tool)."
+  "industry_note": "Titanium Matrix Composite — Ti-6Al-4V or Ti Beta-21S + continuous SiC monofilament fiber (Specialty Materials SCS-6, TISICS Sigma SM1140+). UD 0°: σf 1400-1800 / E 200-240 / ρ 3.85-3.9 g/cc (Ti 보다 가벼움). Tmax 600°C continuous (matrix-limited). 우주 jet engine rotor disc (F119/F135 LP turbine bladed-rings BLINGs — F-22 / F-35), 우주 landing gear strut. Cost 매우 비싸 ($5000-10000/kg) — 극한 부품 전용. 가공 매우 어려움 (PCD/CBN tool).",
+  "price_per_kg": 4000,
+  "delivered_price_per_kg": 4000
 }

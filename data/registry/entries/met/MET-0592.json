@@ -89,7 +89,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "class",
-      "provenance": "class:Ni-based superalloy × HT:as-cast (defect-limited) (i×1.2)"
+      "provenance": "class:Ni-based superalloy × HT:as-cast (defect-limited) (i×1.2)",
+      "base_value": 60,
+      "base_range": [
+        30,
+        100
+      ],
+      "factor": 1.2,
+      "condition": "as-cast (defect-limited)",
+      "model": "ht-multiplier:impact"
     },
     "electrical_conductivity": {
       "min": 1.3,
@@ -181,7 +189,8 @@
       "typical": 250,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 250 × condition 1 × form 1 × grade 1 = 250 USD/kg"
     }
   },
   "composition": {

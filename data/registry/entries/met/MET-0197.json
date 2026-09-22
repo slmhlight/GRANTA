@@ -92,7 +92,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "class",
-      "provenance": "class:Al-based × HT:mixed aged/solution-treated CSV-generic (fallback midpoint) (i×1.1)"
+      "provenance": "class:Al-based × HT:mixed aged/solution-treated CSV-generic (fallback midpoint) (i×1.1)",
+      "base_value": 10,
+      "base_range": [
+        5,
+        18
+      ],
+      "factor": 1.1,
+      "condition": "mixed aged/solution-treated CSV-generic (fallback midpoint)",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 27.5,
@@ -184,7 +192,8 @@
       "typical": 4.59,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 3.5 × condition 1.25 × form 1.05 × grade 1 = 4.59 USD/kg"
     }
   },
   "composition": {

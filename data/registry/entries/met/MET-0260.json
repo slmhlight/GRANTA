@@ -88,7 +88,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "class",
-      "provenance": "class:Al-based × HT:annealed/as-cast (i×1.2)"
+      "provenance": "class:Al-based × HT:annealed/as-cast (i×1.2)",
+      "base_value": 10,
+      "base_range": [
+        5,
+        18
+      ],
+      "factor": 1.2,
+      "condition": "annealed/as-cast",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 51.7,
@@ -180,7 +188,8 @@
       "typical": 1.25,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 1.2 × condition 1.02 × form 1.05 × grade 0.97 = 1.25 USD/kg"
     }
   },
   "composition": {

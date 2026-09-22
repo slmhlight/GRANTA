@@ -88,7 +88,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "class",
-      "provenance": "class:Iron-based generic × HT:cold worked (i×0.6)"
+      "provenance": "class:Iron-based generic × HT:cold worked (i×0.6)",
+      "base_value": 35,
+      "base_range": [
+        15,
+        60
+      ],
+      "factor": 0.6,
+      "condition": "cold worked",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 32,
@@ -96,7 +104,16 @@
       "typical": 44,
       "n": 0,
       "confidence": "class",
-      "provenance": "class:AISI carbon steel × HT:cold worked (k×0.8)"
+      "provenance": "class:AISI carbon steel × HT:cold worked (k×0.8)",
+      "estimated": true,
+      "base_value": 55,
+      "base_range": [
+        40,
+        80
+      ],
+      "factor": 0.8,
+      "condition": "cold worked",
+      "model": "ht-multiplier:kic"
     },
     "electrical_conductivity": {
       "min": 11.9,
@@ -176,7 +193,8 @@
       "typical": 1.35,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 1.2 × condition 1.08 × form 1.05 × grade 0.99 = 1.35 USD/kg"
     }
   },
   "composition": {

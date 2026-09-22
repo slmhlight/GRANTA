@@ -88,7 +88,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "class",
-      "provenance": "class:Iron-based generic × HT:annealed (forming) (i×3)"
+      "provenance": "class:Iron-based generic × HT:annealed (forming) (i×3)",
+      "base_value": 35,
+      "base_range": [
+        15,
+        60
+      ],
+      "factor": 3,
+      "condition": "annealed (forming)",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 104,
@@ -180,7 +188,8 @@
       "typical": 2.63,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 2.4 × condition 1.02 × form 1.05 × grade 1.024 = 2.63 USD/kg"
     }
   },
   "composition": {

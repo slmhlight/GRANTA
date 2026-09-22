@@ -94,9 +94,19 @@
       "min": 14,
       "max": 24,
       "typical": 19,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:scalmalloy × HT:as-built (fine grain) (f×1.1, i×0.95)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:scalmalloy × HT:as-built (fine grain) (f×1.1, i×0.95)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 20,
+      "base_range": [
+        15,
+        25
+      ],
+      "factor": 0.95,
+      "condition": "as-built (fine grain)",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 30,
@@ -185,7 +195,8 @@
       "typical": 1000,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 200 × condition 1 × form 2.5 × grade 2 = 1000 USD/kg"
     }
   },
   "composition": {

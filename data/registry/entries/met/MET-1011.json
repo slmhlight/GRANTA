@@ -81,17 +81,37 @@
       "min": 216,
       "max": 336,
       "typical": 276,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:monel400 × HT:cold worked (f×1.2, i×0.7)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:monel400 × HT:cold worked (f×1.2, i×0.7)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 230,
+      "base_range": [
+        180,
+        280
+      ],
+      "factor": 1.2,
+      "condition": "cold worked",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 77,
       "max": 140,
       "typical": 105,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:monel400 × HT:cold worked (f×1.2, i×0.7)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:monel400 × HT:cold worked (f×1.2, i×0.7)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 150,
+      "base_range": [
+        110,
+        200
+      ],
+      "factor": 0.7,
+      "condition": "cold worked",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 102,
@@ -183,7 +203,8 @@
       "typical": 26.56,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 22 × condition 1.15 × form 1.05 × grade 1 = 26.56 USD/kg"
     }
   },
   "composition": {
@@ -257,7 +278,7 @@
     "Nickel-based",
     "Superalloy"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 3.5,
   "max_service_temp": 480,
   "thermal_expansion": 13.9,

@@ -111,17 +111,37 @@
       "min": 473,
       "max": 630,
       "typical": 551,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:ti6al4v × HT:HIP densified (f×1.05, i×1.1)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:ti6al4v × HT:HIP densified (f×1.05, i×1.1)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 525,
+      "base_range": [
+        450,
+        600
+      ],
+      "factor": 1.05,
+      "condition": "HIP densified",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 19,
       "max": 26,
       "typical": 22,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:ti6al4v × HT:HIP densified (f×1.05, i×1.1)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:ti6al4v × HT:HIP densified (f×1.05, i×1.1)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 20,
+      "base_range": [
+        17,
+        24
+      ],
+      "factor": 1.1,
+      "condition": "HIP densified",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 78.8,
@@ -205,15 +225,16 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived",
-      "provenance": "R205-R price_per_kg × ρ 재계산"
+      "provenance": "price_per_kg × ρ 재계산"
     },
     "delivered_price_per_kg": {
-      "min": 140,
-      "max": 140,
-      "typical": 140,
+      "min": 152,
+      "max": 152,
+      "typical": 152,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 38 × condition 1.6 × form 2.5 × grade 1 = 152 USD/kg"
     }
   },
   "composition": {
@@ -378,7 +399,7 @@
     "Titanium",
     "Titanium-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "elevated_temp": [
     {
       "temp": 20,
@@ -412,7 +433,7 @@
   "poisson_ratio": 0.34,
   "specific_heat": 526,
   "melting_point": 1660,
-  "price_per_kg": 35,
+  "price_per_kg": 38,
   "price_per_cm3": 0.1683,
   "popularity": 3.5,
   "machining_cost_factor": 1.8,
@@ -420,8 +441,8 @@
   "price_condition_factor": 1.6,
   "price_form_factor": 2.5,
   "price_grade_premium": 1,
-  "delivered_price_per_kg": 140,
-  "total_cost_estimate": 392,
+  "delivered_price_per_kg": 152,
+  "total_cost_estimate": 425.6,
   "min_wall_thickness": 0.4,
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",

@@ -77,17 +77,37 @@
       "min": 457,
       "max": 600,
       "typical": 528,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:9310 × HT:carburized case (f×1.1, i×0.85)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:9310 × HT:carburized case (f×1.1, i×0.85)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 480,
+      "base_range": [
+        415,
+        545
+      ],
+      "factor": 1.1,
+      "condition": "carburized case",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 34,
       "max": 68,
       "typical": 51,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:9310 × HT:carburized case (f×1.1, i×0.85)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:9310 × HT:carburized case (f×1.1, i×0.85)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 60,
+      "base_range": [
+        40,
+        80
+      ],
+      "factor": 0.85,
+      "condition": "carburized case",
+      "model": "ht-multiplier:impact"
     },
     "electrical_conductivity": {
       "min": 6.5,
@@ -179,7 +199,8 @@
       "typical": 5.67,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 4 × condition 1.35 × form 1.05 × grade 1 = 5.67 USD/kg"
     }
   },
   "composition": {
@@ -265,7 +286,7 @@
     "Case-Hardening Steel",
     "Iron-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 6.5,
   "max_service_temp": 425,
   "thermal_expansion": 11.9,

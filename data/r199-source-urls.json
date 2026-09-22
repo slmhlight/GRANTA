@@ -240,17 +240,28 @@
   },
   {
    "source": {
-    "label": "Materion — Beryllium / BeCu (C17200) Performance Alloys datasheet",
-    "url": "https://www.materion.com/en/products/performance-materials/high-performance-alloys",
+    "label": "Materion — Beryllium Metal product & data page (structural / instrument grades)",
+    "url": "https://www.materion.com/en/products/performance-materials/beryllium-products/beryllium-metal",
     "verified": true
    },
    "stableIds": [
-    "MET-0231",
+    "MET-0231"
+   ],
+   "_namePattern_ref": "^Beryllium\\b",
+   "_note": "AUD R05 잔여(2026-09-22): 순 Be 에 BeCu(C17200) 데이터시트가 붙어 있던 것을 Be 금속 페이지로 분리 (2026-09-22 브라우저 확인)."
+  },
+  {
+   "source": {
+    "label": "Materion — Alloy 25 (C17200) copper-beryllium product & datasheet page",
+    "url": "https://www.materion.com/en/products/performance-materials/high-performance-alloys/high-strength-copper-beryllium",
+    "verified": true
+   },
+   "stableIds": [
     "MET-0361",
     "MET-0363",
     "MET-0364"
    ],
-   "_namePattern_ref": "^(Be-Cu|Beryllium)\\b"
+   "_namePattern_ref": "^Be-Cu\\b|^Beryllium Copper"
   },
   {
    "source": {

@@ -44,4 +44,17 @@ describe('가이드 딥링크 (H6 A-1)', () => {
     }
     expect(bad, bad.join('\n')).toEqual([]);
   });
+
+  /* AUD N04 (2026-09-22) — 챕터 페이지(/guide/chX) 안에서 다른 장으로 가는 링크가 같은 페이지 해시(#ch9)로 남아
+     ch8·ch12·ch14 에서 무동작이었다. 챕터 파일에는 #chX 해시 링크가 있으면 안 된다(다른 장 = 라우트). 랜딩(Guide.tsx)은
+     onLandingAnchorClick 이 #chX 를 가로채 라우팅하므로 허용. */
+  it('챕터 파일 안의 다른 장 링크는 해시(#chX)가 아니라 라우트(/guide/chX)', () => {
+    const chDir = path.join(SRC, 'pages', 'guide', 'chapters');
+    const bad: string[] = [];
+    for (const f of walk(chDir)) {
+      const src = fs.readFileSync(f, 'utf8');
+      for (const m of src.matchAll(/href=["'`]#(ch\w+)["'`]/g)) bad.push(`${path.relative(SRC, f)}: #${m[1]}`);
+    }
+    expect(bad, bad.join('\n')).toEqual([]);
+  });
 });

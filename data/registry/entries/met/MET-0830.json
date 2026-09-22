@@ -89,7 +89,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "class",
-      "provenance": "class:PH stainless × HT:solution annealed (soft) (i×3.5)"
+      "provenance": "class:PH stainless × HT:solution annealed (soft) (i×3.5)",
+      "base_value": 30,
+      "base_range": [
+        15,
+        50
+      ],
+      "factor": 3.5,
+      "condition": "solution annealed (soft)",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 120,
@@ -181,7 +189,8 @@
       "typical": 14.99,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 14 × condition 1.02 × form 1.05 × grade 1 = 14.99 USD/kg"
     }
   },
   "composition": {

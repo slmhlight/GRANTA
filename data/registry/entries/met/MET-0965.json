@@ -77,17 +77,37 @@
       "min": 165,
       "max": 207,
       "typical": 186,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:h13 × HT:spheroidized annealed (f×0.3, i×4)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:h13 × HT:spheroidized annealed (f×0.3, i×4)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 620,
+      "base_range": [
+        550,
+        690
+      ],
+      "factor": 0.3,
+      "condition": "spheroidized annealed",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 48,
       "max": 100,
       "typical": 72,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:h13 × HT:spheroidized annealed (f×0.3, i×4)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:h13 × HT:spheroidized annealed (f×0.3, i×4)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 18,
+      "base_range": [
+        12,
+        25
+      ],
+      "factor": 4,
+      "condition": "spheroidized annealed",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 66,
@@ -171,15 +191,16 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived",
-      "provenance": "R205-R price_per_kg × ρ 재계산"
+      "provenance": "price_per_kg × ρ 재계산"
     },
     "delivered_price_per_kg": {
-      "min": 8.57,
-      "max": 8.57,
-      "typical": 8.57,
+      "min": 7.5,
+      "max": 7.5,
+      "typical": 7.5,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 7 × condition 1.02 × form 1.05 × grade 1 = 7.5 USD/kg"
     }
   },
   "composition": {
@@ -272,14 +293,14 @@
     "Tool Steel",
     "Iron-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 5,
   "max_service_temp": 540,
   "thermal_expansion": 12.5,
   "poisson_ratio": 0.29,
   "specific_heat": 460,
   "melting_point": 1427,
-  "price_per_kg": 8,
+  "price_per_kg": 7,
   "price_per_cm3": 0.0544,
   "popularity": 4.35,
   "machining_cost_factor": 2,
@@ -287,8 +308,8 @@
   "price_condition_factor": 1.02,
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
-  "delivered_price_per_kg": 8.57,
-  "total_cost_estimate": 25.7,
+  "delivered_price_per_kg": 7.5,
+  "total_cost_estimate": 22.5,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "confidence_tier": "high",

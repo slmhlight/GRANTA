@@ -88,7 +88,16 @@
       "typical": 52.5,
       "n": 0,
       "confidence": "class",
-      "provenance": "class:AA 5xxx Al-Mg × HT:annealed (austenitic) (k×1.5)"
+      "provenance": "class:AA 5xxx Al-Mg × HT:annealed (austenitic) (k×1.5)",
+      "estimated": true,
+      "base_value": 35,
+      "base_range": [
+        25,
+        50
+      ],
+      "factor": 1.5,
+      "condition": "annealed (austenitic)",
+      "model": "ht-multiplier:kic"
     }
   },
   "composition": {

@@ -77,17 +77,37 @@
       "min": 341,
       "max": 495,
       "typical": 418,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:c17200 × HT:TH04 CW+aged (high strength) (f×1.1, i×0.4)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:c17200 × HT:TH04 CW+aged (high strength) (f×1.1, i×0.4)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 380,
+      "base_range": [
+        310,
+        450
+      ],
+      "factor": 1.1,
+      "condition": "TH04 CW+aged (high strength)",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 6,
       "max": 16,
       "typical": 10,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:c17200 × HT:TH04 CW+aged (high strength) (f×1.1, i×0.4)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:c17200 × HT:TH04 CW+aged (high strength) (f×1.1, i×0.4)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 25,
+      "base_range": [
+        15,
+        40
+      ],
+      "factor": 0.4,
+      "condition": "TH04 CW+aged (high strength)",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 52.5,
@@ -171,15 +191,16 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived",
-      "provenance": "R205-R price_per_kg × ρ 재계산"
+      "provenance": "price_per_kg × ρ 재계산"
     },
     "delivered_price_per_kg": {
-      "min": 47.46,
-      "max": 47.46,
-      "typical": 47.46,
+      "min": 112.72,
+      "max": 112.72,
+      "typical": 112.72,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 95 × condition 1.13 × form 1.05 × grade 1 = 112.72 USD/kg"
     }
   },
   "composition": {
@@ -268,14 +289,14 @@
     "Copper",
     "Copper-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 22,
   "max_service_temp": 200,
   "thermal_expansion": 17.5,
   "poisson_ratio": 0.3,
   "specific_heat": 420,
   "melting_point": 980,
-  "price_per_kg": 40,
+  "price_per_kg": 95,
   "price_per_cm3": 0.7837,
   "popularity": 3.07,
   "machining_cost_factor": 0.9,
@@ -283,8 +304,8 @@
   "price_condition_factor": 1.13,
   "price_form_factor": 1.05,
   "price_grade_premium": 1,
-  "delivered_price_per_kg": 47.46,
-  "total_cost_estimate": 90.17,
+  "delivered_price_per_kg": 112.72,
+  "total_cost_estimate": 214.17,
   "tolerance_class": "IT10-12",
   "rohs_compliant": true,
   "svhc_concerns": [

@@ -77,17 +77,37 @@
       "min": 308,
       "max": 364,
       "typical": 336,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:304l × HT:cold worked (f×1.4, i×0.5)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:304l × HT:cold worked (f×1.4, i×0.5)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 240,
+      "base_range": [
+        220,
+        260
+      ],
+      "factor": 1.4,
+      "condition": "cold worked",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 60,
       "max": 100,
       "typical": 80,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:304l × HT:cold worked (f×1.4, i×0.5)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:304l × HT:cold worked (f×1.4, i×0.5)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 160,
+      "base_range": [
+        120,
+        200
+      ],
+      "factor": 0.5,
+      "condition": "cold worked",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 143,
@@ -179,7 +199,8 @@
       "typical": 5.1,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 4.5 × condition 1.08 × form 1.05 × grade 1 = 5.1 USD/kg"
     }
   },
   "composition": {
@@ -266,7 +287,7 @@
     "Stainless Steel",
     "Austenitic"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 2.4,
   "max_service_temp": 870,
   "thermal_expansion": 17.3,

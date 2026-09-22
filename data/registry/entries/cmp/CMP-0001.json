@@ -92,7 +92,16 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived",
-      "provenance": "R205-R price_per_kg × ρ 재계산"
+      "provenance": "price_per_kg × ρ 재계산"
+    },
+    "delivered_price_per_kg": {
+      "min": 70,
+      "max": 70,
+      "typical": 70,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 70 × condition 1 × form 1 × grade 1 = 70 USD/kg"
     }
   },
   "composition": [
@@ -167,5 +176,7 @@
   "price_per_cm3": 0.0931,
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "industry_note": "AFRP / AFK (Aramid Fiber Reinforced Polymer) — para-aramid polymer (DuPont Kevlar, Teijin Twaron, Honeywell GoldShield)."
+  "industry_note": "AFRP / AFK (Aramid Fiber Reinforced Polymer) — para-aramid polymer (DuPont Kevlar, Teijin Twaron, Honeywell GoldShield).",
+  "price_per_kg": 70,
+  "delivered_price_per_kg": 70
 }

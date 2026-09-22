@@ -90,17 +90,37 @@
       "min": 270,
       "max": 315,
       "typical": 293,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:maraging × HT:solution treated (f×0.45, i×3)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:maraging × HT:solution treated (f×0.45, i×3)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 650,
+      "base_range": [
+        600,
+        700
+      ],
+      "factor": 0.45,
+      "condition": "solution treated",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 45,
       "max": 75,
       "typical": 60,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:maraging × HT:solution treated (f×0.45, i×3)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:maraging × HT:solution treated (f×0.45, i×3)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 20,
+      "base_range": [
+        15,
+        25
+      ],
+      "factor": 3,
+      "condition": "solution treated",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 94.3,
@@ -176,7 +196,8 @@
       "typical": 25,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 8 × condition 1.25 × form 2.5 × grade 1 = 25 USD/kg"
     }
   },
   "composition": {
@@ -262,7 +283,7 @@
     "Tool Steel",
     "Iron-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "elevated_temp": [
     {
       "temp": 20,

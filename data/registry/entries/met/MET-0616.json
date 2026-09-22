@@ -88,7 +88,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "class",
-      "provenance": "class:Ni-based superalloy × HT:solution treated (i×1.4)"
+      "provenance": "class:Ni-based superalloy × HT:solution treated (i×1.4)",
+      "base_value": 60,
+      "base_range": [
+        30,
+        100
+      ],
+      "factor": 1.4,
+      "condition": "solution treated",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 91,
@@ -96,7 +104,16 @@
       "typical": 130,
       "n": 0,
       "confidence": "class",
-      "provenance": "class:Special Metals/Haynes general × HT:solution treated (k×1.3)"
+      "provenance": "class:Special Metals/Haynes general × HT:solution treated (k×1.3)",
+      "estimated": true,
+      "base_value": 100,
+      "base_range": [
+        70,
+        130
+      ],
+      "factor": 1.3,
+      "condition": "solution treated",
+      "model": "ht-multiplier:kic"
     },
     "electrical_conductivity": {
       "min": 1.105,
@@ -176,7 +193,8 @@
       "typical": 129.38,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 90 × condition 1.25 × form 1.15 × grade 1 = 129.38 USD/kg"
     }
   },
   "composition": {

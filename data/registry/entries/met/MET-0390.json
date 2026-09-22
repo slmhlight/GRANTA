@@ -88,7 +88,16 @@
       "typical": 28.8,
       "n": 0,
       "confidence": "class",
-      "provenance": "class:AA 2xxx Al-Cu × HT:annealed (soft) (k×1.2)"
+      "provenance": "class:AA 2xxx Al-Cu × HT:annealed (soft) (k×1.2)",
+      "estimated": true,
+      "base_value": 24,
+      "base_range": [
+        18,
+        30
+      ],
+      "factor": 1.2,
+      "condition": "annealed (soft)",
+      "model": "ht-multiplier:kic"
     }
   },
   "composition": {

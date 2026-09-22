@@ -2,6 +2,33 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## 2026-09-22 — 수정검증 추적보고서(AUD-T) 대응: 잔여 7 · 신규 7 · 재검토 R09/R10/R15 · 후보 Q01~Q03 전부 처리
+
+외부 감사의 2차 보고서(GRANTA_수정검증_추적보고서_2026-09-22 — 이전 31건 중 잔여 7·신규 7·재검토 16·후보 4)를 항목별로 닫았다. 게이트 `tests/audit-tracking-2026-09-22.test.ts`·`tests/url-health.test.ts`.
+
+**데이터 (레지스트리 재생성 — 라운드트립 0)**
+- **N01 피로·충격 HT 보정값** — 122 재료·236 필드가 `provenance` 에 계수(f×0.78 등)를 적고도 `handbook`·estimated 없음으로 실렸다. F09(KIC)와 같은 규칙: 계수 ≠ 1 이면 `confidence: derived` + `estimated` + `base_value·base_range·factor·condition·model` 노출, `n` 은 0(`base_n` 에 표 개수 보존 — n=3 은 시험 표본 수가 아니었다). 값을 덮는 override 는 모델 필드를 함께 지운다(1020 annealed 등 9건의 거짓 계보 방지). 상세 배지 `HT×0.78` + 툴팁 "핸드북 기초값 × 계수 (조건) = 값, 실측 아님".
+- **N02 납품 원가 95건** — R146 시장가 검증이 `ranges.price_per_kg` 만 덮어써 `delivered = raw × condition × form × grade` 가 옛 raw 로 남았다(316L AM 15.5 vs 14.5 · PEEK 90 vs 400). 파생 가격 재계산 SSOT `scripts/lib/derived-prices.mjs`(모놀리스 R205-R + build-from-registry 1j 공유): 평면 raw 동기화·delivered·총원가(F10 식)·cm³ 를 최종 입력으로 다시 계산, provenance 에 식을 적는다. 명시 견적 override(`meta.delivered_price_override`) 스키마 예비. 불일치 0.
+- **F11 죽은 출처 54 URL(138 재료)** — 전부 미검증(verified=false) 출처라 검증기가 보지도 않았다. (1) `pnpm verify:urls --all` 이 전 출처를 검사하고 **`data/url-health.json` 접근 상태 원장**(`verified` 와 분리된 `link_status`)을 기록 → build:data 가 각 출처에 `link_status·link_checked` 스탬프, 상세 출처 목록에 "링크 끊김" 배지, 게이트가 dead 잔존을 막는다(전수 1018 URL: dead 0). (2) 54 URL 을 문서·판본·기관이 맞는 현행 주소로: ASTM store 28 은 판본 목록에서 최신 판본 페이지(B637-26 등, `astm_resolve`), DIN EN 10084/10083-3 → 후속 DIN EN ISO 683-3:2022/683-2:2018, ASME BPVC II-A/II-D 현행 페이지, everyspec MIL-DTL-46100E, IACS UR W, EN 10025-2:2019, EOS CX/IN738 MDS, Carpenter BioDur CCM·Kovar, Cambridge Reed, CMSX-4 → ASM Alloy Digest Ni-447, Lanxess Tepex → Envalior, DSM Dyneema → Avient 포트폴리오, BASF Ultrason, Wacker HCR, AA 5052 → United Aluminum 데이터시트, ASM EMH → ASM Store(Vol.4 06009G / Composites → Vol.21 06781G), Surmet 스피넬 → Honda 2023 J. Asian Ceram. Soc.(OA) 논문, F1041(PE 가스관 시험법 — 사파이어와 무관) → Crystran 사파이어 데이터시트. r208 맵이 `{url,label,verified}` 객체 값을 받아 문서가 바뀌면 라벨도 바꾼다. **오귀속 교정**: "PSU Eviva (BASF …)" → Eviva® 는 Syensqo(Solvay) 이식용 PSU; TaC·HfC·HfB₂ 세라믹에 붙어 있던 Ta/Hf 금속 데이터시트 분리. 안티봇 확인(iso.org·dtic·tandfonline·crystran·investmentcastchina) 허용목록.
+- **R05 잔여 순 Be** — 절삭 프로파일 `be-pure`(초경 절삭·손상층 에칭·분진 관리, AMS 7906·ASM Vol.16·OSHA 1910.1024) + 가공 가이드 + 조건 노트 신설, Materion BeCu 데이터시트 대신 Beryllium Metal 페이지.
+- **Q03 제거 원장** — `data/corrections/remove.json` 에 A3 Ni 제거 31건의 사유·날짜·근거·`superseded_by` 를 stable_id 키로 기록, build-registry 가 `data/registry/removed.json`(168 entry: 분류·이전 조건·값·대체 entry) 생성, build:data 가 `removed-ids.json` 배포. 앱은 `?d=<옛 id>` 가 사라진 entry 를 가리키면 사유·대체 링크 배너(RemovedIdNotice)를 띄운다.
+
+**표시·내보내기**
+- **F01 잔여** — 온도 곡선 표(°C·MPa·GPa)와 최소 벽 두께(mm↔in)·표면 거칠기(μm↔μin)·Tg/HDT 가 단위계를 따른다. **N03/F01 홈 CSV** — 화면과 같은 공용 리더(`propValue`)로 읽고(B4C 밀도·PMI 폼 항복 빈칸 해소) 단위계를 받아 헤더 단위·수치를 함께 변환(100 MPa → 14.504 ksi · 200 GPa → 29.008 Msi), 버튼 툴팁에 단위계 표기.
+- **Q01** — 온도 곡선의 상온값이 이 조건의 대표값과 10% 넘게 다르면 "합금 대표 곡선" 주의문(숫자 병기).
+- **Q02** — 가격의 measured 툴팁: n 은 시험 표본이 아니라 시세·견적 출처 수.
+- **F23 잔여(EN)** — 신뢰도 배지 툴팁 6종·추정/spec min/min spec/경도 환산 툴팁, 표의 Compare 추가·열 너비 조절 접근성 이름, 레이더 차트 요약, 모바일 하단 메뉴·사례 타일, 설정 시트. 가이드·Tools·용어 페이지는 한국어 전용임을 EN 배너로 밝히고 본문 컨테이너에 `lang="ko"`.
+
+**계산기·가이드**
+- **F13 잔여 LMP** — 절대영도 +0.01 K 가 통과해 `Infinity h` 였다: 모델 적용 온도 0–1500°C·t ≤ 10⁹ h·C ≤ 60 검사 + `lmpResult` 유한성 검사(log₁₀ 수명 병기, 150°C 넘는 외삽 경고), NaN/Infinity 는 결과로 노출되지 않는다.
+- **F17 잔여** — 강·약축 판정 SSOT `axisVerdict`(scenario-presets)를 선택 버튼(ScenarioDialog·CompareSheet)과 결과 요약이 함께 쓴다 — b=20·h=10 에서 h 방향은 양쪽 모두 "약축", b=h 는 "동등".
+- **F02 잔여** — ch7 `HV ≈ 10×HRC`·ch15 `HRC ≈ HV/10`·기호표 정의 제거 → ASTM E140 표 보간 기준점(HV 300≈29.8·600≈55.3·700≈60.1)과 Tools 환산기 링크. **F30** — ch7 압력용기 사례·사례 다이얼로그·계산기가 같은 전제: SF 는 σy 기준 교육용, ASME VIII Div.1 은 허용응력 S≈min(UTS/3.5, σy/1.5)+E — 요약에 코드식 참고 행 추가.
+- **N04** — ch8·ch12·ch14 의 `#ch9` 해시 링크 → `/guide/ch9` 라우트(챕터 파일 내 해시 링크 금지 게이트). **N05** — 자동 링크에서 일반어(`standard`·`tube`·제품 형태)·등급 토큰(`grade2`·`gr70`)·**제조사 이름**(carpenter·victrex·solvay…) 제외, 링크 대상은 form 을 만든 재료(Ti CP Gr2 → Gr2 entry). **N06** — `iss.it`(이탈리아 보건기관) → worldsteel(구 IISI) + ISO/TC 17 Steel(committee/46232). **N07** — 정적 라우트의 `${GLOSS_COUNT}` 미치환 → 실제 용어 수 주입 + `${…}` 토큰 게이트; **R13 잔여** sitemap.xml·robots.txt·홈 canonical/og:url.
+- **R09 잔여** — 정확/구분자무시 일치가 있으면 부분수열(글자 순서) 일치는 버린다(B4C 24건 → 2건), 부분수열 일치엔 "~ 유사" 배지. **R10 잔여** — 유효 제약이 없어도 오류 칩 표시(`yield>abc` 만 입력해도 안내), 입력 중(amber)·적용 후(rose) 구별, 값 자리에 글자가 있으면 힌트 미제안·힌트는 부분 값을 교체(`abc70;` 방지). **R15 잔여** — "전체 보기"(popularity null → `popm=all`)와 보기 모드(`v=cards|ashby`)를 URL 에 남겨 가이드·Tools 왕복 뒤 복원.
+- 검증: vitest 1341/1341(86) · tsc 0 · lint 0 · anomaly 0 · 라운드트립 0 · verify:urls --all dead 0.
+
+---
+
 ## 2026-09-22 — 감사 R16 접근성 심층 1차: Dialog Description 경고 정리, 차트 스크린리더 요약, 상세 팝업 dialog 의미·포커스 관리
 
 - **Dialog Description 경고(감사 관찰)** — Radix Sheet/Dialog 6곳(가이드 빠른 시작 ×2·Settings·Import 결과·조건 추가·온보딩)에 `SheetDescription`/`DialogDescription` 을 연결(설명 문단은 그대로 Description 으로, 없던 곳은 sr-only). 콘솔 경고 0.

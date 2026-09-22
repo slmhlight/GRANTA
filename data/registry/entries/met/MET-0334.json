@@ -88,17 +88,37 @@
       "min": 368,
       "max": 578,
       "typical": 473,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:cocrmo × HT:as-built (fine grain) (f×1.05, i×0.85)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:cocrmo × HT:as-built (fine grain) (f×1.05, i×0.85)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 450,
+      "base_range": [
+        350,
+        550
+      ],
+      "factor": 1.05,
+      "condition": "as-built (fine grain)",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 21,
       "max": 64,
       "typical": 43,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:cocrmo × HT:as-built (fine grain) (f×1.05, i×0.85)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:cocrmo × HT:as-built (fine grain) (f×1.05, i×0.85)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 50,
+      "base_range": [
+        25,
+        75
+      ],
+      "factor": 0.85,
+      "condition": "as-built (fine grain)",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 45,
@@ -182,15 +202,16 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived",
-      "provenance": "R205-R price_per_kg × ρ 재계산"
+      "provenance": "price_per_kg × ρ 재계산"
     },
     "delivered_price_per_kg": {
-      "min": 150,
-      "max": 150,
-      "typical": 150,
+      "min": 212.5,
+      "max": 212.5,
+      "typical": 212.5,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 85 × condition 1 × form 2.5 × grade 1 = 212.5 USD/kg"
     }
   },
   "composition": {
@@ -403,14 +424,14 @@
     "Cobalt Chrome",
     "Cobalt-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 1.5,
   "max_service_temp": 600,
   "thermal_expansion": 12.5,
   "poisson_ratio": 0.3,
   "specific_heat": 420,
   "melting_point": 1370,
-  "price_per_kg": 60,
+  "price_per_kg": 85,
   "price_per_cm3": 0.7055,
   "popularity": 3.5,
   "machining_cost_factor": 1.8,
@@ -418,8 +439,8 @@
   "price_condition_factor": 1,
   "price_form_factor": 2.5,
   "price_grade_premium": 1,
-  "delivered_price_per_kg": 150,
-  "total_cost_estimate": 420,
+  "delivered_price_per_kg": 212.5,
+  "total_cost_estimate": 595,
   "min_wall_thickness": 0.4,
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",

@@ -77,17 +77,37 @@
       "min": 52,
       "max": 85,
       "typical": 68,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:narloy-z × HT:Solution Annealed (f×0.65, i×1.5)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:narloy-z × HT:Solution Annealed (f×0.65, i×1.5)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 105,
+      "base_range": [
+        80,
+        130
+      ],
+      "factor": 0.65,
+      "condition": "Solution Annealed",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 60,
       "max": 143,
       "typical": 98,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:narloy-z × HT:Solution Annealed (f×0.65, i×1.5)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:narloy-z × HT:Solution Annealed (f×0.65, i×1.5)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 65,
+      "base_range": [
+        40,
+        95
+      ],
+      "factor": 1.5,
+      "condition": "Solution Annealed",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 91,
@@ -179,7 +199,8 @@
       "typical": 459.38,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 350 × condition 1.25 × form 1.05 × grade 1 = 459.38 USD/kg"
     }
   },
   "composition": {
@@ -244,7 +265,7 @@
     "Copper Alloy",
     "Copper-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 88,
   "max_service_temp": 540,
   "thermal_expansion": 17.5,

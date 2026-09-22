@@ -6,7 +6,7 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
-import { listRoutes, renderPage, basePath } from '../scripts/build-static-routes.mjs';
+import { listRoutes, renderPage, basePath, renderSitemap, renderHome } from '../scripts/build-static-routes.mjs';
 
 const ROOT = process.cwd();
 const app = fs.readFileSync(path.join(ROOT, 'client/src/App.tsx'), 'utf8');
@@ -48,5 +48,36 @@ describe('정적 라우트 (F28)', () => {
   it('주입 실증 — 라우트 하나를 빼면 App.tsx 커버 검사가 실패한다', () => {
     const missing = routes.filter((r) => r.route !== 'tools');
     expect(missing.some((x) => x.route === 'tools')).toBe(false);
+  });
+});
+
+/* AUD N07 / R13 잔여 (2026-09-22) — 글로서리 정적 HTML 의 `${GLOSS_COUNT}` 미치환, 홈 canonical 부재, sitemap.xml 404. */
+describe('정적 라우트 — 템플릿 토큰·sitemap·홈 canonical (N07 / R13)', () => {
+  it('어느 라우트의 title/description 에도 `${…}` 템플릿 토큰이 남지 않는다 (chGloss 는 실제 용어 수)', () => {
+    const glossary = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/glossary.json'), 'utf8'));
+    const n = Object.keys(glossary.terms).length;
+    for (const r of routes) {
+      expect(r.title, r.route).not.toMatch(/\$\{/);
+      expect(r.desc, r.route).not.toMatch(/\$\{/);
+    }
+    const gloss = routes.find((r) => r.route === 'guide/chGloss')!;
+    expect(gloss.title).toContain(`글로서리 ${n}종`);
+  });
+  it('sitemap.xml — 홈 + 모든 라우트를 canonical(슬래시) 형태로', () => {
+    process.env.VITE_BASE = '/GRANTA/';
+    const xml = renderSitemap(routes);
+    expect(xml.startsWith('<?xml version="1.0"')).toBe(true);
+    expect(xml).toContain('<loc>https://slmhlight.github.io/GRANTA/</loc>');
+    expect(xml).toContain('<loc>https://slmhlight.github.io/GRANTA/tools/</loc>');
+    expect(xml).toContain('<loc>https://slmhlight.github.io/GRANTA/guide/chGloss/</loc>');
+    expect(xml.match(/<loc>/g)!.length).toBe(routes.length + 1);
+  });
+  it('홈 셸에 canonical 과 og:url 을 심는다 (이미 있으면 그대로)', () => {
+    process.env.VITE_BASE = '/GRANTA/';
+    const shell = '<!doctype html><html><head><title>Shell</title></head><body></body></html>';
+    const html = renderHome(shell);
+    expect(html).toContain('<link rel="canonical" href="https://slmhlight.github.io/GRANTA/" />');
+    expect(html).toContain('<meta property="og:url" content="https://slmhlight.github.io/GRANTA/" />');
+    expect(renderHome(html)).toBe(html);
   });
 });

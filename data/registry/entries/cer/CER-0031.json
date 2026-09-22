@@ -103,6 +103,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 300,
+      "max": 300,
+      "typical": 300,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 200 × condition 1 × form 1.5 × grade 1 = 300 USD/kg"
     }
   },
   "composition": {
@@ -161,5 +170,7 @@
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
   "confidence_tier": "medium-low",
-  "industry_note": "Y₂O₃ (Yttrium oxide, cubic bixbyite structure) — high-T refractory oxide. Tm 2410°C, ρ 5.03 g/cc, σf 130-200, E 170 GPa, KIC 2. Tmax 2200°C inert."
+  "industry_note": "Y₂O₃ (Yttrium oxide, cubic bixbyite structure) — high-T refractory oxide. Tm 2410°C, ρ 5.03 g/cc, σf 130-200, E 170 GPa, KIC 2. Tmax 2200°C inert.",
+  "price_per_kg": 200,
+  "delivered_price_per_kg": 300
 }

@@ -152,14 +152,37 @@ export const larsonMiller = (T_celsius: number, t_hours: number, C: number): num
 /** 같은 LMP 에서 다른 온도의 파단 시간(h) 역산. */
 export const larsonMillerInverseTime = (LMP: number, T2_celsius: number, C: number): number =>
   Math.pow(10, (LMP * 1000) / (T2_celsius + 273.15) - C);
-/** 절대온도 > 0 K, 시간 > 0 h (log 정의역). 감사 F13: T=−273.15 에서 NaN 이 그대로 노출됐다. */
+/** LMP 모델 적용 온도 범위(°C) — 금속 크리프 영역. 마스터 곡선은 이 범위의 시험으로 맞춘 것이라 밖은 외삽이다.
+ *  하한 0°C 는 "절대영도보다 0.01 K 높은" 입력(감사 F13 잔여: T₂=−273.14°C → 10^(huge) = Infinity h)을 막는 물리 경계다. */
+export const LMP_T_RANGE: readonly [number, number] = [0, 1500];
+/** 시간·상수 상한 — 지수 계산이 유한하도록(t ≤ 10⁹ h ≈ 114,000 년 · C ≤ 60). */
+export const LMP_T_HOURS_MAX = 1e9;
+export const LMP_C_MAX = 60;
+/** 절대온도 > 0 K, 시간 > 0 h (log 정의역). 감사 F13: T=−273.15 에서 NaN 이 그대로 노출됐다.
+ *  F13 잔여(2026-09-22): 양수 절대온도만 보면 T₂=−273.14°C 가 통과해 결과가 Infinity h 였다 — 모델 적용 온도 범위·입력 상한도 검사한다. */
 export function validateLMP({ T, t, C, T2 }: { T: number; t: number; C: number; T2: number }): ValidationIssue[] {
   const out: ValidationIssue[] = [];
+  const [lo, hi] = LMP_T_RANGE;
   if (!finite(T) || T <= -273.15) out.push({ field: 'T', msg: '온도 T 는 절대영도(−273.15°C)보다 높아야 합니다.' });
+  else if (T < lo || T > hi) out.push({ field: 'T', msg: `온도 T 는 LMP 모델 적용 범위 ${lo}–${hi}°C(금속 크리프 영역) 안이어야 합니다.` });
   if (!finite(T2) || T2 <= -273.15) out.push({ field: 'T2', msg: '온도 T₂ 는 절대영도(−273.15°C)보다 높아야 합니다.' });
+  else if (T2 < lo || T2 > hi) out.push({ field: 'T2', msg: `온도 T₂ 는 LMP 모델 적용 범위 ${lo}–${hi}°C 안이어야 합니다.` });
   if (!finite(t) || t <= 0) out.push({ field: 't', msg: '시간 t 는 0 보다 커야 합니다 (log₁₀ 정의역).' });
+  else if (t > LMP_T_HOURS_MAX) out.push({ field: 't', msg: `시간 t 는 ${LMP_T_HOURS_MAX.toExponential(0)} h 이하여야 합니다.` });
   if (!finite(C) || C <= 0) out.push({ field: 'C', msg: 'Larson-Miller 상수 C 는 양수입니다 (강 ≈ 20).' });
+  else if (C > LMP_C_MAX) out.push({ field: 'C', msg: `상수 C 는 ${LMP_C_MAX} 이하여야 합니다 (강 ≈ 20 · Ni-base ≈ 25).` });
   return out;
+}
+/** 결과 묶음 — LMP·역산 수명·log₁₀ 수명·유한성. 화면은 이 함수만 쓴다(NaN/Infinity 를 숫자처럼 보이지 않게). */
+export interface LMPResult { LMP: number; t2: number; log10t2: number; finite: boolean; extrapolated: boolean }
+export function lmpResult({ T, t, C, T2 }: { T: number; t: number; C: number; T2: number }): LMPResult | null {
+  if (validateLMP({ T, t, C, T2 }).length) return null;
+  const LMP = larsonMiller(T, t, C);
+  const log10t2 = (LMP * 1000) / (T2 + 273.15) - C;   // log₁₀ 수명 — 지수 없이 먼저 구한다
+  const t2 = Math.pow(10, log10t2);
+  const ok = Number.isFinite(LMP) && Number.isFinite(log10t2) && Number.isFinite(t2) && t2 > 0;
+  // 마스터 곡선을 벗어난 외삽 경고 — 시험 온도와 150°C 넘게 떨어진 예측
+  return { LMP, t2, log10t2, finite: ok, extrapolated: Math.abs(T2 - T) > 150 };
 }
 
 /* ── Mohr's circle (2D 응력) ── */

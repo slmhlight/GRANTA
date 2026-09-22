@@ -65,3 +65,45 @@ describe('buildMaterialsCSV', () => {
     expect(cells[header.indexOf('W')]).toBe(''); // 미존재 원소
   });
 });
+
+/* AUD N03/F01 (2026-09-22) — CSV 는 화면과 같은 공용 리더(propValue)로 읽고, 단위계를 따른다. */
+describe('buildMaterialsCSV — 공용 리더·단위계 (AUD N03/F01)', () => {
+  it('평면값이 없고 ranges.typical 만 있어도(slim 인덱스) 값이 나온다 — B4C 밀도 2.66 · PMI 폼 항복 1.5', () => {
+    const csv = buildMaterialsCSV([
+      mk({ name: 'B4C-Al', density: undefined as any, ranges: { density: { min: 2.6, max: 2.7, typical: 2.66 } } as any }),
+      mk({ name: 'PMI foam', yield_strength: undefined as any, ranges: { yield_strength: { min: 1, max: 2, typical: 1.5 } } as any }),
+    ]);
+    const header = csv.split('\n')[0].split(',');
+    const r1 = csv.split('\n')[1].split(','), r2 = csv.split('\n')[2].split(',');
+    expect(r1[header.indexOf('Density (g/cm³)')]).toBe('2.66');
+    expect(r2[header.indexOf('Yield Strength (MPa)')]).toBe('1.5');
+  });
+
+  it('ranges.typical 이 평면값과 다르면 ranges 가 이긴다 (화면과 같은 값)', () => {
+    const csv = buildMaterialsCSV([mk({ yield_strength: 999, ranges: { yield_strength: { min: 90, max: 110, typical: 100 } } as any })]);
+    const header = csv.split('\n')[0].split(',');
+    expect(csv.split('\n')[1].split(',')[header.indexOf('Yield Strength (MPa)')]).toBe('100');
+  });
+
+  it('imperial: 헤더 단위와 수치가 함께 바뀐다 — 100 MPa → 14.504 ksi · 200 GPa → 29.008 Msi · 7.8 g/cm³ → 0.2818 lb/in³', () => {
+    const csv = buildMaterialsCSV([mk({ yield_strength: 100, modulus: 200, density: 7.8 })], { unitSystem: 'imperial' });
+    const header = csv.split('\n')[0].split(',');
+    const cells = csv.split('\n')[1].split(',');
+    expect(header).toContain('Yield Strength (ksi)');
+    expect(header).toContain('Modulus (Msi)');
+    expect(header).toContain('Density (lb/in³)');
+    expect(header).not.toContain('Yield Strength (MPa)');
+    expect(Number(cells[header.indexOf('Yield Strength (ksi)')])).toBeCloseTo(14.504, 2);
+    expect(Number(cells[header.indexOf('Modulus (Msi)')])).toBeCloseTo(29.008, 2);
+    expect(Number(cells[header.indexOf('Density (lb/in³)')])).toBeCloseTo(0.2818, 3);
+    // 무차원(경도·%)은 그대로
+    expect(header).toContain('Hardness (HV)');
+    expect(cells[header.indexOf('Hardness (HV)')]).toBe('180');
+  });
+
+  it('SI 기본값은 이전과 같은 헤더·수치 (왕복 보존)', () => {
+    const csv = buildMaterialsCSV([mk({ yield_strength: 100 })]);
+    const header = csv.split('\n')[0].split(',');
+    expect(csv.split('\n')[1].split(',')[header.indexOf('Yield Strength (MPa)')]).toBe('100');
+  });
+});

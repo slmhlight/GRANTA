@@ -89,7 +89,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "class",
-      "provenance": "class:Iron-based generic × HT:Q+T 380°C full spring (i×0.85)"
+      "provenance": "class:Iron-based generic × HT:Q+T 380°C full spring (i×0.85)",
+      "base_value": 35,
+      "base_range": [
+        15,
+        60
+      ],
+      "factor": 0.85,
+      "condition": "Q+T 380°C full spring",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 45,
@@ -97,7 +105,16 @@
       "typical": 58.5,
       "n": 0,
       "confidence": "class",
-      "provenance": "class:ASM spring steel × HT:Q+T 380°C full spring (k×0.9)"
+      "provenance": "class:ASM spring steel × HT:Q+T 380°C full spring (k×0.9)",
+      "estimated": true,
+      "base_value": 65,
+      "base_range": [
+        50,
+        85
+      ],
+      "factor": 0.9,
+      "condition": "Q+T 380°C full spring",
+      "model": "ht-multiplier:kic"
     },
     "electrical_conductivity": {
       "min": 6.375,
@@ -175,7 +192,8 @@
       "typical": 3.87,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 3 × condition 1.23 × form 1.05 × grade 1 = 3.87 USD/kg"
     }
   },
   "composition": {

@@ -93,7 +93,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "class",
-      "provenance": "class:Al-based × HT:as-cast / forged (no T-temper) (i×1.7)"
+      "provenance": "class:Al-based × HT:as-cast / forged (no T-temper) (i×1.7)",
+      "base_value": 10,
+      "base_range": [
+        5,
+        18
+      ],
+      "factor": 1.7,
+      "condition": "as-cast / forged (no T-temper)",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 30.8,
@@ -101,7 +109,16 @@
       "typical": 42,
       "n": 0,
       "confidence": "class",
-      "provenance": "class:Aluminum Association handbook × HT:as-cast / forged (no T-temper) (k×1.4)"
+      "provenance": "class:Aluminum Association handbook × HT:as-cast / forged (no T-temper) (k×1.4)",
+      "estimated": true,
+      "base_value": 30,
+      "base_range": [
+        22,
+        40
+      ],
+      "factor": 1.4,
+      "condition": "as-cast / forged (no T-temper)",
+      "model": "ht-multiplier:kic"
     },
     "electrical_conductivity": {
       "min": 20,
@@ -181,7 +198,8 @@
       "typical": 4,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 4 × condition 1 × form 1 × grade 1 = 4 USD/kg"
     }
   },
   "composition": {

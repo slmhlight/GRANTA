@@ -13,6 +13,7 @@ import { formatValue, CATEGORY_COLORS, SUBCATEGORY_COLORS } from '@/lib/material
 import { useUnitSystem, displayNumber, displayUnit, displayDigits } from '@/lib/unit-context';   // AUD F01
 import { searchRank } from '@/hooks/useMaterialFilter';   // AUD R09
 import { familyColor } from '@/lib/material-colors';
+import { useLang } from '@/lib/i18n';   // AUD F23 — 접근성 이름·툴팁 EN
 
 interface MaterialTableProps {
   materials: Material[];
@@ -86,6 +87,7 @@ export function MaterialTable({
   searchQuery,
 }: MaterialTableProps) {
   const sys = useUnitSystem();   // AUD F01 — 헤더 단위·숫자 열이 현재 단위계를 따른다
+  const en = useLang().lang === 'en';   // AUD F23 — 접근성 이름·툴팁
   const [page, setPage] = useState(0);
   const totalPages = Math.ceil(materials.length / PAGE_SIZE);
   const pageData = materials.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
@@ -160,7 +162,7 @@ export function MaterialTable({
     <div className="flex flex-col h-full">
       {/* Table */}
       <div className="flex-1 overflow-auto">
-        <table className="w-full text-xs border-collapse" style={tableStyle} role="grid" aria-label="재료 목록 (행 선택: Enter · 이동: ↑↓)">
+        <table className="w-full text-xs border-collapse" style={tableStyle} role="grid" aria-label={en ? 'Material list (select row: Enter · move: ↑↓)' : '재료 목록 (행 선택: Enter · 이동: ↑↓)'}>
           <thead className="sticky top-0 z-10">
             <tr className="bg-muted/80 backdrop-blur-sm border-b-2 border-border">
               {/* Compare checkbox col — R58 header checkbox */}
@@ -178,8 +180,8 @@ export function MaterialTable({
                           //        border 진하게 + Plus icon muted-foreground 로 살짝 노출.
                           : 'border-border hover:border-accent text-muted-foreground hover:text-accent bg-background'
                     }`}
-                    title={headerState === 'all' ? `현재 페이지 ${pageIds.length}개 모두 해제` : `현재 페이지 ${pageIds.length}개 모두 Compare 에 추가`}
-                    aria-label={headerState === 'all' ? '현재 페이지 전체 해제' : '현재 페이지 전체 Compare 추가'}
+                    title={headerState === 'all' ? (en ? `Remove all ${pageIds.length} on this page` : `현재 페이지 ${pageIds.length}개 모두 해제`) : (en ? `Add all ${pageIds.length} on this page to Compare` : `현재 페이지 ${pageIds.length}개 모두 Compare 에 추가`)}
+                    aria-label={headerState === 'all' ? (en ? 'Remove all on this page from Compare' : '현재 페이지 전체 해제') : (en ? 'Add all on this page to Compare' : '현재 페이지 전체 Compare 추가')}
                   >
                     {headerState === 'all' ? <Check className="w-3 h-3" /> : headerState === 'some' ? <Minus className="w-3 h-3" /> : <Plus className="w-3 h-3" />}
                   </button>
@@ -206,7 +208,10 @@ export function MaterialTable({
                     onMouseDown={(e) => startColResize(col.key as string, e)}
                     onClick={(e) => e.stopPropagation()}
                     className="absolute right-0 top-0 bottom-0 w-1.5 cursor-col-resize hover:bg-accent/50 active:bg-accent select-none"
-                    title="드래그하여 너비 조절"
+                    title={en ? 'Drag to resize column' : '드래그하여 너비 조절'}
+                    role="separator"
+                    aria-orientation="vertical"
+                    aria-label={en ? `Resize ${col.label} column` : `${col.label} 열 너비 조절`}
                   />
                 </th>
               ))}
@@ -246,7 +251,7 @@ export function MaterialTable({
                           // R58a — row 체크박스도 항상 visible (이전엔 hover-only Plus icon → 발견 어려움).
                           : 'border-border hover:border-accent text-muted-foreground/60 hover:text-accent bg-background'
                       }`}
-                      aria-label={isCompare ? `${m.name} Compare 에서 제거` : `${m.name} Compare 에 추가`}
+                      aria-label={isCompare ? (en ? `Remove ${m.name} from Compare` : `${m.name} Compare 에서 제거`) : (en ? `Add ${m.name} to Compare` : `${m.name} Compare 에 추가`)}
                     >
                       {isCompare ? <Check className="w-3 h-3" /> : <Plus className="w-3 h-3" />}
                     </button>
@@ -264,8 +269,8 @@ export function MaterialTable({
                         <span
                           className="flex-shrink-0 inline-flex items-center justify-center w-4 h-4 rounded-full"
                           style={{ background: `${famColor}1f`, boxShadow: `inset 0 0 0 1px ${famColor}55` }}
-                          title="개발 스토리·industry-standard 응용 기록 있음 (Process 탭)"
-                          aria-label="개발 스토리 있음"
+                          title={en ? 'Development story & industry-standard applications available (Process tab)' : '개발 스토리·industry-standard 응용 기록 있음 (Process 탭)'}
+                          aria-label={en ? 'Development story available' : '개발 스토리 있음'}
                         >
                           <BookText className="w-2.5 h-2.5" style={{ color: famColor }} />
                         </span>
@@ -273,7 +278,9 @@ export function MaterialTable({
                       <span className="font-medium text-foreground truncate max-w-[var(--col-name-w,320px)]" title={m.name}>
                         {m.name}
                         {/* AUD R09 — 검색어가 이름이 아니라 별칭/UNS 에서 맞았으면 그 사실을 표시 */}
-                        {(() => { const sr = searchQuery ? searchRank.get(m.id) : undefined; return sr && sr.field !== 'name' ? <span className="ml-1 text-[9px] px-1 rounded bg-muted text-muted-foreground align-middle" title={`검색어가 ${sr.field === 'alias' ? '별칭' : 'UNS 코드'}에서 일치`}>{sr.field}</span> : null; })()}
+                        {(() => { const sr = searchQuery ? searchRank.get(m.id) : undefined; return sr && sr.field !== 'name' ? <span className="ml-1 text-[9px] px-1 rounded bg-muted text-muted-foreground align-middle" title={en ? `Query matched the ${sr.field === 'alias' ? 'alias' : 'UNS code'}` : `검색어가 ${sr.field === 'alias' ? '별칭' : 'UNS 코드'}에서 일치`}>{sr.field}</span> : null; })()}
+                        {/* AUD R09 잔여 — 부분수열(오타 보정) 일치는 '유사' 로 구별 (정확 일치가 없을 때만 나온다). */}
+                        {(() => { const sr = searchQuery ? searchRank.get(m.id) : undefined; return sr && sr.rank >= 2 ? <span className="ml-1 text-[9px] px-1 rounded bg-amber-50 text-amber-700 border border-amber-200 align-middle" title={en ? 'Approximate match — the query letters appear in order in the name (no exact match found)' : '유사 일치 — 검색어 글자가 이름에 순서대로 포함 (정확 일치 없음)'}>{en ? '~ similar' : '~ 유사'}</span> : null; })()}
                       </span>
                     </div>
                   </td>

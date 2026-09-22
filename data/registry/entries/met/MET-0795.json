@@ -93,7 +93,16 @@
       "typical": 55.3,
       "n": 0,
       "confidence": "class",
-      "provenance": "class:ASM Vol.1 Martensitic SS × HT:Q+T peak hardness (k×0.85)"
+      "provenance": "class:ASM Vol.1 Martensitic SS × HT:Q+T peak hardness (k×0.85)",
+      "estimated": true,
+      "base_value": 65,
+      "base_range": [
+        40,
+        95
+      ],
+      "factor": 0.85,
+      "condition": "Q+T peak hardness",
+      "model": "ht-multiplier:kic"
     },
     "electrical_conductivity": {
       "min": 2.55,
@@ -171,7 +180,8 @@
       "typical": 4.52,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 3.5 × condition 1.23 × form 1.05 × grade 1 = 4.52 USD/kg"
     }
   },
   "composition": {

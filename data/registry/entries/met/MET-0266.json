@@ -81,17 +81,37 @@
       "min": 257,
       "max": 333,
       "typical": 295,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:1050 × HT:annealed/as-cast (f×0.95, i×1.2)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:1050 × HT:annealed/as-cast (f×0.95, i×1.2)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 310,
+      "base_range": [
+        270,
+        350
+      ],
+      "factor": 0.95,
+      "condition": "annealed/as-cast",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 12,
       "max": 26,
       "typical": 17,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:1050 × HT:annealed/as-cast (f×0.95, i×1.2)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:1050 × HT:annealed/as-cast (f×0.95, i×1.2)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 14,
+      "base_range": [
+        10,
+        22
+      ],
+      "factor": 1.2,
+      "condition": "annealed/as-cast",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 49.5,
@@ -183,7 +203,8 @@
       "typical": 1.36,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 1.3 × condition 1.02 × form 1.05 × grade 0.975 = 1.36 USD/kg"
     }
   },
   "composition": {
@@ -262,7 +283,7 @@
     "Carbon Steel",
     "Iron-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 14,
   "max_service_temp": 540,
   "thermal_expansion": 11.5,

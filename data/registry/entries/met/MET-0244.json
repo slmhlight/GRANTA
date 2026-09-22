@@ -86,9 +86,19 @@
       "min": 36,
       "max": 78,
       "typical": 54,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:1018 × HT:cold worked (f×1.25, i×0.6)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:1018 × HT:cold worked (f×1.25, i×0.6)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 90,
+      "base_range": [
+        60,
+        130
+      ],
+      "factor": 0.6,
+      "condition": "cold worked",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 48,
@@ -180,7 +190,8 @@
       "typical": 0.98,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 0.9 × condition 1.08 × form 1.05 × grade 0.959 = 0.98 USD/kg"
     }
   },
   "composition": {

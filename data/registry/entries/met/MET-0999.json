@@ -77,17 +77,37 @@
       "min": 473,
       "max": 630,
       "typical": 551,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:ti6al4v × HT:HIP densified (f×1.05, i×1.1)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:ti6al4v × HT:HIP densified (f×1.05, i×1.1)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 525,
+      "base_range": [
+        450,
+        600
+      ],
+      "factor": 1.05,
+      "condition": "HIP densified",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 19,
       "max": 26,
       "typical": 22,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:ti6al4v × HT:HIP densified (f×1.05, i×1.1)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:ti6al4v × HT:HIP densified (f×1.05, i×1.1)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 20,
+      "base_range": [
+        17,
+        24
+      ],
+      "factor": 1.1,
+      "condition": "HIP densified",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 78.8,
@@ -179,7 +199,8 @@
       "typical": 57.75,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 35 × condition 1.65 × form 1 × grade 1 = 57.75 USD/kg"
     }
   },
   "composition": {
@@ -291,7 +312,7 @@
     "Titanium - α+β",
     "Titanium-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "elevated_temp": [
     {
       "temp": 20,

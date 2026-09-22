@@ -16,6 +16,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { detectAnomalies } from './lib/anomalies.mjs';   // R226e — 공유 모듈 (중복 제거)
 import { fatigueRule, deriveFatigueRange, parseDerivedFatigue } from './lib/fatigue-fallback.mjs';   // A19 — 파생 피로 재유도(1i)
+import { rederivePrices } from './lib/derived-prices.mjs';   // AUD N02 — 파생 가격 재계산(1j)
 import { improveLabel, sourceAuthority } from './lib/source-labels.mjs';   // R226e — 출처 라벨 도출 + 권위 등급
 import { extractUNS } from './lib/uns.mjs';   // R226f/축4c — UNS 정규 필드
 import { confidenceTierOf, TIER_RANK } from './lib/confidence-tier.mjs';   // C3 — 신뢰 등급 규칙 SSOT
@@ -465,6 +466,45 @@ if (fatRederived) {
   console.log(`  파생 피로강도 재유도(1i): ${fatRederived} — ${fatRederivedTop.slice(0, 4).join(' · ')}`);
 }
 
+/* 1j) AUD N02 (2026-09-22) — 파생 가격 재계산 (규칙 SSOT: lib/derived-prices.mjs).
+ *
+ * delivered = raw × condition × form × grade · 총원가 = delivered × (1 + machining index) · cm³ = raw × ρ/1000 은 전부 raw 의
+ * 파생값인데, datasheet 교정(values.json 의 price_per_kg — 예: 마레이징 AM $8 → $65)이 레지스트리 단계에서 raw 를 바꾸면
+ * 납품가·총원가는 옛 raw 로 계산된 채 남는다(1i 의 피로와 같은 '재계산 시점' 문제). 같은 식을 최종 입력에 다시 적용한다.
+ * 명시적 견적(meta.delivered_price_override)이 있는 entry 는 곱셈식을 쓰지 않는다. 산출 단계 보정 — 레지스트리 SSOT 불변.
+ */
+let priceRederived = 0;
+const priceRederivedBy = {};
+const priceRederivedTop = [];
+for (const m of all) {
+  const before = m.delivered_price_per_kg;
+  const ch = rederivePrices(m);
+  if (!ch.length) continue;
+  priceRederived++;
+  for (const k of ch) priceRederivedBy[k] = (priceRederivedBy[k] || 0) + 1;
+  if (ch.includes('delivered_price_per_kg') && priceRederivedTop.length < 4) priceRederivedTop.push(`${m.name} · delivered ${before} -> ${m.delivered_price_per_kg}`);
+}
+if (priceRederived) {
+  console.log(`  파생 가격 재계산(1j): ${priceRederived} entry — ${Object.entries(priceRederivedBy).map(([k, n]) => `${k} ${n}`).join(' · ')}`);
+  for (const s of priceRederivedTop) console.log(`    ${s}`);
+}
+
+/* 1k) AUD F11 잔여 (2026-09-22) — 출처 링크 접근 상태 스탬프. data/url-health.json(verify:urls 원장)의 status 를 각 출처에
+ *   link_status·link_checked 로 붙인다. `verified` 는 내용 검증 축, link_status 는 접근 축 — 둘을 섞지 않는다(감사 F11 완료 조건).
+ *   원장에 없는 URL 은 'unchecked'. 산출 단계 스탬프 — 레지스트리 SSOT 불변. */
+let linkStamped = 0, linkDead = 0;
+try {
+  const health = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'url-health.json'), 'utf8'));
+  const res = health.results || {};
+  for (const m of all) for (const s of m.sources || []) {
+    if (!s || !s.url) continue;
+    const h = res[s.url];
+    s.link_status = h ? h.status : 'unchecked';
+    if (h) { s.link_checked = h.checked_at; linkStamped++; if (h.status === 'dead') linkDead++; }
+  }
+  console.log(`  출처 링크 상태(1k): ${linkStamped} 스탬프 · dead ${linkDead} (원장 ${health.checked_at})`);
+} catch { console.log('  출처 링크 상태(1k): data/url-health.json 없음 — unchecked'); }
+
 // 2) anomaly 재검출 — lib/anomalies.mjs 공유 (build-materials 와 동일 로직; 최종 데이터 기준 검출이 canonical)
 const anomalies = detectAnomalies(all);
 const sevCount = { high: 0, med: 0, low: 0 };
@@ -474,6 +514,17 @@ const withVerifiedSrc = all.filter(m => (m.sources || []).some(s => s.verified))
 // 3) 출력 (build-materials.mjs 4557-4654 와 동일 형식)
 fs.mkdirSync(OUT_MATS, { recursive: true });
 fs.writeFileSync(path.join(OUT_PUB, 'materials.json'), JSON.stringify(all, null, 2));
+/* AUD Q03 (2026-09-22) — 제거 원장 slim 배포: 옛 북마크(?d=<legacy_id>)가 가리키는 entry 가 사라졌을 때 앱이 사유·대체를 안내한다. */
+try {
+  const led = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'registry', 'removed.json'), 'utf8'));
+  const liveIds = new Set(all.map((m) => m.id));
+  const slimRemoved = (led.removed || []).filter((r) => !liveIds.has(r.legacy_id)).map((r) => ({
+    id: r.legacy_id, sid: r.stable_id, name: r.name, kind: r.removal_kind, reason: r.reason, on: r.removed_on, ref: r.ref,
+    to: r.superseded_by_legacy_id && liveIds.has(r.superseded_by_legacy_id) ? r.superseded_by_legacy_id : null, to_name: r.superseded_by_name, how: r.superseded_how,
+  }));
+  fs.writeFileSync(path.join(OUT_PUB, 'removed-ids.json'), JSON.stringify({ generated: led.generated, count: slimRemoved.length, removed: slimRemoved }));
+  console.log(`  제거 원장(Q03): removed-ids.json ${slimRemoved.length} entries`);
+} catch (e) { console.log('  제거 원장(Q03): 없음 —', e.message); }
 
 const SLIM_PROPS = ['density', 'yield_strength', 'uts', 'modulus', 'max_service_temp', 'price_per_kg', 'delivered_price_per_kg'];
 const EXTRA_TOP = ['elongation', 'hardness', 'fatigue_strength', 'thermal_conductivity', 'thermal_expansion', 'fracture_toughness', 'impact_strength'];

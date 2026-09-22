@@ -77,17 +77,37 @@
       "min": 48,
       "max": 72,
       "typical": 60,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:c26800 × HT:annealed (austenitic) (f×0.4, i×3.5)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:c26800 × HT:annealed (austenitic) (f×0.4, i×3.5)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 150,
+      "base_range": [
+        120,
+        180
+      ],
+      "factor": 0.4,
+      "condition": "annealed (austenitic)",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 123,
       "max": 315,
       "typical": 210,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:c26800 × HT:annealed (austenitic) (f×0.4, i×3.5)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:c26800 × HT:annealed (austenitic) (f×0.4, i×3.5)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 60,
+      "base_range": [
+        35,
+        90
+      ],
+      "factor": 3.5,
+      "condition": "annealed (austenitic)",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 75,
@@ -179,7 +199,8 @@
       "typical": 8.57,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 7 × condition 1.02 × form 1.2 × grade 1 = 8.57 USD/kg"
     }
   },
   "composition": {
@@ -211,7 +232,7 @@
     },
     {
       "label": "ASTM B19 — Cartridge Brass Sheet/Plate",
-      "url": "https://store.astm.org/b0019-22.html",
+      "url": "https://store.astm.org/b0019-20.html",
       "verified": false
     }
   ],
@@ -262,7 +283,7 @@
     "Metal",
     "Copper Alloy"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 27,
   "max_service_temp": 200,
   "thermal_expansion": 20.3,

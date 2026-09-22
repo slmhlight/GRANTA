@@ -52,6 +52,7 @@ import { usePageMeta } from '@/lib/page-meta';   // AUD R13
  *  Older entries (pre-U10) lack `filters` / `viewMode`; we render conditionally and restore safely. */
 type Collection = { name: string; ids: string[]; filters?: Partial<FilterState>; preset?: { key: string; label: string }; viewMode?: 'table' | 'cards' | 'ashby'; createdAt?: number };
 import { saveExplorerState } from '@/lib/explorer-return';   // AUD R15
+import { RemovedIdNotice } from '@/components/RemovedIdNotice';   // AUD Q03 — 제거된 ID 딥링크 안내
 type CollectionSort = 'recent' | 'name' | 'size';
 
 const ChartLoader = () => <div className="flex items-center justify-center h-96">Loading chart...</div>;
@@ -161,6 +162,8 @@ export default function Home() {
     return sorted;
   }, [collections, collQuery, collSort]);
   const [linkCopied, setLinkCopied] = useState(false);
+  /* AUD Q03 (2026-09-22) — ?d=<id> 가 살아 있는 entry 에 없을 때(제거·오타) 안내 배너. slim 인덱스가 전 재료를 담으므로 거기 없으면 확정. */
+  const [removedNoticeId, setRemovedNoticeId] = useState<string | null>(null);
   const [showCompare, setShowCompare] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
@@ -353,6 +356,10 @@ export default function Home() {
     if (dTab === 'properties' || dTab === 'composition' || dTab === 'process') setDetailTab(dTab);
     // R227/E14 — 접힘 섹션 펼침 상태 복원(?dx=). 있으면(빈 문자열 포함) 명시 스냅샷, 없으면 null(기본값).
     if (params.has('dx')) setDetailOpenCsv(params.get('dx') || '');
+    /* AUD R15 잔여 (2026-09-22) — 보기 모드(?v=cards|ashby)도 복원. 가이드·Tools 왕복 뒤 Cards 가 Table 로 돌아가던 것.
+       사례(p=) 의 권장 뷰보다 사용자가 마지막에 고른 뷰가 우선. */
+    const v = params.get('v');
+    if (v === 'cards' || v === 'ashby' || v === 'table') setViewMode(v);
     // R49f — URL restore 완료 후에야 encode effect 활성화 (default 덮어쓰기 race 방지).
     urlRestoredRef.current = true;
     // R49f — deps `[search]` 가 wouter useSearch 의 첫 값 변경 race 로 trigger 불안정 → `[]` (mount-only).
@@ -367,6 +374,10 @@ export default function Home() {
       pendingDetailIdRef.current = null;
       ensureCategory(m.category).catch(() => { /* non-fatal */ });
       setSelectedMaterial(m);
+    } else {
+      // AUD Q03 — slim 인덱스에 없는 ID: 제거 원장(removed-ids.json)에서 사유·대체를 찾아 안내
+      pendingDetailIdRef.current = null;
+      setRemovedNoticeId(id);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [materials]);
@@ -529,7 +540,9 @@ export default function Home() {
       const tabQ = selectedMaterial && detailTab && detailTab !== 'properties' ? `dt=${detailTab}` : '';
       // R227/E14 — 접힘 섹션 스냅샷(사용자 토글 후)만 URL 에. null(미토글)이면 생략.
       const secQ = selectedMaterial && detailOpenCsv !== null ? `dx=${encodeURIComponent(detailOpenCsv)}` : '';
-      const query = [presetQ, secondQ, detailQ, tabQ, secQ, qs].filter(Boolean).join('&');
+      // AUD R15 잔여 — 보기 모드(기본 table 은 생략)
+      const viewQ = viewMode !== 'table' ? `v=${viewMode}` : '';
+      const query = [presetQ, secondQ, detailQ, tabQ, secQ, viewQ, qs].filter(Boolean).join('&');
       const queryPart = query ? `?${query}` : '';
       const hashPart = (restrictIds && restrictIds.length)
         ? `#g=shared~${restrictIds.join('.')}`
@@ -539,7 +552,7 @@ export default function Home() {
       if (target !== current) history.replaceState(null, '', target);
       saveExplorerState(queryPart, hashPart);   // AUD R15 — 가이드/Tools 의 "탐색기로 돌아가기" 가 이 상태로 복귀
     } catch { /* ignore */ }
-  }, [filters, appliedPreset, restrictIds, selectedMaterial, detailTab, detailOpenCsv]);
+  }, [filters, appliedPreset, restrictIds, selectedMaterial, detailTab, detailOpenCsv, viewMode]);
 
   // detail now opens as a floating popup, so it no longer needs to close the Compare panel
   // R101 — 모바일: 첫 클릭은 preview card 표시, 같은 점 두 번째 클릭은 detail open. 데스크탑은 즉시 detail.
@@ -737,6 +750,15 @@ export default function Home() {
         backupFileRef={backupFileRef}
         importAllState={importAllState}
       />
+
+      {/* AUD Q03 — 제거된 ID 딥링크 안내 (사유·날짜·대체 entry) */}
+      {removedNoticeId && (
+        <RemovedIdNotice
+          id={removedNoticeId}
+          onDismiss={() => setRemovedNoticeId(null)}
+          onOpen={(legacyId) => { const m = materials.find((x) => x.id === legacyId); if (m) { setRemovedNoticeId(null); handleSelectMaterial(m); } }}
+        />
+      )}
 
       {/* ─── Main Content ─── */}
       <div className="flex flex-1 overflow-hidden">

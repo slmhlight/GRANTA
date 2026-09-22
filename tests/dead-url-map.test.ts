@@ -11,8 +11,10 @@ import type { Material } from '@/lib/materials';
 
 const ROOT = process.cwd();
 const ALL: Material[] = JSON.parse(fs.readFileSync(path.join(ROOT, 'client/public/materials.json'), 'utf8'));
-const r208 = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/r208-url-replacements.json'), 'utf8')) as { replacements: Record<string, string> };
-const DEAD = new Set(Object.entries(r208.replacements).filter(([k, v]) => k !== v).map(([k]) => k));
+const r208 = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/r208-url-replacements.json'), 'utf8')) as { replacements: Record<string, string | { url: string; label?: string }> };
+/* AUD F11 잔여 — 맵 값은 문자열(URL 만) 또는 {url, label}(문서가 바뀌어 라벨도 교체). */
+const target = (v: string | { url: string }) => (typeof v === 'string' ? v : v.url);
+const DEAD = new Set(Object.entries(r208.replacements).filter(([k, v]) => k !== target(v)).map(([k]) => k));
 
 describe('죽은 URL 맵 (F11)', () => {
   it('교체 맵의 옛 주소가 산출물 출처에 남아 있지 않다', () => {
@@ -28,8 +30,8 @@ describe('죽은 URL 맵 (F11)', () => {
       'https://www.copper.org/resources/properties/db/results.php?Bid=C71500',
     ]) {
       expect(DEAD.has(k), k).toBe(true);
-      expect(r208.replacements[k]).not.toBe(k);
-      expect(/^https:\/\//.test(r208.replacements[k])).toBe(true);
+      expect(target(r208.replacements[k])).not.toBe(k);
+      expect(/^https:\/\//.test(target(r208.replacements[k]))).toBe(true);
     }
   });
   it('ASM 핸드북 인용은 ASM Digital Library 주소를 쓴다', () => {

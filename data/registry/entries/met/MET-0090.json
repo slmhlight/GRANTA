@@ -77,17 +77,37 @@
       "min": 546,
       "max": 713,
       "typical": 627,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:4150 × HT:cold worked (f×1.15, i×0.65)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:4150 × HT:cold worked (f×1.15, i×0.65)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 545,
+      "base_range": [
+        475,
+        620
+      ],
+      "factor": 1.15,
+      "condition": "cold worked",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 10,
       "max": 21,
       "typical": 14,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:4150 × HT:cold worked (f×1.15, i×0.65)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:4150 × HT:cold worked (f×1.15, i×0.65)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 22,
+      "base_range": [
+        15,
+        32
+      ],
+      "factor": 0.65,
+      "condition": "cold worked",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 48,
@@ -179,7 +199,8 @@
       "typical": 3.81,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 3.2 × condition 1.08 × form 1.05 × grade 1.05 = 3.81 USD/kg"
     }
   },
   "composition": {
@@ -269,7 +290,7 @@
     "Alloy Steel - Cr-Mo",
     "Iron-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 6.8,
   "max_service_temp": 425,
   "thermal_expansion": 12.3,

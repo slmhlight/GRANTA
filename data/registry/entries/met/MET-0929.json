@@ -77,17 +77,37 @@
       "min": 495,
       "max": 660,
       "typical": 578,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:ti6al4v × HT:STA aged (f×1.1, i×0.9)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:ti6al4v × HT:STA aged (f×1.1, i×0.9)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 525,
+      "base_range": [
+        450,
+        600
+      ],
+      "factor": 1.1,
+      "condition": "STA aged",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 15,
       "max": 22,
       "typical": 18,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:ti6al4v × HT:STA aged (f×1.1, i×0.9)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:ti6al4v × HT:STA aged (f×1.1, i×0.9)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 20,
+      "base_range": [
+        17,
+        24
+      ],
+      "factor": 0.9,
+      "condition": "STA aged",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 71.3,
@@ -179,7 +199,8 @@
       "typical": 53.29,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 35 × condition 1.45 × form 1.05 × grade 1 = 53.29 USD/kg"
     }
   },
   "composition": {
@@ -280,7 +301,7 @@
     "Titanium - α+β (Ti-6Al-4V class)",
     "Titanium-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "elevated_temp": [
     {
       "temp": 20,

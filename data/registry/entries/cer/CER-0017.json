@@ -115,6 +115,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 429,
+      "max": 429,
+      "typical": 429,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 220 × condition 1.3 × form 1.5 × grade 1 = 429 USD/kg"
     }
   },
   "composition": {
@@ -124,7 +133,7 @@
   "sources": [
     {
       "label": "ASM Engineered Materials Handbook Vol.4 — Ceramics and Glasses",
-      "url": "https://www.asminternational.org/engineered-materials-handbook-volume-4-ceramics-and-glasses",
+      "url": "https://my.asminternational.org/asm-store?store-path=/products/06009G",
       "verified": false
     },
     {
@@ -183,6 +192,8 @@
   "rohs_compliant": true,
   "confidence_tier": "high",
   "industry_note": "AlN (Aluminum Nitride, wurtzite structure) — high-thermal-conductivity ceramic insulator. ρ 3.26 g/cc, σf 270-350, E 320 GPa, KIC 3, Mohs 7. **Thermal conductivity 170-200 W/m·K** (Al 의 80%, BeO 의 80%, but non-toxic vs BeO 1A carcinogen).",
+  "price_per_kg": 220,
+  "delivered_price_per_kg": 429,
   "_corrections": {
     "sources": {
       "from": [

@@ -82,17 +82,37 @@
       "min": 13,
       "max": 23,
       "typical": 18,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:aa1050 × HT:fully annealed (f×0.5, i×2.5)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:aa1050 × HT:fully annealed (f×0.5, i×2.5)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 35,
+      "base_range": [
+        25,
+        45
+      ],
+      "factor": 0.5,
+      "condition": "fully annealed",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 88,
       "max": 200,
       "typical": 138,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:aa1050 × HT:fully annealed (f×0.5, i×2.5)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:aa1050 × HT:fully annealed (f×0.5, i×2.5)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 55,
+      "base_range": [
+        35,
+        80
+      ],
+      "factor": 2.5,
+      "condition": "fully annealed",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 108,
@@ -184,7 +204,8 @@
       "typical": 2.36,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 2.2 × condition 1.02 × form 1.05 × grade 1 = 2.36 USD/kg"
     }
   },
   "composition": {
@@ -254,7 +275,7 @@
     "Aluminum - Pure/Other",
     "Aluminum-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 60,
   "max_service_temp": 200,
   "thermal_expansion": 23.5,

@@ -9,7 +9,7 @@
   "legacy_id": "R_0318_0",
   "origin": "reference(supplementary)",
   "id": "R_0318_0",
-  "name": "PSU Eviva (BASF clear PSU) — Dry as-molded (clear grade)",
+  "name": "PSU Eviva (Syensqo/Solvay implantable-grade PSU) — Dry as-molded (clear grade)",
   "category": "Polymer",
   "subcategory": "Polymer - PSU",
   "tier": "reference",
@@ -145,7 +145,8 @@
       "typical": 25,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 25 × condition 1 × form 1 × grade 1 = 25 USD/kg"
     }
   },
   "composition": {
@@ -161,8 +162,8 @@
       "verified": true
     },
     {
-      "label": "Datasheet 1",
-      "url": "https://plastics-rubber.basf.com/global/en/performance-polymers/products/eviva.html",
+      "label": "Syensqo (Solvay) — Eviva® EV-25000 implantable-grade polysulfone (PSU) product page",
+      "url": "https://www.syensqo.com/en/product/eviva-ev-25000",
       "verified": true
     }
   ],
@@ -231,11 +232,19 @@
     "sources": {
       "from": [
         {
-          "label": "Datasheet 1",
-          "url": "https://plastics-rubber.basf.com/global/en/performance-polymers/products/eviva.html",
+          "label": "Syensqo (Solvay) — Eviva® EV-25000 implantable-grade polysulfone (PSU) product page",
+          "url": "https://www.syensqo.com/en/product/eviva-ev-25000",
           "verified": true
         }
       ]
-    }
+    },
+    "fields": {
+      "name": {
+        "from": "PSU Eviva (BASF clear PSU) — Dry as-molded (clear grade)",
+        "had": true
+      }
+    },
+    "_fbasis": "AUD F11 잔여(2026-09-22): 이름의 \"(BASF clear PSU)\" 는 오귀속 — Eviva® 는 BASF 가 아니라 Syensqo(구 Solvay) 의 이식용(implantable) 폴리설폰 상표(EV-25000/26000, ISO 13485 공장, FDA MAF). 출처의 BASF Eviva URL 도 존재하지 않았다. 값(Udel PSU 급 PSU 물성)은 그대로, 귀속만 바로잡는다.",
+    "_fsrc": "Syensqo Eviva® EV-25000 product page (2026-09-22 확인) · UL Prospector Eviva® datasheet"
   }
 }

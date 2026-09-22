@@ -21,6 +21,7 @@ import { htCostFactor, priceConditionFactor, priceFormFactor, priceGradePremium 
 import { popularityFor } from './pipeline/enrich/popularity.mjs';
 import { detectAnomalies } from './lib/anomalies.mjs';   // R226e — 공유 모듈 (build-from-registry 와 중복 제거)
 import { fatigueRule, deriveFatigueRange } from './lib/fatigue-fallback.mjs';   // A19 — C1 규칙 SSOT
+import { rederivePrices } from './lib/derived-prices.mjs';   // AUD N02 — 파생 가격(delivered·총원가·cm³) 재계산 SSOT
 import { attachElevCurves } from './lib/elev-curves.mjs';   // R226g — 외부 elev-temp 곡선 확장 파이프
 import { VENDOR_PREFIXES, CLASS_WORDS, alloyOf, aaSubcategory, nameBasedSubcategory, fixSubcategory, conditionClass, isExcludedByName, isExcludedAlloy, EXCLUDED_ALLOY_PATTERNS, EXCLUDED_NAME_PATTERNS, isFakeVariant } from './pipeline/enrich/classification.mjs';
 import { htConditionMultiplier } from './pipeline/enrich/ht-condition.mjs';
@@ -2162,6 +2163,7 @@ for (const m of all) {
         ? `class:${src} × HT:${multK.condTag} (k×${multK.k})`
         : `class:${src}`;
       m.ranges.fracture_toughness = { min: scaledMn, max: scaledMx, typical: scaledTp, n: 0, confidence: 'class', provenance: provK };
+      if (multK.condTag && multK.k !== 1) Object.assign(m.ranges.fracture_toughness, { estimated: true, base_value: tp, base_range: [mn, mx], factor: multK.k, condition: multK.condTag, model: 'ht-multiplier:kic' });   // AUD N01 — 계수·기초값 노출
       m.fracture_toughness = scaledTp;
       m.sources = m.sources || [];
       if (!m.sources.some(s => s.label && s.label.startsWith('KIC fallback'))) {
@@ -3092,6 +3094,20 @@ for (const m of all) {
 }
 if (polymerHardnessDropped) console.log(`ℹ AUD R03 — 폴리머 스케일 불명 경도 제거: ${polymerHardnessDropped}`);
 
+/* AUD N01 (2026-09-22) — HT 보정계수를 곱한 피로·충격값은 핸드북 발췌가 아니라 모델 출력이다. 122 entry·236 필드가
+   confidence 'handbook'·estimated 없음으로 실려 "그 열처리 조건의 핸드북 물성" 처럼 읽혔다(KIC 는 F09 에서 이미 구분).
+   계수 ≠ 1 이면 F09 와 같은 규칙: confidence 'derived' + estimated + base_value(핸드북 기초 typical)·base_range·factor·condition 노출,
+   n 은 0 (rangeFrom 의 n=3 은 표의 min/typ/max 개수이지 이 조건의 시험 표본 수가 아니다 — base_n 으로 보존). */
+function markHtDerived(range, baseVals, factor, condTag, kind) {
+  if (!range || !(factor > 0) || factor === 1 || !condTag) return range;
+  const base = rangeFrom(baseVals, 'handbook');
+  return Object.assign(range, {
+    confidence: 'derived', estimated: true, n: 0, base_n: base?.n ?? baseVals.length,
+    base_value: base?.typical ?? null, base_range: base ? [base.min, base.max] : null,
+    factor, condition: condTag, model: `ht-multiplier:${kind}`,
+  });
+}
+
 // back-compat flat fields: current app reads m.density / m.manufacturer / m.process / m.source directly.
 // Keep them (= typical value) alongside the richer {ranges, sources, tier, meta} so the UI can migrate gradually.
 for (const m of all) {
@@ -3130,13 +3146,15 @@ for (const m of all) {
       const scaled = rp.fatigue.map((v) => Math.round(v * multRp.f));
       m.ranges.fatigue_strength = rangeFrom(scaled, 'handbook');
       m.ranges.fatigue_strength.provenance = rpTag;
+      markHtDerived(m.ranges.fatigue_strength, rp.fatigue, multRp.f, multRp.condTag, 'fatigue');   // AUD N01
       m.fatigue_strength = m.ranges.fatigue_strength.typical;
-      m.fatigue_estimated = false;
+      m.fatigue_estimated = m.ranges.fatigue_strength.confidence === 'derived';
     }
     if (rp.impact && !m.ranges.impact_strength) {
       const scaledI = rp.impact.map((v) => Math.round(v * multRp.i));
       m.ranges.impact_strength = rangeFrom(scaledI, 'handbook');
       m.ranges.impact_strength.provenance = rpTag;
+      markHtDerived(m.ranges.impact_strength, rp.impact, multRp.i, multRp.condTag, 'impact');   // AUD N01
       m.impact_strength = m.ranges.impact_strength.typical;
     }
     if (rp.elevated_temp && elevAnchorOk(m, rp.elevated_temp)) {   // H5 W9+ 조건별 앵커 게이팅
@@ -3155,13 +3173,15 @@ for (const m of all) {
       : `alloy:${fi._key}`;
     // fatigue: 기존이 없거나 derived (UTS×ratio) 이면 handbook 으로 덮어쓰기
     const fCur = m.ranges.fatigue_strength;
-    if (!fCur || fCur.confidence === 'derived' || !(fCur.typical > 0)) {
+    // AUD N01 — realprops 값이 HT 계수로 'derived' 가 된 경우(model ht-multiplier)는 UTS 유도가 아니므로 덮어쓰지 않는다.
+    if (!fCur || (fCur.confidence === 'derived' && !String(fCur.model || '').startsWith('ht-multiplier')) || !(fCur.typical > 0)) {
       if (fi.fatigue) {
         const scaled = fi.fatigue.map((v) => Math.round(v * mult.f));
         m.ranges.fatigue_strength = rangeFrom(scaled, 'handbook');
         m.ranges.fatigue_strength.provenance = tag;
+        markHtDerived(m.ranges.fatigue_strength, fi.fatigue, mult.f, mult.condTag, 'fatigue');   // AUD N01
         m.fatigue_strength = m.ranges.fatigue_strength.typical;
-        m.fatigue_estimated = false;
+        m.fatigue_estimated = m.ranges.fatigue_strength.confidence === 'derived';
       }
     }
     // impact: 비어있으면 채우기 (기존 measured 가 있으면 유지)
@@ -3169,6 +3189,7 @@ for (const m of all) {
       const scaledI = fi.impact.map((v) => Math.round(v * mult.i));
       m.ranges.impact_strength = rangeFrom(scaledI, 'handbook');
       m.ranges.impact_strength.provenance = tag;
+      markHtDerived(m.ranges.impact_strength, fi.impact, mult.i, mult.condTag, 'impact');   // AUD N01
       m.impact_strength = m.ranges.impact_strength.typical;
     }
   }
@@ -3222,6 +3243,7 @@ for (const m of all) {
         ? `class:${subTag} × HT:${multImp.condTag} (i×${multImp.i})`
         : `class:${subTag}`;
       m.ranges.impact_strength = { min: scaledI[0], max: scaledI[2], typical: scaledI[1], n: 0, estimated: true, confidence: 'class', provenance: provI };
+      if (multImp.condTag && multImp.i !== 1) Object.assign(m.ranges.impact_strength, { base_value: imp[1], base_range: [imp[0], imp[2]], factor: multImp.i, condition: multImp.condTag, model: 'ht-multiplier:impact' });   // AUD N01 — 계수·기초값 노출
       m.impact_strength = scaledI[1];
     }
   }
@@ -3919,7 +3941,14 @@ function normalizeSources(list, { demoteMock = false } = {}) {
     if (Array.isArray(m.sources)) {
       for (const s of m.sources) {
         if (!s || typeof s.url !== 'string') continue;
-        if (_r208Map[s.url]) { s.url = _r208Map[s.url]; replaced++; }
+        /* AUD F11 잔여 (2026-09-22) — 맵 값이 객체({url, label?, verified?})면 라벨도 같이 바꾼다: 문서가 달라지면(예: 웨이백 → EOS MDS)
+           라벨이 옛 문서를 가리키면 안 된다. 문자열 값은 종전대로 URL 만. */
+        const rep = _r208Map[s.url];
+        if (rep) {
+          if (typeof rep === 'string') s.url = rep;
+          else { s.url = rep.url; if (rep.label) s.label = rep.label; if (typeof rep.verified === 'boolean') s.verified = rep.verified; }
+          replaced++;
+        }
         if (s.verified === true && isUntrusted(s.url)) {
           s.verified = false;
           if (s.label) s.label = softenLabel(s.label, s.url);
@@ -4050,6 +4079,9 @@ const mergeRangeOverride = (cur, nr, prov) => {
   if (overrides && !('provenance' in nr) && cur && FALLBACK_PROV_RE.test(String(cur.provenance || ''))) out.provenance = prov;
   // 폴백이 남긴 estimated:true 가 handbook/measured 와 모순되면 내린다.
   if (overrides && !('estimated' in nr) && cur && cur.estimated === true && (out.confidence === 'handbook' || out.confidence === 'measured')) out.estimated = false;
+  /* AUD N01 — 값을 덮는 override 는 HT 모델 필드(base_value·factor·condition·model…)를 함께 지운다. 남기면 "핸드북 200 인데
+     기초값 230 × 0.95" 같은 거짓 계보가 된다(1020 annealed 등 9건). override 가 직접 주는 경우만 유지. */
+  if (overrides) for (const k of ['model', 'base_value', 'base_range', 'base_n', 'factor', 'condition']) if (!(k in nr)) delete out[k];
   return out;
 };
 
@@ -4502,27 +4534,13 @@ try {
         m.ranges.fatigue_strength = null; m.fatigue_strength = null; fatDropped++;
       }
     }
-    // 2) price_per_cm3 정합화
-    const pk = typ(m, 'price_per_kg');
-    const rho = typ(m, 'density');
-    if (pk != null && rho != null && pk > 0 && rho > 0) {
-      const expect = +(pk * rho / 1000).toFixed(4);
-      const cur = typ(m, 'price_per_cm3');
-      if (cur == null || Math.abs(cur - expect) / expect > 0.02) {
-        if (!m.ranges) m.ranges = {};
-        /* R209 A-6 — price_per_cm3 는 price_per_kg × ρ 의 파생값. price_per_kg 의 'measured'
-           confidence 를 상속하면 estimated:true 와 모순 (녹색 dot + n=0 + 실측 tooltip 동시).
-           파생값이므로 항상 'derived' 로 고정. */
-        m.ranges.price_per_cm3 = {
-          min: +(expect * 0.85).toFixed(4), max: +(expect * 1.15).toFixed(4), typical: expect,
-          n: 0, estimated: true, confidence: 'derived', provenance: 'R205-R price_per_kg × ρ 재계산',
-        };
-        m.price_per_cm3 = expect;
-        priceFixed++;
-      }
-    }
+    /* 2) 파생 가격 정합화 — AUD N02 (2026-09-22): price_per_cm3 만 다시 계산하고 delivered_price_per_kg·total_cost_estimate 는
+       R146 시장가 덮어쓰기 전 raw 로 계산된 채 남아 95 entry 에서 "raw × 계수" 툴팁과 저장값이 달랐다(316L AM 15.5 vs 14.5).
+       세 파생값 전부를 최종 raw 로 다시 계산한다 (규칙 SSOT: lib/derived-prices.mjs — build-from-registry 1j 와 공유).
+       R209 A-6 — price_per_cm3 는 파생값이므로 항상 'derived' (measured 상속 금지) — lib 안에서 유지. */
+    if (rederivePrices(m).length) priceFixed++;
   }
-  console.log(`R205-R — 파생값 재계산: fatigue ${fatFixed} 재유도 + ${fatDropped} cellular 제거 · price_per_cm3 ${priceFixed} 정합화`);
+  console.log(`R205-R — 파생값 재계산: fatigue ${fatFixed} 재유도 + ${fatDropped} cellular 제거 · 파생 가격(delivered·총원가·cm³) ${priceFixed} 정합화`);
 }
 
 /* R212b — X-750 soft-condition fatigue 물리 ceiling cap (σf ≤ 0.50·UTS).

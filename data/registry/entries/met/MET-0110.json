@@ -82,17 +82,37 @@
       "min": 130,
       "max": 173,
       "typical": 149,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:aa2024 × HT:T81 CW + aged peak (f×1.08, i×0.9)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:aa2024 × HT:T81 CW + aged peak (f×1.08, i×0.9)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 138,
+      "base_range": [
+        120,
+        160
+      ],
+      "factor": 1.08,
+      "condition": "T81 CW + aged peak",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 9,
       "max": 18,
       "typical": 14,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:aa2024 × HT:T81 CW + aged peak (f×1.08, i×0.9)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:aa2024 × HT:T81 CW + aged peak (f×1.08, i×0.9)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 15,
+      "base_range": [
+        10,
+        20
+      ],
+      "factor": 0.9,
+      "condition": "T81 CW + aged peak",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 23.8,
@@ -184,7 +204,8 @@
       "typical": 5.51,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 5 × condition 1 × form 1.05 × grade 1.05 = 5.51 USD/kg"
     }
   },
   "composition": {
@@ -273,7 +294,7 @@
     "Aluminum - Cu Alloys (2xxx)",
     "Aluminum-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "elevated_temp": [
     {
       "temp": 20,

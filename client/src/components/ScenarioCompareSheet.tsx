@@ -11,7 +11,7 @@ import { Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetT
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Play, Sigma, GitCompareArrows } from 'lucide-react';
-import { SCENARIO_PRESETS, encodeFiltersToParams, FILTER_RANGE_KEYS, FILTER_LIST_KEYS, type ScenarioKey, type ConfigField, type CrossSection, type ScenarioResult } from '@/lib/scenario-presets';
+import { SCENARIO_PRESETS, encodeFiltersToParams, FILTER_RANGE_KEYS, FILTER_LIST_KEYS, axisVerdict, AXIS_VERDICT_KEY, type ScenarioKey, type ConfigField, type CrossSection, type ScenarioResult } from '@/lib/scenario-presets';
 import type { FilterRangeKey, FilterListKey } from '@/lib/filter-state';
 import type { FilterState } from '@/hooks/useMaterialFilter';
 import { useT } from '@/lib/i18n';
@@ -106,8 +106,7 @@ function ScenarioColumn({ panelKey, label, scenarioKey, onScenarioChange, onResu
                         {(['strong', 'weak'] as const).map((ax) => {
                           /* AUD F17 — 방향 이름 + 현재 치수로 계산한 강·약축 배지 (ScenarioDialog 와 같은 규칙). */
                           const dims = Object.fromEntries(section.dimFields.map((f) => [f.id, Number(values[f.id] ?? (f.type === 'number' ? f.default : 0))]));
-                          const mine = section.I(dims, ax), other = section.I(dims, ax === 'strong' ? 'weak' : 'strong');
-                          const badge = Math.abs(mine - other) <= 1e-9 * Math.max(1, Math.abs(mine)) ? t('scenario.axis.equalBadge') : mine > other ? t('scenario.axis.strongBadge') : t('scenario.axis.weakBadge');
+                          const badge = t(AXIS_VERDICT_KEY[axisVerdict(section, dims, ax)!.verdict]);   // 판정 SSOT (ScenarioDialog·요약과 같은 함수)
                           return (
                             <button key={ax} type="button" aria-pressed={String(values._axis ?? 'strong') === ax} onClick={() => setValues((p) => ({ ...p, _axis: ax }))} className={`flex-1 text-[10px] px-2 py-1 rounded border ${String(values._axis ?? 'strong') === ax ? 'border-accent bg-accent/15 text-foreground' : 'border-border text-muted-foreground'}`}>
                               {ax === 'strong' ? t('scenario.axisH') : t('scenario.axisB')} <span className="opacity-75">· {badge}</span>

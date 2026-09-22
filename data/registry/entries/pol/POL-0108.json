@@ -140,6 +140,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 9,
+      "max": 9,
+      "typical": 9,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 9 × condition 1 × form 1 × grade 1 = 9 USD/kg"
     }
   },
   "composition": {
@@ -240,5 +249,8 @@
     }
   ],
   "elevated_temp_src": "Victrex·Solvay·Celanese·Arkema·SABIC·BASF·Stratasys datasheet 측정값",
-  "industry_note": "PPA (Polyphthalamide) + 45% Glass Fiber — Solvay Amodel A-1145 HS. PPA = aromatic polyamide (PA66 의 backbone + terephthalate/isophthalate units → high-T + low-moisture). Tg 130°C, Tm 290-310°C, HDT (1.8 MPa) 285°C, max service 170-180°C continuous."
+  "industry_note": "PPA (Polyphthalamide) + 45% Glass Fiber — Solvay Amodel A-1145 HS. PPA = aromatic polyamide (PA66 의 backbone + terephthalate/isophthalate units → high-T + low-moisture). Tg 130°C, Tm 290-310°C, HDT (1.8 MPa) 285°C, max service 170-180°C continuous.",
+  "price_per_kg": 9,
+  "delivered_price_per_kg": 9,
+  "total_cost_estimate": 15.3
 }

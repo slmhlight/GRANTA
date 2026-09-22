@@ -77,17 +77,37 @@
       "min": 214,
       "max": 279,
       "typical": 245,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:4150 × HT:fully annealed (soft) (f×0.45, i×2.8)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:4150 × HT:fully annealed (soft) (f×0.45, i×2.8)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 545,
+      "base_range": [
+        475,
+        620
+      ],
+      "factor": 0.45,
+      "condition": "fully annealed (soft)",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 42,
       "max": 90,
       "typical": 62,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:4150 × HT:fully annealed (soft) (f×0.45, i×2.8)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:4150 × HT:fully annealed (soft) (f×0.45, i×2.8)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 22,
+      "base_range": [
+        15,
+        32
+      ],
+      "factor": 2.8,
+      "condition": "fully annealed (soft)",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 96,
@@ -179,7 +199,8 @@
       "typical": 3.6,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 3.2 × condition 1.02 × form 1.05 × grade 1.05 = 3.6 USD/kg"
     }
   },
   "composition": {
@@ -249,7 +270,7 @@
     "Alloy Steel - Cr-Mo",
     "Iron-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 6.8,
   "max_service_temp": 425,
   "thermal_expansion": 12.3,

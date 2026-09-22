@@ -77,6 +77,19 @@ describe('useMaterialFilter — search 는 name+alias 만 (R180)', () => {
     act(() => result.current.updateFilter('search', 'Carbon'));
     expect(result.current.filtered.length).toBe(0);
   });
+  /* AUD R09 잔여 (2026-09-22) — 정확 일치가 있으면 부분수열(글자 순서만 맞는) 일치는 버린다. "B4C" 가 24건이던 것. */
+  it('정확 일치가 있으면 부분수열 일치는 제외 — "b4c" → B4C-Al 만, "Beta ..." 의 b…4…c 는 제외', () => {
+    const mats = [...MATS, mk({ id: 'g', name: 'B4C-Al MMC 15 wt%' } as any), mk({ id: 'h', name: 'Bronze C95400 cast' } as any)];
+    const { result } = renderHook(() => useMaterialFilter(mats));
+    act(() => result.current.updateFilter('search', 'b4c'));
+    expect(ids(result.current.filtered)).toEqual(new Set(['g']));
+  });
+  it('정확 일치가 없으면 부분수열(오타 보정) 일치를 그대로 쓴다', () => {
+    const mats = [...MATS, mk({ id: 'h', name: 'Bronze C95400 cast' } as any)];
+    const { result } = renderHook(() => useMaterialFilter(mats));
+    act(() => result.current.updateFilter('search', 'brz954'));
+    expect(ids(result.current.filtered)).toEqual(new Set(['h']));
+  });
 });
 
 describe('useMaterialFilter — narrowedRanges leave-one-out', () => {

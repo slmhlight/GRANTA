@@ -97,6 +97,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 525,
+      "max": 525,
+      "typical": 525,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 350 × condition 1 × form 1.5 × grade 1 = 525 USD/kg"
     }
   },
   "composition": {
@@ -106,7 +115,7 @@
   "sources": [
     {
       "label": "ASM Engineered Materials Handbook Vol.4 — Ceramics and Glasses",
-      "url": "https://www.asminternational.org/engineered-materials-handbook-volume-4-ceramics-and-glasses",
+      "url": "https://my.asminternational.org/asm-store?store-path=/products/06009G",
       "verified": false
     },
     {
@@ -165,6 +174,8 @@
   "rohs_compliant": true,
   "confidence_tier": "high",
   "industry_note": "B₄C (Boron Carbide, rhombohedral B₁₂C₃) — 3rd hardest material (Diamond > c-BN > B₄C). ρ 2.52 g/cc (very light), σf 280-410, E 460 GPa, Mohs 9.3.",
+  "price_per_kg": 350,
+  "delivered_price_per_kg": 525,
   "_corrections": {
     "sources": {
       "from": [

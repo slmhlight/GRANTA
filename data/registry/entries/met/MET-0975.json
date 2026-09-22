@@ -77,17 +77,28 @@
       "min": 300,
       "max": 540,
       "typical": 420,
-      "n": 3,
+      "n": 0,
       "confidence": "handbook",
-      "provenance": "alloy:tungsten × HT:spheroidized annealed (f×0.3, i×4)"
+      "provenance": "alloy:tungsten × HT:spheroidized annealed (f×0.3, i×4)",
+      "estimated": false
     },
     "impact_strength": {
       "min": 8,
       "max": 32,
       "typical": 16,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:tungsten × HT:spheroidized annealed (f×0.3, i×4)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:tungsten × HT:spheroidized annealed (f×0.3, i×4)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 4,
+      "base_range": [
+        2,
+        8
+      ],
+      "factor": 4,
+      "condition": "spheroidized annealed",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 17.6,
@@ -169,7 +180,8 @@
       "typical": 74.97,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 70 × condition 1.02 × form 1.05 × grade 1 = 74.97 USD/kg"
     }
   },
   "composition": {
@@ -250,7 +262,7 @@
     "Iron-based",
     "Tool Steel"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 5,
   "max_service_temp": 1700,
   "thermal_expansion": 11.5,

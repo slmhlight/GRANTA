@@ -82,17 +82,37 @@
       "min": 50,
       "max": 72,
       "typical": 61,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:6063 × HT:T5 cooled + artificial aged (f×0.9, i×1.2)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:6063 × HT:T5 cooled + artificial aged (f×0.9, i×1.2)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 68,
+      "base_range": [
+        55,
+        80
+      ],
+      "factor": 0.9,
+      "condition": "T5 cooled + artificial aged",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 14,
       "max": 34,
       "typical": 22,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:6063 × HT:T5 cooled + artificial aged (f×0.9, i×1.2)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:6063 × HT:T5 cooled + artificial aged (f×0.9, i×1.2)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 18,
+      "base_range": [
+        12,
+        28
+      ],
+      "factor": 1.2,
+      "condition": "T5 cooled + artificial aged",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 38.4,
@@ -184,7 +204,8 @@
       "typical": 2.94,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 2.8 × condition 1 × form 1.05 × grade 1 = 2.94 USD/kg"
     }
   },
   "composition": {
@@ -264,7 +285,7 @@
     "Aluminum - Mg-Si Alloys (6xxx)",
     "Aluminum-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 53,
   "max_service_temp": 170,
   "thermal_expansion": 23.4,

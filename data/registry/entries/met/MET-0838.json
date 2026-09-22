@@ -87,7 +87,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "class",
-      "provenance": "class:PH stainless × HT:as-built martensitic (i×1.3)"
+      "provenance": "class:PH stainless × HT:as-built martensitic (i×1.3)",
+      "base_value": 30,
+      "base_range": [
+        15,
+        50
+      ],
+      "factor": 1.3,
+      "condition": "as-built martensitic",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 38.5,
@@ -95,7 +103,16 @@
       "typical": 66,
       "n": 0,
       "confidence": "class",
-      "provenance": "class:ASM Vol.1 PH SS general × HT:as-built martensitic (k×1.1)"
+      "provenance": "class:ASM Vol.1 PH SS general × HT:as-built martensitic (k×1.1)",
+      "estimated": true,
+      "base_value": 60,
+      "base_range": [
+        35,
+        100
+      ],
+      "factor": 1.1,
+      "condition": "as-built martensitic",
+      "model": "ht-multiplier:kic"
     },
     "electrical_conductivity": {
       "min": 2.125,
@@ -175,7 +192,8 @@
       "typical": 17.5,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 7 × condition 1 × form 2.5 × grade 1 = 17.5 USD/kg"
     }
   },
   "composition": {
@@ -216,8 +234,8 @@
       "verified": true
     },
     {
-      "label": "EOS CX (martensitic PH stainless for AM) datasheet",
-      "url": "https://www.eos.info/en-us/3d-printing-materials/metals/stainless-tool-corrosion-resistant-steel",
+      "label": "EOS StainlessSteel CX — Material Data Sheet (martensitic PH tooling stainless for AM)",
+      "url": "https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-stainlesssteel-cx",
       "verified": true
     }
   ],
@@ -313,8 +331,8 @@
           "verified": true
         },
         {
-          "label": "EOS CX (martensitic PH stainless for AM) datasheet",
-          "url": "https://www.eos.info/en-us/3d-printing-materials/metals/stainless-tool-corrosion-resistant-steel",
+          "label": "EOS StainlessSteel CX — Material Data Sheet (martensitic PH tooling stainless for AM)",
+          "url": "https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-stainlesssteel-cx",
           "verified": true
         }
       ]

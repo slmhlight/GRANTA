@@ -103,6 +103,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 135,
+      "max": 135,
+      "typical": 135,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 90 × condition 1 × form 1.5 × grade 1 = 135 USD/kg"
     }
   },
   "composition": {
@@ -162,5 +171,7 @@
   "tolerance_class": "IT12-13",
   "rohs_compliant": true,
   "confidence_tier": "medium-low",
-  "industry_note": "TiC (Titanium Carbide, NaCl structure) — Tm 3140°C, ρ 4.93 g/cc, σf 260-310, E 450 GPa, KIC 3, HV 28-32 GPa. Tmax 1400°C inert. WC-Co cutting tool 의 alloying (TiC, TaC 추가 → 1500°C wear 보존, Ti(C,N) 코팅 표준). Cermet (TiC + Ni-Mo binder) cutting tool — high-speed steel 가공 표준. TiC-particle reinforced steel (Hardide coating). 우주 ablative heat shield mid-layer."
+  "industry_note": "TiC (Titanium Carbide, NaCl structure) — Tm 3140°C, ρ 4.93 g/cc, σf 260-310, E 450 GPa, KIC 3, HV 28-32 GPa. Tmax 1400°C inert. WC-Co cutting tool 의 alloying (TiC, TaC 추가 → 1500°C wear 보존, Ti(C,N) 코팅 표준). Cermet (TiC + Ni-Mo binder) cutting tool — high-speed steel 가공 표준. TiC-particle reinforced steel (Hardide coating). 우주 ablative heat shield mid-layer.",
+  "price_per_kg": 90,
+  "delivered_price_per_kg": 135
 }

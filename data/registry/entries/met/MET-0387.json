@@ -88,7 +88,16 @@
       "typical": 41.3,
       "n": 0,
       "confidence": "class",
-      "provenance": "class:Copper.org Brass × HT:H08/H10 hard (k×0.75)"
+      "provenance": "class:Copper.org Brass × HT:H08/H10 hard (k×0.75)",
+      "estimated": true,
+      "base_value": 55,
+      "base_range": [
+        40,
+        75
+      ],
+      "factor": 0.75,
+      "condition": "H08/H10 hard",
+      "model": "ht-multiplier:kic"
     },
     "max_service_temp": {
       "typical": 175,

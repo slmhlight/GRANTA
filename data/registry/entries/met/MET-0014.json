@@ -88,7 +88,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "class",
-      "provenance": "class:Iron-based generic × HT:Q+T high-temper (i×1.4)"
+      "provenance": "class:Iron-based generic × HT:Q+T high-temper (i×1.4)",
+      "base_value": 35,
+      "base_range": [
+        15,
+        60
+      ],
+      "factor": 1.4,
+      "condition": "Q+T high-temper",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 68.8,
@@ -96,7 +104,16 @@
       "typical": 93.8,
       "n": 0,
       "confidence": "class",
-      "provenance": "class:AMS 6415 alloy steel × HT:Q+T high-temper (k×1.25)"
+      "provenance": "class:AMS 6415 alloy steel × HT:Q+T high-temper (k×1.25)",
+      "estimated": true,
+      "base_value": 75,
+      "base_range": [
+        55,
+        100
+      ],
+      "factor": 1.25,
+      "condition": "Q+T high-temper",
+      "model": "ht-multiplier:kic"
     },
     "electrical_conductivity": {
       "min": 5.95,
@@ -176,7 +193,8 @@
       "typical": 4.25,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 3 × condition 1.35 × form 1.05 × grade 1 = 4.25 USD/kg"
     }
   },
   "composition": {

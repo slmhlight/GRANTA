@@ -8,7 +8,7 @@
  * 추가 가정 없음. 안전계수·사용 조건은 사용자가 명시.
  */
 import type { FilterState } from '@/hooks/useMaterialFilter';
-import type { FilterRangeKey, FilterListKey } from '@/lib/filter-state';
+import { DEFAULT_FILTERS, type FilterRangeKey, type FilterListKey } from '@/lib/filter-state';
 
 export type ScenarioPreset = {
   label: string;
@@ -41,6 +41,27 @@ export type CrossSection = {
   /** 강축/약축이 구분되는 단면인지 (선택 UI 표시 여부) */
   hasAxes?: boolean;
 };
+
+/* AUD F17 잔여 (2026-09-22) — 강·약축 판정 SSOT. 선택 버튼(ScenarioDialog·ScenarioCompareSheet)과 결과 요약이 **같은 함수**를 쓴다.
+ * 예전엔 버튼은 현재 치수의 I 로 판정하고 요약은 `axis==='weak' ? '약축' : '강축'` 이라는 옛 고정 이름을 써서
+ * b=20·h=10 에서 h 방향(I 1,667) 이 버튼엔 weak axis, 요약엔 강축으로 동시에 보였다. */
+export type AxisVerdict = 'strong' | 'weak' | 'equal';
+export function axisVerdict(section: CrossSection | undefined, dims: Record<string, number>, axis: SectionAxis): { verdict: AxisVerdict; iMine: number; iOther: number } | null {
+  if (!section || !section.hasAxes) return null;
+  const iMine = section.I(dims, axis), iOther = section.I(dims, axis === 'strong' ? 'weak' : 'strong');
+  const verdict: AxisVerdict = Math.abs(iMine - iOther) <= 1e-9 * Math.max(1, Math.abs(iMine)) ? 'equal' : iMine > iOther ? 'strong' : 'weak';
+  return { verdict, iMine, iOther };
+}
+/** i18n 키 — 판정 → 배지 문구 (ScenarioDialog 의 t() 와 요약 문자열이 같은 표를 본다). */
+export const AXIS_VERDICT_KEY: Record<AxisVerdict, string> = { strong: 'scenario.axis.strongBadge', weak: 'scenario.axis.weakBadge', equal: 'scenario.axis.equalBadge' };
+export const AXIS_VERDICT_LABEL_KO: Record<AxisVerdict, string> = { strong: '강축 (I 큼)', weak: '약축 (I 작음)', equal: '동등 (I 같음)' };
+export const AXIS_DIRECTION_LABEL_KO: Record<SectionAxis, string> = { strong: 'h/H 방향 하중', weak: 'b/B 방향 하중' };
+/** 결과 요약의 '하중 방향' 한 줄 — 방향 이름 + 현재 치수로 판정한 강·약축. 대칭 단면은 축 구분이 없다고 말한다. */
+export function axisSummaryValue(section: CrossSection | undefined, dims: Record<string, number>, axis: SectionAxis): string {
+  const av = axisVerdict(section, dims, axis);
+  if (!av) return '대칭 단면 (축 구분 없음)';
+  return `${AXIS_DIRECTION_LABEL_KO[axis]} · ${AXIS_VERDICT_LABEL_KO[av.verdict]}`;
+}
 
 /** 사례 계산 결과 — 필터 오버라이드 + 산출 요약 + (NB14) 필드별 인라인 검증 메시지.
  *  fieldErrors 는 field.id → 한 줄 경고. ScenarioDialog 가 해당 입력 옆에 빨간 메시지로 표시. */
@@ -310,7 +331,7 @@ export const SCENARIO_PRESETS: Record<string, ScenarioPreset> = {
           filters,
           summary: [
             { label: '하중 패턴', value: label },
-            { label: '하중 방향', value: axis === 'weak' ? '약축' : '강축' + (section?.hasAxes ? '' : ' (대칭 단면)') },
+            { label: '하중 방향', value: axisSummaryValue(section, dims, axis) },   // AUD F17 잔여 — 버튼과 같은 판정 함수
             { label: '단면 I', value: `${round0(I)} mm⁴` },
             { label: '단면 Z', value: `${round0(Z)} mm³` },
             { label: '최대 모멘트', value: `${round0(Mmax)} N·mm` },
@@ -862,7 +883,7 @@ export const SCENARIO_PRESETS: Record<string, ScenarioPreset> = {
           { value: 'gas', label: '압축 가스 (LPG·CO₂) — 부식 무시' },
           { value: 'cryogen', label: '극저온 액체 (LNG·LOX·LH₂)' },
         ], group: '환경' },
-        { id: 'SF', label: '안전계수 SF', type: 'number', default: 3.5, min: 1.5, step: 0.5, help: '일반 압력용기 SF=3.5 (ASME VIII Div.1)', group: '설계 마진' },
+        { id: 'SF', label: '안전계수 SF (σy 기준)', type: 'number', default: 3.5, min: 1.5, step: 0.5, help: 'σy 기준 교육용 마진(기본 3.5). ASME VIII Div.1 은 SF 가 아니라 허용응력 S ≈ min(UTS/3.5, σy/1.5) 로 두께를 정한다 — 코드 계산은 아래 참고 행·Tools 와 같은 전제 (AUD F30)', group: '설계 마진' },
         { id: 't_assumed', label: '가정 두께 t (산출 검증용)', unit: 'mm', type: 'number', default: 6, min: 0.1, step: 0.5, group: '기하' },
       ],
       compute: (v) => {
@@ -886,7 +907,8 @@ export const SCENARIO_PRESETS: Record<string, ScenarioPreset> = {
           filters,
           summary: [
             { label: 'Hoop 응력', value: `σ_h = P·D/(2t) = ${round1(sigmaHoop)} MPa` },
-            { label: '필요 σy', value: `≥ ${round0(needSy)} MPa  (SF=${SF})` },
+            { label: '필요 σy', value: `≥ ${round0(needSy)} MPa  (σy 기준 SF=${SF}, 교육용)` },
+            { label: '코드식 참고 (ASME VIII Div.1)', value: `허용응력 S ≈ min(UTS/3.5, σy/1.5) ≥ σ_h → σy ≥ ${round0(1.5 * sigmaHoop)} · UTS ≥ ${round0(3.5 * sigmaHoop)} MPa (E=1 가정 — 실 설계는 코드 표·판본으로)` },
             { label: 'D/t', value: `${round1(D / t)}  ${D / t < 20 ? '⚠ 후판 — Lamé 식 필요' : '(박판 가정 OK)'}` },
             { label: '내부식 등급', value: corr.length ? corr.join(' · ') : '제약 없음' },
             { label: '최대사용온도 (필터)', value: `≥ ${tMax + 20} °C` },
@@ -1249,6 +1271,9 @@ export function encodeFiltersToParams(f: Partial<FilterState>): string {
     const [m, x] = RANGE_MAP[k];
     const r = f[k];
     if (Array.isArray(r)) { p.set(m, String(r[0])); p.set(x, String(r[1])); }
+    /* AUD R15 잔여 (2026-09-22) — 기본값이 null 이 아닌 범위(인기도 4–5)를 사용자가 "전체 보기" 로 지웠으면(null) 그 사실도
+       URL 에 남긴다(`popm=all`). 안 남기면 가이드·Tools 왕복 뒤 기본 4–5 가 다시 적용돼 결과가 2개→0개로 바뀐다. */
+    else if (r === null && Array.isArray(DEFAULT_FILTERS[k])) p.set(m, 'all');
   }
   for (const k of Object.keys(LIST_MAP) as FilterListKey[]) {
     const arr = f[k];
@@ -1273,7 +1298,8 @@ export function decodeFiltersFromParams(qs: URLSearchParams): Partial<FilterStat
   if (qs.has('dsl')) out.query = qs.get('dsl') || '';
   for (const k of Object.keys(RANGE_MAP) as FilterRangeKey[]) {
     const [m, x] = RANGE_MAP[k];
-    if (qs.has(m) && qs.has(x)) out[k] = [Number(qs.get(m)), Number(qs.get(x))];
+    if (qs.get(m) === 'all') out[k] = null;   // AUD R15 잔여 — "전체 보기"(기본 범위 해제) 복원
+    else if (qs.has(m) && qs.has(x)) out[k] = [Number(qs.get(m)), Number(qs.get(x))];
   }
   for (const k of Object.keys(LIST_MAP) as FilterListKey[]) {
     const raw = qs.get(LIST_MAP[k]);

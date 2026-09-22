@@ -107,17 +107,37 @@
       "min": 360,
       "max": 496,
       "typical": 428,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:inconel718 × HT:as-built (no age) (f×0.8, i×1.3)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:inconel718 × HT:as-built (no age) (f×0.8, i×1.3)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 535,
+      "base_range": [
+        450,
+        620
+      ],
+      "factor": 0.8,
+      "condition": "as-built (no age)",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 39,
       "max": 65,
       "typical": 52,
-      "n": 3,
-      "confidence": "handbook",
+      "n": 0,
+      "confidence": "derived",
       "provenance": "realprops:inconel718 × HT:as-built (no age) (f×0.8, i×1.3)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 40,
+      "base_range": [
+        30,
+        50
+      ],
+      "factor": 1.3,
+      "condition": "as-built (no age)",
+      "model": "ht-multiplier:impact",
       "min_spec_value": 27,
       "min_spec_source": "AMS 5662 minimum (vs ASM 40 J typical)",
       "spec_type": "typical"
@@ -204,15 +224,16 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived",
-      "provenance": "R205-R price_per_kg × ρ 재계산"
+      "provenance": "price_per_kg × ρ 재계산"
     },
     "delivered_price_per_kg": {
-      "min": 125,
-      "max": 125,
-      "typical": 125,
+      "min": 175,
+      "max": 175,
+      "typical": 175,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 70 × condition 1 × form 2.5 × grade 1 = 175 USD/kg"
     }
   },
   "composition": {
@@ -248,7 +269,7 @@
     },
     {
       "label": "ASTM B637 — Precipitation-Hardening Ni-base Bar (718)",
-      "url": "https://store.astm.org/b0637-22.html",
+      "url": "https://store.astm.org/b0637-26.html",
       "verified": false
     }
   ],
@@ -671,14 +692,14 @@
     "Iron-based",
     "Superalloy"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 1.2,
   "max_service_temp": 650,
   "thermal_expansion": 13,
   "poisson_ratio": 0.29,
   "specific_heat": 435,
   "melting_point": 1336,
-  "price_per_kg": 50,
+  "price_per_kg": 70,
   "price_per_cm3": 0.5733,
   "popularity": 3.5,
   "machining_cost_factor": 1.8,
@@ -686,8 +707,8 @@
   "price_condition_factor": 1,
   "price_form_factor": 2.5,
   "price_grade_premium": 1,
-  "delivered_price_per_kg": 125,
-  "total_cost_estimate": 350,
+  "delivered_price_per_kg": 175,
+  "total_cost_estimate": 490,
   "min_wall_thickness": 0.4,
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",

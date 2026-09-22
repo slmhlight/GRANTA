@@ -91,7 +91,8 @@ describe('A15 (2) 공용 리더가 ranges 전용 값을 되살린다', () => {
      2026-09) 이고, 하한만 건다 — 데이터가 늘면 통과, **리더가 ranges 를 안 보면 0 이 되어 실패**. */
   const FLOOR: Record<string, number> = {
     max_service_temp: 100,   // 실측 129
-    price_per_kg: 90,        // 실측 105
+    /* price_per_kg: AUD N02 (2026-09-22) 파생가격 재계산(lib/derived-prices.mjs)이 평면 price_per_kg 를 ranges.typical 과
+       동기화하므로 "평면값 없음" 이 0 이 됐다 — 이 게이트의 지침("0 이 되면 항목을 정리")대로 제외. 리더 우선순위 검사는 아래 it 이 계속 고정. */
     thermal_expansion: 90,   // 실측 105
     fracture_toughness: 30,  // 실측 39
     melting_point: 25,       // 실측 35

@@ -11,6 +11,7 @@
  * 훅을 쓰면 안 된다(컴포넌트가 아니라 호출되는 함수다). 내용은 원본 그대로 — 옮기기만 했다.
  */
 import { X } from 'lucide-react';
+import { Link } from 'wouter';
 import { F, Note, ExtLink, Scenario } from '../components';
 import { SvgBracket, SvgManifold, SvgShaft, SvgPrecision, SvgMarine, SvgLowcost, SvgSpring, SvgHeatsink, SvgWear, SvgMedical, SvgCryogenic, SvgElectrical, SvgPressureVesselSmall, SvgGear, SvgFastener, SvgDieMold } from '../svgs';
 import type { ScenarioKey } from '@/lib/scenario-presets';
@@ -163,7 +164,7 @@ export default function ch7Body(onConfigure: (k: ScenarioKey) => void) {
             needs={<>높은 <b>경도 (Hardness)</b>, 충분한 <b>충격 인성 (Impact)</b>. Archard 마모식: <F>V = K·F·s/H</F> — H 가 커야 마모율 ↓.</>}
             steps={[
               <>필터: <b>Hardness ≥ 600 HV</b>, <b>Impact ≥ 15 J</b> (인성).</>,
-              <><b>Compare</b>로 HV·KIC·가격 비교 (HRC 가 더 익숙하면 HV ≈ 10×HRC).</>,
+              <><b>Compare</b>로 HV·KIC·가격 비교 (HRC 가 더 익숙하면 <Link href="/tools?calc=hardness" className="text-accent hover:underline">Tools 경도 환산기</Link> — ASTM E140 표 보간: HV 600 ≈ HRC 55.3, 비례식 아님).</>,
               <>상세 팝업에서 <b>권장 후공정</b> 확인 — DLC·TiN·CrN PVD 코팅으로 표면만 강화 가능.</>,
             ]}
             families={<>WC-Co (텅스텐 카바이드), 공구강 H13/D2/M2, Stellite 6/12 (Co 합금), 고경도 베어링강 52100. PVD/CVD 표면 코팅.</>}
@@ -228,7 +229,7 @@ export default function ch7Body(onConfigure: (k: ScenarioKey) => void) {
             examples={<>수소 저장 탱크 (350·700 bar), LPG 실린더, 스팀 보일러, 화학 reactor, 공기 압축기 receiver. <ExtLink href="https://en.wikipedia.org/wiki/Pressure_vessel">Pressure vessel</ExtLink>, <ExtLink href="https://en.wikipedia.org/wiki/ASME_Boiler_and_Pressure_Vessel_Code">ASME BPVC</ExtLink></>}
             title="압력 용기 (수소 탱크 · 보일러)"
             situation="내압 P 에서 hoop stress σ = PD/2t 발생. 누설·파열 절대 방지."
-            needs={<>충분한 <b>σy</b> (SF ≥ 3 typical ASME), <b>인성</b> (균열 진전 둔화), 부식 (수소 취화 / 황화수소 SSC) 저항. ISO 11119 / ASME VIII. <span className="text-muted-foreground">KIC 측정값이 없는 합금은 family typical (ASM Vol. 1·2, MMPDS) 로 채워져 있으며 상세의 <F>class</F> 라벨로 식별 가능합니다.</span></>}
+            needs={<>충분한 <b>σy</b> — 이 사례·<Link href="/tools?calc=pressure" className="text-accent hover:underline">Tools 압력용기 계산기</Link>의 SF 는 <b>σy 기준 교육용 마진</b>(기본 3.5)입니다. ASME BPVC Sec.VIII Div.1 은 이런 SF 가 아니라 <b>허용응력 S ≈ min(UTS/3.5, σy/1.5)</b>(판본·재료표 기준)와 용접 효율 E 로 두께를 정하므로, 코드 설계는 별도 검증이 필요합니다. <b>인성</b> (균열 진전 둔화), 부식 (수소 취화 / 황화수소 SSC) 저항. ISO 11119 / ASME VIII. <span className="text-muted-foreground">KIC 측정값이 없는 합금은 family typical (ASM Vol. 1·2, MMPDS) 로 채워져 있으며 상세의 <F>class</F> 라벨로 식별 가능합니다.</span></>}
             steps={[
               <>필터: <b>UTS ≥ 600 MPa</b>, <b>Fracture Toughness ≥ 50 MPa·√m</b>, <b>Process ⊃ Wrought</b> (단조 두께 보장).</>,
               <>Ashby 차트의 Y축 옵션 → <b>파괴 인성</b> 선택, X축 σy 로 두면 toughness-strength trade-off 가 한 눈에. 마우스 휠로 확대·더블클릭으로 reset.</>,

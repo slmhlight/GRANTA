@@ -100,6 +100,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 250,
+      "max": 250,
+      "typical": 250,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 250 × condition 1 × form 1 × grade 1 = 250 USD/kg"
     }
   },
   "composition": [
@@ -115,8 +124,8 @@
       "verified": false
     },
     {
-      "label": "DSM Dyneema SK75/SK78/SK99 datasheet",
-      "url": "https://www.dsm.com/dyneema/en_US/home.html",
+      "label": "Avient (formerly DSM) — Dyneema® fiber portfolio: SK75 / SK78 / SK99 (tenacity·modulus)",
+      "url": "https://www.dyneema.com/design-with-dyneema/dyneema-product-portfolio",
       "verified": true
     },
     {
@@ -168,5 +177,7 @@
   "price_per_cm3": 0.2425,
   "rohs_compliant": true,
   "confidence_tier": "high",
-  "industry_note": "UHMWPE (Ultra-High Molecular Weight Polyethylene, MW > 3M Da). DSM Dyneema SK75/SK78/SK99, Honeywell Spectra 900/1000/2000. **Gel-spun + ultra-drawn** → 80-90% crystalline (vs HDPE 의 60%) → 가장 strong fiber/weight ratio. σf fiber 3."
+  "industry_note": "UHMWPE (Ultra-High Molecular Weight Polyethylene, MW > 3M Da). DSM Dyneema SK75/SK78/SK99, Honeywell Spectra 900/1000/2000. **Gel-spun + ultra-drawn** → 80-90% crystalline (vs HDPE 의 60%) → 가장 strong fiber/weight ratio. σf fiber 3.",
+  "price_per_kg": 250,
+  "delivered_price_per_kg": 250
 }

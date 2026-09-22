@@ -98,7 +98,16 @@
       "typical": 100,
       "n": 0,
       "confidence": "class",
-      "provenance": "class:AA 1xxx CP Al × HT:O (annealed soft, fallback derived from T6) (k×2)"
+      "provenance": "class:AA 1xxx CP Al × HT:O (annealed soft, fallback derived from T6) (k×2)",
+      "estimated": true,
+      "base_value": 50,
+      "base_range": [
+        40,
+        65
+      ],
+      "factor": 2,
+      "condition": "O (annealed soft, fallback derived from T6)",
+      "model": "ht-multiplier:kic"
     },
     "electrical_conductivity": {
       "min": 51,
@@ -178,7 +187,8 @@
       "typical": 2.68,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 2.5 × condition 1.02 × form 1.05 × grade 1 = 2.68 USD/kg"
     }
   },
   "composition": {

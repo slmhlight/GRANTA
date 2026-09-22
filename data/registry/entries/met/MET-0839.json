@@ -90,17 +90,37 @@
       "min": 506,
       "max": 598,
       "typical": 552,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:174ph × HT:as-built martensitic (f×0.92, i×1.3)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:174ph × HT:as-built martensitic (f×0.92, i×1.3)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 600,
+      "base_range": [
+        550,
+        650
+      ],
+      "factor": 0.92,
+      "condition": "as-built martensitic",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 26,
       "max": 52,
       "typical": 39,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "realprops:174ph × HT:as-built martensitic (f×0.92, i×1.3)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "realprops:174ph × HT:as-built martensitic (f×0.92, i×1.3)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 30,
+      "base_range": [
+        20,
+        40
+      ],
+      "factor": 1.3,
+      "condition": "as-built martensitic",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 99,
@@ -192,7 +212,8 @@
       "typical": 16.25,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 6.5 × condition 1 × form 2.5 × grade 1 = 16.25 USD/kg"
     }
   },
   "composition": {
@@ -455,7 +476,7 @@
     "Iron-based",
     "Stainless Steel"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "elevated_temp": [
     {
       "temp": 20,

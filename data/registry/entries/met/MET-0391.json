@@ -88,7 +88,16 @@
       "typical": 18,
       "n": 0,
       "confidence": "class",
-      "provenance": "class:AA 2xxx Al-Cu × HT:H08/H10 hard (k×0.75)"
+      "provenance": "class:AA 2xxx Al-Cu × HT:H08/H10 hard (k×0.75)",
+      "estimated": true,
+      "base_value": 24,
+      "base_range": [
+        18,
+        30
+      ],
+      "factor": 0.75,
+      "condition": "H08/H10 hard",
+      "model": "ht-multiplier:kic"
     },
     "max_service_temp": {
       "typical": 175,

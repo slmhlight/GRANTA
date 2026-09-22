@@ -82,17 +82,37 @@
       "min": 16,
       "max": 24,
       "typical": 20,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:3003 × HT:O (annealed soft, fallback derived from T6) (f×0.4, i×3)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:3003 × HT:O (annealed soft, fallback derived from T6) (f×0.4, i×3)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 50,
+      "base_range": [
+        40,
+        60
+      ],
+      "factor": 0.4,
+      "condition": "O (annealed soft, fallback derived from T6)",
+      "model": "ht-multiplier:fatigue"
     },
     "impact_strength": {
       "min": 75,
       "max": 180,
       "typical": 120,
-      "n": 3,
-      "confidence": "handbook",
-      "provenance": "alloy:3003 × HT:O (annealed soft, fallback derived from T6) (f×0.4, i×3)"
+      "n": 0,
+      "confidence": "derived",
+      "provenance": "alloy:3003 × HT:O (annealed soft, fallback derived from T6) (f×0.4, i×3)",
+      "estimated": true,
+      "base_n": 3,
+      "base_value": 40,
+      "base_range": [
+        25,
+        60
+      ],
+      "factor": 3,
+      "condition": "O (annealed soft, fallback derived from T6)",
+      "model": "ht-multiplier:impact"
     },
     "fracture_toughness": {
       "min": 100,
@@ -184,7 +204,8 @@
       "typical": 2.68,
       "n": 0,
       "estimated": true,
-      "confidence": "derived"
+      "confidence": "derived",
+      "provenance": "raw 2.5 × condition 1.02 × form 1.05 × grade 1 = 2.68 USD/kg"
     }
   },
   "composition": {
@@ -251,7 +272,7 @@
     "Aluminum - Mn Alloys (3xxx)",
     "Aluminum-based"
   ],
-  "fatigue_estimated": false,
+  "fatigue_estimated": true,
   "electrical_conductivity": 50,
   "max_service_temp": 200,
   "thermal_expansion": 23.2,

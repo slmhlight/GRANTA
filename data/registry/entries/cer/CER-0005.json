@@ -97,6 +97,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 52.5,
+      "max": 52.5,
+      "typical": 52.5,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 35 × condition 1 × form 1.5 × grade 1 = 52.5 USD/kg"
     }
   },
   "composition": {
@@ -106,7 +115,7 @@
   "sources": [
     {
       "label": "ASM Engineered Materials Handbook Vol.4 — Ceramics and Glasses",
-      "url": "https://www.asminternational.org/engineered-materials-handbook-volume-4-ceramics-and-glasses",
+      "url": "https://my.asminternational.org/asm-store?store-path=/products/06009G",
       "verified": false
     },
     {
@@ -159,6 +168,8 @@
   "rohs_compliant": true,
   "confidence_tier": "high",
   "industry_note": "SiC (Silicon Carbide, carborundum). 변종: Sintered SiC (Hexoloy, σf 400 / E 410 / ρ 3.13 / Tmax 1600°C) / Reaction-Bonded (RB-SiC, σf 200 / E 380 / ρ 3.05 — Si melt-infiltrated graphite preform) / Chemical-Vapor-Deposited (CVD-SiC, σf 600 / Tmax 1500°C, semicon-grade).",
+  "price_per_kg": 35,
+  "delivered_price_per_kg": 52.5,
   "_corrections": {
     "sources": {
       "from": [

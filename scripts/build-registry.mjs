@@ -102,14 +102,50 @@ try {
   const keptPerBase = {};
   for (const m of all) { const b = bo(m.name); if (rmBases.has(b)) continue; if (!rmHT.has((m.heat_treatment || '').toLowerCase().trim())) keptPerBase[b] = (keptPerBase[b] || 0) + 1; }
   const keep = [];
+  const dropped = [];   // AUD Q03 — 제거 원장용 (사유 분류와 함께)
   for (const m of all) {
     const b = bo(m.name); const ht = (m.heat_treatment || '').toLowerCase().trim();
-    if (rmIds.has(m.stable_id)) { removed++; continue; }                           // 특정 ID 제거 (중복 조건)
-    if (rmBases.has(b)) { removed++; continue; }                                   // dup base 전체 제거
-    if (rmHT.has(ht) && (keptPerBase[b] || 0) >= 1) { removed++; continue; }        // 합성 조건 제거 (실조건 남는 경우만)
+    if (rmIds.has(m.stable_id)) { removed++; dropped.push([m, 'id']); continue; }                           // 특정 ID 제거 (중복 조건)
+    if (rmBases.has(b)) { removed++; dropped.push([m, 'base']); continue; }                                   // dup base 전체 제거
+    if (rmHT.has(ht) && (keptPerBase[b] || 0) >= 1) { removed++; dropped.push([m, 'synthetic_condition']); continue; }        // 합성 조건 제거 (실조건 남는 경우만)
     keep.push(m);
   }
   all.length = 0; all.push(...keep);
+  /* AUD Q03 (2026-09-22) — 제거 원장(구조화). 감사: "삭제된 31개 ID 와 함께 superseded_by·변경 이유·이전 조건·데이터 버전을 기록".
+     자동 도출: superseded_by = 같은 base(— 앞)의 살아남은 entry 중 σy·UTS 가 같은 것(중복 제거) → 없으면 같은 base 의 대표(가장 가까운 σy).
+     사유 서술은 data/corrections/remove.json 의 `reasons`(stable_id 키, 선택)에서, 없으면 분류 코드만. 산출: data/registry/removed.json (커밋). */
+  {
+    const reasons = rm.reasons || {};
+    const byBase = {};
+    for (const m of all) { const b = bo(m.name); (byBase[b] = byBase[b] || []).push(m); }
+    const typ = (m, k) => { const r = m.ranges?.[k]; const v = r?.typical ?? m[k]; return (typeof v === 'number' && isFinite(v)) ? v : null; };
+    const ledger = dropped.map(([m, kind]) => {
+      const b = bo(m.name);
+      const cands = byBase[b] || [];
+      const R0 = reasons[m.stable_id] || {};
+      let sup = R0.superseded_by ? (all.find(c => c.stable_id === R0.superseded_by) || null) : null;   // 원장에 명시된 대체 entry 우선
+      let supHow = sup ? 'declared in remove.json reasons' : null;
+      if (!sup) { sup = cands.find(c => typ(c, 'yield_strength') === typ(m, 'yield_strength') && typ(c, 'uts') === typ(m, 'uts')) || null; supHow = sup ? 'same-base same σy/UTS (duplicate)' : null; }
+      if (!sup && cands.length) {
+        const sy = typ(m, 'yield_strength');
+        sup = sy == null ? cands[0] : cands.slice().sort((x, y) => Math.abs((typ(x, 'yield_strength') ?? 0) - sy) - Math.abs((typ(y, 'yield_strength') ?? 0) - sy))[0];
+        supHow = 'same-base representative (nearest σy) — 값이 다르므로 대체가 아니라 참조';
+      }
+      const R = reasons[m.stable_id] || {};
+      return {
+        stable_id: m.stable_id, legacy_id: m.id, name: m.name, category: m.category, subcategory: m.subcategory,
+        heat_treatment: m.heat_treatment ?? null, process: m.process ?? null,
+        values: { yield_strength: typ(m, 'yield_strength'), uts: typ(m, 'uts'), elongation: typ(m, 'elongation') },
+        removal_kind: kind,   // id | base | synthetic_condition
+        reason: R.reason || ({ id: '개별 제거(remove.json ids — _ids_note 참조)', base: 'base 전체 제거(remove.json bases — 열등 복제)', synthetic_condition: '합성 조건 제거(remove.json heatTreatments — 실조건이 남는 base 만)' }[kind]),
+        removed_on: R.date || null, ref: R.ref || null,
+        superseded_by: sup ? sup.stable_id : null, superseded_by_legacy_id: sup ? sup.id : null, superseded_by_name: sup ? sup.name : null, superseded_how: supHow,
+      };
+    }).sort((a, b) => a.stable_id.localeCompare(b.stable_id));
+    fs.mkdirSync(OUT, { recursive: true });
+    fs.writeFileSync(path.join(OUT, 'removed.json'), JSON.stringify({ _note: 'AUD Q03 — 배포에서 제거된 entry 원장 (build-registry 자동 생성; 사유 서술은 data/corrections/remove.json reasons). stable_id 는 예약(재사용 없음). superseded_by 는 같은 base 의 살아남은 entry — superseded_how 가 "duplicate" 일 때만 동일 값 대체, 그 외는 참조.', count: ledger.length, generated: new Date().toISOString().slice(0, 10), removed: ledger }, null, 1) + '\n');
+    console.log(`제거 원장(Q03): data/registry/removed.json — ${ledger.length} entries (superseded 확정 ${ledger.filter(x => x.superseded_how && x.superseded_how.startsWith('same-base same')).length})`);
+  }
 } catch (e) { console.log('⚠ remove 설정 로드 실패:', e.message); }
 
 // 3) family tree 구성

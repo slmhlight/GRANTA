@@ -133,6 +133,15 @@
       "n": 0,
       "estimated": true,
       "confidence": "derived"
+    },
+    "delivered_price_per_kg": {
+      "min": 50,
+      "max": 50,
+      "typical": 50,
+      "n": 0,
+      "estimated": true,
+      "confidence": "derived",
+      "provenance": "raw 50 × condition 1 × form 1 × grade 1 = 50 USD/kg"
     }
   },
   "composition": {
@@ -237,6 +246,9 @@
     }
   ],
   "elevated_temp_src": "Victrex·Solvay·Celanese·Arkema·SABIC·BASF·Stratasys datasheet 측정값",
+  "price_per_kg": 50,
+  "delivered_price_per_kg": 50,
+  "total_cost_estimate": 115,
   "_corrections": {
     "sources": {
       "from": [

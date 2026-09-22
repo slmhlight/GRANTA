@@ -1742,6 +1742,11 @@ export const TERM_CHAPTERS: Record<string, TermChapterRef[]> = {
       "ch": "ch7",
       "chapterN": 1,
       "chapterLabel": "실전 사례 16선"
+    },
+    {
+      "ch": "ch15",
+      "chapterN": 14,
+      "chapterLabel": "재료 family 기본론 (Steel · Al · Ti · Ni · Cu + MMPDS basis + KS grades)"
     }
   ],
   "precipitation-hardening": [
