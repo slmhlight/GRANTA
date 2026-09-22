@@ -119,6 +119,7 @@
       "base_value": 28,
       "factor": 0.8,
       "condition": "cold worked",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:cold worked (k×0.8)"
     },
     "electrical_conductivity": {
@@ -294,7 +295,8 @@
   "delivered_price_per_kg": 1.7,
   "total_cost_estimate": 3.39,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "high",
   "industry_note": "고탄소 스프링·날붙이 강 — 판스프링·톱날·칼. 담금질로 HRC 60 대를 내지만 경화능이 얕아 두꺼운 단면은 속까지 굳지 않는다.",
   "_corrections": {

@@ -83,7 +83,7 @@
       "n": 1,
       "estimated": false,
       "confidence": "handbook",
-      "provenance": "handbook:verified range override"
+      "provenance": "handbook:verified range override — R173 — PPS GF40 (Celanese Fortron 1140L4, Solvay Ryton R-4) HDT (1.8 MPa) 270°C, max use 220-240°C continuous. 이전 Tmax 100 은 polypropylene 수준 — PPS 는 high-T engineering polymer."
     },
     "thermal_expansion": {
       "min": 40,
@@ -361,7 +361,8 @@
   "min_wall_thickness": 0.8,
   "surface_finish_typical": 1.6,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "high",
   "_corrections": {
     "sources": {

@@ -53,6 +53,7 @@ import { usePageMeta } from '@/lib/page-meta';   // AUD R13
 type Collection = { name: string; ids: string[]; filters?: Partial<FilterState>; preset?: { key: string; label: string }; viewMode?: 'table' | 'cards' | 'ashby'; createdAt?: number };
 import { saveExplorerState } from '@/lib/explorer-return';   // AUD R15
 import { RemovedIdNotice } from '@/components/RemovedIdNotice';   // AUD Q03 — 제거된 ID 딥링크 안내
+import { PartialDataNotice } from '@/components/PartialDataNotice';   // AUD-3 D02 — 범위 검색의 로딩 상태 고지
 type CollectionSort = 'recent' | 'name' | 'size';
 
 const ChartLoader = () => <div className="flex items-center justify-center h-96">Loading chart...</div>;
@@ -65,7 +66,7 @@ export default function Home() {
   usePageMeta(null, '적층제조·구조재료 데이터베이스 — 1,000+ 재료 레코드의 범위 물성·인용 데이터시트, Ashby 차트, 비교, 설계 사례.');   // AUD R13
   /* R154 — useMaterialPool: index.json (slim) 즉시 + 4 카테고리 백그라운드 prefetch.
      첫 페인트 8.15 MB → 670 KB (12배 감소). */
-  const { materials, loading, error, ensureCategory, ensureAll } = useMaterialPool();
+  const { materials, loading, error, ensureCategory, ensureAll, allLoaded, failedCategories } = useMaterialPool();
   /** wouter's search string — re-firing the scenario-apply effect when ScenarioSheet navigates
    *  to /?p=... while Home is already mounted (the empty-dep effect missed in-route URL changes). */
   const search = useSearch();
@@ -270,9 +271,10 @@ export default function Home() {
   // R154 — Data load 는 useMaterialPool 이 담당. 별도 effect 불필요.
   /* R08(2026-09-22) — 샤드 전용 필드를 읽는 필터/정렬이 켜지면 전 샤드를 즉시 요청(선제 로딩을 늦춘 대가).
      이미 로드됐으면 no-op. */
+  const needsFullData = filterNeedsFullData(filters, sortKey as string);   // AUD-3 D02 — 고지에도 쓴다
   useEffect(() => {
-    if (filterNeedsFullData(filters, sortKey as string)) ensureAll().catch(() => { /* non-fatal — slim 유지 */ });
-  }, [filters, sortKey, ensureAll]);
+    if (needsFullData) ensureAll().catch(() => { /* non-fatal — slim 유지 */ });
+  }, [needsFullData, ensureAll]);
 
   // saved collections persist in localStorage
   useEffect(() => {
@@ -750,6 +752,11 @@ export default function Home() {
         backupFileRef={backupFileRef}
         importAllState={importAllState}
       />
+
+      {/* AUD-3 D02 — 범위를 읽는 검색인데 전 샤드가 아직 없다: 결과를 확정으로 보여 주지 않는다 */}
+      {needsFullData && !allLoaded && (
+        <PartialDataNotice failed={failedCategories} onRetry={() => { ensureAll().catch(() => { /* 실패는 배너가 다시 표시 */ }); }} />
+      )}
 
       {/* AUD Q03 — 제거된 ID 딥링크 안내 (사유·날짜·대체 entry) */}
       {removedNoticeId && (

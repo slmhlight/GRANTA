@@ -124,6 +124,7 @@
       "base_value": 30,
       "factor": 0.95,
       "condition": "T8 CW + aged",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:T8 CW + aged (k×0.95)"
     },
     "electrical_conductivity": {
@@ -307,7 +308,8 @@
   "delivered_price_per_kg": 25.8,
   "total_cost_estimate": 49.02,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "high",
   "_corrections": {
     "hardness": {

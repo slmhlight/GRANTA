@@ -79,7 +79,7 @@
       "typical": 420,
       "n": 0,
       "confidence": "handbook",
-      "provenance": "alloy:tungsten × HT:Q+T high-temper (softer) (f×0.78, i×1.5)",
+      "provenance": "handbook:hand-verified override — AISI H21 (Hot-Work W tool steel) Q+T — σf ~420 (UTS 1620, ratio 0.26 mid). CSV의 84/218 mock 정정.",
       "estimated": false
     },
     "impact_strength": {
@@ -110,6 +110,7 @@
       "base_value": 8,
       "factor": 1.3,
       "condition": "Q+T high-temper (softer)",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:Q+T high-temper (softer) (k×1.3)"
     },
     "electrical_conductivity": {
@@ -278,7 +279,8 @@
   "delivered_price_per_kg": 90.41,
   "total_cost_estimate": 180.81,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "medium",
   "_corrections": {
     "sources": {

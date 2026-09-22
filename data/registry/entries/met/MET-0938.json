@@ -121,6 +121,7 @@
       "base_value": 76,
       "factor": 0.95,
       "condition": "as-built",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:as-built (k×0.95)"
     },
     "electrical_conductivity": {
@@ -361,7 +362,8 @@
   "min_wall_thickness": 0.4,
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "high",
   "_corrections": {
     "subcategory": {

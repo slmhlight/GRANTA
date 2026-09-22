@@ -144,6 +144,7 @@ export function RangeRow({
      실측 19건이 여기 해당하고, 계열 폴백에 handbook 이 붙어 있던 80건은 빌드에서 이미 등급을 맞췄다. */
   const isEstimated = !!(range as { estimated?: boolean })?.estimated && (conf === 'measured' || conf === 'handbook');
   const isSpecFloor = (range as { basis?: string })?.basis === 'min_spec';
+  const isNearMin = !!(range as { near_min_spec?: boolean })?.near_min_spec;
   /* 인용은 두 경로로 들어온다: min-spec 표 매칭은 basis_source(규격명), 교정 경로는
      provenance("교정: AMS 5662 RT 최소 …"). 둘 중 있는 것을 쓴다 — 인용 없는 floor 는 없어야 한다. */
   const specFloorSrc = (range as { basis_source?: string })?.basis_source ?? prov;
@@ -223,13 +224,22 @@ Real material is usually higher. Do not compare it directly with typical rows �
             spec min
           </span>
         )}
-        {/* R139b — min spec (vendor 보증) vs typical (ASM) 차이 표시 */}
-        {minSpec != null && typeof typical === 'number' && Math.abs(minSpec - typical) > typical * 0.15 && (
+        {/* R139b + AUD-3 D04 — 인용 규격의 최소값을 **별도 축**으로 병기한다(표시값의 성격을 바꾸지 않는다).
+            표시값이 그 최소값과 거의 같으면(±2%, near_min_spec) "대표값인지 하한인지 출처 확인" 이라고 밝힌다 —
+            예전에는 이 근접만 보고 basis='min_spec'(=이 값이 곧 보증 최소)으로 단정했다. */}
+        {minSpec != null && typeof typical === 'number' && (
           <span
-            className="ml-1 text-[10px] text-amber-600 font-medium"
-            title={`Typical: ${fmt(disp(typical))} ${dispUnit} (${en ? 'ASM/Granta average' : 'ASM/Granta 평균'})\nMin spec: ${fmt(disp(minSpec))} ${dispUnit}${minSpecSrc ? ` (${minSpecSrc})` : ''}\n\n${en ? 'Recommendation: use the min spec for safety-critical design.' : '사용자 의사결정 권장: 안전 임계 시 min spec 사용.'}`}
+            className={`ml-1 text-[10px] font-medium ${isNearMin ? 'text-amber-700' : 'text-muted-foreground'}`}
+            data-testid="min-spec-value"
+            title={`${en ? 'Displayed value' : '표시값'}: ${fmt(disp(typical))} ${dispUnit}\n${en ? 'Specification minimum' : '규격 최소값'}: ${fmt(disp(minSpec))} ${dispUnit}${minSpecSrc ? ` (${minSpecSrc})` : ''}\n\n${isNearMin
+              ? (en
+                ? 'The displayed value is within 2% of the cited minimum — it may be the specification floor rather than a typical value. Check the source for product form, thickness, heat treatment and test direction.'
+                : '표시값이 인용 규격의 최소값과 2% 이내입니다 — 대표값이 아니라 규격 하한일 수 있습니다. 제품 형태·두께·열처리·시험 방향을 출처에서 확인하세요.')
+              : (en
+                ? 'Typical value shown; the standard guarantees at least the minimum. Use the minimum for safety-critical design.'
+                : '표시값은 대표값이고, 규격이 보증하는 것은 최소값입니다. 안전 임계 설계에는 최소값을 쓰세요.')}`}
           >
-            min={fmt(disp(minSpec))}
+            {en ? 'spec min' : '규격최소'} {fmt(disp(minSpec))}{isNearMin ? ' ≈' : ''}
           </span>
         )}
         {hasRange && range && (

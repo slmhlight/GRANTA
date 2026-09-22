@@ -32,11 +32,12 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 790,
-      "max": 790,
-      "typical": 790,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 795,
+      "typical": 795,
+      "max": 795,
+      "confidence": "handbook",
+      "provenance": "교정: ASTM F136 (Ti-6Al-4V ELI, 수술용 임플란트) — UTS ≥ 860 MPa(125 ksi) · YS(0.2% offset) ≥ 795 MPa(115 ksi) · 연신 ≥ 10%; Carpenter Ti-6Al-4V ELI 데이터시트 동일",
+      "basis": "min_spec"
     },
     "uts": {
       "min": 860,
@@ -228,7 +229,7 @@
   "points": [
     [
       4.43,
-      790,
+      795,
       860,
       15,
       113.8,
@@ -266,7 +267,7 @@
   "fracture_toughness": 75,
   "fatigue_strength": 525,
   "density": 4.43,
-  "yield_strength": 790,
+  "yield_strength": 795,
   "uts": 860,
   "elongation": 15,
   "modulus": 113.8,
@@ -338,7 +339,8 @@
   "delivered_price_per_kg": 39.32,
   "total_cost_estimate": 125.83,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "creep_rupture": [
     {
       "temp": 450,
@@ -360,6 +362,33 @@
   "_corrections": {
     "subcategory": {
       "from": "Titanium - Pure / CP Grades"
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 790,
+        "max": 790,
+        "typical": 790,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 790
+    },
+    "_basis": "AUD-3 D04(2026-09-22): 이름이 ASTM F136/AMS 4907 을 인용하는 규격 하한 행인데 σy 790 은 표의 최소값 795 MPa(115 ksi)와 어긋났다(반올림으로도 설명되지 않음 — 115 ksi = 792.9, 규격 표기는 795). 규격을 인용한 값은 규격 숫자를 쓴다.",
+    "_src": "ASTM F136 (Ti-6Al-4V ELI, 수술용 임플란트) — UTS ≥ 860 MPa(125 ksi) · YS(0.2% offset) ≥ 795 MPa(115 ksi) · 연신 ≥ 10%; Carpenter Ti-6Al-4V ELI 데이터시트 동일",
+    "points": {
+      "from": [
+        [
+          4.43,
+          790,
+          860,
+          15,
+          113.8,
+          341,
+          6.7
+        ]
+      ]
     }
   }
 }

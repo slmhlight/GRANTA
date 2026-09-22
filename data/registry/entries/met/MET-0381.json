@@ -112,6 +112,7 @@
       "base_value": 70,
       "factor": 1.8,
       "condition": "TB00 solution annealed",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:TB00 solution annealed (k×1.8)"
     },
     "electrical_conductivity": {
@@ -303,7 +304,8 @@
   "delivered_price_per_kg": 99.75,
   "total_cost_estimate": 189.52,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "elevated_temp": [
     {
       "temp": 25,
@@ -422,7 +424,7 @@
         "typical": 380,
         "n": 0,
         "confidence": "handbook",
-        "provenance": "alloy:c17200 × HT:TB00 solution annealed (f×0.35, i×3.5)",
+        "provenance": "handbook:Materion datasheet",
         "estimated": false
       },
       "had_scalar": true,

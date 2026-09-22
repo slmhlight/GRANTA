@@ -124,6 +124,7 @@
       "base_value": 55,
       "factor": 1.05,
       "condition": "strain-hardened (fallback)",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:strain-hardened (fallback) (k×1.05)"
     },
     "electrical_conductivity": {
@@ -298,7 +299,8 @@
   "delivered_price_per_kg": 2.61,
   "total_cost_estimate": 4.96,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "high",
   "industry_note": "UNS A91100 / EN AW-1100 / Al99.0Cu / DIN 3.0205 — Commercial-Purity (CP) Al 99.0% (vs 1050 의 99.5%). Non-heat-treatable, R173 fake-variant 제거. O temper: σy 35 / UTS 90 / El 35%. H14 (1/4 hard CW): σy 105 / UTS 124 / El 9%. H18 (full hard): σy 152 / UTS 165 / El 5%. IACS 59% (가장 흔한 architectural conductor). 화학 plant tank lining, 식품 contact, decorative trim, household kitchenware (foil, pot). 가공 매우 easy (annealed). (handbook H14 σy 105).",
   "_corrections": {

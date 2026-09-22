@@ -87,7 +87,10 @@ export interface Material {
   tolerance_class?: string | null;
   /** R16: RoHS 통과 여부. composition 에서 Pb < 0.1% / Cd < 0.01% / Hg < 0.1% / Cr⁶⁺ < 0.1% /
    *  PBB·PBDE < 0.1% 검출. 합금에서 Cr 은 통상 Cr³⁺/0가 — Cr⁶⁺는 도금/표면처리 단계 위험. */
+  /** RoHS(Pb·Cd·Hg 한계) 판정 — true=기재된 값이 한계 이내 · false=초과 · null=자료 부족(조성에 세 원소 기재 없음). AUD-3 D05. */
   rohs_compliant?: boolean | null;
+  /** AUD-3 D05 — 판정 근거: declared_within_limits | declared_exceeds | no_regulated_element_data | no_composition. */
+  rohs_basis?: 'declared_within_limits' | 'declared_exceeds' | 'no_regulated_element_data' | 'no_composition';
   /** R16: REACH SVHC / EU 규제 우려 항목 목록. 합금에 Pb/Cd/Be/Co/Ni-allergen 등 있으면 노출. */
   svhc_concerns?: string[];
   popularity?: number | null; // 0–5, 산업 사용 빈도 휴리스틱 (5 = 가장 흔히 쓰이는 표준 합금)
@@ -219,6 +222,8 @@ export interface PropertyRange {
    * 어떤 행은 하한이 되어 재료 간 비교가 성립하지 않는다.
    */
   basis?: 'min_spec';
+  /** AUD-3 D04 — 표시값이 인용 규격의 최소값 ±2% 안. "대표값인지 하한인지 출처 확인 대상" 이라는 표시일 뿐, 하한 선언이 아니다. */
+  near_min_spec?: boolean;
   /** E4 — basis 의 근거 규격 (예: "ASTM A240/A240M", "EN 10025-2"). min-spec 표의 std. */
   basis_source?: string;
 }
@@ -524,6 +529,18 @@ function flatNumber(m: Material, key: string): number | null {
 }
 
 /** 물성 대표값 — ranges.typical 우선, 없으면 top-level 평면값. */
+/* AUD-3 D03 (2026-09-22) — 경도 값의 척도. 환산표(ASTM E140) 밖이라 HV 로 바꾸지 않고 원 스케일로 남긴 값이 있다
+ * (알루미늄·Ti 등 20 entry, HB). 숫자만 읽는 소비자(CSV·수치 검색·Ashby 축)가 HV 와 섞지 않도록 한 곳에서 읽는다.
+ * slim 인덱스에는 `hardness_scale`(HV 가 아닐 때만), 샤드에는 `ranges.hardness.scale` 로 실린다. */
+export function hardnessScale(m: Material): string {
+  const r = (m.ranges as Record<string, { scale?: string } | undefined> | undefined)?.hardness;
+  return r?.scale || (m as { hardness_scale?: string }).hardness_scale || 'HV';
+}
+/** 물성 값이 HV 축에서 비교 가능한가 — 경도만 척도를 따지고, 나머지는 항상 true. */
+export function comparableOnHV(m: Material, key: string): boolean {
+  return key !== 'hardness' || hardnessScale(m) === 'HV';
+}
+
 export function propValue(m: Material, key: string): number | null {
   const t = m.ranges?.[key]?.typical;
   return (typeof t === 'number' && isFinite(t)) ? t : flatNumber(m, key);

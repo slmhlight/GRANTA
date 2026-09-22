@@ -79,7 +79,7 @@
       "typical": 300,
       "n": 0,
       "confidence": "handbook",
-      "provenance": "alloy:6150 × HT:fully annealed (f×0.5, i×2.5)",
+      "provenance": "handbook:SAE J404",
       "estimated": false
     },
     "impact_strength": {
@@ -110,6 +110,7 @@
       "base_value": 80,
       "factor": 1.8,
       "condition": "fully annealed",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:fully annealed (k×1.8)"
     },
     "electrical_conductivity": {
@@ -290,7 +291,8 @@
   "delivered_price_per_kg": 3.9,
   "total_cost_estimate": 7.41,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "medium",
   "_corrections": {
     "sources": {

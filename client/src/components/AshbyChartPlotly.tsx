@@ -9,7 +9,7 @@ import Plot from '@/lib/plotly-scatter'; // R210 B9 — scatter-only 번들 (전
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Slider } from '@/components/ui/slider';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { Material, ALL_NUMERIC_PROPERTIES, CATEGORY_COLORS, propValue, propBound } from '@/lib/materials';
+import { Material, ALL_NUMERIC_PROPERTIES, CATEGORY_COLORS, propValue, propBound, comparableOnHV } from '@/lib/materials';
 import { classOf } from '@/lib/material-colors';
 import { useUnitSystem } from '@/lib/unit-context';   // AUD F01
 import { toast } from 'sonner';
@@ -279,7 +279,9 @@ export function AshbyChartPlotly({ materials, filteredMaterials, filters, onMate
   const { data, layout, indexInfo, selectedIds, paretoInfo, srSummary } = useMemo(() => {
     const inGroup = (m: Material) => groupFilter === 'all' || classOf(m).key === groupFilter;
     const inSub = (m: Material) => subFilter === 'all' || m.subcategory === subFilter;
-    const valid = (m: Material) => (tv(m, xProperty) ?? 0) > 0 && (tv(m, yProperty) ?? 0) > 0;
+    /* AUD-3 D03 — 경도 축은 HV 축이다. 환산표 밖이라 원 스케일(HB)로 남긴 값은 같은 축에 찍지 않는다(척도가 다른 값을 한 축에 섞지 않는다). */
+    const valid = (m: Material) => (tv(m, xProperty) ?? 0) > 0 && (tv(m, yProperty) ?? 0) > 0
+      && comparableOnHV(m, xProperty) && comparableOnHV(m, yProperty);
     const inLim = (m: Material) => (!xLimit || (tv(m, xProperty)! >= xLimit[0] && tv(m, xProperty)! <= xLimit[1]))
       && (!yLimit || (tv(m, yProperty)! >= yLimit[0] && tv(m, yProperty)! <= yLimit[1]));
     // R88 — X/Y range slider 를 hard filter (AND) 로 적용. 이전엔 'selection window' 였으나 사이드바 family

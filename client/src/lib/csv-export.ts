@@ -8,7 +8,7 @@
  */
 
 import type { Material } from './materials';
-import { propValue } from './materials';
+import { propValue, hardnessScale } from './materials';
 import { convertToImperial, unitLabel, type UnitSystem } from './unit-convert';
 
 /**
@@ -30,8 +30,12 @@ export const CSV_NUMERIC_COLUMNS: ReadonlyArray<{ key: string; label: string }> 
   { key: 'uts', label: 'UTS' },
   { key: 'elongation', label: 'Elongation' },
   { key: 'modulus', label: 'Modulus' },
+  /* AUD-3 D03 (2026-09-22) — 경도는 헤더가 'Hardness (HV)' 로 고정돼 있어, 환산표 밖이라 원 스케일로 남긴 HB 값 20 건이
+     HV 열에 그대로 들어갔다(AA 1050 소둔 22 HB → 22 HV). 값 열의 단위 표기를 빼고 바로 옆에 척도 열을 둔다. */
   { key: 'hardness', label: 'Hardness' },
 ];
+/** 경도 값 열 바로 뒤에 붙는 척도 열 — 값과 척도를 함께 읽게 한다. */
+const HARDNESS_SCALE_COLUMN = 'Hardness Scale';
 
 const COMPOSITION_ELEMENTS = ['C', 'O', 'Fe', 'Cr', 'Ni', 'Mo', 'Mn', 'Si', 'Cu', 'Al', 'Ti', 'V', 'Co', 'W', 'Nb', 'N', 'P', 'S', 'Mg', 'Zn', 'Sn', 'Be', 'Ta', 'La', 'Ce'];
 
@@ -46,11 +50,16 @@ export interface CSVOptions {
 export function generateCSVHeader(sys: UnitSystem = 'si'): string {
   const headers = [
     'Material Name',
+    /* AUD-3 Q03 — 같은 이름의 다른 조건·다른 배포를 구분할 수 있도록 ID 를 함께 내보낸다. */
+    'ID',
+    'Stable ID',
     'Subcategory',
     'Category',
     'Process',
     'Manufacturer',
-    ...CSV_NUMERIC_COLUMNS.map(({ key, label }) => `${label} (${unitLabel(key, sys)})`),
+    ...CSV_NUMERIC_COLUMNS.flatMap(({ key, label }) => (key === 'hardness'
+      ? ['Hardness', HARDNESS_SCALE_COLUMN]                 // 단위는 행마다 다르다 → 별도 열
+      : [`${label} (${unitLabel(key, sys)})`])),
     ...COMPOSITION_ELEMENTS,
   ];
   return headers.map(escapeCSVField).join(',');
@@ -93,11 +102,15 @@ function materialToCSVRow(m: Material, sys: UnitSystem): string {
 
   const row: unknown[] = [
     m.name,
+    m.id,
+    (m as { stable_id?: string }).stable_id ?? '',
     m.subcategory,
     m.category,
     m.process,
     m.manufacturer,
-    ...CSV_NUMERIC_COLUMNS.map(({ key }) => csvNumber(m, key, sys)),
+    ...CSV_NUMERIC_COLUMNS.flatMap(({ key }) => (key === 'hardness'
+      ? [csvNumber(m, key, sys), hardnessScale(m)]
+      : [csvNumber(m, key, sys)])),
     ...COMPOSITION_ELEMENTS.map(getCompositionValue),
   ];
   return row.map(escapeCSVField).join(',');

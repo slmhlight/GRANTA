@@ -177,8 +177,9 @@ export function applyBaseFilters(materials: Material[], filters: FilterState): M
   if (filters.corrosionEnvMin && Object.keys(filters.corrosionEnvMin).length) result = result.filter(m => passesCorrosionEnv(m, filters.corrosionEnvMin));
   // E15l — 고온 데이터 보유 (승온 곡선 또는 크리프 파단 곡선)
   if (filters.hasElevatedData) result = result.filter(m => (m.elevated_temp && m.elevated_temp.length > 0) || (m.creep_rupture && m.creep_rupture.length > 0));
-  // R16: RoHS toggle — false (default) 면 통과, true 면 rohs_compliant === false 만 제외 (null/true 유지).
-  if (filters.rohsOnly) result = result.filter(m => m.rohs_compliant !== false);
+  /* R16 → AUD-3 D05 (2026-09-22): "RoHS 통과만" 이 자료 부족(null)까지 통과시켰다 — 미확인을 적합으로 보여 준 셈이다.
+     이제 **확인된 적합(true)만** 남긴다. true 는 조성에 Pb/Cd/Hg 가 기재돼 한계 이내임을 확인한 경우다. */
+  if (filters.rohsOnly) result = result.filter(m => m.rohs_compliant === true);
   // R38e: 열처리 다중 선택 — m.heat_treatment 가 선택된 라벨 중 하나로 시작 or 포함 일 때 통과.
   //   현실적이지 않은 조합 (예: SLM 합금 + 단조 후 어닐링) 은 데이터에 없는 시점에서 자동 배제.
   if (filters.heatTreatments && filters.heatTreatments.length) {

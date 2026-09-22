@@ -92,7 +92,10 @@ export const TRANSLATIONS: Record<string, Record<Lang, string>> = {
   'filter.corrosion': { ko: '내식성 (Corrosion resistance)', en: 'Corrosion resistance' },
   'filter.machinability': { ko: '가공성 (Machinability)', en: 'Machinability' },
   'filter.weldability': { ko: '용접성 (Weldability)', en: 'Weldability' },
-  'filter.rohsOnly': { ko: 'RoHS 통과만 (EU 규제)', en: 'RoHS compliant only' },
+  'filter.rohsOnly': { ko: 'RoHS 확인 적합만 (Pb·Cd·Hg 기재)', en: 'RoHS: confirmed only (Pb·Cd·Hg declared)' },
+  'filter.rohsOnly.help': { ko: '조성에 Pb·Cd·Hg 가 기재되고 한계 이내인 재료만. 세 원소가 기재되지 않은 재료는 “자료 부족”이라 제외됩니다 — 부적합이라는 뜻이 아닙니다.', en: 'Only materials whose composition declares Pb·Cd·Hg within the limits. Materials that do not declare them are excluded as “no data” — that does not mean non-compliant.' },
+  'detail.regulated.rohsUnknown': { ko: 'RoHS 자료 부족', en: 'RoHS: no data' },
+  'detail.regulated.unknownNote': { ko: '이 재료의 조성표에 Pb·Cd·Hg 기재가 없어 적합 여부를 판정하지 않았습니다(0 과 미기재를 구분할 수 없습니다). RoHS 적합은 균질재료 기준 제한물질·제품 적용범위·면제까지 포함하므로 제조사 선언·시험 성적서로 확인하세요.', en: 'This material’s composition does not declare Pb·Cd·Hg, so compliance is not judged here (we cannot tell “0” from “not reported”). RoHS compliance covers homogeneous-material limits, product scope and exemptions — confirm with the supplier declaration or test report.' },
 
   // Compare panel
   'compare.title': { ko: '재료 비교', en: 'Material Comparison' },

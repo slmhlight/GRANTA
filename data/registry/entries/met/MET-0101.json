@@ -124,6 +124,7 @@
       "base_value": 22,
       "factor": 1.35,
       "condition": "T4 solution + naturally aged",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:T4 solution + naturally aged (k×1.35)"
     },
     "electrical_conductivity": {
@@ -306,7 +307,8 @@
   "delivered_price_per_kg": 4.96,
   "total_cost_estimate": 8.93,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "high",
   "_corrections": {
     "aliases": {

@@ -83,7 +83,7 @@
       "n": 1,
       "estimated": false,
       "confidence": "handbook",
-      "provenance": "handbook:verified range override"
+      "provenance": "handbook:verified range override — R173 — PEKK max use 250-260°C continuous (Tg 162°C, Tm 305-360°C). 이전 Tmax 90 은 명백한 오류 — PEEK 와 동등 high-T polymer."
     },
     "thermal_expansion": {
       "min": 40,
@@ -248,6 +248,7 @@
   "min_wall_thickness": 0.8,
   "surface_finish_typical": 1.6,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "high"
 }

@@ -119,6 +119,7 @@
       "base_value": 80,
       "factor": 0.65,
       "condition": "Q+T 200°C (full hard)",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:Q+T 200°C (full hard) (k×0.65)"
     },
     "electrical_conductivity": {
@@ -315,7 +316,8 @@
   "delivered_price_per_kg": 3.76,
   "total_cost_estimate": 7.9,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "medium",
   "_corrections": {
     "max_service_temp": {

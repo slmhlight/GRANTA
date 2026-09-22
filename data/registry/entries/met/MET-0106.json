@@ -124,6 +124,7 @@
       "base_value": 25,
       "factor": 2,
       "condition": "O (annealed soft, fallback derived from T6)",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:O (annealed soft, fallback derived from T6) (k×2)"
     },
     "electrical_conductivity": {
@@ -312,7 +313,8 @@
   "delivered_price_per_kg": 5.62,
   "total_cost_estimate": 10.12,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "high",
   "_corrections": {
     "aliases": {

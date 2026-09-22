@@ -110,6 +110,7 @@
       "base_value": 80,
       "factor": 0.8,
       "condition": "cold worked",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:cold worked (k×0.8)"
     },
     "electrical_conductivity": {
@@ -298,7 +299,8 @@
   "delivered_price_per_kg": 3.4,
   "total_cost_estimate": 6.46,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "high",
   "industry_note": "UNS S43000 / EN 1.4016 / X6Cr17 / JIS SUS430 — ferritic stainless (Cr 16-18, C ≤ 0.12). Cold-worked (H/H2): σy 275-400. Tmax 815°C continuous (oxidation), 870°C intermittent. Automotive trim, kitchen appliance, dishwasher interior, deep-drawing (가공성은 304보다 우수).",
   "_corrections": {

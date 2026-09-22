@@ -359,14 +359,18 @@ try {
     //     이야기를 하지 않도록 typical 단일행으로 재생성. ch.points 추적 → round-trip 무손실.
     if (!ch.points && Array.isArray(r.points) && r.points.length && r.ranges) {
       const PO = ['density', 'yield_strength', 'uts', 'elongation', 'modulus', 'hardness', 'thermal_conductivity'];
-      const tol = (v) => Math.max(Math.abs(v) * 0.02, 0.51);
+      /* AUD-3 D06 (2026-09-22) — 허용오차가 너무 컸다: 절대 바닥 0.51 이 밀도(7.83±0.51)를 거의 무검사로 만들고,
+         2% 상대는 4340 소둔 σy(점 540 vs 범위 415~530)를 1.9% 로 통과시켰다. 1% 상대 + 정수 반올림 바닥은 정수로 실리는
+         물성에만(밀도는 소수 2자리라 0.02). */
+      const EPS = { density: 0.02 };   // 그 외 PO 물성은 points 가 정수 → 0.5
+      const tol = (v, prop) => Math.max(Math.abs(v) * 0.01, EPS[prop] ?? 0.5);
       let stale = false;
       for (let i = 0; i < PO.length && !stale; i++) {
         const rr = r.ranges[PO[i]];
         if (!rr || rr.min == null || rr.max == null) continue;
         for (const row of r.points) {
           const v = row && row[i];
-          if (typeof v === 'number' && isFinite(v) && (v < rr.min - tol(rr.min) || v > rr.max + tol(rr.max))) { stale = true; break; }
+          if (typeof v === 'number' && isFinite(v) && (v < rr.min - tol(rr.min, PO[i]) || v > rr.max + tol(rr.max, PO[i]))) { stale = true; break; }
         }
       }
       if (stale) {

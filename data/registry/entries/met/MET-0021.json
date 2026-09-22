@@ -119,6 +119,7 @@
       "base_value": 90,
       "factor": 1.5,
       "condition": "normalized",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:normalized (k×1.5)"
     },
     "electrical_conductivity": {
@@ -320,6 +321,7 @@
   "delivered_price_per_kg": 3.41,
   "total_cost_estimate": 7.15,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "medium"
 }

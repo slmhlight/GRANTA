@@ -29,7 +29,7 @@
  *   cat:metal / cat:polymer / cat:ceramic / cat:composite → category
  *   "name fragment" 또는 그냥 (대소문자 무관) name 단어 → free-text 매칭
  */
-import { propValue, propBound, type Material } from './materials';
+import { propValue, propBound, comparableOnHV, type Material } from './materials';
 
 type Op = '>' | '<' | '>=' | '<=' | '=' | '~';
 
@@ -54,7 +54,9 @@ interface TextConstraint {
   query: string;
 }
 
-type Constraint = NumericConstraint | SpecConstraint | CategoryConstraint | TextConstraint;
+export type Constraint = NumericConstraint | SpecConstraint | CategoryConstraint | TextConstraint;
+/** AUD-3 D02 — 수치 제약 판별(NumericConstraint 는 kind 가 없다 — prop/op/value 로 구분). */
+export const isNumericConstraint = (c: Constraint): c is NumericConstraint => !('kind' in c) && typeof (c as NumericConstraint).prop === 'string';
 
 /** Property alias → canonical (ranges 키 + 단위 hint). R167 Phase B — autocomplete 가 활용. */
 export const PROP_ALIAS: Record<string, { key: string; unit?: string }> = {
@@ -284,6 +286,9 @@ export function parseQuery(input: string): ParsedQuery {
 const getNumericProp = propValue;
 
 function matchNumeric(value: number, op: Op, target: number, key: string, m: Material): boolean {
+  /* AUD-3 D03 — 경도 질의(hv/hardness)는 HV 축이다. 원 스케일(HB)로 남긴 값은 같은 축에서 비교할 수 없으므로 제외한다
+     (환산표 밖이라 환산도 금지 — 값을 만들지 않는다). */
+  if (!comparableOnHV(m, key)) return false;
   // For range-typed properties, "<" should check against MIN (most permissive) — material's minimum
   // value must be < target — vs default which uses typical.
   // We use a smarter check: any range value can satisfy the constraint.

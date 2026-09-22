@@ -79,7 +79,7 @@
       "typical": 380,
       "n": 0,
       "confidence": "handbook",
-      "provenance": "alloy:410 × HT:cold worked (f×1.15, i×0.65)",
+      "provenance": "handbook:hand-verified override — AISI 410 Q+T (martensitic stainless): σy 690 / UTS 860 / σf 380. CSV mock 정정.",
       "estimated": false
     },
     "impact_strength": {
@@ -110,6 +110,7 @@
       "base_value": 40,
       "factor": 0.8,
       "condition": "cold worked",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:cold worked (k×0.8)"
     },
     "electrical_conductivity": {
@@ -299,7 +300,8 @@
   "delivered_price_per_kg": 3.97,
   "total_cost_estimate": 7.94,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "high",
   "industry_note": "UNS S41000 / EN 1.4006 / X12Cr13 / JIS SUS410 / KS STS410 — martensitic stainless (Cr 11.5-13.5, C 0.08-0.15). 200°C T: σy 1000 / UTS 1350 / HRC 41. Tmax 600°C (over-tempering 위쪽). Cutlery, steam turbine blade, valve stem, oil/gas tubing.",
   "_corrections": {

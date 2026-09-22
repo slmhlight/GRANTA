@@ -4,6 +4,8 @@
  *
  * Hook 자체 (filter / sort / narrowedRanges 로직) 는 useMaterialFilter.ts 유지.
  */
+import { parseQuery, isNumericConstraint } from '@/lib/query-dsl';   // AUD-3 D02 — 검색식의 수치 제약 판정
+
 
 /** Filter state 모양. 각 numeric property 는 `[min, max] | null` (null = unfiltered). */
 export interface FilterState {
@@ -128,12 +130,27 @@ const SLIM_SORT_KEYS: ReadonlySet<string> = new Set([
   'density', 'yield_strength', 'uts', 'modulus', 'max_service_temp', 'price_per_kg', 'delivered_price_per_kg',
   'elongation', 'hardness', 'fatigue_strength', 'thermal_conductivity', 'thermal_expansion', 'fracture_toughness', 'impact_strength',
 ]);
+/* AUD-3 D02 (2026-09-22) — 검색식(DSL)의 수치 제약은 **범위의 상·하한**을 읽는다(`>`는 max, `<`는 min).
+ * slim 인덱스에는 대표값만 있고 cp·poisson·tmelt 같은 물성은 아예 없다 → 샤드 도착 전후로 결과가 달라졌다
+ * (실측: cp>500 0→586 · yield>500 386→402). 문자열 접두사(spec:·ht:…)만 보던 판정을 **파싱된 제약**으로 바꾼다. */
+export function queryNeedsFullData(query: string | undefined): boolean {
+  if (!query || !query.trim()) return false;
+  if (/\b(spec|comp|ht|heat|weld|corr|mach)\s*[:=]/i.test(query)) return true;
+  const parsed = parseQuery(query);
+  for (const c of parsed.constraints) {
+    // 수치 제약은 범위(min/max)를 보므로 slim 대표값으로는 같은 답을 낼 수 없다 — 물성 종류와 무관하게 전량 필요.
+    if (isNumericConstraint(c)) return true;
+    if ('kind' in c && c.kind === 'spec') return true;   // spec 은 meta.specs(샤드 전용)
+  }
+  return false;
+}
+
 export function filterNeedsFullData(f: FilterState, sortKey?: string): boolean {
   if (sortKey && !SLIM_SORT_KEYS.has(sortKey)) return true;
   if (f.compositions.length || Object.values(f.compositionRanges).some(Boolean)) return true;
   if (f.corrosion.length || f.machinability.length || f.weldability.length) return true;
   if (f.hasElevatedData || f.rohsOnly || f.heatTreatments.length || (f.specs && f.specs.length) || f.authorities.length) return true;
-  if (f.query && /\b(spec|comp|ht|heat|weld|corr|mach)\s*[:=]/i.test(f.query)) return true;
+  if (queryNeedsFullData(f.query)) return true;
   for (const [k, v] of Object.entries(f)) {
     if (k.endsWith('Range') && v && !SLIM_RANGE_KEYS.has(k)) return true;
   }

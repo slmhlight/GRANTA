@@ -132,6 +132,7 @@
       "base_value": 65,
       "factor": 1.45,
       "condition": "solution treated",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:solution treated (k×1.45)"
     },
     "electrical_conductivity": {
@@ -321,7 +322,8 @@
   "min_wall_thickness": 0.4,
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "svhc_concerns": [
     "Ni 19% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)",
     "Co 9.5% — REACH SVHC 후보 (소비자 접촉 제품 제한)"

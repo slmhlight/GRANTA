@@ -191,6 +191,11 @@ const SAN_RULES = [
   [/; R216 /g, '; '],
   [/교정: 사용자 지시 \+ /g, '교정: '],
   [/ ?\(sibling MET-\d{4}\)/g, ''],
+  /* AUD-3 D01 (2026-09-22) — override 의 근거 문장이 provenance 로 실리면서 개발 서사(CSV mock 정정·1700 mock 등)가 함께 노출된다.
+     근거(값·규격·조건)는 남기고 내부 작업 메모만 걷어낸다. */
+  [/ ?[.·]? ?CSV ?의? ?[\d/]* ?mock ?(?:peak ?값)? ?정정\.?/g, ''],
+  [/ ?[.·]? ?\d+ mock 은 [^.]*\./g, ''],
+  [/ ?[.·]? ?mock 정정\.?/g, ''],
   [/UTS 정정 후 stale 값 교체/g, 'UTS 정정 후 재산출'],
   [/ R226f: 별칭 근사\(A380≈ADC-12\)로 커버하던 것을 실엔트리로 승격\. \(주: append-only — 이 파일 중간 삽입은 legacy_id 를 밀어 fp 게이트가 차단함\.\)/g, ''],
 ];
@@ -216,25 +221,31 @@ for (const m of all) {
 }
 if (sanitized) console.log(`  내부마커 새니타이즈: ${sanitized} 필드 (라운드 ID·작업 서사 제거 — presentation, 레지스트리 불변)`);
 
-// R226h/축4a — A/B-basis 일괄 도출: min-spec 테이블(standard-min-specs.json) 매칭 entry 의
-//   typical 이 spec-min ±2% 이면 ranges[p].basis='min_spec' (R139b 필드; "표준 최소 보증값"임을 명시 — presentation).
+/* 축4a → AUD-3 D04 (2026-09-22) — **수치 근접으로 근거의 종류를 바꾸지 않는다.**
+ *
+ * 이전: min-spec 표에 걸린 entry 의 typical 이 표의 minimum ±2% 이면 `basis='min_spec'` 을 찍어 화면이
+ * "이 값은 평균이 아니라 규격 보증 최소값" 이라고 단언했다. 그러나 그 조건에는 원문이 그 값을 최소값으로 지정했는지,
+ * 제품 형태·두께·열처리·시험 방향이 규격과 같은지에 대한 근거가 없다(감사 D04: 101 필드, 그중 8 은 표 최소값과도 다름).
+ *
+ * 지금: 규격 최소값은 **별도 축**(min_spec_value·min_spec_source — R139b 와 같은 필드)에 싣는다. 값 자체의 성격을 바꾸는
+ * `basis='min_spec'` 은 교정이 `basis_kind` 로 **직접 선언**한 경우에만 남는다. 근접(±2%)은 "대표값인지 하한인지 확인 대상"
+ * 이라는 표시(near_min_spec)로만 쓰고, UI 가 그렇게 읽어 준다. */
 const MINSPECS = (() => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'standard-min-specs.json'), 'utf8')).specs || []; } catch { return []; } })();
-let basisStamped = 0;
+let specMinStamped = 0, nearMin = 0;
 for (const m of all) {
   const sp = MINSPECS.find(s => (m.name || '').includes(s.pattern));
   if (!sp) continue;
   for (const [prop, min] of Object.entries(sp.min)) {
     const r = m.ranges?.[prop];
-    /* E4 (H6 W4-1) — 규격 인용(std)도 같이 스탬프. 이전엔 basis 만 찍어서 UI 가
-       "이 값은 규격 최소값" 이라고 말할 수는 있어도 **어느 규격인지** 댈 수 없었다
-       (실측: basis='min_spec' 116건 중 113건이 provenance 없음). std 는 min-spec 표에 전건 존재. */
-    if (r && typeof r.typical === 'number' && Math.abs(r.typical - min) <= min * 0.02 && !r.basis) {
-      r.basis = 'min_spec';
-      if (sp.std) r.basis_source = sp.std;
-      basisStamped++;
-    }
+    if (!r || typeof r.typical !== 'number') continue;
+    if (r.basis === 'min_spec') continue;   // 교정이 "이 값이 곧 하한" 이라고 선언한 행 — 같은 축을 두 번 말하지 않는다
+    r.min_spec_value = min;
+    if (sp.std) r.min_spec_source = sp.std;
+    specMinStamped++;
+    if (Math.abs(r.typical - min) <= min * 0.02) { r.near_min_spec = true; nearMin++; }
   }
 }
+console.log(`  규격 최소값 병기(D04): ${specMinStamped} 필드 (그중 표시값이 최소값 ±2% = 확인 대상 ${nearMin}) — basis 자동 부여는 중단, 선언 교정만`);
 
 // 원본 build 순서 재구성 (curated→am_vendor→generic→supplementary→ceramics→composites→polymers).
 //   legacy_id 의 prefix 그룹 → 전체 numeric tuple (R_NNNN_C 의 condition suffix 포함) 로 정렬.
@@ -551,6 +562,10 @@ const slimEntries = all.map(m => {
     if (m.ranges && m.ranges[p]) { const v = m.ranges[p].typical ?? m.ranges[p].min ?? m.ranges[p].max ?? null; if (typeof v === 'number' && isFinite(v)) slim[p] = v; }
     else if (typeof m[p] === 'number' && isFinite(m[p])) slim[p] = m[p];
   }
+  /* AUD-3 D03 (2026-09-22) — 경도는 숫자만으로 비교할 수 없다. 환산표 밖이라 원 스케일(HB)로 남긴 값이 20 개 있고,
+     상세만 그 사실을 알고 CSV·검색·차트는 HV 로 취급했다. 스케일을 slim 에 실어 모든 소비자가 같이 읽게 한다. */
+  const hsc = m.ranges?.hardness?.scale;
+  if (hsc && hsc !== 'HV') slim.hardness_scale = hsc;
   return slim;
 });
 fs.writeFileSync(path.join(OUT_MATS, 'index.json'), JSON.stringify(slimEntries));

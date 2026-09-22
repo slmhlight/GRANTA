@@ -83,7 +83,7 @@
       "n": 1,
       "estimated": false,
       "confidence": "handbook",
-      "provenance": "handbook:verified range override"
+      "provenance": "handbook:verified range override — R173 — PCTFE (Polychlorotrifluoroethylene, 3M Kel-F 81 / Daikin Neoflon) — fluoropolymer. Tg 80°C, Tm 215°C, max service 175°C continuous (영하 -240°C 까지 ductile — cryogenic O₂ valve seat). 이전 Tmax 90 은 generic polymer 수준 "
     },
     "thermal_expansion": {
       "min": 40,
@@ -249,6 +249,7 @@
   "min_wall_thickness": 0.8,
   "surface_finish_typical": 1.6,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "medium"
 }

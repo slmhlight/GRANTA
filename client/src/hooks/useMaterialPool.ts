@@ -31,6 +31,10 @@ export interface MaterialPoolState {
   ensureCategory: (cat: string) => Promise<void>;
   /** R08 — 샤드 전용 필드(조성·열처리·출처·프로파일)를 읽는 필터/정렬이 켜지면 전 카테고리를 즉시 불러온다. */
   ensureAll: () => Promise<void>;
+  /** AUD-3 D02 — 전 카테고리 샤드가 도착했는가. false 면 범위·샤드 전용 검색 결과를 '완료' 로 말하면 안 된다. */
+  allLoaded: boolean;
+  /** AUD-3 D02 — 로딩에 실패한 카테고리(재시도 가능). 실패를 조용히 삼키면 '0 건' 과 구분되지 않는다. */
+  failedCategories: string[];
   /** 디버깅 — 슬림 vs full entry 수 */
   stats: { total: number; slim: number; full: number };
 }
@@ -40,6 +44,7 @@ export function useMaterialPool(): MaterialPoolState {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [loadedCategories, setLoadedCategories] = useState<Set<string>>(new Set());
+  const [failedCategories, setFailedCategories] = useState<string[]>([]);   // AUD-3 D02
   const inflightCategories = useRef<Record<string, Promise<void>>>({});
   const loadedRef = useRef<Set<string>>(new Set());
 
@@ -50,6 +55,7 @@ export function useMaterialPool(): MaterialPoolState {
     const base = import.meta.env.BASE_URL || '/';
     const filename = CATEGORY_FILE[cat];
     if (!filename) return Promise.resolve();
+    setFailedCategories((prev) => (prev.includes(cat) ? prev.filter((c) => c !== cat) : prev));   // 재시도 시작 — 실패 표시 해제
     const p = fetch(`${base}materials/${filename}`)
       .then((r) => {
         if (!r.ok) throw new Error(`Failed to load ${filename} (HTTP ${r.status})`);
@@ -66,8 +72,9 @@ export function useMaterialPool(): MaterialPoolState {
         setLoadedCategories(new Set(loadedRef.current));
       })
       .catch((e) => {
-        // Non-fatal — slim data 그대로 사용 가능
+        // Non-fatal — slim data 그대로 사용 가능. AUD-3 D02: 실패 사실은 남겨 화면이 재시도를 제안한다.
         console.warn(`[useMaterialPool] Failed to load category ${cat}: ${e.message}`);
+        setFailedCategories((prev) => (prev.includes(cat) ? prev : [...prev, cat]));
       })
       .finally(() => {
         delete inflightCategories.current[cat];
@@ -157,5 +164,6 @@ export function useMaterialPool(): MaterialPoolState {
     slim: materials.filter((m) => !loadedRef.current.has(m.category)).length,
   };
 
-  return { materials, loading, error, loadedCategories, ensureCategory, ensureAll, stats };
+  const allLoaded = CATEGORIES.every((c) => loadedCategories.has(c));
+  return { materials, loading, error, loadedCategories, ensureCategory, ensureAll, stats, allLoaded, failedCategories };
 }

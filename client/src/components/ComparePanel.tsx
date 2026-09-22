@@ -32,7 +32,7 @@ interface ComparePanelProps {
 }
 
 const DEFAULT_COLS = ['density', 'yield_strength', 'uts', 'elongation', 'modulus', 'hardness', 'price_per_kg', 'total_cost_estimate', 'popularity'];
-/* R209 C-1 — '작을수록 우수' 물성 (AshbyChartPlotly PROP_DIR 과 동일). 인-셀 막대를 역전. */
+/* R209 C-1 — (lang === 'en' ? 'lower is better' : '작을수록 우수') 물성 (AshbyChartPlotly PROP_DIR 과 동일). 인-셀 막대를 역전. */
 type WeightKey = 'strength' | 'stiffness' | 'light' | 'cheap';
 const WEIGHT_FACTORS: { key: WeightKey; label: string }[] = [
   { key: 'strength', label: '강도 σy' },
@@ -185,7 +185,7 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
   const exportPNG = async () => {
     const el = tableRef.current;
     if (!el) {
-      alert('내보낼 영역을 찾을 수 없습니다. table view 에서 시도해주세요.');
+      alert((lang === 'en' ? 'Could not find the area to export — try the table view.' : '내보낼 영역을 찾을 수 없습니다. table view 에서 시도해주세요.'));
       return;
     }
     setExporting(true);
@@ -250,7 +250,7 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
       }, 'image/png');
     } catch (err) {
       console.error('PNG export failed:', err);
-      alert(`PNG 생성 실패: ${err instanceof Error ? err.message : '알 수 없는 오류'}`);
+      alert(`PNG 생성 실패: ${err instanceof Error ? err.message : (lang === 'en' ? 'Unknown error' : '알 수 없는 오류')}`);
     } finally {
       restoreWidth();
       setExporting(false);
@@ -267,7 +267,7 @@ export function ComparePanel({ materials, onRemove, onClose, onClear, onSelect }
     }
     const win = window.open('', '_blank', 'width=1024,height=800');
     if (!win) {
-      alert('팝업이 차단되었습니다. 팝업을 허용해주세요.');
+      alert((lang === 'en' ? 'The popup was blocked — please allow popups.' : '팝업이 차단되었습니다. 팝업을 허용해주세요.'));
       return;
     }
     // 현재 페이지의 stylesheet 모두 복사 (Tailwind etc.)
@@ -472,7 +472,7 @@ ${panel.outerHTML}
               {/* 활성화 토글 버튼 */}
               <div className="flex items-center justify-between mb-2 pb-2 border-b border-sky-200/60">
                 <span className="text-[11px] text-foreground/70">
-                  {weightActive ? '✓ 활성화 — 슬라이더 + 체크박스 조정 가능' : '⊝ 비활성화 — best-pick 만 표시 (단일 axis 기준)'}
+                  {weightActive ? (lang === 'en' ? '✓ On — adjust with sliders + checkboxes' : '✓ 활성화 — 슬라이더 + 체크박스 조정 가능') : (lang === 'en' ? '⊝ Off — show best-pick only (single axis)' : '⊝ 비활성화 — best-pick 만 표시 (단일 axis 기준)')}
                 </span>
                 <button
                   type="button"
@@ -773,7 +773,7 @@ ${panel.outerHTML}
                             </div>
                             <div
                               className="mt-1 h-1.5 w-full bg-muted/40 rounded-sm overflow-hidden"
-                              title={LOWER_IS_BETTER.has(k) ? '막대가 길수록 우수 (작은 값이 좋은 물성 — 역전 표시)' : '막대가 길수록 값이 큼'}
+                              title={LOWER_IS_BETTER.has(k) ? (lang === 'en' ? 'Longer bar = better (lower-is-better property — inverted)' : '막대가 길수록 우수 (작은 값이 좋은 물성 — 역전 표시)') : (lang === 'en' ? 'Longer bar = larger value' : '막대가 길수록 값이 큼')}
                             >
                               <div className="h-full rounded-sm" style={{ width: `${pct}%`, background: barColor, opacity: 0.85 }} />
                             </div>

@@ -93,7 +93,7 @@
       "typical": 80,
       "n": 0,
       "confidence": "handbook",
-      "provenance": "realprops:alsi10mg × HT:O (annealed soft, fallback derived from T6) (f×0.4, i×3)",
+      "provenance": "handbook:hand-verified override — AlSi10Mg Annealed — handbook σf ~80 (≈0.25·UTS). CSV의 46 mock 정정.",
       "estimated": false
     },
     "impact_strength": {
@@ -124,6 +124,7 @@
       "base_value": 18,
       "factor": 2,
       "condition": "O (annealed soft, fallback derived from T6)",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:O (annealed soft, fallback derived from T6) (k×2)"
     },
     "electrical_conductivity": {
@@ -369,7 +370,8 @@
   "min_wall_thickness": 0.4,
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "high",
   "_corrections": {
     "sources": {

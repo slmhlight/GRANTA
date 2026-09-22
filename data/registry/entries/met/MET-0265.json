@@ -110,6 +110,7 @@
       "base_value": 50,
       "factor": 0.8,
       "condition": "cold worked",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:cold worked (k×0.8)"
     },
     "electrical_conductivity": {
@@ -301,7 +302,8 @@
   "delivered_price_per_kg": 1.32,
   "total_cost_estimate": 2.65,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "elevated_temp": [
     {
       "temp": 25,

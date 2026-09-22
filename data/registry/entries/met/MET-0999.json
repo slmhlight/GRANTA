@@ -119,6 +119,7 @@
       "base_value": 75,
       "factor": 1.05,
       "condition": "HIP densified",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:HIP densified (k×1.05)"
     },
     "electrical_conductivity": {
@@ -359,7 +360,8 @@
   "min_wall_thickness": 2.5,
   "surface_finish_typical": 12.5,
   "tolerance_class": "IT13-14",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "creep_rupture": [
     {
       "temp": 450,

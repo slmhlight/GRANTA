@@ -47,7 +47,7 @@ export function ActiveFilterChips({ filters, updateFilter }: ActiveFilterChipsPr
   if (filters.machinability.length) chips.push({ key: 'mach', label: `Mach: ${filters.machinability.join('/')}`, onRemove: () => updateFilter('machinability', []) });
   if (filters.weldability.length) chips.push({ key: 'weld', label: `Weld: ${filters.weldability.join('/')}`, onRemove: () => updateFilter('weldability', []) });
   if (filters.authorities?.length) chips.push({ key: 'auth', label: `${lang === 'en' ? 'Source' : '출처'}: ${filters.authorities.map(a => (lang === 'en' ? AUTHORITY_META[a as Authority]?.sEn : AUTHORITY_META[a as Authority]?.s) ?? a).join('/')}`, onRemove: () => updateFilter('authorities', []) });
-  if (filters.rohsOnly) chips.push({ key: 'rohs', label: lang === 'en' ? 'RoHS only' : `RoHS 통과만`, onRemove: () => updateFilter('rohsOnly', false) });
+  if (filters.rohsOnly) chips.push({ key: 'rohs', label: lang === 'en' ? 'RoHS confirmed' : `RoHS 확인 적합만`, onRemove: () => updateFilter('rohsOnly', false) });
 
   if (chips.length === 0) return null;
   return (

@@ -119,6 +119,7 @@
       "base_value": 60,
       "factor": 1.6,
       "condition": "fully annealed (soft)",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:fully annealed (soft) (k×1.6)"
     },
     "electrical_conductivity": {
@@ -288,7 +289,8 @@
   "delivered_price_per_kg": 3.6,
   "total_cost_estimate": 6.84,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "medium",
   "industry_note": "4140 보다 탄소를 올린 Cr-Mo 조질강 — 대형 축·드릴 칼라·금형 홀더. 같은 계열에서 경도를 더 요구할 때 고른다.",
   "_corrections": {

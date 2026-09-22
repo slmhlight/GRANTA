@@ -99,6 +99,7 @@
       "base_value": 22,
       "factor": 2.2,
       "condition": "spheroidized annealed",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:spheroidized annealed (k×2.2)"
     },
     "electrical_conductivity": {
@@ -269,7 +270,8 @@
   "delivered_price_per_kg": 5.25,
   "total_cost_estimate": 9.97,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "high",
   "fatigue_estimated": true,
   "_corrections": {

@@ -123,6 +123,7 @@
       "base_value": 120,
       "factor": 0.85,
       "condition": "cold worked",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:cold worked (k×0.85)"
     },
     "electrical_conductivity": {
@@ -296,7 +297,8 @@
   "delivered_price_per_kg": 26.56,
   "total_cost_estimate": 50.47,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "svhc_concerns": [
     "Ni 70% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],

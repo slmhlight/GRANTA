@@ -215,10 +215,14 @@ export default function FilterSidebar({
 
         {/* ── 7. 규제 ── */}
         <SectionGroup label={en ? 'Regulatory' : '규제 · Regulatory'} />
-        <label className="flex items-center gap-2 px-3 py-2 text-xs cursor-pointer select-none hover:bg-muted/40 rounded">
-          <input type="checkbox" checked={!!filters.rohsOnly} onChange={(e) => updateFilter('rohsOnly', e.target.checked)} className="accent-accent" />
-          <span className="flex-1">{en ? 'RoHS compliant only (EU)' : 'RoHS 통과만 (EU 규제)'}</span>
-          <span className="text-[10px] text-muted-foreground">Pb·Cd·Hg</span>
+        {/* AUD-3 D05 — "통과" 가 아니라 "확인된 적합". 무엇을 보고 판정했는지·왜 빠지는지 라벨과 도움말에 적는다. */}
+        <label className="flex items-start gap-2 px-3 py-2 text-xs cursor-pointer select-none hover:bg-muted/40 rounded" title={t('filter.rohsOnly.help')}>
+          <input type="checkbox" checked={!!filters.rohsOnly} onChange={(e) => updateFilter('rohsOnly', e.target.checked)} className="accent-accent mt-0.5" />
+          <span className="flex-1">
+            {t('filter.rohsOnly')}
+            <span className="block text-[10px] text-muted-foreground leading-snug mt-0.5">{en ? 'Not declared = “no data”, excluded (≠ non-compliant)' : '미기재는 “자료 부족”으로 제외 (부적합 아님)'}</span>
+          </span>
+          <span className="text-[10px] text-muted-foreground mt-0.5">Pb·Cd·Hg</span>
         </label>
         {/* ── 8. Composition Browser (참고용) ── */}
         <SectionGroup label={en ? 'Composition Tree' : '구성 탐색 · Composition Tree'} />

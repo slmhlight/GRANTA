@@ -96,14 +96,40 @@ describe('buildMaterialsCSV — 공용 리더·단위계 (AUD N03/F01)', () => {
     expect(Number(cells[header.indexOf('Yield Strength (ksi)')])).toBeCloseTo(14.504, 2);
     expect(Number(cells[header.indexOf('Modulus (Msi)')])).toBeCloseTo(29.008, 2);
     expect(Number(cells[header.indexOf('Density (lb/in³)')])).toBeCloseTo(0.2818, 3);
-    // 무차원(경도·%)은 그대로
-    expect(header).toContain('Hardness (HV)');
-    expect(cells[header.indexOf('Hardness (HV)')]).toBe('180');
+    // AUD-3 D03 — 경도는 값 열 + 척도 열 (환산표 밖 원 스케일 값이 HV 열에 섞이지 않도록)
+    expect(header).toContain('Hardness');
+    expect(header).toContain('Hardness Scale');
+    expect(header).not.toContain('Hardness (HV)');
+    expect(cells[header.indexOf('Hardness')]).toBe('180');
+    expect(cells[header.indexOf('Hardness Scale')]).toBe('HV');
   });
 
   it('SI 기본값은 이전과 같은 헤더·수치 (왕복 보존)', () => {
     const csv = buildMaterialsCSV([mk({ yield_strength: 100 })]);
     const header = csv.split('\n')[0].split(',');
     expect(csv.split('\n')[1].split(',')[header.indexOf('Yield Strength (MPa)')]).toBe('100');
+  });
+});
+
+/* AUD-3 D03/Q03 (2026-09-22) — 경도는 값과 척도를 함께, 행마다 ID 를 함께 내보낸다. */
+describe('buildMaterialsCSV — 경도 척도·ID 열 (AUD-3 D03/Q03)', () => {
+  const lines = (csv: string) => csv.split(String.fromCharCode(10));
+  it('환산표 밖 원 스케일(HB) 값은 척도 열에 HB 로 나온다 — HV 열에 섞이지 않는다', () => {
+    const csv = buildMaterialsCSV([
+      mk({ name: 'AA 1050 — Annealed', hardness: 22, ranges: { hardness: { min: 22, max: 22, typical: 22, scale: 'HB' } } as any }),
+      mk({ name: 'AISI 4140', hardness: 300, ranges: { hardness: { min: 280, max: 320, typical: 300 } } as any }),
+    ]);
+    const header = lines(csv)[0].split(',');
+    const rows = lines(csv).slice(1).map((r) => r.split(','));
+    expect(rows[0][header.indexOf('Hardness')]).toBe('22');
+    expect(rows[0][header.indexOf('Hardness Scale')]).toBe('HB');
+    expect(rows[1][header.indexOf('Hardness Scale')]).toBe('HV');
+  });
+  it('ID·Stable ID 열로 같은 이름의 다른 조건을 구분한다', () => {
+    const csv = buildMaterialsCSV([mk({ id: 'R_0120', stable_id: 'MET-0942' } as any)]);
+    const header = lines(csv)[0].split(',');
+    const cells = lines(csv)[1].split(',');
+    expect(cells[header.indexOf('ID')]).toBe('R_0120');
+    expect(cells[header.indexOf('Stable ID')]).toBe('MET-0942');
   });
 });

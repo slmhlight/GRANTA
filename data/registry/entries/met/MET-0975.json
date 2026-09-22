@@ -79,7 +79,7 @@
       "typical": 420,
       "n": 0,
       "confidence": "handbook",
-      "provenance": "alloy:tungsten × HT:spheroidized annealed (f×0.3, i×4)",
+      "provenance": "handbook:hand-verified override — AISI H21 (Hot-Work W tool steel) Q+T — σf ~420 (UTS 1620, ratio 0.26 mid). CSV의 84/218 mock 정정.",
       "estimated": false
     },
     "impact_strength": {
@@ -110,6 +110,7 @@
       "base_value": 8,
       "factor": 2.2,
       "condition": "spheroidized annealed",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:spheroidized annealed (k×2.2)"
     },
     "electrical_conductivity": {
@@ -280,7 +281,8 @@
   "delivered_price_per_kg": 74.97,
   "total_cost_estimate": 149.94,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "medium",
   "_corrections": {
     "sources": {

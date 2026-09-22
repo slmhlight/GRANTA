@@ -125,6 +125,7 @@ const SPEC_BADGE_COLOR: Record<string, { color: string; bg: string }> = {
 export function MaterialDetail({ material, compareList, onToggleCompare, onClose, onBack, dragHandleProps, floating, allMaterials, favorites, onToggleFavorite, onSelectMaterial, onPin, isPinned, tab, onTabChange, openSectionsCsv, onOpenSectionsChange }: MaterialDetailProps) {
   const t = useT();
   /* AUD F01 잔여 (2026-09-22) — 온도 곡선 표(°C·MPa·GPa)도 단위계를 따른다. 값 SSOT 는 SI, 표시만 변환. */
+  const { lang } = useLang();   // AUD-3 F23 잔여 — 상세의 남은 한국어(경고·레이더 설명·범례)
   const sysUnits = useUnitSystem();
   const tempCol = (v: number | null | undefined, key: string) => { const d = displayNumber(key, v, sysUnits); return d == null ? '—' : (sysUnits === 'imperial' ? +d.toFixed(key === 'temp' ? 0 : 1) : d); };
   // R227/E14 — 접힘 섹션 펼침 상태. null/undefined=기본값, 문자열=복원값(라우트 왕복에도 URL 로 보존).
@@ -292,7 +293,11 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
               <div className="rounded-md border border-amber-300 bg-amber-50 px-3 py-2 flex items-start gap-2">
                 <AlertTriangle className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
                 <p className="text-[11px] leading-relaxed text-amber-800">
-                  <b>Generic reference</b> — 일부 물성은 자동 집계(CSV-derived) 값입니다. <b>설계 적용 전 vendor datasheet / 핸드북으로 검증</b>하세요. 각 값 옆 신뢰도 점(아래 범례)으로 출처 등급 확인 가능.
+                  {lang === 'en' ? (
+                    <><b>Generic reference</b> — some properties are auto-aggregated (CSV-derived). <b>Verify against a vendor datasheet or handbook before design use.</b> The confidence dot next to each value (legend below) shows the source grade.</>
+                  ) : (
+                    <><b>Generic reference</b> — 일부 물성은 자동 집계(CSV-derived) 값입니다. <b>설계 적용 전 vendor datasheet / 핸드북으로 검증</b>하세요. 각 값 옆 신뢰도 점(아래 범례)으로 출처 등급 확인 가능.</>
+                  )}
                 </p>
               </div>
             )}
@@ -308,8 +313,10 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                 />
               </div>
               <div className="flex-1 mt-2 sm:mt-0">
-                <p className="text-[11px] font-semibold text-foreground/80 mb-1">{material.name} — 다축 성능</p>
-                <p className="text-[10px] text-muted-foreground mb-2">각 축은 normalize base 안에서 0~1 점수 (1 = base 내 최고). 축 / 정규화 기준은 ⚙ 버튼에서 변경.</p>
+                <p className="text-[11px] font-semibold text-foreground/80 mb-1">{material.name} — {lang === 'en' ? 'multi-axis profile' : '다축 성능'}</p>
+                <p className="text-[10px] text-muted-foreground mb-2">{lang === 'en'
+                  ? 'Each axis is a 0–1 score within the normalization base (1 = best in that base). Change axes / base with the ⚙ button.'
+                  : '각 축은 normalize base 안에서 0~1 점수 (1 = base 내 최고). 축 / 정규화 기준은 ⚙ 버튼에서 변경.'}</p>
                 <RadarConfig
                   axes={radarAxes}
                   onAxesChange={updateAxes}
@@ -318,21 +325,21 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
                 />
               </div>
             </div>
-            <p className="text-[10px] text-muted-foreground/60 -mt-1">Value = typical · sub-line = min–max across {meta.vendor_count ? `${meta.vendor_count} vendors` : 'conditions'}</p>
+            <p className="text-[10px] text-muted-foreground/60 -mt-1">{lang === 'en' ? 'Value = typical · sub-line = min–max across' : '값 = 대표값 · 아랫줄 = 최소–최대 (범위:'} {meta.vendor_count ? `${meta.vendor_count} ${lang === 'en' ? 'vendors' : '벤더'}` : (lang === 'en' ? 'conditions' : '조건')}{lang === 'en' ? '' : ')'}</p>
             {/* 신뢰도 뱃지 범례 — R210 B5: CONFIDENCE 단일 소스에서 매핑 (RangeRow·ComparePanel 과 색 일치). */}
             <div className="rounded border border-border/50 bg-muted/20 p-2 text-[10px] flex flex-wrap gap-x-3 gap-y-1 items-center">
               <span className="text-foreground/70 font-semibold">{t('detail.confidence')}:</span>
               {CONFIDENCE_ORDER.map((lv) => (
                 <span key={lv} className="inline-flex items-center gap-1">
                   <span className={`inline-block w-1.5 h-1.5 rounded-full ${CONFIDENCE[lv].twDot}`} />
-                  <span className={CONFIDENCE[lv].twText}>{lv === 'measured' ? 'n=N' : CONFIDENCE[lv].label}</span>
+                  <span className={CONFIDENCE[lv].twText}>{lv === 'measured' ? 'n=N' : (lang === 'en' ? CONFIDENCE[lv].labelEn : CONFIDENCE[lv].label)}</span>
                   {lv === 'measured' && <> {t('detail.confidence.measured')}</>}
                   {lv === 'class' && <> {t('detail.confidence.class')}</>}
                   {lv === 'derived' && <> {t('detail.confidence.derived')}</>}
                 </span>
               ))}
               {/* R67 #11 — MMPDS A/B basis 안내 link → Guide datasheet section */}
-              <Link href="/guide/ch8" className="ml-auto text-accent hover:underline">A/B basis 의미 →</Link>
+              <Link href="/guide/ch8" className="ml-auto text-accent hover:underline">{lang === 'en' ? 'What A/B basis means →' : 'A/B basis 의미 →'}</Link>
             </div>
             {(() => {
               /* R112 — Category-aware property filter. polymer 만 Tg/HDT 표시, metal/ceramic/composite 에서는 hide. */
@@ -1189,6 +1196,13 @@ export function MaterialDetail({ material, compareList, onToggleCompare, onClose
             {(meta.anisotropy || meta.anisotropic) && (
               <div className={`mt-2 rounded border p-2 text-[12px] leading-relaxed ${meta.anisotropy_reduced ? 'border-emerald-400/40 bg-emerald-50/60' : 'border-amber-400/40 bg-amber-50/60'}`}>
                 <b className={meta.anisotropy_reduced ? 'text-emerald-700' : 'text-amber-700'}>{meta.anisotropy_reduced ? 'ℹ HIP 처리 — 이방성 감소:' : '⚠ AM 이방성 주의:'}</b> {(meta.anisotropy_note || 'AM 빌드 방향(XY vs Z)에 따라 σy·연신율·피로가 ~10–30% 차이날 수 있습니다. 데이터시트의 방향·후처리(HIP·열처리) 조건을 반드시 확인하세요.')}
+              </div>
+            )}
+            {/* AUD-3 D05 — 규제 자료 부족은 '통과' 가 아니다. 판정하지 않았다는 사실을 밝힌다. */}
+            {material.rohs_compliant == null && (
+              <div className="mt-2 rounded border border-border bg-muted/40 p-2 text-[11px] leading-relaxed" data-testid="rohs-unknown">
+                <p className="font-semibold text-foreground/80 mb-0.5">{t('detail.regulated.rohsUnknown')}</p>
+                <p className="text-[10px] text-muted-foreground">{t('detail.regulated.unknownNote')}</p>
               </div>
             )}
             {/* R17: RoHS / SVHC 우려 — 자동 검출된 항목 노출. */}

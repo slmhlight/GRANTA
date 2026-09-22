@@ -108,6 +108,7 @@
       "base_value": 40,
       "factor": 1.5,
       "condition": "annealed (austenitic)",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:annealed (austenitic) (k×1.5)"
     },
     "electrical_conductivity": {
@@ -270,7 +271,8 @@
   "delivered_price_per_kg": 7.88,
   "total_cost_estimate": 14.96,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "medium-low",
   "_corrections": {
     "sources": {

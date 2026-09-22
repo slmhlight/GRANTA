@@ -119,6 +119,7 @@
       "base_value": 75,
       "factor": 0.95,
       "condition": "STA aged",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:STA aged (k×0.95)"
     },
     "electrical_conductivity": {
@@ -346,7 +347,8 @@
   "delivered_price_per_kg": 53.29,
   "total_cost_estimate": 170.52,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "creep_rupture": [
     {
       "temp": 450,

@@ -123,6 +123,7 @@
       "base_value": 38,
       "factor": 1.5,
       "condition": "O (annealed soft)",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:O (annealed soft) (k×1.5)"
     },
     "electrical_conductivity": {
@@ -286,7 +287,8 @@
   "delivered_price_per_kg": 3.43,
   "total_cost_estimate": 6.51,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "medium",
   "industry_note": "해양용 5xxx — 선체 외판·갑판·해양 구조물. 용접 후에도 강도가 유지되고(비열처리) 해수 내식성이 좋아 조선에서 표준. 다만 Mg 가 많아 65°C 이상 장기 노출은 박리부식 위험이 있어 H116/H321 안정화 조질을 지정한다.",
   "_corrections": {

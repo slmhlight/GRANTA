@@ -119,6 +119,7 @@
       "base_value": 65,
       "factor": 1.6,
       "condition": "annealed (forming)",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:annealed (forming) (k×1.6)"
     },
     "electrical_conductivity": {
@@ -299,7 +300,8 @@
   "delivered_price_per_kg": 2.76,
   "total_cost_estimate": 5.25,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "medium",
   "industry_note": "Cr 조질강 — 기어·축·볼트. 4140 보다 싸고 Mo 가 없어 경화능이 낮으므로 단면이 두꺼우면 중심부 경도가 떨어진다.",
   "_corrections": {

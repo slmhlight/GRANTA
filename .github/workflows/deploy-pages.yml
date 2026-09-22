@@ -21,7 +21,38 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # AUD-3 D07 (2026-09-22) — 검사와 배포가 각각 push 에 반응해 서로를 기다리지 않았다("검사 성공 = 배포된 산출물" 이 보장되지 않음).
+  # 배포 워크플로 안에서 같은 커밋의 타입·lint·단위 테스트를 먼저 돌리고, 통과한 경우에만 build → deploy 로 간다.
+  # (CI 워크플로는 PR·기록용으로 그대로 둔다. tests/pipeline-integrity.test.ts 가 이 의존을 게이트한다.)
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Build data (tests read client/public 산출물)
+        run: pnpm build:data
+      - name: Build wiki index
+        run: pnpm build:wiki
+      - name: Build property stats
+        run: pnpm build:stats
+      - name: Type check (tsc --noEmit)
+        run: pnpm check
+      - name: Lint (eslint — 경고 0)
+        run: pnpm lint
+      - name: Unit tests (vitest)
+        run: pnpm test
+
   build:
+    needs: verify
     runs-on: ubuntu-latest
     env:
       # Repo is slmhlight/GRANTA -> site lives under /GRANTA/.

@@ -49,10 +49,17 @@ describe('W4-2b — 죽은 필드는 산출물에서 뺀다', () => {
     expect(bad, `spec_type 잔존 ${bad.length}건 — 값 성격은 basis 가 담당한다`).toEqual([]);
   });
 
-  it('은퇴한 spec_type 대신 basis 가 실제로 쓰인다 (역할 이관 확인)', () => {
-    let n = 0;
-    for (const m of ALL) for (const r of Object.values(m.ranges ?? {})) if (r && (r as { basis?: string }).basis === 'min_spec') n++;
-    // A3 Al·Ti(2026-09-20/21)가 '최소값이 typical 자리에 실린 행' 을 대표값으로 교정해 스탬프가 116 → 91 로 정당하게 줄었다 — 하한 재기준(계약 검사는 spec-floor.test).
-    expect(n, 'basis 스탬프 0 — 역할을 넘겨받을 대상이 없다').toBeGreaterThan(40);
+  it('은퇴한 spec_type 의 역할을 basis(선언)와 min_spec_value(병기)가 나눠 갖는다', () => {
+    /* AUD-3 D04(2026-09-22): 수치 근접으로 basis 를 자동 부여하던 것을 중단했다. 이제 역할은 둘로 나뉜다 —
+       basis='min_spec' 은 교정이 "이 값이 곧 하한" 이라고 **선언**한 행, min_spec_value 는 인용 규격의 최소값 **병기**.
+       spec_type 이 죽은 필드로 되살아나지 않는지가 이 게이트의 본래 목적이고, 대상 수는 아래 둘의 합으로 본다. */
+    let declared = 0, annotated = 0;
+    for (const m of ALL) for (const r of Object.values(m.ranges ?? {})) {
+      if (!r) continue;
+      if ((r as { basis?: string }).basis === 'min_spec') declared++;
+      if ((r as { min_spec_value?: number }).min_spec_value != null) annotated++;
+    }
+    expect(declared + annotated, '규격 축 스탬프 0 — 역할을 넘겨받을 대상이 없다').toBeGreaterThan(40);
+    expect(annotated, '규격 최소값 병기가 0 — D04 파이프가 죽었다').toBeGreaterThan(40);
   });
 });

@@ -83,7 +83,7 @@
       "n": 1,
       "estimated": false,
       "confidence": "handbook",
-      "provenance": "handbook:verified range override"
+      "provenance": "handbook:verified range override — R173 — PBI (Polybenzimidazole, Celazole Performance Plastics) — **가장 high-T thermoplastic**. Tg 427°C, no Tm (amorphous), max service 300°C continuous / 500°C short. 이전 Tmax 90 은 PP 수준 — 명백한 오류 (PBI 는 PEEK 의 2× 한계)."
     },
     "thermal_expansion": {
       "min": 40,
@@ -236,6 +236,7 @@
   "min_wall_thickness": 0.8,
   "surface_finish_typical": 1.6,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "medium"
 }

@@ -35,6 +35,21 @@ describe('워크플로 산출물 스텝 무결성 (H4f — 배포 build:wiki 누
     });
   }
 
+  /* AUD-3 D07 (2026-09-22) — 검사 성공과 공개 배포가 연결돼 있지 않았다(두 워크플로가 각각 push 에 반응).
+     배포 워크플로 안에서 같은 커밋의 검사를 선행 job 으로 돌리고, build 가 그 job 을 needs 로 기다린다. */
+  it('deploy 워크플로가 같은 커밋의 검사(verify)를 선행 job 으로 요구한다', () => {
+    const yml = read('.github/workflows/deploy-pages.yml');
+    expect(yml, 'verify job 이 없다 — 배포가 검사 없이 나간다').toMatch(/^\s{2}verify:/m);
+    expect(yml, 'build job 이 verify 를 기다리지 않는다').toMatch(/build:\n\s+needs:\s*verify/);
+    for (const step of ['pnpm check', 'pnpm lint', 'pnpm test']) {
+      expect(yml, `verify 에 "${step}" 이 없다`).toContain(step);
+    }
+    const iVerify = yml.indexOf('  verify:');
+    const iBuild = yml.indexOf('  build:');
+    expect(iVerify).toBeGreaterThan(-1);
+    expect(iBuild).toBeGreaterThan(iVerify);
+  });
+
   it('deploy 는 build:data → build:wiki → vite build 순서 유지 (wiki 는 materials.json 을 읽음)', () => {
     const yml = read('.github/workflows/deploy-pages.yml');
     const iData = yml.indexOf('pnpm build:data');

@@ -112,6 +112,7 @@
       "base_value": 80,
       "factor": 1.6,
       "condition": "fully annealed (soft)",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:fully annealed (soft) (k×1.6)"
     },
     "electrical_conductivity": {
@@ -287,7 +288,8 @@
   "delivered_price_per_kg": 3.75,
   "total_cost_estimate": 7.5,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "medium",
   "_corrections": {
     "sources": {

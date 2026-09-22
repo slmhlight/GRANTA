@@ -119,7 +119,7 @@
       "n": 1,
       "estimated": false,
       "confidence": "handbook",
-      "provenance": "handbook:verified range override"
+      "provenance": "handbook:verified range override — R221c — basis-locked 값 정정: uts=42 (GPPS injection-moulded ~23°C (AZoM 798, 30–45 MPa대 중앙)) · glass_transition_temp=100 (atactic GPPS Tg (AZoM 798: 370–380 K = 97–107°C) — DB 80은 폴리머 기본값 오류)"
     },
     "price_per_kg": {
       "min": 12.5,
@@ -239,7 +239,8 @@
   "min_wall_thickness": 0.8,
   "surface_finish_typical": 1.6,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "high",
   "industry_note": "GPPS (General-Purpose Polystyrene) — amorphous brittle clear thermoplastic. Tg 100°C, max service 70-80°C continuous. σy 40-50 / UTS 45-50 / El 1-4% (brittle) / E 3.0-3.5 GPa / ρ 1.04-1.06 g/cc. Refractive 1.59, light transmission 88%. CD case (Compact Disc jewel case), 식음료 cup / 일회용 식기, 의료 Petri dish / lab tube, 가구 toy / 모형. EPS (expanded PS, styrofoam) 는 packaging foam + 단열재. 가장 저렴 thermoplastic ($1.3-1.8/kg).",
   "_corrections": {

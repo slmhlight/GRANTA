@@ -79,7 +79,7 @@
       "typical": 150,
       "n": 0,
       "confidence": "handbook",
-      "provenance": "handbook:hand-verified override"
+      "provenance": "handbook:hand-verified override — Ti Grade 3/4 (CP-Ti) annealed — σf ~150 MPa (~0.43·UTS). CSV의 265-275 너무 높음 정정."
     },
     "impact_strength": {
       "min": 5,
@@ -142,7 +142,7 @@
       "n": 0,
       "estimated": false,
       "confidence": "handbook",
-      "provenance": "handbook:hand-verified override"
+      "provenance": "handbook:UNS R50250/R50400/R50550/R50700"
     },
     "price_per_kg": {
       "min": 2,
@@ -269,7 +269,8 @@
   "delivered_price_per_kg": 4.28,
   "total_cost_estimate": 8.14,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "elevated_temp": [
     {
       "temp": 25,

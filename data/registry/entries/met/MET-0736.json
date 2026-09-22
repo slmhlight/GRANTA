@@ -136,6 +136,7 @@
       "base_value": 200,
       "factor": 0.95,
       "condition": "as-built (fine columnar)",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:as-built (fine columnar) (k×0.95)"
     },
     "electrical_conductivity": {
@@ -641,7 +642,8 @@
   "min_wall_thickness": 0.4,
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "svhc_concerns": [
     "Ni 14% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],

@@ -1,5 +1,12 @@
 /*
- * E4 (H6 W4-1) — 규격 하한(basis='min_spec') 표기 게이트.
+ * E4 (H6 W4-1) → AUD-3 D04 (2026-09-22) 개정 — 규격 하한 표기 게이트.
+ *
+ * 감사 D04: "typical 이 표의 minimum ±2% 이면 basis='min_spec'" 은 **수치 근접으로 근거의 종류를 바꾸는** 규칙이었다.
+ * 원문이 그 값을 최소값으로 지정했는지, 제품 형태·두께·열처리·시험 방향이 규격과 같은지는 보지 않는다.
+ * 지금 계약: ① 규격 최소값은 별도 축(min_spec_value·min_spec_source)에 병기하고 ② 근접은 near_min_spec 표시로만 쓰며
+ * ③ basis='min_spec'(= 이 값이 곧 하한) 은 교정이 직접 선언한 것만 남는다.
+ *
+ * 아래 원문 배경(E4)은 그대로 둔다 — floor 로 표시된 값은 여전히 근거를 댈 수 있어야 한다.
  *
  * 배경: min-spec 파이프(A2)가 116 range 에 "이 값은 규격 보증 최소값" 이라고 스탬프하는데,
  * UI 는 그 스탬프를 읽지 않고 **다른 필드**(min_spec_value, 47건)만 렌더하고 있었다.
@@ -27,26 +34,36 @@ const floors = (() => {
 })();
 
 describe('E4 — 규격 하한(basis=min_spec) 표기', () => {
-  it('스탬프가 실제로 존재한다 (파이프가 죽으면 배지도 사라진다)', () => {
-    /* A3 Ti(2026-09-21): 절대 하한 100 은 '최소값이 typical 자리에 실린 행' 의 수였다 — A3 Al·Ti 가 그 행들을 대표값으로
-       교정하면서 스탬프가 116 → 91 로 **정당하게** 줄었다(값이 더는 규격 하한이 아니다). 그래서 수가 아니라 계약을 본다:
-       min-spec 표의 패턴에 걸리고 typical 이 min ±2% 이면 반드시 스탬프가 있어야 한다(파이프가 죽으면 여기서 0 이 된다). */
-    const specs: Array<{ pattern: string; min: Record<string, number> }> = JSON.parse(fs.readFileSync(path.resolve('data/standard-min-specs.json'), 'utf8')).specs;
+  it('규격 최소값이 별도 축으로 병기된다 — 근접은 표시만, 근거의 종류는 바꾸지 않는다 (D04)', () => {
+    const specs: Array<{ pattern: string; std?: string; min: Record<string, number> }> = JSON.parse(fs.readFileSync(path.resolve('data/standard-min-specs.json'), 'utf8')).specs;
     const missing: string[] = [];
-    let due = 0;
+    const wrongNear: string[] = [];
+    let due = 0, near = 0;
     for (const m of ALL) {
       const sp = specs.find((x) => m.name.includes(x.pattern));
       if (!sp) continue;
       for (const [prop, min] of Object.entries(sp.min)) {
-        const r = m.ranges?.[prop];
-        if (!r || typeof r.typical !== 'number' || Math.abs(r.typical - min) > min * 0.02) continue;
+        const r = m.ranges?.[prop] as (Range & { min_spec_value?: number; near_min_spec?: boolean }) | undefined;
+        if (!r || typeof r.typical !== 'number') continue;
+        if (r.basis === 'min_spec') continue;   // 교정이 선언한 행 — 같은 축을 두 번 말하지 않는다
         due++;
-        if (r.basis !== 'min_spec') missing.push(`${m.name.slice(0, 40)} · ${prop}`);
+        if (r.min_spec_value !== min) missing.push(`${m.name.slice(0, 40)} · ${prop} (표 ${min} vs ${r.min_spec_value ?? '없음'})`);
+        const isNear = Math.abs(r.typical - min) <= min * 0.02;
+        if (isNear) near++;
+        if (!!r.near_min_spec !== isNear) wrongNear.push(`${m.name.slice(0, 40)} · ${prop}`);
       }
     }
-    expect(due, 'min ±2% 에 든 range 가 0 — 표나 데이터가 통째로 어긋났다').toBeGreaterThan(40);
-    expect(missing, `규격 하한인데 스탬프가 없다 ${missing.length}건:\n  ${missing.join('\n  ')}`).toEqual([]);
-    expect(floors.length).toBe(due);
+    expect(due, '규격 표에 걸린 range 가 0 — 표나 데이터가 통째로 어긋났다').toBeGreaterThan(100);
+    expect(missing.slice(0, 10), `규격 최소값 병기 누락 ${missing.length}건`).toEqual([]);
+    expect(wrongNear.slice(0, 10), `near_min_spec 표시가 실제 근접과 다르다 ${wrongNear.length}건`).toEqual([]);
+    expect(near, '근접(±2%) 사례가 0 — 확인 대상 표시가 공회전').toBeGreaterThan(10);
+  });
+
+  it("basis='min_spec' 은 교정이 선언한 것만 남는다 (자동 부여 중단)", () => {
+    expect(floors.length).toBeLessThan(20);
+    for (const { m, prop, r } of floors) {
+      expect(String(r.provenance ?? ''), `${m.id} ${prop} — 선언 근거(교정 인용)가 없다`).toMatch(/교정:/);
+    }
   });
 
   it('모든 floor 값이 근거를 갖는다 (basis_source 또는 provenance)', () => {

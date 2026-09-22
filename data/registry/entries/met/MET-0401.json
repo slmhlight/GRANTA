@@ -79,7 +79,7 @@
       "typical": 110,
       "n": 0,
       "confidence": "handbook",
-      "provenance": "alloy:c36000 × HT:annealed (austenitic) (f×0.4, i×3.5)",
+      "provenance": "handbook:hand-verified override — C36000 Free-cut Brass — handbook σf ~110. CSV의 56 mock 정정.",
       "estimated": false
     },
     "impact_strength": {
@@ -110,6 +110,7 @@
       "base_value": 40,
       "factor": 1.5,
       "condition": "annealed (austenitic)",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:annealed (austenitic) (k×1.5)"
     },
     "electrical_conductivity": {
@@ -353,7 +354,8 @@
   "delivered_price_per_kg": 7.88,
   "total_cost_estimate": 11.81,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "high",
   "_corrections": {
     "sources": {

@@ -25,11 +25,11 @@
   "heat_treatment": "Q+T (HRC 58-60, 1100°C austenitize + 550°C temper)",
   "ranges": {
     "density": {
-      "min": 7.83,
-      "max": 7.87,
-      "typical": 7.85,
-      "n": 3,
-      "confidence": "handbook"
+      "min": 7.8,
+      "typical": 7.8,
+      "max": 7.8,
+      "confidence": "handbook",
+      "provenance": "교정: Crucible Industries CPM® 3V 데이터시트 — density 0.28 lb/in³ (7.80 g/cm³), E 30×10⁶ psi (207 GPa)"
     },
     "yield_strength": {
       "min": 1400,
@@ -216,30 +216,12 @@
   ],
   "points": [
     [
-      7.46,
+      7.8,
       1500,
       1900,
       5,
       207,
       600,
-      21
-    ],
-    [
-      7.46,
-      1400,
-      1800,
-      3,
-      207,
-      580,
-      21
-    ],
-    [
-      7.46,
-      1600,
-      2000,
-      7,
-      207,
-      620,
       21
     ]
   ],
@@ -253,7 +235,7 @@
   },
   "fracture_toughness": 25,
   "fatigue_strength": 630,
-  "density": 7.85,
+  "density": 7.8,
   "yield_strength": 1500,
   "uts": 1900,
   "elongation": 5,
@@ -290,6 +272,54 @@
   "delivered_price_per_kg": 7.75,
   "total_cost_estimate": 23.25,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
-  "confidence_tier": "high"
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
+  "confidence_tier": "high",
+  "_corrections": {
+    "density": {
+      "had_range": true,
+      "val_range": {
+        "min": 7.83,
+        "max": 7.87,
+        "typical": 7.85,
+        "n": 3,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 7.85
+    },
+    "_basis": "AUD-3 D06(2026-09-22): 분포점(7.46)과 범위(7.83~7.87)가 서로 다른 입력이었다. Crucible CPM 3V 데이터시트 밀도는 0.28 lb/in³ = 7.80 g/cm³ — 7.46 은 CPM S30V(0.27 lb/in³) 값으로 보이고, 7.85 는 일반 강 계열 폴백이다. 데이터시트 값으로 통일하고 점은 재생성한다.",
+    "_src": "Crucible Industries CPM® 3V 데이터시트 — density 0.28 lb/in³ (7.80 g/cm³), E 30×10⁶ psi (207 GPa)",
+    "points": {
+      "from": [
+        [
+          7.46,
+          1500,
+          1900,
+          5,
+          207,
+          600,
+          21
+        ],
+        [
+          7.46,
+          1400,
+          1800,
+          3,
+          207,
+          580,
+          21
+        ],
+        [
+          7.46,
+          1600,
+          2000,
+          7,
+          207,
+          620,
+          21
+        ]
+      ]
+    }
+  }
 }

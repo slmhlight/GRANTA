@@ -83,7 +83,7 @@
       "n": 1,
       "estimated": false,
       "confidence": "handbook",
-      "provenance": "handbook:verified range override"
+      "provenance": "handbook:verified range override — R173 — LDPE Tm 105-115°C, HDT (0.46 MPa) 49°C, max continuous service 60-70°C. 이전 Tmax 90 은 HDPE 수준 — LDPE 는 더 낮음."
     },
     "thermal_expansion": {
       "min": 40,
@@ -373,7 +373,8 @@
   "min_wall_thickness": 0.8,
   "surface_finish_typical": 1.6,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "high",
   "industry_note": "LDPE (Low-Density Polyethylene, ρ 0.91-0.93). Branched structure → lower density + crystallinity. Tg ≈ -110°C, Tm 105-115°C, max service 60-80°C continuous (σy 9-15 / UTS 8-25 / El 100-700% / E 0.15-0.30 GPa. 식품 film/bag (포장지 표준 — 비닐 봉지), 의료 disposable, squeeze 병, 농업 mulch film, cable insulation, ice cream container. Recycling code PE-4.",
   "_corrections": {

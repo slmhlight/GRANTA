@@ -119,6 +119,7 @@
       "base_value": 40,
       "factor": 1.6,
       "condition": "fully annealed (soft)",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:fully annealed (soft) (k×1.6)"
     },
     "electrical_conductivity": {
@@ -306,7 +307,8 @@
   "delivered_price_per_kg": 3.75,
   "total_cost_estimate": 7.5,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "high",
   "industry_note": "UNS S41000 / EN 1.4006 / X12Cr13 / JIS SUS410 / KS STS410 — martensitic stainless (Cr 11.5-13.5, C 0.08-0.15). 200°C T: σy 1000 / UTS 1350 / HRC 41. Tmax 600°C (over-tempering 위쪽). Cutlery, steam turbine blade, valve stem, oil/gas tubing.",
   "_corrections": {

@@ -113,6 +113,7 @@
       "base_value": 38,
       "factor": 1.2,
       "condition": "H111/H112 as-fabricated",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:H111/H112 as-fabricated (k×1.2)"
     },
     "electrical_conductivity": {
@@ -296,7 +297,8 @@
   "delivered_price_per_kg": 3.36,
   "total_cost_estimate": 6.38,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "high",
   "_corrections": {
     "aliases": {

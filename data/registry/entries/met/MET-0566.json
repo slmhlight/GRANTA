@@ -152,6 +152,7 @@
       "base_value": 100,
       "factor": 1.2,
       "condition": "as-built (no age)",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:as-built (no age) (k×1.2)"
     },
     "electrical_conductivity": {
@@ -712,7 +713,8 @@
   "min_wall_thickness": 0.4,
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "svhc_concerns": [
     "Ni 55% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],

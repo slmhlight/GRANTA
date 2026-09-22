@@ -79,7 +79,7 @@
       "typical": 540,
       "n": 0,
       "confidence": "handbook",
-      "provenance": "alloy:9ni × HT:fully annealed (f×0.5, i×2.5)",
+      "provenance": "handbook:hand-verified override — HP 9-4-30 (ultra-high-strength low-alloy steel) — σf ~540 (peak σy=1240, ratio 0.44). CSV의 145 mock 정정.",
       "estimated": false
     },
     "impact_strength": {
@@ -110,6 +110,7 @@
       "base_value": 130,
       "factor": 1.8,
       "condition": "fully annealed",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:fully annealed (k×1.8)"
     },
     "electrical_conductivity": {
@@ -305,7 +306,8 @@
   "delivered_price_per_kg": 5.86,
   "total_cost_estimate": 11.14,
   "tolerance_class": "IT12-14",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "svhc_concerns": [
     "Ni 8% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)",
     "Co 4.75% — REACH SVHC 후보 (소비자 접촉 제품 제한)"

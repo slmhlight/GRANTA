@@ -130,6 +130,7 @@
       "base_value": 50,
       "factor": 0.9,
       "condition": "as-built (fine grain)",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:as-built (fine grain) (k×0.9)"
     },
     "electrical_conductivity": {
@@ -444,7 +445,8 @@
   "min_wall_thickness": 0.4,
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "high",
   "industry_note": "인공 고관절·무릎 관절과 치과 보철의 표준 금속 — 내마모와 생체적합성을 함께 요구하는 자리. 같은 조성이 가스터빈 부품에도 쓰인다.",
   "_corrections": {

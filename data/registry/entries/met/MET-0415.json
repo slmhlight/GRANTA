@@ -119,6 +119,7 @@
       "base_value": 47,
       "factor": 0.8,
       "condition": "whp CW + aged",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:whp CW + aged (k×0.8)"
     },
     "electrical_conductivity": {
@@ -294,7 +295,8 @@
   "delivered_price_per_kg": 11.34,
   "total_cost_estimate": 21.55,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "medium",
   "_corrections": {
     "industry_note": {

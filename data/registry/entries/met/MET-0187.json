@@ -124,6 +124,7 @@
       "base_value": 32,
       "factor": 1.2,
       "condition": "T5 cooled + artificial aged",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:T5 cooled + artificial aged (k×1.2)"
     },
     "electrical_conductivity": {
@@ -303,7 +304,8 @@
   "delivered_price_per_kg": 2.94,
   "total_cost_estimate": 4.7,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "elevated_temp": [
     {
       "temp": 25,

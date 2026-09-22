@@ -96,6 +96,7 @@
       "base_value": 30,
       "factor": 1.1,
       "condition": "mixed aged/solution-treated CSV-generic (fallback midpoint)",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:mixed aged/solution-treated CSV-generic (fallback midpoint) (k×1.1)"
     },
     "electrical_conductivity": {
@@ -267,7 +268,8 @@
   "delivered_price_per_kg": 4.07,
   "total_cost_estimate": 7.73,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "high",
   "industry_note": "버스바 전용 6xxx — 도전율을 최우선으로 조성을 맞춘 압출재. 구조용 6061 과 겉모습은 같지만 목적이 전기이며, 접속부 산화막 처리가 시공의 핵심이다.",
   "_corrections": {

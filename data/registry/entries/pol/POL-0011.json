@@ -84,7 +84,7 @@
       "n": 1,
       "estimated": false,
       "confidence": "handbook",
-      "provenance": "handbook:verified range override"
+      "provenance": "handbook:verified range override — R173 — Rohacell A (Evonik PMI foam) max continuous service 180°C (autoclave-compatible aerospace sandwich panel core). 이전 Tmax 90 은 일반 polymer foam 수준 — Rohacell 의 핵심 장점은 high-T 사용 가능 (PEI/PEEK skin 함께 autoclave cure)."
     },
     "thermal_expansion": {
       "min": 40,
@@ -240,6 +240,7 @@
   "min_wall_thickness": 0.8,
   "surface_finish_typical": 1.6,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "high"
 }

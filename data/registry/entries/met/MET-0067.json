@@ -191,6 +191,7 @@
       "base_value": 60,
       "factor": 1.6,
       "condition": "annealed",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:annealed (k×1.6)"
     },
     "delivered_price_per_kg": {
@@ -301,7 +302,8 @@
   "delivered_price_per_kg": 2.95,
   "total_cost_estimate": 5.6,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "elevated_temp": [
     {
       "temp": 25,

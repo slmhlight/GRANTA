@@ -112,6 +112,7 @@
       "base_value": 25,
       "factor": 1.1,
       "condition": "mixed aged/solution-treated CSV-generic (fallback midpoint)",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:mixed aged/solution-treated CSV-generic (fallback midpoint) (k×1.1)"
     },
     "electrical_conductivity": {
@@ -283,7 +284,8 @@
   "delivered_price_per_kg": 4.59,
   "total_cost_estimate": 8.73,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "high",
   "industry_note": "UNS A96262 / EN AW-6262 / AlMg1SiPb — 6061 의 Bi/Pb-added free-machining 변종 (Pb 0.40-0.70, Bi 0.50-0.70 — chip breaker). T6: σy 240-275 / UTS 270-310 / El 10%. Machinability rating 90 (6061 의 70 대비 +30%). CNC turning high-volume 부품 (fittings, valves, pump body, fasteners). RoHS 우려 — Pb 함량 → EU 전자기기 사용 제한.",
   "_corrections": {

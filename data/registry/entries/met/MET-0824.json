@@ -119,6 +119,7 @@
       "base_value": 90,
       "factor": 1.45,
       "condition": "H1075",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:H1075 (k×1.45)"
     },
     "electrical_conductivity": {
@@ -346,7 +347,8 @@
   "delivered_price_per_kg": 23.63,
   "total_cost_estimate": 59.07,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "svhc_concerns": [
     "Ni 5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],

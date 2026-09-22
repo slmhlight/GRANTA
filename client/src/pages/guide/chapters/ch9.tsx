@@ -156,7 +156,8 @@ export default function ch9Body() {
               <li><ExtLink href="https://en.wikipedia.org/wiki/Larson%E2%80%93Miller_relation">Wikipedia: Larson-Miller relation</ExtLink></li>
               <li><ExtLink href="https://en.wikipedia.org/wiki/Creep_(deformation)">Wikipedia: Creep (deformation)</ExtLink></li>
               <li><ExtLink href="https://www.eccc-creep.com/">ECCC (European Creep Collaborative Committee)</ExtLink> — creep datasheet 무료 다운로드</li>
-              <li><ExtLink href="https://www.americanelements.com/3d-printing-materials.html">American Elements: 3D Printing Materials</ExtLink> — 분말 spec</li>
+              {/* AUD-3 F11 (2026-09-22) — American Elements 의 3d-printing-materials 페이지는 삭제됐다(반복 404). 분말 spec 은 AM 장비사 자료로. */}
+              <li><ExtLink href="https://www.eos.info/metal-solutions/metal-materials">EOS: Metal Materials (분말 spec·MDS)</ExtLink> · <ExtLink href="https://nikon-slm-solutions.com/materials/">Nikon SLM Solutions: Materials</ExtLink> — 입도·조성·빌드 파라미터</li>
               <li><ExtLink href="https://www.astm.org/COMMITTEE/F42.htm">ASTM F42 Additive Manufacturing Technologies</ExtLink> — AM 표준 위원회</li>
               <li><ExtLink href="https://www.specialmetals.com/documents/technical-bulletins/">Special Metals Tech Bulletins</ExtLink> — Inconel · Incoloy datasheet</li>
             </ul>

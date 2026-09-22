@@ -123,6 +123,7 @@
       "base_value": 32,
       "factor": 1.4,
       "condition": "T7351/T7451 over-aged SCC-resistant",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:T7351/T7451 over-aged SCC-resistant (k×1.4)"
     },
     "electrical_conductivity": {
@@ -303,7 +304,8 @@
   "delivered_price_per_kg": 8.09,
   "total_cost_estimate": 14.55,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "elevated_temp": [
     {
       "temp": 25,

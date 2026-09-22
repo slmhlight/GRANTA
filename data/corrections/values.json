@@ -1271,6 +1271,23 @@
    },
    "basis": "HV 350 은 Granta MI 추정치(*)로 Monel 400 이 도달할 수 없는 경도(HRC 36 급 — K-500 시효재 수준). Special Metals Table 4 냉간압연 spring temper 스트립 경도 98 HRB(min)를 E140 Table 3 로 환산해 HV 234. 인장값(760/828/8.5)은 nominal 범위(σy 621~896 · UTS 690~965 · El 15~2) 안이라 유지.",
    "src": "Special Metals MONEL alloy 400 bulletin Table 4 — Nominal RT Tensile Properties, Strip Cold-Rolled Spring Temper: 100-140 ksi (690-965 MPa) UTS · 90-130 ksi (621-896 MPa) YS · El 15-2% · 98 HRB min. · [경도 스케일] HRB 98 → HV 234 (ASTM E140-12b Table 3, 니켈·고니켈 합금)"
+  },
+  "MET-0930": {
+   "yield_strength": 795,
+   "basis": "AUD-3 D04(2026-09-22): 이름이 ASTM F136/AMS 4907 을 인용하는 규격 하한 행인데 σy 790 은 표의 최소값 795 MPa(115 ksi)와 어긋났다(반올림으로도 설명되지 않음 — 115 ksi = 792.9, 규격 표기는 795). 규격을 인용한 값은 규격 숫자를 쓴다.",
+   "basis_kind": "min_spec",
+   "src": "ASTM F136 (Ti-6Al-4V ELI, 수술용 임플란트) — UTS ≥ 860 MPa(125 ksi) · YS(0.2% offset) ≥ 795 MPa(115 ksi) · 연신 ≥ 10%; Carpenter Ti-6Al-4V ELI 데이터시트 동일"
+  },
+  "MET-0285": {
+   "uts": 570,
+   "basis": "AUD-3 D04(2026-09-22): API 5L X70(L485) PSL2 의 최소 인장강도는 570 MPa(82,700 psi)인데 565 로 실려 있었다. σy 485 는 규격 최소와 일치 — 같은 행의 UTS 만 어긋났다.",
+   "basis_kind": "min_spec",
+   "src": "API 5L / ISO 3183 PSL2 X70(L485): YS ≥ 485 MPa · UTS ≥ 570 MPa"
+  },
+  "MET-0942": {
+   "density": 7.8,
+   "basis": "AUD-3 D06(2026-09-22): 분포점(7.46)과 범위(7.83~7.87)가 서로 다른 입력이었다. Crucible CPM 3V 데이터시트 밀도는 0.28 lb/in³ = 7.80 g/cm³ — 7.46 은 CPM S30V(0.27 lb/in³) 값으로 보이고, 7.85 는 일반 강 계열 폴백이다. 데이터시트 값으로 통일하고 점은 재생성한다.",
+   "src": "Crucible Industries CPM® 3V 데이터시트 — density 0.28 lb/in³ (7.80 g/cm³), E 30×10⁶ psi (207 GPa)"
   }
  },
  "fields": {

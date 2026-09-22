@@ -83,7 +83,7 @@
       "n": 1,
       "estimated": false,
       "confidence": "handbook",
-      "provenance": "handbook:verified range override"
+      "provenance": "handbook:verified range override — R173 — PFA (Perfluoroalkoxy, Chemours Teflon PFA) — fluoropolymer family. Tg ≈ -10°C, Tm 305°C, max service 260°C continuous (PTFE 와 동등). 이전 Tmax 90 은 PE 수준 — fluoropolymer 의 명백한 오류 (FDA + 화학 plant 표준 lining)."
     },
     "thermal_expansion": {
       "min": 40,
@@ -238,6 +238,7 @@
   "min_wall_thickness": 0.8,
   "surface_finish_typical": 1.6,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "medium"
 }

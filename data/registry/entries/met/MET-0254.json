@@ -108,6 +108,7 @@
       "base_value": 55,
       "factor": 0.8,
       "condition": "cold worked",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:cold worked (k×0.8)"
     },
     "electrical_conductivity": {
@@ -285,7 +286,8 @@
   "delivered_price_per_kg": 1.09,
   "total_cost_estimate": 2.18,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "high",
   "industry_note": "저탄소 구조·기계 부품 — 축·핀·볼트 소재. 열처리 없이 쓰거나 침탄해서 쓰는 자리이며, 용접성이 좋아 구조 용접 부재로도 흔하다.",
   "_corrections": {

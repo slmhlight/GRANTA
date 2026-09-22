@@ -153,6 +153,7 @@
       "base_value": 75,
       "factor": 0.9,
       "condition": "as-built (acicular α+β')",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:as-built (acicular α+β') (k×0.9)"
     },
     "electrical_conductivity": {
@@ -941,7 +942,8 @@
   "min_wall_thickness": 0.4,
   "surface_finish_typical": 12,
   "tolerance_class": "IT13-14",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "creep_rupture": [
     {
       "temp": 450,

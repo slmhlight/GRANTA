@@ -191,6 +191,7 @@
       "base_value": 100,
       "factor": 1.6,
       "condition": "annealed",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:annealed (k×1.6)"
     },
     "delivered_price_per_kg": {
@@ -302,7 +303,8 @@
   "delivered_price_per_kg": 4.28,
   "total_cost_estimate": 8.57,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "svhc_concerns": [
     "Ni 3.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],

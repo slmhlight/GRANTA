@@ -17,14 +17,30 @@ function AuthorityBadge({ authority }: { authority?: MaterialSource['authority']
   return <span className={`text-[9px] px-1 mt-0.5 rounded border font-medium whitespace-nowrap flex-shrink-0 ${a.cls}`} title={lang === 'en' ? a.titleEn : a.title}>{lang === 'en' ? a.sEn : a.s}</span>;
 }
 
-/* AUD F11 잔여 — 링크 접근 상태 배지. dead(404/410) 만 눈에 띄게: 내용 검증(✓)과 별개로 "지금 링크가 응답하지 않는다" 를 말한다. */
+/* AUD F11 잔여 → AUD-3 (2026-09-22) — 링크 접근 상태 배지. 내용 검증(✓)과 별개의 축이다.
+   dead(404/410)는 붉게, **확인 보류**(자동 요청이 차단·실패해 접근을 확인하지 못한 상태)는 회색으로 — 보류를 '정상' 으로 보이게 하지 않는다. */
+const PENDING_STATUS = new Set(['bot-blocked-candidate', 'error', 'unchecked']);
 function LinkStatus({ s }: { s: MaterialSource }) {
   const { lang } = useLang();
-  if (s.link_status !== 'dead') return null;
-  const tip = lang === 'en'
-    ? `Link did not respond (HTTP 404/410) on ${s.link_checked || 'last check'} — the citation stays, the address needs replacing.`
-    : `링크 응답 없음(HTTP 404/410, 검사일 ${s.link_checked || '최근'}) — 인용은 유지되나 주소 교체가 필요합니다.`;
-  return <span title={tip} data-testid="source-link-dead" className="text-[9px] px-1 mt-0.5 rounded border border-rose-300 bg-rose-50 text-rose-700 font-medium whitespace-nowrap flex-shrink-0 inline-flex items-center gap-0.5"><Unlink className="w-2.5 h-2.5" />{lang === 'en' ? 'link dead' : '링크 끊김'}</span>;
+  const en = lang === 'en';
+  if (s.link_status === 'dead') {
+    const tip = en
+      ? `Link did not respond (HTTP 404/410) on ${s.link_checked || 'last check'} — the citation stays, the address needs replacing.`
+      : `링크 응답 없음(HTTP 404/410, 검사일 ${s.link_checked || '최근'}) — 인용은 유지되나 주소 교체가 필요합니다.`;
+    return <span title={tip} data-testid="source-link-dead" className="text-[9px] px-1 mt-0.5 rounded border border-rose-300 bg-rose-50 text-rose-700 font-medium whitespace-nowrap flex-shrink-0 inline-flex items-center gap-0.5"><Unlink className="w-2.5 h-2.5" />{en ? 'link dead' : '링크 끊김'}</span>;
+  }
+  if (s.link_status && PENDING_STATUS.has(s.link_status)) {
+    const why = s.link_status === 'unchecked'
+      ? (en ? 'not checked yet' : '아직 검사하지 않음')
+      : s.link_status === 'error'
+        ? (en ? 'request failed (timeout/TLS/DNS)' : '요청 실패(타임아웃·TLS·DNS)')
+        : (en ? 'automated request blocked; opens in a browser' : '자동 요청 차단 — 브라우저로는 열림');
+    const tip = en
+      ? `Link access unconfirmed: ${why}${s.link_checked ? ` (checked ${s.link_checked})` : ''}. This says nothing about whether the cited content is correct.`
+      : `링크 접근 확인 보류: ${why}${s.link_checked ? ` (검사일 ${s.link_checked})` : ''}. 인용 내용의 정오와는 별개입니다.`;
+    return <span title={tip} data-testid="source-link-pending" className="text-[9px] px-1 mt-0.5 rounded border border-border bg-muted text-muted-foreground whitespace-nowrap flex-shrink-0">{en ? 'access pending' : '접근 보류'}</span>;
+  }
+  return null;
 }
 
 export function SourcesList({ sources }: { sources: MaterialSource[] }) {

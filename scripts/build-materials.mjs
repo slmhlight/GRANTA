@@ -3313,6 +3313,7 @@ for (const m of all) {
            실려 "그 열처리 조건의 실측/발췌" 처럼 읽혔다. confidence 'derived' + estimated + 원값·계수 노출 (표시 계층이 구분). */
         Object.assign(m.ranges.fracture_toughness, {
           confidence: 'derived', estimated: true, base_value: sp.kic, factor: multK.k, condition: multK.condTag,
+          model: 'ht-multiplier:kic',   // AUD-3 D01 — 모델 스탬프(계보 검사가 이 필드로 "설명이 붙어 있는가" 를 본다)
           provenance: `alloy-specific KIC × HT:${multK.condTag} (k×${multK.k})`,
         });
       } else if (m.ranges.fracture_toughness) {
@@ -3420,8 +3421,9 @@ for (const m of all) {
   if (tc != null) m.tolerance_class = tc;
   // R16: RoHS 통과 여부 + SVHC 우려 검출 — composition 에서 Pb/Cd/Hg 농도 확인.
   // EU RoHS 2 한계: Pb 0.1%, Cd 0.01%, Hg 0.1%, Cr⁶⁺ 0.1%, PBB/PBDE 0.1% (homogeneous 기준).
-  const { rohs, svhc } = checkRegulated(m);
+  const { rohs, svhc, rohsBasis } = checkRegulated(m);
   m.rohs_compliant = rohs;
+  m.rohs_basis = rohsBasis;   // AUD-3 D05 — 판정 근거(무엇을 보고 그렇게 말했는가)
   if (svhc.length) m.svhc_concerns = svhc;
   // F3: cast superalloy 의 누락된 heat_treatment 를 표준 문헌값으로 보완 — reference-tier 라
   // 별도 condition 데이터가 없는 IN713C / IN738LC / IN939 등은 일반적 적용 사이클을 기록.
@@ -3646,11 +3648,17 @@ for (const m of all) {
 //   RoHS 2 EU Directive 2011/65/EU: Pb 0.1%, Cd 0.01%, Hg 0.1%, Cr⁶⁺ 0.1%, PBB·PBDE 0.1% (homogeneous).
 //   REACH SVHC (Substances of Very High Concern): Be, Co compounds, Ni-allergen (피부), Pb·Cd 일부.
 //   composition entry 형식: ["Element", "min~max"] | ["Element", "balance"] | ["Element", "≤x"]
+/* AUD-3 D05 (2026-09-22) — "자료 없음" 을 "통과" 로 쓰지 않는다.
+   이전: Pb/Cd/Hg 를 0 으로 시작해 **조성에 그 원소가 아예 없어도** 한계 미만 → true 였다(1,041 entry, 그중 42 는 조성 자체가 빈 객체).
+   지금: 세 원소 중 하나라도 조성에 기재돼 있어야 한계 비교를 하고(true/false), 하나도 없으면 null(=자료 부족)로 둔다.
+   rohs_basis 로 판정 근거를 남긴다 — 화면 필터는 'true 만' 을 확인 적합으로 쓴다. RoHS 적합은 균질재료·제품 적용범위·면제까지
+   포함하는 판정이므로, 조성 한계 검사는 그 일부일 뿐이라는 것도 UI 가 밝힌다. */
 function checkRegulated(m) {
   const comp = m.composition;
-  if (!comp || typeof comp !== 'object') return { rohs: null, svhc: [] };
+  if (!comp || typeof comp !== 'object') return { rohs: null, svhc: [], rohsBasis: 'no_composition' };
   const svhc = [];
   let pb = 0, cd = 0, hg = 0;
+  let declared = 0;
   const pct = (val) => {
     if (typeof val !== 'string') return 0;
     const v = String(val).trim();
@@ -3665,9 +3673,9 @@ function checkRegulated(m) {
   for (const [el, val] of entries) {
     const key = String(el).trim();
     const p = pct(val);
-    if (/^Pb$/i.test(key)) pb = p;
-    if (/^Cd$/i.test(key)) cd = p;
-    if (/^Hg$/i.test(key)) hg = p;
+    if (/^Pb$/i.test(key)) { pb = p; declared++; }
+    if (/^Cd$/i.test(key)) { cd = p; declared++; }
+    if (/^Hg$/i.test(key)) { hg = p; declared++; }
     if (/^Be$/i.test(key) && p > 0.1) svhc.push(`Be ${p}% — 호흡기 유해 (베릴륨 분진), CMR Cat.1`);
     if (/^Co$/i.test(key) && p > 0.1) svhc.push(`Co ${p}% — REACH SVHC 후보 (소비자 접촉 제품 제한)`);
     if (/^Ni$/i.test(key) && p > 1.0) svhc.push(`Ni ${p}% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)`);
@@ -3679,7 +3687,11 @@ function checkRegulated(m) {
   if (hg > 0.1) rohsViolations.push(`Hg ${hg}% > 0.1%`);
   const rohs = rohsViolations.length === 0;
   if (!rohs) svhc.push(...rohsViolations.map(v => `RoHS 초과: ${v}`));
-  return { rohs, svhc };
+  /* 초과가 하나라도 있으면 기재된 값으로 '부적합' 을 말할 수 있다. 초과가 없는데 세 원소가 **하나도 기재돼 있지 않으면**
+     통과가 아니라 미확인이다(조성표에 Pb/Cd/Hg 란이 없는 규격이 대부분 — 0 과 미기재를 구분할 수 없다). */
+  if (!rohs) return { rohs: false, svhc, rohsBasis: 'declared_exceeds' };
+  if (declared === 0) return { rohs: null, svhc, rohsBasis: 'no_regulated_element_data' };
+  return { rohs: true, svhc, rohsBasis: 'declared_within_limits' };
 }
 
 // R15 process attributes — 표준 한계값.
@@ -4065,18 +4077,32 @@ try {
  * 단 이전 provenance 가 계열 폴백일 때만(alloy-specific 같은 실제 근거는 보존), estimated 는 신뢰도에 맞춘다.
  * 출처 문자열은 reason 말미의 `[ … ]`(예: "[ASM Vol.1 420 hardened]") — 개발 서사가 아니라 인용만 provenance 에 싣는다. */
 const FALLBACK_PROV_RE = /^(?:1st_family|2nd_family|3rd_family|subfamily|family|class):/;
+/* AUD-3 D01 (2026-09-22) — 모델 계산을 설명하는 provenance("alloy:1020 × HT:cold worked (f×1.25, i×0.6)",
+   "realprops:… × HT:…", "σf≈0.45·UTS", "R205-R … 재유도"). 값이 교체되면 이 문장은 **새 값의 계보가 아니다** —
+   계열 폴백과 같은 규칙으로 갈아 끼운다. 감사 지적(잔여 9건): 교체 뒤에도 옛 HT 계수식이 남아 handbook 배지와 모순됐다. */
+const MODEL_PROV_RE = /×\s*HT:|σf≈|재유도|ht-multiplier/;
 /* reason 말미의 인용만 provenance 로 — "[ASM Vol.1 420 hardened]" · "(MMPDS-08 Vol.1 Sec.3.7)". "[minor]" 같은 메모나
  * 개발 서사는 싣지 않는다(E15o' — 사용자 대면 필드). 인용으로 보이지 않으면 파일별 중립 라벨. */
 const CITATION_RE = /\b(?:ASM|ASTM|AMS|MMPDS|AA\b|ISO|EN\s?\d|DIN|JIS|SAE|API|NACE|UNS|Vol\.|Handbook|datasheet|Special Metals|ATI|TIMET|Solvay|Celanese|DuPont|DSM|Chemours|Perstorp|Haynes|Carpenter|Sandvik|Outokumpu|Alcoa|Kaiser|Materion|copper\.org|CDA|Aalco|Elgiloy|Victrex|Arkema|SABIC|BASF|Evonik|Ensinger)/i;
+/* AUD-3 D01 (2026-09-22) — reason 본문 어디에 있든 규격·제조사 인용을 찾아 provenance 로 승격한다.
+   이전에는 **말미 괄호**만 봐서 "AISI 6150 Annealed (SAE J404). …" 같은 문장이 일반 라벨로 떨어졌다. */
+const INLINE_CITATION_RE = /\b(?:ASM(?:\s+Handbook)?\s+Vol\.\s?\d+(?:[·,]\s?\d+)?|MMPDS[-\s]?\d+|(?:ASTM|AMS|SAE|AWS|EN|DIN|JIS|KS|ISO|MIL|API|NACE|UNS)\s?[A-Z]?[\d][\w./-]*|(?:Materion|Plansee|Carpenter|Special Metals|Haynes|ATI|TIMET|Victrex|Solvay|Syensqo|BASF|Sandvik|Alleima|Outokumpu|EOS|Crucible|B(?:ö|o)hler|Uddeholm|Constellium|Kaiser|Alcoa|Nikon SLM|Renishaw|3D Systems|Colibrium|GE Additive)(?:\s+[\w.-]+){0,3}\s+(?:datasheet|데이터시트|시트|TDS|MDS))/i;
 const overrideProvenance = (reason, fallback) => {
-  const mm = /[\[(]([^\[\]()]+)[\])]\s*\.?\s*$/.exec(String(reason || ''));
-  return mm && CITATION_RE.test(mm[1]) ? `handbook:${mm[1].trim().replace(/^handbook\s+/i, '')}` : fallback;
+  const txt = String(reason || '');
+  const mm = /[\[(]([^\[\]()]+)[\])]\s*\.?\s*$/.exec(txt);
+  if (mm && CITATION_RE.test(mm[1])) return `handbook:${mm[1].trim().replace(/^handbook\s+/i, '')}`;
+  const inline = INLINE_CITATION_RE.exec(txt);
+  if (inline) return `handbook:${inline[0].trim()}`;
+  /* 인용이 없으면 근거 문장을 그대로 싣는다 — 일반 라벨("hand-verified override")은 "이 값이 어디서 왔는가" 에 답하지 못한다.
+     사용자 대면 필드라 내부 서사는 build-from-registry 의 sanText 가 걷어낸다. */
+  const t = txt.replace(/\s+/g, ' ').trim();
+  return t ? `${fallback} — ${t.slice(0, 220)}` : fallback;
 };
 const mergeRangeOverride = (cur, nr, prov) => {
   const out = { ...(cur || {}), ...nr };
   const overrides = nr.typical != null || nr.confidence != null;
-  // 계열 폴백 provenance 만 갈아 끼운다(없던 provenance 를 새로 만들지는 않는다 — 진단된 결함 범위로 한정).
-  if (overrides && !('provenance' in nr) && cur && FALLBACK_PROV_RE.test(String(cur.provenance || ''))) out.provenance = prov;
+  // 계열 폴백·모델 계산 provenance 를 갈아 끼운다(없던 provenance 를 새로 만들지는 않는다 — 진단된 결함 범위로 한정).
+  if (overrides && !('provenance' in nr) && cur && (FALLBACK_PROV_RE.test(String(cur.provenance || '')) || MODEL_PROV_RE.test(String(cur.provenance || '')))) out.provenance = prov;
   // 폴백이 남긴 estimated:true 가 handbook/measured 와 모순되면 내린다.
   if (overrides && !('estimated' in nr) && cur && cur.estimated === true && (out.confidence === 'handbook' || out.confidence === 'measured')) out.estimated = false;
   /* AUD N01 — 값을 덮는 override 는 HT 모델 필드(base_value·factor·condition·model…)를 함께 지운다. 남기면 "핸드북 200 인데

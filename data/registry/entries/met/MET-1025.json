@@ -109,6 +109,7 @@
       "base_value": 28,
       "factor": 1.1,
       "condition": "as-cast (defect-limited)",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:as-cast (defect-limited) (k×1.1)"
     },
     "electrical_conductivity": {
@@ -296,7 +297,8 @@
   "min_wall_thickness": 2.5,
   "surface_finish_typical": 12.5,
   "tolerance_class": "IT13-14",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "svhc_concerns": [
     "Co 17% — REACH SVHC 후보 (소비자 접촉 제품 제한)"
   ],

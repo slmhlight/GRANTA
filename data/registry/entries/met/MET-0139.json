@@ -115,6 +115,7 @@
       "base_value": 40,
       "factor": 1.05,
       "condition": "H321 strain + stabilized",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:H321 strain + stabilized (k×1.05)"
     },
     "electrical_conductivity": {
@@ -308,7 +309,8 @@
   "delivered_price_per_kg": 3.36,
   "total_cost_estimate": 6.38,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "elevated_temp": [
     {
       "temp": 25,

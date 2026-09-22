@@ -102,6 +102,7 @@
       "base_value": 38,
       "factor": 0.85,
       "condition": "H16-H19/H34 3/4-full hard",
+      "model": "ht-multiplier:kic",
       "provenance": "alloy-specific KIC × HT:H16-H19/H34 3/4-full hard (k×0.85)"
     },
     "electrical_conductivity": {
@@ -285,7 +286,8 @@
   "delivered_price_per_kg": 3.36,
   "total_cost_estimate": 6.38,
   "tolerance_class": "IT10-12",
-  "rohs_compliant": true,
+  "rohs_compliant": null,
+  "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "high",
   "_corrections": {
     "aliases": {
