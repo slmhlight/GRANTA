@@ -66,6 +66,8 @@ golden 앵커 2 재캘리브레이션(`SNCM439`·`AISI 9310` — 둘 다 이번�
 
 로컬 `verify:urls --all` 재측정: **dead 0** · error 90 → **3** · bot-blocked 297 · 가이드 링크 dead 0 / exit 0. 검증: vitest 1369/1369(89).
 
+**후속(`d097484`) — 같은 URL 출처 합치기.** 죽은 주소 두 개가 한 후속 문서로 교체되자(예: AK Steel 17-4 PH 제품 페이지 + 데이터 불리틴 → Cleveland-Cliffs 불리틴 하나) 한 재료에 같은 링크가 두 줄로 찍혔다(기존 EOS MDS·DIN 규격 중복 포함 29 entry). build-from-registry 1b0 가 같은 URL 을 합친다(verified 우선 → 구체적인 라벨). 게이트 `url-health` "같은 URL 이 두 번 찍히지 않는다". vitest 1370/1370.
+
 ---
 
 ## 2026-09-22 — A3 철강 족보 re-verify (2027Q3): 조건을 배율로 만들어내던 generic 탄소·합금강 39 entry 를 원전 한 행으로 맞추거나 지웠다
