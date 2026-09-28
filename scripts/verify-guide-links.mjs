@@ -17,6 +17,10 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
 const concurrentIdx = args.indexOf('--concurrent');
 const CONCURRENT = concurrentIdx >= 0 ? parseInt(args[concurrentIdx + 1], 10) : 4;
+/* --max N: 앞 N 개만 검사. `--max 0` 은 네트워크 없이 보고서·임계 판정 경로만 실행한다 —
+   tests/url-checkers-smoke.test.ts 가 이걸로 "검사기 자체가 죽는" 회귀를 CI 에서 잡는다. */
+const maxIdx = args.indexOf('--max');
+const MAX = maxIdx >= 0 ? parseInt(args[maxIdx + 1], 10) : Infinity;
 const TIMEOUT_MS = 20000;
 
 const content = readGuideSource();   // F1 — Guide.tsx + chapters/*
@@ -30,8 +34,8 @@ while ((m = reHref.exec(content))) {
   // ignore #anchor / search params 없음
   if (!u.includes('localhost')) urlSet.add(u);
 }
-const urls = Array.from(urlSet);
-console.log(`Found ${urls.length} unique external URLs in Guide.tsx`);
+const urls = Array.from(urlSet).slice(0, MAX);
+console.log(`Found ${urlSet.size} unique external URLs in Guide.tsx${urls.length < urlSet.size ? ` (checking first ${urls.length})` : ''}`);
 
 async function checkUrl(url) {
   const tStart = Date.now();
@@ -143,7 +147,9 @@ console.log(`\nReport: ${outPath}`);
 const failOnDead = args.includes('--fail-on-dead');
 const failThresholdIdx = args.indexOf('--fail-threshold');
 const failThreshold = failThresholdIdx >= 0 ? parseInt(args[failThresholdIdx + 1], 10) : (failOnDead ? 0 : -1);
-if (failThreshold >= 0 && results.dead.length > failThreshold) {
-  console.error(`\n✗ Guide dead URL count (${results.dead.length}) exceeds threshold (${failThreshold}).`);
+/* 2026-09-28 — `results` 는 배열이고 dead 목록은 위의 `dead` 다. 2026-06-07(a965dce)부터 `results.dead.length` 가
+   TypeError 로 죽어 **링크 상태와 무관하게 매주 exit 1** → URL 점검 이슈(#1)가 16주 동안 "failure persists" 로 남았다. */
+if (failThreshold >= 0 && dead.length > failThreshold) {
+  console.error(`\n✗ Guide dead URL count (${dead.length}) exceeds threshold (${failThreshold}).`);
   process.exit(1);
 }

@@ -27,6 +27,8 @@ const concurrentIdx = args.indexOf('--concurrent');
 const MAX = maxIdx >= 0 ? parseInt(args[maxIdx + 1], 10) : Infinity;
 const CONCURRENT = concurrentIdx >= 0 ? parseInt(args[concurrentIdx + 1], 10) : 3;
 const CHECK_ALL = args.includes('--all');   // AUD F11 잔여 — 미검증 출처 URL 도 검사
+/* 2026-09-28 — 원장(data/url-health.json, 커밋 대상)을 쓰지 않는다. 스모크 테스트(`--max 0`)가 워킹트리를 건드리지 않게. */
+const NO_LEDGER = args.includes('--no-ledger');
 
 const materials = JSON.parse(fs.readFileSync(path.join(ROOT, 'client', 'public', 'materials.json'), 'utf8'));
 
@@ -197,6 +199,9 @@ const BOT_BLOCKED_DOMAINS = new Set([
   'www.investmentcastchina.com', 'investmentcastchina.com',   // CFS Foundry CF3/CF3M 비교 페이지 — 403 이나 브라우저 정상(2026-09-22 확인)
   'www.sunrise-metal.com', 'sunrise-metal.com',
   'shspecialsteel.com', 'www.shspecialsteel.com',
+  /* 2026-09-28 — GitHub 러너(데이터센터 IP)에서만 403: MDPI(Appl. Sci. 7(10) 1009 B4C-Al 논문 — 브라우저로 본문 확인).
+     로컬 가정 회선에서는 200 이 나온다. doi.org 링크도 여기로 이어진다. */
+  'www.mdpi.com', 'mdpi.com',
 ]);
 
 async function checkUrl(url) {
@@ -212,8 +217,21 @@ async function checkUrl(url) {
     }
     const meta = urlMeta.get(url);
     if (r.status === 200) return { url, status: 200, meta, type: 'ok' };
+    /* 2026-09-28 — SAE 는 자동 요청에 202 Accepted(검사 페이지)를 돌려준다. 200 이 아니라서 예전엔 'error'(접근 보류)로
+       빠졌다(27 URL). 자원은 있다 — 차단 목록 도메인이면 bot-blocked, 아니면 ok. */
+    if (r.status > 200 && r.status < 300) {
+      let host = '';
+      try { host = new URL(url).hostname.toLowerCase(); } catch { /* noop */ }
+      return { url, status: r.status, meta, type: BOT_BLOCKED_DOMAINS.has(host) ? 'bot-blocked' : 'ok' };
+    }
     if (r.status >= 300 && r.status < 400) {
       const location = r.headers.get('location');
+      /* 2026-09-28 — 깊은 경로가 **사이트 첫 화면으로** 튕기면 자원은 사라진 것이다(soft-404).
+         예: worldautosteel 의 AHSS 지침 글 → "/", ceramtec 제품 페이지 → "/en/?…/error/", DSM Stanyl → "/en/home.html".
+         이전엔 전부 'redirected(갱신 권장)' 로만 보고돼 출처가 없어진 줄 몰랐다. */
+      if (location && isRootRedirect(url, location)) {
+        return { url, status: r.status, location, meta, type: 'dead', reason: 'redirect-to-root' };
+      }
       return { url, status: r.status, location, meta, type: 'redirected' };
     }
     /* R158/R208: bot-blocked 도메인 의 4xx 는 'bot-blocked' 로 별도 분류 (CI fail 제외).
@@ -238,8 +256,34 @@ async function checkUrl(url) {
     }
     return { url, status: r.status, meta, type: 'error' };
   } catch (err) {
-    return { url, error: err.message, meta: urlMeta.get(url), type: 'error' };
+    /* 2026-09-28 — 'fetch failed' 를 전부 "일시 장애(error)" 로 두면 **도메인이 사라진 출처**가 숨는다.
+       로컬·CI 양쪽에서 aksteel.com(AK Steel → Cleveland-Cliffs, 16 URL)·magnesium-elektron.com 등 23 URL 이
+       DNS 에 아예 없었고, 6 URL 은 다른 이름의 인증서를 내밀었다(사이트 폐쇄·주차). 두 경우만 dead 로 센다 —
+       ENOTFOUND 는 권한 있는 "그런 이름 없음"(일시 장애는 EAI_AGAIN)이고, 한 번 더 확인한 뒤에만 판정한다.
+       타임아웃·연결 리셋·TLS 버전 오류는 환경·안티봇일 수 있어 여전히 error. */
+    const code = err?.cause?.code || '';
+    if (code === 'ENOTFOUND' || code === 'ERR_TLS_CERT_ALTNAME_INVALID') {
+      await new Promise((res) => setTimeout(res, 1500));
+      try {
+        await fetchOnce(url, 'GET', BROWSER_UA);
+      } catch (err2) {
+        const code2 = err2?.cause?.code || '';
+        if (code2 === code) return { url, status: null, error: code, meta: urlMeta.get(url), type: 'dead', reason: code === 'ENOTFOUND' ? 'dns-nxdomain' : 'tls-host-mismatch' };
+      }
+    }
+    return { url, error: code ? `${err.message} (${code})` : err.message, meta: urlMeta.get(url), type: 'error' };
   }
+}
+
+/** 깊은 경로 → 사이트 루트(또는 언어 루트·home/index)로의 리다이렉트인가. */
+function isRootRedirect(url, location) {
+  const ROOTISH = /^\/?(?:[a-z]{2}(?:[-_][a-z]{2})?\/?)?(?:(?:home|index)(?:\.html?)?)?$/i;
+  try {
+    const from = new URL(url);
+    const to = new URL(location, url);
+    // 원래 주소가 이미 루트(또는 /en, /en/home.html)면 루트로 가는 건 정상 — 깊은 경로만 본다
+    return !ROOTISH.test(from.pathname) && ROOTISH.test(to.pathname);
+  } catch { return false; }
 }
 
 async function runBatched(items, fn, concurrency) {
@@ -279,7 +323,7 @@ rep.push('## Summary', `- OK (200): **${results.ok.length}**`, `- Redirected: ${
 if (results.dead.length > 0) {
   rep.push('## Dead URLs (urgent)');
   rep.push('| URL | Status | First alloy | Uses |', '|---|---|---|---|');
-  for (const r of results.dead) rep.push(`| ${r.url} | ${r.status} | ${r.meta.firstAlloy} | ${r.meta.count} |`);
+  for (const r of results.dead) rep.push(`| ${r.url} | ${[r.status, r.reason].filter(Boolean).join(' · ')} | ${r.meta.firstAlloy} | ${r.meta.count} |`);
   rep.push('');
 }
 if (results.redirected.length > 0) {
@@ -312,7 +356,7 @@ console.log('\nReport written: data/dead-urls-report.md');
 /* AUD F11 잔여 (2026-09-22) — 접근 상태 원장. 검사한 URL 만 갱신(merge), 검사하지 않은 URL 의 이전 기록은 유지.
    status: ok · redirected · dead · bot-blocked · bot-blocked-candidate · error. 여기의 'dead' 는 HTTP 404/410(브라우저 UA 재시도 포함).
    `verified`(사람이 내용을 대조했는가)와는 다른 축이다 — 내용이 맞아도 링크는 죽을 수 있고, 링크가 살아 있어도 내용은 검증 전일 수 있다. */
-{
+if (!NO_LEDGER) {
   const healthPath = path.join(DATA, 'url-health.json');
   let health = { _note: '', checked_at: '', results: {} };
   try { health = JSON.parse(fs.readFileSync(healthPath, 'utf8')); } catch { /* 첫 생성 */ }
@@ -322,6 +366,7 @@ console.log('\nReport written: data/dead-urls-report.md');
   health.results = health.results || {};
   for (const r of all) {
     const rec = { status: r.type, code: r.status ?? null, checked_at: today };
+    if (r.reason) rec.reason = r.reason;   // dns-nxdomain · tls-host-mismatch · redirect-to-root
     if (r.type === 'redirected' && r.location) rec.location = r.location;
     if (r.type === 'bot-blocked-candidate') rec.browser_code = r.browserStatus;
     health.results[r.url] = rec;

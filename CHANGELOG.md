@@ -2,6 +2,40 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## 2026-09-28 — GitHub 주간 URL 점검(이슈 #1) 조치: 16주 동안 "실패"로 남은 건 링크가 아니라 검사기였다 · 사라진 도메인 58 URL 교체
+
+**원인 — 검사기 크래시.** 이슈 #1(2026-06-08 개설)은 매주 월요일 "URL health check failed — failure persists" 댓글을 16번 달았다.
+링크 탓이 아니었다: `scripts/verify-guide-links.mjs` 의 마지막 임계 판정이 `results.dead.length` 를 읽는데 `results` 는 배열이라
+**TypeError 로 죽어 링크 상태와 무관하게 매주 exit 1** 이었다(a965dce, 2026-06-07 유입 — 이슈 개설 하루 전). 9/28 실행도 가이드 링크 dead 0 이었다.
+- 수정 + **스모크 게이트** `tests/url-checkers-smoke.test.ts`: 두 검사기를 `--max 0` 으로 돌려(네트워크 없음) 보고서·임계 판정 꼬리 경로가
+  예외 없이 exit 0 으로 끝나는지 본다. 수정 전 코드로 돌리면 실패, 수정 후 통과(주입 실증). 데이터시트 검사기는 `--no-ledger` 로 커밋 원장을 건드리지 않는다.
+- 워크플로: 실패 댓글에 **어느 검사가 실패했는지**(datasheet / guide outcome)를 적고, 두 검사가 모두 통과하면 열린 url-health 이슈를 **자동으로 닫는다**
+  (예전엔 닫는 경로가 없어 고쳐도 이슈가 남았다).
+
+**검사기가 못 보던 죽음 — 분류 보강.** `fetch failed` 를 전부 "일시 장애(error)"로 두는 바람에 **도메인 자체가 사라진 출처**가 숨어 있었다.
+- DNS 에 이름이 없음(ENOTFOUND, 1.5 s 뒤 재확인) · 인증서가 다른 이름(사이트 폐쇄·주차) → **dead**. 타임아웃·연결 리셋은 여전히 error.
+- 깊은 경로가 **사이트 첫 화면으로 튕기는** 리다이렉트(soft-404) → dead(`redirect-to-root`). 원장에 `reason` 기록.
+- SAE 가 자동 요청에 주는 **202 Accepted** 는 자원이 있다는 뜻 → 차단 목록 도메인이면 bot-blocked(예전엔 'error' 로 27 URL 이 "접근 보류" 배지).
+- MDPI 는 GitHub 러너(데이터센터 IP)에서만 403 — 브라우저로 논문 본문 확인 후 차단 목록에.
+
+**58 URL 교체 (r208 객체형, 158 참조).** 로컬·브라우저로 하나씩 확인했다:
+- **aksteel.com 16 URL** — AK Steel 은 2020 Cleveland-Cliffs 에 인수됐고 도메인이 DNS 에서 사라졌다 → Cleveland-Cliffs 제품 데이터 불리틴(17-4·15-5·17-7 PH · 316/316L · 마르텐사이트계 비교표 · 430 · 301)·ATI C-300·Carpenter 440C.
+- 분사·매각으로 옮겨 간 브랜드: Solvay → **Syensqo**(KetaSpire·Amodel) · DSM/LANXESS → Envalior(원문은 웹 아카이브 보존본) · Arkema Plexiglas → **Trinseo** · Magnesium Elektron → **Luxfer MEL** · Styrolution → INEOS · CSP → Teijin · Reichhold → Polynt · Crucible(2025 폐업) → ASM Alloy Digest.
+- 첫 화면으로 튕기던 것: Alcoa 7075 → Kaiser Aluminum 7075 · CeramTec → Si₃N₄/AlN 소재 페이지 · WorldAutoSteel → AHSS Guidelines DP · Eastman Tritan · Nikon SLM 소재 목록 · Aviva C18150(진짜 404 → 새 경로).
+- product.posco.com 은 **브라우저에서도 연결 리셋** → my.posco.com 공식 카탈로그 다운로드 센터. kssa.co.kr(TLS 깨짐) → e나라표준인증 KS D 3701/3751.
+- TMS Superalloys 논문 2편·AK Steel 15-5 PH 2017 불리틴·Rohacell 제품 페이지 → **웹 아카이브 14자리 스냅샷**(같은 문서).
+
+**verified 는 대조한 것만 남겼다.** 58 URL 중 **42 는 웹 아카이브에 한 번도 기록되지 않았다** — 실재했는지부터 확인할 수 없는 주소다.
+그래서 후속 문서로 옮기면서 "그 문서의 수치를 이 세션에서 대조했는가"로 verified 를 다시 매겼다:
+- 유지 9: Cleveland-Cliffs **17-4 PH·15-5 PH Table 3(규격 허용 최소값)** = 저장된 강도(H900 1310/1172 · H1025 1069/1000 · H1075 1000/862 · H1150 UTS 965) — 저장값이 typical 이 아니라 **규격 최소값**이라는 사실도 함께 드러났다(스테인리스 회차 과제로 등재) · 웹 아카이브 원문 보존본 6.
+- 강등(verified=false): 후속 문서의 수치를 대조하지 않았거나(ATI·Kaiser·CeramTec 등) 저장값과 맞지 않은 것(CLF 316L 290/627 vs 저장 240/580 · 17-7 PH 일부). 라벨에 "(대조 전)"을 붙였다.
+- 결과: `confidence_tier` 가 57 entry 에서 내려갔다(high→medium 27 등) — 존재를 확인할 수 없는 링크가 올려 주던 신뢰도였다. verified-src 1036 → 1026.
+  TPE generic(POL-0129)은 검증 출처가 하나도 남지 않아 low anomaly 1 로 **공개**된다(실제 데이터시트 확보 과제).
+
+로컬 `verify:urls --all` 재측정: **dead 0** · error 90 → **3** · bot-blocked 297 · 가이드 링크 dead 0 / exit 0. 검증: vitest 1369/1369(89).
+
+---
+
 ## 2026-09-22 — A3 철강 족보 re-verify (2027Q3): 조건을 배율로 만들어내던 generic 탄소·합금강 39 entry 를 원전 한 행으로 맞추거나 지웠다
 
 분기 족보 로테이션의 다섯 번째(Cu → Al → Ti → Ni → **철강**). 대상은 **generic tier 탄소·합금강 39 entry / 13 base**.

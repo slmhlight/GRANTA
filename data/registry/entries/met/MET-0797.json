@@ -196,24 +196,14 @@
   },
   "sources": [
     {
-      "label": "ASM Handbook Vol.1 — Stainless Steels (properties & selection)",
-      "url": "https://dl.asminternational.org/handbooks/edited-volume/16/Properties-and-Selection-Irons-Steels-and-High",
-      "verified": true
-    },
-    {
-      "label": "ASTM A240/A240M — Stainless Steel Plate, Sheet & Strip",
-      "url": "https://store.astm.org/a0240_a0240m-23.html",
-      "verified": true
-    },
-    {
       "label": "Datasheet 2",
       "url": "ANSYS Granta — Stainless steel, martensitic, AISI 440B annealed (UNS S44003)",
       "verified": true
     },
     {
-      "label": "Datasheet 2",
-      "url": "https://www.crucible.com/eselector/product.aspx?StlName=440B",
-      "verified": true
+      "label": "ASM Alloy Digest SS-36 — Carpenter Stainless No. 440B (Crucible 데이터시트 소실 — 대조 전)",
+      "url": "https://dl.asminternational.org/alloy-digest/article-abstract/4/11/SS-36/393/CARPENTER-STAINLESS-No-440BHigh-Carbon-Chromium",
+      "verified": false
     },
     {
       "label": "KIC fallback: ASM Vol.1 Martensitic SS",
@@ -281,27 +271,8 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": null,
   "rohs_basis": "no_regulated_element_data",
-  "confidence_tier": "high",
+  "confidence_tier": "medium",
   "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "Datasheet 2",
-          "url": "ANSYS Granta — Stainless steel, martensitic, AISI 440B annealed (UNS S44003)",
-          "verified": true
-        },
-        {
-          "label": "Datasheet 2",
-          "url": "https://www.crucible.com/eselector/product.aspx?StlName=440B",
-          "verified": true
-        },
-        {
-          "label": "KIC fallback: ASM Vol.1 Martensitic SS",
-          "url": null,
-          "verified": false
-        }
-      ]
-    },
     "max_service_temp": {
       "had_range": true,
       "val_range": {

@@ -71,6 +71,10 @@ jobs:
             let body = '## URL Health Check Failed\n\n';
             body += `Run: ${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}\n\n`;
             body += `Triggered by: \`${context.eventName}\` on \`${context.ref}\`\n\n`;
+            // 2026-09-28 — 어느 검사가 실패했는지 적는다. 검사기 자체가 죽어도(exit 1) 링크 사망과 똑같이 보였던 탓에
+            // 이슈 #1 이 16주 동안 "failure persists" 로 남았다(가이드 검사기 TypeError). 보고서에 dead 가 0 인데
+            // 이 단계가 돌았다면 검사기 크래시를 먼저 의심할 것 — Actions 로그의 스택을 볼 것.
+            body += `Datasheet check: \`${{ steps.datasheet-check.outcome }}\` · Guide check: \`${{ steps.guide-check.outcome }}\`\n\n`;
             try {
               const dr = fs.readFileSync('data/dead-urls-report.md', 'utf8');
               const summary = dr.split('## Dead URLs')[1]?.split('## ')[0] ?? '';
@@ -108,5 +112,36 @@ jobs:
                 title,
                 body,
                 labels: ['url-health', 'maintenance'],
+              });
+            }
+
+      # 2026-09-28 — 두 검사가 모두 통과하면 열린 url-health 이슈를 닫는다. 예전엔 닫는 경로가 없어서
+      # 고쳐도 이슈가 남았고, "열려 있음" 이 더는 아무 정보도 주지 않았다.
+      - name: Close issue when healthy
+        if: steps.datasheet-check.outcome == 'success' && steps.guide-check.outcome == 'success'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const open = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'url-health',
+              per_page: 30,
+            });
+            const run = `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`;
+            for (const i of open.data.filter(x => x.title.startsWith('URL health check failed'))) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: i.number,
+                body: `✅ ${new Date().toISOString().slice(0,10)} — datasheet·guide 검사 모두 통과(임계 이하). 자동으로 닫습니다.\n\nRun: ${run}`,
+              });
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: i.number,
+                state: 'closed',
+                state_reason: 'completed',
               });
             }
