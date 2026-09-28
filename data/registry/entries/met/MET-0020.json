@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 320,
-      "max": 415,
+      "min": 360,
       "typical": 360,
-      "n": 1,
-      "confidence": "handbook"
+      "max": 360,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 4130 Annealed 1585 F, 1 in. round (81,250 / 52,250 psi · 28.2% · RA 55.6% · HB 156) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "uts": {
-      "min": 520,
-      "max": 670,
+      "min": 560,
       "typical": 560,
-      "n": 1,
-      "confidence": "handbook"
+      "max": 560,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 4130 Annealed 1585 F, 1 in. round (81,250 / 52,250 psi · 28.2% · RA 55.6% · HB 156) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "elongation": {
-      "min": 20,
-      "max": 20,
-      "typical": 20,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 28.2,
+      "typical": 28.2,
+      "max": 28.2,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 4130 Annealed 1585 F, 1 in. round (81,250 / 52,250 psi · 28.2% · RA 55.6% · HB 156) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "modulus": {
       "min": 205,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 200,
-      "max": 200,
-      "typical": 200,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 156,
+      "typical": 156,
+      "max": 156,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 4130 Annealed 1585 F, 1 in. round (81,250 / 52,250 psi · 28.2% · RA 55.6% · HB 156) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "thermal_conductivity": {
       "min": 42,
@@ -249,9 +249,9 @@
       7.85,
       360,
       560,
-      20,
+      28.2,
       205,
-      200,
+      156,
       42
     ]
   ],
@@ -281,11 +281,11 @@
   "fracture_toughness": 162,
   "fatigue_strength": 233,
   "density": 7.85,
-  "yield_strength": 460,
-  "uts": 690,
-  "elongation": 20,
+  "yield_strength": 360,
+  "uts": 560,
+  "elongation": 28.2,
   "modulus": 205,
-  "hardness": 200,
+  "hardness": 156,
   "thermal_conductivity": 42,
   "impact_strength": 88,
   "manufacturer": "Reference data",
@@ -325,6 +325,56 @@
   "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "medium",
   "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 320,
+        "max": 415,
+        "typical": 360,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 460
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 520,
+        "max": 670,
+        "typical": 560,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 690
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 20,
+        "max": 20,
+        "typical": 20,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 20
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 200,
+        "max": 200,
+        "typical": 200,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 200
+    },
+    "_basis": "항복·인장(360/560)은 원전 소둔행과 맞지만 연신 20% · 경도 200 HB 가 어긋나 있었다 — 소둔 4130 은 28% · 156 HB 다. 같은 행의 네 값으로 통일한다(Shigley A-21 소둔 865°C 행 361/560/28/156 과도 일치).",
+    "_src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 4130 Annealed 1585 F, 1 in. round (81,250 / 52,250 psi · 28.2% · RA 55.6% · HB 156) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf",
     "points": {
       "from": [
         [
@@ -337,7 +387,6 @@
           42
         ]
       ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+    }
   }
 }

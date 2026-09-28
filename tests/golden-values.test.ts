@@ -37,7 +37,9 @@ const GOLDEN: G[] = [
   // ── R226e 확장 (18 → 51): 표준 앵커 — 철강(AISI/ASTM)·Al(AA temper)·Ti(ASTM grade)·Ni(AMS)·Mg·주조·AM vendor ──
   { name: 'AISI 1018', y: [340, 400], u: [415, 470], d: [7.8, 7.9] },            // cold drawn 370/440
   { name: '42CrMo4', ht: 'Quench', y: [620, 820], u: [880, 1100] },              // 4140 Q&T
-  { name: 'SNCM439', y: [820, 1000], u: [960, 1130] },                            // 4340 Q&T 900/1050
+  /* A3 철강 reference 2027Q3 재캘리브레이션 — 구 밴드(820~1000 / 960~1130)는 저장 오류값 "Q+T 550°C 900/1050" 기준이었다.
+     원전: Modern Steels 4340 1 in. 봉 1000 F(540°C) 뜨임 1145/1207 · Shigley A-21 540°C 1080/1170. */
+  { name: 'SNCM439', y: [1050, 1200], u: [1140, 1260] },                          // 4340 Q&T 540°C
   { name: 'AISI 304L ', ht: 'Anneal', y: [150, 210], u: [460, 560] },             // min 170/485
   { name: 'AISI 316L (Wrought)', ht: 'Anneal', y: [150, 260], u: [460, 620] },    // min 170/485 · wrought bar typ 240/570
   { name: 'AISI 321', ht: 'Anneal', y: [185, 250], u: [485, 580] },
@@ -94,7 +96,9 @@ const GOLDEN: G[] = [
   { name: 'AISI 1080', ht: 'Anneal', y: [350, 560], u: [580, 770] },              // 펄라이트강 소스 산포 커버
   { name: 'AISI 1095', ht: 'Anneal', y: [380, 600], u: [640, 840] },
   { name: 'AISI 8620', ht: 'Anneal', y: [310, 400], u: [480, 600] },
-  { name: 'AISI 9310', y: [400, 520], u: [560, 700] },
+  /* A3 철강 reference 2027Q3 재캘리브레이션 — 구 인장 밴드(560~700)는 저장 오류값(소둔 UTS 620)에 맞춰져 있었다.
+     원전: Modern Steels E9310 소둔 1550 F, 1 in. 봉 440/820 · 17.3% · HB 241. */
+  { name: 'AISI 9310', y: [400, 480], u: [760, 880] },
   { name: 'HY-80', y: [530, 620], u: [620, 760] },                                // MIL-S-16216 YS min 550
   { name: 'AISI 347', ht: 'Anneal', y: [185, 250], u: [480, 580] },
   { name: 'SS420', ht: 'harden', y: [1350, 1700], u: [1550, 1900] },              // ~52HRC

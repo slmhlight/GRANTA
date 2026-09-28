@@ -11,7 +11,7 @@
   "legacy_id": "R_0335_1",
   "origin": "reference(supplementary)",
   "id": "R_0335_1",
-  "name": "AISI 9310 (VIM-VAR) — aerospace transmission gear — Q+T core only",
+  "name": "AISI 9310 (VIM-VAR) — aerospace transmission gear — Q+T core only (pseudo-carburized, ½ in.)",
   "category": "Metal",
   "subcategory": "Alloy Steel - Case Hardening",
   "tier": "reference",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Q+T core only",
+  "heat_treatment": "Q+T core only (pseudo-carburized; 150°C temper, ½ in.)",
   "ranges": {
     "density": {
       "min": 7.84,
@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 1100,
-      "max": 1100,
-      "typical": 1100,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 986,
+      "typical": 986,
+      "max": 986,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — E9310 Pseudo-carburized(모의침탄) 1700 F 8 h, reheat 1450 F oil, temper 300 F, ½ in. round core (178,750 / 143,000 psi · 15.7% · RA 58.9% · HB 363) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "uts": {
-      "min": 1250,
-      "max": 1250,
-      "typical": 1250,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 1232,
+      "typical": 1232,
+      "max": 1232,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — E9310 Pseudo-carburized(모의침탄) 1700 F 8 h, reheat 1450 F oil, temper 300 F, ½ in. round core (178,750 / 143,000 psi · 15.7% · RA 58.9% · HB 363) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "elongation": {
-      "min": 15,
-      "max": 15,
-      "typical": 15,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 15.7,
+      "typical": 15.7,
+      "max": 15.7,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — E9310 Pseudo-carburized(모의침탄) 1700 F 8 h, reheat 1450 F oil, temper 300 F, ½ in. round core (178,750 / 143,000 psi · 15.7% · RA 58.9% · HB 363) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "modulus": {
       "min": 205,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 360,
-      "max": 360,
-      "typical": 360,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 363,
+      "typical": 363,
+      "max": 363,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — E9310 Pseudo-carburized(모의침탄) 1700 F 8 h, reheat 1450 F oil, temper 300 F, ½ in. round core (178,750 / 143,000 psi · 15.7% · RA 58.9% · HB 363) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "thermal_conductivity": {
       "min": 39,
@@ -99,13 +99,11 @@
       "provenance": "alloy:9310"
     },
     "max_service_temp": {
-      "min": 425,
-      "max": 425,
-      "typical": 425,
-      "n": 0,
-      "estimated": false,
+      "min": 150,
+      "typical": 150,
+      "max": 150,
       "confidence": "handbook",
-      "provenance": "alloy:9310"
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — E9310 Pseudo-carburized(모의침탄) 1700 F 8 h, reheat 1450 F oil, temper 300 F, ½ in. round core (178,750 / 143,000 psi · 15.7% · RA 58.9% · HB 363) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "thermal_expansion": {
       "min": 11.9,
@@ -219,11 +217,11 @@
   "points": [
     [
       7.84,
-      1100,
-      1250,
-      15,
+      986,
+      1232,
+      15.7,
       205,
-      360,
+      363,
       39
     ]
   ],
@@ -244,11 +242,11 @@
   },
   "fatigue_strength": 480,
   "density": 7.84,
-  "yield_strength": 1100,
-  "uts": 1250,
-  "elongation": 15,
+  "yield_strength": 986,
+  "uts": 1232,
+  "elongation": 15.7,
   "modulus": 205,
-  "hardness": 360,
+  "hardness": 363,
   "thermal_conductivity": 39,
   "impact_strength": 60,
   "manufacturer": "Reference data",
@@ -262,7 +260,7 @@
   ],
   "fatigue_estimated": false,
   "electrical_conductivity": 6.5,
-  "max_service_temp": 425,
+  "max_service_temp": 150,
   "thermal_expansion": 11.9,
   "poisson_ratio": 0.29,
   "specific_heat": 470,
@@ -284,5 +282,96 @@
   "svhc_concerns": [
     "Ni 3.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 1100,
+        "max": 1100,
+        "typical": 1100,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1100
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 1250,
+        "max": 1250,
+        "typical": 1250,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1250
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 15,
+        "max": 15,
+        "typical": 15,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 15
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 360,
+        "max": 360,
+        "typical": 360,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 360
+    },
+    "max_service_temp": {
+      "had_range": true,
+      "val_range": {
+        "min": 425,
+        "max": 425,
+        "typical": 425,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:9310"
+      },
+      "had_scalar": true,
+      "val_scalar": 425
+    },
+    "_basis": "인장 1250 · 연신 15 · 경도 360 은 원전 모의침탄 ½ in. 심부행(1232 / 15.7 / 363)과 맞는데 항복만 1100 MPa 로 11% 높았다. 심부행 네 값으로 통일한다. 침탄 후 300 F(150°C) 뜨임 조건이라 사용온도 상한 150°C.",
+    "_src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — E9310 Pseudo-carburized(모의침탄) 1700 F 8 h, reheat 1450 F oil, temper 300 F, ½ in. round core (178,750 / 143,000 psi · 15.7% · RA 58.9% · HB 363) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf",
+    "points": {
+      "from": [
+        [
+          7.84,
+          1100,
+          1250,
+          15,
+          205,
+          360,
+          39
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "AISI 9310 (VIM-VAR) — aerospace transmission gear — Q+T core only",
+        "had": true
+      },
+      "heat_treatment": {
+        "from": "Q+T core only",
+        "had": true
+      }
+    },
+    "_fbasis": "A3 철강 reference 2027Q3 — 값을 원전의 특정 행(뜨임온도·담금 매체·단면)으로 교정하면서 이름·열처리 표기를 그 조건에 맞췄다. 원래 라벨이 가리키던 온도는 원전에 없거나 저장값과 맞지 않았다.",
+    "_fsrc": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) · Shigley Mechanical Engineering Design Table A-21 (출처 ASM Metals Reference Book 2d ed., 1983 — 1 in. 봉, 유냉)"
+  }
 }

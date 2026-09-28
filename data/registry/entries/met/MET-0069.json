@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 360,
-      "max": 360,
-      "typical": 360,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 357,
+      "typical": 357,
+      "max": 357,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 8620 Normalized 1675 F, 1 in. round (91,750 / 51,750 psi · 26.3% · RA 59.7% · HB 183) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "uts": {
-      "min": 635,
-      "max": 635,
-      "typical": 635,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 633,
+      "typical": 633,
+      "max": 633,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 8620 Normalized 1675 F, 1 in. round (91,750 / 51,750 psi · 26.3% · RA 59.7% · HB 183) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "elongation": {
-      "min": 26,
-      "max": 26,
-      "typical": 26,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 26.3,
+      "typical": 26.3,
+      "max": 26.3,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 8620 Normalized 1675 F, 1 in. round (91,750 / 51,750 psi · 26.3% · RA 59.7% · HB 183) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "modulus": {
       "min": 205,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 200,
-      "max": 200,
-      "typical": 200,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 183,
+      "typical": 183,
+      "max": 183,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 8620 Normalized 1675 F, 1 in. round (91,750 / 51,750 psi · 26.3% · RA 59.7% · HB 183) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "thermal_conductivity": {
       "min": 47,
@@ -219,11 +219,11 @@
   "points": [
     [
       7.85,
-      360,
-      635,
-      26,
+      357,
+      633,
+      26.3,
       205,
-      200,
+      183,
       47
     ]
   ],
@@ -238,11 +238,11 @@
   },
   "fatigue_strength": 325,
   "density": 7.85,
-  "yield_strength": 360,
-  "uts": 635,
-  "elongation": 26,
+  "yield_strength": 357,
+  "uts": 633,
+  "elongation": 26.3,
   "modulus": 205,
-  "hardness": 200,
+  "hardness": 183,
   "thermal_conductivity": 47,
   "impact_strength": 60,
   "manufacturer": "Reference data",
@@ -301,5 +301,70 @@
     }
   ],
   "elevated_temp_src": "핸드북 typical — 개별 인용 미기재",
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 360,
+        "max": 360,
+        "typical": 360,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 360
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 635,
+        "max": 635,
+        "typical": 635,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 635
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 26,
+        "max": 26,
+        "typical": 26,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 26
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 200,
+        "max": 200,
+        "typical": 200,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 200
+    },
+    "_basis": "항복·인장·연신(360/635/26)은 원전 노멀라이즈행과 맞고 경도만 200 HB 로 높았다(원전 183). 원전 행으로 통일.",
+    "_src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 8620 Normalized 1675 F, 1 in. round (91,750 / 51,750 psi · 26.3% · RA 59.7% · HB 183) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf",
+    "points": {
+      "from": [
+        [
+          7.85,
+          360,
+          635,
+          26,
+          205,
+          200,
+          47
+        ]
+      ]
+    }
+  }
 }

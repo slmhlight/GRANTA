@@ -11,7 +11,7 @@
   "legacy_id": "R_0024_0",
   "origin": "reference(supplementary)",
   "id": "R_0024_0",
-  "name": "AISI 1144 Stressproof — Normalized",
+  "name": "AISI 1144 — Normalized",
   "category": "Metal",
   "subcategory": "Carbon Steel",
   "tier": "reference",
@@ -39,11 +39,11 @@
       "confidence": "handbook"
     },
     "uts": {
-      "min": 670,
-      "max": 670,
-      "typical": 670,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 667,
+      "typical": 667,
+      "max": 667,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 1144 Normalized 1650 F, 1 in. round (96,750 / 58,000 psi · 21.0% · RA 40.4% · HB 197) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "elongation": {
       "min": 21,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 200,
-      "max": 200,
-      "typical": 200,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 197,
+      "typical": 197,
+      "max": 197,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 1144 Normalized 1650 F, 1 in. round (96,750 / 58,000 psi · 21.0% · RA 40.4% · HB 197) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "thermal_conductivity": {
       "min": 50,
@@ -196,14 +196,14 @@
   },
   "sources": [
     {
-      "label": "Datasheet 1",
-      "url": "ANSYS Granta — Carbon steel AISI 1144 normalized/Q+T (UNS G11440, BS 212M44)",
+      "label": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 1144 Oil-quenched MASS EFFECT (Annealed · Normalized · 1000/1100/1200 F 뜨임)",
+      "url": "https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf",
       "verified": true
     },
     {
-      "label": "Datasheet 1",
-      "url": "AISI 1144 Stressproof (Niagara LaSalle resulfurized free-machining grade)",
-      "verified": true
+      "label": "Niagara LaSalle — StressProof 사양서 (최소 TS 115 ksi · YS 100 ksi, ASTM A311 Class B)",
+      "url": "https://www.niagaralasalle.com/wp-content/uploads/2024/08/stressproof.pdf",
+      "verified": false
     },
     {
       "label": "KIC fallback: AISI carbon steel",
@@ -216,8 +216,8 @@
       "verified": true
     },
     {
-      "label": "Niagara LaSalle — StressProof 냉간가공 봉 (AISI 1144, 최소 TS 140 ksi · YS 125 ksi)",
-      "url": "https://www.niagaralasalle.com/steel-products/stressproof",
+      "label": "Niagara LaSalle — StressProof 사양서 (AISI 1144, 최소 TS 115 ksi · YS 100 ksi, ASTM A311 Class B)",
+      "url": "https://www.niagaralasalle.com/wp-content/uploads/2024/08/stressproof.pdf",
       "verified": false
     }
   ],
@@ -225,10 +225,10 @@
     [
       7.85,
       400,
-      670,
+      667,
       21,
       207,
-      200,
+      197,
       50
     ]
   ],
@@ -239,22 +239,30 @@
   "meta": {
     "reference": true,
     "condition": "Normalized",
-    "_r173_note_applied": true
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM A311",
+        "org": "ASTM"
+      }
+    ]
   },
   "fracture_toughness": 60.5,
   "density": 7.85,
   "yield_strength": 400,
-  "uts": 670,
+  "uts": 667,
   "elongation": 21,
   "modulus": 207,
-  "hardness": 200,
+  "hardness": 197,
   "thermal_conductivity": 50,
   "fatigue_strength": 260,
   "impact_strength": 15,
   "manufacturer": "Reference data",
   "process": "Wrought",
   "source": "Datasheet 1",
-  "aliases": [],
+  "aliases": [
+    "SUM43"
+  ],
   "families": [
     "Metal",
     "Carbon Steel",
@@ -279,5 +287,57 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": null,
   "rohs_basis": "no_regulated_element_data",
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": []
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 670,
+        "max": 670,
+        "typical": 670,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 670
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 200,
+        "max": 200,
+        "typical": 200,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 200
+    },
+    "_basis": "원전 노멀라이즈행(400 / 667 · 21% · 197 HB)과 사실상 같다 — 반올림 차(670·200)만 원전 숫자로.",
+    "_src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 1144 Normalized 1650 F, 1 in. round (96,750 / 58,000 psi · 21.0% · RA 40.4% · HB 197) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf",
+    "points": {
+      "from": [
+        [
+          7.85,
+          400,
+          670,
+          21,
+          207,
+          200,
+          50
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "AISI 1144 Stressproof — Normalized",
+        "had": true
+      }
+    },
+    "_fbasis": "A3 철강 reference 2027Q3 — 값을 원전의 특정 행(뜨임온도·담금 매체·단면)으로 교정하면서 이름·열처리 표기를 그 조건에 맞췄다. 원래 라벨이 가리키던 온도는 원전에 없거나 저장값과 맞지 않았다.",
+    "_fsrc": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) · Shigley Mechanical Engineering Design Table A-21 (출처 ASM Metals Reference Book 2d ed., 1983 — 1 in. 봉, 유냉)"
+  }
 }

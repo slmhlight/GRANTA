@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 450,
-      "max": 450,
-      "typical": 450,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 440,
+      "typical": 440,
+      "max": 440,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — E9310 Annealed 1550 F, 1 in. round (119,000 / 63,750 psi · 17.3% · RA 42.1% · HB 241) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "uts": {
-      "min": 620,
-      "max": 620,
-      "typical": 620,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 820,
+      "typical": 820,
+      "max": 820,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — E9310 Annealed 1550 F, 1 in. round (119,000 / 63,750 psi · 17.3% · RA 42.1% · HB 241) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "elongation": {
-      "min": 17,
-      "max": 17,
-      "typical": 17,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 17.3,
+      "typical": 17.3,
+      "max": 17.3,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — E9310 Annealed 1550 F, 1 in. round (119,000 / 63,750 psi · 17.3% · RA 42.1% · HB 241) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "modulus": {
       "min": 205,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 190,
-      "max": 190,
-      "typical": 190,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 241,
+      "typical": 241,
+      "max": 241,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — E9310 Annealed 1550 F, 1 in. round (119,000 / 63,750 psi · 17.3% · RA 42.1% · HB 241) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "thermal_conductivity": {
       "min": 39,
@@ -243,11 +243,11 @@
   "points": [
     [
       7.84,
-      450,
-      620,
-      17,
+      440,
+      820,
+      17.3,
       205,
-      190,
+      241,
       39
     ]
   ],
@@ -268,11 +268,11 @@
   },
   "fatigue_strength": 264,
   "density": 7.84,
-  "yield_strength": 450,
-  "uts": 620,
-  "elongation": 17,
+  "yield_strength": 440,
+  "uts": 820,
+  "elongation": 17.3,
   "modulus": 205,
-  "hardness": 190,
+  "hardness": 241,
   "thermal_conductivity": 39,
   "impact_strength": 132,
   "manufacturer": "Reference data",
@@ -308,5 +308,70 @@
   "svhc_concerns": [
     "Ni 3.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 450,
+        "max": 450,
+        "typical": 450,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 450
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 620,
+        "max": 620,
+        "typical": 620,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 620
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 17,
+        "max": 17,
+        "typical": 17,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 17
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 190,
+        "max": 190,
+        "typical": 190,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 190
+    },
+    "_basis": "**인장 620 MPa 가 원전(820)보다 200 MPa 낮았다.** 항복·연신(450/17)은 원전과 맞는다 — uts/ys 1.38 은 소둔 Ni-Cr-Mo 강에서 나오지 않는 비(원전 1.87)다. 원전 소둔행으로 교정.",
+    "_src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — E9310 Annealed 1550 F, 1 in. round (119,000 / 63,750 psi · 17.3% · RA 42.1% · HB 241) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf",
+    "points": {
+      "from": [
+        [
+          7.84,
+          450,
+          620,
+          17,
+          205,
+          190,
+          39
+        ]
+      ]
+    }
+  }
 }

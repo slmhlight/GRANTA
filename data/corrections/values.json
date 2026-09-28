@@ -8,11 +8,6 @@
  },
  "_note": "값 교정 (stable_id 키). ranges: 물성 교정(basis·src 필수) — build-registry 4c 적용, 원본은 entry _corrections 보존. fields: 필드 단위 교정.",
  "ranges": {
-  "MET-0283": {
-   "max_service_temp": 425,
-   "basis": "상용 최고온도가 **뜨임온도(425°C)보다 높은 540°C** 로 표기돼 있었다. 뜨임 마르텐사이트를 뜨임온도 이상에서 쓰면 추가 뜨임이 진행돼 경도·강도를 잃는다 — 이 조건이 제공하는 강도를 근거로 설계한다면 상한은 뜨임온도를 넘을 수 없다. 기존 540°C 는 조건 축이 없는 **계열 typical**(같은 합금의 고온 뜨임 조건 기준)이 조건 무관하게 상속된 값이다(백로그 A11). 새 값을 만들지 않고 이 entry 자신의 뜨임온도를 상한으로 쓴다.",
-   "src": "열처리 일반 원칙 — 뜨임재의 사용온도는 뜨임온도를 초과할 수 없다(초과 시 재뜨임으로 경도 저하). 뜨임온도는 이 entry 의 조건 표기에서 취함."
-  },
   "MET-0795": {
    "max_service_temp": 200,
    "basis": "상용 최고온도가 **뜨임온도(200°C)보다 높은 650°C** 로 표기돼 있었다. 뜨임 마르텐사이트를 뜨임온도 이상에서 쓰면 추가 뜨임이 진행돼 경도·강도를 잃는다 — 이 조건이 제공하는 강도를 근거로 설계한다면 상한은 뜨임온도를 넘을 수 없다. 기존 650°C 는 조건 축이 없는 **계열 typical**(같은 합금의 고온 뜨임 조건 기준)이 조건 무관하게 상속된 값이다(백로그 A11). 새 값을 만들지 않고 이 entry 자신의 뜨임온도를 상한으로 쓴다.",
@@ -29,9 +24,13 @@
    "src": "열처리 일반 원칙 — 뜨임재의 사용온도는 뜨임온도를 초과할 수 없다(초과 시 재뜨임으로 경도 저하). 뜨임온도는 이 entry 의 조건 표기에서 취함."
   },
   "MET-0031": {
-   "max_service_temp": 200,
-   "basis": "상용 최고온도가 **뜨임온도(200°C)보다 높은 425°C** 로 표기돼 있었다. 뜨임 마르텐사이트를 뜨임온도 이상에서 쓰면 추가 뜨임이 진행돼 경도·강도를 잃는다 — 이 조건이 제공하는 강도를 근거로 설계한다면 상한은 뜨임온도를 넘을 수 없다. 기존 425°C 는 조건 축이 없는 **계열 typical**(같은 합금의 고온 뜨임 조건 기준)이 조건 무관하게 상속된 값이다(백로그 A11). 새 값을 만들지 않고 이 entry 자신의 뜨임온도를 상한으로 쓴다.",
-   "src": "열처리 일반 원칙 — 뜨임재의 사용온도는 뜨임온도를 초과할 수 없다(초과 시 재뜨임으로 경도 저하). 뜨임온도는 이 entry 의 조건 표기에서 취함."
+   "yield_strength": 1590,
+   "uts": 1720,
+   "elongation": 10,
+   "hardness": 486,
+   "max_service_temp": 315,
+   "basis": "\"Q+T (200°C)\" 라벨의 1620 / 1760 MPa 는 원전 315°C 뜨임행(1590 / 1720 · 10% · 486 HB)에 가깝고 200°C 뜨임값(≈ 1860 / 1980)에는 못 미친다 — 값은 315°C 행인데 라벨만 200°C 였다. 원전에 205°C 행이 없으므로 값과 라벨을 315°C 행으로 맞춘다. 사용온도 상한 315°C. (선행 교정 대체: 사용온도 상한 200°C → 새 뜨임온도)",
+   "src": "Shigley Mechanical Engineering Design Table A-21 (출처 ASM Metals Reference Book 2d ed., 1983 — 1 in. 봉, 유냉) — 4340 Q&T 315°C (600°F): 1720 / 1590 MPa · 10% · RA 40% · HB 486 · https://dr-seif.com/content/ME425-HO2.pdf"
   },
   "MET-0690": {
    "max_service_temp": 430,
@@ -64,9 +63,13 @@
    "src": "열처리 일반 원칙 — 뜨임재의 사용온도는 뜨임온도를 초과할 수 없다(초과 시 재뜨임으로 경도 저하). 뜨임온도는 이 entry 의 조건 표기에서 취함."
   },
   "MET-0028": {
-   "max_service_temp": 200,
-   "basis": "상용 최고온도가 **뜨임온도(200°C)보다 높은 425°C** 로 표기돼 있었다. 뜨임 마르텐사이트를 뜨임온도 이상에서 쓰면 추가 뜨임이 진행돼 경도·강도를 잃는다 — 이 조건이 제공하는 강도를 근거로 설계한다면 상한은 뜨임온도를 넘을 수 없다. 기존 425°C 는 조건 축이 없는 **계열 typical**(같은 합금의 고온 뜨임 조건 기준)이 조건 무관하게 상속된 값이다(백로그 A11). 새 값을 만들지 않고 이 entry 자신의 뜨임온도를 상한으로 쓴다.",
-   "src": "열처리 일반 원칙 — 뜨임재의 사용온도는 뜨임온도를 초과할 수 없다(초과 시 재뜨임으로 경도 저하). 뜨임온도는 이 entry 의 조건 표기에서 취함."
+   "yield_strength": 1640,
+   "uts": 1770,
+   "elongation": 8,
+   "hardness": 510,
+   "max_service_temp": 205,
+   "basis": "\"Q+T (200°C, full hard)\" 인데 경도 415 HB · 인장 1410 MPa 였다 — 200°C 뜨임 4140 은 510 HB · 1770 MPa 급이다(415 HB 는 400°C 대 뜨임 경도). 원전의 205°C 뜨임행으로 교정한다. 사용온도 상한은 뜨임온도(선행 교정 200 → 205). (선행 교정 대체: 사용온도 상한 200°C → 새 뜨임온도)",
+   "src": "Shigley Mechanical Engineering Design Table A-21 (출처 ASM Metals Reference Book 2d ed., 1983 — 1 in. 봉, 유냉) — 4140 Q&T 205°C (400°F): 1770 / 1640 MPa · 8% · RA 38% · HB 510 · https://dr-seif.com/content/ME425-HO2.pdf"
   },
   "MET-0811": {
    "max_service_temp": 200,
@@ -1356,6 +1359,129 @@
    "hardness": 293,
    "basis": "저장값은 같은 base 안에서 ys·uts·경도 세 물성이 **같은 배율**로 맞물려 있었다 — 표에서 옮긴 값이 아니라 한 줄을 곱해 찍어낸 합성값이라는 뜻이다(memory/project_csv_generic_fabrication). 5140 의 Q+T(717.1 / 1010)와 냉간가공(766.8 / 1080) 행이 0.93519 배율로 맞물려 있었다. 원전의 1 in. 봉 · 1550 F 유담금 · 1000 F(540°C) 뜨임행으로 바꾸고 이름·열처리에 조건을 명시한다.",
    "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 5140 Oil-quenched MASS EFFECT, 1 in. round, 1550 F 담금 + 1000 F 뜨임 (141,000 / 121,500 psi · 18.5% · RA 58.9% · HB 293) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
+  },
+  "MET-0020": {
+   "yield_strength": 360,
+   "uts": 560,
+   "elongation": 28.2,
+   "hardness": 156,
+   "basis": "항복·인장(360/560)은 원전 소둔행과 맞지만 연신 20% · 경도 200 HB 가 어긋나 있었다 — 소둔 4130 은 28% · 156 HB 다. 같은 행의 네 값으로 통일한다(Shigley A-21 소둔 865°C 행 361/560/28/156 과도 일치).",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 4130 Annealed 1585 F, 1 in. round (81,250 / 52,250 psi · 28.2% · RA 55.6% · HB 156) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
+  },
+  "MET-0021": {
+   "yield_strength": 436,
+   "uts": 669,
+   "elongation": 25.5,
+   "hardness": 197,
+   "basis": "**항복 칸에 인장강도가 들어가 있었다**: 저장값 670 / 830 MPa 에서 670 은 노멀라이즈 4130 의 인장강도(669)이고, 830 은 어느 표에도 없는 값이다. 원전 노멀라이즈행(436 / 669 · 25.5% · 197 HB)으로 바로잡는다 (Shigley A-21 노멀라이즈 870°C 행 436/670/25/197 과 일치).",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 4130 Normalized 1600 F, 1 in. round (97,000 / 63,250 psi · 25.5% · RA 59.5% · HB 197) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
+  },
+  "MET-0022": {
+   "yield_strength": 893,
+   "uts": 996,
+   "elongation": 18.5,
+   "hardness": 293,
+   "basis": "\"Q+T (550°C)\" 850 / 990 · 12% 는 원전에 없는 조합이다(연신 12% 는 이 강도에서 너무 낮다). 원전의 1 in. 봉 1575 F 수담금 + 1000 F(540°C) 뜨임행으로 바꾸고 이름·열처리를 그 조건으로.",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 4130 Water-quenched MASS EFFECT, 1 in. round, 1575 F 담금 + 1000 F 뜨임 (144,500 / 129,500 psi · 18.5% · RA 61.8% · HB 293) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
+  },
+  "MET-0032": {
+   "yield_strength": 1360,
+   "uts": 1470,
+   "elongation": 10,
+   "hardness": 430,
+   "basis": "\"Q+T (450°C)\" 1230 / 1380 MPa 는 원전 425°C 뜨임행(1360 / 1470)보다 10% 낮았고 450°C 행은 원전에 없다. 425°C 행으로 교정.",
+   "src": "Shigley Mechanical Engineering Design Table A-21 (출처 ASM Metals Reference Book 2d ed., 1983 — 1 in. 봉, 유냉) — 4340 Q&T 425°C (800°F): 1470 / 1360 MPa · 10% · RA 44% · HB 430 · https://dr-seif.com/content/ME425-HO2.pdf"
+  },
+  "MET-0033": {
+   "yield_strength": 1145,
+   "uts": 1207,
+   "elongation": 14.2,
+   "hardness": 352,
+   "basis": "\"Q+T (550°C)\" 항복 900 MPa 는 원전 1000 F(540°C) 뜨임 1 in. 봉(1145)보다 **21% 낮았다** — 설계 허용응력을 크게 깎는 쪽의 오차다. 원전 1 in. 봉 1475 F 유담금 + 1000 F 뜨임행으로 교정(Shigley 540°C 행 1080/1170/13/360 과 같은 대역).",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 4340 Oil-quenched MASS EFFECT, 1 in. round, 1475 F 담금 + 1000 F 뜨임 (175,000 / 166,000 psi · 14.2% · RA 45.9% · HB 352) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
+  },
+  "MET-0067": {
+   "yield_strength": 385,
+   "uts": 536,
+   "elongation": 31.3,
+   "hardness": 149,
+   "basis": "인장 540 · 연신 32 는 원전 소둔행과 맞는데 항복 350 · 경도 165 가 어긋나 있었다. 원전 소둔행 네 값으로 통일.",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 8620 Annealed 1600 F, 1 in. round (77,750 / 55,875 psi · 31.3% · RA 62.1% · HB 149) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
+  },
+  "MET-0069": {
+   "yield_strength": 357,
+   "uts": 633,
+   "elongation": 26.3,
+   "hardness": 183,
+   "basis": "항복·인장·연신(360/635/26)은 원전 노멀라이즈행과 맞고 경도만 200 HB 로 높았다(원전 183). 원전 행으로 통일.",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 8620 Normalized 1675 F, 1 in. round (91,750 / 51,750 psi · 26.3% · RA 59.7% · HB 183) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
+  },
+  "MET-0068": {
+   "yield_strength": 1082,
+   "uts": 1376,
+   "elongation": 13.2,
+   "max_service_temp": 150,
+   "basis": "침탄재의 인장은 **심부(core)** 가 지배한다. 저장값 1100 / 1300 · 12% 는 원전 모의침탄(1700 F 8 h → 1550 F 재가열 유냉 → 300 F 뜨임) ½ in. 봉 심부행(1082 / 1376 · 13.2% · 388 HB)과 같은 대역이라 그 행으로 교정한다. 경도 720 HV 는 표면 침탄층 값이라 그대로 둔다. 침탄 후 300 F(150°C) 뜨임이므로 사용온도 상한 150°C(기존 400°C 는 계열값 — 150°C 를 넘으면 침탄층이 재뜨임된다).",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 8620 Pseudo-carburized(모의침탄) 1700 F 8 h, reheat 1550 F oil, temper 300 F, ½ in. round core (199,500 / 157,000 psi · 13.2% · RA 49.4% · HB 388) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
+  },
+  "MET-0052": {
+   "yield_strength": 927,
+   "uts": 1029,
+   "elongation": 18.2,
+   "hardness": 302,
+   "basis": "조건 표기 없이 950 / 1050 · 16% · 320 HB 가 실려 있었다 — 원전 1 in. 봉 1100 F(595°C) 뜨임행과 같은 대역이다. 그 행으로 교정하고 이름·열처리에 조건을 적는다.",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 8740 Oil-quenched MASS EFFECT, 1 in. round, 1525 F 담금 + 1100 F 뜨임 (149,250 / 134,500 psi · 18.2% · RA 59.9% · HB 302) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
+  },
+  "MET-0070": {
+   "yield_strength": 440,
+   "uts": 820,
+   "elongation": 17.3,
+   "hardness": 241,
+   "basis": "**인장 620 MPa 가 원전(820)보다 200 MPa 낮았다.** 항복·연신(450/17)은 원전과 맞는다 — uts/ys 1.38 은 소둔 Ni-Cr-Mo 강에서 나오지 않는 비(원전 1.87)다. 원전 소둔행으로 교정.",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — E9310 Annealed 1550 F, 1 in. round (119,000 / 63,750 psi · 17.3% · RA 42.1% · HB 241) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
+  },
+  "MET-0072": {
+   "yield_strength": 986,
+   "uts": 1232,
+   "elongation": 15.7,
+   "hardness": 363,
+   "max_service_temp": 150,
+   "basis": "인장 1250 · 연신 15 · 경도 360 은 원전 모의침탄 ½ in. 심부행(1232 / 15.7 / 363)과 맞는데 항복만 1100 MPa 로 11% 높았다. 심부행 네 값으로 통일한다. 침탄 후 300 F(150°C) 뜨임 조건이라 사용온도 상한 150°C.",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — E9310 Pseudo-carburized(모의침탄) 1700 F 8 h, reheat 1450 F oil, temper 300 F, ½ in. round core (178,750 / 143,000 psi · 15.7% · RA 58.9% · HB 363) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
+  },
+  "MET-0071": {
+   "yield_strength": 986,
+   "uts": 1232,
+   "elongation": 15.7,
+   "max_service_temp": 150,
+   "basis": "침탄재의 인장은 심부가 지배한다 — 같은 원전 ½ in. 심부행으로 맞추고 표면 경도 720 HV 는 그대로 둔다. 사용온도 상한 150°C.",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — E9310 Pseudo-carburized(모의침탄) 1700 F 8 h, reheat 1450 F oil, temper 300 F, ½ in. round core (178,750 / 143,000 psi · 15.7% · RA 58.9% · HB 363) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
+  },
+  "MET-0265": {
+   "elongation": 12,
+   "hardness": 179,
+   "basis": "항복·인장(530/625)은 SAE J1397 냉간인발 추정값과 맞는데 연신 16% 가 어긋나 있었다(J1397·Elgin 12%). 같은 행의 연신·경도로 통일.",
+   "src": "Elgin Fastener Group — AISI 1045 cold drawn 19–32 mm round (625 / 530 MPa · 12% · RA 35% · HB 179; SAE J1397 추정값) · https://www.mwcomponents.com/uploads/Resource-Center/Elgin-Material-Sheets/Carbon-Steel-Grade-1045-Fact-Sheet_Elgin-Website.pdf"
+  },
+  "MET-0282": {
+   "uts": 667,
+   "hardness": 197,
+   "basis": "원전 노멀라이즈행(400 / 667 · 21% · 197 HB)과 사실상 같다 — 반올림 차(670·200)만 원전 숫자로.",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 1144 Normalized 1650 F, 1 in. round (96,750 / 58,000 psi · 21.0% · RA 40.4% · HB 197) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
+  },
+  "MET-0284": {
+   "yield_strength": 502,
+   "uts": 748,
+   "elongation": 19.3,
+   "hardness": 223,
+   "basis": "\"Stressproof — Q+T 540°C\" 620 / 760 · 14% 는 원전 1 in. 봉 1000 F(540°C) 뜨임행(502 / 748 · 19.3%)과 항복·연신이 어긋났다. 또 **Stressproof 는 냉간인발 + 응력제거 제품의 상표**라 담금질·뜨임·노멀라이즈 조건과 함께 쓸 수 없다(열처리가 인발 효과를 지운다). 원전 행으로 교정하고 이름에서 Stressproof 를 뗀다.",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 1144 Oil-quenched MASS EFFECT, 1 in. round, 1550 F 담금 + 1000 F 뜨임 (108,500 / 72,750 psi · 19.3% · RA 46.0% · HB 223) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
+  },
+  "MET-0281": {
+   "yield_strength": 689,
+   "uts": 793,
+   "basis": "\"Stressproof\" 라벨인데 620 / 690 MPa 였다 — 제조사 사양서의 **최소값**(YS 100 ksi = 689 · TS 115 ksi = 793 MPa)보다 낮아 이 이름으로 공급될 수 없는 값이다(690 은 최소 항복값이 인장 칸에 들어간 흔적). 사양서 최소값으로 교정하고 규격 하한으로 선언한다. 연신·경도는 사양서가 \"ASTM A311 Class B 이상, 치수에 따라 다름\" 이라고만 적어 여기서 바꾸지 않았다(미검증 잔여).",
+   "src": "Niagara LaSalle — StressProof 사양서 (AISI 1144, Tensile 115,000 psi min · Yield 100,000 psi min · ASTM A311 Class B) · https://www.niagaralasalle.com/wp-content/uploads/2024/08/stressproof.pdf"
   }
  },
  "fields": {
@@ -1704,6 +1830,65 @@
    "name": "AISI 6150 — Normalized",
    "basis": "A3 철강 2027Q3 — 같은 base 의 Q+T 행을 원전의 뜨임조건 표기('Q+T (540°C)')로 바꾸면서 사다리 안에서 '(Wrought)' 접미가 붙은 행과 안 붙은 행이 섞였다. 공정은 별도 필드로 이미 보이므로 접미를 떼어 AA 6061·AA 1050 사다리와 같은 형식으로 통일한다. 값·공정·열처리는 불변.",
    "src": "A3 철강 re-verify 2027Q3 (표기 통일 — A3 Al 2026Q4 와 같은 규칙)"
+  },
+  "MET-0022": {
+   "name": "AISI 4130 / SCM430 (JIS Cr-Mo) — Q+T (540°C)",
+   "heat_treatment": "Quenched + Tempered (540°C, water-quenched)",
+   "basis": "A3 철강 reference 2027Q3 — 값을 원전의 특정 행(뜨임온도·담금 매체·단면)으로 교정하면서 이름·열처리 표기를 그 조건에 맞췄다. 원래 라벨이 가리키던 온도는 원전에 없거나 저장값과 맞지 않았다.",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) · Shigley Mechanical Engineering Design Table A-21 (출처 ASM Metals Reference Book 2d ed., 1983 — 1 in. 봉, 유냉)"
+  },
+  "MET-0028": {
+   "name": "AISI 4140 / 42CrMo4 (Cr-Mo) — Q+T (205°C, full hard)",
+   "heat_treatment": "Q+T (205°C, full hard)",
+   "basis": "A3 철강 reference 2027Q3 — 값을 원전의 특정 행(뜨임온도·담금 매체·단면)으로 교정하면서 이름·열처리 표기를 그 조건에 맞췄다. 원래 라벨이 가리키던 온도는 원전에 없거나 저장값과 맞지 않았다.",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) · Shigley Mechanical Engineering Design Table A-21 (출처 ASM Metals Reference Book 2d ed., 1983 — 1 in. 봉, 유냉)"
+  },
+  "MET-0031": {
+   "name": "AISI 4340 / SNCM439 (JIS Ni-Cr-Mo) — Q+T (315°C)",
+   "heat_treatment": "Q+T (315°C)",
+   "basis": "A3 철강 reference 2027Q3 — 값을 원전의 특정 행(뜨임온도·담금 매체·단면)으로 교정하면서 이름·열처리 표기를 그 조건에 맞췄다. 원래 라벨이 가리키던 온도는 원전에 없거나 저장값과 맞지 않았다.",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) · Shigley Mechanical Engineering Design Table A-21 (출처 ASM Metals Reference Book 2d ed., 1983 — 1 in. 봉, 유냉)"
+  },
+  "MET-0032": {
+   "name": "AISI 4340 / SNCM439 (JIS Ni-Cr-Mo) — Q+T (425°C)",
+   "heat_treatment": "Q+T (425°C)",
+   "basis": "A3 철강 reference 2027Q3 — 값을 원전의 특정 행(뜨임온도·담금 매체·단면)으로 교정하면서 이름·열처리 표기를 그 조건에 맞췄다. 원래 라벨이 가리키던 온도는 원전에 없거나 저장값과 맞지 않았다.",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) · Shigley Mechanical Engineering Design Table A-21 (출처 ASM Metals Reference Book 2d ed., 1983 — 1 in. 봉, 유냉)"
+  },
+  "MET-0033": {
+   "name": "AISI 4340 / SNCM439 (JIS Ni-Cr-Mo) — Q+T (540°C)",
+   "heat_treatment": "Q+T (540°C)",
+   "basis": "A3 철강 reference 2027Q3 — 값을 원전의 특정 행(뜨임온도·담금 매체·단면)으로 교정하면서 이름·열처리 표기를 그 조건에 맞췄다. 원래 라벨이 가리키던 온도는 원전에 없거나 저장값과 맞지 않았다.",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) · Shigley Mechanical Engineering Design Table A-21 (출처 ASM Metals Reference Book 2d ed., 1983 — 1 in. 봉, 유냉)"
+  },
+  "MET-0068": {
+   "name": "AISI 8620 (case-hardening) — Case-Carburized + Q+T (case HV 720, ½ in. core HB 388)",
+   "heat_treatment": "Case-Carburized + Q+T (150°C temper; case HV 720, ½ in. core HB 388)",
+   "basis": "A3 철강 reference 2027Q3 — 값을 원전의 특정 행(뜨임온도·담금 매체·단면)으로 교정하면서 이름·열처리 표기를 그 조건에 맞췄다. 원래 라벨이 가리키던 온도는 원전에 없거나 저장값과 맞지 않았다.",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) · Shigley Mechanical Engineering Design Table A-21 (출처 ASM Metals Reference Book 2d ed., 1983 — 1 in. 봉, 유냉)"
+  },
+  "MET-0052": {
+   "name": "AISI 8740 — Q+T (595°C)",
+   "heat_treatment": "Quenched + Tempered (595°C, oil-quenched)",
+   "basis": "A3 철강 reference 2027Q3 — 값을 원전의 특정 행(뜨임온도·담금 매체·단면)으로 교정하면서 이름·열처리 표기를 그 조건에 맞췄다. 원래 라벨이 가리키던 온도는 원전에 없거나 저장값과 맞지 않았다.",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) · Shigley Mechanical Engineering Design Table A-21 (출처 ASM Metals Reference Book 2d ed., 1983 — 1 in. 봉, 유냉)"
+  },
+  "MET-0072": {
+   "name": "AISI 9310 (VIM-VAR) — aerospace transmission gear — Q+T core only (pseudo-carburized, ½ in.)",
+   "heat_treatment": "Q+T core only (pseudo-carburized; 150°C temper, ½ in.)",
+   "basis": "A3 철강 reference 2027Q3 — 값을 원전의 특정 행(뜨임온도·담금 매체·단면)으로 교정하면서 이름·열처리 표기를 그 조건에 맞췄다. 원래 라벨이 가리키던 온도는 원전에 없거나 저장값과 맞지 않았다.",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) · Shigley Mechanical Engineering Design Table A-21 (출처 ASM Metals Reference Book 2d ed., 1983 — 1 in. 봉, 유냉)"
+  },
+  "MET-0282": {
+   "name": "AISI 1144 — Normalized",
+   "basis": "A3 철강 reference 2027Q3 — 값을 원전의 특정 행(뜨임온도·담금 매체·단면)으로 교정하면서 이름·열처리 표기를 그 조건에 맞췄다. 원래 라벨이 가리키던 온도는 원전에 없거나 저장값과 맞지 않았다.",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) · Shigley Mechanical Engineering Design Table A-21 (출처 ASM Metals Reference Book 2d ed., 1983 — 1 in. 봉, 유냉)"
+  },
+  "MET-0284": {
+   "name": "AISI 1144 — Q+T (540°C)",
+   "heat_treatment": "Quenched + Tempered (540°C, oil-quenched)",
+   "basis": "A3 철강 reference 2027Q3 — 값을 원전의 특정 행(뜨임온도·담금 매체·단면)으로 교정하면서 이름·열처리 표기를 그 조건에 맞췄다. 원래 라벨이 가리키던 온도는 원전에 없거나 저장값과 맞지 않았다.",
+   "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) · Shigley Mechanical Engineering Design Table A-21 (출처 ASM Metals Reference Book 2d ed., 1983 — 1 in. 봉, 유냉)"
   }
  }
 }

@@ -11,7 +11,7 @@
   "legacy_id": "R_0278_2",
   "origin": "reference(supplementary)",
   "id": "R_0278_2",
-  "name": "AISI 4340 / SNCM439 (JIS Ni-Cr-Mo) — Q+T (450°C)",
+  "name": "AISI 4340 / SNCM439 (JIS Ni-Cr-Mo) — Q+T (425°C)",
   "category": "Metal",
   "subcategory": "Alloy Steel",
   "tier": "reference",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Q+T (450°C)",
+  "heat_treatment": "Q+T (425°C)",
   "ranges": {
     "density": {
       "min": 7.85,
@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 1230,
-      "max": 1230,
-      "typical": 1230,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 1360,
+      "typical": 1360,
+      "max": 1360,
+      "confidence": "handbook",
+      "provenance": "교정: Shigley Mechanical Engineering Design Table A-21 (출처 ASM Metals Reference Book 2d ed., 1983 — 1 in. 봉, 유냉) — 4340 Q&T 425°C (800°F): 1470 / 1360 MPa · 10% · RA 44% · HB 430 · https://dr-seif.com/content/ME425-HO2.pdf"
     },
     "uts": {
-      "min": 1380,
-      "max": 1380,
-      "typical": 1380,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 1470,
+      "typical": 1470,
+      "max": 1470,
+      "confidence": "handbook",
+      "provenance": "교정: Shigley Mechanical Engineering Design Table A-21 (출처 ASM Metals Reference Book 2d ed., 1983 — 1 in. 봉, 유냉) — 4340 Q&T 425°C (800°F): 1470 / 1360 MPa · 10% · RA 44% · HB 430 · https://dr-seif.com/content/ME425-HO2.pdf"
     },
     "elongation": {
-      "min": 11,
-      "max": 11,
-      "typical": 11,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 10,
+      "typical": 10,
+      "max": 10,
+      "confidence": "handbook",
+      "provenance": "교정: Shigley Mechanical Engineering Design Table A-21 (출처 ASM Metals Reference Book 2d ed., 1983 — 1 in. 봉, 유냉) — 4340 Q&T 425°C (800°F): 1470 / 1360 MPa · 10% · RA 44% · HB 430 · https://dr-seif.com/content/ME425-HO2.pdf"
     },
     "modulus": {
       "min": 205,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 420,
-      "max": 420,
-      "typical": 420,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 430,
+      "typical": 430,
+      "max": 430,
+      "confidence": "handbook",
+      "provenance": "교정: Shigley Mechanical Engineering Design Table A-21 (출처 ASM Metals Reference Book 2d ed., 1983 — 1 in. 봉, 유냉) — 4340 Q&T 425°C (800°F): 1470 / 1360 MPa · 10% · RA 44% · HB 430 · https://dr-seif.com/content/ME425-HO2.pdf"
     },
     "thermal_conductivity": {
       "min": 42,
@@ -224,11 +224,11 @@
   "points": [
     [
       7.85,
-      1230,
-      1380,
-      11,
+      1360,
+      1470,
+      10,
       205,
-      420,
+      430,
       42
     ]
   ],
@@ -256,11 +256,11 @@
   "fracture_toughness": 75,
   "fatigue_strength": 470,
   "density": 7.85,
-  "yield_strength": 1230,
-  "uts": 1380,
-  "elongation": 11,
+  "yield_strength": 1360,
+  "uts": 1470,
+  "elongation": 10,
   "modulus": 205,
-  "hardness": 420,
+  "hardness": 430,
   "thermal_conductivity": 42,
   "impact_strength": 35,
   "manufacturer": "Reference data",
@@ -319,5 +319,82 @@
   "svhc_concerns": [
     "Ni 2% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 1230,
+        "max": 1230,
+        "typical": 1230,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1230
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 1380,
+        "max": 1380,
+        "typical": 1380,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1380
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 11,
+        "max": 11,
+        "typical": 11,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 11
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 420,
+        "max": 420,
+        "typical": 420,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 420
+    },
+    "_basis": "\"Q+T (450°C)\" 1230 / 1380 MPa 는 원전 425°C 뜨임행(1360 / 1470)보다 10% 낮았고 450°C 행은 원전에 없다. 425°C 행으로 교정.",
+    "_src": "Shigley Mechanical Engineering Design Table A-21 (출처 ASM Metals Reference Book 2d ed., 1983 — 1 in. 봉, 유냉) — 4340 Q&T 425°C (800°F): 1470 / 1360 MPa · 10% · RA 44% · HB 430 · https://dr-seif.com/content/ME425-HO2.pdf",
+    "points": {
+      "from": [
+        [
+          7.85,
+          1230,
+          1380,
+          11,
+          205,
+          420,
+          42
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "AISI 4340 / SNCM439 (JIS Ni-Cr-Mo) — Q+T (450°C)",
+        "had": true
+      },
+      "heat_treatment": {
+        "from": "Q+T (450°C)",
+        "had": true
+      }
+    },
+    "_fbasis": "A3 철강 reference 2027Q3 — 값을 원전의 특정 행(뜨임온도·담금 매체·단면)으로 교정하면서 이름·열처리 표기를 그 조건에 맞췄다. 원래 라벨이 가리키던 온도는 원전에 없거나 저장값과 맞지 않았다.",
+    "_fsrc": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) · Shigley Mechanical Engineering Design Table A-21 (출처 ASM Metals Reference Book 2d ed., 1983 — 1 in. 봉, 유냉)"
+  }
 }

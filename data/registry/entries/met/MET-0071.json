@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 1100,
-      "max": 1100,
-      "typical": 1100,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 986,
+      "typical": 986,
+      "max": 986,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — E9310 Pseudo-carburized(모의침탄) 1700 F 8 h, reheat 1450 F oil, temper 300 F, ½ in. round core (178,750 / 143,000 psi · 15.7% · RA 58.9% · HB 363) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "uts": {
-      "min": 1250,
-      "max": 1250,
-      "typical": 1250,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 1232,
+      "typical": 1232,
+      "max": 1232,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — E9310 Pseudo-carburized(모의침탄) 1700 F 8 h, reheat 1450 F oil, temper 300 F, ½ in. round core (178,750 / 143,000 psi · 15.7% · RA 58.9% · HB 363) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "elongation": {
-      "min": 12,
-      "max": 12,
-      "typical": 12,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 15.7,
+      "typical": 15.7,
+      "max": 15.7,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — E9310 Pseudo-carburized(모의침탄) 1700 F 8 h, reheat 1450 F oil, temper 300 F, ½ in. round core (178,750 / 143,000 psi · 15.7% · RA 58.9% · HB 363) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "modulus": {
       "min": 205,
@@ -119,13 +119,11 @@
       "provenance": "alloy:9310"
     },
     "max_service_temp": {
-      "min": 425,
-      "max": 425,
-      "typical": 425,
-      "n": 0,
-      "estimated": false,
+      "min": 150,
+      "typical": 150,
+      "max": 150,
       "confidence": "handbook",
-      "provenance": "alloy:9310"
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — E9310 Pseudo-carburized(모의침탄) 1700 F 8 h, reheat 1450 F oil, temper 300 F, ½ in. round core (178,750 / 143,000 psi · 15.7% · RA 58.9% · HB 363) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "thermal_expansion": {
       "min": 11.9,
@@ -243,9 +241,9 @@
   "points": [
     [
       7.84,
-      1100,
-      1250,
-      12,
+      986,
+      1232,
+      15.7,
       205,
       720,
       39
@@ -268,9 +266,9 @@
   },
   "fatigue_strength": 528,
   "density": 7.84,
-  "yield_strength": 1100,
-  "uts": 1250,
-  "elongation": 12,
+  "yield_strength": 986,
+  "uts": 1232,
+  "elongation": 15.7,
   "modulus": 205,
   "hardness": 720,
   "thermal_conductivity": 39,
@@ -289,7 +287,7 @@
   ],
   "fatigue_estimated": true,
   "electrical_conductivity": 6.5,
-  "max_service_temp": 425,
+  "max_service_temp": 150,
   "thermal_expansion": 11.9,
   "poisson_ratio": 0.29,
   "specific_heat": 470,
@@ -311,5 +309,72 @@
   "svhc_concerns": [
     "Ni 3.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 1100,
+        "max": 1100,
+        "typical": 1100,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1100
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 1250,
+        "max": 1250,
+        "typical": 1250,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1250
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 12,
+        "max": 12,
+        "typical": 12,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 12
+    },
+    "max_service_temp": {
+      "had_range": true,
+      "val_range": {
+        "min": 425,
+        "max": 425,
+        "typical": 425,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:9310"
+      },
+      "had_scalar": true,
+      "val_scalar": 425
+    },
+    "_basis": "침탄재의 인장은 심부가 지배한다 — 같은 원전 ½ in. 심부행으로 맞추고 표면 경도 720 HV 는 그대로 둔다. 사용온도 상한 150°C.",
+    "_src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — E9310 Pseudo-carburized(모의침탄) 1700 F 8 h, reheat 1450 F oil, temper 300 F, ½ in. round core (178,750 / 143,000 psi · 15.7% · RA 58.9% · HB 363) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf",
+    "points": {
+      "from": [
+        [
+          7.84,
+          1100,
+          1250,
+          12,
+          205,
+          720,
+          39
+        ]
+      ]
+    }
+  }
 }

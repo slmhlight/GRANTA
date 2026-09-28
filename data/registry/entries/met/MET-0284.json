@@ -11,7 +11,7 @@
   "legacy_id": "R_0024_1",
   "origin": "reference(supplementary)",
   "id": "R_0024_1",
-  "name": "AISI 1144 Stressproof — Q+T 540°C (high-temper)",
+  "name": "AISI 1144 — Q+T (540°C)",
   "category": "Metal",
   "subcategory": "Carbon Steel",
   "tier": "reference",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Q+T 540°C (high-temper)",
+  "heat_treatment": "Quenched + Tempered (540°C, oil-quenched)",
   "ranges": {
     "density": {
       "min": 7.85,
@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 620,
-      "max": 620,
-      "typical": 620,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 502,
+      "typical": 502,
+      "max": 502,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 1144 Oil-quenched MASS EFFECT, 1 in. round, 1550 F 담금 + 1000 F 뜨임 (108,500 / 72,750 psi · 19.3% · RA 46.0% · HB 223) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "uts": {
-      "min": 760,
-      "max": 760,
-      "typical": 760,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 748,
+      "typical": 748,
+      "max": 748,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 1144 Oil-quenched MASS EFFECT, 1 in. round, 1550 F 담금 + 1000 F 뜨임 (108,500 / 72,750 psi · 19.3% · RA 46.0% · HB 223) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "elongation": {
-      "min": 14,
-      "max": 14,
-      "typical": 14,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 19.3,
+      "typical": 19.3,
+      "max": 19.3,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 1144 Oil-quenched MASS EFFECT, 1 in. round, 1550 F 담금 + 1000 F 뜨임 (108,500 / 72,750 psi · 19.3% · RA 46.0% · HB 223) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "modulus": {
       "min": 207,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 240,
-      "max": 240,
-      "typical": 240,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 223,
+      "typical": 223,
+      "max": 223,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 1144 Oil-quenched MASS EFFECT, 1 in. round, 1550 F 담금 + 1000 F 뜨임 (108,500 / 72,750 psi · 19.3% · RA 46.0% · HB 223) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "thermal_conductivity": {
       "min": 50,
@@ -187,14 +187,14 @@
   },
   "sources": [
     {
-      "label": "Datasheet 2",
-      "url": "ANSYS Granta — Carbon steel AISI 1144 normalized/Q+T (UNS G11440, BS 212M44)",
+      "label": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 1144 Oil-quenched MASS EFFECT (Annealed · Normalized · 1000/1100/1200 F 뜨임)",
+      "url": "https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf",
       "verified": true
     },
     {
-      "label": "Datasheet 2",
-      "url": "AISI 1144 Stressproof (Niagara LaSalle resulfurized free-machining grade)",
-      "verified": true
+      "label": "Niagara LaSalle — StressProof 사양서 (최소 TS 115 ksi · YS 100 ksi, ASTM A311 Class B)",
+      "url": "https://www.niagaralasalle.com/wp-content/uploads/2024/08/stressproof.pdf",
+      "verified": false
     },
     {
       "label": "KIC fallback: AISI carbon steel",
@@ -207,19 +207,19 @@
       "verified": true
     },
     {
-      "label": "Niagara LaSalle — StressProof 냉간가공 봉 (AISI 1144, 최소 TS 140 ksi · YS 125 ksi)",
-      "url": "https://www.niagaralasalle.com/steel-products/stressproof",
+      "label": "Niagara LaSalle — StressProof 사양서 (AISI 1144, 최소 TS 115 ksi · YS 100 ksi, ASTM A311 Class B)",
+      "url": "https://www.niagaralasalle.com/wp-content/uploads/2024/08/stressproof.pdf",
       "verified": false
     }
   ],
   "points": [
     [
       7.85,
-      620,
-      760,
-      14,
+      502,
+      748,
+      19.3,
       207,
-      240,
+      223,
       50
     ]
   ],
@@ -230,22 +230,30 @@
   "meta": {
     "reference": true,
     "condition": "Q+T 540°C (high-temper)",
-    "_r173_note_applied": true
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM A311",
+        "org": "ASTM"
+      }
+    ]
   },
   "fracture_toughness": 55,
   "density": 7.85,
-  "yield_strength": 620,
-  "uts": 760,
-  "elongation": 14,
+  "yield_strength": 502,
+  "uts": 748,
+  "elongation": 19.3,
   "modulus": 207,
-  "hardness": 240,
+  "hardness": 223,
   "thermal_conductivity": 50,
   "fatigue_strength": 305,
   "impact_strength": 25,
   "manufacturer": "Reference data",
   "process": "Wrought",
   "source": "Datasheet 2",
-  "aliases": [],
+  "aliases": [
+    "SUM43"
+  ],
   "families": [
     "Metal",
     "Carbon Steel",
@@ -270,5 +278,85 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": null,
   "rohs_basis": "no_regulated_element_data",
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "aliases": {
+      "from": []
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 620,
+        "max": 620,
+        "typical": 620,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 620
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 760,
+        "max": 760,
+        "typical": 760,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 760
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 14,
+        "max": 14,
+        "typical": 14,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 14
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 240,
+        "max": 240,
+        "typical": 240,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 240
+    },
+    "_basis": "\"Stressproof — Q+T 540°C\" 620 / 760 · 14% 는 원전 1 in. 봉 1000 F(540°C) 뜨임행(502 / 748 · 19.3%)과 항복·연신이 어긋났다. 또 **Stressproof 는 냉간인발 + 응력제거 제품의 상표**라 담금질·뜨임·노멀라이즈 조건과 함께 쓸 수 없다(열처리가 인발 효과를 지운다). 원전 행으로 교정하고 이름에서 Stressproof 를 뗀다.",
+    "_src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 1144 Oil-quenched MASS EFFECT, 1 in. round, 1550 F 담금 + 1000 F 뜨임 (108,500 / 72,750 psi · 19.3% · RA 46.0% · HB 223) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf",
+    "points": {
+      "from": [
+        [
+          7.85,
+          620,
+          760,
+          14,
+          207,
+          240,
+          50
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "AISI 1144 Stressproof — Q+T 540°C (high-temper)",
+        "had": true
+      },
+      "heat_treatment": {
+        "from": "Q+T 540°C (high-temper)",
+        "had": true
+      }
+    },
+    "_fbasis": "A3 철강 reference 2027Q3 — 값을 원전의 특정 행(뜨임온도·담금 매체·단면)으로 교정하면서 이름·열처리 표기를 그 조건에 맞췄다. 원래 라벨이 가리키던 온도는 원전에 없거나 저장값과 맞지 않았다.",
+    "_fsrc": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) · Shigley Mechanical Engineering Design Table A-21 (출처 ASM Metals Reference Book 2d ed., 1983 — 1 in. 봉, 유냉)"
+  }
 }

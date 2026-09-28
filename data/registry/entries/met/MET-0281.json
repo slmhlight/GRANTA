@@ -32,18 +32,18 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 540,
-      "max": 620,
-      "typical": 620,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 689,
+      "typical": 689,
+      "max": 689,
+      "confidence": "handbook",
+      "provenance": "교정: Niagara LaSalle — StressProof 사양서 (AISI 1144, Tensile 115,000 psi min · Yield 100,000 psi min · ASTM A311 Class B) · https://www.niagaralasalle.com/wp-content/uploads/2024/08/stressproof.pdf"
     },
     "uts": {
-      "min": 620,
-      "max": 690,
-      "typical": 690,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 793,
+      "typical": 793,
+      "max": 793,
+      "confidence": "handbook",
+      "provenance": "교정: Niagara LaSalle — StressProof 사양서 (AISI 1144, Tensile 115,000 psi min · Yield 100,000 psi min · ASTM A311 Class B) · https://www.niagaralasalle.com/wp-content/uploads/2024/08/stressproof.pdf"
     },
     "elongation": {
       "min": 10,
@@ -208,28 +208,19 @@
       "verified": true
     },
     {
-      "label": "Niagara LaSalle — StressProof 냉간가공 봉 (AISI 1144, 최소 TS 140 ksi · YS 125 ksi)",
-      "url": "https://www.niagaralasalle.com/steel-products/stressproof",
+      "label": "Niagara LaSalle — StressProof 사양서 (AISI 1144, 최소 TS 115 ksi · YS 100 ksi, ASTM A311 Class B)",
+      "url": "https://www.niagaralasalle.com/wp-content/uploads/2024/08/stressproof.pdf",
       "verified": false
     }
   ],
   "points": [
     [
       7.85,
-      620,
-      690,
-      10,
-      205,
-      200,
-      50
-    ],
-    [
-      7.85,
-      540,
-      620,
+      689,
+      793,
       16,
       205,
-      180,
+      200,
       50
     ]
   ],
@@ -239,13 +230,19 @@
   "industry_note": "UNS G11440 / SAE 1144 / DIN 1.1241 — resulfurized free-machining medium-carbon steel (C 0.40-0.48, Mn 1.35-1.65, S 0.24-0.33). 'Stressproof' = LaSalle Steel 의 cold-drawn + stress-relieved 변종. Cold drawn (TG&P): σy 690 / UTS 830 / HB 200. 가공 후 dimensional 안정 (low residual stress). 자동차 shaft, gear, 산업 machinery 부품, threaded fastener — wherever machinability 가 critical.",
   "meta": {
     "reference": true,
-    "_r173_note_applied": true
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM A311",
+        "org": "ASTM"
+      }
+    ]
   },
   "fracture_toughness": 55,
   "fatigue_strength": 310,
   "density": 7.85,
-  "yield_strength": 620,
-  "uts": 690,
+  "yield_strength": 689,
+  "uts": 793,
   "elongation": 16,
   "modulus": 205,
   "hardness": 200,
@@ -285,6 +282,54 @@
   "_corrections": {
     "aliases": {
       "from": []
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 540,
+        "max": 620,
+        "typical": 620,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 620
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 620,
+        "max": 690,
+        "typical": 690,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 690
+    },
+    "_basis": "\"Stressproof\" 라벨인데 620 / 690 MPa 였다 — 제조사 사양서의 **최소값**(YS 100 ksi = 689 · TS 115 ksi = 793 MPa)보다 낮아 이 이름으로 공급될 수 없는 값이다(690 은 최소 항복값이 인장 칸에 들어간 흔적). 사양서 최소값으로 교정하고 규격 하한으로 선언한다. 연신·경도는 사양서가 \"ASTM A311 Class B 이상, 치수에 따라 다름\" 이라고만 적어 여기서 바꾸지 않았다(미검증 잔여).",
+    "_src": "Niagara LaSalle — StressProof 사양서 (AISI 1144, Tensile 115,000 psi min · Yield 100,000 psi min · ASTM A311 Class B) · https://www.niagaralasalle.com/wp-content/uploads/2024/08/stressproof.pdf",
+    "points": {
+      "from": [
+        [
+          7.85,
+          620,
+          690,
+          10,
+          205,
+          200,
+          50
+        ],
+        [
+          7.85,
+          540,
+          620,
+          16,
+          205,
+          180,
+          50
+        ]
+      ]
     }
   }
 }

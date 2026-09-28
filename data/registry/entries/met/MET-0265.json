@@ -47,10 +47,10 @@
     },
     "elongation": {
       "min": 12,
-      "max": 20,
-      "typical": 16,
-      "n": 3,
-      "confidence": "measured"
+      "typical": 12,
+      "max": 12,
+      "confidence": "handbook",
+      "provenance": "교정: Elgin Fastener Group — AISI 1045 cold drawn 19–32 mm round (625 / 530 MPa · 12% · RA 35% · HB 179; SAE J1397 추정값) · https://www.mwcomponents.com/uploads/Resource-Center/Elgin-Material-Sheets/Carbon-Steel-Grade-1045-Fact-Sheet_Elgin-Website.pdf"
     },
     "modulus": {
       "min": 205,
@@ -60,11 +60,11 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 170,
-      "max": 200,
-      "typical": 180,
-      "n": 3,
-      "confidence": "measured"
+      "min": 179,
+      "typical": 179,
+      "max": 179,
+      "confidence": "handbook",
+      "provenance": "교정: Elgin Fastener Group — AISI 1045 cold drawn 19–32 mm round (625 / 530 MPa · 12% · RA 35% · HB 179; SAE J1397 추정값) · https://www.mwcomponents.com/uploads/Resource-Center/Elgin-Material-Sheets/Carbon-Steel-Grade-1045-Fact-Sheet_Elgin-Website.pdf"
     },
     "thermal_conductivity": {
       "min": 50,
@@ -225,27 +225,9 @@
       7.85,
       530,
       625,
-      16,
-      205,
-      180,
-      50
-    ],
-    [
-      7.85,
-      505,
-      595,
       12,
       205,
-      170,
-      50
-    ],
-    [
-      7.85,
-      560,
-      660,
-      20,
-      205,
-      200,
+      179,
       50
     ]
   ],
@@ -262,9 +244,9 @@
   "density": 7.85,
   "yield_strength": 530,
   "uts": 625,
-  "elongation": 16,
+  "elongation": 12,
   "modulus": 205,
-  "hardness": 180,
+  "hardness": 179,
   "thermal_conductivity": 50,
   "impact_strength": 11,
   "manufacturer": "Reference data",
@@ -334,6 +316,63 @@
         "C45",
         "JIS S45C",
         "KS SM45C"
+      ]
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 12,
+        "max": 20,
+        "typical": 16,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 16
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 170,
+        "max": 200,
+        "typical": 180,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 180
+    },
+    "_basis": "항복·인장(530/625)은 SAE J1397 냉간인발 추정값과 맞는데 연신 16% 가 어긋나 있었다(J1397·Elgin 12%). 같은 행의 연신·경도로 통일.",
+    "_src": "Elgin Fastener Group — AISI 1045 cold drawn 19–32 mm round (625 / 530 MPa · 12% · RA 35% · HB 179; SAE J1397 추정값) · https://www.mwcomponents.com/uploads/Resource-Center/Elgin-Material-Sheets/Carbon-Steel-Grade-1045-Fact-Sheet_Elgin-Website.pdf",
+    "points": {
+      "from": [
+        [
+          7.85,
+          530,
+          625,
+          16,
+          205,
+          180,
+          50
+        ],
+        [
+          7.85,
+          505,
+          595,
+          12,
+          205,
+          170,
+          50
+        ],
+        [
+          7.85,
+          560,
+          660,
+          20,
+          205,
+          200,
+          50
+        ]
       ]
     }
   }

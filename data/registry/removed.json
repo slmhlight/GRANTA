@@ -1,6 +1,6 @@
 {
  "_note": "AUD Q03 — 배포에서 제거된 entry 원장 (build-registry 자동 생성; 사유 서술은 data/corrections/remove.json reasons). stable_id 는 예약(재사용 없음). superseded_by 는 같은 base 의 살아남은 entry — superseded_how 가 \"duplicate\" 일 때만 동일 값 대체, 그 외는 참조.",
- "count": 180,
+ "count": 181,
  "generated": "2026-09-28",
  "removed": [
   {
@@ -1564,6 +1564,28 @@
    "superseded_by_legacy_id": "G_0128",
    "superseded_by_name": "AISI 1095 — Strain-hardened (Wrought)",
    "superseded_how": "same-base representative (nearest σy) — 값이 다르므로 대체가 아니라 참조"
+  },
+  {
+   "stable_id": "MET-0283",
+   "legacy_id": "R_0024_2",
+   "name": "AISI 1144 Stressproof — Q+T 425°C (medium-temper, peak)",
+   "category": "Metal",
+   "subcategory": "Carbon Steel",
+   "heat_treatment": "Q+T 425°C (medium-temper, peak)",
+   "process": "Wrought",
+   "values": {
+    "yield_strength": 760,
+    "uts": 880,
+    "elongation": 12
+   },
+   "removal_kind": "id",
+   "reason": "AISI 1144 Stressproof — Q+T 425°C: 원전(Modern Steels 1144 페이지)은 1000·1100·1200 F 뜨임만 싣고 425°C(800 F) 행이 없다. 출처로 달린 \"Datasheet 3 · ANSYS Granta …\" 는 URL 자리에 설명문이 들어간 가짜 출처였고, Stressproof(냉간인발 + 응력제거 상표)에 Q+T 조건을 붙인 이름 자체도 성립하지 않는다.",
+   "removed_on": "2026-09-28",
+   "ref": "docs/audits/steel-reverify-2027Q3.md ⑦ · A3 철강 reference tier",
+   "superseded_by": "MET-0284",
+   "superseded_by_legacy_id": "R_0024_1",
+   "superseded_by_name": "AISI 1144 Stressproof — Q+T 540°C (high-temper)",
+   "superseded_how": "declared in remove.json reasons"
   },
   {
    "stable_id": "MET-0365",

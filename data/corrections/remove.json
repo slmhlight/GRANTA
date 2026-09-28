@@ -101,7 +101,8 @@
    "MET-0038",
    "MET-0039",
    "MET-0090",
-   "MET-0044"
+   "MET-0044",
+   "MET-0283"
   ],
   "_reasons_note": "AUD Q03 (2026-09-22) — 제거 사유 원장(stable_id 키): reason·date·ref·superseded_by(선택, 같은 합금의 살아남은 entry). build-registry 가 data/registry/removed.json 으로 구조화 출력(값 동일 시 duplicate 로 표기), 앱은 ?d=<옛 id> 딥링크에서 이를 안내한다. 이전 회차 제거(R226b~A17)는 _ids_note 서술만 있고 여기 미기재 — 자동 분류 코드만 붙는다.",
   "reasons": {
@@ -346,6 +347,12 @@
     "date": "2026-09-22",
     "ref": "docs/audits/steel-reverify-2027Q3.md · A3 철강 로테이션",
     "superseded_by": "MET-0040"
+   },
+   "MET-0283": {
+    "reason": "AISI 1144 Stressproof — Q+T 425°C: 원전(Modern Steels 1144 페이지)은 1000·1100·1200 F 뜨임만 싣고 425°C(800 F) 행이 없다. 출처로 달린 \"Datasheet 3 · ANSYS Granta …\" 는 URL 자리에 설명문이 들어간 가짜 출처였고, Stressproof(냉간인발 + 응력제거 상표)에 Q+T 조건을 붙인 이름 자체도 성립하지 않는다.",
+    "date": "2026-09-28",
+    "ref": "docs/audits/steel-reverify-2027Q3.md ⑦ · A3 철강 reference tier",
+    "superseded_by": "MET-0284"
    }
   }
  }

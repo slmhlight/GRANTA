@@ -11,7 +11,7 @@
   "legacy_id": "R_0220",
   "origin": "reference(supplementary)",
   "id": "R_0220",
-  "name": "AISI 8740",
+  "name": "AISI 8740 — Q+T (595°C)",
   "category": "Metal",
   "subcategory": "Alloy Steel",
   "tier": "reference",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": null,
+  "heat_treatment": "Quenched + Tempered (595°C, oil-quenched)",
   "ranges": {
     "density": {
       "min": 7.85,
@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 830,
-      "max": 950,
-      "typical": 950,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 927,
+      "typical": 927,
+      "max": 927,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 8740 Oil-quenched MASS EFFECT, 1 in. round, 1525 F 담금 + 1100 F 뜨임 (149,250 / 134,500 psi · 18.2% · RA 59.9% · HB 302) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "uts": {
-      "min": 950,
-      "max": 1050,
-      "typical": 1050,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 1029,
+      "typical": 1029,
+      "max": 1029,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 8740 Oil-quenched MASS EFFECT, 1 in. round, 1525 F 담금 + 1100 F 뜨임 (149,250 / 134,500 psi · 18.2% · RA 59.9% · HB 302) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "elongation": {
-      "min": 13,
-      "max": 16,
-      "typical": 16,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 18.2,
+      "typical": 18.2,
+      "max": 18.2,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 8740 Oil-quenched MASS EFFECT, 1 in. round, 1525 F 담금 + 1100 F 뜨임 (149,250 / 134,500 psi · 18.2% · RA 59.9% · HB 302) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "modulus": {
       "min": 205,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 300,
-      "max": 320,
-      "typical": 320,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 302,
+      "typical": 302,
+      "max": 302,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 8740 Oil-quenched MASS EFFECT, 1 in. round, 1525 F 담금 + 1100 F 뜨임 (149,250 / 134,500 psi · 18.2% · RA 59.9% · HB 302) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "thermal_conductivity": {
       "min": 44,
@@ -217,20 +217,11 @@
   "points": [
     [
       7.85,
-      950,
-      1050,
-      16,
+      927,
+      1029,
+      18.2,
       205,
-      320,
-      44
-    ],
-    [
-      7.85,
-      830,
-      950,
-      13,
-      205,
-      300,
+      302,
       44
     ]
   ],
@@ -255,11 +246,11 @@
   "fracture_toughness": 80,
   "fatigue_strength": 475,
   "density": 7.85,
-  "yield_strength": 950,
-  "uts": 1050,
-  "elongation": 16,
+  "yield_strength": 927,
+  "uts": 1029,
+  "elongation": 18.2,
   "modulus": 205,
-  "hardness": 320,
+  "hardness": 302,
   "thermal_conductivity": 44,
   "impact_strength": 35,
   "manufacturer": "Reference data",
@@ -295,5 +286,91 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": null,
   "rohs_basis": "no_regulated_element_data",
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 830,
+        "max": 950,
+        "typical": 950,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 950
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 950,
+        "max": 1050,
+        "typical": 1050,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1050
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 13,
+        "max": 16,
+        "typical": 16,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 16
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 300,
+        "max": 320,
+        "typical": 320,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 320
+    },
+    "_basis": "조건 표기 없이 950 / 1050 · 16% · 320 HB 가 실려 있었다 — 원전 1 in. 봉 1100 F(595°C) 뜨임행과 같은 대역이다. 그 행으로 교정하고 이름·열처리에 조건을 적는다.",
+    "_src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 8740 Oil-quenched MASS EFFECT, 1 in. round, 1525 F 담금 + 1100 F 뜨임 (149,250 / 134,500 psi · 18.2% · RA 59.9% · HB 302) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf",
+    "points": {
+      "from": [
+        [
+          7.85,
+          950,
+          1050,
+          16,
+          205,
+          320,
+          44
+        ],
+        [
+          7.85,
+          830,
+          950,
+          13,
+          205,
+          300,
+          44
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "AISI 8740",
+        "had": true
+      },
+      "heat_treatment": {
+        "from": null,
+        "had": true
+      }
+    },
+    "_fbasis": "A3 철강 reference 2027Q3 — 값을 원전의 특정 행(뜨임온도·담금 매체·단면)으로 교정하면서 이름·열처리 표기를 그 조건에 맞췄다. 원래 라벨이 가리키던 온도는 원전에 없거나 저장값과 맞지 않았다.",
+    "_fsrc": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) · Shigley Mechanical Engineering Design Table A-21 (출처 ASM Metals Reference Book 2d ed., 1983 — 1 in. 봉, 유냉)"
+  }
 }

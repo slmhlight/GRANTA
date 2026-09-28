@@ -11,7 +11,7 @@
   "legacy_id": "R_0368_2",
   "origin": "reference(supplementary)",
   "id": "R_0368_2",
-  "name": "AISI 8620 (case-hardening) — Case-Carburized + Q+T (case HV 720, core HV 360)",
+  "name": "AISI 8620 (case-hardening) — Case-Carburized + Q+T (case HV 720, ½ in. core HB 388)",
   "category": "Metal",
   "subcategory": "Alloy Steel - Case Hardening",
   "tier": "reference",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Case-Carburized + Q+T (case HV 720, core HV 360)",
+  "heat_treatment": "Case-Carburized + Q+T (150°C temper; case HV 720, ½ in. core HB 388)",
   "ranges": {
     "density": {
       "min": 7.85,
@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 1100,
-      "max": 1100,
-      "typical": 1100,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 1082,
+      "typical": 1082,
+      "max": 1082,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 8620 Pseudo-carburized(모의침탄) 1700 F 8 h, reheat 1550 F oil, temper 300 F, ½ in. round core (199,500 / 157,000 psi · 13.2% · RA 49.4% · HB 388) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "uts": {
-      "min": 1300,
-      "max": 1300,
-      "typical": 1300,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 1376,
+      "typical": 1376,
+      "max": 1376,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 8620 Pseudo-carburized(모의침탄) 1700 F 8 h, reheat 1550 F oil, temper 300 F, ½ in. round core (199,500 / 157,000 psi · 13.2% · RA 49.4% · HB 388) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "elongation": {
-      "min": 12,
-      "max": 12,
-      "typical": 12,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 13.2,
+      "typical": 13.2,
+      "max": 13.2,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 8620 Pseudo-carburized(모의침탄) 1700 F 8 h, reheat 1550 F oil, temper 300 F, ½ in. round core (199,500 / 157,000 psi · 13.2% · RA 49.4% · HB 388) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "modulus": {
       "min": 205,
@@ -119,13 +119,11 @@
       "provenance": "alloy:8620"
     },
     "max_service_temp": {
-      "min": 400,
-      "max": 400,
-      "typical": 400,
-      "n": 0,
-      "estimated": false,
+      "min": 150,
+      "typical": 150,
+      "max": 150,
       "confidence": "handbook",
-      "provenance": "alloy:8620"
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 8620 Pseudo-carburized(모의침탄) 1700 F 8 h, reheat 1550 F oil, temper 300 F, ½ in. round core (199,500 / 157,000 psi · 13.2% · RA 49.4% · HB 388) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "thermal_expansion": {
       "min": 11.9,
@@ -243,9 +241,9 @@
   "points": [
     [
       7.85,
-      1100,
-      1300,
-      12,
+      1082,
+      1376,
+      13.2,
       205,
       720,
       47
@@ -262,9 +260,9 @@
   },
   "fatigue_strength": 358,
   "density": 7.85,
-  "yield_strength": 1100,
-  "uts": 1300,
-  "elongation": 12,
+  "yield_strength": 1082,
+  "uts": 1376,
+  "elongation": 13.2,
   "modulus": 205,
   "hardness": 720,
   "thermal_conductivity": 47,
@@ -287,7 +285,7 @@
   ],
   "fatigue_estimated": true,
   "electrical_conductivity": 7,
-  "max_service_temp": 400,
+  "max_service_temp": 150,
   "thermal_expansion": 11.9,
   "poisson_ratio": 0.29,
   "specific_heat": 477,
@@ -306,5 +304,84 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": null,
   "rohs_basis": "no_regulated_element_data",
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 1100,
+        "max": 1100,
+        "typical": 1100,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1100
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 1300,
+        "max": 1300,
+        "typical": 1300,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1300
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 12,
+        "max": 12,
+        "typical": 12,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 12
+    },
+    "max_service_temp": {
+      "had_range": true,
+      "val_range": {
+        "min": 400,
+        "max": 400,
+        "typical": 400,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:8620"
+      },
+      "had_scalar": true,
+      "val_scalar": 400
+    },
+    "_basis": "침탄재의 인장은 **심부(core)** 가 지배한다. 저장값 1100 / 1300 · 12% 는 원전 모의침탄(1700 F 8 h → 1550 F 재가열 유냉 → 300 F 뜨임) ½ in. 봉 심부행(1082 / 1376 · 13.2% · 388 HB)과 같은 대역이라 그 행으로 교정한다. 경도 720 HV 는 표면 침탄층 값이라 그대로 둔다. 침탄 후 300 F(150°C) 뜨임이므로 사용온도 상한 150°C(기존 400°C 는 계열값 — 150°C 를 넘으면 침탄층이 재뜨임된다).",
+    "_src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 8620 Pseudo-carburized(모의침탄) 1700 F 8 h, reheat 1550 F oil, temper 300 F, ½ in. round core (199,500 / 157,000 psi · 13.2% · RA 49.4% · HB 388) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf",
+    "points": {
+      "from": [
+        [
+          7.85,
+          1100,
+          1300,
+          12,
+          205,
+          720,
+          47
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "AISI 8620 (case-hardening) — Case-Carburized + Q+T (case HV 720, core HV 360)",
+        "had": true
+      },
+      "heat_treatment": {
+        "from": "Case-Carburized + Q+T (case HV 720, core HV 360)",
+        "had": true
+      }
+    },
+    "_fbasis": "A3 철강 reference 2027Q3 — 값을 원전의 특정 행(뜨임온도·담금 매체·단면)으로 교정하면서 이름·열처리 표기를 그 조건에 맞췄다. 원래 라벨이 가리키던 온도는 원전에 없거나 저장값과 맞지 않았다.",
+    "_fsrc": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) · Shigley Mechanical Engineering Design Table A-21 (출처 ASM Metals Reference Book 2d ed., 1983 — 1 in. 봉, 유냉)"
+  }
 }

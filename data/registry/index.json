@@ -1,5 +1,5 @@
 {
-  "count": 1059,
+  "count": 1058,
   "generated_from": "client/public/materials (1198)",
   "entries": [
     {
@@ -1568,7 +1568,7 @@
     },
     {
       "stable_id": "MET-0022",
-      "name": "AISI 4130 / SCM430 (JIS Cr-Mo) — Q+T (550°C)",
+      "name": "AISI 4130 / SCM430 (JIS Cr-Mo) — Q+T (540°C)",
       "category": "Metal",
       "subcategory": "Alloy Steel",
       "family": {
@@ -1676,7 +1676,7 @@
     },
     {
       "stable_id": "MET-0028",
-      "name": "AISI 4140 / 42CrMo4 (Cr-Mo) — Q+T (200°C, full hard)",
+      "name": "AISI 4140 / 42CrMo4 (Cr-Mo) — Q+T (205°C, full hard)",
       "category": "Metal",
       "subcategory": "Alloy Steel",
       "family": {
@@ -1730,7 +1730,7 @@
     },
     {
       "stable_id": "MET-0031",
-      "name": "AISI 4340 / SNCM439 (JIS Ni-Cr-Mo) — Q+T (200°C, full hard)",
+      "name": "AISI 4340 / SNCM439 (JIS Ni-Cr-Mo) — Q+T (315°C)",
       "category": "Metal",
       "subcategory": "Alloy Steel",
       "family": {
@@ -1748,7 +1748,7 @@
     },
     {
       "stable_id": "MET-0032",
-      "name": "AISI 4340 / SNCM439 (JIS Ni-Cr-Mo) — Q+T (450°C)",
+      "name": "AISI 4340 / SNCM439 (JIS Ni-Cr-Mo) — Q+T (425°C)",
       "category": "Metal",
       "subcategory": "Alloy Steel",
       "family": {
@@ -1766,7 +1766,7 @@
     },
     {
       "stable_id": "MET-0033",
-      "name": "AISI 4340 / SNCM439 (JIS Ni-Cr-Mo) — Q+T (550°C)",
+      "name": "AISI 4340 / SNCM439 (JIS Ni-Cr-Mo) — Q+T (540°C)",
       "category": "Metal",
       "subcategory": "Alloy Steel",
       "family": {
@@ -1946,7 +1946,7 @@
     },
     {
       "stable_id": "MET-0052",
-      "name": "AISI 8740",
+      "name": "AISI 8740 — Q+T (595°C)",
       "category": "Metal",
       "subcategory": "Alloy Steel",
       "family": {
@@ -2234,7 +2234,7 @@
     },
     {
       "stable_id": "MET-0068",
-      "name": "AISI 8620 (case-hardening) — Case-Carburized + Q+T (case HV 720, core HV 360)",
+      "name": "AISI 8620 (case-hardening) — Case-Carburized + Q+T (case HV 720, ½ in. core HB 388)",
       "category": "Metal",
       "subcategory": "Alloy Steel - Case Hardening",
       "family": {
@@ -2306,7 +2306,7 @@
     },
     {
       "stable_id": "MET-0072",
-      "name": "AISI 9310 (VIM-VAR) — aerospace transmission gear — Q+T core only",
+      "name": "AISI 9310 (VIM-VAR) — aerospace transmission gear — Q+T core only (pseudo-carburized, ½ in.)",
       "category": "Metal",
       "subcategory": "Alloy Steel - Case Hardening",
       "family": {
@@ -5204,7 +5204,7 @@
     },
     {
       "stable_id": "MET-0282",
-      "name": "AISI 1144 Stressproof — Normalized",
+      "name": "AISI 1144 — Normalized",
       "category": "Metal",
       "subcategory": "Carbon Steel",
       "family": {
@@ -5221,26 +5221,8 @@
       "origin": "reference(supplementary)"
     },
     {
-      "stable_id": "MET-0283",
-      "name": "AISI 1144 Stressproof — Q+T 425°C (medium-temper, peak)",
-      "category": "Metal",
-      "subcategory": "Carbon Steel",
-      "family": {
-        "category": "F-MET",
-        "subcategory": "F-MET-carbon-steel",
-        "alloy_base": "F-AB-aisi-1144-stressproof-2",
-        "element_families": [
-          "F-EL-iron-based"
-        ]
-      },
-      "tier": "reference",
-      "popularity": 3.47,
-      "legacy_id": "R_0024_2",
-      "origin": "reference(supplementary)"
-    },
-    {
       "stable_id": "MET-0284",
-      "name": "AISI 1144 Stressproof — Q+T 540°C (high-temper)",
+      "name": "AISI 1144 — Q+T (540°C)",
       "category": "Metal",
       "subcategory": "Carbon Steel",
       "family": {

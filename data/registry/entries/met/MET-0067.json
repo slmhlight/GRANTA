@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 350,
-      "max": 350,
-      "typical": 350,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 385,
+      "typical": 385,
+      "max": 385,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 8620 Annealed 1600 F, 1 in. round (77,750 / 55,875 psi · 31.3% · RA 62.1% · HB 149) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "uts": {
-      "min": 540,
-      "max": 540,
-      "typical": 540,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 536,
+      "typical": 536,
+      "max": 536,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 8620 Annealed 1600 F, 1 in. round (77,750 / 55,875 psi · 31.3% · RA 62.1% · HB 149) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "elongation": {
-      "min": 32,
-      "max": 32,
-      "typical": 32,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 31.3,
+      "typical": 31.3,
+      "max": 31.3,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 8620 Annealed 1600 F, 1 in. round (77,750 / 55,875 psi · 31.3% · RA 62.1% · HB 149) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "modulus": {
       "min": 205,
@@ -60,11 +60,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 165,
-      "max": 165,
-      "typical": 165,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 149,
+      "typical": 149,
+      "max": 149,
+      "confidence": "handbook",
+      "provenance": "교정: Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 8620 Annealed 1600 F, 1 in. round (77,750 / 55,875 psi · 31.3% · RA 62.1% · HB 149) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf"
     },
     "thermal_conductivity": {
       "min": 47,
@@ -243,11 +243,11 @@
   "points": [
     [
       7.85,
-      350,
-      540,
-      32,
+      385,
+      536,
+      31.3,
       205,
-      165,
+      149,
       47
     ]
   ],
@@ -262,11 +262,11 @@
   },
   "fatigue_strength": 179,
   "density": 7.85,
-  "yield_strength": 350,
-  "uts": 540,
-  "elongation": 32,
+  "yield_strength": 385,
+  "uts": 536,
+  "elongation": 31.3,
   "modulus": 205,
-  "hardness": 165,
+  "hardness": 149,
   "thermal_conductivity": 47,
   "impact_strength": 132,
   "manufacturer": "Reference data",
@@ -325,5 +325,70 @@
     }
   ],
   "elevated_temp_src": "핸드북 typical — 개별 인용 미기재",
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 350,
+        "max": 350,
+        "typical": 350,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 350
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 540,
+        "max": 540,
+        "typical": 540,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 540
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 32,
+        "max": 32,
+        "typical": 32,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 32
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 165,
+        "max": 165,
+        "typical": 165,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 165
+    },
+    "_basis": "인장 540 · 연신 32 는 원전 소둔행과 맞는데 항복 350 · 경도 165 가 어긋나 있었다. 원전 소둔행 네 값으로 통일.",
+    "_src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) — 8620 Annealed 1600 F, 1 in. round (77,750 / 55,875 psi · 31.3% · RA 62.1% · HB 149) · https://www.akronsteeltreating.com/upload/documents/ast_modern_steels_book.pdf",
+    "points": {
+      "from": [
+        [
+          7.85,
+          350,
+          540,
+          32,
+          205,
+          165,
+          47
+        ]
+      ]
+    }
+  }
 }

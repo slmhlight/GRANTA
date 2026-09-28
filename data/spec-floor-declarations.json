@@ -118,6 +118,15 @@
    "std": "ASTM A216/A216M-18 Grade WCC",
    "note": "WCC 는 σy ≥ 275 MPa(40 ksi) · UTS 485–655 MPa(70–95 ksi). σy 275 은 하한, UTS 520 은 대역 안 대표값.",
    "verified": "2026-09-22"
+  },
+  {
+   "stable_id": "MET-0281",
+   "legacy_id": "R_0219",
+   "name": "AISI 1144 (Stressproof)",
+   "props": ["yield_strength", "uts"],
+   "std": "Niagara LaSalle StressProof 사양서 (ASTM A311 Class B)",
+   "note": "제조사 사양서가 Tensile 115,000 psi (Min) · Yield 100,000 psi (Min) 을 명시한다. 표시값 793 / 689 MPa 는 그 최소값이다 — 실제 공급재는 대개 이보다 높다.",
+   "verified": "2026-09-28"
   }
  ]
 }
