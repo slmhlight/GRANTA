@@ -144,6 +144,26 @@ for (const m of all) {
 }
 if (polyStdAdded) console.log(`  폴리머 시험 표준 인용: ${polyStdAdded} entry (ISO 527/178/75 — 값 불변, 측정 근거 병기)`);
 
+// 1b0) 2026-09-28 — 같은 URL 출처 합치기(presentation). 죽은 주소 두 개가 같은 후속 문서로 교체되면(예: AK Steel 17-4 PH 제품 페이지와
+//   데이터 불리틴 → Cleveland-Cliffs 불리틴 하나) 한 재료에 같은 링크가 두 줄로 찍힌다(29 entry). 문서가 하나면 인용도 한 줄이어야 한다.
+//   남기는 쪽: verified=true 우선 → 라벨이 긴(구체적인) 쪽. 레지스트리 SSOT 는 불변.
+let srcDeduped = 0;
+for (const m of all) {
+  if (!m.sources || m.sources.length < 2) continue;
+  const byUrl = new Map();
+  const out = [];
+  for (const s of m.sources) {
+    if (!s || !s.url) { out.push(s); continue; }
+    const prev = byUrl.get(s.url);
+    if (!prev) { byUrl.set(s.url, s); out.push(s); continue; }
+    const better = (!!s.verified !== !!prev.verified) ? (s.verified ? s : prev) : ((s.label || '').length > (prev.label || '').length ? s : prev);
+    if (better !== prev) { out[out.indexOf(prev)] = better; byUrl.set(s.url, better); }
+    srcDeduped++;
+  }
+  m.sources = out;
+}
+if (srcDeduped) console.log(`  출처 중복 합치기: ${srcDeduped} 줄 (같은 URL — 교체로 한 문서에 모인 인용)`);
+
 // 1b+) G3-2 — 출처 정렬(presentation): 권위 高 우선·검색결과 URL(문서 아님)은 최하위 강등.
 //   값 SSOT(레지스트리) 불변 — 산출물 표시 순서만. 동순위는 원 순서 유지(stable).
 //   근거: 245 재료의 "첫 출처"가 MatWeb QuickText 검색페이지(문서 추적 불가)였던 감사 G3-2.

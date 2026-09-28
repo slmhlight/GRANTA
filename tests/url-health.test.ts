@@ -22,6 +22,21 @@ describe('출처 링크 접근 상태 (F11 잔여)', () => {
     expect(Object.keys(health.results).length).toBeGreaterThan(500);
   });
 
+  it('한 재료의 출처 목록에 같은 URL 이 두 번 찍히지 않는다 (교체로 한 문서에 모인 인용은 한 줄)', () => {
+    /* 2026-09-28 — 죽은 주소 두 개를 같은 후속 문서로 교체하자 17-4 PH 등 29 entry 에 같은 링크가 두 줄로 찍혔다.
+       build-from-registry 1b0 가 합치는지 본다(verified 우선 → 구체적인 라벨). */
+    const dup: string[] = [];
+    for (const m of ALL) {
+      const seen = new Set<string>();
+      for (const s of src(m)) {
+        if (!s.url) continue;
+        if (seen.has(s.url)) dup.push(`${m.id} ${m.name}: ${s.url}`);
+        seen.add(s.url);
+      }
+    }
+    expect(dup.slice(0, 10), `같은 URL 중복 인용 ${dup.length}건`).toEqual([]);
+  });
+
   it("원장이 dead(404/410) 로 기록한 주소는 산출물 출처에 남지 않는다 — 교체하거나 원장을 갱신할 것", () => {
     const dead = new Set(Object.entries(health.results).filter(([, v]) => v.status === 'dead').map(([k]) => k));
     const bad: string[] = [];
