@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 1380,
-      "max": 1380,
-      "typical": 1380,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 1448,
+      "typical": 1448,
+      "max": 1448,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) 17-7 PH Product Data Bulletin 2024-07, Table 1 Typical Mechanical Properties: RH 950 230/210 ksi (1586/1448 MPa) · El 7% · HRC 48 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10504/file/CLF_ProductData_17-7-PH+Stainless+Steel_72024.pdf · [경도 스케일] HRC 48 → HV (ASTM E140-12b Table 1)"
     },
     "uts": {
-      "min": 1450,
-      "max": 1450,
-      "typical": 1450,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 1586,
+      "typical": 1586,
+      "max": 1586,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) 17-7 PH Product Data Bulletin 2024-07, Table 1 Typical Mechanical Properties: RH 950 230/210 ksi (1586/1448 MPa) · El 7% · HRC 48 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10504/file/CLF_ProductData_17-7-PH+Stainless+Steel_72024.pdf · [경도 스케일] HRC 48 → HV (ASTM E140-12b Table 1)"
     },
     "elongation": {
-      "min": 5,
-      "max": 5,
-      "typical": 5,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 7,
+      "typical": 7,
+      "max": 7,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) 17-7 PH Product Data Bulletin 2024-07, Table 1 Typical Mechanical Properties: RH 950 230/210 ksi (1586/1448 MPa) · El 7% · HRC 48 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10504/file/CLF_ProductData_17-7-PH+Stainless+Steel_72024.pdf · [경도 스케일] HRC 48 → HV (ASTM E140-12b Table 1)"
     },
     "modulus": {
       "min": 204,
@@ -60,11 +60,15 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 470,
-      "max": 470,
-      "typical": 470,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 484,
+      "typical": 484,
+      "max": 484,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) 17-7 PH Product Data Bulletin 2024-07, Table 1 Typical Mechanical Properties: RH 950 230/210 ksi (1586/1448 MPa) · El 7% · HRC 48 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10504/file/CLF_ProductData_17-7-PH+Stainless+Steel_72024.pdf · [경도 스케일] HRC 48 → HV (ASTM E140-12b Table 1)",
+      "scale": "HV",
+      "source_scale": "HRC",
+      "source_value": 48,
+      "conversion": "ASTM E140-12b Table 1"
     },
     "thermal_conductivity": {
       "min": 16.4,
@@ -191,14 +195,14 @@
   },
   "sources": [
     {
-      "label": "AK Steel/MatWeb — 17-7 PH Stainless",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=17-7+PH",
-      "verified": false
+      "label": "Cleveland-Cliffs (구 AK Steel) — 17-7 PH Product Data Bulletin",
+      "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10504/file/CLF_ProductData_17-7-PH+Stainless+Steel_72024.pdf",
+      "verified": true
     },
     {
-      "label": "Cleveland-Cliffs (구 AK Steel) 17-7 PH Product Data Bulletin 2024-07 (후속 문서 — 저장값 대조 전)",
+      "label": "Cleveland-Cliffs (구 AK Steel) 17-7 PH Product Data Bulletin 2024-07 — Table 1 대표값(A 310/827 · TH1050 1276/1379 · RH950 1448/1586 MPa)",
       "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10504/file/CLF_ProductData_17-7-PH+Stainless+Steel_72024.pdf",
-      "verified": false
+      "verified": true
     },
     {
       "label": "MatWeb 3",
@@ -206,9 +210,9 @@
       "verified": false
     },
     {
-      "label": "Cleveland-Cliffs (구 AK Steel) 17-7 PH Product Data Bulletin 2024-07 (후속 문서 — 저장값 대조 전)",
+      "label": "Cleveland-Cliffs (구 AK Steel) 17-7 PH Product Data Bulletin 2024-07 — Table 1 대표값(A 310/827 · TH1050 1276/1379 · RH950 1448/1586 MPa)",
       "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10504/file/CLF_ProductData_17-7-PH+Stainless+Steel_72024.pdf",
-      "verified": false
+      "verified": true
     },
     {
       "label": "AMS 5528 — 17-7 PH sheet, strip (RH 950)",
@@ -219,18 +223,18 @@
   "points": [
     [
       7.81,
-      1380,
-      1450,
-      5,
+      1448,
+      1586,
+      7,
       204,
-      470,
+      484,
       16.4
     ]
   ],
   "machinability": "Fair",
   "weldability": "Fair",
   "corrosion_resistance": "Good",
-  "industry_note": "UNS S17700 / EN 1.4568 / X7CrNiAl17-7 / JIS SUS631 — semi-austenitic precipitation-hardening stainless (Cr 16-18, Ni 6.5-7.75, Al 0.",
+  "industry_note": "UNS S17700 / EN 1.4568 / X7CrNiAl17-7 / JIS SUS631 — 준오스테나이트 석출경화 스테인리스(Cr 16~18, Ni 6.5~7.75, Al 0.75~1.5). 소둔(Condition A) 상태는 오스테나이트라 성형이 쉽고, TH 1050·RH 950 처리로 마르텐사이트+석출물이 되어 강해진다(RH 950 대표값 σy 1448 / UTS 1586 MPa, Cleveland-Cliffs). 항공 스프링·저온 구조물.",
   "meta": {
     "reference": true,
     "condition": "Condition RH950",
@@ -249,16 +253,16 @@
   "fracture_toughness": 65,
   "fatigue_strength": 570,
   "density": 7.81,
-  "yield_strength": 1380,
-  "uts": 1450,
-  "elongation": 5,
+  "yield_strength": 1448,
+  "uts": 1586,
+  "elongation": 7,
   "modulus": 204,
-  "hardness": 470,
+  "hardness": 484,
   "thermal_conductivity": 16.4,
   "impact_strength": 30,
   "manufacturer": "Reference data",
   "process": "Wrought",
-  "source": "AK Steel/MatWeb — 17-7 PH Stainless",
+  "source": "Cleveland-Cliffs (구 AK Steel) — 17-7 PH Product Data Bulletin",
   "aliases": [
     "UNS S17700",
     "EN 1.4568",
@@ -294,5 +298,70 @@
   "svhc_concerns": [
     "Ni 7.75% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "high",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 1380,
+        "max": 1380,
+        "typical": 1380,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1380
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 1450,
+        "max": 1450,
+        "typical": 1450,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1450
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 5,
+        "max": 5,
+        "typical": 5,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 5
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 470,
+        "max": 470,
+        "typical": 470,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 470
+    },
+    "_basis": "저장값 1380/1450·5% 중 인장 1450·연신 5% 는 RH 950 규격 최소(210 ksi·5%)이고 항복 1380 은 어느 행도 아니다. Table 1 대표값으로.",
+    "_src": "Cleveland-Cliffs (구 AK Steel) 17-7 PH Product Data Bulletin 2024-07, Table 1 Typical Mechanical Properties: RH 950 230/210 ksi (1586/1448 MPa) · El 7% · HRC 48 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10504/file/CLF_ProductData_17-7-PH+Stainless+Steel_72024.pdf · [경도 스케일] HRC 48 → HV (ASTM E140-12b Table 1)",
+    "points": {
+      "from": [
+        [
+          7.81,
+          1380,
+          1450,
+          5,
+          204,
+          470,
+          16.4
+        ]
+      ]
+    }
+  }
 }

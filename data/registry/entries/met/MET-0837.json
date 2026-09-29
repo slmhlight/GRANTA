@@ -11,7 +11,7 @@
   "legacy_id": "R_0065_1",
   "origin": "reference(supplementary)",
   "id": "R_0065_1",
-  "name": "Custom 465 — H 975 (480°C/4h aged)",
+  "name": "Custom 465 — H 975 (524°C/4h aged)",
   "category": "Metal",
   "subcategory": "Stainless Steel - PH",
   "tier": "reference",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "H 975 (480°C/4h aged)",
+  "heat_treatment": "H 975 (524°C/4h aged)",
   "ranges": {
     "density": {
       "min": 7.84,
@@ -46,11 +46,11 @@
       "confidence": "handbook"
     },
     "elongation": {
-      "min": 15,
-      "max": 15,
-      "typical": 15,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 13,
+      "typical": 13,
+      "max": 13,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — Custom 465 datasheet, Effects of −65°F test temperature — 4.25 in. 봉 종방향 73°F: H 975: 235/247 ksi (1620/1703 MPa) · El 13% · RA 61% · HRC 48.0 · https://www.carpentertechnology.com/hubfs/Data%20Sheets/Custom_465_Datasheet.pdf · [경도 스케일] HRC 48.0 → HV (ASTM E140-12b Table 1)"
     },
     "modulus": {
       "min": 197,
@@ -60,11 +60,15 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 528,
-      "max": 528,
-      "typical": 528,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 484,
+      "typical": 484,
+      "max": 484,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — Custom 465 datasheet, Effects of −65°F test temperature — 4.25 in. 봉 종방향 73°F: H 975: 235/247 ksi (1620/1703 MPa) · El 13% · RA 61% · HRC 48.0 · https://www.carpentertechnology.com/hubfs/Data%20Sheets/Custom_465_Datasheet.pdf · [경도 스케일] HRC 48.0 → HV (ASTM E140-12b Table 1)",
+      "scale": "HV",
+      "source_scale": "HRC",
+      "source_value": 48,
+      "conversion": "ASTM E140-12b Table 1"
     },
     "thermal_conductivity": {
       "min": 15.65,
@@ -195,8 +199,8 @@
       "verified": true
     },
     {
-      "label": "Datasheet 2",
-      "url": "Carpenter Custom 465 datasheet (AMS 5936, ASTM A564, MMPDS-01)",
+      "label": "Carpenter — Custom 465 datasheet (4.25 in. 봉 종방향 대표값 H950·H975·H1000·H1050 · 10 in. 봉 H1025)",
+      "url": "https://www.carpentertechnology.com/hubfs/Data%20Sheets/Custom_465_Datasheet.pdf",
       "verified": true
     },
     {
@@ -215,16 +219,16 @@
       7.84,
       1620,
       1703,
-      15,
+      13,
       197,
-      528,
+      484,
       15.65
     ]
   ],
   "machinability": "Fair",
   "weldability": "Good",
   "corrosion_resistance": "Good",
-  "industry_note": "UNS S46500 / Carpenter Custom 465 — high-strength martensitic precipitation-hardening stainless (Cr 11-12, Ni 10.7-11.3, Mo 0.75-1.25, Ti 1.5-1.8). Stronger than 17-4 PH 또는 Custom 455. H 950 (peak strength, 510°C/4h): σy 1669 / UTS 1765 / El 8% / HRC 51. H 975: σy 1620 / UTS 1703 / HRC 50. H 1000: σy 1560 / UTS 1640 / HRC 47. Tmax 482°C. 항공기 landing gear (high-strength PH version of 17-4), missile component, sport firearm component.",
+  "industry_note": "UNS S46500 / Carpenter Custom 465 — 고강도 마르텐사이트계 석출경화 스테인리스(Cr 11~12, Ni 10.7~11.3, Mo 0.75~1.25, Ti 1.5~1.8). 17-4 PH·Custom 455 보다 강하다. H 950 대표값 σy 1669 / UTS 1765 MPa / El 13% / HRC 49.5 · H 1000 σy 1510 / UTS 1593 MPa / El 15% / HRC 47.5 (Carpenter 4.25 in. 봉 종방향). Tmax 482°C. 항공기 랜딩기어·미사일 부품.",
   "meta": {
     "reference": true,
     "condition": "H 975 (480°C/4h aged)",
@@ -240,9 +244,9 @@
   "density": 7.84,
   "yield_strength": 1620,
   "uts": 1703,
-  "elongation": 15,
+  "elongation": 13,
   "modulus": 197,
-  "hardness": 528,
+  "hardness": 484,
   "thermal_conductivity": 15.65,
   "fatigue_strength": 720,
   "impact_strength": 30,
@@ -281,5 +285,58 @@
   "svhc_concerns": [
     "Ni 11.25% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 15,
+        "max": 15,
+        "typical": 15,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 15
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 528,
+        "max": 528,
+        "typical": 528,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 528
+    },
+    "_basis": "항복·인장은 원전 행과 같고 연신과 경도가 어긋났다(경도 HV 540/528/515/488 은 어느 행도 아님). 같은 행의 연신·HRC 로 통일.",
+    "_src": "Carpenter Technology — Custom 465 datasheet, Effects of −65°F test temperature — 4.25 in. 봉 종방향 73°F: H 975: 235/247 ksi (1620/1703 MPa) · El 13% · RA 61% · HRC 48.0 · https://www.carpentertechnology.com/hubfs/Data%20Sheets/Custom_465_Datasheet.pdf · [경도 스케일] HRC 48.0 → HV (ASTM E140-12b Table 1)",
+    "points": {
+      "from": [
+        [
+          7.84,
+          1620,
+          1703,
+          15,
+          197,
+          528,
+          15.65
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "Custom 465 — H 975 (480°C/4h aged)",
+        "had": true
+      },
+      "heat_treatment": {
+        "from": "H 975 (480°C/4h aged)",
+        "had": true
+      }
+    },
+    "_fbasis": "H 975 는 975°F = 524°C 시효다 — 이름의 480°C 는 환산 오기(480°C 는 H 900 근처).",
+    "_fsrc": "Carpenter Technology — Custom 465 datasheet — Heat treatment: 900/1150°F(482/621°C) 에서 4~8 h 시효 · https://www.carpentertechnology.com/hubfs/Data%20Sheets/Custom_465_Datasheet.pdf"
+  }
 }

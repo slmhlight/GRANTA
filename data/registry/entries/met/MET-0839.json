@@ -45,25 +45,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 590,
-      "max": 1320,
-      "typical": 830,
-      "n": 28,
-      "confidence": "measured"
+      "min": 785,
+      "typical": 785,
+      "max": 785,
+      "confidence": "handbook",
+      "provenance": "교정: Nikon SLM Solutions — 17-4PH Material Data Sheet 2026-02, SLM 280 PRECISION (30 µm) Machined Horizontal Mean — Non-heat-treated: Rm 880 · Rp0.2 785 MPa · A 20% · HV10 303 · https://nikon-slm-solutions.com/wp-content/uploads/2026/01/MDS_17-4PH_2026-02_1_EN.pdf"
     },
     "uts": {
-      "min": 760,
-      "max": 1460,
-      "typical": 1096,
-      "n": 32,
-      "confidence": "measured"
+      "min": 880,
+      "typical": 880,
+      "max": 880,
+      "confidence": "handbook",
+      "provenance": "교정: Nikon SLM Solutions — 17-4PH Material Data Sheet 2026-02, SLM 280 PRECISION (30 µm) Machined Horizontal Mean — Non-heat-treated: Rm 880 · Rp0.2 785 MPa · A 20% · HV10 303 · https://nikon-slm-solutions.com/wp-content/uploads/2026/01/MDS_17-4PH_2026-02_1_EN.pdf"
     },
     "elongation": {
-      "min": 7,
-      "max": 23,
-      "typical": 16,
-      "n": 42,
-      "confidence": "measured"
+      "min": 20,
+      "typical": 20,
+      "max": 20,
+      "confidence": "handbook",
+      "provenance": "교정: Nikon SLM Solutions — 17-4PH Material Data Sheet 2026-02, SLM 280 PRECISION (30 µm) Machined Horizontal Mean — Non-heat-treated: Rm 880 · Rp0.2 785 MPa · A 20% · HV10 303 · https://nikon-slm-solutions.com/wp-content/uploads/2026/01/MDS_17-4PH_2026-02_1_EN.pdf"
     },
     "modulus": {
       "min": 197,
@@ -73,11 +73,11 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 288,
-      "max": 345,
-      "typical": 301.5,
-      "n": 5,
-      "confidence": "measured"
+      "min": 303,
+      "typical": 303,
+      "max": 303,
+      "confidence": "handbook",
+      "provenance": "교정: Nikon SLM Solutions — 17-4PH Material Data Sheet 2026-02, SLM 280 PRECISION (30 µm) Machined Horizontal Mean — Non-heat-treated: Rm 880 · Rp0.2 785 MPa · A 20% · HV10 303 · https://nikon-slm-solutions.com/wp-content/uploads/2026/01/MDS_17-4PH_2026-02_1_EN.pdf"
     },
     "thermal_conductivity": {
       "min": 16,
@@ -239,8 +239,8 @@
       "verified": false
     },
     {
-      "label": "Carpenter Technology — Custom 630 (17-4 PH)",
-      "url": "https://www.carpentertechnology.com/alloy-finder/custom-630-17-4",
+      "label": "Carpenter Technology — Custom 630 (17-4 PH) datasheet",
+      "url": "https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/Custom%20630%20(17-4%20PH).pdf",
       "verified": true
     },
     {
@@ -257,182 +257,11 @@
   "points": [
     [
       7.8,
-      845.5,
-      1096,
-      17,
-      197,
-      301.5,
-      16
-    ],
-    [
-      7.8,
-      830,
-      1100,
-      15.5,
-      197,
-      301.5,
-      16
-    ],
-    [
-      7.8,
-      830,
-      1100,
-      19,
-      197,
-      null,
-      16
-    ],
-    [
-      7.8,
-      941,
-      1015,
-      16.8,
-      197,
-      null,
-      16
-    ],
-    [
-      7.8,
-      947,
-      1052,
-      15.7,
-      197,
-      null,
-      16
-    ],
-    [
-      7.8,
-      895,
-      1000,
-      18,
-      197,
-      288,
-      16
-    ],
-    [
-      7.8,
-      855,
-      915,
-      15,
-      197,
-      288,
-      16
-    ],
-    [
-      7.8,
       785,
       880,
       20,
       197,
       303,
-      16
-    ],
-    [
-      7.8,
-      790,
-      895,
-      20,
-      197,
-      303,
-      16
-    ],
-    [
-      7.8,
-      1235,
-      1335,
-      14,
-      197,
-      null,
-      16
-    ],
-    [
-      7.8,
-      1250,
-      1340,
-      13.5,
-      197,
-      null,
-      16
-    ],
-    [
-      7.8,
-      1310,
-      1460,
-      10,
-      197,
-      null,
-      16
-    ],
-    [
-      7.8,
-      1310,
-      1440,
-      7,
-      197,
-      null,
-      16
-    ],
-    [
-      7.8,
-      1320,
-      1460,
-      7,
-      197,
-      null,
-      16
-    ],
-    [
-      7.8,
-      1305,
-      1440,
-      7,
-      197,
-      null,
-      16
-    ],
-    [
-      7.8,
-      620,
-      1100,
-      16,
-      197,
-      300,
-      16
-    ],
-    [
-      7.8,
-      620,
-      1100,
-      16,
-      197,
-      300,
-      16
-    ],
-    [
-      7.8,
-      830,
-      1100,
-      19,
-      197,
-      null,
-      16
-    ],
-    [
-      7.8,
-      640,
-      1075,
-      15,
-      197,
-      345,
-      16
-    ],
-    [
-      7.8,
-      700,
-      1090,
-      14,
-      197,
-      345,
       16
     ]
   ],
@@ -454,16 +283,16 @@
   "fracture_toughness": 99,
   "fatigue_strength": 552,
   "density": 7.8,
-  "yield_strength": 830,
-  "uts": 1096,
-  "elongation": 16,
+  "yield_strength": 785,
+  "uts": 880,
+  "elongation": 20,
   "modulus": 197,
-  "hardness": 301.5,
+  "hardness": 303,
   "thermal_conductivity": 16,
   "impact_strength": 39,
   "manufacturer": "3D Systems, EOS, GE Additive, Nikon SLM Solutions",
   "process": "LPBF",
-  "source": "Carpenter Technology — Custom 630 (17-4 PH)",
+  "source": "Carpenter Technology — Custom 630 (17-4 PH) datasheet",
   "aliases": [
     "UNS S17400",
     "EN 1.4542",
@@ -530,8 +359,8 @@
     "sources": {
       "from": [
         {
-          "label": "Carpenter Technology — Custom 630 (17-4 PH)",
-          "url": "https://www.carpentertechnology.com/alloy-finder/custom-630-17-4",
+          "label": "Carpenter Technology — Custom 630 (17-4 PH) datasheet",
+          "url": "https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/Custom%20630%20(17-4%20PH).pdf",
           "verified": true
         },
         {
@@ -544,6 +373,240 @@
           "url": "https://www.eos.info/metal-solutions/metal-materials/stainless-steel",
           "verified": true
         }
+      ]
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 590,
+        "max": 1320,
+        "typical": 830,
+        "n": 28,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 830
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 760,
+        "max": 1460,
+        "typical": 1096,
+        "n": 32,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 1096
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 7,
+        "max": 23,
+        "typical": 16,
+        "n": 42,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 16
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 288,
+        "max": 345,
+        "typical": 301.5,
+        "n": 5,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 301.5
+    },
+    "_basis": "as-built 830/1096 은 여러 벤더 값을 합친 중앙값이라 어느 원전의 행도 아니었다. 인용된 Nikon SLM MDS 의 같은 조건(NHT) 수평 평균으로.",
+    "_src": "Nikon SLM Solutions — 17-4PH Material Data Sheet 2026-02, SLM 280 PRECISION (30 µm) Machined Horizontal Mean — Non-heat-treated: Rm 880 · Rp0.2 785 MPa · A 20% · HV10 303 · https://nikon-slm-solutions.com/wp-content/uploads/2026/01/MDS_17-4PH_2026-02_1_EN.pdf",
+    "points": {
+      "from": [
+        [
+          7.8,
+          845.5,
+          1096,
+          17,
+          197,
+          301.5,
+          16
+        ],
+        [
+          7.8,
+          830,
+          1100,
+          15.5,
+          197,
+          301.5,
+          16
+        ],
+        [
+          7.8,
+          830,
+          1100,
+          19,
+          197,
+          null,
+          16
+        ],
+        [
+          7.8,
+          941,
+          1015,
+          16.8,
+          197,
+          null,
+          16
+        ],
+        [
+          7.8,
+          947,
+          1052,
+          15.7,
+          197,
+          null,
+          16
+        ],
+        [
+          7.8,
+          895,
+          1000,
+          18,
+          197,
+          288,
+          16
+        ],
+        [
+          7.8,
+          855,
+          915,
+          15,
+          197,
+          288,
+          16
+        ],
+        [
+          7.8,
+          785,
+          880,
+          20,
+          197,
+          303,
+          16
+        ],
+        [
+          7.8,
+          790,
+          895,
+          20,
+          197,
+          303,
+          16
+        ],
+        [
+          7.8,
+          1235,
+          1335,
+          14,
+          197,
+          null,
+          16
+        ],
+        [
+          7.8,
+          1250,
+          1340,
+          13.5,
+          197,
+          null,
+          16
+        ],
+        [
+          7.8,
+          1310,
+          1460,
+          10,
+          197,
+          null,
+          16
+        ],
+        [
+          7.8,
+          1310,
+          1440,
+          7,
+          197,
+          null,
+          16
+        ],
+        [
+          7.8,
+          1320,
+          1460,
+          7,
+          197,
+          null,
+          16
+        ],
+        [
+          7.8,
+          1305,
+          1440,
+          7,
+          197,
+          null,
+          16
+        ],
+        [
+          7.8,
+          620,
+          1100,
+          16,
+          197,
+          300,
+          16
+        ],
+        [
+          7.8,
+          620,
+          1100,
+          16,
+          197,
+          300,
+          16
+        ],
+        [
+          7.8,
+          830,
+          1100,
+          19,
+          197,
+          null,
+          16
+        ],
+        [
+          7.8,
+          640,
+          1075,
+          15,
+          197,
+          345,
+          16
+        ],
+        [
+          7.8,
+          700,
+          1090,
+          14,
+          197,
+          345,
+          16
+        ]
       ]
     }
   }

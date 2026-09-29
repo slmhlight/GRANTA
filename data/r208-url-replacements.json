@@ -16,22 +16,46 @@
     "MatWeb 403: bot-blocked (실제 작동 — 정책 결정 필요, 본 R208 에서는 verified 유지)"
   ],
   "replacements": {
-    "https://www.outokumpu.com/en/forta-316l": "https://www.outokumpu.com/en/products/stainless-steel-types/austenitic-stainless-steel",
-    "https://www.outokumpu.com/en/forta-304l": "https://www.outokumpu.com/en/products/stainless-steel-types/austenitic-stainless-steel",
+    "https://www.outokumpu.com/en/forta-316l": {
+      "url": "https://www.outokumpu.com/en/products/stainless-steel-types/austenitic-stainless-steel",
+      "label": "Outokumpu — 오스테나이트 스테인리스 강종 개요 페이지 (강종별 수치 없음 — 값 대조 불가)",
+      "verified": false
+    },
+    "https://www.outokumpu.com/en/forta-304l": {
+      "url": "https://www.outokumpu.com/en/products/stainless-steel-types/austenitic-stainless-steel",
+      "label": "Outokumpu — 오스테나이트 스테인리스 강종 개요 페이지 (강종별 수치 없음 — 값 대조 불가)",
+      "verified": false
+    },
     "https://www.outokumpu.com/en/forta-254-smo": "https://www.outokumpu.com/en/products/product-ranges/ultra/ultra-254-smo",
     "https://www.outokumpu.com/en/products/datasheet/254-smo": "https://www.outokumpu.com/en/products/product-ranges/ultra/ultra-254-smo",
     "https://www.outokumpu.com/en/superduplex-2507": "https://www.outokumpu.com/en/products/product-ranges/forta/forta-sdx-2507",
     "https://www.outokumpu.com/en/forta-duplex-2205": "https://www.outokumpu.com/en/products/product-ranges/forta/forta-dx-2205",
     "https://www.outokumpu.com/en/forta-904l": "https://www.outokumpu.com/en/products/product-ranges/ultra/ultra-904l",
-    "https://www.outokumpu.com/en/products/stainless-steel-types/austenitic-stainless-steel": "https://www.outokumpu.com/en/products/stainless-steel-types/austenitic-stainless-steel",
+    "https://www.outokumpu.com/en/products/stainless-steel-types/austenitic-stainless-steel": {
+      "url": "https://www.outokumpu.com/en/products/stainless-steel-types/austenitic-stainless-steel",
+      "label": "Outokumpu — 오스테나이트 스테인리스 강종 개요 페이지 (강종별 수치 없음 — 값 대조 불가)",
+      "verified": false
+    },
     "https://www.outokumpu.com/en/products/product-ranges/therma": "https://www.outokumpu.com/en/products/product-ranges/therma",
     "https://www.outokumpu.com/en/products/product-ranges/core": "https://www.outokumpu.com/en/products/product-ranges/core",
     "https://www.bohler-edelstahl.com/en/products/w302/": "https://www.bohler.com/en/products/w302",
     "https://www.carpentertechnology.com/alloy-finder/vascomax-c-300": "https://www.carpentertechnology.com/alloy-finder/nimark-300-m300",
     "https://www.carpentertechnology.com/alloy-finder/17-4-stainless-steel": "https://www.carpentertechnology.com/alloy-finder/custom-630-17-4",
-    "https://www.carpentertechnology.com/alloy-finder/15-5-ph": "https://www.carpentertechnology.com/alloy-finder/custom-630-17-4",
-    "https://www.carpentertechnology.com/alloy-finder/nitronic-50": "https://www.carpentertechnology.com/alloy-finder/custom-630-17-4",
-    "https://www.carpentertechnology.com/alloy-finder/nitronic-60": "https://www.carpentertechnology.com/alloy-finder/custom-630-17-4",
+    "https://www.carpentertechnology.com/alloy-finder/15-5-ph": {
+      "url": "https://www.carpentertechnology.com/hubfs/20231212--CT_15Cr-5Ni_Datasheet_F.pdf",
+      "label": "Carpenter — 15Cr-5Ni datasheet (UNS S15500, 15-5 PH 상당 — 봉 횡방향 H900 대표값 1276/1378 MPa·10%·HRC 44)",
+      "verified": true
+    },
+    "https://www.carpentertechnology.com/alloy-finder/nitronic-50": {
+      "url": "https://www.electralloy.com/images/pdf/Literature/Nitronic50_main_11-10-2025.pdf",
+      "label": "Electralloy — NITRONIC 50 datasheet (1 in. 봉 1121°C 소둔 대표값 414/827 MPa·50%·HRB 98)",
+      "verified": true
+    },
+    "https://www.carpentertechnology.com/alloy-finder/nitronic-60": {
+      "url": "https://www.electralloy.com/images/pdf/Literature/Nitronic60_main_11-20-2025.pdf",
+      "label": "Electralloy — NITRONIC 60 datasheet (1 in. 봉 소둔 대표값 414/710 MPa·64%·HRB 95)",
+      "verified": true
+    },
     "https://www.carpentertechnology.com/alloy-finder/kovar-alloy": "https://www.carpentertechnology.com/alloy-finder",
     "https://www.carpentertechnology.com/blog/invar-36": "https://www.carpentertechnology.com/alloy-finder",
     "https://www.carpentertechnology.com/blog/pyrowear-53-alloy": "https://www.carpentertechnology.com/alloy-finder/nimark-300-m300",
@@ -212,7 +236,11 @@
     "https://www.asminternational.org/asm-handbook-volume-1-properties-and-selection-irons-steels-and-high-performance-alloys": "https://dl.asminternational.org/handbooks/edited-volume/16/Properties-and-Selection-Irons-Steels-and-High",
     "https://www.asminternational.org/asm-handbook-volume-2-properties-and-selection-nonferrous-alloys-and-special-purpose-materials": "https://dl.asminternational.org/handbooks/edited-volume/14/Properties-and-Selection-Nonferrous-Alloys-and",
     "https://www.poongsan.co.kr/eng/business/": "https://poongsan.co.kr/include/images/cs/%EC%A0%9C%ED%92%88%EA%B8%B0%EC%88%A0%EC%9E%90%EB%A3%8C_Copper%20Alloy%20Products_2024.pdf",
-    "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades": "https://www.outokumpu.com/en/products/stainless-steel-types/austenitic-stainless-steel",
+    "https://www.outokumpu.com/en/products/stainless-steel-grades/austenitic-grades": {
+      "url": "https://www.outokumpu.com/en/products/stainless-steel-types/austenitic-stainless-steel",
+      "label": "Outokumpu — 오스테나이트 스테인리스 강종 개요 페이지 (강종별 수치 없음 — 값 대조 불가)",
+      "verified": false
+    },
     "https://www.outokumpu.com/en/datasheets": "https://www.outokumpu.com/en/products/product-ranges/therma/therma-310s-4845",
     "https://www.outokumpu.com/en/products/stainless-steel-grades/duplex-stainless-steel/2507": "https://www.outokumpu.com/en/products/product-ranges/forta/forta-sdx-2507",
     "https://www.outokumpu.com/en/products/stainless-steel-grades/special-stainless-steel/254-smo": "https://www.outokumpu.com/en/products/product-ranges/ultra/ultra-254-smo",
@@ -447,17 +475,17 @@
     },
     "https://www.aksteel.com/our-products/stainless/17-4-ph": {
       "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10503/file/CLF_ProductData_17-4-PHSS_052021.pdf",
-      "label": "Cleveland-Cliffs (구 AK Steel) 17-4 PH Product Data Bulletin 2021-05 — Table 3 규격 허용 최소값(H900 1310/1172 · H1025 1069/1000 · H1075 1000/862 · H1150 965 MPa)",
-      "verified": true
+      "label": "Cleveland-Cliffs (구 AK Steel) 17-4 PH Product Data Bulletin 2021-05 — Table 2 판재 대표값(H900 1275/1379 MPa·9%) · Table 3 규격 최소 — 표시값은 Carpenter 봉재 대표값",
+      "verified": false
     },
     "https://www.aksteel.com/sites/default/files/2018-02/17-4-PH-DATA-BULLETIN.pdf": {
       "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10503/file/CLF_ProductData_17-4-PHSS_052021.pdf",
-      "label": "Cleveland-Cliffs (구 AK Steel) 17-4 PH Product Data Bulletin 2021-05 — Table 3 규격 허용 최소값(H900 1310/1172 · H1025 1069/1000 · H1075 1000/862 · H1150 965 MPa)",
-      "verified": true
+      "label": "Cleveland-Cliffs (구 AK Steel) 17-4 PH Product Data Bulletin 2021-05 — Table 2 판재 대표값(H900 1275/1379 MPa·9%) · Table 3 규격 최소 — 표시값은 Carpenter 봉재 대표값",
+      "verified": false
     },
     "https://www.aksteel.com/sites/default/files/2018-02/15-5-PH-DATA-BULLETIN.pdf": {
       "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10501/file/CLF_ProductData_15-5_PHSS_052021.pdf",
-      "label": "Cleveland-Cliffs (구 AK Steel) 15-5 PH Product Data Bulletin 2021-05 — Table 3 규격 허용 최소값(H900 1310/1172 MPa)",
+      "label": "Cleveland-Cliffs (구 AK Steel) 15-5 PH Product Data Bulletin 2021-05 — Table 2 대표값 H900 1275/1379 MPa·9%·HRC 45 (표시값 Carpenter 15Cr-5Ni 봉재 1276/1378 과 일치)",
       "verified": true
     },
     "https://www.aksteel.com/sites/default/files/2018-01/155PH201706.pdf": {
@@ -467,43 +495,43 @@
     },
     "https://www.aksteel.com/our-products/stainless/17-7-PH": {
       "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10504/file/CLF_ProductData_17-7-PH+Stainless+Steel_72024.pdf",
-      "label": "Cleveland-Cliffs (구 AK Steel) 17-7 PH Product Data Bulletin 2024-07 (후속 문서 — 저장값 대조 전)",
-      "verified": false
+      "label": "Cleveland-Cliffs (구 AK Steel) 17-7 PH Product Data Bulletin 2024-07 — Table 1 대표값(A 310/827 · TH1050 1276/1379 · RH950 1448/1586 MPa)",
+      "verified": true
     },
     "https://www.aksteel.com/sites/default/files/2018-02/17-7-PH-DATA-BULLETIN.pdf": {
       "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10504/file/CLF_ProductData_17-7-PH+Stainless+Steel_72024.pdf",
-      "label": "Cleveland-Cliffs (구 AK Steel) 17-7 PH Product Data Bulletin 2024-07 (후속 문서 — 저장값 대조 전)",
-      "verified": false
+      "label": "Cleveland-Cliffs (구 AK Steel) 17-7 PH Product Data Bulletin 2024-07 — Table 1 대표값(A 310/827 · TH1050 1276/1379 · RH950 1448/1586 MPa)",
+      "verified": true
     },
     "https://www.aksteel.com/our-products/stainless/316-316L": {
       "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10513/file/CLF_ProductData_316-316LSS_052021.pdf",
-      "label": "Cleveland-Cliffs (구 AK Steel) 316/316L Product Data Bulletin 2021-05 (후속 문서 — 저장값과 불일치, 대조 전)",
-      "verified": false
+      "label": "Cleveland-Cliffs (구 AK Steel) 316/316L Product Data Bulletin 2021-05 — Table 1 대표값 290/627 MPa·55%·HRB 79 · Figure 1 냉간압하-인장 곡선",
+      "verified": true
     },
     "https://www.aksteel.com/our-products/stainless/410-stainless-steel": {
       "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10518/file/CLF_ProductData_MartensiticStainlessSteelComparator_052021.pdf",
-      "label": "Cleveland-Cliffs (구 AK Steel) Martensitic Stainless Steel Comparator 2021-05 — 410/420/440A (후속 문서 — 대조 전)",
+      "label": "Cleveland-Cliffs (구 AK Steel) Martensitic Stainless Steel Comparator 2021-05 — Table 4 소둔 판재 대표값(410 290/517 · 420 317/614 · 440A 400/689 MPa) — 경화재 인장값은 싣지 않음",
       "verified": false
     },
     "https://www.aksteel.com/sites/default/files/2018-01/410201706.pdf": {
       "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10518/file/CLF_ProductData_MartensiticStainlessSteelComparator_052021.pdf",
-      "label": "Cleveland-Cliffs (구 AK Steel) Martensitic Stainless Steel Comparator 2021-05 — 410/420/440A (후속 문서 — 대조 전)",
+      "label": "Cleveland-Cliffs (구 AK Steel) Martensitic Stainless Steel Comparator 2021-05 — Table 4 소둔 판재 대표값(410 290/517 · 420 317/614 · 440A 400/689 MPa) — 경화재 인장값은 싣지 않음",
       "verified": false
     },
     "https://www.aksteel.com/our-products/stainless/420-stainless-steel": {
       "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10518/file/CLF_ProductData_MartensiticStainlessSteelComparator_052021.pdf",
-      "label": "Cleveland-Cliffs (구 AK Steel) Martensitic Stainless Steel Comparator 2021-05 — 410/420/440A (후속 문서 — 대조 전)",
+      "label": "Cleveland-Cliffs (구 AK Steel) Martensitic Stainless Steel Comparator 2021-05 — Table 4 소둔 판재 대표값(410 290/517 · 420 317/614 · 440A 400/689 MPa) — 경화재 인장값은 싣지 않음",
       "verified": false
     },
     "https://www.aksteel.com/sites/default/files/2018-01/420201706.pdf": {
       "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10518/file/CLF_ProductData_MartensiticStainlessSteelComparator_052021.pdf",
-      "label": "Cleveland-Cliffs (구 AK Steel) Martensitic Stainless Steel Comparator 2021-05 — 410/420/440A (후속 문서 — 대조 전)",
+      "label": "Cleveland-Cliffs (구 AK Steel) Martensitic Stainless Steel Comparator 2021-05 — Table 4 소둔 판재 대표값(410 290/517 · 420 317/614 · 440A 400/689 MPa) — 경화재 인장값은 싣지 않음",
       "verified": false
     },
     "https://www.aksteel.com/our-products/stainless/430-stainless-steel": {
       "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10520/file/CLF_ProductData_430+Ultra+Form_032022.pdf",
-      "label": "Cleveland-Cliffs (구 AK Steel) 430 / 430 ULTRA FORM Product Data Bulletin 2022-03 (후속 문서 — 대조 전)",
-      "verified": false
+      "label": "Cleveland-Cliffs (구 AK Steel) 430 / 430 ULTRA FORM Product Data Bulletin 2022-03 — Table 1 대표값(Type 430 343/503 MPa·28%·HRB 78)",
+      "verified": true
     },
     "https://www.aksteel.com/sites/default/files/2018-01/440a440b440c201706.pdf": {
       "url": "https://www.carpentertechnology.com/alloy-finder/440c",
@@ -522,8 +550,8 @@
     },
     "https://www.aksteel.com/": {
       "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10509/file/CLF_ProductData_301SS_052021.pdf",
-      "label": "Cleveland-Cliffs (구 AK Steel) 301 Stainless Product Data Bulletin 2021-05",
-      "verified": false
+      "label": "Cleveland-Cliffs (구 AK Steel) 301 Stainless Product Data Bulletin 2021-05 — Table 1 소둔 대표값 310/827 MPa·60%·HRB 86 · Table 2 냉간 템퍼 최소값(= ASTM A666)",
+      "verified": true
     },
     "https://www.solvay.com/en/brands/ketaspire-peek": {
       "url": "https://www.syensqo.com/en/brands/ketaspire-peek",
@@ -744,6 +772,76 @@
       "url": "https://www.niagaralasalle.com/wp-content/uploads/2024/08/stressproof.pdf",
       "label": "Niagara LaSalle — StressProof 사양서 (최소 TS 115 ksi · YS 100 ksi, ASTM A311 Class B)",
       "verified": false
+    },
+    "ANSYS Granta — Stainless steel austenitic AISI 301 (UNS S30100, EN 1.4310, X10CrNi18-8)": {
+      "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10509/file/CLF_ProductData_301SS_052021.pdf",
+      "label": "Cleveland-Cliffs (구 AK Steel) 301 Stainless Product Data Bulletin 2021-05 — Table 1 소둔 대표값 310/827 MPa·60%·HRB 86 · Table 2 냉간 템퍼 최소값(= ASTM A666)",
+      "verified": true
+    },
+    "ANSYS Granta — Stainless steel austenitic AISI 302 annealed (UNS S30200, EN 1.4319)": {
+      "url": "https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/302.pdf",
+      "label": "Carpenter — CarTech 302 datasheet (1 in. 봉 1038°C 소둔 대표값 241/586 MPa·60%·HB 150)",
+      "verified": true
+    },
+    "ANSYS Granta — Stainless steel, austenitic, AISI 303 annealed (UNS S30300, EN 1.4305, JIS SUS303)": {
+      "url": "https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/303.pdf",
+      "label": "Carpenter — CarTech 303 datasheet (1 in. 봉 1038°C 소둔 대표값 241/621 MPa·50%·HB 160)",
+      "verified": true
+    },
+    "ANSYS Granta — Stainless steel, austenitic, AISI 305 annealed (UNS S30500)": {
+      "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10511/file/CLF_ProductData_305SS_092025.pdf",
+      "label": "Cleveland-Cliffs (구 AK Steel) 305 Product Data Bulletin 2025-09 — Table 1 대표값 241/586 MPa·55%·HRB 70",
+      "verified": true
+    },
+    "ANSYS Granta — Stainless steel, austenitic, AISI 309 annealed (UNS S30900)": {
+      "url": "https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/309.pdf",
+      "label": "Carpenter — CarTech 309 datasheet (1 in. 봉 1066°C 소둔 대표값 276/620 MPa·50%·HB 160)",
+      "verified": true
+    },
+    "ANSYS Granta — Stainless steel, austenitic, AISI 317 annealed (UNS S31700)": {
+      "url": "https://store.astm.org/a0240_a0240m-23.html",
+      "label": "ASTM A240/A240M — Type 317 최소 205/515 MPa·35% (표시값 244/568 의 원전은 확인하지 못함)",
+      "verified": false
+    },
+    "ANSYS Granta — Stainless steel, ferritic, AISI 436 annealed (UNS S43600)": {
+      "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10521/file/CLF_ProductData_FerriticAutoTrim_052021.pdf",
+      "label": "Cleveland-Cliffs Ferritic Automotive Trim Product Data 2021-05 — Table 2 대표값(Type 436 310/517 MPa·28%·HRB 75)",
+      "verified": true
+    },
+    "ANSYS Granta — Stainless steel, ferritic, AISI 446 annealed (UNS S44600, EN 1.4749)": {
+      "url": "https://www.rolledalloys.com/wp-content/uploads/446_stainless-steel-data-sheet-rolled-alloys.pdf",
+      "label": "Rolled Alloys 446 Data Sheet (Bulletin 123USe) — 대표값 345/469 MPa·30%·HRB 83–93 (인장이 ASTM A240 판재 최소 485 에 못 미쳐 봉재 기준으로 보이며, 표시값 555 의 원전은 확인하지 못함)",
+      "verified": false
+    },
+    "ANSYS Granta — Stainless steel, martensitic, AISI 440A annealed (UNS S44002)": {
+      "url": "https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/440A.pdf",
+      "label": "Carpenter — CarTech 440A datasheet (1038°C 유냉 + 316°C 뜨임 대표값 1655/1793 MPa·5%·HB 512 · 뜨임온도별 HRC)",
+      "verified": true
+    },
+    "ANSYS Granta — Stainless steel, martensitic, AISI 440B annealed (UNS S44003)": {
+      "url": "https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/440B%20.pdf",
+      "label": "Carpenter — CarTech 440B datasheet (1038°C 유냉 + 316°C 뜨임 대표값 1862/1931 MPa·3%·HB 534 · 소둔 HB 약 223)",
+      "verified": true
+    },
+    "ASTM A 240 / A 276 / A 789 / A 790 Gr F55 / S32760": {
+      "url": "https://www.rolledalloys.com/wp-content/uploads/2022/07/ZERON-100_data-book-rolled-alloys.pdf",
+      "label": "Rolled Alloys ZERON 100 Data Book — Table 1 보증 최소 550/750 MPa·25% (= ASTM A240 S32760)",
+      "verified": true
+    },
+    "Carpenter Custom 465 datasheet (AMS 5936, ASTM A564, MMPDS-01)": {
+      "url": "https://www.carpentertechnology.com/hubfs/Data%20Sheets/Custom_465_Datasheet.pdf",
+      "label": "Carpenter — Custom 465 datasheet (4.25 in. 봉 종방향 대표값 H950·H975·H1000·H1050 · 10 in. 봉 H1025)",
+      "verified": true
+    },
+    "https://www.nipponsteel.com/product/catalog_download/pdf/E001.pdf": {
+      "url": "https://www.nipponsteel.com/product/catalog_download/pdf/P008en.pdf",
+      "label": "Nippon Steel — Seamless Steel Tubes and Pipes for Boilers (P008en) — SUPER304H 규격 최소 TS 590 · YS 235 MPa · El 35%",
+      "verified": true
+    },
+    "https://www.api.org/products-and-services/standards/important-standards-announcements/standard-5ct": {
+      "url": "https://www.jfe-steel.co.jp/en/products/energy/octg/material/13cr.html",
+      "label": "JFE Steel — 13CR OCTG 규격 물성 (JFE-13CR-80 = API 5CT L80 13Cr 상당: YS 552–655 · TS ≥655 MPa · ≤23 HRC)",
+      "verified": true
     }
   },
   "downgrade_to_unverified": [
@@ -756,5 +854,6 @@
   "_aud_2026_09_22": "F11 — 외부 감사 404 57건: 브라우저 UA GET 재확인 후 현행 페이지로 교체(2026-09-22). ASM 핸드북은 dl.asminternational.org(안티봇 403, 브라우저 정상). ATI Hafnium datasheet 는 대체 문서 없음 → verified=false 강등.",
   "_url_health_2026_09_22": "URL 헬스 재점검(AUD-3 후속) — verify:urls Dead 82 를 브라우저 UA 로 재확인(81 실제 404, aisc.org 는 403 안티봇 → allowlist) 후 현행 페이지로 교체. 단종·이관 브랜드는 승계처로(Hastelloy B-2 → B-3 · Rynite → Celanese · Therban → ARLANXEO · NovaSpire → Syensqo · Airware → Constellium · 654 SMO → Outokumpu Ultra 계열 · 순 Nb → ATI Nb-1Zr TDS · A-286 → Carpenter · Waspaloy → Haynes).",
   "_note_aud_f11": "AUD F11 잔여 (2026-09-22): 추적보고서 54 dead(2회 404) 교체 — 값이 객체({url,label,verified?})면 라벨도 교체(문서 자체가 바뀐 경우). ASTM store 는 최신 판본 페이지로.",
-  "_url_health_2026_09_28": "GitHub 주간 URL 점검(이슈 #1) 조치 — 59 URL. 로컬·CI 양쪽에서 DNS 부재(aksteel.com 16 · magnesium-elektron · mcc-tef · bohler.uddeholm · lasallesteel · cspresins · mc-21 · refractories.saint-gobain), 인증서 이름 불일치(styrolution · alleghenytechnologies · bucorp · spsfasteners · timetal), TLS 깨짐(kssa · reichhold), 연결 리셋(product.posco — 브라우저도), 사이트 첫 화면으로 튕기는 soft-404(solvay→분사 공지 · dsm → 홈 · alcoa · ceramtec · worldautosteel · eastman · nikon), 진짜 404(avivametals). 42 URL 은 웹 아카이브에 한 번도 기록되지 않았다 — 실재했는지부터 확인할 수 없는 주소다. 후속 문서의 수치를 대조한 것만 verified 유지(CLF 17-4·15-5 PH Table 3 규격 최소값 = 저장 강도 일치), 원문 보존본(14자리 웨이백)은 같은 문서라 유지, 나머지는 verified=false — 후속 문서로 가는 길이지 증거가 아니다."
+  "_url_health_2026_09_28": "GitHub 주간 URL 점검(이슈 #1) 조치 — 59 URL. 로컬·CI 양쪽에서 DNS 부재(aksteel.com 16 · magnesium-elektron · mcc-tef · bohler.uddeholm · lasallesteel · cspresins · mc-21 · refractories.saint-gobain), 인증서 이름 불일치(styrolution · alleghenytechnologies · bucorp · spsfasteners · timetal), TLS 깨짐(kssa · reichhold), 연결 리셋(product.posco — 브라우저도), 사이트 첫 화면으로 튕기는 soft-404(solvay→분사 공지 · dsm → 홈 · alcoa · ceramtec · worldautosteel · eastman · nikon), 진짜 404(avivametals). 42 URL 은 웹 아카이브에 한 번도 기록되지 않았다 — 실재했는지부터 확인할 수 없는 주소다. 후속 문서의 수치를 대조한 것만 verified 유지(CLF 17-4·15-5 PH Table 3 규격 최소값 = 저장 강도 일치), 원문 보존본(14자리 웨이백)은 같은 문서라 유지, 나머지는 verified=false — 후속 문서로 가는 길이지 증거가 아니다.",
+  "_a3_stainless_2026_09_29": "A3 스테인리스 — URL 자리에 설명문이 들어간 'ANSYS Granta' 가짜 출처(301·302·303·305·309·317·436·446·440A·440B)와 \"Carpenter Custom 465 datasheet\"·\"ASTM A 240 / … S32760\" 설명문을 실제 문서로 바꿨다. Carpenter alloy-finder 가 없는 15-5 PH·Nitronic 50/60 을 Custom 630 페이지로 돌리던 매핑을 실제 문서(Carpenter 15Cr-5Ni·Electralloy)로, \"준비 중\" 빈 PDF(E001) 를 Nippon Steel P008en 으로 바꿨다. 값을 대조한 CLF 불리틴은 verified 로 올리고, 강종 수치가 없는 Outokumpu 개요 페이지는 내렸다."
 }

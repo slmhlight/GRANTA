@@ -11,7 +11,7 @@
   "legacy_id": "G_0199",
   "origin": "generic(csv)",
   "id": "G_0199",
-  "name": "AISI 304L — Strain-hardened (Wrought)",
+  "name": "AISI 304L — 1/4 Hard (cold-rolled, ASTM A666 min)",
   "category": "Metal",
   "subcategory": "Stainless Steel - Austenitic",
   "tier": "generic",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Strain-hardened",
+  "heat_treatment": "1/4 Hard (ASTM A666)",
   "ranges": {
     "density": {
       "min": 8,
@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 480,
-      "max": 700,
-      "typical": 480,
-      "n": 3,
-      "confidence": "handbook"
+      "min": 515,
+      "typical": 515,
+      "max": 515,
+      "confidence": "handbook",
+      "provenance": "교정: ASTM A666 Table 2 — ¼ Hard, Type 304L: TS 125 ksi (860 MPa) · YS 75 ksi (515 MPa) min · El 10% (0.030 in. 초과)"
     },
     "uts": {
-      "min": 830,
-      "max": 960,
-      "typical": 830,
-      "n": 3,
-      "confidence": "handbook"
+      "min": 860,
+      "typical": 860,
+      "max": 860,
+      "confidence": "handbook",
+      "provenance": "교정: ASTM A666 Table 2 — ¼ Hard, Type 304L: TS 125 ksi (860 MPa) · YS 75 ksi (515 MPa) min · El 10% (0.030 in. 초과)"
     },
     "elongation": {
       "min": 10,
-      "max": 25,
-      "typical": 12,
-      "n": 3,
-      "confidence": "handbook"
+      "typical": 10,
+      "max": 10,
+      "confidence": "handbook",
+      "provenance": "교정: ASTM A666 Table 2 — ¼ Hard, Type 304L: TS 125 ksi (860 MPa) · YS 75 ksi (515 MPa) min · El 10% (0.030 in. 초과)"
     },
     "modulus": {
       "min": 193,
@@ -219,9 +219,9 @@
       "verified": true
     },
     {
-      "label": "Outokumpu — Stainless Steel 304L (1.4307)",
+      "label": "Outokumpu — 오스테나이트 스테인리스 강종 개요 페이지 (강종별 수치 없음 — 값 대조 불가)",
       "url": "https://www.outokumpu.com/en/products/stainless-steel-types/austenitic-stainless-steel",
-      "verified": true
+      "verified": false
     },
     {
       "label": "ASM Handbook Vol.1 — Stainless Steel Type 304L (ELC)",
@@ -237,9 +237,9 @@
   "points": [
     [
       8,
-      480,
-      830,
-      12,
+      515,
+      860,
+      10,
       193,
       240,
       16.3
@@ -265,9 +265,9 @@
   "fracture_toughness": 143,
   "fatigue_strength": 336,
   "density": 8,
-  "yield_strength": 480,
-  "uts": 830,
-  "elongation": 12,
+  "yield_strength": 515,
+  "uts": 860,
+  "elongation": 10,
   "modulus": 193,
   "hardness": 240,
   "thermal_conductivity": 16.3,
@@ -312,15 +312,15 @@
   "svhc_concerns": [
     "Ni 8% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high",
-  "industry_note": "UNS S30403 / SUS304L / 1.4307 — 304 의 ELC (C ≤ 0.030%) 변종. Sensitization 회피로 용접 후 PWHT 불필요. σy ≈ 170 / UTS ≈ 485 / El 40% (304 대비 5% 낮은 강도, 더 좋은 weldability). 식품·의약·반도체 super-clean piping (EP polish Ra<0.4) 표준. 08 은 잘못 (정정값: ≤0.030).",
+  "confidence_tier": "medium",
+  "industry_note": "UNS S30403 / SUS304L / 1.4307 — 304 의 저탄소(C ≤ 0.030%) 변종. 용접 후 예민화를 피해 PWHT 없이 쓴다. 규격 최소 σy 170 / UTS 485 MPa 로 304(205/515)보다 한 단계 낮지만 용접성이 좋다. 식품·의약·반도체 고청정 배관(EP 연마)의 표준.",
   "_corrections": {
     "sources": {
       "from": [
         {
-          "label": "Outokumpu — Stainless Steel 304L (1.4307)",
+          "label": "Outokumpu — 오스테나이트 스테인리스 강종 개요 페이지 (강종별 수치 없음 — 값 대조 불가)",
           "url": "https://www.outokumpu.com/en/products/stainless-steel-types/austenitic-stainless-steel",
-          "verified": true
+          "verified": false
         },
         {
           "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
@@ -344,6 +344,44 @@
         }
       ]
     },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 480,
+        "max": 700,
+        "typical": 480,
+        "n": 3,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 480
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 830,
+        "max": 960,
+        "typical": 830,
+        "n": 3,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 830
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 10,
+        "max": 25,
+        "typical": 12,
+        "n": 3,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 12
+    },
+    "_basis": "generic 'Strain-hardened' 행은 어느 템퍼 표에도 없는 합성값이었다. 304L 의 표준 냉간 템퍼는 ASTM A666 ¼ Hard 라 그 최소값(TS 125/YS 75 ksi·El 10%, 0.030 in. 초과)으로 교정·선언하고 이름에 템퍼를 적는다.",
+    "_src": "ASTM A666 Table 2 — ¼ Hard, Type 304L: TS 125 ksi (860 MPa) · YS 75 ksi (515 MPa) min · El 10% (0.030 in. 초과)",
     "points": {
       "from": [
         [
@@ -375,6 +413,17 @@
         ]
       ]
     },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+    "fields": {
+      "name": {
+        "from": "AISI 304L — Strain-hardened (Wrought)",
+        "had": true
+      },
+      "heat_treatment": {
+        "from": "Strain-hardened",
+        "had": true
+      }
+    },
+    "_fbasis": "합성 'Strain-hardened' 조건을 실제 규격 템퍼(A666 ¼ Hard)로 바꾸면서 이름·열처리에 적었다.",
+    "_fsrc": "ASTM A666 Table 2"
   }
 }

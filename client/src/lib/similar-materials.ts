@@ -15,7 +15,11 @@
  * R226m — 인기도(popularity) 대신 순수 물성 거리로 순위. 다른 용도(인사이트) 그룹이라도
  * 물성이 가까우면 상위에 노출 → 대체 후보 탐색이 본질. 그룹 구분은 UI 배지로 명시.
  */
-import { propValue, type Material } from './materials';
+import { propValue, comparableOnHV, type Material } from './materials';
+
+/* AUD-3 D03 / A3 스테인리스(2026-09-29) — 경도는 척도가 HV 인 값끼리만 거리에 넣는다. 환산표 밖이라 원 스케일(HRB·HB·HRC)로
+ * 남긴 경도(오스테나이트계 스테인리스·일부 Al/Ti)를 HV 와 같은 축에서 로그 거리로 재면 척도 차이가 물성 차이로 읽힌다 — 그 경우 결측으로 둔다. */
+const simValue = (m: Material, key: string): number | null => (comparableOnHV(m, key) ? propValue(m, key) : null);
 
 export interface SimilarMaterial {
   material: Material;
@@ -97,7 +101,7 @@ function computeNorms(materials: Material[]): Record<string, { logMin: number; l
   for (const key of ALL_PROP_KEYS) {
     let lmin = Infinity, lmax = -Infinity;
     for (const m of materials) {
-      const v = propValue(m, key);
+      const v = simValue(m, key);
       if (v != null && v > 0) {
         const lv = Math.log10(v);
         if (lv < lmin) lmin = lv;
@@ -128,7 +132,7 @@ function distance(a: Material, b: Material, norms: Record<string, { logMin: numb
   const props = propsFor(a.category);
   let sumSq = 0, totalW = 0, missing = 0;
   for (const { key, weight } of props) {
-    const va = propValue(a, key), vb = propValue(b, key);
+    const va = simValue(a, key), vb = simValue(b, key);
     if (va == null || vb == null || va <= 0 || vb <= 0) {
       missing++;
       continue;
@@ -153,7 +157,7 @@ function diffsFor(a: Material, b: Material): Array<{ prop: string; label: string
   const props = propsFor(a.category);
   const out: Array<{ prop: string; label: string; delta: number; abs: number; unit?: string }> = [];
   for (const { key, label, unit } of props) {
-    const va = propValue(a, key), vb = propValue(b, key);
+    const va = simValue(a, key), vb = simValue(b, key);
     if (va == null || vb == null || va <= 0) continue;
     const pct = ((vb - va) / va) * 100;
     out.push({ prop: key, label, delta: Math.round(pct), abs: Math.abs(pct), unit });

@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 240,
-      "max": 240,
-      "typical": 240,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 241,
+      "typical": 241,
+      "max": 241,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 303, 1 in. round bar annealed 1900°F(1038°C): 35/90 ksi (241/621 MPa) · El 50% · RA 55% · HB 160 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/303.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "uts": {
-      "min": 580,
-      "max": 580,
-      "typical": 580,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 621,
+      "typical": 621,
+      "max": 621,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 303, 1 in. round bar annealed 1900°F(1038°C): 35/90 ksi (241/621 MPa) · El 50% · RA 55% · HB 160 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/303.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "elongation": {
-      "min": 45,
-      "max": 45,
-      "typical": 45,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 50,
+      "typical": 50,
+      "max": 50,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 303, 1 in. round bar annealed 1900°F(1038°C): 35/90 ksi (241/621 MPa) · El 50% · RA 55% · HB 160 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/303.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "modulus": {
       "min": 196,
@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 165,
-      "max": 165,
-      "typical": 165,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 160,
+      "typical": 160,
+      "max": 160,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 303, 1 in. round bar annealed 1900°F(1038°C): 35/90 ksi (241/621 MPa) · El 50% · RA 55% · HB 160 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/303.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기",
+      "scale": "HB",
+      "source_scale": "HB",
+      "source_value": 160,
+      "conversion": null,
+      "scale_note": "ASTM E140 표 밖(또는 해당 표 없음) — 환산하지 않고 원 스케일 그대로 표기"
     },
     "thermal_conductivity": {
       "min": 16,
@@ -190,14 +195,14 @@
   },
   "sources": [
     {
-      "label": "Datasheet 1",
-      "url": "ANSYS Granta — Stainless steel, austenitic, AISI 303 annealed (UNS S30300, EN 1.4305, JIS SUS303)",
+      "label": "Carpenter — CarTech 303 datasheet (1 in. 봉 1038°C 소둔 대표값 241/621 MPa·50%·HB 160)",
+      "url": "https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/303.pdf",
       "verified": true
     },
     {
-      "label": "Datasheet 1",
+      "label": "Outokumpu — 오스테나이트 스테인리스 강종 개요 페이지 (강종별 수치 없음 — 값 대조 불가)",
       "url": "https://www.outokumpu.com/en/products/stainless-steel-types/austenitic-stainless-steel",
-      "verified": true
+      "verified": false
     },
     {
       "label": "KIC fallback: ASM Vol.1 Austenitic SS",
@@ -213,18 +218,18 @@
   "points": [
     [
       7.97,
-      240,
-      580,
-      45,
+      241,
+      621,
+      50,
       196,
-      165,
+      160,
       16
     ]
   ],
   "machinability": "Excellent",
   "weldability": "Poor",
   "corrosion_resistance": "Good",
-  "industry_note": "UNS S30300 / EN 1.4305 / X8CrNiS18-9 / JIS SUS303 — sulfur-modified 304 (S 0.15-0.35) — machinability boost (rating ~80, vs 304 의 40%). σy 240 / UTS 580 / El 50%. Tmax 815°C. ⚠ S 함량으로 weldability 매우 poor (sulfide network 가 crack starter — 일반적으로 weld 가능, 단 S-free 304 filler + 낮은 heat input). Lathe-machined parts: shaft, valve stem, bushing, knob, fittings (high-volume turning). 304 의 ~10% premium.",
+  "industry_note": "UNS S30300 / EN 1.4305 / X8CrNiS18-9 / JIS SUS303 — 황(S 0.15~0.35)을 넣은 쾌삭 304. 1 in. 봉 소둔 대표값 σy 241 / UTS 621 MPa / El 50% (Carpenter). Tmax 815°C. 황화물 때문에 용접성은 나쁘다(S 없는 304 용가재·낮은 입열). 선반 가공 대량부품: 축·밸브 스템·부싱·피팅.",
   "meta": {
     "reference": true,
     "condition": "Solution annealed (S30300, EN 1.4305, SUS 303)",
@@ -238,11 +243,11 @@
   },
   "fracture_toughness": 140,
   "density": 7.97,
-  "yield_strength": 240,
-  "uts": 580,
-  "elongation": 45,
+  "yield_strength": 241,
+  "uts": 621,
+  "elongation": 50,
   "modulus": 196,
-  "hardness": 165,
+  "hardness": 160,
   "thermal_conductivity": 16,
   "fatigue_strength": 185,
   "impact_strength": 55,
@@ -283,5 +288,70 @@
   "svhc_concerns": [
     "Ni 10% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 240,
+        "max": 240,
+        "typical": 240,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 240
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 580,
+        "max": 580,
+        "typical": 580,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 580
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 45,
+        "max": 45,
+        "typical": 45,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 45
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 165,
+        "max": 165,
+        "typical": 165,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 165
+    },
+    "_basis": "저장값의 유일한 \"원전\"은 URL 자리에 설명문이 들어간 'ANSYS Granta' 가짜 출처였다. Carpenter 봉재 대표값 행으로 교정.",
+    "_src": "Carpenter Technology — CarTech 303, 1 in. round bar annealed 1900°F(1038°C): 35/90 ksi (241/621 MPa) · El 50% · RA 55% · HB 160 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/303.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기",
+    "points": {
+      "from": [
+        [
+          7.97,
+          240,
+          580,
+          45,
+          196,
+          165,
+          16
+        ]
+      ]
+    }
+  }
 }

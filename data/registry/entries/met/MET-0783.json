@@ -11,7 +11,7 @@
   "legacy_id": "G_0243",
   "origin": "generic(csv)",
   "id": "G_0243",
-  "name": "AISI 410 — Quenched / tempered (Wrought)",
+  "name": "AISI 410 — Q+T (1010°C OQ + 593°C)",
   "category": "Metal",
   "subcategory": "Stainless Steel - Ferritic/Martensitic",
   "tier": "generic",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Quenched / tempered",
+  "heat_treatment": "Q+T (1010°C OQ + 593°C, 4 h)",
   "ranges": {
     "density": {
       "min": 7.75,
@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 540,
-      "max": 1100,
-      "typical": 690,
-      "n": 5,
-      "confidence": "handbook"
+      "min": 724,
+      "typical": 724,
+      "max": 724,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 410 datasheet, Typical RT properties, bar hardened 1850°F(1010°C) 30 min OQ, tempered 4 h at 1100°F(593°C): 105/120 ksi (724/827 MPa) · El 20% · RA 63% · HRC 24 / HB 248 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/410.pdf · [경도 스케일] HRC 24 → HV (ASTM E140-12b Table 1)"
     },
     "uts": {
-      "min": 760,
-      "max": 1240,
-      "typical": 860,
-      "n": 5,
-      "confidence": "handbook"
+      "min": 827,
+      "typical": 827,
+      "max": 827,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 410 datasheet, Typical RT properties, bar hardened 1850°F(1010°C) 30 min OQ, tempered 4 h at 1100°F(593°C): 105/120 ksi (724/827 MPa) · El 20% · RA 63% · HRC 24 / HB 248 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/410.pdf · [경도 스케일] HRC 24 → HV (ASTM E140-12b Table 1)"
     },
     "elongation": {
-      "min": 18.8,
-      "max": 20.4,
+      "min": 20,
       "typical": 20,
-      "n": 5,
-      "confidence": "measured"
+      "max": 20,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 410 datasheet, Typical RT properties, bar hardened 1850°F(1010°C) 30 min OQ, tempered 4 h at 1100°F(593°C): 105/120 ksi (724/827 MPa) · El 20% · RA 63% · HRC 24 / HB 248 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/410.pdf · [경도 스케일] HRC 24 → HV (ASTM E140-12b Table 1)"
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,15 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 162.7,
-      "max": 200.1,
-      "typical": 188.9,
-      "n": 5,
-      "confidence": "measured"
+      "min": 260,
+      "typical": 260,
+      "max": 260,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 410 datasheet, Typical RT properties, bar hardened 1850°F(1010°C) 30 min OQ, tempered 4 h at 1100°F(593°C): 105/120 ksi (724/827 MPa) · El 20% · RA 63% · HRC 24 / HB 248 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/410.pdf · [경도 스케일] HRC 24 → HV (ASTM E140-12b Table 1)",
+      "scale": "HV",
+      "source_scale": "HRC",
+      "source_value": 24,
+      "conversion": "ASTM E140-12b Table 1"
     },
     "thermal_conductivity": {
       "min": 24.8,
@@ -108,13 +112,11 @@
       "provenance": "alloy:410"
     },
     "max_service_temp": {
-      "min": 650,
-      "max": 650,
-      "typical": 650,
-      "n": 0,
-      "estimated": false,
+      "min": 593,
+      "typical": 593,
+      "max": 593,
       "confidence": "handbook",
-      "provenance": "alloy:410"
+      "provenance": "교정: Carpenter Technology — CarTech 410 datasheet, Typical RT properties, bar hardened 1850°F(1010°C) 30 min OQ, tempered 4 h at 1100°F(593°C): 105/120 ksi (724/827 MPa) · El 20% · RA 63% · HRC 24 / HB 248 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/410.pdf · [경도 스케일] HRC 24 → HV (ASTM E140-12b Table 1)"
     },
     "thermal_expansion": {
       "min": 9.9,
@@ -194,7 +196,7 @@
       "verified": true
     },
     {
-      "label": "Cleveland-Cliffs (구 AK Steel) Martensitic Stainless Steel Comparator 2021-05 — 410/420/440A (후속 문서 — 대조 전)",
+      "label": "Cleveland-Cliffs (구 AK Steel) Martensitic Stainless Steel Comparator 2021-05 — Table 4 소둔 판재 대표값(410 290/517 · 420 317/614 · 440A 400/689 MPa) — 경화재 인장값은 싣지 않음",
       "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10518/file/CLF_ProductData_MartensiticStainlessSteelComparator_052021.pdf",
       "verified": false
     },
@@ -212,11 +214,11 @@
   "points": [
     [
       7.75,
-      690,
-      860,
+      724,
+      827,
       20,
       200,
-      188.9,
+      260,
       24.8
     ]
   ],
@@ -240,11 +242,11 @@
   "fracture_toughness": 40,
   "fatigue_strength": 380,
   "density": 7.75,
-  "yield_strength": 690,
-  "uts": 860,
+  "yield_strength": 724,
+  "uts": 827,
   "elongation": 20,
   "modulus": 200,
-  "hardness": 188.9,
+  "hardness": 260,
   "thermal_conductivity": 24.8,
   "impact_strength": 28,
   "manufacturer": "Generic",
@@ -265,7 +267,7 @@
   ],
   "fatigue_estimated": false,
   "electrical_conductivity": 3,
-  "max_service_temp": 650,
+  "max_service_temp": 593,
   "thermal_expansion": 9.9,
   "poisson_ratio": 0.28,
   "specific_heat": 460,
@@ -284,12 +286,12 @@
   "rohs_compliant": null,
   "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "high",
-  "industry_note": "UNS S41000 / EN 1.4006 / X12Cr13 / JIS SUS410 / KS STS410 — martensitic stainless (Cr 11.5-13.5, C 0.08-0.15). 200°C T: σy 1000 / UTS 1350 / HRC 41. Tmax 600°C (over-tempering 위쪽). Cutlery, steam turbine blade, valve stem, oil/gas tubing.",
+  "industry_note": "UNS S41000 / EN 1.4006 / X12Cr13 / JIS SUS410 / KS STS410 — 마르텐사이트계 스테인리스(Cr 11.5~13.5, C 0.08~0.15). 담금질·뜨임으로 경화하며 뜨임온도로 강도와 인성을 고른다. Tmax 600°C(과뜨임 위쪽). 칼·증기터빈 블레이드·밸브 스템·유정 튜빙.",
   "_corrections": {
     "sources": {
       "from": [
         {
-          "label": "Cleveland-Cliffs (구 AK Steel) Martensitic Stainless Steel Comparator 2021-05 — 410/420/440A (후속 문서 — 대조 전)",
+          "label": "Cleveland-Cliffs (구 AK Steel) Martensitic Stainless Steel Comparator 2021-05 — Table 4 소둔 판재 대표값(410 290/517 · 420 317/614 · 440A 400/689 MPa) — 경화재 인장값은 싣지 않음",
           "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10518/file/CLF_ProductData_MartensiticStainlessSteelComparator_052021.pdf",
           "verified": false
         },
@@ -315,6 +317,70 @@
         }
       ]
     },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 540,
+        "max": 1100,
+        "typical": 690,
+        "n": 5,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 690
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 760,
+        "max": 1240,
+        "typical": 860,
+        "n": 5,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 860
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 18.8,
+        "max": 20.4,
+        "typical": 20,
+        "n": 5,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 20
+    },
+    "max_service_temp": {
+      "had_range": true,
+      "val_range": {
+        "min": 650,
+        "max": 650,
+        "typical": 650,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:410"
+      },
+      "had_scalar": true,
+      "val_scalar": 650
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 162.7,
+        "max": 200.1,
+        "typical": 188.9,
+        "n": 5,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 188.9
+    },
+    "_basis": "generic 'Quenched / tempered' 690/860 과 경도 HV 188.9 는 조건 없는 합성값이었다(860 MPa 에 HV 189 는 인장-경도 관계와도 모순). Carpenter 410 봉 1010°C 유냉 + 593°C 4 h 뜨임 행으로. 사용온도 상한은 뜨임온도(A11 규칙 — 넘으면 재뜨임으로 강도가 떨어진다).",
+    "_src": "Carpenter Technology — CarTech 410 datasheet, Typical RT properties, bar hardened 1850°F(1010°C) 30 min OQ, tempered 4 h at 1100°F(593°C): 105/120 ksi (724/827 MPa) · El 20% · RA 63% · HRC 24 / HB 248 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/410.pdf · [경도 스케일] HRC 24 → HV (ASTM E140-12b Table 1)",
     "points": {
       "from": [
         [
@@ -364,6 +430,17 @@
         ]
       ]
     },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+    "fields": {
+      "name": {
+        "from": "AISI 410 — Quenched / tempered (Wrought)",
+        "had": true
+      },
+      "heat_treatment": {
+        "from": "Quenched / tempered",
+        "had": true
+      }
+    },
+    "_fbasis": "조건 없는 generic Q/T 를 원전의 한 행으로 교정하면서 그 조건을 이름·열처리에 적었다.",
+    "_fsrc": "Carpenter 410 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/410.pdf"
   }
 }

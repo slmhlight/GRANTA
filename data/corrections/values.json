@@ -9,14 +9,30 @@
  "_note": "값 교정 (stable_id 키). ranges: 물성 교정(basis·src 필수) — build-registry 4c 적용, 원본은 entry _corrections 보존. fields: 필드 단위 교정.",
  "ranges": {
   "MET-0795": {
-   "max_service_temp": 200,
-   "basis": "상용 최고온도가 **뜨임온도(200°C)보다 높은 650°C** 로 표기돼 있었다. 뜨임 마르텐사이트를 뜨임온도 이상에서 쓰면 추가 뜨임이 진행돼 경도·강도를 잃는다 — 이 조건이 제공하는 강도를 근거로 설계한다면 상한은 뜨임온도를 넘을 수 없다. 기존 650°C 는 조건 축이 없는 **계열 typical**(같은 합금의 고온 뜨임 조건 기준)이 조건 무관하게 상속된 값이다(백로그 A11). 새 값을 만들지 않고 이 entry 자신의 뜨임온도를 상한으로 쓴다.",
-   "src": "열처리 일반 원칙 — 뜨임재의 사용온도는 뜨임온도를 초과할 수 없다(초과 시 재뜨임으로 경도 저하). 뜨임온도는 이 entry 의 조건 표기에서 취함."
+   "yield_strength": 1655,
+   "uts": 1793,
+   "elongation": 5,
+   "max_service_temp": 316,
+   "hardness_src": {
+    "scale": "HB",
+    "value": 512,
+    "family": "steel"
+   },
+   "basis": "'200°C 뜨임' 행의 인장값은 원전에 없는 조건이다(Carpenter 는 204°C 에 경도만 준다). 인장 행이 있는 316°C 뜨임으로 이름·값을 함께 옮긴다. 사용온도 상한은 뜨임온도(A11 규칙 — 넘으면 재뜨임으로 강도가 떨어진다). (선행 교정 200 대체) [선행 교정 대체: {\"max_service_temp\": 200}]",
+   "src": "Carpenter Technology — CarTech 440A datasheet, Typical RT mechanical properties, hardened 1900°F(1038°C) OQ, tempered 600°F(316°C): 240/260 ksi (1655/1793 MPa) · El 5% · HB 512 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/440A.pdf · [경도 스케일] HB 512 → HV (ASTM E140-12b Table 1)"
   },
   "MET-0797": {
-   "max_service_temp": 200,
-   "basis": "상용 최고온도가 **뜨임온도(200°C)보다 높은 650°C** 로 표기돼 있었다. 뜨임 마르텐사이트를 뜨임온도 이상에서 쓰면 추가 뜨임이 진행돼 경도·강도를 잃는다 — 이 조건이 제공하는 강도를 근거로 설계한다면 상한은 뜨임온도를 넘을 수 없다. 기존 650°C 는 조건 축이 없는 **계열 typical**(같은 합금의 고온 뜨임 조건 기준)이 조건 무관하게 상속된 값이다(백로그 A11). 새 값을 만들지 않고 이 entry 자신의 뜨임온도를 상한으로 쓴다.",
-   "src": "열처리 일반 원칙 — 뜨임재의 사용온도는 뜨임온도를 초과할 수 없다(초과 시 재뜨임으로 경도 저하). 뜨임온도는 이 entry 의 조건 표기에서 취함."
+   "yield_strength": 1862,
+   "uts": 1931,
+   "elongation": 3,
+   "max_service_temp": 316,
+   "hardness_src": {
+    "scale": "HB",
+    "value": 534,
+    "family": "steel"
+   },
+   "basis": "'200°C 뜨임' 행의 인장값은 원전에 없는 조건이다(Carpenter 는 204°C 에 경도만 준다). 인장 행이 있는 316°C 뜨임으로 이름·값을 함께 옮긴다. 사용온도 상한은 뜨임온도(A11 규칙 — 넘으면 재뜨임으로 강도가 떨어진다). (선행 교정 200 대체) [선행 교정 대체: {\"max_service_temp\": 200}]",
+   "src": "Carpenter Technology — CarTech 440B datasheet, Typical RT mechanical properties, hardened 1900°F(1038°C) OQ, tempered 600°F(316°C): 270/280 ksi (1862/1931 MPa) · El 3% · HB 534 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/440B%20.pdf · [경도 스케일] HB 534 → HV (ASTM E140-12b Table 1)"
   },
   "MET-0062": {
    "max_service_temp": 180,
@@ -72,29 +88,30 @@
    "src": "Shigley Mechanical Engineering Design Table A-21 (출처 ASM Metals Reference Book 2d ed., 1983 — 1 in. 봉, 유냉) — 4140 Q&T 205°C (400°F): 1770 / 1640 MPa · 8% · RA 38% · HB 510 · https://dr-seif.com/content/ME425-HO2.pdf"
   },
   "MET-0811": {
-   "max_service_temp": 200,
-   "basis": "상용 최고온도가 **뜨임온도(200°C)보다 높은 650°C** 로 표기돼 있었다. 뜨임 마르텐사이트를 뜨임온도 이상에서 쓰면 추가 뜨임이 진행돼 경도·강도를 잃는다 — 이 조건이 제공하는 강도를 근거로 설계한다면 상한은 뜨임온도를 넘을 수 없다. 기존 650°C 는 조건 축이 없는 **계열 typical**(같은 합금의 고온 뜨임 조건 기준)이 조건 무관하게 상속된 값이다(백로그 A11). 새 값을 만들지 않고 이 entry 자신의 뜨임온도를 상한으로 쓴다.",
-   "src": "열처리 일반 원칙 — 뜨임재의 사용온도는 뜨임온도를 초과할 수 없다(초과 시 재뜨임으로 경도 저하). 뜨임온도는 이 entry 의 조건 표기에서 취함."
-  },
-  "MET-0810": {
-   "max_service_temp": 150,
-   "basis": "상용 최고온도가 **뜨임온도(150°C)보다 높은 650°C** 로 표기돼 있었다. 뜨임 마르텐사이트를 뜨임온도 이상에서 쓰면 추가 뜨임이 진행돼 경도·강도를 잃는다 — 이 조건이 제공하는 강도를 근거로 설계한다면 상한은 뜨임온도를 넘을 수 없다. 기존 650°C 는 조건 축이 없는 **계열 typical**(같은 합금의 고온 뜨임 조건 기준)이 조건 무관하게 상속된 값이다(백로그 A11). 새 값을 만들지 않고 이 entry 자신의 뜨임온도를 상한으로 쓴다.",
-   "src": "열처리 일반 원칙 — 뜨임재의 사용온도는 뜨임온도를 초과할 수 없다(초과 시 재뜨임으로 경도 저하). 뜨임온도는 이 entry 의 조건 표기에서 취함."
+   "yield_strength": 1089,
+   "uts": 1331,
+   "elongation": 17,
+   "max_service_temp": 260,
+   "hardness_src": {
+    "scale": "HRC",
+    "value": 43,
+    "family": "steel"
+   },
+   "basis": "'200°C 뜨임' 1000/1220·14% 는 원전에 없는 조건이다(Carpenter 뜨임표는 260°C 부터) — 값도 260°C 행(1089/1331)보다 낮다. 원전 최저 뜨임 행으로 이름·값을 맞춘다. 사용온도 상한은 뜨임온도(A11 규칙 — 넘으면 재뜨임으로 강도가 떨어진다). (선행 교정 200 대체) [선행 교정 대체: {\"max_service_temp\": 200}]",
+   "src": "Carpenter Technology — CarTech 410 datasheet, bar hardened 1850°F(1010°C) OQ, tempered 4 h at 500°F(260°C): 158/193 ksi (1089/1331 MPa) · El 17% · RA 62% · HRC 43 / HB 401 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/410.pdf · [경도 스케일] HRC 43 → HV (ASTM E140-12b Table 1)"
   },
   "MET-0815": {
-   "max_service_temp": 200,
-   "basis": "상용 최고온도가 **뜨임온도(200°C)보다 높은 650°C** 로 표기돼 있었다. 뜨임 마르텐사이트를 뜨임온도 이상에서 쓰면 추가 뜨임이 진행돼 경도·강도를 잃는다 — 이 조건이 제공하는 강도를 근거로 설계한다면 상한은 뜨임온도를 넘을 수 없다. 기존 650°C 는 조건 축이 없는 **계열 typical**(같은 합금의 고온 뜨임 조건 기준)이 조건 무관하게 상속된 값이다(백로그 A11). 새 값을 만들지 않고 이 entry 자신의 뜨임온도를 상한으로 쓴다.",
-   "src": "열처리 일반 원칙 — 뜨임재의 사용온도는 뜨임온도를 초과할 수 없다(초과 시 재뜨임으로 경도 저하). 뜨임온도는 이 entry 의 조건 표기에서 취함."
-  },
-  "MET-0814": {
-   "max_service_temp": 150,
-   "basis": "상용 최고온도가 **뜨임온도(150°C)보다 높은 650°C** 로 표기돼 있었다. 뜨임 마르텐사이트를 뜨임온도 이상에서 쓰면 추가 뜨임이 진행돼 경도·강도를 잃는다 — 이 조건이 제공하는 강도를 근거로 설계한다면 상한은 뜨임온도를 넘을 수 없다. 기존 650°C 는 조건 축이 없는 **계열 typical**(같은 합금의 고온 뜨임 조건 기준)이 조건 무관하게 상속된 값이다(백로그 A11). 새 값을 만들지 않고 이 entry 자신의 뜨임온도를 상한으로 쓴다.",
-   "src": "열처리 일반 원칙 — 뜨임재의 사용온도는 뜨임온도를 초과할 수 없다(초과 시 재뜨임으로 경도 저하). 뜨임온도는 이 entry 의 조건 표기에서 취함."
-  },
-  "MET-0818": {
-   "max_service_temp": 150,
-   "basis": "상용 최고온도가 **뜨임온도(150°C)보다 높은 480°C** 로 표기돼 있었다. 뜨임 마르텐사이트를 뜨임온도 이상에서 쓰면 추가 뜨임이 진행돼 경도·강도를 잃는다 — 이 조건이 제공하는 강도를 근거로 설계한다면 상한은 뜨임온도를 넘을 수 없다. 기존 480°C 는 조건 축이 없는 **계열 typical**(같은 합금의 고온 뜨임 조건 기준)이 조건 무관하게 상속된 값이다(백로그 A11). 새 값을 만들지 않고 이 entry 자신의 뜨임온도를 상한으로 쓴다.",
-   "src": "열처리 일반 원칙 — 뜨임재의 사용온도는 뜨임온도를 초과할 수 없다(초과 시 재뜨임으로 경도 저하). 뜨임온도는 이 entry 의 조건 표기에서 취함."
+   "yield_strength": 1482,
+   "uts": 1724,
+   "elongation": 8,
+   "max_service_temp": 204,
+   "hardness_src": {
+    "scale": "HB",
+    "value": 512,
+    "family": "steel"
+   },
+   "basis": "200°C 뜨임 1450/1720·8%·HV 510 은 원전 1038°C 유냉 + 204°C 뜨임 행(1482/1724·8%·HB 512)과 같은 조건 — 항복과 경도 스케일만 어긋났다. 사용온도 상한은 뜨임온도(A11 규칙 — 넘으면 재뜨임으로 강도가 떨어진다). (선행 교정 200 대체) [선행 교정 대체: {\"max_service_temp\": 200}]",
+   "src": "Carpenter Technology — CarTech 420 datasheet, Typical RT properties 1 in. round bar: Hardened 1900°F(1038°C) OQ + tempered 400°F(204°C) 215/250 ksi (1482/1724 MPa) · El 8% · RA 25% · HB 512 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/420.pdf · [경도 스케일] HB 512 → HV (ASTM E140-12b Table 1)"
   },
   "MET-0973": {
    "max_service_temp": 540,
@@ -252,13 +269,17 @@
    "src": "W-Ni-Fe 액상소결 문헌 — 공정 Ni-Fe-W 액상이 1465°C 에서 형성(소결 1460~1520°C 수행) · Total Materia W-Ni-Fe LPS"
   },
   "MET-0709": {
-   "basis": "AISI 301 소둔의 경도 95 는 **HRB 값이 HB/HV 필드에 그대로 들어간 것**이다 — 같은 합금의 냉간압연 조건들은 320·380·430·470(HB/HV 척도)을 쓴다. 두 경로가 같은 값을 가리킨다: ① 이 entry 자신의 UTS 530 → ISO 18265 로 약 160 HB, ② 소둔 301 의 통상 경도 85 HRB ≈ 160 HB.",
-   "src": "ASTM A666 Type 301 소둔(경도 최대 92 HRB) · ISO 18265 경도-인장 환산 (530 MPa ↔ 약 160 HB) · [경도 스케일] 원자료 160 HB(3000 kgf) → HV 160 (ASTM E140-12b Table 2 — 이 범위에서 HV=HB).",
+   "yield_strength": 310,
+   "uts": 827,
+   "elongation": 60,
    "hardness_src": {
-    "scale": "HB",
-    "value": 160,
-    "family": "steel"
-   }
+    "scale": "HRB",
+    "value": 86,
+    "family": "stainless-austenitic",
+    "keep": true
+   },
+   "basis": "선행 교정은 경도만(HB 160 환산) 바꿨고, 남은 항복·인장 220/530 과 연신 35% 는 ASTM A666 301 소둔 최소 연신(40%)보다도 낮았다. CLF 301 Table 1 대표값으로 — 301 은 인장 중 가공유기 마르텐사이트 변태로 인장강도가 높다(같은 불리틴 Table 4 상온 행 110/40 ksi·60% 도 같은 경향). 선행 교정(HB 160) 대체. [선행 교정 대체: {\"hardness_src\": {\"scale\": \"HB\", \"value\": 160, \"family\": \"steel\"}}]",
+   "src": "Cleveland-Cliffs (구 AK Steel) 301 Product Data Bulletin 2021-05, Table 1 Typical RT: Annealed 120/45 ksi (827/310 MPa) · El 60% · HRB 86 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10509/file/CLF_ProductData_301SS_052021.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
   },
   "MET-0954": {
    "price_per_cm3": 0.52,
@@ -430,17 +451,16 @@
    "src": "ASTM A588/A588M-19 (표준명 'up to 50 ksi [345 MPa] Minimum Yield Point') · SSAB mill Grade A (yield 50ksi/tensile 70ksi/El 21%@2in·18%@8in)"
   },
   "MET-0785": {
-   "yield_strength": 310,
-   "uts": 480,
-   "elongation": 25,
-   "basis": "430 annealed — DB 242/365 는 A240 min(205/450)의 UTS 미달 오염 (min-spec 확장 스윕 발견). AK Steel typical 로 교정",
-   "src": "ASTM A240 (430: YS≥205/UTS≥450) · AK Steel 430 datasheet (annealed YS 310~380 / UTS 480~517 / El 25~30%)"
-  },
-  "MET-0788": {
-   "yield_strength": 380,
-   "uts": 500,
-   "basis": "430 strain-hardened — DB 297/448 은 annealed 수준 + A240 min 미달. cold-worked 하한으로 교정",
-   "src": "AK Steel 430 (cold-rolled YS 380~500 / UTS 480~586)"
+   "yield_strength": 343,
+   "uts": 503,
+   "elongation": 28,
+   "hardness_src": {
+    "scale": "HRB",
+    "value": 78,
+    "family": "steel"
+   },
+   "basis": "선행 교정은 옛 AK Steel 불리틴의 범위(310~380 / 480~517)에서 하단을 골랐다 — 현행 CLF 430 불리틴 Table 1 의 Type 430 행으로. 선행 교정 대체. [선행 교정 대체: {\"yield_strength\": 310, \"uts\": 480, \"elongation\": 25}]",
+   "src": "Cleveland-Cliffs 430 / 430 ULTRA FORM Product Data Bulletin 2022-03, Table 1: Type 430 48/73 ksi (343/503 MPa) · El 28% · HRB 78 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10520/file/CLF_ProductData_430+Ultra+Form_032022.pdf · [경도 스케일] HRB 78 → HV (ASTM E140-12b Table 2, 비오스테나이트 강)"
   },
   "MET-0478": {
    "yield_strength": 285,
@@ -524,14 +544,6 @@
    "elongation": 14,
    "basis": "440C annealed (HBW207, σy448)",
    "src": "Atlas/AZoM 440C datasheet"
-  },
-  "MET-0798": {
-   "hardness": 580,
-   "yield_strength": 1900,
-   "uts": 1970,
-   "elongation": 2,
-   "basis": "440C 경화+템퍼 (HRC58-60)",
-   "src": "CarTech 440C datasheet (UTS max 1970)"
   },
   "POL-0095": {
    "yield_strength": 46,
@@ -631,15 +643,15 @@
   },
   "MET-0789": {
    "yield_strength": 345,
-   "uts": 540,
+   "uts": 552,
    "elongation": 28,
-   "basis": "AISI 434 annealed — DB 242/365.2 는 **UTS 가 ASTM A240 최소 450 MPa 미달**(405·430 과 동일 오염값). typical 밴드(σy 345~441 · UTS 538~552 · El 28~33) 하한으로 보수 교정.",
-   "src": "ASTM A240 (Type 434: YS≥240 MPa / UTS≥450 MPa) · Combined Metals 434 strip datasheet (50 ksi YS / 80 ksi UTS / El 28% / 75 HRB) · eFunda AISI 434 annealed (415/545/33%) · AZoM Grade 434 (441/538/32%) · [경도 스케일] Combined Metals 434 소둔 strip 75 HRB → HV 137 (ASTM E140-12b Table 2). 기존 180 은 AZoM 상한 계열값이라 직접 측정치(75 HRB)로 교체 — ASTM A240 434 경도 상한(89 HRB ≈ HV 180)은 규격 최대치이지 typical 이 아님.",
    "hardness_src": {
     "scale": "HRB",
     "value": 75,
     "family": "steel"
-   }
+   },
+   "basis": "선행 교정의 UTS 540 은 80 ksi 의 환산 오기다(80 ksi = 552 MPa). CLF Ferritic Automotive Trim Table 2 의 Type 434 행(50/80 ksi·28%·HRB 75)과 선행 교정이 인용한 Combined Metals 434(50/80 ksi·28%·75 HRB)가 같은 숫자. 선행 교정 대체(경도 동일). [선행 교정 대체: {\"yield_strength\": 345, \"uts\": 540, \"elongation\": 28, \"hardness_src\": {\"scale\": \"HRB\", \"value\": 75, \"family\": \"steel\"}}]",
+   "src": "Cleveland-Cliffs Ferritic Automotive Trim Product Data 2021-05, Table 2 Typical RT: Type 434 80/50 ksi (552/345 MPa) · El 28% · HRB 75 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10521/file/CLF_ProductData_FerriticAutoTrim_052021.pdf · [경도 스케일] HRB 75 → HV (ASTM E140-12b Table 2)"
   },
   "MET-0447": {
    "yield_strength": 103,
@@ -1482,6 +1494,694 @@
    "uts": 793,
    "basis": "\"Stressproof\" 라벨인데 620 / 690 MPa 였다 — 제조사 사양서의 **최소값**(YS 100 ksi = 689 · TS 115 ksi = 793 MPa)보다 낮아 이 이름으로 공급될 수 없는 값이다(690 은 최소 항복값이 인장 칸에 들어간 흔적). 사양서 최소값으로 교정하고 규격 하한으로 선언한다. 연신·경도는 사양서가 \"ASTM A311 Class B 이상, 치수에 따라 다름\" 이라고만 적어 여기서 바꾸지 않았다(미검증 잔여).",
    "src": "Niagara LaSalle — StressProof 사양서 (AISI 1144, Tensile 115,000 psi min · Yield 100,000 psi min · ASTM A311 Class B) · https://www.niagaralasalle.com/wp-content/uploads/2024/08/stressproof.pdf"
+  },
+  "MET-0826": {
+   "yield_strength": 1262,
+   "uts": 1365,
+   "elongation": 15,
+   "hardness_src": {
+    "scale": "HRC",
+    "value": 44,
+    "family": "steel"
+   },
+   "basis": "저장값 1170/1310 MPa·10% 는 ASTM A564/AMS 5643 H900 의 **보증 최소값**(170/190 ksi·10%)이 대표값 칸에 실린 것이다 — 같은 PH 계열의 Custom 455·465 는 대표값이라 표 안에서 비교가 기울었다. Carpenter Custom 630 H 900 대표값 행으로 교정 (ASTM A564/AMS 5643 최소값은 min_spec 축으로 병기).",
+   "src": "Carpenter Technology — Custom 630 (17-4) datasheet, Typical room temperature mechanical properties (봉재): H 900 183/198 ksi (1262/1365 MPa) · El 15% · RA 52% · HRC 44 / HB 420 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/Custom%20630%20(17-4%20PH).pdf · [경도 스케일] HRC 44 → HV (ASTM E140-12b Table 1)"
+  },
+  "MET-0823": {
+   "yield_strength": 1117,
+   "uts": 1158,
+   "elongation": 16,
+   "hardness_src": {
+    "scale": "HRC",
+    "value": 38,
+    "family": "steel"
+   },
+   "basis": "저장값 1000/1070·12% 는 A564 H1025 보증 최소(145/155 ksi·12%)다. Carpenter H 1025 대표값 행으로 (ASTM A564/AMS 5643 최소값은 min_spec 축으로 병기).",
+   "src": "Carpenter Technology — Custom 630 (17-4) datasheet, Typical room temperature mechanical properties (봉재): H 1025 162/168 ksi (1117/1158 MPa) · El 16% · RA 58% · HRC 38 / HB 352 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/Custom%20630%20(17-4%20PH).pdf · [경도 스케일] HRC 38 → HV (ASTM E140-12b Table 1)"
+  },
+  "MET-0824": {
+   "yield_strength": 1020,
+   "uts": 1131,
+   "elongation": 17,
+   "hardness_src": {
+    "scale": "HRC",
+    "value": 36,
+    "family": "steel"
+   },
+   "basis": "저장값 860/1000·13% 는 A564 H1075 보증 최소(125/145 ksi·13%)다. Carpenter H 1075 대표값 행으로 (ASTM A564/AMS 5643 최소값은 min_spec 축으로 병기).",
+   "src": "Carpenter Technology — Custom 630 (17-4) datasheet, Typical room temperature mechanical properties (봉재): H 1075 148/164 ksi (1020/1131 MPa) · El 17% · RA 59% · HRC 36 / HB 341 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/Custom%20630%20(17-4%20PH).pdf · [경도 스케일] HRC 36 → HV (ASTM E140-12b Table 1)"
+  },
+  "MET-0825": {
+   "yield_strength": 869,
+   "uts": 993,
+   "elongation": 20,
+   "hardness_src": {
+    "scale": "HRC",
+    "value": 33,
+    "family": "steel"
+   },
+   "basis": "저장값 795/965·16% 는 어느 한 행도 아니었다 — 항복·인장은 H1100 최소값(115/140 ksi), 연신은 H1150 최소값(16%)이 섞여 있었다. Carpenter H 1150 대표값 행으로 (ASTM A564/AMS 5643 최소값은 min_spec 축으로 병기).",
+   "src": "Carpenter Technology — Custom 630 (17-4) datasheet, Typical room temperature mechanical properties (봉재): H 1150 126/144 ksi (869/993 MPa) · El 20% · RA 60% · HRC 33 / HB 311 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/Custom%20630%20(17-4%20PH).pdf · [경도 스케일] HRC 33 → HV (ASTM E140-12b Table 1)"
+  },
+  "MET-0821": {
+   "yield_strength": 1276,
+   "uts": 1378,
+   "elongation": 10,
+   "hardness_src": {
+    "scale": "HRC",
+    "value": 44,
+    "family": "steel"
+   },
+   "basis": "저장값 1170/1310 MPa 는 AMS 5659 H900 보증 최소(170/190 ksi)이고 연신 14% 는 어느 원전에도 없다. Carpenter 15Cr-5Ni(UNS S15500 — 15-5 PH 와 같은 UNS) 봉 횡방향 H 900 대표값으로 교정. Cleveland-Cliffs 15-5 PH Table 2 대표값(1275/1379 MPa·9%·HRC 45)과 1 MPa 차로 일치한다.",
+   "src": "Carpenter Technology — 15Cr-5Ni datasheet (2023-12), Typical RT properties, transverse/intermediate: H 900 185/200 ksi (1276/1378 MPa) · El 10% · RA 30% · HRC 44 / HB 420 · https://www.carpentertechnology.com/hubfs/20231212--CT_15Cr-5Ni_Datasheet_F.pdf · 교차: Cleveland-Cliffs 15-5 PH Product Data Bulletin Table 2 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10501/file/CLF_ProductData_15-5_PHSS_052021.pdf · [경도 스케일] HRC 44 → HV (ASTM E140-12b Table 1)"
+  },
+  "MET-0827": {
+   "yield_strength": 310,
+   "uts": 827,
+   "elongation": 35,
+   "hardness_src": {
+    "scale": "HRB",
+    "value": 85,
+    "family": "stainless-semiaustenitic",
+    "keep": true
+   },
+   "basis": "저장값 380/1030 MPa 는 Condition A 의 **최대** 허용값(55/150 ksi max — 연질을 보증하는 상한, 같은 불리틴 Table 2)이 대표값 칸에 실린 것이다. Table 1 대표값(45/120 ksi·35%·HRB 85)으로. Condition A 는 준안정 오스테나이트라 경도는 HRB 원 스케일로 둔다.",
+   "src": "Cleveland-Cliffs (구 AK Steel) 17-7 PH Product Data Bulletin 2024-07, Table 1 Typical Mechanical Properties: A 120/45 ksi (827/310 MPa) · El 35% · HRB 85 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10504/file/CLF_ProductData_17-7-PH+Stainless+Steel_72024.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
+  },
+  "MET-0828": {
+   "yield_strength": 1448,
+   "uts": 1586,
+   "elongation": 7,
+   "hardness_src": {
+    "scale": "HRC",
+    "value": 48,
+    "family": "steel"
+   },
+   "basis": "저장값 1380/1450·5% 중 인장 1450·연신 5% 는 RH 950 규격 최소(210 ksi·5%)이고 항복 1380 은 어느 행도 아니다. Table 1 대표값으로.",
+   "src": "Cleveland-Cliffs (구 AK Steel) 17-7 PH Product Data Bulletin 2024-07, Table 1 Typical Mechanical Properties: RH 950 230/210 ksi (1586/1448 MPa) · El 7% · HRC 48 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10504/file/CLF_ProductData_17-7-PH+Stainless+Steel_72024.pdf · [경도 스케일] HRC 48 → HV (ASTM E140-12b Table 1)"
+  },
+  "MET-0829": {
+   "yield_strength": 1276,
+   "uts": 1379,
+   "elongation": 8,
+   "hardness_src": {
+    "scale": "HRC",
+    "value": 43,
+    "family": "steel"
+   },
+   "basis": "저장값 1240/1380·6% — 인장은 대표값과 같고 항복·연신이 어긋났다(연신 6% 는 TH 1050 규격 최소). Table 1 대표값으로 통일.",
+   "src": "Cleveland-Cliffs (구 AK Steel) 17-7 PH Product Data Bulletin 2024-07, Table 1 Typical Mechanical Properties: TH 1050 200/185 ksi (1379/1276 MPa) · El 8% · HRC 43 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10504/file/CLF_ProductData_17-7-PH+Stainless+Steel_72024.pdf · [경도 스케일] HRC 43 → HV (ASTM E140-12b Table 1)"
+  },
+  "MET-0770": {
+   "yield_strength": 1482,
+   "uts": 1689,
+   "elongation": 6,
+   "max_service_temp": 482,
+   "hardness_src": {
+    "scale": "HRC",
+    "value": 49,
+    "family": "steel"
+   },
+   "basis": "조건 표기 없이 1380/1448 MPa 였다 — 1380 은 RH 950 항복 최소(200 ksi)이고 1448 은 어느 행도 아니다(RH 950 인장 최소는 1552). PH 15-7 Mo Table 2 의 RH 950 대표값으로 교정하고 이름에 조건을 적는다. 사용온도 상한도 원전 문장(\"열처리 상태에서 900°F(482°C)까지 우수한 기계적 성질\")에 맞춰 650 → 482°C (RH 950 시효온도 510°C 를 넘는 650°C 연속 사용은 과시효로 강도를 잃는다).",
+   "src": "Cleveland-Cliffs (구 AK Steel) PH 15-7 Mo Product Data Bulletin 2021-05, Table 2 Typical Mechanical Properties: RH 950 245/215 ksi (1689/1482 MPa) · El 6% · HRC 49 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10533/file/CLF_ProductData_15-7-PH+Stainless+Steel_052021.pdf · [경도 스케일] HRC 49 → HV (ASTM E140-12b Table 1) · 같은 불리틴 1쪽: \"In its heat-treated condition, this alloy provides excellent mechanical properties at temperatures up to 900 °F (482 °C)\""
+  },
+  "MET-0830": {
+   "yield_strength": 793,
+   "uts": 1000,
+   "elongation": 14,
+   "hardness_src": {
+    "scale": "HRC",
+    "value": 31,
+    "family": "steel"
+   },
+   "basis": "저장값의 항복이 Carpenter 1 in. 봉 대표값보다 4~6% 낮고(760/1620/1480 vs 793/1689/1551) 연신·경도도 같은 행과 달랐다 — 대표값 행으로 통일.",
+   "src": "Carpenter Technology — Custom 455 datasheet, Typical RT mechanical properties, bar 1 in. section: A (115/145 ksi) → 793/1000 MPa · El 14% (4D) · HRC 31 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/Custom%20455.pdf · [경도 스케일] HRC 31 → HV (ASTM E140-12b Table 1)"
+  },
+  "MET-0831": {
+   "yield_strength": 1689,
+   "uts": 1724,
+   "elongation": 10,
+   "hardness_src": {
+    "scale": "HRC",
+    "value": 49,
+    "family": "steel"
+   },
+   "basis": "저장값의 항복이 Carpenter 1 in. 봉 대표값보다 4~6% 낮고(760/1620/1480 vs 793/1689/1551) 연신·경도도 같은 행과 달랐다 — 대표값 행으로 통일.",
+   "src": "Carpenter Technology — Custom 455 datasheet, Typical RT mechanical properties, bar 1 in. section: H 900 (245/250 ksi) → 1689/1724 MPa · El 10% (4D) · HRC 49 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/Custom%20455.pdf · [경도 스케일] HRC 49 → HV (ASTM E140-12b Table 1)"
+  },
+  "MET-0832": {
+   "yield_strength": 1551,
+   "uts": 1620,
+   "elongation": 12,
+   "hardness_src": {
+    "scale": "HRC",
+    "value": 48,
+    "family": "steel"
+   },
+   "basis": "저장값의 항복이 Carpenter 1 in. 봉 대표값보다 4~6% 낮고(760/1620/1480 vs 793/1689/1551) 연신·경도도 같은 행과 달랐다 — 대표값 행으로 통일.",
+   "src": "Carpenter Technology — Custom 455 datasheet, Typical RT mechanical properties, bar 1 in. section: H 950 (225/235 ksi) → 1551/1620 MPa · El 12% (4D) · HRC 48 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/Custom%20455.pdf · [경도 스케일] HRC 48 → HV (ASTM E140-12b Table 1)"
+  },
+  "MET-0836": {
+   "elongation": 13,
+   "hardness_src": {
+    "scale": "HRC",
+    "value": 49.5,
+    "family": "steel"
+   },
+   "basis": "항복·인장은 원전 행과 같고 연신과 경도가 어긋났다(경도 HV 540/528/515/488 은 어느 행도 아님). 같은 행의 연신·HRC 로 통일.",
+   "src": "Carpenter Technology — Custom 465 datasheet, Effects of −65°F test temperature — 4.25 in. 봉 종방향 73°F: H 950: 242/256 ksi (1669/1765 MPa) · El 13% · RA 62% · HRC 49.5 · https://www.carpentertechnology.com/hubfs/Data%20Sheets/Custom_465_Datasheet.pdf · [경도 스케일] HRC 49.5 → HV (ASTM E140-12b Table 1)"
+  },
+  "MET-0837": {
+   "elongation": 13,
+   "hardness_src": {
+    "scale": "HRC",
+    "value": 48.0,
+    "family": "steel"
+   },
+   "basis": "항복·인장은 원전 행과 같고 연신과 경도가 어긋났다(경도 HV 540/528/515/488 은 어느 행도 아님). 같은 행의 연신·HRC 로 통일.",
+   "src": "Carpenter Technology — Custom 465 datasheet, Effects of −65°F test temperature — 4.25 in. 봉 종방향 73°F: H 975: 235/247 ksi (1620/1703 MPa) · El 13% · RA 61% · HRC 48.0 · https://www.carpentertechnology.com/hubfs/Data%20Sheets/Custom_465_Datasheet.pdf · [경도 스케일] HRC 48.0 → HV (ASTM E140-12b Table 1)"
+  },
+  "MET-0833": {
+   "elongation": 15,
+   "hardness_src": {
+    "scale": "HRC",
+    "value": 47.5,
+    "family": "steel"
+   },
+   "basis": "항복·인장은 원전 행과 같고 연신과 경도가 어긋났다(경도 HV 540/528/515/488 은 어느 행도 아님). 같은 행의 연신·HRC 로 통일.",
+   "src": "Carpenter Technology — Custom 465 datasheet, Effects of −65°F test temperature — 4.25 in. 봉 종방향 73°F: H 1000: 219/231 ksi (1510/1593 MPa) · El 15% · RA 63% · HRC 47.5 · https://www.carpentertechnology.com/hubfs/Data%20Sheets/Custom_465_Datasheet.pdf · [경도 스케일] HRC 47.5 → HV (ASTM E140-12b Table 1)"
+  },
+  "MET-0835": {
+   "elongation": 17,
+   "hardness_src": {
+    "scale": "HRC",
+    "value": 45.5,
+    "family": "steel"
+   },
+   "basis": "항복·인장은 원전 행과 같고 연신과 경도가 어긋났다(경도 HV 540/528/515/488 은 어느 행도 아님). 같은 행의 연신·HRC 로 통일.",
+   "src": "Carpenter Technology — Custom 465 datasheet, Effects of −65°F test temperature — 4.25 in. 봉 종방향 73°F: H 1050: 201/215 ksi (1386/1482 MPa) · El 17% · RA 66% · HRC 45.5 · https://www.carpentertechnology.com/hubfs/Data%20Sheets/Custom_465_Datasheet.pdf · [경도 스케일] HRC 45.5 → HV (ASTM E140-12b Table 1)"
+  },
+  "MET-0834": {
+   "yield_strength": 1475,
+   "uts": 1565,
+   "elongation": 15,
+   "hardness_src": {
+    "scale": "HRC",
+    "value": 47,
+    "family": "steel"
+   },
+   "basis": "저장값 1413/1517 MPa 는 H 1050 의 값(10 in. 봉 205/220 ksi)이다 — H 1025 행(214/227 ksi)으로.",
+   "src": "Carpenter Technology — Custom 465 datasheet, Thermal stability 10 in. 봉 종방향: H 1025 214/227 ksi (1475/1565 MPa) · El 15% · RA 67% · HRC 47 · https://www.carpentertechnology.com/hubfs/Data%20Sheets/Custom_465_Datasheet.pdf · [경도 스케일] HRC 47 → HV (ASTM E140-12b Table 1)"
+  },
+  "MET-0704": {
+   "yield_strength": 655,
+   "uts": 1000,
+   "elongation": 24,
+   "hardness_src": {
+    "scale": "HB",
+    "value": 300,
+    "family": "fe-ni-superalloy",
+    "keep": true
+   },
+   "basis": "조건 표기 없이 590/895 MPa·25% 였다 — 항복·인장은 AMS 5737 봉 보증 최소(85/130 ksi)이고 연신 25% 는 최소(15%)도 대표값도 아니다. Carpenter A-286 7/8 in. 봉 982°C 용체화 + 718°C 16 h 시효 대표값으로 교정하고 조건을 적는다. 시효 후 경도는 원전이 적은 약 300 BHN.",
+   "src": "Carpenter Technology — CarTech A-286 datasheet, Tensile properties: 7/8 in. bar ST 1800°F(982°C) 1 h OQ + aged 1325°F(719°C) 16 h AC, 70°F: 0.2% YS 95 ksi (655 MPa) · TS 145 ksi (1000 MPa) · El 24.0% · RA 45% · 시효 경도 \"approximately 300 BHN\" · https://www.carpentertechnology.com/hubfs/Data%20Sheets/A-286.pdf · [경도 스케일] Fe-25Ni 오스테나이트 기지라 E140 비오스테나이트 표 대상이 아니어서 HB 원 스케일 표기"
+  },
+  "MET-0713": {
+   "yield_strength": 290,
+   "uts": 655,
+   "elongation": 55,
+   "hardness_src": {
+    "scale": "HRB",
+    "value": 84,
+    "family": "stainless-austenitic",
+    "keep": true
+   },
+   "basis": "저장값 205/515·40% 는 ASTM A240 304 의 **보증 최소값**이 대표값 칸에 실린 generic 합성값이다. CLF Table 1 Type 304 대표값으로(최소값은 min_spec 축 병기). Carpenter 304/304L 봉재(193/517)는 A240 판재 최소 205 에 못 미쳐 판재 대표값으로 통일했다.",
+   "src": "Cleveland-Cliffs (구 AK Steel) 304/304L Product Data Bulletin 2021-05, Table 1 Typical RT Mechanical Properties: Type 304 95/42 ksi (655/290 MPa) · El 55% · HRB 84 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10510/file/CLF_ProductData_304-304LSS_052021.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
+  },
+  "MET-0717": {
+   "yield_strength": 276,
+   "uts": 655,
+   "elongation": 55,
+   "hardness_src": {
+    "scale": "HRB",
+    "value": 82,
+    "family": "stainless-austenitic",
+    "keep": true
+   },
+   "basis": "저장값 170/485·40% 는 ASTM A240 304L 보증 최소값(generic 합성). CLF Table 1 Type 304L 대표값으로.",
+   "src": "Cleveland-Cliffs (구 AK Steel) 304/304L Product Data Bulletin 2021-05, Table 1 Typical RT Mechanical Properties: Type 304L 95/40 ksi (655/276 MPa) · El 55% · HRB 82 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10510/file/CLF_ProductData_304-304LSS_052021.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
+  },
+  "MET-0731": {
+   "yield_strength": 290,
+   "uts": 627,
+   "elongation": 55,
+   "hardness_src": {
+    "scale": "HRB",
+    "value": 79,
+    "family": "stainless-austenitic",
+    "keep": true
+   },
+   "basis": "저장값 205/515·40% 는 ASTM A240 316 보증 최소값이었다(304 와 숫자까지 같았다). CLF 316/316L Table 1 대표값으로. ATI AL-6XN 데이터시트 Table 19 의 316 박판 대표값(310/607·57%·HRB 81)과 같은 대역.",
+   "src": "Cleveland-Cliffs (구 AK Steel) 316/316L Product Data Bulletin 2021-05, Table 1 Typical RT Mechanical Properties (316/316L 한 행): 91/42 ksi (627/290 MPa) · El 55% · HRB 79 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10513/file/CLF_ProductData_316-316LSS_052021.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
+  },
+  "MET-0738": {
+   "yield_strength": 290,
+   "uts": 627,
+   "elongation": 55,
+   "hardness_src": {
+    "scale": "HRB",
+    "value": 79,
+    "family": "stainless-austenitic",
+    "keep": true
+   },
+   "basis": "저장값 240/580·50%·HV 180 은 원전을 확인할 수 없었다. CLF 316/316L 불리틴은 이중인증 판재를 한 행(Table 1)으로 준다 — 그 대표값으로.",
+   "src": "Cleveland-Cliffs (구 AK Steel) 316/316L Product Data Bulletin 2021-05, Table 1 Typical RT Mechanical Properties (316/316L 한 행): 91/42 ksi (627/290 MPa) · El 55% · HRB 79 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10513/file/CLF_ProductData_316-316LSS_052021.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
+  },
+  "MET-0744": {
+   "yield_strength": 241,
+   "uts": 586,
+   "elongation": 55,
+   "hardness_src": {
+    "scale": "HRB",
+    "value": 70,
+    "family": "stainless-austenitic",
+    "keep": true
+   },
+   "basis": "저장값 210/515·40% 는 A240 321 최소(205/515) 부근의 generic 합성값. CLF 321 Table 1 대표값으로 — Carpenter 321 1 in. 봉(241/586·60%·HB 150)과 강도가 같다.",
+   "src": "Cleveland-Cliffs (구 AK Steel) 321 Product Data Bulletin 2021-05, Table 1: 85/35 ksi (586/241 MPa) · El 55% · HRB 70 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10535/file/CLF_ProductData_Stainless-321_052021.pdf · 교차: Carpenter 321 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/321.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
+  },
+  "MET-0748": {
+   "yield_strength": 255,
+   "uts": 621,
+   "elongation": 50,
+   "hardness_src": {
+    "scale": "HB",
+    "value": 150,
+    "family": "stainless-austenitic",
+    "keep": true
+   },
+   "basis": "저장값 210/515·40% 는 A240 347 최소(205/515) 부근의 generic 합성값. Carpenter 347 1 in. 봉 1038°C 소둔 대표값으로.",
+   "src": "Carpenter Technology — CarTech 347 datasheet, Typical RT properties 1 in. round bar annealed 1900°F: 37/90 ksi (255/621 MPa) · El 50% · RA 65% · HB 150 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/347.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
+  },
+  "MET-0711": {
+   "yield_strength": 241,
+   "uts": 586,
+   "elongation": 60,
+   "hardness_src": {
+    "scale": "HB",
+    "value": 150,
+    "family": "stainless-austenitic",
+    "keep": true
+   },
+   "basis": "저장값의 유일한 \"원전\"은 URL 자리에 설명문이 들어간 'ANSYS Granta' 가짜 출처였다. Carpenter 봉재 대표값 행으로 교정.",
+   "src": "Carpenter Technology — CarTech 302, 1 in. round bar annealed 1900°F(1038°C): 35/85 ksi (241/586 MPa) · El 60% · RA 70% · HB 150 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/302.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
+  },
+  "MET-0712": {
+   "yield_strength": 241,
+   "uts": 621,
+   "elongation": 50,
+   "hardness_src": {
+    "scale": "HB",
+    "value": 160,
+    "family": "stainless-austenitic",
+    "keep": true
+   },
+   "basis": "저장값의 유일한 \"원전\"은 URL 자리에 설명문이 들어간 'ANSYS Granta' 가짜 출처였다. Carpenter 봉재 대표값 행으로 교정.",
+   "src": "Carpenter Technology — CarTech 303, 1 in. round bar annealed 1900°F(1038°C): 35/90 ksi (241/621 MPa) · El 50% · RA 55% · HB 160 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/303.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
+  },
+  "MET-0726": {
+   "yield_strength": 276,
+   "uts": 620,
+   "elongation": 50,
+   "hardness_src": {
+    "scale": "HB",
+    "value": 160,
+    "family": "stainless-austenitic",
+    "keep": true
+   },
+   "basis": "저장값의 유일한 \"원전\"은 URL 자리에 설명문이 들어간 'ANSYS Granta' 가짜 출처였다. Carpenter 봉재 대표값 행으로 교정.",
+   "src": "Carpenter Technology — CarTech 309, 1 in. round bar annealed 1950°F(1066°C) WQ: 40/90 ksi (276/620 MPa) · El 50% · RA 77% · HB 160 (HRB 83) · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/309.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
+  },
+  "MET-0724": {
+   "yield_strength": 241,
+   "uts": 586,
+   "elongation": 55,
+   "hardness_src": {
+    "scale": "HRB",
+    "value": 70,
+    "family": "stainless-austenitic",
+    "keep": true
+   },
+   "basis": "저장값의 유일한 \"원전\"은 'ANSYS Granta' 설명문(가짜 출처)이었다. CLF 305 판재 대표값으로 — Carpenter 305 빌렛(234/545·77%·HRB 75)과 같은 대역.",
+   "src": "Cleveland-Cliffs (구 AK Steel) 305 Product Data Bulletin 2025-09, Table 1: 85/35 ksi (586/241 MPa) · El 55% · HRB 70 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10511/file/CLF_ProductData_305SS_092025.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
+  },
+  "MET-0696": {
+   "yield_strength": 345,
+   "uts": 655,
+   "elongation": 45,
+   "hardness_src": {
+    "scale": "HRB",
+    "value": 85,
+    "family": "stainless-austenitic",
+    "keep": true
+   },
+   "basis": "저장값 250/580·45%·HV 170 은 인용된 AZoM(310/620·45%·HRB 85)과도 맞지 않았다. 제조사 CLF 309/309S 불리틴 Table 1 대표값으로.",
+   "src": "Cleveland-Cliffs (구 AK Steel) 309/309S Product Data Bulletin 2021-05, Table 1: 95/50 ksi (655/345 MPa) · El 45% · HRB 85 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10512/file/CLF_ProductData_309-309SS_052021.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
+  },
+  "MET-0700": {
+   "yield_strength": 260,
+   "uts": 595,
+   "elongation": 55,
+   "hardness_src": {
+    "scale": "HRB",
+    "value": 85,
+    "family": "stainless-austenitic",
+    "keep": true
+   },
+   "basis": "저장값 240/585·45%·HV 170 은 인용된 유일한 원전(AZoM 317L: 260/595·55%·HRB 85)과 맞지 않았다 — 그 행으로.",
+   "src": "AZoM — Stainless Steel Grade 317L (UNS S31703): Tensile 595 MPa · Yield 260 MPa · El 55% · HRB 85 · https://www.azom.com/article.aspx?ArticleID=8262 · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
+  },
+  "MET-0756": {
+   "yield_strength": 414,
+   "uts": 827,
+   "elongation": 50,
+   "hardness_src": {
+    "scale": "HRB",
+    "value": 98,
+    "family": "stainless-austenitic",
+    "keep": true
+   },
+   "basis": "항복·인장(415/825)은 원전 2050°F 소둔 행과 같고 연신 35% 가 어긋났다(원전 50% — 35% 는 규격 최소). 같은 행으로 통일.",
+   "src": "Electralloy — NITRONIC 50 datasheet, Table 2 Typical RT properties 1 in. bar: Annealed 2050°F(1121°C) WQ 120/60 ksi (827/414 MPa) · El 50% · RA 70% · HRB 98 · https://www.electralloy.com/images/pdf/Literature/Nitronic50_main_11-10-2025.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
+  },
+  "MET-0757": {
+   "yield_strength": 414,
+   "uts": 710,
+   "elongation": 64,
+   "hardness_src": {
+    "scale": "HRB",
+    "value": 95,
+    "family": "stainless-austenitic",
+    "keep": true
+   },
+   "basis": "인장 690·연신 35% 는 A276 S21800 최소(95 ksi·35%) 쪽 숫자가 섞인 것 — Electralloy Table 30 의 1 in. 봉 소둔 대표값으로.",
+   "src": "Electralloy — NITRONIC 60 datasheet, Table 30 Typical RT tensile: Annealed 1 in. dia 103/60 ksi (710/414 MPa) · El 64% (4D) · RA 74% · HRB 95 · https://www.electralloy.com/images/pdf/Literature/Nitronic60_main_11-20-2025.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
+  },
+  "MET-0752": {
+   "yield_strength": 393,
+   "uts": 770,
+   "elongation": 44,
+   "hardness_src": {
+    "scale": "HRB",
+    "value": 89,
+    "family": "stainless-austenitic",
+    "keep": true
+   },
+   "basis": "저장값 310/690·40% 는 판·시트 규격 최소(310/690·30%) 부근이었다. ATI Table 19 박판 대표값으로.",
+   "src": "ATI — AL-6XN alloy Technical Data Sheet V2, Table 19 Typical transverse tensile properties, sheet 0.026–0.139 in.: AL-6XN 57/112 ksi (393/770 MPa) · El 44% · HRB 89 · https://www.atimaterials.com/Products/Documents/datasheets/stainless-specialty-steel/superaustenitic/al-6xn_tds_en_V2.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
+  },
+  "MET-0703": {
+   "yield_strength": 290,
+   "uts": 593,
+   "elongation": 43,
+   "hardness_src": {
+    "scale": "HRB",
+    "value": 79,
+    "family": "stainless-austenitic",
+    "keep": true
+   },
+   "basis": "저장값 220/520·40% 는 EN 10088-2 판 최소(220/520 MPa) 숫자다. ATI Table 19 의 904L 박판 대표값으로(같은 표의 316 행 310/607 이 CLF 316 과 같은 대역이라 교차 확인).",
+   "src": "ATI — AL-6XN alloy Technical Data Sheet V2, Table 19 Typical transverse tensile properties, sheet 0.026–0.139 in.: 904L 42/86 ksi (290/593 MPa) · El 43% · HRB 79 · https://www.atimaterials.com/Products/Documents/datasheets/stainless-specialty-steel/superaustenitic/al-6xn_tds_en_V2.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
+  },
+  "MET-0767": {
+   "yield_strength": 515,
+   "uts": 760,
+   "elongation": 35,
+   "hardness_src": {
+    "scale": "HB",
+    "value": 235,
+    "family": "stainless-duplex",
+    "keep": true
+   },
+   "basis": "저장값 510/700·30%·HV 270 은 원전을 확인할 수 없었다. ATI 2205 의 두꺼운 판(≥4.75 mm) 대표값으로 — 같은 표의 박판 대표값(585/860·30%·27 HRC)은 CLF 2205 판재(621/862·28%·25 HRC)와 같은 대역. 듀플렉스는 비오스테나이트 단상 강이 아니라 경도는 HB 원 스케일.",
+   "src": "ATI — ATI 2205 Technical Data Sheet V4 (2015), Typical Room Temperature Properties: Typical Plate ≥3/16 in. 75/110 ksi (515/760 MPa) · El 35% · 235 HBN · https://www.atimaterials.com/Products/Documents/datasheets/stainless-specialty-steel/duplex/ati_2205_tds_en_v4.pdf · [경도 스케일] 페라이트+오스테나이트 2상이라 E140 비오스테나이트 표 대상이 아니어서 원 스케일 표기"
+  },
+  "MET-0768": {
+   "yield_strength": 594,
+   "uts": 869,
+   "elongation": 47,
+   "hardness_src": {
+    "scale": "HRC",
+    "value": 25,
+    "family": "stainless-duplex",
+    "keep": true
+   },
+   "basis": "저장값 550/800·25% 는 ASTM A240 S32750 최소(550/795·15%) 부근이었다. Carpenter Duplex 2507 1.375 in. 봉 소둔 대표값으로.",
+   "src": "Carpenter Technology — CarTech Duplex 2507 datasheet, Typical room and elevated temperature tensile properties, 1.375 in. round bar annealed 2050°F-1h-WQ, 73°F: 86/126 ksi (594/869 MPa) · El 47% (1 in./4D) · RA 81% · 소둔 경도 HRC 25 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/2507.pdf · [경도 스케일] 2상 듀플렉스라 원 스케일 표기"
+  },
+  "MET-0995": {
+   "yield_strength": 248,
+   "uts": 531,
+   "elongation": 60,
+   "hardness_src": {
+    "scale": "HB",
+    "value": 140,
+    "family": "stainless-cast",
+    "keep": true
+   },
+   "basis": "저장값 205/485 MPa 는 ASTM A351/A743 CF3 의 **보증 최소값**이다(R226c 가 규격값으로 넣었다). 같은 합금의 대표값(SFSA 데이터시트)으로 — 최소값은 min_spec 축으로 병기된다.",
+   "src": "SFSA Steel Castings Handbook Supplement 8 (2004) High Alloy Data Sheets — Corrosion Series, Mechanical properties at room temperature, Representative values (water quench): CF3 77.0/36.0 ksi (531/248 MPa) · El 60% · HBW 140 · https://cdn.sfsa.org/wp-content/uploads/2021/10/s8.pdf · [경도 스케일] 주조 오스테나이트(δ페라이트 소량)라 원 스케일 표기"
+  },
+  "MET-0996": {
+   "yield_strength": 262,
+   "uts": 552,
+   "elongation": 55,
+   "hardness_src": {
+    "scale": "HB",
+    "value": 150,
+    "family": "stainless-cast",
+    "keep": true
+   },
+   "basis": "저장값 205/485 MPa 는 ASTM A351/A743 CF3M 의 **보증 최소값**이다(R226c 가 규격값으로 넣었다). 같은 합금의 대표값(SFSA 데이터시트)으로 — 최소값은 min_spec 축으로 병기된다.",
+   "src": "SFSA Steel Castings Handbook Supplement 8 (2004) High Alloy Data Sheets — Corrosion Series, Mechanical properties at room temperature, Representative values (water quench): CF3M 80.0/38.0 ksi (552/262 MPa) · El 55% · HBW 150 · https://cdn.sfsa.org/wp-content/uploads/2021/10/s8.pdf · [경도 스케일] 주조 오스테나이트(δ페라이트 소량)라 원 스케일 표기"
+  },
+  "MET-0997": {
+   "yield_strength": 255,
+   "uts": 531,
+   "elongation": 55,
+   "hardness_src": {
+    "scale": "HB",
+    "value": 140,
+    "family": "stainless-cast",
+    "keep": true
+   },
+   "basis": "저장값 205/485 MPa 는 ASTM A351/A743 CF8 의 **보증 최소값**이다(R226c 가 규격값으로 넣었다). 같은 합금의 대표값(SFSA 데이터시트)으로 — 최소값은 min_spec 축으로 병기된다.",
+   "src": "SFSA Steel Castings Handbook Supplement 8 (2004) High Alloy Data Sheets — Corrosion Series, Mechanical properties at room temperature, Representative values (water quench): CF8 77.0/37.0 ksi (531/255 MPa) · El 55% · HBW 140 · https://cdn.sfsa.org/wp-content/uploads/2021/10/s8.pdf · [경도 스케일] 주조 오스테나이트(δ페라이트 소량)라 원 스케일 표기"
+  },
+  "MET-0998": {
+   "yield_strength": 290,
+   "uts": 552,
+   "elongation": 50,
+   "hardness_src": {
+    "scale": "HB",
+    "value": 156,
+    "family": "stainless-cast",
+    "keep": true
+   },
+   "basis": "저장값 205/485 MPa 는 ASTM A351/A743 CF8M 의 **보증 최소값**이다(R226c 가 규격값으로 넣었다). 같은 합금의 대표값(SFSA 데이터시트)으로 — 최소값은 min_spec 축으로 병기된다.",
+   "src": "SFSA Steel Castings Handbook Supplement 8 (2004) High Alloy Data Sheets — Corrosion Series, Mechanical properties at room temperature, Representative values (water quench): CF8M 80.0/42.0 ksi (552/290 MPa) · El 50% · HBW 156 (원전 156–170 의 하단) · https://cdn.sfsa.org/wp-content/uploads/2021/10/s8.pdf · [경도 스케일] 주조 오스테나이트(δ페라이트 소량)라 원 스케일 표기"
+  },
+  "MET-1027": {
+   "yield_strength": 345,
+   "uts": 517,
+   "elongation": 17,
+   "hardness_src": {
+    "scale": "HB",
+    "value": 170,
+    "family": "stainless-cast",
+    "keep": true
+   },
+   "basis": "저장값 240/450·10% 는 ASTM A297 Grade HK 보증 최소(35/65 ksi·10%)다. SFSA Supplement 9 의 HK 주방상태 대표값으로(HK40 = HK 의 C 0.35~0.45 등급).",
+   "src": "SFSA Steel Castings Handbook Supplement 9 (2004) High Alloy Data Sheets — Heat Series, Type HK (UNS J94224), Representative values As cast: 75.0/50.0 ksi (517/345 MPa) · El 17% · HBW 170 · https://cdn.sfsa.org/wp-content/uploads/2021/10/s9.pdf · [경도 스케일] 주조 오스테나이트라 원 스케일 표기"
+  },
+  "MET-0793": {
+   "yield_strength": 310,
+   "uts": 517,
+   "elongation": 28,
+   "hardness_src": {
+    "scale": "HRB",
+    "value": 75,
+    "family": "steel"
+   },
+   "basis": "저장값 365/530·23%·HV 158 의 원전은 'ANSYS Granta' 설명문(가짜 출처)뿐이었다. CLF Ferritic Automotive Trim Table 2 의 Type 436 행으로.",
+   "src": "Cleveland-Cliffs Ferritic Automotive Trim Product Data 2021-05, Table 2 Typical RT: Type 436 75/45 ksi (517/310 MPa) · El 28% · HRB 75 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10521/file/CLF_ProductData_FerriticAutoTrim_052021.pdf · [경도 스케일] HRB 75 → HV (ASTM E140-12b Table 2)"
+  },
+  "MET-0772": {
+   "yield_strength": 276,
+   "uts": 448,
+   "elongation": 30,
+   "hardness_src": {
+    "scale": "HRB",
+    "value": 75,
+    "family": "steel"
+   },
+   "basis": "항복·인장(280/450)은 이미 인용된 Elgiloy 410S 대표값(40/65 ksi = 276/448)과 같고 연신 25%·경도 HV 160 이 어긋났다(원전 30%·75 HRBW). 같은 행으로 통일 — CLF 410S 불리틴(283/462·27%·HRB 72)과 같은 대역.",
+   "src": "Elgiloy Specialty Metals — Alloy 410S Material Datasheet (2024-06), Typical RT: Annealed 65/40 ksi (448/276 MPa) · El 30% · 75 HRBW · https://www.elgiloy.com/wp-content/uploads/2024/06/410S-Alloy-data-sheet-06042024.pdf · [경도 스케일] HRB 75 → HV (ASTM E140-12b Table 2)"
+  },
+  "MET-0773": {
+   "yield_strength": 689,
+   "uts": 862,
+   "elongation": 17,
+   "max_service_temp": 593,
+   "hardness_src": {
+    "scale": "HRC",
+    "value": 26,
+    "family": "steel"
+   },
+   "basis": "조건 없이 690/825·12% 였다 — Carpenter 1 in. 봉 982°C 유냉 + 593°C 뜨임 행(689/862·17%·HRC 26)과 항복만 같다. 그 행으로 교정하고 조건을 이름에 적는다. 사용온도 상한은 뜨임온도(A11 규칙 — 넘으면 재뜨임으로 강도가 떨어진다).",
+   "src": "Carpenter Technology — CarTech 416 datasheet, Typical RT properties 1 in. round bar hardened 1800°F(982°C) OQ, tempered 1 h at 1100°F(593°C): 100/125 ksi (689/862 MPa) · El 17% · RA 53% · HB 262 / HRC 26 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/416.pdf · [경도 스케일] HRC 26 → HV (ASTM E140-12b Table 1)"
+  },
+  "MET-0775": {
+   "yield_strength": 793,
+   "uts": 965,
+   "elongation": 19,
+   "max_service_temp": 593,
+   "hardness_src": {
+    "scale": "HB",
+    "value": 302,
+    "family": "steel"
+   },
+   "basis": "조건 없이 900/1100·13%·HV 350 이었다 — Carpenter 431 표 어느 행과도 맞지 않는다. 431 은 371~565°C 뜨임에서 충격값·내식이 떨어져(원전 주의) 실사용은 593°C 이상 뜨임이 기본이고, 원전은 538°C 이상 뜨임에 낮은 경화온도를 권한다 — 그 조합(982°C 경화 + 593°C 뜨임)의 행으로. 사용온도 상한은 뜨임온도(A11 규칙 — 넘으면 재뜨임으로 강도가 떨어진다).",
+   "src": "Carpenter Technology — CarTech 431 datasheet, Typical RT mechanical properties of bar: hardened 1800°F(982°C) OQ, tempered 1100°F(593°C): 115/140 ksi (793/965 MPa) · El 19% · RA 57% · HB 302 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/431.pdf · [경도 스케일] HB 302 → HV (ASTM E140-12b Table 1)"
+  },
+  "MET-0783": {
+   "yield_strength": 724,
+   "uts": 827,
+   "elongation": 20,
+   "max_service_temp": 593,
+   "hardness_src": {
+    "scale": "HRC",
+    "value": 24,
+    "family": "steel"
+   },
+   "basis": "generic 'Quenched / tempered' 690/860 과 경도 HV 188.9 는 조건 없는 합성값이었다(860 MPa 에 HV 189 는 인장-경도 관계와도 모순). Carpenter 410 봉 1010°C 유냉 + 593°C 4 h 뜨임 행으로. 사용온도 상한은 뜨임온도(A11 규칙 — 넘으면 재뜨임으로 강도가 떨어진다).",
+   "src": "Carpenter Technology — CarTech 410 datasheet, Typical RT properties, bar hardened 1850°F(1010°C) 30 min OQ, tempered 4 h at 1100°F(593°C): 105/120 ksi (724/827 MPa) · El 20% · RA 63% · HRC 24 / HB 248 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/410.pdf · [경도 스케일] HRC 24 → HV (ASTM E140-12b Table 1)"
+  },
+  "MET-0812": {
+   "yield_strength": 621,
+   "uts": 752,
+   "elongation": 22,
+   "max_service_temp": 649,
+   "hardness_src": {
+    "scale": "HB",
+    "value": 217,
+    "family": "steel"
+   },
+   "basis": "650°C 뜨임 620/760·18% 는 원전 3/4 in. 봉 982°C 유냉 + 649°C 1 h 행(621/752·22%·HB 217)과 연신만 달랐다. 그 행으로. 사용온도 상한은 뜨임온도(A11 규칙 — 넘으면 재뜨임으로 강도가 떨어진다).",
+   "src": "Carpenter Technology — CarTech 410 datasheet, Typical elevated temperature tensile properties, 3/4 in. round bar hardened 1800°F(982°C) OQ, tempered 1200°F(649°C) 1 h — Room: 90/109 ksi (621/752 MPa) · El 22% · RA 68% · HB 217 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/410.pdf · [경도 스케일] HB 217 → HV (ASTM E140-12b)"
+  },
+  "MET-0813": {
+   "yield_strength": 345,
+   "uts": 655,
+   "elongation": 25,
+   "hardness_src": {
+    "scale": "HB",
+    "value": 196,
+    "family": "steel"
+   },
+   "basis": "항복 350·경도 HV 195 는 Carpenter 1 in. 봉 소둔 행(345/655·25%·HB 196)의 반올림·스케일 혼동이다(HB 값이 HV 칸에). 같은 행으로.",
+   "src": "Carpenter Technology — CarTech 420 datasheet, Typical RT properties 1 in. round bar: Annealed 50/95 ksi (345/655 MPa) · El 25% · RA 55% · HB 196 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/420.pdf · [경도 스케일] HB 196 → HV (ASTM E140-12b Table 2)"
+  },
+  "MET-0794": {
+   "yield_strength": 400,
+   "uts": 689,
+   "elongation": 22,
+   "hardness_src": {
+    "scale": "HRB",
+    "value": 93,
+    "family": "steel"
+   },
+   "basis": "저장값 415/725·20% 의 원전은 'ANSYS Granta' 설명문(가짜 출처)뿐이었다. CLF Martensitic Comparator Table 4 의 440A 소둔 행으로.",
+   "src": "Cleveland-Cliffs Martensitic Stainless Steel Comparator 2021-05, Table 4 Typical Mechanical Properties — Annealed: 440A 58/100 ksi (400/689 MPa) · El 22% · HRB 93 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10518/file/CLF_ProductData_MartensiticStainlessSteelComparator_052021.pdf · [경도 스케일] HRB 93 → HV (ASTM E140-12b Table 2)"
+  },
+  "MET-0802": {
+   "yield_strength": 1896,
+   "uts": 1965,
+   "elongation": 2,
+   "max_service_temp": 316,
+   "hardness_src": {
+    "scale": "HB",
+    "value": 580,
+    "family": "steel"
+   },
+   "basis": "generic 'Quenched / tempered' 1900/1960 은 Carpenter 316°C 뜨임 행(1896/1965·2%·HB 580)의 반올림 — 조건을 이름에 적고 경도를 HB→HV 로 환산. 사용온도 상한은 뜨임온도(A11 규칙 — 넘으면 재뜨임으로 강도가 떨어진다). (480 → 316)",
+   "src": "Carpenter Technology — CarTech 440C datasheet, Typical RT mechanical properties, hardened 1900°F(1038°C) OQ, tempered 600°F(316°C): 275/285 ksi (1896/1965 MPa) · El 2% · HB 580 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/440C.pdf · [경도 스케일] HB 580 → HV (ASTM E140-12b Table 1)"
+  },
+  "MET-0841": {
+   "yield_strength": 1285,
+   "uts": 1425,
+   "elongation": 13,
+   "hardness": 455,
+   "basis": "H900 인데 경도 295.5 HV 는 같은 원전의 **열처리 전(NHT)** 경도(303)였다 — H900 은 HV10 455. 항복·인장도 인용된 원전의 H900 수평 평균으로 맞춘다.",
+   "src": "Nikon SLM Solutions — 17-4PH Material Data Sheet 2026-02, SLM 280 PRECISION (30 µm) Machined Horizontal Mean — Heat-treated (H900): Rm 1425 · Rp0.2 1285 MPa · A 13% · HV10 455 · https://nikon-slm-solutions.com/wp-content/uploads/2026/01/MDS_17-4PH_2026-02_1_EN.pdf"
+  },
+  "MET-0839": {
+   "yield_strength": 785,
+   "uts": 880,
+   "elongation": 20,
+   "hardness": 303,
+   "basis": "as-built 830/1096 은 여러 벤더 값을 합친 중앙값이라 어느 원전의 행도 아니었다. 인용된 Nikon SLM MDS 의 같은 조건(NHT) 수평 평균으로.",
+   "src": "Nikon SLM Solutions — 17-4PH Material Data Sheet 2026-02, SLM 280 PRECISION (30 µm) Machined Horizontal Mean — Non-heat-treated: Rm 880 · Rp0.2 785 MPa · A 20% · HV10 303 · https://nikon-slm-solutions.com/wp-content/uploads/2026/01/MDS_17-4PH_2026-02_1_EN.pdf"
+  },
+  "MET-0707": {
+   "yield_strength": 515,
+   "uts": 860,
+   "elongation": 25,
+   "basis": "저장값 760/1100·12% 의 원전은 'ANSYS Granta' 설명문(가짜 출처)뿐이었고, 연신이 이 템퍼의 규격 최소(25%)에 못 미쳤다(한 단계 위 템퍼의 숫자). 냉간압연 템퍼는 최소 인장성질로 정의되므로 ASTM A666 최소값으로 교정하고 규격 하한으로 선언한다(경도는 원전이 최소 HRC 만 줘 기존값 유지·미검증).",
+   "src": "ASTM A666 Table 2 Tensile Property Requirements (Type 301, S30100) — ¼ Hard: TS 125 ksi (860 MPa) · YS 75 ksi (515 MPa) min · El 25% (0.015 in. 이상) · Cleveland-Cliffs 301 Table 2 동일 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10509/file/CLF_ProductData_301SS_052021.pdf"
+  },
+  "MET-0706": {
+   "yield_strength": 760,
+   "uts": 1035,
+   "elongation": 18,
+   "basis": "저장값 965/1280·9% 의 원전은 'ANSYS Granta' 설명문(가짜 출처)뿐이었고, 연신이 이 템퍼의 규격 최소(18%)에 못 미쳤다(한 단계 위 템퍼의 숫자). 냉간압연 템퍼는 최소 인장성질로 정의되므로 ASTM A666 최소값으로 교정하고 규격 하한으로 선언한다(경도는 원전이 최소 HRC 만 줘 기존값 유지·미검증).",
+   "src": "ASTM A666 Table 2 Tensile Property Requirements (Type 301, S30100) — ½ Hard: TS 150 ksi (1035 MPa) · YS 110 ksi (760 MPa) min · El 18% (0.015 in. 이상) · Cleveland-Cliffs 301 Table 2 동일 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10509/file/CLF_ProductData_301SS_052021.pdf"
+  },
+  "MET-0708": {
+   "yield_strength": 930,
+   "uts": 1205,
+   "elongation": 12,
+   "basis": "저장값 1240/1380·5% 의 원전은 'ANSYS Granta' 설명문(가짜 출처)뿐이었고, 연신이 이 템퍼의 규격 최소(12%)에 못 미쳤다(한 단계 위 템퍼의 숫자). 냉간압연 템퍼는 최소 인장성질로 정의되므로 ASTM A666 최소값으로 교정하고 규격 하한으로 선언한다(경도는 원전이 최소 HRC 만 줘 기존값 유지·미검증).",
+   "src": "ASTM A666 Table 2 Tensile Property Requirements (Type 301, S30100) — ¾ Hard: TS 175 ksi (1205 MPa) · YS 135 ksi (930 MPa) min · El 12% (0.015 in. 이상) · Cleveland-Cliffs 301 Table 2 동일 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10509/file/CLF_ProductData_301SS_052021.pdf"
+  },
+  "MET-0710": {
+   "yield_strength": 965,
+   "uts": 1275,
+   "elongation": 9,
+   "basis": "저장값 1380/1520·4% 의 원전은 'ANSYS Granta' 설명문(가짜 출처)뿐이었고, 연신이 이 템퍼의 규격 최소(9%)에 못 미쳤다(한 단계 위 템퍼의 숫자). 냉간압연 템퍼는 최소 인장성질로 정의되므로 ASTM A666 최소값으로 교정하고 규격 하한으로 선언한다(경도는 원전이 최소 HRC 만 줘 기존값 유지·미검증).",
+   "src": "ASTM A666 Table 2 Tensile Property Requirements (Type 301, S30100) — Full Hard: TS 185 ksi (1275 MPa) · YS 140 ksi (965 MPa) min · El 9% (0.015 in. 이상) · Cleveland-Cliffs 301 Table 2 동일 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10509/file/CLF_ProductData_301SS_052021.pdf"
+  },
+  "MET-0720": {
+   "yield_strength": 515,
+   "uts": 860,
+   "elongation": 10,
+   "basis": "generic 'Strain-hardened' 행은 어느 템퍼 표에도 없는 합성값이었다. 304L 의 표준 냉간 템퍼는 ASTM A666 ¼ Hard 라 그 최소값(TS 125/YS 75 ksi·El 10%, 0.030 in. 초과)으로 교정·선언하고 이름에 템퍼를 적는다.",
+   "src": "ASTM A666 Table 2 — ¼ Hard, Type 304L: TS 125 ksi (860 MPa) · YS 75 ksi (515 MPa) min · El 10% (0.030 in. 초과)"
+  },
+  "MET-0734": {
+   "yield_strength": 515,
+   "uts": 860,
+   "elongation": 10,
+   "basis": "generic 'Strain-hardened' 행은 어느 템퍼 표에도 없는 합성값이었다. 316 의 표준 냉간 템퍼는 ASTM A666 ¼ Hard 라 그 최소값(TS 125/YS 75 ksi·El 10%, 0.030 in. 초과)으로 교정·선언하고 이름에 템퍼를 적는다.",
+   "src": "ASTM A666 Table 2 — ¼ Hard, Type 316: TS 125 ksi (860 MPa) · YS 75 ksi (515 MPa) min · El 10% (0.030 in. 초과)"
+  },
+  "MET-0808": {
+   "yield_strength": 1415,
+   "uts": 1515,
+   "elongation": 10,
+   "basis": "조건 표기 없이 1410/1520·10% 였다 — AMS 5629 H950 종방향 보증 최소(205/220 ksi = 1415/1515 MPa·10%)의 반올림이다(출처 라벨의 'H1000' 과도 맞지 않는다). 최소값으로 정확히 맞추고 H950 조건을 적은 뒤 규격 하한으로 선언.",
+   "src": "Carpenter Technology — 13-8Mo datasheet p.3 (AMS 5629 발췌, 0.625 in. 봉 종방향): H950 205/220 ksi (1415/1515 MPa) · El 10% · RA 45% · https://www.carpentertechnology.com/hubfs/Data%20Sheets/13-8Mo_Datasheet.pdf"
   }
  },
  "fields": {
@@ -1889,6 +2589,96 @@
    "heat_treatment": "Quenched + Tempered (540°C, oil-quenched)",
    "basis": "A3 철강 reference 2027Q3 — 값을 원전의 특정 행(뜨임온도·담금 매체·단면)으로 교정하면서 이름·열처리 표기를 그 조건에 맞췄다. 원래 라벨이 가리키던 온도는 원전에 없거나 저장값과 맞지 않았다.",
    "src": "Modern Steels and Their Properties (Bethlehem Steel Handbook 2757) · Shigley Mechanical Engineering Design Table A-21 (출처 ASM Metals Reference Book 2d ed., 1983 — 1 in. 봉, 유냉)"
+  },
+  "MET-0770": {
+   "name": "15-7 PH — RH 950",
+   "heat_treatment": "RH 950 (954°C 10 min 공랭 → −73°C 8 h → 510°C 1 h)",
+   "basis": "값을 RH 950 대표값 행으로 교정하면서 조건을 이름·열처리에 적었다(원래 조건 표기 없음 — 출처 라벨만 RH950 을 가리켰다).",
+   "src": "Cleveland-Cliffs PH 15-7 Mo Product Data Bulletin — Condition A 1750 / R 100 / RH 950 열처리 순서 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10533/file/CLF_ProductData_15-7-PH+Stainless+Steel_052021.pdf"
+  },
+  "MET-0837": {
+   "name": "Custom 465 — H 975 (524°C/4h aged)",
+   "heat_treatment": "H 975 (524°C/4h aged)",
+   "basis": "H 975 는 975°F = 524°C 시효다 — 이름의 480°C 는 환산 오기(480°C 는 H 900 근처).",
+   "src": "Carpenter Technology — Custom 465 datasheet — Heat treatment: 900/1150°F(482/621°C) 에서 4~8 h 시효 · https://www.carpentertechnology.com/hubfs/Data%20Sheets/Custom_465_Datasheet.pdf"
+  },
+  "MET-0704": {
+   "name": "A286 — ST 982°C + Aged 718°C (16 h)",
+   "heat_treatment": "Solution treated 982°C 1 h OQ + aged 718°C 16 h AC",
+   "basis": "값을 원전의 용체화 + 시효 행으로 교정하면서 조건을 이름·열처리에 적었다(원래 조건 표기 없음).",
+   "src": "Carpenter A-286 datasheet · https://www.carpentertechnology.com/hubfs/Data%20Sheets/A-286.pdf"
+  },
+  "MET-0773": {
+   "name": "416 stainless — Q+T (982°C OQ + 593°C)",
+   "heat_treatment": "Q+T (982°C OQ + 593°C, 1 h)",
+   "basis": "값을 원전의 982°C 유냉 + 593°C 뜨임 행으로 교정하면서 조건을 이름·열처리에 적었다.",
+   "src": "Carpenter 416 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/416.pdf"
+  },
+  "MET-0775": {
+   "name": "431 stainless — Q+T (982°C OQ + 593°C)",
+   "heat_treatment": "Q+T (982°C OQ + 593°C)",
+   "basis": "값을 원전의 982°C 유냉 + 593°C 뜨임 행으로 교정하면서 조건을 이름·열처리에 적었다.",
+   "src": "Carpenter 431 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/431.pdf"
+  },
+  "MET-0783": {
+   "name": "AISI 410 — Q+T (1010°C OQ + 593°C)",
+   "heat_treatment": "Q+T (1010°C OQ + 593°C, 4 h)",
+   "basis": "조건 없는 generic Q/T 를 원전의 한 행으로 교정하면서 그 조건을 이름·열처리에 적었다.",
+   "src": "Carpenter 410 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/410.pdf"
+  },
+  "MET-0811": {
+   "name": "SS410 (UNS S41000) — valve trim, pump shaft — Q+T (1010°C OQ + 260°C)",
+   "heat_treatment": "Q+T (1010°C OQ + 260°C)",
+   "basis": "원전에 없는 200°C 뜨임 라벨을 원전 최저 뜨임 행(260°C)으로 옮겼다.",
+   "src": "Carpenter 410 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/410.pdf"
+  },
+  "MET-0812": {
+   "name": "SS410 (UNS S41000) — valve trim, pump shaft — Q+T (982°C OQ + 649°C)",
+   "heat_treatment": "Q+T (982°C OQ + 649°C, 1 h)",
+   "basis": "뜨임 조건만 적혀 있던 이름에 원전의 경화 조건까지 적었다.",
+   "src": "Carpenter 410 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/410.pdf"
+  },
+  "MET-0815": {
+   "name": "SS420 (UNS S42000) — cutlery, surgical, nozzle — Q+T (1038°C OQ + 204°C)",
+   "heat_treatment": "Q+T (1038°C OQ + 204°C)",
+   "basis": "뜨임온도를 원전 행(204°C)으로 맞추고 경화 조건을 적었다.",
+   "src": "Carpenter 420 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/420.pdf"
+  },
+  "MET-0795": {
+   "name": "AISI 440A (low-C martensitic) — Q+T (1038°C OQ + 316°C)",
+   "heat_treatment": "Q+T (1038°C OQ + 316°C)",
+   "basis": "인장 행이 있는 원전 조건(316°C 뜨임)으로 이름을 옮겼다. 204°C 뜨임 경도는 원전 HRC 56.",
+   "src": "Carpenter 440A · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/440A.pdf"
+  },
+  "MET-0797": {
+   "name": "AISI 440B (medium-C martensitic) — Q+T (1038°C OQ + 316°C)",
+   "heat_treatment": "Q+T (1038°C OQ + 316°C)",
+   "basis": "인장 행이 있는 원전 조건(316°C 뜨임)으로 이름을 옮겼다. 204°C 뜨임 경도는 원전 HRC 56/57.",
+   "src": "Carpenter 440B · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/440B%20.pdf"
+  },
+  "MET-0802": {
+   "name": "AISI 440C — Q+T (1038°C OQ + 316°C)",
+   "heat_treatment": "Q+T (1038°C OQ + 316°C)",
+   "basis": "generic Q/T 를 원전 한 행으로 교정하면서 조건을 이름·열처리에 적었다.",
+   "src": "Carpenter 440C · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/440C.pdf"
+  },
+  "MET-0720": {
+   "name": "AISI 304L — 1/4 Hard (cold-rolled, ASTM A666 min)",
+   "heat_treatment": "1/4 Hard (ASTM A666)",
+   "basis": "합성 'Strain-hardened' 조건을 실제 규격 템퍼(A666 ¼ Hard)로 바꾸면서 이름·열처리에 적었다.",
+   "src": "ASTM A666 Table 2"
+  },
+  "MET-0734": {
+   "name": "AISI 316 — 1/4 Hard (cold-rolled, ASTM A666 min)",
+   "heat_treatment": "1/4 Hard (ASTM A666)",
+   "basis": "합성 'Strain-hardened' 조건을 실제 규격 템퍼(A666 ¼ Hard)로 바꾸면서 이름·열처리에 적었다.",
+   "src": "ASTM A666 Table 2"
+  },
+  "MET-0808": {
+   "name": "PH13-8 Mo — H950",
+   "heat_treatment": "H950 (510°C 4 h, AMS 5629)",
+   "basis": "값이 H950 최소값이라 조건을 이름·열처리에 적었다(원래 조건 표기 없음).",
+   "src": "Carpenter 13-8Mo datasheet (AMS 5629) · https://www.carpentertechnology.com/hubfs/Data%20Sheets/13-8Mo_Datasheet.pdf"
   }
  }
 }

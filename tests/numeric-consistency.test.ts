@@ -71,6 +71,11 @@ describe('수치 정합 — 강재 인장-경도 상관 (ISO 18265)', () => {
       if (!/Steel|Iron/i.test(m.subcategory || '')) continue;
       if (EXCLUDE.test(m.subcategory || '') || EXCLUDE_NAME.test(m.name)) continue;
       if (EXCLUDE_METASTABLE.test(m.name)) continue;
+      /* UTS ≈ 3.3·HV 는 HV(또는 HV 로 환산한) 값에만 성립한다. 환산표 밖이라 원 스케일(HRB·HB·HRC)로 남긴 경도는
+         이 비로 재지 않는다(AUD-3 D03 — 척도가 다른 값을 HV 축에서 비교하지 않는다). A3 스테인리스(2026-09-29):
+         오스테나이트계는 E140 비오스테나이트 환산표 대상이 아니라 CLF·Carpenter 의 HRB/HB 를 그대로 싣는다. */
+      const scale = (m.ranges?.hardness as { scale?: string } | undefined)?.scale;
+      if (scale && scale !== 'HV') continue;
       const u = v(m, 'uts'), h = v(m, 'hardness');
       if (u == null || h == null || h <= 0) continue;
       /* ISO 18265 환산표의 유효 상한은 약 650 HV(2200 MPa) — 그 위 경화강은 일반 항복 전에

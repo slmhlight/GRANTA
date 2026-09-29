@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 310,
-      "typical": 310,
-      "max": 310,
+      "min": 343,
+      "typical": 343,
+      "max": 343,
       "confidence": "handbook",
-      "provenance": "교정: ASTM A240 (430: YS≥205/UTS≥450) · AK Steel 430 datasheet (annealed YS 310~380 / UTS 480~517 / El 25~30%)"
+      "provenance": "교정: Cleveland-Cliffs 430 / 430 ULTRA FORM Product Data Bulletin 2022-03, Table 1: Type 430 48/73 ksi (343/503 MPa) · El 28% · HRB 78 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10520/file/CLF_ProductData_430+Ultra+Form_032022.pdf · [경도 스케일] HRB 78 → HV (ASTM E140-12b Table 2, 비오스테나이트 강)"
     },
     "uts": {
-      "min": 480,
-      "typical": 480,
-      "max": 480,
+      "min": 503,
+      "typical": 503,
+      "max": 503,
       "confidence": "handbook",
-      "provenance": "교정: ASTM A240 (430: YS≥205/UTS≥450) · AK Steel 430 datasheet (annealed YS 310~380 / UTS 480~517 / El 25~30%)"
+      "provenance": "교정: Cleveland-Cliffs 430 / 430 ULTRA FORM Product Data Bulletin 2022-03, Table 1: Type 430 48/73 ksi (343/503 MPa) · El 28% · HRB 78 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10520/file/CLF_ProductData_430+Ultra+Form_032022.pdf · [경도 스케일] HRB 78 → HV (ASTM E140-12b Table 2, 비오스테나이트 강)"
     },
     "elongation": {
-      "min": 25,
-      "typical": 25,
-      "max": 25,
+      "min": 28,
+      "typical": 28,
+      "max": 28,
       "confidence": "handbook",
-      "provenance": "교정: ASTM A240 (430: YS≥205/UTS≥450) · AK Steel 430 datasheet (annealed YS 310~380 / UTS 480~517 / El 25~30%)"
+      "provenance": "교정: Cleveland-Cliffs 430 / 430 ULTRA FORM Product Data Bulletin 2022-03, Table 1: Type 430 48/73 ksi (343/503 MPa) · El 28% · HRB 78 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10520/file/CLF_ProductData_430+Ultra+Form_032022.pdf · [경도 스케일] HRB 78 → HV (ASTM E140-12b Table 2, 비오스테나이트 강)"
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,15 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 164.6,
-      "max": 164.6,
-      "typical": 164.6,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 144,
+      "typical": 144,
+      "max": 144,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs 430 / 430 ULTRA FORM Product Data Bulletin 2022-03, Table 1: Type 430 48/73 ksi (343/503 MPa) · El 28% · HRB 78 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10520/file/CLF_ProductData_430+Ultra+Form_032022.pdf · [경도 스케일] HRB 78 → HV (ASTM E140-12b Table 2, 비오스테나이트 강)",
+      "scale": "HV",
+      "source_scale": "HRB",
+      "source_value": 78,
+      "conversion": "ASTM E140-12b Table 2"
     },
     "thermal_conductivity": {
       "min": 24.8,
@@ -218,9 +222,9 @@
       "verified": true
     },
     {
-      "label": "Cleveland-Cliffs (구 AK Steel) 430 / 430 ULTRA FORM Product Data Bulletin 2022-03 (후속 문서 — 대조 전)",
+      "label": "Cleveland-Cliffs (구 AK Steel) 430 / 430 ULTRA FORM Product Data Bulletin 2022-03 — Table 1 대표값(Type 430 343/503 MPa·28%·HRB 78)",
       "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10520/file/CLF_ProductData_430+Ultra+Form_032022.pdf",
-      "verified": false
+      "verified": true
     },
     {
       "label": "ASM Handbook Vol.1 — AISI 430 ferritic stainless",
@@ -236,11 +240,11 @@
   "points": [
     [
       7.75,
-      310,
-      480,
-      25,
+      343,
+      503,
+      28,
       200,
-      164.6,
+      144,
       24.8
     ]
   ],
@@ -260,11 +264,11 @@
   "fracture_toughness": 128,
   "fatigue_strength": 113,
   "density": 7.75,
-  "yield_strength": 310,
-  "uts": 480,
-  "elongation": 25,
+  "yield_strength": 343,
+  "uts": 503,
+  "elongation": 28,
   "modulus": 200,
-  "hardness": 164.6,
+  "hardness": 144,
   "thermal_conductivity": 24.8,
   "impact_strength": 168,
   "manufacturer": "Generic",
@@ -302,15 +306,15 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": null,
   "rohs_basis": "no_regulated_element_data",
-  "confidence_tier": "medium",
-  "industry_note": "UNS S43000 / EN 1.4016 / X6Cr17 / JIS SUS430 — ferritic stainless (Cr 16-18, C ≤ 0.12). Cold-worked (H/H2): σy 275-400. Tmax 815°C continuous (oxidation), 870°C intermittent. Automotive trim, kitchen appliance, dishwasher interior, deep-drawing (가공성은 304보다 우수).",
+  "confidence_tier": "high",
+  "industry_note": "UNS S43000 / EN 1.4016 / X6Cr17 / JIS SUS430 — 페라이트계 스테인리스(Cr 16~18, C ≤ 0.12). 규격 최소 σy 205 / UTS 450 MPa(ASTM A240). 단상 페라이트라 시효·담금질로 경화되지 않는다. Tmax 815°C 연속(산화), 870°C 간헐. 자동차 트림·주방가전·식기세척기 내장 — 딥드로잉.",
   "_corrections": {
     "sources": {
       "from": [
         {
-          "label": "Cleveland-Cliffs (구 AK Steel) 430 / 430 ULTRA FORM Product Data Bulletin 2022-03 (후속 문서 — 대조 전)",
+          "label": "Cleveland-Cliffs (구 AK Steel) 430 / 430 ULTRA FORM Product Data Bulletin 2022-03 — Table 1 대표값(Type 430 343/503 MPa·28%·HRB 78)",
           "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10520/file/CLF_ProductData_430+Ultra+Form_032022.pdf",
-          "verified": false
+          "verified": true
         },
         {
           "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
@@ -370,8 +374,20 @@
       "had_scalar": true,
       "val_scalar": 18.6
     },
-    "_basis": "430 annealed — DB 242/365 는 A240 min(205/450)의 UTS 미달 오염 (min-spec 확장 스윕 발견). AK Steel typical 로 교정",
-    "_src": "ASTM A240 (430: YS≥205/UTS≥450) · AK Steel 430 datasheet (annealed YS 310~380 / UTS 480~517 / El 25~30%)",
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 164.6,
+        "max": 164.6,
+        "typical": 164.6,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 164.6
+    },
+    "_basis": "선행 교정은 옛 AK Steel 불리틴의 범위(310~380 / 480~517)에서 하단을 골랐다 — 현행 CLF 430 불리틴 Table 1 의 Type 430 행으로. 선행 교정 대체. [선행 교정 대체: {\"yield_strength\": 310, \"uts\": 480, \"elongation\": 25}]",
+    "_src": "Cleveland-Cliffs 430 / 430 ULTRA FORM Product Data Bulletin 2022-03, Table 1: Type 430 48/73 ksi (343/503 MPa) · El 28% · HRB 78 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10520/file/CLF_ProductData_430+Ultra+Form_032022.pdf · [경도 스케일] HRB 78 → HV (ASTM E140-12b Table 2, 비오스테나이트 강)",
     "points": {
       "from": [
         [

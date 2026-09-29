@@ -11,7 +11,7 @@
   "legacy_id": "R_0332_1",
   "origin": "reference(supplementary)",
   "id": "R_0332_1",
-  "name": "SS420 (UNS S42000) — cutlery, surgical, nozzle — Q+T (200°C temper)",
+  "name": "SS420 (UNS S42000) — cutlery, surgical, nozzle — Q+T (1038°C OQ + 204°C)",
   "category": "Metal",
   "subcategory": "Stainless Steel - Ferritic/Martensitic",
   "tier": "reference",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Q+T (200°C temper)",
+  "heat_treatment": "Q+T (1038°C OQ + 204°C)",
   "ranges": {
     "density": {
       "min": 7.74,
@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 1450,
-      "max": 1450,
-      "typical": 1450,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 1482,
+      "typical": 1482,
+      "max": 1482,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 420 datasheet, Typical RT properties 1 in. round bar: Hardened 1900°F(1038°C) OQ + tempered 400°F(204°C) 215/250 ksi (1482/1724 MPa) · El 8% · RA 25% · HB 512 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/420.pdf · [경도 스케일] HB 512 → HV (ASTM E140-12b Table 1)"
     },
     "uts": {
-      "min": 1720,
-      "max": 1720,
-      "typical": 1720,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 1724,
+      "typical": 1724,
+      "max": 1724,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 420 datasheet, Typical RT properties 1 in. round bar: Hardened 1900°F(1038°C) OQ + tempered 400°F(204°C) 215/250 ksi (1482/1724 MPa) · El 8% · RA 25% · HB 512 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/420.pdf · [경도 스케일] HB 512 → HV (ASTM E140-12b Table 1)"
     },
     "elongation": {
       "min": 8,
-      "max": 8,
       "typical": 8,
-      "n": 1,
-      "confidence": "handbook"
+      "max": 8,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 420 datasheet, Typical RT properties 1 in. round bar: Hardened 1900°F(1038°C) OQ + tempered 400°F(204°C) 215/250 ksi (1482/1724 MPa) · El 8% · RA 25% · HB 512 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/420.pdf · [경도 스케일] HB 512 → HV (ASTM E140-12b Table 1)"
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,15 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 510,
-      "max": 510,
-      "typical": 510,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 544,
+      "typical": 544,
+      "max": 544,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 420 datasheet, Typical RT properties 1 in. round bar: Hardened 1900°F(1038°C) OQ + tempered 400°F(204°C) 215/250 ksi (1482/1724 MPa) · El 8% · RA 25% · HB 512 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/420.pdf · [경도 스케일] HB 512 → HV (ASTM E140-12b Table 1)",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 512,
+      "conversion": "ASTM E140-12b Table 2"
     },
     "thermal_conductivity": {
       "min": 24.9,
@@ -125,11 +129,11 @@
       "provenance": "3rd_family:Stainless Steel - Martensitic"
     },
     "max_service_temp": {
-      "min": 200,
-      "typical": 200,
-      "max": 200,
+      "min": 204,
+      "typical": 204,
+      "max": 204,
       "confidence": "handbook",
-      "provenance": "교정: 열처리 일반 원칙 — 뜨임재의 사용온도는 뜨임온도를 초과할 수 없다(초과 시 재뜨임으로 경도 저하). 뜨임온도는 이 entry 의 조건 표기에서 취함."
+      "provenance": "교정: Carpenter Technology — CarTech 420 datasheet, Typical RT properties 1 in. round bar: Hardened 1900°F(1038°C) OQ + tempered 400°F(204°C) 215/250 ksi (1482/1724 MPa) · El 8% · RA 25% · HB 512 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/420.pdf · [경도 스케일] HB 512 → HV (ASTM E140-12b Table 1)"
     },
     "thermal_expansion": {
       "min": 8.67,
@@ -216,7 +220,7 @@
       "verified": true
     },
     {
-      "label": "Cleveland-Cliffs (구 AK Steel) Martensitic Stainless Steel Comparator 2021-05 — 410/420/440A (후속 문서 — 대조 전)",
+      "label": "Cleveland-Cliffs (구 AK Steel) Martensitic Stainless Steel Comparator 2021-05 — Table 4 소둔 판재 대표값(410 290/517 · 420 317/614 · 440A 400/689 MPa) — 경화재 인장값은 싣지 않음",
       "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10518/file/CLF_ProductData_MartensiticStainlessSteelComparator_052021.pdf",
       "verified": false
     },
@@ -234,11 +238,11 @@
   "points": [
     [
       7.74,
-      1450,
-      1720,
+      1482,
+      1724,
       8,
       200,
-      510,
+      544,
       24.9
     ]
   ],
@@ -259,11 +263,11 @@
   "fracture_toughness": 55.3,
   "fatigue_strength": 725,
   "density": 7.74,
-  "yield_strength": 1450,
-  "uts": 1720,
+  "yield_strength": 1482,
+  "uts": 1724,
   "elongation": 8,
   "modulus": 200,
-  "hardness": 510,
+  "hardness": 544,
   "thermal_conductivity": 24.9,
   "impact_strength": 8.4,
   "manufacturer": "Reference data",
@@ -279,7 +283,7 @@
     "Stainless Steel"
   ],
   "electrical_conductivity": 3,
-  "max_service_temp": 200,
+  "max_service_temp": 204,
   "thermal_expansion": 10.2,
   "poisson_ratio": 0.28,
   "specific_heat": 460,
@@ -323,7 +327,7 @@
     "sources": {
       "from": [
         {
-          "label": "Cleveland-Cliffs (구 AK Steel) Martensitic Stainless Steel Comparator 2021-05 — 410/420/440A (후속 문서 — 대조 전)",
+          "label": "Cleveland-Cliffs (구 AK Steel) Martensitic Stainless Steel Comparator 2021-05 — Table 4 소둔 판재 대표값(410 290/517 · 420 317/614 · 440A 400/689 MPa) — 경화재 인장값은 싣지 않음",
           "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10518/file/CLF_ProductData_MartensiticStainlessSteelComparator_052021.pdf",
           "verified": false
         },
@@ -339,6 +343,42 @@
         }
       ]
     },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 1450,
+        "max": 1450,
+        "typical": 1450,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1450
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 1720,
+        "max": 1720,
+        "typical": 1720,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1720
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 8,
+        "max": 8,
+        "typical": 8,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 8
+    },
     "max_service_temp": {
       "had_range": true,
       "val_range": {
@@ -353,8 +393,20 @@
       "had_scalar": true,
       "val_scalar": 650
     },
-    "_basis": "상용 최고온도가 **뜨임온도(200°C)보다 높은 650°C** 로 표기돼 있었다. 뜨임 마르텐사이트를 뜨임온도 이상에서 쓰면 추가 뜨임이 진행돼 경도·강도를 잃는다 — 이 조건이 제공하는 강도를 근거로 설계한다면 상한은 뜨임온도를 넘을 수 없다. 기존 650°C 는 조건 축이 없는 **계열 typical**(같은 합금의 고온 뜨임 조건 기준)이 조건 무관하게 상속된 값이다(백로그 A11). 새 값을 만들지 않고 이 entry 자신의 뜨임온도를 상한으로 쓴다.",
-    "_src": "열처리 일반 원칙 — 뜨임재의 사용온도는 뜨임온도를 초과할 수 없다(초과 시 재뜨임으로 경도 저하). 뜨임온도는 이 entry 의 조건 표기에서 취함.",
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 510,
+        "max": 510,
+        "typical": 510,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 510
+    },
+    "_basis": "200°C 뜨임 1450/1720·8%·HV 510 은 원전 1038°C 유냉 + 204°C 뜨임 행(1482/1724·8%·HB 512)과 같은 조건 — 항복과 경도 스케일만 어긋났다. 사용온도 상한은 뜨임온도(A11 규칙 — 넘으면 재뜨임으로 강도가 떨어진다). (선행 교정 200 대체) [선행 교정 대체: {\"max_service_temp\": 200}]",
+    "_src": "Carpenter Technology — CarTech 420 datasheet, Typical RT properties 1 in. round bar: Hardened 1900°F(1038°C) OQ + tempered 400°F(204°C) 215/250 ksi (1482/1724 MPa) · El 8% · RA 25% · HB 512 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/420.pdf · [경도 스케일] HB 512 → HV (ASTM E140-12b Table 1)",
     "points": {
       "from": [
         [
@@ -367,6 +419,18 @@
           24.9
         ]
       ]
-    }
+    },
+    "fields": {
+      "name": {
+        "from": "SS420 (UNS S42000) — cutlery, surgical, nozzle — Q+T (200°C temper)",
+        "had": true
+      },
+      "heat_treatment": {
+        "from": "Q+T (200°C temper)",
+        "had": true
+      }
+    },
+    "_fbasis": "뜨임온도를 원전 행(204°C)으로 맞추고 경화 조건을 적었다.",
+    "_fsrc": "Carpenter 420 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/420.pdf"
   }
 }

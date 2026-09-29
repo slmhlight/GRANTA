@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 240,
-      "max": 240,
-      "typical": 240,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 345,
+      "typical": 345,
+      "max": 345,
+      "confidence": "handbook",
+      "provenance": "교정: SFSA Steel Castings Handbook Supplement 9 (2004) High Alloy Data Sheets — Heat Series, Type HK (UNS J94224), Representative values As cast: 75.0/50.0 ksi (517/345 MPa) · El 17% · HBW 170 · https://cdn.sfsa.org/wp-content/uploads/2021/10/s9.pdf · [경도 스케일] 주조 오스테나이트라 원 스케일 표기"
     },
     "uts": {
-      "min": 450,
-      "max": 450,
-      "typical": 450,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 517,
+      "typical": 517,
+      "max": 517,
+      "confidence": "handbook",
+      "provenance": "교정: SFSA Steel Castings Handbook Supplement 9 (2004) High Alloy Data Sheets — Heat Series, Type HK (UNS J94224), Representative values As cast: 75.0/50.0 ksi (517/345 MPa) · El 17% · HBW 170 · https://cdn.sfsa.org/wp-content/uploads/2021/10/s9.pdf · [경도 스케일] 주조 오스테나이트라 원 스케일 표기"
     },
     "elongation": {
-      "min": 10,
-      "max": 10,
-      "typical": 10,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 17,
+      "typical": 17,
+      "max": 17,
+      "confidence": "handbook",
+      "provenance": "교정: SFSA Steel Castings Handbook Supplement 9 (2004) High Alloy Data Sheets — Heat Series, Type HK (UNS J94224), Representative values As cast: 75.0/50.0 ksi (517/345 MPa) · El 17% · HBW 170 · https://cdn.sfsa.org/wp-content/uploads/2021/10/s9.pdf · [경도 스케일] 주조 오스테나이트라 원 스케일 표기"
     },
     "modulus": {
       "min": 190,
@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 180,
-      "max": 180,
-      "typical": 180,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 170,
+      "typical": 170,
+      "max": 170,
+      "confidence": "handbook",
+      "provenance": "교정: SFSA Steel Castings Handbook Supplement 9 (2004) High Alloy Data Sheets — Heat Series, Type HK (UNS J94224), Representative values As cast: 75.0/50.0 ksi (517/345 MPa) · El 17% · HBW 170 · https://cdn.sfsa.org/wp-content/uploads/2021/10/s9.pdf · [경도 스케일] 주조 오스테나이트라 원 스케일 표기",
+      "scale": "HB",
+      "source_scale": "HB",
+      "source_value": 170,
+      "conversion": null,
+      "scale_note": "ASTM E140 표 밖(또는 해당 표 없음) — 환산하지 않고 원 스케일 그대로 표기"
     },
     "thermal_conductivity": {
       "min": 14,
@@ -218,11 +223,11 @@
   "points": [
     [
       7.75,
-      240,
-      450,
-      10,
+      345,
+      517,
+      17,
       190,
-      180,
+      170,
       14
     ]
   ],
@@ -254,11 +259,11 @@
   "fracture_toughness": 140,
   "fatigue_strength": 101,
   "density": 7.75,
-  "yield_strength": 240,
-  "uts": 450,
-  "elongation": 10,
+  "yield_strength": 345,
+  "uts": 517,
+  "elongation": 17,
   "modulus": 190,
-  "hardness": 180,
+  "hardness": 170,
   "thermal_conductivity": 14,
   "impact_strength": 130,
   "manufacturer": "Reference data",
@@ -314,6 +319,69 @@
           "url": null,
           "verified": false
         }
+      ]
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 240,
+        "max": 240,
+        "typical": 240,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 240
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 450,
+        "max": 450,
+        "typical": 450,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 450
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 10,
+        "max": 10,
+        "typical": 10,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 10
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 180,
+        "max": 180,
+        "typical": 180,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 180
+    },
+    "_basis": "저장값 240/450·10% 는 ASTM A297 Grade HK 보증 최소(35/65 ksi·10%)다. SFSA Supplement 9 의 HK 주방상태 대표값으로(HK40 = HK 의 C 0.35~0.45 등급).",
+    "_src": "SFSA Steel Castings Handbook Supplement 9 (2004) High Alloy Data Sheets — Heat Series, Type HK (UNS J94224), Representative values As cast: 75.0/50.0 ksi (517/345 MPa) · El 17% · HBW 170 · https://cdn.sfsa.org/wp-content/uploads/2021/10/s9.pdf · [경도 스케일] 주조 오스테나이트라 원 스케일 표기",
+    "points": {
+      "from": [
+        [
+          7.75,
+          240,
+          450,
+          10,
+          190,
+          180,
+          14
+        ]
       ]
     }
   }

@@ -110,7 +110,7 @@ describe('machinability 오분류 회귀 앵커 (R226i)', () => {
   const cases: Array<[string, RegExp, number]> = [
     ['Inconel 625 (Solution treated 1100°C → Ni superalloy 15, not Al 35)', /Inconel 625.*1100/, 15],
     ['AISI 305 (EN 1.4303 must not match ferritic 430 → austenitic 40)', /AISI 305\b/, 40],
-    ['AISI 308 (→ austenitic 40)', /AISI 308\b/, 40],
+    ['AISI 309 (EN 1.4828 → austenitic 40)', /AISI 309 /, 40],   // A3 스테인리스: AISI 308(309 행 복제) 제거로 309 로 대체
     ['SCM430/4130 (m4 must not match tool steel → Cr-Mo 60)', /4130 \/ SCM430.*Anneal/, 60],
     ['SCM415 (→ Cr-Mo 60)', /SCM415.*Normalized/, 60],
     ['PH13-8 Mo (h13 must not match tool steel; PH → 35)', /PH13-8 Mo/, 35],
@@ -140,7 +140,7 @@ describe('machinability 조건(HT)별 보정 (R226r)', () => {
   const byName = (rx: RegExp) => metals.find(m => rx.test(m.name));
   it('AISI 410 — 어닐 > Q&T (경화 시 절삭성 하락)', () => {
     const ann = byName(/AISI 410 — Annealed/);
-    const qt = byName(/AISI 410 — Quenched/);
+    const qt = byName(/AISI 410 — Q\+T/);   // A3 스테인리스: generic 'Quenched / tempered' → 'Q+T (1010°C OQ + 593°C)'
     const ra = ann && computeMachinability(ann); const rq = qt && computeMachinability(qt);
     expect(Boolean(ra && rq)).toBe(true);
     expect(rq!.rating).toBeLessThan(ra!.rating);
@@ -179,9 +179,10 @@ describe('machinability 조건(HT)별 보정 (R226r)', () => {
     expect(Boolean(r9 && r10)).toBe(true);
     expect(r9!.rating).toBeLessThan(r10!.rating);   // peak-aged 가 더 어려움
   });
-  it('경도 데이터 부실(연질값) 조건은 class base 유지 (오값 회피)', () => {
-    // AISI 410 Q&T 는 HV 188.9(비정상 저값) — hardness factor=1 → qt class base(×0.72) 만 적용
-    const qt = byName(/AISI 410 — Quenched/);
+  it('클래스 대표경도보다 연한 Q+T 는 class base 유지 (오값 회피)', () => {
+    // AISI 410 Q+T 593°C 는 HRC 24(E140 ≈ HV 260) — qt 대표경도 330 보다 연해 factor=1 → qt class base(×0.72) 만 적용.
+    // (A3 스테인리스 이전에는 합성값 HV 188.9 가 같은 경로를 탔다 — 지금은 Carpenter 원전 경도)
+    const qt = byName(/AISI 410 — Q\+T/);
     const r = qt && computeMachinability(qt);
     expect(r?.rating).toBe(Math.round(45 * 0.72));   // 32
   });

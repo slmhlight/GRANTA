@@ -2,6 +2,46 @@
 
 All notable changes since R45 (post-Manus recovery). Format: `R##` references the round of work.
 
+## 2026-09-29 — A3 스테인리스: 17-4 PH·304·316·CF8 은 규격 **최소값**을 대표값 칸에 싣고 있었고, 17-7 PH 소둔은 **최대** 허용값이었다
+
+스테인리스 족보 **134 entry / 83 base** 를 제조사 원전과 대조했다 — Carpenter 봉재 데이터시트 19종 · Cleveland-Cliffs(구 AK Steel) 판재 불리틴 13종 ·
+Electralloy NITRONIC 50/60 · ATI 2205·AL-6XN · SFSA Steel Castings Handbook Supplement 8/9 · ASTM A666 · Nikon SLM 17-4PH MDS.
+판정: **교정 59 · 규격 하한 선언 7 · 제거 27 · REVIEWED 13 · 잔여 28**(원전이 최소값만이거나 미확보 — 공개). 재료 1,058 → **1,031**.
+
+**값의 종류가 틀려 있었다**
+- **17-4 PH H900·H1025·H1075** = ASTM A564/AMS 5643 **보증 최소값**. H1150 795/965 는 H1100 최소와 H1150 연신이 섞인 값 → Carpenter Custom 630 봉 대표값
+  (H900 1262/1365 MPa·15%·HRC 44 …). 15-5 PH H900 도 AMS 5659 최소 → Carpenter 15Cr-5Ni 1276/1378(CLF 15-5 와 1 MPa 차).
+- **17-7 PH Condition A 380/1030** 은 Condition A 의 **최대** 허용값(연질 보증 상한) → CLF 대표값 310/827·35%.
+- **304·304L·316·321·347 generic 소둔** = ASTM A240 최소값(316 은 304 와 숫자까지 같았다) → CLF·Carpenter 대표값(304 290/655 · 316 290/627 …).
+- **CF3·CF3M·CF8·CF8M** = ASTM A351 최소 → SFSA representative(CF8M 290/552 …) · HK40 A297 최소 → SFSA 345/517.
+- Nitronic 50/60 · AL-6XN · 904L · 2205 · 2507 도 규격 최소 부근 숫자 → 제조사 대표값. 최소값은 전부 `min_spec` 축으로 따로 병기된다.
+
+**원전과 다른 조건·값**
+- Custom 465 H1025 에 **H1050 값**이 실려 있었다. H 975 는 524°C(이름의 480°C 는 환산 오기).
+- 15-7 PH 는 조건 표기가 없었다 → RH 950 대표값 1482/1689 + 사용온도 상한 650 → **482°C**(원전 "up to 900 °F").
+- 416·431 은 조건 없이 어느 행도 아닌 값 → Carpenter 982°C 유냉 + 593°C 뜨임 행. 410 generic Q/T 는 860 MPa 에 HV 189(인장-경도 모순) → 1010°C + 593°C 행.
+- 440A/B "200°C 뜨임" 행의 인장은 원전에 없다(204°C 는 경도만) → 인장 행이 있는 **316°C 뜨임으로 이름·값 함께 이동**. SS410 "200°C" → 원전 최저 260°C 행.
+- **434 UTS 540 은 80 ksi 의 환산 오기**(= 552 MPa).
+- 17-4PH LPBF H900 경도 295.5 HV 는 **열처리 전(NHT)** 경도였다 → Nikon SLM H900 HV 455·1285/1425.
+- 301 냉간 템퍼 4행은 연신이 각 템퍼의 규격 최소(25·18·12·9%)에 못 미쳤다 → ASTM A666 최소값으로 교정하고 **규격 하한 선언**
+  (304L·316 의 합성 "Strain-hardened" 도 A666 ¼ Hard 로 개명·선언, 13-8 Mo 는 AMS 5629 H950 최소).
+
+**제거 27**: 원전에 없는 조건(SS410·SS420 150°C · A-286 650°C 시효 · 316L 냉간50%·응력제거 · 21-4N 700°C 시험 행 · 17-4 LPBF H1150) ·
+합성 Strain-hardened 6(310·321·347 은 A666 대상도 아니고 304 값 복제) · 중복 base(SS440C 3·Carpenter A-286·304L (Wrought)·SS410 소둔) ·
+AISI 308(309 행 복제) · STS304 ULC(근거가 KIST 홈페이지 루트) · Super 304H 사용중 시효(인용 PDF 가 "준비 중" 빈 문서) · L80 σy max(조건 아님).
+
+**가짜·오인용 출처**: URL 자리에 설명문이 든 'ANSYS Granta — …' 등 12 키를 실제 문서로. Carpenter 에 없는 15-5 PH·Nitronic 50/60 이
+Custom 630 페이지로 가 있었고, `aksteel.com` 루트가 15-7 PH 에 **301 불리틴**을, 4xx 페라이트 출처가 **Outokumpu 310S 페이지**를 달고 있었다.
+값과 맞지 않는 집계 출처(AZoM 9 · Abrams · Calico)는 verified 를 내리고 라벨에 실제 내용을 적었다. 새로 인용한 URL 46 개 전부 실재 확인(curl 200).
+
+**경도 척도**: 오스테나이트계(준안정·듀플렉스·주조 포함)는 ASTM E140 비오스테나이트 환산표 대상이 아니라 원 스케일(HRB·HB) 그대로 싣는다.
+따라서 UTS/경도 비 게이트와 **유사재료 거리 계산이 HV 가 아닌 경도를 HV 와 섞지 않게** 했다(`similar-materials.ts`). ss-416|qt 절삭 조건 노트 추가.
+
+게이트 조정(사유 기록): golden 앵커 재캘리브레이션 7(구 밴드가 최소값 중심) · A6 비교쌍 문턱 100→80(제거로 쌍 감소) 외.
+검증: vitest 1373/1373(89) · tsc 0 · lint 0 · 라운드트립 0 · audit:registry 0 · audit:all 전지표 0 · 산출물 대조 66/66. 대장 `docs/audits/stainless-reverify-2027Q4.md`.
+
+---
+
 ## 2026-09-28 — A3 철강 2차: reference tier 41 entry — 4130 노멀라이즈는 항복 칸에 인장강도가, 4340 Q+T 는 원전보다 21% 낮은 항복이 있었다
 
 1차(generic tier, 9/22)의 잔여였던 **reference tier 탄소·합금강 41 entry** 를 같은 원전(Modern Steels 단일 heat MASS EFFECT ·

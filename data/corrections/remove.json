@@ -102,7 +102,34 @@
    "MET-0039",
    "MET-0090",
    "MET-0044",
-   "MET-0283"
+   "MET-0283",
+   "MET-0771",
+   "MET-0716",
+   "MET-0730",
+   "MET-0747",
+   "MET-0751",
+   "MET-0784",
+   "MET-0788",
+   "MET-0798",
+   "MET-0816",
+   "MET-0817",
+   "MET-0818",
+   "MET-0809",
+   "MET-0810",
+   "MET-0814",
+   "MET-0753",
+   "MET-0754",
+   "MET-0755",
+   "MET-0721",
+   "MET-0722",
+   "MET-0725",
+   "MET-0739",
+   "MET-0740",
+   "MET-0741",
+   "MET-0762",
+   "MET-0806",
+   "MET-0759",
+   "MET-0840"
   ],
   "_reasons_note": "AUD Q03 (2026-09-22) — 제거 사유 원장(stable_id 키): reason·date·ref·superseded_by(선택, 같은 합금의 살아남은 entry). build-registry 가 data/registry/removed.json 으로 구조화 출력(값 동일 시 duplicate 로 표기), 앱은 ?d=<옛 id> 딥링크에서 이를 안내한다. 이전 회차 제거(R226b~A17)는 _ids_note 서술만 있고 여기 미기재 — 자동 분류 코드만 붙는다.",
   "reasons": {
@@ -353,6 +380,168 @@
     "date": "2026-09-28",
     "ref": "docs/audits/steel-reverify-2027Q3.md ⑦ · A3 철강 reference tier",
     "superseded_by": "MET-0284"
+   },
+   "MET-0771": {
+    "reason": "17-7 PH(조건 표기 없음, 원 출처 라벨 RH950) — MET-0828 \"Condition RH950\" 과 같은 조건의 중복이다. 값 1450/1650 은 CLF 대표값(1448/1586)과도 인장이 맞지 않았다.",
+    "date": "2026-09-29",
+    "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+    "superseded_by": "MET-0828"
+   },
+   "MET-0716": {
+    "reason": "AISI 304 generic \"Strain-hardened\" — 같은 base 의 \"1/4 Hard\"(MET-1014, 사용자 제공 Granta 데이터시트 대표값)와 같은 조건이다. 값 515/860 은 A666 ¼ Hard 최소값의 복제.",
+    "date": "2026-09-29",
+    "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+    "superseded_by": "MET-1014"
+   },
+   "MET-0730": {
+    "reason": "AISI 310 generic \"Strain-hardened\" — 310 은 ASTM A666 냉간 템퍼 대상 강종이 아니고, 값 515/860/12 는 304 행의 복제였다(원전에 없는 조건).",
+    "date": "2026-09-29",
+    "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+    "superseded_by": "MET-0727"
+   },
+   "MET-0747": {
+    "reason": "AISI 321 generic \"Strain-hardened\" — A666 냉간 템퍼 대상이 아니며 값은 304 행의 복제였다.",
+    "date": "2026-09-29",
+    "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+    "superseded_by": "MET-0744"
+   },
+   "MET-0751": {
+    "reason": "AISI 347 generic \"Strain-hardened\" — A666 냉간 템퍼 대상이 아니며 값은 304 행의 복제였다.",
+    "date": "2026-09-29",
+    "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+    "superseded_by": "MET-0748"
+   },
+   "MET-0784": {
+    "reason": "AISI 410 generic \"Strain-hardened\" — 마르텐사이트계는 냉간 템퍼로 공급되지 않는다. 값(690/860)은 generic Q/T 행의 복제였다.",
+    "date": "2026-09-29",
+    "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+    "superseded_by": "MET-0783"
+   },
+   "MET-0788": {
+    "reason": "AISI 430 generic \"Strain-hardened\" — 430 에는 규격 냉간 템퍼가 없고, 선행 교정이 인용한 옛 AK Steel 범위는 현행 불리틴에서 확인되지 않는다. 연신·경도는 합성값.",
+    "date": "2026-09-29",
+    "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+    "superseded_by": "MET-0785"
+   },
+   "MET-0798": {
+    "reason": "AISI 440C generic \"Aged / solution-treated\" — 마르텐사이트계에 없는 조건(합성). 값은 Q+T 316°C 행의 복제.",
+    "date": "2026-09-29",
+    "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+    "superseded_by": "MET-0802"
+   },
+   "MET-0816": {
+    "reason": "SS440C 소둔 — AISI 440C 소둔(MET-0799)과 같은 조건·같은 값(450/760/14)의 중복 base.",
+    "date": "2026-09-29",
+    "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+    "superseded_by": "MET-0799"
+   },
+   "MET-0817": {
+    "reason": "SS440C \"Cryogenically treated + Hardened\" 1965/2080 — 인용 원전(Carpenter 440C)에 심랭처리 인장 행이 없다. 출처 라벨도 \"대조 전\"이었다.",
+    "date": "2026-09-29",
+    "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+    "superseded_by": "MET-0802"
+   },
+   "MET-0818": {
+    "reason": "SS440C \"Hardened (1010°C OQ + 150°C T)\" — 값(1900/2030·HV 580)은 Carpenter 316°C 뜨임 행이고 150°C 뜨임 인장 행은 원전에 없다. MET-0802 와 같은 행의 중복.",
+    "date": "2026-09-29",
+    "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+    "superseded_by": "MET-0802"
+   },
+   "MET-0809": {
+    "reason": "SS410 소둔(815°C 서랭) — AISI 410 소둔(MET-0780, 사용자 제공 Granta 데이터시트 검증)과 같은 조건의 중복 base. Granta 410 소둔 고온곡선은 MET-0780 으로 옮겼다.",
+    "date": "2026-09-29",
+    "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+    "superseded_by": "MET-0780"
+   },
+   "MET-0810": {
+    "reason": "SS410 \"Q+T (150°C temper)\" 1380/1520 — Carpenter 410 뜨임표는 260°C 부터이고 150°C 인장 행은 어느 원전에도 없다.",
+    "date": "2026-09-29",
+    "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+    "superseded_by": "MET-0811"
+   },
+   "MET-0814": {
+    "reason": "SS420 \"Hardened (1010°C OQ + 150°C temper)\" 1620/1830 — Carpenter 420 은 149/204°C 뜨임에 경도(HRC 약 52)만 주고 150°C 인장 행이 없다.",
+    "date": "2026-09-29",
+    "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+    "superseded_by": "MET-0815"
+   },
+   "MET-0753": {
+    "reason": "Carpenter A-286 \"Sol. + Aged (650°C/16h)\" — 원전 시효온도는 704~760°C 이고 650°C 단독 시효 행이 없다. 값 800/1100 은 출처 불명.",
+    "date": "2026-09-29",
+    "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+    "superseded_by": "MET-0704"
+   },
+   "MET-0754": {
+    "reason": "Carpenter A-286 \"Sol. + Aged (720°C/16h)\" — A286(MET-0704)과 같은 조건(982°C 용체화 + 718°C 시효)의 중복 base. A286 쪽을 Carpenter 원전 행으로 교정했다.",
+    "date": "2026-09-29",
+    "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+    "superseded_by": "MET-0704"
+   },
+   "MET-0755": {
+    "reason": "Carpenter A-286 \"Solution treated (980°C)\" 590/900 — 용체화(미시효) 상태 값으로는 시효재와 같은 대역이라 성립하지 않고 원전 행도 없다.",
+    "date": "2026-09-29",
+    "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+    "superseded_by": "MET-0704"
+   },
+   "MET-0721": {
+    "reason": "\"AISI 304L (Wrought) — Annealed\" — AISI 304L 소둔(MET-0717)과 같은 합금·조건의 중복 base.",
+    "date": "2026-09-29",
+    "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+    "superseded_by": "MET-0717"
+   },
+   "MET-0722": {
+    "reason": "\"AISI 304L / STS304 ULC\" — 근거가 KIST 홈페이지 루트 URL 뿐이었고, 산업 노트의 \"KIST 표준 spec\"·\"KS D 3705 STS304 ULC\" 를 확인할 수 없다. 값 220/550/55 도 출처 불명.",
+    "date": "2026-09-29",
+    "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+    "superseded_by": "MET-0717"
+   },
+   "MET-0725": {
+    "reason": "AISI 308 소둔 — 값(258/568/40)이 AISI 309 행과 같은 숫자의 복제이고 원전은 'ANSYS Granta' 설명문(가짜 출처)뿐이었다. 308 은 주로 용가재 등급이다.",
+    "date": "2026-09-29",
+    "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+    "superseded_by": "MET-0726"
+   },
+   "MET-0739": {
+    "reason": "AISI 316L \"Cold-worked (50% red.)\" 690/760 — 원전 행이 없고, CLF 316/316L 불리틴 Figure 1(냉간압하-인장 곡선)에서 인장 760 MPa(110 ksi)는 약 15% 압하에 해당한다(50% 압하는 약 165 ksi 대역). 이름의 조건과 값이 서로 맞지 않는다.",
+    "date": "2026-09-29",
+    "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+    "superseded_by": "MET-0738"
+   },
+   "MET-0740": {
+    "reason": "AISI 316L \"Solution treated (1100°C)\" — 소둔(MET-0738)과 같은 조건(용체화 1010~1120°C)의 중복이고 값 220/550 의 원전이 없다.",
+    "date": "2026-09-29",
+    "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+    "superseded_by": "MET-0738"
+   },
+   "MET-0741": {
+    "reason": "AISI 316L \"Stress-relieved (450°C)\" 310/620 — 소둔재의 응력제거는 상온 인장을 바꾸는 공급 조건이 아니며 값의 원전이 없다.",
+    "date": "2026-09-29",
+    "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+    "superseded_by": "MET-0738"
+   },
+   "MET-0762": {
+    "reason": "Super 304H \"Aged in service (650°C/10000h)\" — 인용된 Nippon Steel 카탈로그(E001.pdf)는 \"준비 중\" 빈 문서였고 사용 중 시효 상온 인장 행의 원전을 찾지 못했다.",
+    "date": "2026-09-29",
+    "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+    "superseded_by": "MET-0763"
+   },
+   "MET-0806": {
+    "reason": "L80 13Cr \"Q+T (peak hardness, σy max)\" — API 5CT 의 항복 **상한**(655 MPa)을 별개 재료 조건처럼 실은 행이다. 인장 760·경도 HV 270 은 출처가 없고 HV 270 은 L80 최대 경도(23 HRC)를 넘는다.",
+    "date": "2026-09-29",
+    "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+    "superseded_by": "MET-0805"
+   },
+   "MET-0759": {
+    "reason": "SAE 21-4N \"Solution + Aged, tested at 700°C\" — 시험온도 행을 별개 재료로 실은 것이다(A3 Ni 와 같은 유형). 고온 값은 곡선으로 다룬다.",
+    "date": "2026-09-29",
+    "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+    "superseded_by": "MET-0758"
+   },
+   "MET-0840": {
+    "reason": "17-4PH LPBF \"H1150\" 1130/1170 — 인용된 Nikon SLM MDS 에는 H1150 이 없고, EOS 17-4PH MDS 는 H1150 을 HRC 28 로 준다(항복 1130 MPa 와 양립 불가). 원전에 없는 조건.",
+    "date": "2026-09-29",
+    "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+    "superseded_by": "MET-0841"
    }
   }
  }

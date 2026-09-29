@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 1100,
-      "max": 1240,
-      "typical": 1170,
-      "n": 3,
-      "confidence": "measured"
+      "min": 1276,
+      "typical": 1276,
+      "max": 1276,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — 15Cr-5Ni datasheet (2023-12), Typical RT properties, transverse/intermediate: H 900 185/200 ksi (1276/1378 MPa) · El 10% · RA 30% · HRC 44 / HB 420 · https://www.carpentertechnology.com/hubfs/20231212--CT_15Cr-5Ni_Datasheet_F.pdf · 교차: Cleveland-Cliffs 15-5 PH Product Data Bulletin Table 2 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10501/file/CLF_ProductData_15-5_PHSS_052021.pdf · [경도 스케일] HRC 44 → HV (ASTM E140-12b Table 1)"
     },
     "uts": {
-      "min": 1240,
-      "max": 1380,
-      "typical": 1310,
-      "n": 3,
-      "confidence": "measured"
+      "min": 1378,
+      "typical": 1378,
+      "max": 1378,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — 15Cr-5Ni datasheet (2023-12), Typical RT properties, transverse/intermediate: H 900 185/200 ksi (1276/1378 MPa) · El 10% · RA 30% · HRC 44 / HB 420 · https://www.carpentertechnology.com/hubfs/20231212--CT_15Cr-5Ni_Datasheet_F.pdf · 교차: Cleveland-Cliffs 15-5 PH Product Data Bulletin Table 2 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10501/file/CLF_ProductData_15-5_PHSS_052021.pdf · [경도 스케일] HRC 44 → HV (ASTM E140-12b Table 1)"
     },
     "elongation": {
       "min": 10,
-      "max": 16,
-      "typical": 14,
-      "n": 3,
-      "confidence": "measured"
+      "typical": 10,
+      "max": 10,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — 15Cr-5Ni datasheet (2023-12), Typical RT properties, transverse/intermediate: H 900 185/200 ksi (1276/1378 MPa) · El 10% · RA 30% · HRC 44 / HB 420 · https://www.carpentertechnology.com/hubfs/20231212--CT_15Cr-5Ni_Datasheet_F.pdf · 교차: Cleveland-Cliffs 15-5 PH Product Data Bulletin Table 2 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10501/file/CLF_ProductData_15-5_PHSS_052021.pdf · [경도 스케일] HRC 44 → HV (ASTM E140-12b Table 1)"
     },
     "modulus": {
       "min": 196,
@@ -60,11 +60,15 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 360,
-      "max": 400,
-      "typical": 380,
-      "n": 3,
-      "confidence": "measured"
+      "min": 434,
+      "typical": 434,
+      "max": 434,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — 15Cr-5Ni datasheet (2023-12), Typical RT properties, transverse/intermediate: H 900 185/200 ksi (1276/1378 MPa) · El 10% · RA 30% · HRC 44 / HB 420 · https://www.carpentertechnology.com/hubfs/20231212--CT_15Cr-5Ni_Datasheet_F.pdf · 교차: Cleveland-Cliffs 15-5 PH Product Data Bulletin Table 2 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10501/file/CLF_ProductData_15-5_PHSS_052021.pdf · [경도 스케일] HRC 44 → HV (ASTM E140-12b Table 1)",
+      "scale": "HV",
+      "source_scale": "HRC",
+      "source_value": 44,
+      "conversion": "ASTM E140-12b Table 1"
     },
     "thermal_conductivity": {
       "min": 17.8,
@@ -189,8 +193,8 @@
   },
   "sources": [
     {
-      "label": "Carpenter Technology — Custom 15-5 PH",
-      "url": "https://www.carpentertechnology.com/alloy-finder/custom-630-17-4",
+      "label": "Carpenter Technology — 15Cr-5Ni (UNS S15500, 15-5 PH 상당) datasheet",
+      "url": "https://www.carpentertechnology.com/hubfs/20231212--CT_15Cr-5Ni_Datasheet_F.pdf",
       "verified": true
     },
     {
@@ -204,7 +208,7 @@
       "verified": false
     },
     {
-      "label": "Cleveland-Cliffs (구 AK Steel) 15-5 PH Product Data Bulletin 2021-05 — Table 3 규격 허용 최소값(H900 1310/1172 MPa)",
+      "label": "Cleveland-Cliffs (구 AK Steel) 15-5 PH Product Data Bulletin 2021-05 — Table 2 대표값 H900 1275/1379 MPa·9%·HRC 45 (표시값 Carpenter 15Cr-5Ni 봉재 1276/1378 과 일치)",
       "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10501/file/CLF_ProductData_15-5_PHSS_052021.pdf",
       "verified": true
     },
@@ -217,36 +221,18 @@
   "points": [
     [
       7.78,
-      1170,
-      1310,
-      14,
-      196,
-      380,
-      17.8
-    ],
-    [
-      7.78,
-      1100,
-      1240,
+      1276,
+      1378,
       10,
       196,
-      360,
-      17.8
-    ],
-    [
-      7.78,
-      1240,
-      1380,
-      16,
-      196,
-      400,
+      434,
       17.8
     ]
   ],
   "machinability": "Fair",
   "weldability": "Fair",
   "corrosion_resistance": "Excellent",
-  "industry_note": "UNS S15500 / EN 1.4545 / XM-12 — 17-4 PH 의 'higher toughness' 변종 (Cr 14-15.5, Ni 3.5-5.5, Cu 2.5-4.5). 17-4 와 동등 강도 (H900 σy 1170 / UTS 1310) 이지만 fine-grained ESR melt 로 transverse ductility / KIC 개선. 항공 critical components (Cessna spar/wing fitting), 의료 instrument, AM LPBF (3D Systems LaserForm 15-5PH).",
+  "industry_note": "UNS S15500 / EN 1.4545 / XM-12 — 17-4 PH 의 인성 개선 변종(Cr 14~15.5, Ni 3.5~5.5, Cu 2.5~4.5). 17-4 와 비슷한 강도(H900 대표값 σy 1276 / UTS 1378 MPa, Carpenter 15Cr-5Ni)이지만 δ페라이트가 적어 횡방향 연성·파괴인성이 낫다. 항공 핵심 부품·의료 기구·AM LPBF.",
   "meta": {
     "reference": true,
     "_r173_note_applied": true,
@@ -254,22 +240,26 @@
       {
         "id": "AMS 5659",
         "org": "AMS"
+      },
+      {
+        "id": "UNS S15500",
+        "org": "UNS"
       }
     ]
   },
   "fracture_toughness": 80,
   "fatigue_strength": 540,
   "density": 7.78,
-  "yield_strength": 1170,
-  "uts": 1310,
-  "elongation": 14,
+  "yield_strength": 1276,
+  "uts": 1378,
+  "elongation": 10,
   "modulus": 196,
-  "hardness": 380,
+  "hardness": 434,
   "thermal_conductivity": 17.8,
   "impact_strength": 40,
   "manufacturer": "Reference data",
   "process": "Wrought",
-  "source": "Carpenter Technology — Custom 15-5 PH",
+  "source": "Carpenter Technology — 15Cr-5Ni (UNS S15500, 15-5 PH 상당) datasheet",
   "aliases": [
     "UNS S15500",
     "EN 1.4545",
@@ -331,5 +321,88 @@
   "svhc_concerns": [
     "Ni 5.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 1100,
+        "max": 1240,
+        "typical": 1170,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 1170
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 1240,
+        "max": 1380,
+        "typical": 1310,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 1310
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 10,
+        "max": 16,
+        "typical": 14,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 14
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 360,
+        "max": 400,
+        "typical": 380,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 380
+    },
+    "_basis": "저장값 1170/1310 MPa 는 AMS 5659 H900 보증 최소(170/190 ksi)이고 연신 14% 는 어느 원전에도 없다. Carpenter 15Cr-5Ni(UNS S15500 — 15-5 PH 와 같은 UNS) 봉 횡방향 H 900 대표값으로 교정. Cleveland-Cliffs 15-5 PH Table 2 대표값(1275/1379 MPa·9%·HRC 45)과 1 MPa 차로 일치한다.",
+    "_src": "Carpenter Technology — 15Cr-5Ni datasheet (2023-12), Typical RT properties, transverse/intermediate: H 900 185/200 ksi (1276/1378 MPa) · El 10% · RA 30% · HRC 44 / HB 420 · https://www.carpentertechnology.com/hubfs/20231212--CT_15Cr-5Ni_Datasheet_F.pdf · 교차: Cleveland-Cliffs 15-5 PH Product Data Bulletin Table 2 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10501/file/CLF_ProductData_15-5_PHSS_052021.pdf · [경도 스케일] HRC 44 → HV (ASTM E140-12b Table 1)",
+    "points": {
+      "from": [
+        [
+          7.78,
+          1170,
+          1310,
+          14,
+          196,
+          380,
+          17.8
+        ],
+        [
+          7.78,
+          1100,
+          1240,
+          10,
+          196,
+          360,
+          17.8
+        ],
+        [
+          7.78,
+          1240,
+          1380,
+          16,
+          196,
+          400,
+          17.8
+        ]
+      ]
+    }
+  }
 }

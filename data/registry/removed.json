@@ -1,7 +1,7 @@
 {
  "_note": "AUD Q03 — 배포에서 제거된 entry 원장 (build-registry 자동 생성; 사유 서술은 data/corrections/remove.json reasons). stable_id 는 예약(재사용 없음). superseded_by 는 같은 base 의 살아남은 entry — superseded_how 가 \"duplicate\" 일 때만 동일 값 대체, 그 외는 참조.",
- "count": 181,
- "generated": "2026-09-28",
+ "count": 208,
+ "generated": "2026-09-29",
  "removed": [
   {
    "stable_id": "MET-0034",
@@ -2622,6 +2622,28 @@
    "superseded_how": "same-base representative (nearest σy) — 값이 다르므로 대체가 아니라 참조"
   },
   {
+   "stable_id": "MET-0716",
+   "legacy_id": "G_0193",
+   "name": "AISI 304 — Strain-hardened (Wrought)",
+   "category": "Metal",
+   "subcategory": "Stainless Steel - Austenitic",
+   "heat_treatment": "Strain-hardened",
+   "process": "Wrought",
+   "values": {
+    "yield_strength": 221.4,
+    "uts": 556.2,
+    "elongation": 41.2
+   },
+   "removal_kind": "id",
+   "reason": "AISI 304 generic \"Strain-hardened\" — 같은 base 의 \"1/4 Hard\"(MET-1014, 사용자 제공 Granta 데이터시트 대표값)와 같은 조건이다. 값 515/860 은 A666 ¼ Hard 최소값의 복제.",
+   "removed_on": "2026-09-29",
+   "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+   "superseded_by": "MET-1014",
+   "superseded_by_legacy_id": "R_0468",
+   "superseded_by_name": "AISI 304 — 1/4 Hard (cold-worked)",
+   "superseded_how": "declared in remove.json reasons"
+  },
+  {
    "stable_id": "MET-0718",
    "legacy_id": "G_0198",
    "name": "AISI 304L — As-cast / forged (Wrought)",
@@ -2664,6 +2686,72 @@
    "superseded_by_legacy_id": "G_0197",
    "superseded_by_name": "AISI 304L — Annealed (Wrought)",
    "superseded_how": "same-base representative (nearest σy) — 값이 다르므로 대체가 아니라 참조"
+  },
+  {
+   "stable_id": "MET-0721",
+   "legacy_id": "R_0250",
+   "name": "AISI 304L (Wrought) — Annealed",
+   "category": "Metal",
+   "subcategory": "Stainless Steel - Austenitic",
+   "heat_treatment": "Annealed",
+   "process": "Wrought",
+   "values": {
+    "yield_strength": 215,
+    "uts": 525,
+    "elongation": 50
+   },
+   "removal_kind": "id",
+   "reason": "\"AISI 304L (Wrought) — Annealed\" — AISI 304L 소둔(MET-0717)과 같은 합금·조건의 중복 base.",
+   "removed_on": "2026-09-29",
+   "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+   "superseded_by": "MET-0717",
+   "superseded_by_legacy_id": "G_0197",
+   "superseded_by_name": "AISI 304L — Annealed (Wrought)",
+   "superseded_how": "declared in remove.json reasons"
+  },
+  {
+   "stable_id": "MET-0722",
+   "legacy_id": "R_0437_0",
+   "name": "AISI 304L / STS304 ULC — Annealed (1050°C WQ)",
+   "category": "Metal",
+   "subcategory": "Stainless Steel - Austenitic",
+   "heat_treatment": "Annealed (1050°C WQ) + ULC refining",
+   "process": "Vacuum Refined (VOD/AOD)",
+   "values": {
+    "yield_strength": 220,
+    "uts": 550,
+    "elongation": 55
+   },
+   "removal_kind": "id",
+   "reason": "\"AISI 304L / STS304 ULC\" — 근거가 KIST 홈페이지 루트 URL 뿐이었고, 산업 노트의 \"KIST 표준 spec\"·\"KS D 3705 STS304 ULC\" 를 확인할 수 없다. 값 220/550/55 도 출처 불명.",
+   "removed_on": "2026-09-29",
+   "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+   "superseded_by": "MET-0717",
+   "superseded_by_legacy_id": "G_0197",
+   "superseded_by_name": "AISI 304L — Annealed (Wrought)",
+   "superseded_how": "declared in remove.json reasons"
+  },
+  {
+   "stable_id": "MET-0725",
+   "legacy_id": "R_0034_0",
+   "name": "AISI 308 (welding-rod austenitic stainless) — Solution annealed (S30800, EN 1.4303)",
+   "category": "Metal",
+   "subcategory": "Stainless Steel - Austenitic",
+   "heat_treatment": "Solution annealed (S30800, EN 1.4303)",
+   "process": "Wrought",
+   "values": {
+    "yield_strength": 258,
+    "uts": 568,
+    "elongation": 40
+   },
+   "removal_kind": "id",
+   "reason": "AISI 308 소둔 — 값(258/568/40)이 AISI 309 행과 같은 숫자의 복제이고 원전은 'ANSYS Granta' 설명문(가짜 출처)뿐이었다. 308 은 주로 용가재 등급이다.",
+   "removed_on": "2026-09-29",
+   "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+   "superseded_by": "MET-0726",
+   "superseded_by_legacy_id": "R_0035_0",
+   "superseded_by_name": "AISI 309 (heat-resistant austenitic stainless) — Solution annealed (S30900, EN 1.4828, SUH309)",
+   "superseded_how": "declared in remove.json reasons"
   },
   {
    "stable_id": "MET-0728",
@@ -2710,6 +2798,28 @@
    "superseded_how": "same-base representative (nearest σy) — 값이 다르므로 대체가 아니라 참조"
   },
   {
+   "stable_id": "MET-0730",
+   "legacy_id": "G_0205",
+   "name": "AISI 310 — Strain-hardened (Wrought)",
+   "category": "Metal",
+   "subcategory": "Stainless Steel - Austenitic",
+   "heat_treatment": "Strain-hardened",
+   "process": "Wrought",
+   "values": {
+    "yield_strength": 221.4,
+    "uts": 556.2,
+    "elongation": 41.2
+   },
+   "removal_kind": "id",
+   "reason": "AISI 310 generic \"Strain-hardened\" — 310 은 ASTM A666 냉간 템퍼 대상 강종이 아니고, 값 515/860/12 는 304 행의 복제였다(원전에 없는 조건).",
+   "removed_on": "2026-09-29",
+   "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+   "superseded_by": "MET-0727",
+   "superseded_by_legacy_id": "G_0203",
+   "superseded_by_name": "AISI 310 — Annealed (Wrought)",
+   "superseded_how": "declared in remove.json reasons"
+  },
+  {
    "stable_id": "MET-0732",
    "legacy_id": "G_0210",
    "name": "AISI 316 — As-cast / forged (Wrought)",
@@ -2752,6 +2862,72 @@
    "superseded_by_legacy_id": "G_0209",
    "superseded_by_name": "AISI 316 — Annealed (Wrought)",
    "superseded_how": "same-base representative (nearest σy) — 값이 다르므로 대체가 아니라 참조"
+  },
+  {
+   "stable_id": "MET-0739",
+   "legacy_id": "R_0003_1",
+   "name": "AISI 316L (Wrought) — Cold-worked (50% red.)",
+   "category": "Metal",
+   "subcategory": "Stainless Steel - Austenitic",
+   "heat_treatment": "Cold-worked (50% red.)",
+   "process": "Wrought",
+   "values": {
+    "yield_strength": 690,
+    "uts": 760,
+    "elongation": 12
+   },
+   "removal_kind": "id",
+   "reason": "AISI 316L \"Cold-worked (50% red.)\" 690/760 — 원전 행이 없고, CLF 316/316L 불리틴 Figure 1(냉간압하-인장 곡선)에서 인장 760 MPa(110 ksi)는 약 15% 압하에 해당한다(50% 압하는 약 165 ksi 대역). 이름의 조건과 값이 서로 맞지 않는다.",
+   "removed_on": "2026-09-29",
+   "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+   "superseded_by": "MET-0738",
+   "superseded_by_legacy_id": "R_0003_0",
+   "superseded_by_name": "AISI 316L (Wrought) — Annealed (1050°C WQ)",
+   "superseded_how": "declared in remove.json reasons"
+  },
+  {
+   "stable_id": "MET-0740",
+   "legacy_id": "R_0003_2",
+   "name": "AISI 316L (Wrought) — Solution treated (1100°C)",
+   "category": "Metal",
+   "subcategory": "Stainless Steel - Austenitic",
+   "heat_treatment": "Solution treated (1100°C)",
+   "process": "Wrought",
+   "values": {
+    "yield_strength": 220,
+    "uts": 550,
+    "elongation": 55
+   },
+   "removal_kind": "id",
+   "reason": "AISI 316L \"Solution treated (1100°C)\" — 소둔(MET-0738)과 같은 조건(용체화 1010~1120°C)의 중복이고 값 220/550 의 원전이 없다.",
+   "removed_on": "2026-09-29",
+   "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+   "superseded_by": "MET-0738",
+   "superseded_by_legacy_id": "R_0003_0",
+   "superseded_by_name": "AISI 316L (Wrought) — Annealed (1050°C WQ)",
+   "superseded_how": "declared in remove.json reasons"
+  },
+  {
+   "stable_id": "MET-0741",
+   "legacy_id": "R_0003_3",
+   "name": "AISI 316L (Wrought) — Stress-relieved (450°C)",
+   "category": "Metal",
+   "subcategory": "Stainless Steel - Austenitic",
+   "heat_treatment": "Stress-relieved (450°C)",
+   "process": "Wrought",
+   "values": {
+    "yield_strength": 310,
+    "uts": 620,
+    "elongation": 45
+   },
+   "removal_kind": "id",
+   "reason": "AISI 316L \"Stress-relieved (450°C)\" 310/620 — 소둔재의 응력제거는 상온 인장을 바꾸는 공급 조건이 아니며 값의 원전이 없다.",
+   "removed_on": "2026-09-29",
+   "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+   "superseded_by": "MET-0738",
+   "superseded_by_legacy_id": "R_0003_0",
+   "superseded_by_name": "AISI 316L (Wrought) — Annealed (1050°C WQ)",
+   "superseded_how": "declared in remove.json reasons"
   },
   {
    "stable_id": "MET-0745",
@@ -2798,6 +2974,28 @@
    "superseded_how": "same-base representative (nearest σy) — 값이 다르므로 대체가 아니라 참조"
   },
   {
+   "stable_id": "MET-0747",
+   "legacy_id": "G_0217",
+   "name": "AISI 321 — Strain-hardened (Wrought)",
+   "category": "Metal",
+   "subcategory": "Stainless Steel - Austenitic",
+   "heat_treatment": "Strain-hardened",
+   "process": "Wrought",
+   "values": {
+    "yield_strength": 221.4,
+    "uts": 556.2,
+    "elongation": 41.2
+   },
+   "removal_kind": "id",
+   "reason": "AISI 321 generic \"Strain-hardened\" — A666 냉간 템퍼 대상이 아니며 값은 304 행의 복제였다.",
+   "removed_on": "2026-09-29",
+   "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+   "superseded_by": "MET-0744",
+   "superseded_by_legacy_id": "G_0215",
+   "superseded_by_name": "AISI 321 — Annealed (Wrought)",
+   "superseded_how": "declared in remove.json reasons"
+  },
+  {
    "stable_id": "MET-0749",
    "legacy_id": "G_0222",
    "name": "AISI 347 — As-cast / forged (Wrought)",
@@ -2842,6 +3040,138 @@
    "superseded_how": "same-base representative (nearest σy) — 값이 다르므로 대체가 아니라 참조"
   },
   {
+   "stable_id": "MET-0751",
+   "legacy_id": "G_0223",
+   "name": "AISI 347 — Strain-hardened (Wrought)",
+   "category": "Metal",
+   "subcategory": "Stainless Steel - Austenitic",
+   "heat_treatment": "Strain-hardened",
+   "process": "Wrought",
+   "values": {
+    "yield_strength": 221.4,
+    "uts": 556.2,
+    "elongation": 41.2
+   },
+   "removal_kind": "id",
+   "reason": "AISI 347 generic \"Strain-hardened\" — A666 냉간 템퍼 대상이 아니며 값은 304 행의 복제였다.",
+   "removed_on": "2026-09-29",
+   "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+   "superseded_by": "MET-0748",
+   "superseded_by_legacy_id": "G_0221",
+   "superseded_by_name": "AISI 347 — Annealed (Wrought)",
+   "superseded_how": "declared in remove.json reasons"
+  },
+  {
+   "stable_id": "MET-0753",
+   "legacy_id": "R_0323_2",
+   "name": "Carpenter A-286 (Fe-Ni-Cr aged) — Sol. + Aged (650°C/16h)",
+   "category": "Metal",
+   "subcategory": "Nickel Superalloy",
+   "heat_treatment": "Sol. + Aged (650°C/16h)",
+   "process": "Wrought",
+   "values": {
+    "yield_strength": 800,
+    "uts": 1100,
+    "elongation": 15
+   },
+   "removal_kind": "id",
+   "reason": "Carpenter A-286 \"Sol. + Aged (650°C/16h)\" — 원전 시효온도는 704~760°C 이고 650°C 단독 시효 행이 없다. 값 800/1100 은 출처 불명.",
+   "removed_on": "2026-09-29",
+   "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+   "superseded_by": "MET-0704",
+   "superseded_by_legacy_id": "R_0098",
+   "superseded_by_name": "A286",
+   "superseded_how": "declared in remove.json reasons"
+  },
+  {
+   "stable_id": "MET-0754",
+   "legacy_id": "R_0323_1",
+   "name": "Carpenter A-286 (Fe-Ni-Cr aged) — Sol. + Aged (720°C/16h)",
+   "category": "Metal",
+   "subcategory": "Nickel Superalloy",
+   "heat_treatment": "Sol. + Aged (720°C/16h)",
+   "process": "Wrought",
+   "values": {
+    "yield_strength": 680,
+    "uts": 1000,
+    "elongation": 18
+   },
+   "removal_kind": "id",
+   "reason": "Carpenter A-286 \"Sol. + Aged (720°C/16h)\" — A286(MET-0704)과 같은 조건(982°C 용체화 + 718°C 시효)의 중복 base. A286 쪽을 Carpenter 원전 행으로 교정했다.",
+   "removed_on": "2026-09-29",
+   "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+   "superseded_by": "MET-0704",
+   "superseded_by_legacy_id": "R_0098",
+   "superseded_by_name": "A286",
+   "superseded_how": "declared in remove.json reasons"
+  },
+  {
+   "stable_id": "MET-0755",
+   "legacy_id": "R_0323_0",
+   "name": "Carpenter A-286 (Fe-Ni-Cr aged) — Solution treated (980°C)",
+   "category": "Metal",
+   "subcategory": "Nickel Superalloy",
+   "heat_treatment": "Solution treated (980°C)",
+   "process": "Wrought",
+   "values": {
+    "yield_strength": 590,
+    "uts": 900,
+    "elongation": 25
+   },
+   "removal_kind": "id",
+   "reason": "Carpenter A-286 \"Solution treated (980°C)\" 590/900 — 용체화(미시효) 상태 값으로는 시효재와 같은 대역이라 성립하지 않고 원전 행도 없다.",
+   "removed_on": "2026-09-29",
+   "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+   "superseded_by": "MET-0704",
+   "superseded_by_legacy_id": "R_0098",
+   "superseded_by_name": "A286",
+   "superseded_how": "declared in remove.json reasons"
+  },
+  {
+   "stable_id": "MET-0759",
+   "legacy_id": "R_0349_2",
+   "name": "SAE 21-4N (NCF3) — automotive exhaust valve — Solution + Aged, tested at 700°C (hot strength)",
+   "category": "Metal",
+   "subcategory": "Stainless Steel - Austenitic",
+   "heat_treatment": "Solution + Aged, tested at 700°C (hot strength)",
+   "process": "Forged",
+   "values": {
+    "yield_strength": 380,
+    "uts": 510,
+    "elongation": 25
+   },
+   "removal_kind": "id",
+   "reason": "SAE 21-4N \"Solution + Aged, tested at 700°C\" — 시험온도 행을 별개 재료로 실은 것이다(A3 Ni 와 같은 유형). 고온 값은 곡선으로 다룬다.",
+   "removed_on": "2026-09-29",
+   "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+   "superseded_by": "MET-0758",
+   "superseded_by_legacy_id": "R_0349_1",
+   "superseded_by_name": "SAE 21-4N (NCF3) — automotive exhaust valve — Solution + Aged (760°C/4h, full strength)",
+   "superseded_how": "declared in remove.json reasons"
+  },
+  {
+   "stable_id": "MET-0762",
+   "legacy_id": "R_0341_1",
+   "name": "Super 304H (S30432, Nb-Cu strengthened 18Cr-9Ni) — Aged in service (650°C/10000h; Cu/NbCN precipitates)",
+   "category": "Metal",
+   "subcategory": "Stainless Steel - Austenitic",
+   "heat_treatment": "Aged in service (650°C/10000h; Cu/NbCN precipitates)",
+   "process": "Wrought",
+   "values": {
+    "yield_strength": 320,
+    "uts": 700,
+    "elongation": 30
+   },
+   "removal_kind": "id",
+   "reason": "Super 304H \"Aged in service (650°C/10000h)\" — 인용된 Nippon Steel 카탈로그(E001.pdf)는 \"준비 중\" 빈 문서였고 사용 중 시효 상온 인장 행의 원전을 찾지 못했다.",
+   "removed_on": "2026-09-29",
+   "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+   "superseded_by": "MET-0763",
+   "superseded_by_legacy_id": "R_0341_0",
+   "superseded_by_name": "Super 304H (S30432, Nb-Cu strengthened 18Cr-9Ni) — Solution Annealed (1100°C WQ)",
+   "superseded_how": "declared in remove.json reasons"
+  },
+  {
    "stable_id": "MET-0766",
    "legacy_id": "R_0212",
    "name": "Zeron 100",
@@ -2862,6 +3192,28 @@
    "superseded_by_legacy_id": null,
    "superseded_by_name": null,
    "superseded_how": null
+  },
+  {
+   "stable_id": "MET-0771",
+   "legacy_id": "R_0088",
+   "name": "17-7 PH",
+   "category": "Metal",
+   "subcategory": "Stainless Steel - Ferritic/Martensitic",
+   "heat_treatment": null,
+   "process": "Wrought",
+   "values": {
+    "yield_strength": 1450,
+    "uts": 1650,
+    "elongation": 6
+   },
+   "removal_kind": "id",
+   "reason": "17-7 PH(조건 표기 없음, 원 출처 라벨 RH950) — MET-0828 \"Condition RH950\" 과 같은 조건의 중복이다. 값 1450/1650 은 CLF 대표값(1448/1586)과도 인장이 맞지 않았다.",
+   "removed_on": "2026-09-29",
+   "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+   "superseded_by": "MET-0828",
+   "superseded_by_legacy_id": "R_0321_2",
+   "superseded_by_name": "17-7 PH (UNS S17700, semi-austenitic PH) — Condition RH950",
+   "superseded_how": "declared in remove.json reasons"
   },
   {
    "stable_id": "MET-0777",
@@ -2974,6 +3326,28 @@
    "superseded_how": "same-base representative (nearest σy) — 값이 다르므로 대체가 아니라 참조"
   },
   {
+   "stable_id": "MET-0784",
+   "legacy_id": "G_0241",
+   "name": "AISI 410 — Strain-hardened (Wrought)",
+   "category": "Metal",
+   "subcategory": "Stainless Steel - Ferritic/Martensitic",
+   "heat_treatment": "Strain-hardened",
+   "process": "Wrought",
+   "values": {
+    "yield_strength": 297,
+    "uts": 448.2,
+    "elongation": 20.6
+   },
+   "removal_kind": "id",
+   "reason": "AISI 410 generic \"Strain-hardened\" — 마르텐사이트계는 냉간 템퍼로 공급되지 않는다. 값(690/860)은 generic Q/T 행의 복제였다.",
+   "removed_on": "2026-09-29",
+   "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+   "superseded_by": "MET-0783",
+   "superseded_by_legacy_id": "G_0243",
+   "superseded_by_name": "AISI 410 — Quenched / tempered (Wrought)",
+   "superseded_how": "declared in remove.json reasons"
+  },
+  {
    "stable_id": "MET-0786",
    "legacy_id": "G_0264",
    "name": "AISI 430 — As-cast / forged (Wrought)",
@@ -2990,9 +3364,9 @@
    "reason": "합성 조건 제거(remove.json heatTreatments — 실조건이 남는 base 만)",
    "removed_on": null,
    "ref": null,
-   "superseded_by": "MET-0788",
-   "superseded_by_legacy_id": "G_0265",
-   "superseded_by_name": "AISI 430 — Strain-hardened (Wrought)",
+   "superseded_by": "MET-0785",
+   "superseded_by_legacy_id": "G_0263",
+   "superseded_by_name": "AISI 430 — Annealed (Wrought)",
    "superseded_how": "same-base representative (nearest σy) — 값이 다르므로 대체가 아니라 참조"
   },
   {
@@ -3012,10 +3386,32 @@
    "reason": "합성 조건 제거(remove.json heatTreatments — 실조건이 남는 base 만)",
    "removed_on": null,
    "ref": null,
-   "superseded_by": "MET-0788",
-   "superseded_by_legacy_id": "G_0265",
-   "superseded_by_name": "AISI 430 — Strain-hardened (Wrought)",
+   "superseded_by": "MET-0785",
+   "superseded_by_legacy_id": "G_0263",
+   "superseded_by_name": "AISI 430 — Annealed (Wrought)",
    "superseded_how": "same-base representative (nearest σy) — 값이 다르므로 대체가 아니라 참조"
+  },
+  {
+   "stable_id": "MET-0788",
+   "legacy_id": "G_0265",
+   "name": "AISI 430 — Strain-hardened (Wrought)",
+   "category": "Metal",
+   "subcategory": "Stainless Steel - Ferritic/Martensitic",
+   "heat_treatment": "Strain-hardened",
+   "process": "Wrought",
+   "values": {
+    "yield_strength": 297,
+    "uts": 448.2,
+    "elongation": 20.6
+   },
+   "removal_kind": "id",
+   "reason": "AISI 430 generic \"Strain-hardened\" — 430 에는 규격 냉간 템퍼가 없고, 선행 교정이 인용한 옛 AK Steel 범위는 현행 불리틴에서 확인되지 않는다. 연신·경도는 합성값.",
+   "removed_on": "2026-09-29",
+   "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+   "superseded_by": "MET-0785",
+   "superseded_by_legacy_id": "G_0263",
+   "superseded_by_name": "AISI 430 — Annealed (Wrought)",
+   "superseded_how": "declared in remove.json reasons"
   },
   {
    "stable_id": "MET-0790",
@@ -3084,6 +3480,28 @@
    "superseded_how": "same-base representative (nearest σy) — 값이 다르므로 대체가 아니라 참조"
   },
   {
+   "stable_id": "MET-0798",
+   "legacy_id": "G_0274",
+   "name": "AISI 440C — Aged / solution-treated (Wrought)",
+   "category": "Metal",
+   "subcategory": "Stainless Steel - Ferritic/Martensitic",
+   "heat_treatment": "Aged / solution-treated",
+   "process": "Wrought",
+   "values": {
+    "yield_strength": 1825.8,
+    "uts": 1968.6,
+    "elongation": 1.74
+   },
+   "removal_kind": "id",
+   "reason": "AISI 440C generic \"Aged / solution-treated\" — 마르텐사이트계에 없는 조건(합성). 값은 Q+T 316°C 행의 복제.",
+   "removed_on": "2026-09-29",
+   "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+   "superseded_by": "MET-0802",
+   "superseded_by_legacy_id": "G_0279",
+   "superseded_by_name": "AISI 440C — Quenched / tempered (Wrought)",
+   "superseded_how": "declared in remove.json reasons"
+  },
+  {
    "stable_id": "MET-0800",
    "legacy_id": "G_0276",
    "name": "AISI 440C — As-cast / forged (Wrought)",
@@ -3148,6 +3566,182 @@
    "superseded_by_legacy_id": "G_0279",
    "superseded_by_name": "AISI 440C — Quenched / tempered (Wrought)",
    "superseded_how": "same-base representative (nearest σy) — 값이 다르므로 대체가 아니라 참조"
+  },
+  {
+   "stable_id": "MET-0806",
+   "legacy_id": "R_0360_1",
+   "name": "L80 Type 13Cr (UNS S42000) — sour-service OCTG — Q+T (peak hardness, σy max)",
+   "category": "Metal",
+   "subcategory": "Stainless Steel - Ferritic/Martensitic",
+   "heat_treatment": "Q+T (peak hardness, σy max)",
+   "process": "Wrought",
+   "values": {
+    "yield_strength": 655,
+    "uts": 760,
+    "elongation": 18
+   },
+   "removal_kind": "id",
+   "reason": "L80 13Cr \"Q+T (peak hardness, σy max)\" — API 5CT 의 항복 **상한**(655 MPa)을 별개 재료 조건처럼 실은 행이다. 인장 760·경도 HV 270 은 출처가 없고 HV 270 은 L80 최대 경도(23 HRC)를 넘는다.",
+   "removed_on": "2026-09-29",
+   "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+   "superseded_by": "MET-0805",
+   "superseded_by_legacy_id": "R_0360_0",
+   "superseded_by_name": "L80 Type 13Cr (UNS S42000) — sour-service OCTG — Q+T (980°C oil Q + 700°C T, σy min)",
+   "superseded_how": "declared in remove.json reasons"
+  },
+  {
+   "stable_id": "MET-0809",
+   "legacy_id": "R_0331_0",
+   "name": "SS410 (UNS S41000) — valve trim, pump shaft — Annealed (815°C SC)",
+   "category": "Metal",
+   "subcategory": "Stainless Steel - Ferritic/Martensitic",
+   "heat_treatment": "Annealed (815°C SC)",
+   "process": "Wrought",
+   "values": {
+    "yield_strength": 275,
+    "uts": 515,
+    "elongation": 22
+   },
+   "removal_kind": "id",
+   "reason": "SS410 소둔(815°C 서랭) — AISI 410 소둔(MET-0780, 사용자 제공 Granta 데이터시트 검증)과 같은 조건의 중복 base. Granta 410 소둔 고온곡선은 MET-0780 으로 옮겼다.",
+   "removed_on": "2026-09-29",
+   "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+   "superseded_by": "MET-0780",
+   "superseded_by_legacy_id": "G_0239",
+   "superseded_by_name": "AISI 410 — Annealed (Wrought)",
+   "superseded_how": "declared in remove.json reasons"
+  },
+  {
+   "stable_id": "MET-0810",
+   "legacy_id": "R_0331_3",
+   "name": "SS410 (UNS S41000) — valve trim, pump shaft — Q+T (150°C temper, max hardness)",
+   "category": "Metal",
+   "subcategory": "Stainless Steel - Ferritic/Martensitic",
+   "heat_treatment": "Q+T (150°C temper, max hardness)",
+   "process": "Wrought",
+   "values": {
+    "yield_strength": 1380,
+    "uts": 1520,
+    "elongation": 10
+   },
+   "removal_kind": "id",
+   "reason": "SS410 \"Q+T (150°C temper)\" 1380/1520 — Carpenter 410 뜨임표는 260°C 부터이고 150°C 인장 행은 어느 원전에도 없다.",
+   "removed_on": "2026-09-29",
+   "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+   "superseded_by": "MET-0811",
+   "superseded_by_legacy_id": "R_0331_2",
+   "superseded_by_name": "SS410 (UNS S41000) — valve trim, pump shaft — Q+T (200°C temper, hardened)",
+   "superseded_how": "declared in remove.json reasons"
+  },
+  {
+   "stable_id": "MET-0814",
+   "legacy_id": "R_0332_2",
+   "name": "SS420 (UNS S42000) — cutlery, surgical, nozzle — Hardened (1010°C oil Q + 150°C temper)",
+   "category": "Metal",
+   "subcategory": "Stainless Steel - Ferritic/Martensitic",
+   "heat_treatment": "Hardened (1010°C oil Q + 150°C temper)",
+   "process": "Wrought",
+   "values": {
+    "yield_strength": 1620,
+    "uts": 1830,
+    "elongation": 6
+   },
+   "removal_kind": "id",
+   "reason": "SS420 \"Hardened (1010°C OQ + 150°C temper)\" 1620/1830 — Carpenter 420 은 149/204°C 뜨임에 경도(HRC 약 52)만 주고 150°C 인장 행이 없다.",
+   "removed_on": "2026-09-29",
+   "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+   "superseded_by": "MET-0815",
+   "superseded_by_legacy_id": "R_0332_1",
+   "superseded_by_name": "SS420 (UNS S42000) — cutlery, surgical, nozzle — Q+T (200°C temper)",
+   "superseded_how": "declared in remove.json reasons"
+  },
+  {
+   "stable_id": "MET-0816",
+   "legacy_id": "R_0333_0",
+   "name": "SS440C (UNS S44004) — premium bearing & blade — Annealed",
+   "category": "Metal",
+   "subcategory": "Stainless Steel - Ferritic/Martensitic",
+   "heat_treatment": "Annealed",
+   "process": "Wrought",
+   "values": {
+    "yield_strength": 450,
+    "uts": 760,
+    "elongation": 14
+   },
+   "removal_kind": "id",
+   "reason": "SS440C 소둔 — AISI 440C 소둔(MET-0799)과 같은 조건·같은 값(450/760/14)의 중복 base.",
+   "removed_on": "2026-09-29",
+   "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+   "superseded_by": "MET-0799",
+   "superseded_by_legacy_id": "G_0275",
+   "superseded_by_name": "AISI 440C — Annealed (Wrought)",
+   "superseded_how": "declared in remove.json reasons"
+  },
+  {
+   "stable_id": "MET-0817",
+   "legacy_id": "R_0333_2",
+   "name": "SS440C (UNS S44004) — premium bearing & blade — Cryogenically treated + Hardened",
+   "category": "Metal",
+   "subcategory": "Stainless Steel - Ferritic/Martensitic",
+   "heat_treatment": "Cryogenically treated + Hardened",
+   "process": "Wrought",
+   "values": {
+    "yield_strength": 1965,
+    "uts": 2080,
+    "elongation": 1.5
+   },
+   "removal_kind": "id",
+   "reason": "SS440C \"Cryogenically treated + Hardened\" 1965/2080 — 인용 원전(Carpenter 440C)에 심랭처리 인장 행이 없다. 출처 라벨도 \"대조 전\"이었다.",
+   "removed_on": "2026-09-29",
+   "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+   "superseded_by": "MET-0802",
+   "superseded_by_legacy_id": "G_0279",
+   "superseded_by_name": "AISI 440C — Quenched / tempered (Wrought)",
+   "superseded_how": "declared in remove.json reasons"
+  },
+  {
+   "stable_id": "MET-0818",
+   "legacy_id": "R_0333_1",
+   "name": "SS440C (UNS S44004) — premium bearing & blade — Hardened (1010°C oil Q + 150°C T)",
+   "category": "Metal",
+   "subcategory": "Stainless Steel - Ferritic/Martensitic",
+   "heat_treatment": "Hardened (1010°C oil Q + 150°C T)",
+   "process": "Wrought",
+   "values": {
+    "yield_strength": 1900,
+    "uts": 2030,
+    "elongation": 2
+   },
+   "removal_kind": "id",
+   "reason": "SS440C \"Hardened (1010°C OQ + 150°C T)\" — 값(1900/2030·HV 580)은 Carpenter 316°C 뜨임 행이고 150°C 뜨임 인장 행은 원전에 없다. MET-0802 와 같은 행의 중복.",
+   "removed_on": "2026-09-29",
+   "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+   "superseded_by": "MET-0802",
+   "superseded_by_legacy_id": "G_0279",
+   "superseded_by_name": "AISI 440C — Quenched / tempered (Wrought)",
+   "superseded_how": "declared in remove.json reasons"
+  },
+  {
+   "stable_id": "MET-0840",
+   "legacy_id": "C_0080",
+   "name": "Stainless Steel 17-4PH (CR-PH) — H1150",
+   "category": "Metal",
+   "subcategory": "Stainless Steel - PH",
+   "heat_treatment": "H1150",
+   "process": "LPBF",
+   "values": {
+    "yield_strength": 1130,
+    "uts": 1170,
+    "elongation": 12
+   },
+   "removal_kind": "id",
+   "reason": "17-4PH LPBF \"H1150\" 1130/1170 — 인용된 Nikon SLM MDS 에는 H1150 이 없고, EOS 17-4PH MDS 는 H1150 을 HRC 28 로 준다(항복 1130 MPa 와 양립 불가). 원전에 없는 조건.",
+   "removed_on": "2026-09-29",
+   "ref": "docs/audits/stainless-reverify-2027Q4.md · A3 스테인리스",
+   "superseded_by": "MET-0841",
+   "superseded_by_legacy_id": "C_0079",
+   "superseded_by_name": "Stainless Steel 17-4PH (CR-PH) — H900",
+   "superseded_how": "declared in remove.json reasons"
   },
   {
    "stable_id": "MET-0866",

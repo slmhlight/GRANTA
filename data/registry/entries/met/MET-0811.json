@@ -11,7 +11,7 @@
   "legacy_id": "R_0331_2",
   "origin": "reference(supplementary)",
   "id": "R_0331_2",
-  "name": "SS410 (UNS S41000) — valve trim, pump shaft — Q+T (200°C temper, hardened)",
+  "name": "SS410 (UNS S41000) — valve trim, pump shaft — Q+T (1010°C OQ + 260°C)",
   "category": "Metal",
   "subcategory": "Stainless Steel - Ferritic/Martensitic",
   "tier": "reference",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Q+T (200°C temper, hardened)",
+  "heat_treatment": "Q+T (1010°C OQ + 260°C)",
   "ranges": {
     "density": {
       "min": 7.74,
@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 1000,
-      "max": 1000,
-      "typical": 1000,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 1089,
+      "typical": 1089,
+      "max": 1089,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 410 datasheet, bar hardened 1850°F(1010°C) OQ, tempered 4 h at 500°F(260°C): 158/193 ksi (1089/1331 MPa) · El 17% · RA 62% · HRC 43 / HB 401 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/410.pdf · [경도 스케일] HRC 43 → HV (ASTM E140-12b Table 1)"
     },
     "uts": {
-      "min": 1220,
-      "max": 1220,
-      "typical": 1220,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 1331,
+      "typical": 1331,
+      "max": 1331,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 410 datasheet, bar hardened 1850°F(1010°C) OQ, tempered 4 h at 500°F(260°C): 158/193 ksi (1089/1331 MPa) · El 17% · RA 62% · HRC 43 / HB 401 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/410.pdf · [경도 스케일] HRC 43 → HV (ASTM E140-12b Table 1)"
     },
     "elongation": {
-      "min": 14,
-      "max": 14,
-      "typical": 14,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 17,
+      "typical": 17,
+      "max": 17,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 410 datasheet, bar hardened 1850°F(1010°C) OQ, tempered 4 h at 500°F(260°C): 158/193 ksi (1089/1331 MPa) · El 17% · RA 62% · HRC 43 / HB 401 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/410.pdf · [경도 스케일] HRC 43 → HV (ASTM E140-12b Table 1)"
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,15 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 360,
-      "max": 360,
-      "typical": 360,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 423,
+      "typical": 423,
+      "max": 423,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 410 datasheet, bar hardened 1850°F(1010°C) OQ, tempered 4 h at 500°F(260°C): 158/193 ksi (1089/1331 MPa) · El 17% · RA 62% · HRC 43 / HB 401 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/410.pdf · [경도 스케일] HRC 43 → HV (ASTM E140-12b Table 1)",
+      "scale": "HV",
+      "source_scale": "HRC",
+      "source_value": 43,
+      "conversion": "ASTM E140-12b Table 1"
     },
     "thermal_conductivity": {
       "min": 24.9,
@@ -125,11 +129,11 @@
       "provenance": "3rd_family:Stainless Steel - Martensitic"
     },
     "max_service_temp": {
-      "min": 200,
-      "typical": 200,
-      "max": 200,
+      "min": 260,
+      "typical": 260,
+      "max": 260,
       "confidence": "handbook",
-      "provenance": "교정: 열처리 일반 원칙 — 뜨임재의 사용온도는 뜨임온도를 초과할 수 없다(초과 시 재뜨임으로 경도 저하). 뜨임온도는 이 entry 의 조건 표기에서 취함."
+      "provenance": "교정: Carpenter Technology — CarTech 410 datasheet, bar hardened 1850°F(1010°C) OQ, tempered 4 h at 500°F(260°C): 158/193 ksi (1089/1331 MPa) · El 17% · RA 62% · HRC 43 / HB 401 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/410.pdf · [경도 스케일] HRC 43 → HV (ASTM E140-12b Table 1)"
     },
     "thermal_expansion": {
       "min": 8.67,
@@ -216,12 +220,12 @@
       "verified": true
     },
     {
-      "label": "Cleveland-Cliffs (구 AK Steel) Martensitic Stainless Steel Comparator 2021-05 — 410/420/440A (후속 문서 — 대조 전)",
+      "label": "Cleveland-Cliffs (구 AK Steel) Martensitic Stainless Steel Comparator 2021-05 — Table 4 소둔 판재 대표값(410 290/517 · 420 317/614 · 440A 400/689 MPa) — 경화재 인장값은 싣지 않음",
       "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10518/file/CLF_ProductData_MartensiticStainlessSteelComparator_052021.pdf",
       "verified": false
     },
     {
-      "label": "Cleveland-Cliffs (구 AK Steel) Martensitic Stainless Steel Comparator 2021-05 — 410/420/440A (후속 문서 — 대조 전)",
+      "label": "Cleveland-Cliffs (구 AK Steel) Martensitic Stainless Steel Comparator 2021-05 — Table 4 소둔 판재 대표값(410 290/517 · 420 317/614 · 440A 400/689 MPa) — 경화재 인장값은 싣지 않음",
       "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10518/file/CLF_ProductData_MartensiticStainlessSteelComparator_052021.pdf",
       "verified": false
     },
@@ -234,11 +238,11 @@
   "points": [
     [
       7.74,
-      1000,
-      1220,
-      14,
+      1089,
+      1331,
+      17,
       200,
-      360,
+      423,
       24.9
     ]
   ],
@@ -259,11 +263,11 @@
   "fracture_toughness": 55.3,
   "fatigue_strength": 500,
   "density": 7.74,
-  "yield_strength": 1000,
-  "uts": 1220,
-  "elongation": 14,
+  "yield_strength": 1089,
+  "uts": 1331,
+  "elongation": 17,
   "modulus": 200,
-  "hardness": 360,
+  "hardness": 423,
   "thermal_conductivity": 24.9,
   "impact_strength": 8.4,
   "manufacturer": "Reference data",
@@ -279,7 +283,7 @@
     "Stainless Steel"
   ],
   "electrical_conductivity": 3,
-  "max_service_temp": 200,
+  "max_service_temp": 260,
   "thermal_expansion": 10.2,
   "poisson_ratio": 0.28,
   "specific_heat": 460,
@@ -302,12 +306,12 @@
     "sources": {
       "from": [
         {
-          "label": "Cleveland-Cliffs (구 AK Steel) Martensitic Stainless Steel Comparator 2021-05 — 410/420/440A (후속 문서 — 대조 전)",
+          "label": "Cleveland-Cliffs (구 AK Steel) Martensitic Stainless Steel Comparator 2021-05 — Table 4 소둔 판재 대표값(410 290/517 · 420 317/614 · 440A 400/689 MPa) — 경화재 인장값은 싣지 않음",
           "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10518/file/CLF_ProductData_MartensiticStainlessSteelComparator_052021.pdf",
           "verified": false
         },
         {
-          "label": "Cleveland-Cliffs (구 AK Steel) Martensitic Stainless Steel Comparator 2021-05 — 410/420/440A (후속 문서 — 대조 전)",
+          "label": "Cleveland-Cliffs (구 AK Steel) Martensitic Stainless Steel Comparator 2021-05 — Table 4 소둔 판재 대표값(410 290/517 · 420 317/614 · 440A 400/689 MPa) — 경화재 인장값은 싣지 않음",
           "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10518/file/CLF_ProductData_MartensiticStainlessSteelComparator_052021.pdf",
           "verified": false
         },
@@ -317,6 +321,42 @@
           "verified": false
         }
       ]
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 1000,
+        "max": 1000,
+        "typical": 1000,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1000
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 1220,
+        "max": 1220,
+        "typical": 1220,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1220
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 14,
+        "max": 14,
+        "typical": 14,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 14
     },
     "max_service_temp": {
       "had_range": true,
@@ -332,8 +372,20 @@
       "had_scalar": true,
       "val_scalar": 650
     },
-    "_basis": "상용 최고온도가 **뜨임온도(200°C)보다 높은 650°C** 로 표기돼 있었다. 뜨임 마르텐사이트를 뜨임온도 이상에서 쓰면 추가 뜨임이 진행돼 경도·강도를 잃는다 — 이 조건이 제공하는 강도를 근거로 설계한다면 상한은 뜨임온도를 넘을 수 없다. 기존 650°C 는 조건 축이 없는 **계열 typical**(같은 합금의 고온 뜨임 조건 기준)이 조건 무관하게 상속된 값이다(백로그 A11). 새 값을 만들지 않고 이 entry 자신의 뜨임온도를 상한으로 쓴다.",
-    "_src": "열처리 일반 원칙 — 뜨임재의 사용온도는 뜨임온도를 초과할 수 없다(초과 시 재뜨임으로 경도 저하). 뜨임온도는 이 entry 의 조건 표기에서 취함.",
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 360,
+        "max": 360,
+        "typical": 360,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 360
+    },
+    "_basis": "'200°C 뜨임' 1000/1220·14% 는 원전에 없는 조건이다(Carpenter 뜨임표는 260°C 부터) — 값도 260°C 행(1089/1331)보다 낮다. 원전 최저 뜨임 행으로 이름·값을 맞춘다. 사용온도 상한은 뜨임온도(A11 규칙 — 넘으면 재뜨임으로 강도가 떨어진다). (선행 교정 200 대체) [선행 교정 대체: {\"max_service_temp\": 200}]",
+    "_src": "Carpenter Technology — CarTech 410 datasheet, bar hardened 1850°F(1010°C) OQ, tempered 4 h at 500°F(260°C): 158/193 ksi (1089/1331 MPa) · El 17% · RA 62% · HRC 43 / HB 401 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/410.pdf · [경도 스케일] HRC 43 → HV (ASTM E140-12b Table 1)",
     "points": {
       "from": [
         [
@@ -346,6 +398,18 @@
           24.9
         ]
       ]
-    }
+    },
+    "fields": {
+      "name": {
+        "from": "SS410 (UNS S41000) — valve trim, pump shaft — Q+T (200°C temper, hardened)",
+        "had": true
+      },
+      "heat_treatment": {
+        "from": "Q+T (200°C temper, hardened)",
+        "had": true
+      }
+    },
+    "_fbasis": "원전에 없는 200°C 뜨임 라벨을 원전 최저 뜨임 행(260°C)으로 옮겼다.",
+    "_fsrc": "Carpenter 410 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/410.pdf"
   }
 }

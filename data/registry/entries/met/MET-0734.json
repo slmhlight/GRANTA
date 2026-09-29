@@ -11,7 +11,7 @@
   "legacy_id": "G_0211",
   "origin": "generic(csv)",
   "id": "G_0211",
-  "name": "AISI 316 — Strain-hardened (Wrought)",
+  "name": "AISI 316 — 1/4 Hard (cold-rolled, ASTM A666 min)",
   "category": "Metal",
   "subcategory": "Stainless Steel - Austenitic",
   "tier": "generic",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Strain-hardened",
+  "heat_treatment": "1/4 Hard (ASTM A666)",
   "ranges": {
     "density": {
       "min": 8,
@@ -33,24 +33,24 @@
     },
     "yield_strength": {
       "min": 515,
-      "max": 760,
       "typical": 515,
-      "n": 3,
-      "confidence": "handbook"
+      "max": 515,
+      "confidence": "handbook",
+      "provenance": "교정: ASTM A666 Table 2 — ¼ Hard, Type 316: TS 125 ksi (860 MPa) · YS 75 ksi (515 MPa) min · El 10% (0.030 in. 초과)"
     },
     "uts": {
       "min": 860,
-      "max": 1000,
       "typical": 860,
-      "n": 3,
-      "confidence": "handbook"
+      "max": 860,
+      "confidence": "handbook",
+      "provenance": "교정: ASTM A666 Table 2 — ¼ Hard, Type 316: TS 125 ksi (860 MPa) · YS 75 ksi (515 MPa) min · El 10% (0.030 in. 초과)"
     },
     "elongation": {
       "min": 10,
-      "max": 25,
-      "typical": 12,
-      "n": 3,
-      "confidence": "handbook"
+      "typical": 10,
+      "max": 10,
+      "confidence": "handbook",
+      "provenance": "교정: ASTM A666 Table 2 — ¼ Hard, Type 316: TS 125 ksi (860 MPa) · YS 75 ksi (515 MPa) min · El 10% (0.030 in. 초과)"
     },
     "modulus": {
       "min": 193,
@@ -235,7 +235,7 @@
       8,
       515,
       860,
-      12,
+      10,
       193,
       250,
       16.3
@@ -261,7 +261,7 @@
   "density": 8,
   "yield_strength": 515,
   "uts": 860,
-  "elongation": 12,
+  "elongation": 10,
   "modulus": 193,
   "hardness": 250,
   "thermal_conductivity": 16.3,
@@ -307,7 +307,7 @@
     "Ni 10% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
   "confidence_tier": "medium",
-  "industry_note": "UNS S31600 / SUS316 / 1.4401 — 304 + 2~3% Mo. Cl⁻ 환경 내식성 비약 향상 (MoO4²⁻ 가 Cl⁻ 차단). σy ≈ 240 / UTS ≈ 550 / El 50% / KIC 150-200 (handbook). max service 870°C. Marine grade / 해상 platform / 식품·의료·FPSO·반도체 piping.",
+  "industry_note": "UNS S31600 / SUS316 / 1.4401 — 304 에 Mo 2~3% 를 넣어 염화물 내식성을 올린 등급. 판재 소둔 대표값 σy 290 / UTS 627 MPa / El 55% (Cleveland-Cliffs). max service 870°C. 해양·해상 플랫폼·식품·의료·반도체 배관.",
   "_corrections": {
     "sources": {
       "from": [
@@ -338,6 +338,44 @@
         }
       ]
     },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 515,
+        "max": 760,
+        "typical": 515,
+        "n": 3,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 515
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 860,
+        "max": 1000,
+        "typical": 860,
+        "n": 3,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 860
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 10,
+        "max": 25,
+        "typical": 12,
+        "n": 3,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 12
+    },
+    "_basis": "generic 'Strain-hardened' 행은 어느 템퍼 표에도 없는 합성값이었다. 316 의 표준 냉간 템퍼는 ASTM A666 ¼ Hard 라 그 최소값(TS 125/YS 75 ksi·El 10%, 0.030 in. 초과)으로 교정·선언하고 이름에 템퍼를 적는다.",
+    "_src": "ASTM A666 Table 2 — ¼ Hard, Type 316: TS 125 ksi (860 MPa) · YS 75 ksi (515 MPa) min · El 10% (0.030 in. 초과)",
     "points": {
       "from": [
         [
@@ -369,6 +407,17 @@
         ]
       ]
     },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+    "fields": {
+      "name": {
+        "from": "AISI 316 — Strain-hardened (Wrought)",
+        "had": true
+      },
+      "heat_treatment": {
+        "from": "Strain-hardened",
+        "had": true
+      }
+    },
+    "_fbasis": "합성 'Strain-hardened' 조건을 실제 규격 템퍼(A666 ¼ Hard)로 바꾸면서 이름·열처리에 적었다.",
+    "_fsrc": "ASTM A666 Table 2"
   }
 }

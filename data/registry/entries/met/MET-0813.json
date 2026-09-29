@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 350,
-      "max": 350,
-      "typical": 350,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 345,
+      "typical": 345,
+      "max": 345,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 420 datasheet, Typical RT properties 1 in. round bar: Annealed 50/95 ksi (345/655 MPa) · El 25% · RA 55% · HB 196 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/420.pdf · [경도 스케일] HB 196 → HV (ASTM E140-12b Table 2)"
     },
     "uts": {
       "min": 655,
-      "max": 655,
       "typical": 655,
-      "n": 1,
-      "confidence": "handbook"
+      "max": 655,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 420 datasheet, Typical RT properties 1 in. round bar: Annealed 50/95 ksi (345/655 MPa) · El 25% · RA 55% · HB 196 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/420.pdf · [경도 스케일] HB 196 → HV (ASTM E140-12b Table 2)"
     },
     "elongation": {
       "min": 25,
-      "max": 25,
       "typical": 25,
-      "n": 1,
-      "confidence": "handbook"
+      "max": 25,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 420 datasheet, Typical RT properties 1 in. round bar: Annealed 50/95 ksi (345/655 MPa) · El 25% · RA 55% · HB 196 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/420.pdf · [경도 스케일] HB 196 → HV (ASTM E140-12b Table 2)"
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,15 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 195,
-      "max": 195,
-      "typical": 195,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 196,
+      "typical": 196,
+      "max": 196,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 420 datasheet, Typical RT properties 1 in. round bar: Annealed 50/95 ksi (345/655 MPa) · El 25% · RA 55% · HB 196 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/420.pdf · [경도 스케일] HB 196 → HV (ASTM E140-12b Table 2)",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 196,
+      "conversion": "ASTM E140-12b Table 2"
     },
     "thermal_conductivity": {
       "min": 24.9,
@@ -218,7 +222,7 @@
       "verified": true
     },
     {
-      "label": "Cleveland-Cliffs (구 AK Steel) Martensitic Stainless Steel Comparator 2021-05 — 410/420/440A (후속 문서 — 대조 전)",
+      "label": "Cleveland-Cliffs (구 AK Steel) Martensitic Stainless Steel Comparator 2021-05 — Table 4 소둔 판재 대표값(410 290/517 · 420 317/614 · 440A 400/689 MPa) — 경화재 인장값은 싣지 않음",
       "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10518/file/CLF_ProductData_MartensiticStainlessSteelComparator_052021.pdf",
       "verified": false
     },
@@ -236,11 +240,11 @@
   "points": [
     [
       7.74,
-      350,
+      345,
       655,
       25,
       200,
-      195,
+      196,
       24.9
     ]
   ],
@@ -261,11 +265,11 @@
   "fracture_toughness": 104,
   "fatigue_strength": 175,
   "density": 7.74,
-  "yield_strength": 350,
+  "yield_strength": 345,
   "uts": 655,
   "elongation": 25,
   "modulus": 200,
-  "hardness": 195,
+  "hardness": 196,
   "thermal_conductivity": 24.9,
   "impact_strength": 33.6,
   "manufacturer": "Reference data",
@@ -304,7 +308,7 @@
     "sources": {
       "from": [
         {
-          "label": "Cleveland-Cliffs (구 AK Steel) Martensitic Stainless Steel Comparator 2021-05 — 410/420/440A (후속 문서 — 대조 전)",
+          "label": "Cleveland-Cliffs (구 AK Steel) Martensitic Stainless Steel Comparator 2021-05 — Table 4 소둔 판재 대표값(410 290/517 · 420 317/614 · 440A 400/689 MPa) — 경화재 인장값은 싣지 않음",
           "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10518/file/CLF_ProductData_MartensiticStainlessSteelComparator_052021.pdf",
           "verified": false
         },
@@ -318,6 +322,69 @@
           "url": null,
           "verified": false
         }
+      ]
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 350,
+        "max": 350,
+        "typical": 350,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 350
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 655,
+        "max": 655,
+        "typical": 655,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 655
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 25,
+        "max": 25,
+        "typical": 25,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 25
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 195,
+        "max": 195,
+        "typical": 195,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 195
+    },
+    "_basis": "항복 350·경도 HV 195 는 Carpenter 1 in. 봉 소둔 행(345/655·25%·HB 196)의 반올림·스케일 혼동이다(HB 값이 HV 칸에). 같은 행으로.",
+    "_src": "Carpenter Technology — CarTech 420 datasheet, Typical RT properties 1 in. round bar: Annealed 50/95 ksi (345/655 MPa) · El 25% · RA 55% · HB 196 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/420.pdf · [경도 스케일] HB 196 → HV (ASTM E140-12b Table 2)",
+    "points": {
+      "from": [
+        [
+          7.74,
+          350,
+          655,
+          25,
+          200,
+          195,
+          24.9
+        ]
       ]
     }
   }

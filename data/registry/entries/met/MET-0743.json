@@ -190,24 +190,14 @@
   },
   "sources": [
     {
-      "label": "ASM Handbook Vol.1 — Stainless Steels (properties & selection)",
-      "url": "https://dl.asminternational.org/handbooks/edited-volume/16/Properties-and-Selection-Irons-Steels-and-High",
-      "verified": true
-    },
-    {
-      "label": "ASTM A240/A240M — Stainless Steel Plate, Sheet & Strip",
+      "label": "ASTM A240/A240M — Type 317 최소 205/515 MPa·35% (표시값 244/568 의 원전은 확인하지 못함)",
       "url": "https://store.astm.org/a0240_a0240m-23.html",
-      "verified": true
+      "verified": false
     },
     {
-      "label": "Datasheet 1",
-      "url": "ANSYS Granta — Stainless steel, austenitic, AISI 317 annealed (UNS S31700)",
-      "verified": true
-    },
-    {
-      "label": "Datasheet 1",
+      "label": "Outokumpu — 오스테나이트 스테인리스 강종 개요 페이지 (강종별 수치 없음 — 값 대조 불가)",
       "url": "https://www.outokumpu.com/en/products/stainless-steel-types/austenitic-stainless-steel",
-      "verified": true
+      "verified": false
     },
     {
       "label": "KIC fallback: ASM Vol.1 Austenitic SS",
@@ -234,6 +224,10 @@
     "reference": true,
     "condition": "Solution annealed (S31700, EN 1.4438)",
     "specs": [
+      {
+        "id": "ASTM A240",
+        "org": "ASTM"
+      },
       {
         "id": "EN 1.4438",
         "org": "EN"
@@ -286,26 +280,5 @@
   "svhc_concerns": [
     "Ni 15% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high",
-  "_corrections": {
-    "sources": {
-      "from": [
-        {
-          "label": "Datasheet 1",
-          "url": "ANSYS Granta — Stainless steel, austenitic, AISI 317 annealed (UNS S31700)",
-          "verified": true
-        },
-        {
-          "label": "Datasheet 1",
-          "url": "https://www.outokumpu.com/en/products/stainless-steel-types/austenitic-stainless-steel",
-          "verified": true
-        },
-        {
-          "label": "KIC fallback: ASM Vol.1 Austenitic SS",
-          "url": null,
-          "verified": false
-        }
-      ]
-    }
-  }
+  "confidence_tier": "medium"
 }

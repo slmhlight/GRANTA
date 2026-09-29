@@ -11,7 +11,7 @@
   "legacy_id": "G_0279",
   "origin": "generic(csv)",
   "id": "G_0279",
-  "name": "AISI 440C — Quenched / tempered (Wrought)",
+  "name": "AISI 440C — Q+T (1038°C OQ + 316°C)",
   "category": "Metal",
   "subcategory": "Stainless Steel - Ferritic/Martensitic",
   "tier": "generic",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Quenched / tempered",
+  "heat_treatment": "Q+T (1038°C OQ + 316°C)",
   "ranges": {
     "density": {
       "min": 7.75,
@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 1790,
-      "max": 1970,
-      "typical": 1900,
-      "n": 5,
-      "confidence": "handbook"
+      "min": 1896,
+      "typical": 1896,
+      "max": 1896,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 440C datasheet, Typical RT mechanical properties, hardened 1900°F(1038°C) OQ, tempered 600°F(316°C): 275/285 ksi (1896/1965 MPa) · El 2% · HB 580 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/440C.pdf · [경도 스케일] HB 580 → HV (ASTM E140-12b Table 1)"
     },
     "uts": {
-      "min": 1860,
-      "max": 2030,
-      "typical": 1960,
-      "n": 5,
-      "confidence": "handbook"
+      "min": 1965,
+      "typical": 1965,
+      "max": 1965,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 440C datasheet, Typical RT mechanical properties, hardened 1900°F(1038°C) OQ, tempered 600°F(316°C): 275/285 ksi (1896/1965 MPa) · El 2% · HB 580 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/440C.pdf · [경도 스케일] HB 580 → HV (ASTM E140-12b Table 1)"
     },
     "elongation": {
-      "min": 1,
-      "max": 4,
+      "min": 2,
       "typical": 2,
-      "n": 5,
-      "confidence": "handbook"
+      "max": 2,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 440C datasheet, Typical RT mechanical properties, hardened 1900°F(1038°C) OQ, tempered 600°F(316°C): 275/285 ksi (1896/1965 MPa) · El 2% · HB 580 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/440C.pdf · [경도 스케일] HB 580 → HV (ASTM E140-12b Table 1)"
     },
     "modulus": {
       "min": 210,
@@ -60,11 +60,15 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 560,
-      "max": 640,
-      "typical": 580,
-      "n": 5,
-      "confidence": "handbook"
+      "min": 616,
+      "typical": 616,
+      "max": 616,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 440C datasheet, Typical RT mechanical properties, hardened 1900°F(1038°C) OQ, tempered 600°F(316°C): 275/285 ksi (1896/1965 MPa) · El 2% · HB 580 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/440C.pdf · [경도 스케일] HB 580 → HV (ASTM E140-12b Table 1)",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 580,
+      "conversion": "ASTM E140-12b Table 2"
     },
     "thermal_conductivity": {
       "min": 25,
@@ -108,13 +112,11 @@
       "provenance": "alloy:440c"
     },
     "max_service_temp": {
-      "min": 480,
-      "max": 480,
-      "typical": 480,
-      "n": 0,
-      "estimated": false,
+      "min": 316,
+      "typical": 316,
+      "max": 316,
       "confidence": "handbook",
-      "provenance": "alloy:440c"
+      "provenance": "교정: Carpenter Technology — CarTech 440C datasheet, Typical RT mechanical properties, hardened 1900°F(1038°C) OQ, tempered 600°F(316°C): 275/285 ksi (1896/1965 MPa) · El 2% · HB 580 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/440C.pdf · [경도 스케일] HB 580 → HV (ASTM E140-12b Table 1)"
     },
     "thermal_expansion": {
       "min": 10.2,
@@ -200,7 +202,7 @@
       "verified": true
     },
     {
-      "label": "Carpenter Technology — CarTech 440C Stainless 공식 데이터시트 (조성·물리물성·HT·가공성, pdftotext 텍스트 추출 검증; 5쪽 PDF)",
+      "label": "Carpenter Technology — CarTech 440C datasheet",
       "url": "https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/440C.pdf",
       "verified": true
     },
@@ -218,11 +220,11 @@
   "points": [
     [
       7.75,
-      1900,
-      1960,
+      1896,
+      1965,
       2,
       210,
-      580,
+      616,
       25
     ]
   ],
@@ -255,16 +257,16 @@
   "fracture_toughness": 22,
   "fatigue_strength": 500,
   "density": 7.75,
-  "yield_strength": 1900,
-  "uts": 1960,
+  "yield_strength": 1896,
+  "uts": 1965,
   "elongation": 2,
   "modulus": 210,
-  "hardness": 580,
+  "hardness": 616,
   "thermal_conductivity": 25,
   "impact_strength": 8,
   "manufacturer": "Generic",
   "process": "Wrought",
-  "source": "MatWeb — AISI 440C stainless",
+  "source": "Carpenter Technology — CarTech 440C datasheet",
   "aliases": [],
   "families": [
     "Metal",
@@ -274,7 +276,7 @@
   ],
   "fatigue_estimated": false,
   "electrical_conductivity": 2.5,
-  "max_service_temp": 480,
+  "max_service_temp": 316,
   "thermal_expansion": 10.2,
   "poisson_ratio": 0.28,
   "specific_heat": 460,
@@ -302,9 +304,9 @@
     "sources": {
       "from": [
         {
-          "label": "MatWeb — AISI 440C stainless",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AISI+440C",
-          "verified": false
+          "label": "Carpenter Technology — CarTech 440C datasheet",
+          "url": "https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/440C.pdf",
+          "verified": true
         },
         {
           "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
@@ -315,11 +317,6 @@
           "label": "KIC fallback: ASM Vol.1 Martensitic SS",
           "url": null,
           "verified": false
-        },
-        {
-          "label": "Carpenter Technology — CarTech 440C Stainless 공식 데이터시트 (조성·물리물성·HT·가공성, pdftotext 텍스트 추출 검증; 5쪽 PDF)",
-          "url": "https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/440C.pdf",
-          "verified": true
         },
         {
           "label": "Aircraft Materials — Alloy 440C / AISI 440C / AMS 5630 (UNS S44004) 조성+경화/템퍼 인장표·AMS 5630/5618/5880 명기",
@@ -333,6 +330,70 @@
         }
       ]
     },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 1790,
+        "max": 1970,
+        "typical": 1900,
+        "n": 5,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1900
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 1860,
+        "max": 2030,
+        "typical": 1960,
+        "n": 5,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1960
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 1,
+        "max": 4,
+        "typical": 2,
+        "n": 5,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 2
+    },
+    "max_service_temp": {
+      "had_range": true,
+      "val_range": {
+        "min": 480,
+        "max": 480,
+        "typical": 480,
+        "n": 0,
+        "estimated": false,
+        "confidence": "handbook",
+        "provenance": "alloy:440c"
+      },
+      "had_scalar": true,
+      "val_scalar": 480
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 560,
+        "max": 640,
+        "typical": 580,
+        "n": 5,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 580
+    },
+    "_basis": "generic 'Quenched / tempered' 1900/1960 은 Carpenter 316°C 뜨임 행(1896/1965·2%·HB 580)의 반올림 — 조건을 이름에 적고 경도를 HB→HV 로 환산. 사용온도 상한은 뜨임온도(A11 규칙 — 넘으면 재뜨임으로 강도가 떨어진다). (480 → 316)",
+    "_src": "Carpenter Technology — CarTech 440C datasheet, Typical RT mechanical properties, hardened 1900°F(1038°C) OQ, tempered 600°F(316°C): 275/285 ksi (1896/1965 MPa) · El 2% · HB 580 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/440C.pdf · [경도 스케일] HB 580 → HV (ASTM E140-12b Table 1)",
     "points": {
       "from": [
         [
@@ -382,6 +443,17 @@
         ]
       ]
     },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+    "fields": {
+      "name": {
+        "from": "AISI 440C — Quenched / tempered (Wrought)",
+        "had": true
+      },
+      "heat_treatment": {
+        "from": "Quenched / tempered",
+        "had": true
+      }
+    },
+    "_fbasis": "generic Q/T 를 원전 한 행으로 교정하면서 조건을 이름·열처리에 적었다.",
+    "_fsrc": "Carpenter 440C · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/440C.pdf"
   }
 }

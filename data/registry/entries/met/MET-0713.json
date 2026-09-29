@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 170,
-      "max": 280,
-      "typical": 205,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 290,
+      "typical": 290,
+      "max": 290,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) 304/304L Product Data Bulletin 2021-05, Table 1 Typical RT Mechanical Properties: Type 304 95/42 ksi (655/290 MPa) · El 55% · HRB 84 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10510/file/CLF_ProductData_304-304LSS_052021.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "uts": {
-      "min": 480,
-      "max": 620,
-      "typical": 515,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 655,
+      "typical": 655,
+      "max": 655,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) 304/304L Product Data Bulletin 2021-05, Table 1 Typical RT Mechanical Properties: Type 304 95/42 ksi (655/290 MPa) · El 55% · HRB 84 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10510/file/CLF_ProductData_304-304LSS_052021.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "elongation": {
-      "min": 30,
-      "max": 60,
-      "typical": 40,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 55,
+      "typical": 55,
+      "max": 55,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) 304/304L Product Data Bulletin 2021-05, Table 1 Typical RT Mechanical Properties: Type 304 95/42 ksi (655/290 MPa) · El 55% · HRB 84 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10510/file/CLF_ProductData_304-304LSS_052021.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "modulus": {
       "min": 193,
@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 130,
-      "max": 200,
-      "typical": 150,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 84,
+      "typical": 84,
+      "max": 84,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) 304/304L Product Data Bulletin 2021-05, Table 1 Typical RT Mechanical Properties: Type 304 95/42 ksi (655/290 MPa) · El 55% · HRB 84 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10510/file/CLF_ProductData_304-304LSS_052021.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기",
+      "scale": "HRB",
+      "source_scale": "HRB",
+      "source_value": 84,
+      "conversion": null,
+      "scale_note": "ASTM E140 표 밖(또는 해당 표 없음) — 환산하지 않고 원 스케일 그대로 표기"
     },
     "thermal_conductivity": {
       "min": 16.3,
@@ -208,11 +213,11 @@
   "points": [
     [
       8,
-      205,
-      515,
-      40,
+      290,
+      655,
+      55,
       193,
-      150,
+      84,
       16.3
     ]
   ],
@@ -238,11 +243,11 @@
   "fracture_toughness": 220,
   "fatigue_strength": 240,
   "density": 8,
-  "yield_strength": 205,
-  "uts": 515,
-  "elongation": 40,
+  "yield_strength": 290,
+  "uts": 655,
+  "elongation": 55,
   "modulus": 193,
-  "hardness": 150,
+  "hardness": 84,
   "thermal_conductivity": 16.3,
   "impact_strength": 160,
   "manufacturer": "Generic",
@@ -345,6 +350,56 @@
         }
       ]
     },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 170,
+        "max": 280,
+        "typical": 205,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 205
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 480,
+        "max": 620,
+        "typical": 515,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 515
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 30,
+        "max": 60,
+        "typical": 40,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 40
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 130,
+        "max": 200,
+        "typical": 150,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 150
+    },
+    "_basis": "저장값 205/515·40% 는 ASTM A240 304 의 **보증 최소값**이 대표값 칸에 실린 generic 합성값이다. CLF Table 1 Type 304 대표값으로(최소값은 min_spec 축 병기). Carpenter 304/304L 봉재(193/517)는 A240 판재 최소 205 에 못 미쳐 판재 대표값으로 통일했다.",
+    "_src": "Cleveland-Cliffs (구 AK Steel) 304/304L Product Data Bulletin 2021-05, Table 1 Typical RT Mechanical Properties: Type 304 95/42 ksi (655/290 MPa) · El 55% · HRB 84 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10510/file/CLF_ProductData_304-304LSS_052021.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기",
     "points": {
       "from": [
         [
@@ -357,7 +412,6 @@
           16.3
         ]
       ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+    }
   }
 }

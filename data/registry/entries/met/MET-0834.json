@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 1413,
-      "max": 1413,
-      "typical": 1413,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 1475,
+      "typical": 1475,
+      "max": 1475,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — Custom 465 datasheet, Thermal stability 10 in. 봉 종방향: H 1025 214/227 ksi (1475/1565 MPa) · El 15% · RA 67% · HRC 47 · https://www.carpentertechnology.com/hubfs/Data%20Sheets/Custom_465_Datasheet.pdf · [경도 스케일] HRC 47 → HV (ASTM E140-12b Table 1)"
     },
     "uts": {
-      "min": 1517,
-      "max": 1517,
-      "typical": 1517,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 1565,
+      "typical": 1565,
+      "max": 1565,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — Custom 465 datasheet, Thermal stability 10 in. 봉 종방향: H 1025 214/227 ksi (1475/1565 MPa) · El 15% · RA 67% · HRC 47 · https://www.carpentertechnology.com/hubfs/Data%20Sheets/Custom_465_Datasheet.pdf · [경도 스케일] HRC 47 → HV (ASTM E140-12b Table 1)"
     },
     "elongation": {
       "min": 15,
-      "max": 15,
       "typical": 15,
-      "n": 1,
-      "confidence": "handbook"
+      "max": 15,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — Custom 465 datasheet, Thermal stability 10 in. 봉 종방향: H 1025 214/227 ksi (1475/1565 MPa) · El 15% · RA 67% · HRC 47 · https://www.carpentertechnology.com/hubfs/Data%20Sheets/Custom_465_Datasheet.pdf · [경도 스케일] HRC 47 → HV (ASTM E140-12b Table 1)"
     },
     "modulus": {
       "min": 196,
@@ -60,11 +60,15 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 506,
-      "max": 506,
-      "typical": 506,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 471,
+      "typical": 471,
+      "max": 471,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — Custom 465 datasheet, Thermal stability 10 in. 봉 종방향: H 1025 214/227 ksi (1475/1565 MPa) · El 15% · RA 67% · HRC 47 · https://www.carpentertechnology.com/hubfs/Data%20Sheets/Custom_465_Datasheet.pdf · [경도 스케일] HRC 47 → HV (ASTM E140-12b Table 1)",
+      "scale": "HV",
+      "source_scale": "HRC",
+      "source_value": 47,
+      "conversion": "ASTM E140-12b Table 1"
     },
     "thermal_conductivity": {
       "min": 19.37,
@@ -197,8 +201,8 @@
       "verified": true
     },
     {
-      "label": "Datasheet 4",
-      "url": "Carpenter Custom 465 datasheet (AMS 5936, ASTM A564, MMPDS-01)",
+      "label": "Carpenter — Custom 465 datasheet (4.25 in. 봉 종방향 대표값 H950·H975·H1000·H1050 · 10 in. 봉 H1025)",
+      "url": "https://www.carpentertechnology.com/hubfs/Data%20Sheets/Custom_465_Datasheet.pdf",
       "verified": true
     },
     {
@@ -215,18 +219,18 @@
   "points": [
     [
       7.84,
-      1413,
-      1517,
+      1475,
+      1565,
       15,
       196,
-      506,
+      471,
       19.37
     ]
   ],
   "machinability": "Fair",
   "weldability": "Good",
   "corrosion_resistance": "Good",
-  "industry_note": "UNS S46500 / Carpenter Custom 465 — high-strength martensitic precipitation-hardening stainless (Cr 11-12, Ni 10.7-11.3, Mo 0.75-1.25, Ti 1.5-1.8). Stronger than 17-4 PH 또는 Custom 455. H 950 (peak strength, 510°C/4h): σy 1669 / UTS 1765 / El 8% / HRC 51. H 975: σy 1620 / UTS 1703 / HRC 50. H 1000: σy 1560 / UTS 1640 / HRC 47. Tmax 482°C. 항공기 landing gear (high-strength PH version of 17-4), missile component, sport firearm component.",
+  "industry_note": "UNS S46500 / Carpenter Custom 465 — 고강도 마르텐사이트계 석출경화 스테인리스(Cr 11~12, Ni 10.7~11.3, Mo 0.75~1.25, Ti 1.5~1.8). 17-4 PH·Custom 455 보다 강하다. H 950 대표값 σy 1669 / UTS 1765 MPa / El 13% / HRC 49.5 · H 1000 σy 1510 / UTS 1593 MPa / El 15% / HRC 47.5 (Carpenter 4.25 in. 봉 종방향). Tmax 482°C. 항공기 랜딩기어·미사일 부품.",
   "meta": {
     "reference": true,
     "condition": "H 1025 (552°C/4h aged)",
@@ -240,11 +244,11 @@
   },
   "fracture_toughness": 104,
   "density": 7.84,
-  "yield_strength": 1413,
-  "uts": 1517,
+  "yield_strength": 1475,
+  "uts": 1565,
   "elongation": 15,
   "modulus": 196,
-  "hardness": 506,
+  "hardness": 471,
   "thermal_conductivity": 19.37,
   "fatigue_strength": 720,
   "impact_strength": 30,
@@ -284,5 +288,70 @@
   "svhc_concerns": [
     "Ni 11.25% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 1413,
+        "max": 1413,
+        "typical": 1413,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1413
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 1517,
+        "max": 1517,
+        "typical": 1517,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1517
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 15,
+        "max": 15,
+        "typical": 15,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 15
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 506,
+        "max": 506,
+        "typical": 506,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 506
+    },
+    "_basis": "저장값 1413/1517 MPa 는 H 1050 의 값(10 in. 봉 205/220 ksi)이다 — H 1025 행(214/227 ksi)으로.",
+    "_src": "Carpenter Technology — Custom 465 datasheet, Thermal stability 10 in. 봉 종방향: H 1025 214/227 ksi (1475/1565 MPa) · El 15% · RA 67% · HRC 47 · https://www.carpentertechnology.com/hubfs/Data%20Sheets/Custom_465_Datasheet.pdf · [경도 스케일] HRC 47 → HV (ASTM E140-12b Table 1)",
+    "points": {
+      "from": [
+        [
+          7.84,
+          1413,
+          1517,
+          15,
+          196,
+          506,
+          19.37
+        ]
+      ]
+    }
+  }
 }

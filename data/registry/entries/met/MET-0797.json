@@ -11,7 +11,7 @@
   "legacy_id": "R_0039_1",
   "origin": "reference(supplementary)",
   "id": "R_0039_1",
-  "name": "AISI 440B (medium-C martensitic) — Q+T 200°C (HRC 58, cutlery/bearing)",
+  "name": "AISI 440B (medium-C martensitic) — Q+T (1038°C OQ + 316°C)",
   "category": "Metal",
   "subcategory": "Stainless Steel - Ferritic/Martensitic",
   "tier": "reference",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": "Q+T 200°C (HRC 58, cutlery/bearing)",
+  "heat_treatment": "Q+T (1038°C OQ + 316°C)",
   "ranges": {
     "density": {
       "min": 7.8,
@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 1900,
-      "max": 1900,
-      "typical": 1900,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 1862,
+      "typical": 1862,
+      "max": 1862,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 440B datasheet, Typical RT mechanical properties, hardened 1900°F(1038°C) OQ, tempered 600°F(316°C): 270/280 ksi (1862/1931 MPa) · El 3% · HB 534 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/440B%20.pdf · [경도 스케일] HB 534 → HV (ASTM E140-12b Table 1)"
     },
     "uts": {
-      "min": 2000,
-      "max": 2000,
-      "typical": 2000,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 1931,
+      "typical": 1931,
+      "max": 1931,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 440B datasheet, Typical RT mechanical properties, hardened 1900°F(1038°C) OQ, tempered 600°F(316°C): 270/280 ksi (1862/1931 MPa) · El 3% · HB 534 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/440B%20.pdf · [경도 스케일] HB 534 → HV (ASTM E140-12b Table 1)"
     },
     "elongation": {
       "min": 3,
-      "max": 3,
       "typical": 3,
-      "n": 1,
-      "confidence": "handbook"
+      "max": 3,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 440B datasheet, Typical RT mechanical properties, hardened 1900°F(1038°C) OQ, tempered 600°F(316°C): 270/280 ksi (1862/1931 MPa) · El 3% · HB 534 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/440B%20.pdf · [경도 스케일] HB 534 → HV (ASTM E140-12b Table 1)"
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,15 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 600,
-      "max": 600,
-      "typical": 600,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 569,
+      "typical": 569,
+      "max": 569,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 440B datasheet, Typical RT mechanical properties, hardened 1900°F(1038°C) OQ, tempered 600°F(316°C): 270/280 ksi (1862/1931 MPa) · El 3% · HB 534 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/440B%20.pdf · [경도 스케일] HB 534 → HV (ASTM E140-12b Table 1)",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 534,
+      "conversion": "ASTM E140-12b Table 2"
     },
     "thermal_conductivity": {
       "min": 24,
@@ -114,11 +118,11 @@
       "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
     },
     "max_service_temp": {
-      "min": 200,
-      "typical": 200,
-      "max": 200,
+      "min": 316,
+      "typical": 316,
+      "max": 316,
       "confidence": "handbook",
-      "provenance": "교정: 열처리 일반 원칙 — 뜨임재의 사용온도는 뜨임온도를 초과할 수 없다(초과 시 재뜨임으로 경도 저하). 뜨임온도는 이 entry 의 조건 표기에서 취함."
+      "provenance": "교정: Carpenter Technology — CarTech 440B datasheet, Typical RT mechanical properties, hardened 1900°F(1038°C) OQ, tempered 600°F(316°C): 270/280 ksi (1862/1931 MPa) · El 3% · HB 534 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/440B%20.pdf · [경도 스케일] HB 534 → HV (ASTM E140-12b Table 1)"
     },
     "thermal_expansion": {
       "min": 8.67,
@@ -196,8 +200,8 @@
   },
   "sources": [
     {
-      "label": "Datasheet 2",
-      "url": "ANSYS Granta — Stainless steel, martensitic, AISI 440B annealed (UNS S44003)",
+      "label": "Carpenter — CarTech 440B datasheet (1038°C 유냉 + 316°C 뜨임 대표값 1862/1931 MPa·3%·HB 534 · 소둔 HB 약 223)",
+      "url": "https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/440B%20.pdf",
       "verified": true
     },
     {
@@ -214,11 +218,11 @@
   "points": [
     [
       7.8,
-      1900,
-      2000,
+      1862,
+      1931,
       3,
       200,
-      600,
+      569,
       24
     ]
   ],
@@ -232,11 +236,11 @@
   },
   "fracture_toughness": 55.3,
   "density": 7.8,
-  "yield_strength": 1900,
-  "uts": 2000,
+  "yield_strength": 1862,
+  "uts": 1931,
   "elongation": 3,
   "modulus": 200,
-  "hardness": 600,
+  "hardness": 569,
   "thermal_conductivity": 24,
   "fatigue_strength": 500,
   "impact_strength": 15,
@@ -253,7 +257,7 @@
     "Stainless Steel"
   ],
   "electrical_conductivity": 3,
-  "max_service_temp": 200,
+  "max_service_temp": 316,
   "thermal_expansion": 10.2,
   "poisson_ratio": 0.28,
   "specific_heat": 460,
@@ -273,6 +277,42 @@
   "rohs_basis": "no_regulated_element_data",
   "confidence_tier": "medium",
   "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 1900,
+        "max": 1900,
+        "typical": 1900,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1900
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 2000,
+        "max": 2000,
+        "typical": 2000,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 2000
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 3,
+        "max": 3,
+        "typical": 3,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 3
+    },
     "max_service_temp": {
       "had_range": true,
       "val_range": {
@@ -287,8 +327,20 @@
       "had_scalar": true,
       "val_scalar": 650
     },
-    "_basis": "상용 최고온도가 **뜨임온도(200°C)보다 높은 650°C** 로 표기돼 있었다. 뜨임 마르텐사이트를 뜨임온도 이상에서 쓰면 추가 뜨임이 진행돼 경도·강도를 잃는다 — 이 조건이 제공하는 강도를 근거로 설계한다면 상한은 뜨임온도를 넘을 수 없다. 기존 650°C 는 조건 축이 없는 **계열 typical**(같은 합금의 고온 뜨임 조건 기준)이 조건 무관하게 상속된 값이다(백로그 A11). 새 값을 만들지 않고 이 entry 자신의 뜨임온도를 상한으로 쓴다.",
-    "_src": "열처리 일반 원칙 — 뜨임재의 사용온도는 뜨임온도를 초과할 수 없다(초과 시 재뜨임으로 경도 저하). 뜨임온도는 이 entry 의 조건 표기에서 취함.",
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 600,
+        "max": 600,
+        "typical": 600,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 600
+    },
+    "_basis": "'200°C 뜨임' 행의 인장값은 원전에 없는 조건이다(Carpenter 는 204°C 에 경도만 준다). 인장 행이 있는 316°C 뜨임으로 이름·값을 함께 옮긴다. 사용온도 상한은 뜨임온도(A11 규칙 — 넘으면 재뜨임으로 강도가 떨어진다). (선행 교정 200 대체) [선행 교정 대체: {\"max_service_temp\": 200}]",
+    "_src": "Carpenter Technology — CarTech 440B datasheet, Typical RT mechanical properties, hardened 1900°F(1038°C) OQ, tempered 600°F(316°C): 270/280 ksi (1862/1931 MPa) · El 3% · HB 534 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/440B%20.pdf · [경도 스케일] HB 534 → HV (ASTM E140-12b Table 1)",
     "points": {
       "from": [
         [
@@ -301,6 +353,18 @@
           24
         ]
       ]
-    }
+    },
+    "fields": {
+      "name": {
+        "from": "AISI 440B (medium-C martensitic) — Q+T 200°C (HRC 58, cutlery/bearing)",
+        "had": true
+      },
+      "heat_treatment": {
+        "from": "Q+T 200°C (HRC 58, cutlery/bearing)",
+        "had": true
+      }
+    },
+    "_fbasis": "인장 행이 있는 원전 조건(316°C 뜨임)으로 이름을 옮겼다. 204°C 뜨임 경도는 원전 HRC 56/57.",
+    "_fsrc": "Carpenter 440B · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/440B%20.pdf"
   }
 }

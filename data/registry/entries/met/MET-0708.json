@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 1240,
-      "max": 1240,
-      "typical": 1240,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 930,
+      "typical": 930,
+      "max": 930,
+      "confidence": "handbook",
+      "provenance": "교정: ASTM A666 Table 2 Tensile Property Requirements (Type 301, S30100) — ¾ Hard: TS 175 ksi (1205 MPa) · YS 135 ksi (930 MPa) min · El 12% (0.015 in. 이상) · Cleveland-Cliffs 301 Table 2 동일 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10509/file/CLF_ProductData_301SS_052021.pdf"
     },
     "uts": {
-      "min": 1380,
-      "max": 1380,
-      "typical": 1380,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 1205,
+      "typical": 1205,
+      "max": 1205,
+      "confidence": "handbook",
+      "provenance": "교정: ASTM A666 Table 2 Tensile Property Requirements (Type 301, S30100) — ¾ Hard: TS 175 ksi (1205 MPa) · YS 135 ksi (930 MPa) min · El 12% (0.015 in. 이상) · Cleveland-Cliffs 301 Table 2 동일 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10509/file/CLF_ProductData_301SS_052021.pdf"
     },
     "elongation": {
-      "min": 5,
-      "max": 5,
-      "typical": 5,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 12,
+      "typical": 12,
+      "max": 12,
+      "confidence": "handbook",
+      "provenance": "교정: ASTM A666 Table 2 Tensile Property Requirements (Type 301, S30100) — ¾ Hard: TS 175 ksi (1205 MPa) · YS 135 ksi (930 MPa) min · El 12% (0.015 in. 이상) · Cleveland-Cliffs 301 Table 2 동일 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10509/file/CLF_ProductData_301SS_052021.pdf"
     },
     "modulus": {
       "min": 175,
@@ -192,14 +192,14 @@
   },
   "sources": [
     {
-      "label": "Datasheet 4",
-      "url": "ANSYS Granta — Stainless steel austenitic AISI 301 (UNS S30100, EN 1.4310, X10CrNi18-8)",
+      "label": "Cleveland-Cliffs (구 AK Steel) 301 Stainless Product Data Bulletin 2021-05 — Table 1 소둔 대표값 310/827 MPa·60%·HRB 86 · Table 2 냉간 템퍼 최소값(= ASTM A666)",
+      "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10509/file/CLF_ProductData_301SS_052021.pdf",
       "verified": true
     },
     {
-      "label": "Datasheet 4",
+      "label": "Outokumpu — 오스테나이트 스테인리스 강종 개요 페이지 (강종별 수치 없음 — 값 대조 불가)",
       "url": "https://www.outokumpu.com/en/products/stainless-steel-types/austenitic-stainless-steel",
-      "verified": true
+      "verified": false
     },
     {
       "label": "KIC fallback: ASM Vol.1 Austenitic SS",
@@ -212,17 +212,17 @@
       "verified": true
     },
     {
-      "label": "Cleveland-Cliffs (구 AK Steel) 301 Stainless Product Data Bulletin 2021-05",
+      "label": "Cleveland-Cliffs (구 AK Steel) 301 Stainless Product Data Bulletin 2021-05 — Table 1 소둔 대표값 310/827 MPa·60%·HRB 86 · Table 2 냉간 템퍼 최소값(= ASTM A666)",
       "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10509/file/CLF_ProductData_301SS_052021.pdf",
-      "verified": false
+      "verified": true
     }
   ],
   "points": [
     [
       7.92,
-      1240,
-      1380,
-      5,
+      930,
+      1205,
+      12,
       175,
       430,
       15.5
@@ -231,18 +231,24 @@
   "machinability": "Fair",
   "weldability": "Good",
   "corrosion_resistance": "Good",
-  "industry_note": "UNS S30100 / EN 1.4310 / X10CrNi17-7 / JIS SUS301 — lower-Ni (6-8%) austenitic for cold-work strengthening. CW 1/4 hard: σy 760 / UTS 860 / El 25%. CW Full Hard (H08): σy 1380 / UTS 1620 / El 10% (austenitic 중 가장 high-strength).",
+  "industry_note": "UNS S30100 / EN 1.4310 / X10CrNi17-7 / JIS SUS301 — Ni 를 6~8% 로 낮춰 냉간가공 경화가 큰 오스테나이트. 냉간압연 템퍼(¼·½·¾·Full Hard)는 ASTM A666 이 최소 인장성질로 정의한다(¼ Hard 인장 860 MPa 이상 ~ Full Hard 1275 MPa 이상). 철도 차량·항공기 외판, 스프링·클립 — 304 보다 싸고 냉간가공으로 강도를 올린다.",
   "meta": {
     "reference": true,
     "condition": "3/4 hard (cold-rolled)",
-    "_r173_note_applied": true
+    "_r173_note_applied": true,
+    "specs": [
+      {
+        "id": "ASTM A666",
+        "org": "ASTM"
+      }
+    ]
   },
   "fracture_toughness": 140,
   "fatigue_strength": 521,
   "density": 7.92,
-  "yield_strength": 1240,
-  "uts": 1380,
-  "elongation": 5,
+  "yield_strength": 930,
+  "uts": 1205,
+  "elongation": 12,
   "modulus": 175,
   "hardness": 430,
   "thermal_conductivity": 15.5,
@@ -280,5 +286,58 @@
   "svhc_concerns": [
     "Ni 8% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 1240,
+        "max": 1240,
+        "typical": 1240,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1240
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 1380,
+        "max": 1380,
+        "typical": 1380,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1380
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 5,
+        "max": 5,
+        "typical": 5,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 5
+    },
+    "_basis": "저장값 1240/1380·5% 의 원전은 'ANSYS Granta' 설명문(가짜 출처)뿐이었고, 연신이 이 템퍼의 규격 최소(12%)에 못 미쳤다(한 단계 위 템퍼의 숫자). 냉간압연 템퍼는 최소 인장성질로 정의되므로 ASTM A666 최소값으로 교정하고 규격 하한으로 선언한다(경도는 원전이 최소 HRC 만 줘 기존값 유지·미검증).",
+    "_src": "ASTM A666 Table 2 Tensile Property Requirements (Type 301, S30100) — ¾ Hard: TS 175 ksi (1205 MPa) · YS 135 ksi (930 MPa) min · El 12% (0.015 in. 이상) · Cleveland-Cliffs 301 Table 2 동일 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10509/file/CLF_ProductData_301SS_052021.pdf",
+    "points": {
+      "from": [
+        [
+          7.92,
+          1240,
+          1380,
+          5,
+          175,
+          430,
+          15.5
+        ]
+      ]
+    }
+  }
 }

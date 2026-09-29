@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 415,
-      "max": 415,
-      "typical": 415,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 400,
+      "typical": 400,
+      "max": 400,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs Martensitic Stainless Steel Comparator 2021-05, Table 4 Typical Mechanical Properties — Annealed: 440A 58/100 ksi (400/689 MPa) · El 22% · HRB 93 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10518/file/CLF_ProductData_MartensiticStainlessSteelComparator_052021.pdf · [경도 스케일] HRB 93 → HV (ASTM E140-12b Table 2)"
     },
     "uts": {
-      "min": 725,
-      "max": 725,
-      "typical": 725,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 689,
+      "typical": 689,
+      "max": 689,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs Martensitic Stainless Steel Comparator 2021-05, Table 4 Typical Mechanical Properties — Annealed: 440A 58/100 ksi (400/689 MPa) · El 22% · HRB 93 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10518/file/CLF_ProductData_MartensiticStainlessSteelComparator_052021.pdf · [경도 스케일] HRB 93 → HV (ASTM E140-12b Table 2)"
     },
     "elongation": {
-      "min": 20,
-      "max": 20,
-      "typical": 20,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 22,
+      "typical": 22,
+      "max": 22,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs Martensitic Stainless Steel Comparator 2021-05, Table 4 Typical Mechanical Properties — Annealed: 440A 58/100 ksi (400/689 MPa) · El 22% · HRB 93 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10518/file/CLF_ProductData_MartensiticStainlessSteelComparator_052021.pdf · [경도 스케일] HRB 93 → HV (ASTM E140-12b Table 2)"
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,15 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 220,
-      "max": 220,
-      "typical": 220,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 200,
+      "typical": 200,
+      "max": 200,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs Martensitic Stainless Steel Comparator 2021-05, Table 4 Typical Mechanical Properties — Annealed: 440A 58/100 ksi (400/689 MPa) · El 22% · HRB 93 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10518/file/CLF_ProductData_MartensiticStainlessSteelComparator_052021.pdf · [경도 스케일] HRB 93 → HV (ASTM E140-12b Table 2)",
+      "scale": "HV",
+      "source_scale": "HRB",
+      "source_value": 93,
+      "conversion": "ASTM E140-12b Table 2"
     },
     "thermal_conductivity": {
       "min": 24,
@@ -198,8 +202,8 @@
   },
   "sources": [
     {
-      "label": "Datasheet 1",
-      "url": "ANSYS Granta — Stainless steel, martensitic, AISI 440A annealed (UNS S44002)",
+      "label": "Carpenter — CarTech 440A datasheet (1038°C 유냉 + 316°C 뜨임 대표값 1655/1793 MPa·5%·HB 512 · 뜨임온도별 HRC)",
+      "url": "https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/440A.pdf",
       "verified": true
     },
     {
@@ -216,11 +220,11 @@
   "points": [
     [
       7.8,
-      415,
-      725,
-      20,
+      400,
+      689,
+      22,
       200,
-      220,
+      200,
       24
     ]
   ],
@@ -234,11 +238,11 @@
   },
   "fracture_toughness": 104,
   "density": 7.8,
-  "yield_strength": 415,
-  "uts": 725,
-  "elongation": 20,
+  "yield_strength": 400,
+  "uts": 689,
+  "elongation": 22,
   "modulus": 200,
-  "hardness": 220,
+  "hardness": 200,
   "thermal_conductivity": 24,
   "fatigue_strength": 400,
   "impact_strength": 10,
@@ -278,6 +282,69 @@
     "industry_note": {
       "from": null,
       "had": true
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 415,
+        "max": 415,
+        "typical": 415,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 415
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 725,
+        "max": 725,
+        "typical": 725,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 725
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 20,
+        "max": 20,
+        "typical": 20,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 20
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 220,
+        "max": 220,
+        "typical": 220,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 220
+    },
+    "_basis": "저장값 415/725·20% 의 원전은 'ANSYS Granta' 설명문(가짜 출처)뿐이었다. CLF Martensitic Comparator Table 4 의 440A 소둔 행으로.",
+    "_src": "Cleveland-Cliffs Martensitic Stainless Steel Comparator 2021-05, Table 4 Typical Mechanical Properties — Annealed: 440A 58/100 ksi (400/689 MPa) · El 22% · HRB 93 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10518/file/CLF_ProductData_MartensiticStainlessSteelComparator_052021.pdf · [경도 스케일] HRB 93 → HV (ASTM E140-12b Table 2)",
+    "points": {
+      "from": [
+        [
+          7.8,
+          415,
+          725,
+          20,
+          200,
+          220,
+          24
+        ]
+      ]
     }
   }
 }

@@ -130,7 +130,7 @@ describe('산출물 parity (materials.json)', () => {
     expect(bad).toEqual([]);
   });
   it('재연결 앵커 — A-286·2205 Duplex·CBN 이 스토리 보유 (dead 복구 회귀 방지)', () => {
-    for (const rx of [/Carpenter A-286/, /^2205 Duplex Stainless/, /CBN \(cubic Boron Nitride/]) {
+    for (const rx of [/^A286/, /^2205 Duplex Stainless/, /CBN \(cubic Boron Nitride/]) {   // A3 스테인리스: Carpenter A-286 base → A286 통합
       const m = all.find((x) => rx.test(x.name));
       expect(m?.story, String(rx)).toBeTruthy();
     }

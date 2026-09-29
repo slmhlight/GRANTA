@@ -11,7 +11,7 @@
   "legacy_id": "R_0098",
   "origin": "reference(supplementary)",
   "id": "R_0098",
-  "name": "A286",
+  "name": "A286 — ST 982°C + Aged 718°C (16 h)",
   "category": "Metal",
   "subcategory": "Stainless Steel - Austenitic",
   "tier": "reference",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": null,
+  "heat_treatment": "Solution treated 982°C 1 h OQ + aged 718°C 16 h AC",
   "ranges": {
     "density": {
       "min": 7.94,
@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 550,
-      "max": 640,
-      "typical": 590,
-      "n": 3,
-      "confidence": "measured"
+      "min": 655,
+      "typical": 655,
+      "max": 655,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech A-286 datasheet, Tensile properties: 7/8 in. bar ST 1800°F(982°C) 1 h OQ + aged 1325°F(719°C) 16 h AC, 70°F: 0.2% YS 95 ksi (655 MPa) · TS 145 ksi (1000 MPa) · El 24.0% · RA 45% · 시효 경도 \"approximately 300 BHN\" · https://www.carpentertechnology.com/hubfs/Data%20Sheets/A-286.pdf · [경도 스케일] Fe-25Ni 오스테나이트 기지라 E140 비오스테나이트 표 대상이 아니어서 HB 원 스케일 표기"
     },
     "uts": {
-      "min": 860,
-      "max": 950,
-      "typical": 895,
-      "n": 3,
-      "confidence": "measured"
+      "min": 1000,
+      "typical": 1000,
+      "max": 1000,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech A-286 datasheet, Tensile properties: 7/8 in. bar ST 1800°F(982°C) 1 h OQ + aged 1325°F(719°C) 16 h AC, 70°F: 0.2% YS 95 ksi (655 MPa) · TS 145 ksi (1000 MPa) · El 24.0% · RA 45% · 시효 경도 \"approximately 300 BHN\" · https://www.carpentertechnology.com/hubfs/Data%20Sheets/A-286.pdf · [경도 스케일] Fe-25Ni 오스테나이트 기지라 E140 비오스테나이트 표 대상이 아니어서 HB 원 스케일 표기"
     },
     "elongation": {
-      "min": 20,
-      "max": 28,
-      "typical": 25,
-      "n": 3,
-      "confidence": "measured"
+      "min": 24,
+      "typical": 24,
+      "max": 24,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech A-286 datasheet, Tensile properties: 7/8 in. bar ST 1800°F(982°C) 1 h OQ + aged 1325°F(719°C) 16 h AC, 70°F: 0.2% YS 95 ksi (655 MPa) · TS 145 ksi (1000 MPa) · El 24.0% · RA 45% · 시효 경도 \"approximately 300 BHN\" · https://www.carpentertechnology.com/hubfs/Data%20Sheets/A-286.pdf · [경도 스케일] Fe-25Ni 오스테나이트 기지라 E140 비오스테나이트 표 대상이 아니어서 HB 원 스케일 표기"
     },
     "modulus": {
       "min": 201,
@@ -60,11 +60,16 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 280,
-      "max": 310,
-      "typical": 290,
-      "n": 3,
-      "confidence": "measured"
+      "min": 300,
+      "typical": 300,
+      "max": 300,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech A-286 datasheet, Tensile properties: 7/8 in. bar ST 1800°F(982°C) 1 h OQ + aged 1325°F(719°C) 16 h AC, 70°F: 0.2% YS 95 ksi (655 MPa) · TS 145 ksi (1000 MPa) · El 24.0% · RA 45% · 시효 경도 \"approximately 300 BHN\" · https://www.carpentertechnology.com/hubfs/Data%20Sheets/A-286.pdf · [경도 스케일] Fe-25Ni 오스테나이트 기지라 E140 비오스테나이트 표 대상이 아니어서 HB 원 스케일 표기",
+      "scale": "HB",
+      "source_scale": "HB",
+      "source_value": 300,
+      "conversion": null,
+      "scale_note": "ASTM E140 표 밖(또는 해당 표 없음) — 환산하지 않고 원 스케일 그대로 표기"
     },
     "thermal_conductivity": {
       "min": 12,
@@ -204,6 +209,11 @@
       "verified": false
     },
     {
+      "label": "Carpenter — CarTech A-286 datasheet (7/8 in. 봉 982°C 용체화 + 718°C 16 h 시효 대표값 655/1000 MPa·24%)",
+      "url": "https://www.carpentertechnology.com/hubfs/Data%20Sheets/A-286.pdf",
+      "verified": true
+    },
+    {
       "label": "AMS 5737 — A-286 bar, forging, ring (STA)",
       "url": "https://www.sae.org/standards/content/ams5737/",
       "verified": false
@@ -217,29 +227,11 @@
   "points": [
     [
       7.94,
-      590,
-      895,
-      25,
+      655,
+      1000,
+      24,
       201,
-      290,
-      12
-    ],
-    [
-      7.94,
-      550,
-      860,
-      20,
-      201,
-      280,
-      12
-    ],
-    [
-      7.94,
-      640,
-      950,
-      28,
-      201,
-      310,
+      300,
       12
     ]
   ],
@@ -268,11 +260,11 @@
   "fracture_toughness": 110,
   "fatigue_strength": 420,
   "density": 7.94,
-  "yield_strength": 590,
-  "uts": 895,
-  "elongation": 25,
+  "yield_strength": 655,
+  "uts": 1000,
+  "elongation": 24,
   "modulus": 201,
-  "hardness": 290,
+  "hardness": 300,
   "thermal_conductivity": 12,
   "impact_strength": 45,
   "manufacturer": "Reference data",
@@ -353,5 +345,100 @@
       "hours": 1000
     }
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 550,
+        "max": 640,
+        "typical": 590,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 590
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 860,
+        "max": 950,
+        "typical": 895,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 895
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 20,
+        "max": 28,
+        "typical": 25,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 25
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 280,
+        "max": 310,
+        "typical": 290,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 290
+    },
+    "_basis": "조건 표기 없이 590/895 MPa·25% 였다 — 항복·인장은 AMS 5737 봉 보증 최소(85/130 ksi)이고 연신 25% 는 최소(15%)도 대표값도 아니다. Carpenter A-286 7/8 in. 봉 982°C 용체화 + 718°C 16 h 시효 대표값으로 교정하고 조건을 적는다. 시효 후 경도는 원전이 적은 약 300 BHN.",
+    "_src": "Carpenter Technology — CarTech A-286 datasheet, Tensile properties: 7/8 in. bar ST 1800°F(982°C) 1 h OQ + aged 1325°F(719°C) 16 h AC, 70°F: 0.2% YS 95 ksi (655 MPa) · TS 145 ksi (1000 MPa) · El 24.0% · RA 45% · 시효 경도 \"approximately 300 BHN\" · https://www.carpentertechnology.com/hubfs/Data%20Sheets/A-286.pdf · [경도 스케일] Fe-25Ni 오스테나이트 기지라 E140 비오스테나이트 표 대상이 아니어서 HB 원 스케일 표기",
+    "points": {
+      "from": [
+        [
+          7.94,
+          590,
+          895,
+          25,
+          201,
+          290,
+          12
+        ],
+        [
+          7.94,
+          550,
+          860,
+          20,
+          201,
+          280,
+          12
+        ],
+        [
+          7.94,
+          640,
+          950,
+          28,
+          201,
+          310,
+          12
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "A286",
+        "had": true
+      },
+      "heat_treatment": {
+        "from": null,
+        "had": true
+      }
+    },
+    "_fbasis": "값을 원전의 용체화 + 시효 행으로 교정하면서 조건을 이름·열처리에 적었다(원래 조건 표기 없음).",
+    "_fsrc": "Carpenter A-286 datasheet · https://www.carpentertechnology.com/hubfs/Data%20Sheets/A-286.pdf"
+  }
 }

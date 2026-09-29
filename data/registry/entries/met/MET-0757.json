@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 380,
-      "max": 450,
-      "typical": 415,
-      "n": 3,
-      "confidence": "measured"
+      "min": 414,
+      "typical": 414,
+      "max": 414,
+      "confidence": "handbook",
+      "provenance": "교정: Electralloy — NITRONIC 60 datasheet, Table 30 Typical RT tensile: Annealed 1 in. dia 103/60 ksi (710/414 MPa) · El 64% (4D) · RA 74% · HRB 95 · https://www.electralloy.com/images/pdf/Literature/Nitronic60_main_11-20-2025.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "uts": {
-      "min": 650,
-      "max": 760,
-      "typical": 690,
-      "n": 3,
-      "confidence": "measured"
+      "min": 710,
+      "typical": 710,
+      "max": 710,
+      "confidence": "handbook",
+      "provenance": "교정: Electralloy — NITRONIC 60 datasheet, Table 30 Typical RT tensile: Annealed 1 in. dia 103/60 ksi (710/414 MPa) · El 64% (4D) · RA 74% · HRB 95 · https://www.electralloy.com/images/pdf/Literature/Nitronic60_main_11-20-2025.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "elongation": {
-      "min": 30,
-      "max": 45,
-      "typical": 35,
-      "n": 3,
-      "confidence": "measured"
+      "min": 64,
+      "typical": 64,
+      "max": 64,
+      "confidence": "handbook",
+      "provenance": "교정: Electralloy — NITRONIC 60 datasheet, Table 30 Typical RT tensile: Annealed 1 in. dia 103/60 ksi (710/414 MPa) · El 64% (4D) · RA 74% · HRB 95 · https://www.electralloy.com/images/pdf/Literature/Nitronic60_main_11-20-2025.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "modulus": {
       "min": 193,
@@ -60,11 +60,16 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 210,
-      "max": 240,
-      "typical": 220,
-      "n": 3,
-      "confidence": "measured"
+      "min": 95,
+      "typical": 95,
+      "max": 95,
+      "confidence": "handbook",
+      "provenance": "교정: Electralloy — NITRONIC 60 datasheet, Table 30 Typical RT tensile: Annealed 1 in. dia 103/60 ksi (710/414 MPa) · El 64% (4D) · RA 74% · HRB 95 · https://www.electralloy.com/images/pdf/Literature/Nitronic60_main_11-20-2025.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기",
+      "scale": "HRB",
+      "source_scale": "HRB",
+      "source_value": 95,
+      "conversion": null,
+      "scale_note": "ASTM E140 표 밖(또는 해당 표 없음) — 환산하지 않고 원 스케일 그대로 표기"
     },
     "thermal_conductivity": {
       "min": 14,
@@ -190,8 +195,8 @@
   },
   "sources": [
     {
-      "label": "Carpenter Technology — Nitronic 60",
-      "url": "https://www.carpentertechnology.com/alloy-finder/custom-630-17-4",
+      "label": "Electralloy — NITRONIC 60 datasheet",
+      "url": "https://www.electralloy.com/images/pdf/Literature/Nitronic60_main_11-20-2025.pdf",
       "verified": true
     },
     {
@@ -208,29 +213,11 @@
   "points": [
     [
       7.62,
-      415,
-      690,
-      35,
+      414,
+      710,
+      64,
       193,
-      220,
-      14
-    ],
-    [
-      7.62,
-      380,
-      650,
-      30,
-      193,
-      210,
-      14
-    ],
-    [
-      7.62,
-      450,
-      760,
-      45,
-      193,
-      240,
+      95,
       14
     ]
   ],
@@ -250,16 +237,16 @@
   "fracture_toughness": 140,
   "fatigue_strength": 174,
   "density": 7.62,
-  "yield_strength": 415,
-  "uts": 690,
-  "elongation": 35,
+  "yield_strength": 414,
+  "uts": 710,
+  "elongation": 64,
   "modulus": 193,
-  "hardness": 220,
+  "hardness": 95,
   "thermal_conductivity": 14,
   "impact_strength": 130,
   "manufacturer": "Reference data",
   "process": "Wrought",
-  "source": "Carpenter Technology — Nitronic 60",
+  "source": "Electralloy — NITRONIC 60 datasheet",
   "aliases": [
     "UNS S21800",
     "Alloy 218",
@@ -299,6 +286,87 @@
     "industry_note": {
       "from": null,
       "had": true
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 380,
+        "max": 450,
+        "typical": 415,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 415
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 650,
+        "max": 760,
+        "typical": 690,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 690
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 30,
+        "max": 45,
+        "typical": 35,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 35
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 210,
+        "max": 240,
+        "typical": 220,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 220
+    },
+    "_basis": "인장 690·연신 35% 는 A276 S21800 최소(95 ksi·35%) 쪽 숫자가 섞인 것 — Electralloy Table 30 의 1 in. 봉 소둔 대표값으로.",
+    "_src": "Electralloy — NITRONIC 60 datasheet, Table 30 Typical RT tensile: Annealed 1 in. dia 103/60 ksi (710/414 MPa) · El 64% (4D) · RA 74% · HRB 95 · https://www.electralloy.com/images/pdf/Literature/Nitronic60_main_11-20-2025.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기",
+    "points": {
+      "from": [
+        [
+          7.62,
+          415,
+          690,
+          35,
+          193,
+          220,
+          14
+        ],
+        [
+          7.62,
+          380,
+          650,
+          30,
+          193,
+          210,
+          14
+        ],
+        [
+          7.62,
+          450,
+          760,
+          45,
+          193,
+          240,
+          14
+        ]
+      ]
     }
   }
 }

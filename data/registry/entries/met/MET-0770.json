@@ -11,7 +11,7 @@
   "legacy_id": "R_0155",
   "origin": "reference(supplementary)",
   "id": "R_0155",
-  "name": "15-7 PH",
+  "name": "15-7 PH — RH 950",
   "category": "Metal",
   "subcategory": "Stainless Steel - Ferritic/Martensitic",
   "tier": "reference",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": null,
+  "heat_treatment": "RH 950 (954°C 10 min 공랭 → −73°C 8 h → 510°C 1 h)",
   "ranges": {
     "density": {
       "min": 7.8,
@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 1310,
-      "max": 1380,
-      "typical": 1380,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 1482,
+      "typical": 1482,
+      "max": 1482,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) PH 15-7 Mo Product Data Bulletin 2021-05, Table 2 Typical Mechanical Properties: RH 950 245/215 ksi (1689/1482 MPa) · El 6% · HRC 49 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10533/file/CLF_ProductData_15-7-PH+Stainless+Steel_052021.pdf · [경도 스케일] HRC 49 → HV (ASTM E140-12b Table 1) · 같은 불리틴 1쪽: \"In its heat-treated condition, this alloy provides excellent mechanical properties at temperatures up to 900 °F (482 °C)\""
     },
     "uts": {
-      "min": 1346.6,
-      "max": 1549.4,
-      "typical": 1448,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 1689,
+      "typical": 1689,
+      "max": 1689,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) PH 15-7 Mo Product Data Bulletin 2021-05, Table 2 Typical Mechanical Properties: RH 950 245/215 ksi (1689/1482 MPa) · El 6% · HRC 49 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10533/file/CLF_ProductData_15-7-PH+Stainless+Steel_052021.pdf · [경도 스케일] HRC 49 → HV (ASTM E140-12b Table 1) · 같은 불리틴 1쪽: \"In its heat-treated condition, this alloy provides excellent mechanical properties at temperatures up to 900 °F (482 °C)\""
     },
     "elongation": {
-      "min": 5,
-      "max": 7,
-      "typical": 7,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 6,
+      "typical": 6,
+      "max": 6,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) PH 15-7 Mo Product Data Bulletin 2021-05, Table 2 Typical Mechanical Properties: RH 950 245/215 ksi (1689/1482 MPa) · El 6% · HRC 49 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10533/file/CLF_ProductData_15-7-PH+Stainless+Steel_052021.pdf · [경도 스케일] HRC 49 → HV (ASTM E140-12b Table 1) · 같은 불리틴 1쪽: \"In its heat-treated condition, this alloy provides excellent mechanical properties at temperatures up to 900 °F (482 °C)\""
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,15 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 440,
-      "max": 460,
-      "typical": 460,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 498,
+      "typical": 498,
+      "max": 498,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) PH 15-7 Mo Product Data Bulletin 2021-05, Table 2 Typical Mechanical Properties: RH 950 245/215 ksi (1689/1482 MPa) · El 6% · HRC 49 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10533/file/CLF_ProductData_15-7-PH+Stainless+Steel_052021.pdf · [경도 스케일] HRC 49 → HV (ASTM E140-12b Table 1) · 같은 불리틴 1쪽: \"In its heat-treated condition, this alloy provides excellent mechanical properties at temperatures up to 900 °F (482 °C)\"",
+      "scale": "HV",
+      "source_scale": "HRC",
+      "source_value": 49,
+      "conversion": "ASTM E140-12b Table 1"
     },
     "thermal_conductivity": {
       "min": 16,
@@ -108,13 +112,11 @@
       "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
     },
     "max_service_temp": {
-      "min": 552.5,
-      "max": 747.5,
-      "typical": 650,
-      "n": 0,
-      "estimated": true,
-      "confidence": "subfamily",
-      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+      "min": 482,
+      "typical": 482,
+      "max": 482,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) PH 15-7 Mo Product Data Bulletin 2021-05, Table 2 Typical Mechanical Properties: RH 950 245/215 ksi (1689/1482 MPa) · El 6% · HRC 49 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10533/file/CLF_ProductData_15-7-PH+Stainless+Steel_052021.pdf · [경도 스케일] HRC 49 → HV (ASTM E140-12b Table 1) · 같은 불리틴 1쪽: \"In its heat-treated condition, this alloy provides excellent mechanical properties at temperatures up to 900 °F (482 °C)\""
     },
     "thermal_expansion": {
       "min": 8.67,
@@ -204,9 +206,9 @@
       "verified": false
     },
     {
-      "label": "Cleveland-Cliffs (구 AK Steel) 301 Stainless Product Data Bulletin 2021-05",
-      "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10509/file/CLF_ProductData_301SS_052021.pdf",
-      "verified": false
+      "label": "Cleveland-Cliffs (구 AK Steel) PH 15-7 Mo Product Data Bulletin 2021-05 — Table 2 대표값(RH 950 1482/1689 MPa·6%·HRC 49)",
+      "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10533/file/CLF_ProductData_15-7-PH+Stainless+Steel_052021.pdf",
+      "verified": true
     },
     {
       "label": "AMS 5520 — 15-7 PH (PH 15-7 Mo) sheet/strip",
@@ -227,27 +229,18 @@
   "points": [
     [
       7.8,
-      1380,
-      1550,
-      7,
+      1482,
+      1689,
+      6,
       200,
-      460,
-      16
-    ],
-    [
-      7.8,
-      1310,
-      1480,
-      5,
-      200,
-      440,
+      498,
       16
     ]
   ],
   "machinability": "Fair",
   "weldability": "Fair",
   "corrosion_resistance": "Good",
-  "industry_note": "UNS S15700 / EN 1.4532 / X8CrNiMoAl15-7-2 — 17-7 PH 의 Mo-enhanced 변종 (Mo 2-3% 추가 for higher service temp 650°C). RH 950: σy 1380 / UTS 1550 / El 6%. Tmax 650°C continuous (17-7 PH 의 315°C 대비 2× 향상). 항공 jet engine secondary structural / 미사일 actuator, high-T spring.",
+  "industry_note": "UNS S15700 / EN 1.4532 / X8CrNiMoAl15-7-2 — 17-7 PH 에 Mo 2~3% 를 더한 준오스테나이트 석출경화 스테인리스. RH 950 대표값 σy 1482 / UTS 1689 MPa / El 6% (Cleveland-Cliffs). 항공기 엔진 2차 구조·미사일 액추에이터·고온 스프링.",
   "meta": {
     "reference": true,
     "_r173_note_applied": true,
@@ -265,11 +258,11 @@
   "fracture_toughness": 60,
   "fatigue_strength": 690,
   "density": 7.8,
-  "yield_strength": 1380,
-  "uts": 1550,
-  "elongation": 7,
+  "yield_strength": 1482,
+  "uts": 1689,
+  "elongation": 6,
   "modulus": 200,
-  "hardness": 460,
+  "hardness": 498,
   "thermal_conductivity": 16,
   "impact_strength": 50,
   "manufacturer": "Reference data",
@@ -290,7 +283,7 @@
     "Stainless Steel"
   ],
   "electrical_conductivity": 3,
-  "max_service_temp": 650,
+  "max_service_temp": 482,
   "thermal_expansion": 10.2,
   "poisson_ratio": 0.28,
   "specific_heat": 460,
@@ -311,7 +304,7 @@
   "svhc_concerns": [
     "Ni 7.75% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium",
+  "confidence_tier": "high",
   "_corrections": {
     "aliases": {
       "from": [
@@ -319,6 +312,104 @@
         "EN 1.4568",
         "15-7 PH"
       ]
-    }
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 1310,
+        "max": 1380,
+        "typical": 1380,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1380
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 1346.6,
+        "max": 1549.4,
+        "typical": 1448,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1550
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 5,
+        "max": 7,
+        "typical": 7,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 7
+    },
+    "max_service_temp": {
+      "had_range": true,
+      "val_range": {
+        "min": 552.5,
+        "max": 747.5,
+        "typical": 650,
+        "n": 0,
+        "estimated": true,
+        "confidence": "subfamily",
+        "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+      },
+      "had_scalar": true,
+      "val_scalar": 650
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 440,
+        "max": 460,
+        "typical": 460,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 460
+    },
+    "_basis": "조건 표기 없이 1380/1448 MPa 였다 — 1380 은 RH 950 항복 최소(200 ksi)이고 1448 은 어느 행도 아니다(RH 950 인장 최소는 1552). PH 15-7 Mo Table 2 의 RH 950 대표값으로 교정하고 이름에 조건을 적는다. 사용온도 상한도 원전 문장(\"열처리 상태에서 900°F(482°C)까지 우수한 기계적 성질\")에 맞춰 650 → 482°C (RH 950 시효온도 510°C 를 넘는 650°C 연속 사용은 과시효로 강도를 잃는다).",
+    "_src": "Cleveland-Cliffs (구 AK Steel) PH 15-7 Mo Product Data Bulletin 2021-05, Table 2 Typical Mechanical Properties: RH 950 245/215 ksi (1689/1482 MPa) · El 6% · HRC 49 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10533/file/CLF_ProductData_15-7-PH+Stainless+Steel_052021.pdf · [경도 스케일] HRC 49 → HV (ASTM E140-12b Table 1) · 같은 불리틴 1쪽: \"In its heat-treated condition, this alloy provides excellent mechanical properties at temperatures up to 900 °F (482 °C)\"",
+    "points": {
+      "from": [
+        [
+          7.8,
+          1380,
+          1550,
+          7,
+          200,
+          460,
+          16
+        ],
+        [
+          7.8,
+          1310,
+          1480,
+          5,
+          200,
+          440,
+          16
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "15-7 PH",
+        "had": true
+      },
+      "heat_treatment": {
+        "from": null,
+        "had": true
+      }
+    },
+    "_fbasis": "값을 RH 950 대표값 행으로 교정하면서 조건을 이름·열처리에 적었다(원래 조건 표기 없음 — 출처 라벨만 RH950 을 가리켰다).",
+    "_fsrc": "Cleveland-Cliffs PH 15-7 Mo Product Data Bulletin — Condition A 1750 / R 100 / RH 950 열처리 순서 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10533/file/CLF_ProductData_15-7-PH+Stainless+Steel_052021.pdf"
   }
 }

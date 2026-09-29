@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 260,
-      "max": 280,
-      "typical": 280,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 276,
+      "typical": 276,
+      "max": 276,
+      "confidence": "handbook",
+      "provenance": "교정: Elgiloy Specialty Metals — Alloy 410S Material Datasheet (2024-06), Typical RT: Annealed 65/40 ksi (448/276 MPa) · El 30% · 75 HRBW · https://www.elgiloy.com/wp-content/uploads/2024/06/410S-Alloy-data-sheet-06042024.pdf · [경도 스케일] HRB 75 → HV (ASTM E140-12b Table 2)"
     },
     "uts": {
-      "min": 420,
-      "max": 450,
-      "typical": 450,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 448,
+      "typical": 448,
+      "max": 448,
+      "confidence": "handbook",
+      "provenance": "교정: Elgiloy Specialty Metals — Alloy 410S Material Datasheet (2024-06), Typical RT: Annealed 65/40 ksi (448/276 MPa) · El 30% · 75 HRBW · https://www.elgiloy.com/wp-content/uploads/2024/06/410S-Alloy-data-sheet-06042024.pdf · [경도 스케일] HRB 75 → HV (ASTM E140-12b Table 2)"
     },
     "elongation": {
-      "min": 20,
-      "max": 25,
-      "typical": 25,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 30,
+      "typical": 30,
+      "max": 30,
+      "confidence": "handbook",
+      "provenance": "교정: Elgiloy Specialty Metals — Alloy 410S Material Datasheet (2024-06), Typical RT: Annealed 65/40 ksi (448/276 MPa) · El 30% · 75 HRBW · https://www.elgiloy.com/wp-content/uploads/2024/06/410S-Alloy-data-sheet-06042024.pdf · [경도 스케일] HRB 75 → HV (ASTM E140-12b Table 2)"
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,15 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 150,
-      "max": 160,
-      "typical": 160,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 137,
+      "typical": 137,
+      "max": 137,
+      "confidence": "handbook",
+      "provenance": "교정: Elgiloy Specialty Metals — Alloy 410S Material Datasheet (2024-06), Typical RT: Annealed 65/40 ksi (448/276 MPa) · El 30% · 75 HRBW · https://www.elgiloy.com/wp-content/uploads/2024/06/410S-Alloy-data-sheet-06042024.pdf · [경도 스케일] HRB 75 → HV (ASTM E140-12b Table 2)",
+      "scale": "HV",
+      "source_scale": "HRB",
+      "source_value": 75,
+      "conversion": "ASTM E140-12b Table 2"
     },
     "thermal_conductivity": {
       "min": 25,
@@ -212,28 +216,19 @@
       "verified": true
     },
     {
-      "label": "AZoM — Stainless Steel Grade 410S (UNS S41008): 조성·ρ·E·CTE 제공(단 기계물성은 일반 410 템플릿값으로 추정 — 주의)",
+      "label": "AZoM — Stainless Steel Grade 410S (UNS S41008): 조성·물리물성(기계물성은 경화 410 값이 실려 있어 쓰지 않음)",
       "url": "https://www.azom.com/article.aspx?ArticleID=6811",
-      "verified": true
+      "verified": false
     }
   ],
   "points": [
     [
       7.7,
-      280,
-      450,
-      25,
+      276,
+      448,
+      30,
       200,
-      160,
-      25
-    ],
-    [
-      7.7,
-      260,
-      420,
-      20,
-      200,
-      150,
+      137,
       25
     ]
   ],
@@ -253,11 +248,11 @@
   "fracture_toughness": 65,
   "fatigue_strength": 140,
   "density": 7.7,
-  "yield_strength": 280,
-  "uts": 450,
-  "elongation": 25,
+  "yield_strength": 276,
+  "uts": 448,
+  "elongation": 30,
   "modulus": 200,
-  "hardness": 160,
+  "hardness": 137,
   "thermal_conductivity": 25,
   "impact_strength": 50,
   "manufacturer": "Reference data",
@@ -292,5 +287,79 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": null,
   "rohs_basis": "no_regulated_element_data",
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 260,
+        "max": 280,
+        "typical": 280,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 280
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 420,
+        "max": 450,
+        "typical": 450,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 450
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 20,
+        "max": 25,
+        "typical": 25,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 25
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 150,
+        "max": 160,
+        "typical": 160,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 160
+    },
+    "_basis": "항복·인장(280/450)은 이미 인용된 Elgiloy 410S 대표값(40/65 ksi = 276/448)과 같고 연신 25%·경도 HV 160 이 어긋났다(원전 30%·75 HRBW). 같은 행으로 통일 — CLF 410S 불리틴(283/462·27%·HRB 72)과 같은 대역.",
+    "_src": "Elgiloy Specialty Metals — Alloy 410S Material Datasheet (2024-06), Typical RT: Annealed 65/40 ksi (448/276 MPa) · El 30% · 75 HRBW · https://www.elgiloy.com/wp-content/uploads/2024/06/410S-Alloy-data-sheet-06042024.pdf · [경도 스케일] HRB 75 → HV (ASTM E140-12b Table 2)",
+    "points": {
+      "from": [
+        [
+          7.7,
+          280,
+          450,
+          25,
+          200,
+          160,
+          25
+        ],
+        [
+          7.7,
+          260,
+          420,
+          20,
+          200,
+          150,
+          25
+        ]
+      ]
+    }
+  }
 }

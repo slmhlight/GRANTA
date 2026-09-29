@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 380,
-      "max": 450,
-      "typical": 415,
-      "n": 3,
-      "confidence": "measured"
+      "min": 414,
+      "typical": 414,
+      "max": 414,
+      "confidence": "handbook",
+      "provenance": "교정: Electralloy — NITRONIC 50 datasheet, Table 2 Typical RT properties 1 in. bar: Annealed 2050°F(1121°C) WQ 120/60 ksi (827/414 MPa) · El 50% · RA 70% · HRB 98 · https://www.electralloy.com/images/pdf/Literature/Nitronic50_main_11-10-2025.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "uts": {
-      "min": 760,
-      "max": 880,
-      "typical": 825,
-      "n": 3,
-      "confidence": "measured"
+      "min": 827,
+      "typical": 827,
+      "max": 827,
+      "confidence": "handbook",
+      "provenance": "교정: Electralloy — NITRONIC 50 datasheet, Table 2 Typical RT properties 1 in. bar: Annealed 2050°F(1121°C) WQ 120/60 ksi (827/414 MPa) · El 50% · RA 70% · HRB 98 · https://www.electralloy.com/images/pdf/Literature/Nitronic50_main_11-10-2025.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "elongation": {
-      "min": 30,
-      "max": 40,
-      "typical": 35,
-      "n": 3,
-      "confidence": "measured"
+      "min": 50,
+      "typical": 50,
+      "max": 50,
+      "confidence": "handbook",
+      "provenance": "교정: Electralloy — NITRONIC 50 datasheet, Table 2 Typical RT properties 1 in. bar: Annealed 2050°F(1121°C) WQ 120/60 ksi (827/414 MPa) · El 50% · RA 70% · HRB 98 · https://www.electralloy.com/images/pdf/Literature/Nitronic50_main_11-10-2025.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "modulus": {
       "min": 193,
@@ -60,11 +60,16 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 230,
-      "max": 270,
-      "typical": 250,
-      "n": 3,
-      "confidence": "measured"
+      "min": 98,
+      "typical": 98,
+      "max": 98,
+      "confidence": "handbook",
+      "provenance": "교정: Electralloy — NITRONIC 50 datasheet, Table 2 Typical RT properties 1 in. bar: Annealed 2050°F(1121°C) WQ 120/60 ksi (827/414 MPa) · El 50% · RA 70% · HRB 98 · https://www.electralloy.com/images/pdf/Literature/Nitronic50_main_11-10-2025.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기",
+      "scale": "HRB",
+      "source_scale": "HRB",
+      "source_value": 98,
+      "conversion": null,
+      "scale_note": "ASTM E140 표 밖(또는 해당 표 없음) — 환산하지 않고 원 스케일 그대로 표기"
     },
     "thermal_conductivity": {
       "min": 16,
@@ -190,8 +195,8 @@
   },
   "sources": [
     {
-      "label": "Carpenter Technology — Nitronic 50",
-      "url": "https://www.carpentertechnology.com/alloy-finder/custom-630-17-4",
+      "label": "Electralloy — NITRONIC 50 datasheet",
+      "url": "https://www.electralloy.com/images/pdf/Literature/Nitronic50_main_11-10-2025.pdf",
       "verified": true
     },
     {
@@ -208,29 +213,11 @@
   "points": [
     [
       7.88,
-      415,
-      825,
-      35,
+      414,
+      827,
+      50,
       193,
-      250,
-      16
-    ],
-    [
-      7.88,
-      380,
-      760,
-      30,
-      193,
-      230,
-      16
-    ],
-    [
-      7.88,
-      450,
-      880,
-      40,
-      193,
-      270,
+      98,
       16
     ]
   ],
@@ -250,16 +237,16 @@
   "fracture_toughness": 140,
   "fatigue_strength": 174,
   "density": 7.88,
-  "yield_strength": 415,
-  "uts": 825,
-  "elongation": 35,
+  "yield_strength": 414,
+  "uts": 827,
+  "elongation": 50,
   "modulus": 193,
-  "hardness": 250,
+  "hardness": 98,
   "thermal_conductivity": 16,
   "impact_strength": 130,
   "manufacturer": "Reference data",
   "process": "Wrought",
-  "source": "Carpenter Technology — Nitronic 50",
+  "source": "Electralloy — NITRONIC 50 datasheet",
   "aliases": [
     "UNS S20910",
     "XM-19",
@@ -300,6 +287,87 @@
     "industry_note": {
       "from": null,
       "had": true
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 380,
+        "max": 450,
+        "typical": 415,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 415
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 760,
+        "max": 880,
+        "typical": 825,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 825
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 30,
+        "max": 40,
+        "typical": 35,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 35
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 230,
+        "max": 270,
+        "typical": 250,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 250
+    },
+    "_basis": "항복·인장(415/825)은 원전 2050°F 소둔 행과 같고 연신 35% 가 어긋났다(원전 50% — 35% 는 규격 최소). 같은 행으로 통일.",
+    "_src": "Electralloy — NITRONIC 50 datasheet, Table 2 Typical RT properties 1 in. bar: Annealed 2050°F(1121°C) WQ 120/60 ksi (827/414 MPa) · El 50% · RA 70% · HRB 98 · https://www.electralloy.com/images/pdf/Literature/Nitronic50_main_11-10-2025.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기",
+    "points": {
+      "from": [
+        [
+          7.88,
+          415,
+          825,
+          35,
+          193,
+          250,
+          16
+        ],
+        [
+          7.88,
+          380,
+          760,
+          30,
+          193,
+          230,
+          16
+        ],
+        [
+          7.88,
+          450,
+          880,
+          40,
+          193,
+          270,
+          16
+        ]
+      ]
     }
   }
 }

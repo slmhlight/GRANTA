@@ -1,6 +1,6 @@
 {
  "_note": "생성물: pnpm build:profiles (scripts/build-process-profiles.mjs). 직접 수정 금지 — 교정은 data/process-profile-overrides.json (stable_id + src). 키 의미: mach=절삭성 프로파일(process-profiles.json), weld=용접성 모델(ce|schaeffler|none), ht=HT family(ht-alloy-specific.ts familyName), htc=조건 클래스, insight=선택 인사이트 그룹(selection-insights.json).",
- "entries": 1058,
+ "entries": 1031,
  "ht_families_parsed": 35,
  "assignments": {
   "CER-0001": {
@@ -6706,6 +6706,7 @@
    "colorf": "Nickel",
    "mach": "ss-austenitic",
    "weld": "schaeffler",
+   "htc": "aged",
    "htg": "h04-inconel",
    "wg": "w41-a",
    "insight": "stainless",
@@ -6810,18 +6811,6 @@
    "cg": "ss-austenitic",
    "corr": "ss-austenitic"
   },
-  "MET-0716": {
-   "colorf": "Steel",
-   "mach": "ss-austenitic",
-   "weld": "schaeffler",
-   "htc": "qt",
-   "ht": "Austenitic SS 304 / 304L (UNS S30400 / S30403)",
-   "htg": "h14-ss-aust",
-   "wg": "w05-aisi",
-   "insight": "stainless",
-   "cg": "ss-austenitic",
-   "corr": "ss-austenitic"
-  },
   "MET-0717": {
    "colorf": "Steel",
    "mach": "ss-austenitic",
@@ -6838,31 +6827,6 @@
    "colorf": "Steel",
    "mach": "ss-austenitic",
    "weld": "schaeffler",
-   "htc": "qt",
-   "ht": "Austenitic SS 304 / 304L (UNS S30400 / S30403)",
-   "htg": "h14-ss-aust",
-   "wg": "w05-aisi",
-   "insight": "stainless",
-   "cg": "ss-austenitic",
-   "corr": "ss-austenitic"
-  },
-  "MET-0721": {
-   "colorf": "Steel",
-   "mach": "ss-austenitic",
-   "weld": "schaeffler",
-   "htc": "soft",
-   "ht": "Austenitic SS 304 / 304L (UNS S30400 / S30403)",
-   "htg": "h14-ss-aust",
-   "wg": "w05-aisi",
-   "insight": "stainless",
-   "cg": "ss-austenitic",
-   "corr": "ss-austenitic"
-  },
-  "MET-0722": {
-   "colorf": "Steel",
-   "mach": "ss-austenitic",
-   "weld": "schaeffler",
-   "htc": "soft",
    "ht": "Austenitic SS 304 / 304L (UNS S30400 / S30403)",
    "htg": "h14-ss-aust",
    "wg": "w05-aisi",
@@ -6883,17 +6847,6 @@
    "corr": "ss-austenitic"
   },
   "MET-0724": {
-   "colorf": "Steel",
-   "mach": "ss-austenitic",
-   "weld": "schaeffler",
-   "htc": "soft",
-   "htg": "h14-ss-aust",
-   "wg": "w05-aisi",
-   "insight": "stainless",
-   "cg": "ss-austenitic",
-   "corr": "ss-austenitic"
-  },
-  "MET-0725": {
    "colorf": "Steel",
    "mach": "ss-austenitic",
    "weld": "schaeffler",
@@ -6926,17 +6879,6 @@
    "cg": "ss-austenitic",
    "corr": "ss-austenitic"
   },
-  "MET-0730": {
-   "colorf": "Steel",
-   "mach": "ss-austenitic",
-   "weld": "schaeffler",
-   "htc": "qt",
-   "htg": "h14-ss-aust",
-   "wg": "w05-aisi",
-   "insight": "stainless",
-   "cg": "ss-austenitic",
-   "corr": "ss-austenitic"
-  },
   "MET-0731": {
    "colorf": "Steel",
    "mach": "ss-austenitic",
@@ -6953,7 +6895,6 @@
    "colorf": "Steel",
    "mach": "ss-austenitic",
    "weld": "schaeffler",
-   "htc": "qt",
    "ht": "Austenitic SS 316 / 316L (UNS S31600 / S31603)",
    "htg": "h14-ss-aust",
    "wg": "w05-aisi",
@@ -7009,42 +6950,6 @@
    "cg": "ss-austenitic",
    "corr": "ss-austenitic"
   },
-  "MET-0739": {
-   "colorf": "Steel",
-   "mach": "ss-austenitic",
-   "weld": "schaeffler",
-   "htc": "cold",
-   "ht": "Austenitic SS 316 / 316L (UNS S31600 / S31603)",
-   "htg": "h14-ss-aust",
-   "wg": "w05-aisi",
-   "insight": "stainless",
-   "cg": "ss-austenitic",
-   "corr": "ss-austenitic"
-  },
-  "MET-0740": {
-   "colorf": "Steel",
-   "mach": "ss-austenitic",
-   "weld": "schaeffler",
-   "htc": "soft",
-   "ht": "Austenitic SS 316 / 316L (UNS S31600 / S31603)",
-   "htg": "h14-ss-aust",
-   "wg": "w05-aisi",
-   "insight": "stainless",
-   "cg": "ss-austenitic",
-   "corr": "ss-austenitic"
-  },
-  "MET-0741": {
-   "colorf": "Steel",
-   "mach": "ss-austenitic",
-   "weld": "schaeffler",
-   "htc": "soft",
-   "ht": "Austenitic SS 316 / 316L (UNS S31600 / S31603)",
-   "htg": "h14-ss-aust",
-   "wg": "w05-aisi",
-   "insight": "stainless",
-   "cg": "ss-austenitic",
-   "corr": "ss-austenitic"
-  },
   "MET-0742": {
    "colorf": "Steel",
    "mach": "ss-austenitic",
@@ -7079,33 +6984,11 @@
    "cg": "ss-austenitic",
    "corr": "ss-austenitic"
   },
-  "MET-0747": {
-   "colorf": "Steel",
-   "mach": "ss-austenitic",
-   "weld": "schaeffler",
-   "htc": "qt",
-   "htg": "h14-ss-aust",
-   "wg": "w05-aisi",
-   "insight": "stainless",
-   "cg": "ss-austenitic",
-   "corr": "ss-austenitic"
-  },
   "MET-0748": {
    "colorf": "Steel",
    "mach": "ss-austenitic",
    "weld": "schaeffler",
    "htc": "soft",
-   "htg": "h14-ss-aust",
-   "wg": "w05-aisi",
-   "insight": "stainless",
-   "cg": "ss-austenitic",
-   "corr": "ss-austenitic"
-  },
-  "MET-0751": {
-   "colorf": "Steel",
-   "mach": "ss-austenitic",
-   "weld": "schaeffler",
-   "htc": "qt",
    "htg": "h14-ss-aust",
    "wg": "w05-aisi",
    "insight": "stainless",
@@ -7118,39 +7001,6 @@
    "weld": "schaeffler",
    "htg": "h14-ss-aust",
    "wg": "w78-superaustenitic",
-   "insight": "stainless",
-   "cg": "ss-austenitic",
-   "corr": "ss-austenitic"
-  },
-  "MET-0753": {
-   "colorf": "Nickel",
-   "mach": "ss-austenitic",
-   "weld": "schaeffler",
-   "htc": "aged",
-   "htg": "h04-inconel",
-   "wg": "w41-a",
-   "insight": "stainless",
-   "cg": "ss-austenitic",
-   "corr": "ss-austenitic"
-  },
-  "MET-0754": {
-   "colorf": "Nickel",
-   "mach": "ss-austenitic",
-   "weld": "schaeffler",
-   "htc": "aged",
-   "htg": "h04-inconel",
-   "wg": "w41-a",
-   "insight": "stainless",
-   "cg": "ss-austenitic",
-   "corr": "ss-austenitic"
-  },
-  "MET-0755": {
-   "colorf": "Nickel",
-   "mach": "ss-austenitic",
-   "weld": "schaeffler",
-   "htc": "soft",
-   "htg": "h04-inconel",
-   "wg": "w41-a",
    "insight": "stainless",
    "cg": "ss-austenitic",
    "corr": "ss-austenitic"
@@ -7186,17 +7036,6 @@
    "cg": "ss-austenitic",
    "corr": "ss-austenitic"
   },
-  "MET-0759": {
-   "colorf": "Steel",
-   "mach": "ss-austenitic",
-   "weld": "schaeffler",
-   "htc": "aged",
-   "htg": "h23-ss-aust-hot",
-   "wg": "w05-aisi",
-   "insight": "stainless",
-   "cg": "ss-austenitic",
-   "corr": "ss-austenitic"
-  },
   "MET-0760": {
    "colorf": "Steel",
    "mach": "ss-austenitic",
@@ -7213,17 +7052,6 @@
    "mach": "ss-austenitic",
    "weld": "schaeffler",
    "htg": "h14-ss-aust",
-   "wg": "w05-aisi",
-   "insight": "stainless",
-   "cg": "ss-austenitic",
-   "corr": "ss-austenitic"
-  },
-  "MET-0762": {
-   "colorf": "Refractory",
-   "mach": "ss-austenitic",
-   "weld": "schaeffler",
-   "htc": "aged",
-   "htg": "h23-ss-aust-hot",
    "wg": "w05-aisi",
    "insight": "stainless",
    "cg": "ss-austenitic",
@@ -7307,16 +7135,6 @@
    "cg": "ss-ph",
    "corr": "ss-ph"
   },
-  "MET-0771": {
-   "colorf": "Steel",
-   "mach": "ss-ph",
-   "weld": "schaeffler",
-   "htg": "h03-17",
-   "wg": "w09-17",
-   "insight": "stainless",
-   "cg": "ss-ph",
-   "corr": "ss-ph"
-  },
   "MET-0772": {
    "colorf": "Steel",
    "mach": "ss-ferritic",
@@ -7331,6 +7149,7 @@
    "colorf": "Steel",
    "mach": "ss-416",
    "weld": "schaeffler",
+   "htc": "qt",
    "htg": "h15-ss-mart",
    "wg": "w06-aisi",
    "insight": "stainless",
@@ -7351,6 +7170,7 @@
    "colorf": "Steel",
    "mach": "ss-martensitic",
    "weld": "schaeffler",
+   "htc": "qt",
    "htg": "h15-ss-mart",
    "wg": "w06-aisi",
    "insight": "stainless",
@@ -7390,33 +7210,11 @@
    "cg": "ss-martensitic",
    "corr": "ss-martensitic"
   },
-  "MET-0784": {
-   "colorf": "Steel",
-   "mach": "ss-martensitic",
-   "weld": "schaeffler",
-   "htc": "qt",
-   "htg": "h15-ss-mart",
-   "wg": "w06-aisi",
-   "insight": "stainless",
-   "cg": "ss-martensitic",
-   "corr": "ss-martensitic"
-  },
   "MET-0785": {
    "colorf": "Steel",
    "mach": "ss-ferritic",
    "weld": "schaeffler",
    "htc": "soft",
-   "htg": "h15-ss-mart",
-   "wg": "w07-aisi",
-   "insight": "stainless",
-   "cg": "ss-ferritic",
-   "corr": "ss-ferritic"
-  },
-  "MET-0788": {
-   "colorf": "Steel",
-   "mach": "ss-ferritic",
-   "weld": "schaeffler",
-   "htc": "qt",
    "htg": "h15-ss-mart",
    "wg": "w07-aisi",
    "insight": "stainless",
@@ -7461,6 +7259,7 @@
    "mach": "ss-martensitic",
    "weld": "schaeffler",
    "htc": "qt",
+   "ht": "Austenitic SS 316 / 316L (UNS S31600 / S31603)",
    "htg": "h15-ss-mart",
    "wg": "w06-aisi",
    "insight": "stainless",
@@ -7483,17 +7282,7 @@
    "mach": "ss-martensitic",
    "weld": "schaeffler",
    "htc": "qt",
-   "htg": "h15-ss-mart",
-   "wg": "w06-aisi",
-   "insight": "stainless",
-   "cg": "ss-martensitic",
-   "corr": "ss-martensitic"
-  },
-  "MET-0798": {
-   "colorf": "Steel",
-   "mach": "ss-martensitic",
-   "weld": "schaeffler",
-   "htc": "aged",
+   "ht": "Austenitic SS 316 / 316L (UNS S31600 / S31603)",
    "htg": "h15-ss-mart",
    "wg": "w06-aisi",
    "insight": "stainless",
@@ -7516,6 +7305,7 @@
    "mach": "ss-martensitic",
    "weld": "schaeffler",
    "htc": "qt",
+   "ht": "Austenitic SS 316 / 316L (UNS S31600 / S31603)",
    "htg": "h15-ss-mart",
    "wg": "w06-aisi",
    "insight": "stainless",
@@ -7544,17 +7334,6 @@
    "cg": "ss-martensitic",
    "corr": "ss-martensitic"
   },
-  "MET-0806": {
-   "colorf": "Steel",
-   "mach": "ss-martensitic",
-   "weld": "schaeffler",
-   "htc": "qt",
-   "htg": "h15-ss-mart",
-   "wg": "w06-aisi",
-   "insight": "stainless",
-   "cg": "ss-martensitic",
-   "corr": "ss-martensitic"
-  },
   "MET-0807": {
    "colorf": "Steel",
    "mach": "ss-ferritic",
@@ -7569,33 +7348,12 @@
    "colorf": "Steel",
    "mach": "ss-ph",
    "weld": "schaeffler",
+   "htc": "aged",
    "htg": "h03-17",
    "wg": "w09-17",
    "insight": "stainless",
    "cg": "ss-ph",
    "corr": "ss-ph"
-  },
-  "MET-0809": {
-   "colorf": "Steel",
-   "mach": "ss-martensitic",
-   "weld": "schaeffler",
-   "htc": "soft",
-   "htg": "h15-ss-mart",
-   "wg": "w06-aisi",
-   "insight": "stainless",
-   "cg": "ss-martensitic",
-   "corr": "ss-martensitic"
-  },
-  "MET-0810": {
-   "colorf": "Steel",
-   "mach": "ss-martensitic",
-   "weld": "schaeffler",
-   "htc": "qt",
-   "htg": "h15-ss-mart",
-   "wg": "w06-aisi",
-   "insight": "stainless",
-   "cg": "ss-martensitic",
-   "corr": "ss-martensitic"
   },
   "MET-0811": {
    "colorf": "Steel",
@@ -7630,51 +7388,7 @@
    "cg": "ss-martensitic",
    "corr": "ss-martensitic"
   },
-  "MET-0814": {
-   "colorf": "Steel",
-   "mach": "ss-martensitic",
-   "weld": "schaeffler",
-   "htc": "qt",
-   "htg": "h15-ss-mart",
-   "wg": "w06-aisi",
-   "insight": "stainless",
-   "cg": "ss-martensitic",
-   "corr": "ss-martensitic"
-  },
   "MET-0815": {
-   "colorf": "Steel",
-   "mach": "ss-martensitic",
-   "weld": "schaeffler",
-   "htc": "qt",
-   "htg": "h15-ss-mart",
-   "wg": "w06-aisi",
-   "insight": "stainless",
-   "cg": "ss-martensitic",
-   "corr": "ss-martensitic"
-  },
-  "MET-0816": {
-   "colorf": "Steel",
-   "mach": "ss-martensitic",
-   "weld": "schaeffler",
-   "htc": "soft",
-   "htg": "h15-ss-mart",
-   "wg": "w06-aisi",
-   "insight": "stainless",
-   "cg": "ss-martensitic",
-   "corr": "ss-martensitic"
-  },
-  "MET-0817": {
-   "colorf": "Steel",
-   "mach": "ss-martensitic",
-   "weld": "schaeffler",
-   "htc": "qt",
-   "htg": "h15-ss-mart",
-   "wg": "w06-aisi",
-   "insight": "stainless",
-   "cg": "ss-martensitic",
-   "corr": "ss-martensitic"
-  },
-  "MET-0818": {
    "colorf": "Steel",
    "mach": "ss-martensitic",
    "weld": "schaeffler",
@@ -7920,17 +7634,6 @@
    "mach": "ss-ph",
    "weld": "schaeffler",
    "htc": "as-built",
-   "ht": "17-4 PH stainless (UNS S17400)",
-   "wg": "w09-17",
-   "insight": "stainless-highperf",
-   "cg": "ss-ph",
-   "corr": "ss-ph"
-  },
-  "MET-0840": {
-   "colorf": "Steel",
-   "mach": "ss-ph",
-   "weld": "schaeffler",
-   "htc": "aged",
    "ht": "17-4 PH stainless (UNS S17400)",
    "wg": "w09-17",
    "insight": "stainless-highperf",

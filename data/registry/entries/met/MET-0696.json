@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 230,
-      "max": 250,
-      "typical": 250,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 345,
+      "typical": 345,
+      "max": 345,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) 309/309S Product Data Bulletin 2021-05, Table 1: 95/50 ksi (655/345 MPa) · El 45% · HRB 85 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10512/file/CLF_ProductData_309-309SS_052021.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "uts": {
-      "min": 550,
-      "max": 580,
-      "typical": 580,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 655,
+      "typical": 655,
+      "max": 655,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) 309/309S Product Data Bulletin 2021-05, Table 1: 95/50 ksi (655/345 MPa) · El 45% · HRB 85 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10512/file/CLF_ProductData_309-309SS_052021.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "elongation": {
-      "min": 40,
-      "max": 45,
+      "min": 45,
       "typical": 45,
-      "n": 2,
-      "confidence": "handbook"
+      "max": 45,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) 309/309S Product Data Bulletin 2021-05, Table 1: 95/50 ksi (655/345 MPa) · El 45% · HRB 85 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10512/file/CLF_ProductData_309-309SS_052021.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 160,
-      "max": 170,
-      "typical": 170,
-      "n": 2,
-      "confidence": "handbook"
+      "min": 85,
+      "typical": 85,
+      "max": 85,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) 309/309S Product Data Bulletin 2021-05, Table 1: 95/50 ksi (655/345 MPa) · El 45% · HRB 85 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10512/file/CLF_ProductData_309-309SS_052021.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기",
+      "scale": "HRB",
+      "source_scale": "HRB",
+      "source_value": 85,
+      "conversion": null,
+      "scale_note": "ASTM E140 표 밖(또는 해당 표 없음) — 환산하지 않고 원 스케일 그대로 표기"
     },
     "thermal_conductivity": {
       "min": 15,
@@ -202,28 +207,19 @@
       "verified": false
     },
     {
-      "label": "Grade 309S (UNS S30908) — AZoM",
+      "label": "Grade 309S (UNS S30908) — AZoM (310/620 MPa·45%·HRB 85 — 표시값은 Cleveland-Cliffs 309/309S 판재 대표값)",
       "url": "https://www.azom.com/article.aspx?ArticleID=6797",
-      "verified": true
+      "verified": false
     }
   ],
   "points": [
     [
       7.9,
-      250,
-      580,
+      345,
+      655,
       45,
       200,
-      170,
-      15
-    ],
-    [
-      7.9,
-      230,
-      550,
-      40,
-      200,
-      160,
+      85,
       15
     ]
   ],
@@ -243,11 +239,11 @@
   "fracture_toughness": 140,
   "fatigue_strength": 105,
   "density": 7.9,
-  "yield_strength": 250,
-  "uts": 580,
+  "yield_strength": 345,
+  "uts": 655,
   "elongation": 45,
   "modulus": 200,
-  "hardness": 170,
+  "hardness": 85,
   "thermal_conductivity": 15,
   "impact_strength": 130,
   "manufacturer": "Reference data",
@@ -287,11 +283,83 @@
   "svhc_concerns": [
     "Ni 15% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium",
+  "confidence_tier": "medium-low",
   "_corrections": {
     "industry_note": {
       "from": null,
       "had": true
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 230,
+        "max": 250,
+        "typical": 250,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 250
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 550,
+        "max": 580,
+        "typical": 580,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 580
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 40,
+        "max": 45,
+        "typical": 45,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 45
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 160,
+        "max": 170,
+        "typical": 170,
+        "n": 2,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 170
+    },
+    "_basis": "저장값 250/580·45%·HV 170 은 인용된 AZoM(310/620·45%·HRB 85)과도 맞지 않았다. 제조사 CLF 309/309S 불리틴 Table 1 대표값으로.",
+    "_src": "Cleveland-Cliffs (구 AK Steel) 309/309S Product Data Bulletin 2021-05, Table 1: 95/50 ksi (655/345 MPa) · El 45% · HRB 85 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10512/file/CLF_ProductData_309-309SS_052021.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기",
+    "points": {
+      "from": [
+        [
+          7.9,
+          250,
+          580,
+          45,
+          200,
+          170,
+          15
+        ],
+        [
+          7.9,
+          230,
+          550,
+          40,
+          200,
+          160,
+          15
+        ]
+      ]
     }
   }
 }

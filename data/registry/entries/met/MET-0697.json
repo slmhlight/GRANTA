@@ -202,9 +202,9 @@
       "verified": false
     },
     {
-      "label": "Grade 310S (UNS S31008) — AZoM",
+      "label": "Grade 310S (UNS S31008) — AZoM (ASTM A240 최소값 205/515·40% 만 — 표시값은 미검증)",
       "url": "https://www.azom.com/article.aspx?ArticleID=6798",
-      "verified": true
+      "verified": false
     }
   ],
   "points": [
@@ -234,6 +234,10 @@
   "meta": {
     "reference": true,
     "specs": [
+      {
+        "id": "ASTM A240",
+        "org": "ASTM"
+      },
       {
         "id": "UNS S31008",
         "org": "UNS"
@@ -326,7 +330,7 @@
       "hours": 1000
     }
   ],
-  "confidence_tier": "medium",
+  "confidence_tier": "medium-low",
   "_corrections": {
     "industry_note": {
       "from": null,

@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 234,
-      "max": 234,
-      "typical": 234,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 241,
+      "typical": 241,
+      "max": 241,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 302, 1 in. round bar annealed 1900°F(1038°C): 35/85 ksi (241/586 MPa) · El 60% · RA 70% · HB 150 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/302.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "uts": {
-      "min": 565,
-      "max": 565,
-      "typical": 565,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 586,
+      "typical": 586,
+      "max": 586,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 302, 1 in. round bar annealed 1900°F(1038°C): 35/85 ksi (241/586 MPa) · El 60% · RA 70% · HB 150 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/302.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "elongation": {
-      "min": 50,
-      "max": 50,
-      "typical": 50,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 60,
+      "typical": 60,
+      "max": 60,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 302, 1 in. round bar annealed 1900°F(1038°C): 35/85 ksi (241/586 MPa) · El 60% · RA 70% · HB 150 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/302.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "modulus": {
       "min": 193,
@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 184,
-      "max": 184,
-      "typical": 184,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 150,
+      "typical": 150,
+      "max": 150,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 302, 1 in. round bar annealed 1900°F(1038°C): 35/85 ksi (241/586 MPa) · El 60% · RA 70% · HB 150 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/302.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기",
+      "scale": "HB",
+      "source_scale": "HB",
+      "source_value": 150,
+      "conversion": null,
+      "scale_note": "ASTM E140 표 밖(또는 해당 표 없음) — 환산하지 않고 원 스케일 그대로 표기"
     },
     "thermal_conductivity": {
       "min": 16,
@@ -196,14 +201,14 @@
       "verified": false
     },
     {
-      "label": "Datasheet 1",
-      "url": "ANSYS Granta — Stainless steel austenitic AISI 302 annealed (UNS S30200, EN 1.4319)",
+      "label": "Carpenter — CarTech 302 datasheet (1 in. 봉 1038°C 소둔 대표값 241/586 MPa·60%·HB 150)",
+      "url": "https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/302.pdf",
       "verified": true
     },
     {
-      "label": "Datasheet 1",
+      "label": "Outokumpu — 오스테나이트 스테인리스 강종 개요 페이지 (강종별 수치 없음 — 값 대조 불가)",
       "url": "https://www.outokumpu.com/en/products/stainless-steel-types/austenitic-stainless-steel",
-      "verified": true
+      "verified": false
     },
     {
       "label": "ASM Handbook Vol.1 — Stainless 302 (higher-C 304)",
@@ -219,18 +224,18 @@
   "points": [
     [
       7.91,
-      234,
-      565,
-      50,
+      241,
+      586,
+      60,
       193,
-      184,
+      150,
       16
     ]
   ],
   "machinability": "Fair",
   "weldability": "Good",
   "corrosion_resistance": "Excellent",
-  "industry_note": "UNS S30200 / EN 1.4319 / X10CrNi18-8 / JIS SUS302 — general-purpose austenitic stainless (Cr 17-19, Ni 8-10, C ≤ 0.15 — 304 의 high-C 변종). Spring temper (CW): σy 1280 / UTS 1480 (피아노선·스프링 와이어 표준). max service 870°C. Austenitic → Q+T 불가 (Ms ≈ -100°C).",
+  "industry_note": "UNS S30200 / EN 1.4319 / X10CrNi18-8 / JIS SUS302 — 304 의 고탄소(C ≤ 0.15) 변종. 스프링·와이어처럼 냉간인발해 쓰는 용도가 많다. max service 870°C. 오스테나이트라 담금질·뜨임으로는 경화되지 않는다(Ms ≈ −100°C).",
   "meta": {
     "reference": true,
     "condition": "Solution annealed (S30200, EN 1.4319, X10CrNi18-8, SUS302)",
@@ -244,11 +249,11 @@
   },
   "fracture_toughness": 220,
   "density": 7.91,
-  "yield_strength": 234,
-  "uts": 565,
-  "elongation": 50,
+  "yield_strength": 241,
+  "uts": 586,
+  "elongation": 60,
   "modulus": 193,
-  "hardness": 184,
+  "hardness": 150,
   "thermal_conductivity": 16,
   "fatigue_strength": 240,
   "impact_strength": 80,
@@ -315,5 +320,70 @@
   "svhc_concerns": [
     "Ni 10% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 234,
+        "max": 234,
+        "typical": 234,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 234
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 565,
+        "max": 565,
+        "typical": 565,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 565
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 50,
+        "max": 50,
+        "typical": 50,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 50
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 184,
+        "max": 184,
+        "typical": 184,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 184
+    },
+    "_basis": "저장값의 유일한 \"원전\"은 URL 자리에 설명문이 들어간 'ANSYS Granta' 가짜 출처였다. Carpenter 봉재 대표값 행으로 교정.",
+    "_src": "Carpenter Technology — CarTech 302, 1 in. round bar annealed 1900°F(1038°C): 35/85 ksi (241/586 MPa) · El 60% · RA 70% · HB 150 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/302.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기",
+    "points": {
+      "from": [
+        [
+          7.91,
+          234,
+          565,
+          50,
+          193,
+          184,
+          16
+        ]
+      ]
+    }
+  }
 }

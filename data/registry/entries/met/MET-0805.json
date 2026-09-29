@@ -191,8 +191,18 @@
   },
   "sources": [
     {
-      "label": "Datasheet 1",
-      "url": "https://www.api.org/products-and-services/standards/important-standards-announcements/standard-5ct",
+      "label": "ASM Handbook Vol.1 — Stainless Steels (properties & selection)",
+      "url": "https://dl.asminternational.org/handbooks/edited-volume/16/Properties-and-Selection-Irons-Steels-and-High",
+      "verified": true
+    },
+    {
+      "label": "ASTM A240/A240M — Stainless Steel Plate, Sheet & Strip",
+      "url": "https://store.astm.org/a0240_a0240m-23.html",
+      "verified": true
+    },
+    {
+      "label": "JFE Steel — 13CR OCTG 규격 물성 (JFE-13CR-80 = API 5CT L80 13Cr 상당: YS 552–655 · TS ≥655 MPa · ≤23 HRC)",
+      "url": "https://www.jfe-steel.co.jp/en/products/energy/octg/material/13cr.html",
       "verified": true
     },
     {
@@ -228,6 +238,10 @@
       {
         "id": "UNS S42000",
         "org": "UNS"
+      },
+      {
+        "id": "API 5CT",
+        "org": "API"
       }
     ]
   },
@@ -272,5 +286,26 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": null,
   "rohs_basis": "no_regulated_element_data",
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "sources": {
+      "from": [
+        {
+          "label": "JFE Steel — 13CR OCTG 규격 물성 (JFE-13CR-80 = API 5CT L80 13Cr 상당: YS 552–655 · TS ≥655 MPa · ≤23 HRC)",
+          "url": "https://www.jfe-steel.co.jp/en/products/energy/octg/material/13cr.html",
+          "verified": true
+        },
+        {
+          "label": "KIC fallback: ASM Vol.1 Martensitic SS",
+          "url": null,
+          "verified": false
+        },
+        {
+          "label": "Fatigue fallback: σf ≈ 0.5·σy (ASM Vol.19 Martensitic SS)",
+          "url": null,
+          "verified": false
+        }
+      ]
+    }
+  }
 }

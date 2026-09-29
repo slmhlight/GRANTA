@@ -127,6 +127,69 @@
    "std": "Niagara LaSalle StressProof 사양서 (ASTM A311 Class B)",
    "note": "제조사 사양서가 Tensile 115,000 psi (Min) · Yield 100,000 psi (Min) 을 명시한다. 표시값 793 / 689 MPa 는 그 최소값이다 — 실제 공급재는 대개 이보다 높다.",
    "verified": "2026-09-28"
+  },
+  {
+   "stable_id": "MET-0707",
+   "legacy_id": "R_0025_1",
+   "name": "AISI 301 (cold-rolled HS austenitic) — 1/4 hard (cold-rolled)",
+   "props": ["yield_strength", "uts"],
+   "std": "ASTM A666 Table 2 — Type 301 ¼ Hard",
+   "note": "A666 Table 2 가 ¼ Hard 를 TS 125 ksi · YS 75 ksi min · El 25% 로 규정한다. 표시값 860/515 MPa 는 그 최소값이다. 규격 주 (A): 최소값만 정하며 범위가 아니다 — 가공경화 특성에 따라 항복 또는 인장 중 하나가 지배하고, 지배하지 않는 쪽은 보통 최소값을 상당히 넘는다.",
+   "verified": "2026-09-29"
+  },
+  {
+   "stable_id": "MET-0706",
+   "legacy_id": "R_0025_2",
+   "name": "AISI 301 (cold-rolled HS austenitic) — 1/2 hard (cold-rolled)",
+   "props": ["yield_strength", "uts"],
+   "std": "ASTM A666 Table 2 — Type 301 ½ Hard",
+   "note": "A666 Table 2 가 ½ Hard 를 TS 150 ksi · YS 110 ksi min · El 18%(0.015 in. 이상) 로 규정한다. 표시값 1035/760 MPa 는 그 최소값이다(규격 주 (A) — 지배하지 않는 쪽은 보통 크게 넘는다).",
+   "verified": "2026-09-29"
+  },
+  {
+   "stable_id": "MET-0708",
+   "legacy_id": "R_0025_3",
+   "name": "AISI 301 (cold-rolled HS austenitic) — 3/4 hard (cold-rolled)",
+   "props": ["yield_strength", "uts"],
+   "std": "ASTM A666 Table 2 — Type 301 ¾ Hard",
+   "note": "A666 Table 2 가 ¾ Hard 를 TS 175 ksi · YS 135 ksi min · El 12%(0.015 in. 이상) 로 규정한다. 표시값 1205/930 MPa 는 그 최소값이다.",
+   "verified": "2026-09-29"
+  },
+  {
+   "stable_id": "MET-0710",
+   "legacy_id": "R_0025_4",
+   "name": "AISI 301 (cold-rolled HS austenitic) — Full hard (cold-rolled)",
+   "props": ["yield_strength", "uts"],
+   "std": "ASTM A666 Table 2 — Type 301 Full Hard",
+   "note": "A666 Table 2 가 Full Hard 를 TS 185 ksi · YS 140 ksi min · El 9%(0.015 in. 이상) 로 규정한다. 표시값 1275/965 MPa 는 그 최소값이다.",
+   "verified": "2026-09-29"
+  },
+  {
+   "stable_id": "MET-0720",
+   "legacy_id": "G_0199",
+   "name": "AISI 304L — 1/4 Hard (cold-rolled, ASTM A666 min)",
+   "props": ["yield_strength", "uts"],
+   "std": "ASTM A666 Table 2 — Type 304L ¼ Hard",
+   "note": "A666 Table 2 가 304L ¼ Hard 를 TS 125 ksi · YS 75 ksi min · El 10%(0.030 in. 초과) 로 규정한다. 표시값 860/515 MPa 는 그 최소값이다.",
+   "verified": "2026-09-29"
+  },
+  {
+   "stable_id": "MET-0734",
+   "legacy_id": "G_0211",
+   "name": "AISI 316 — 1/4 Hard (cold-rolled, ASTM A666 min)",
+   "props": ["yield_strength", "uts"],
+   "std": "ASTM A666 Table 2 — Type 316 ¼ Hard",
+   "note": "A666 Table 2 가 316 ¼ Hard 를 TS 125 ksi · YS 75 ksi min · El 10% 로 규정한다. 표시값 860/515 MPa 는 그 최소값이다.",
+   "verified": "2026-09-29"
+  },
+  {
+   "stable_id": "MET-0808",
+   "legacy_id": "R_0089",
+   "name": "PH13-8 Mo — H950",
+   "props": ["yield_strength", "uts"],
+   "std": "AMS 5629 — PH 13-8 Mo H950 (Carpenter 13-8Mo datasheet 전사)",
+   "note": "Carpenter 13-8Mo 데이터시트가 AMS 5629 의 최소 보증값을 옮겨 싣는다: 0.625 in. 봉 H950 종방향 YS 205 ksi · TS 220 ksi · El 10% · RA 45%. 표시값 1415/1515 MPa 는 그 최소값이다.",
+   "verified": "2026-09-29"
   }
  ]
 }

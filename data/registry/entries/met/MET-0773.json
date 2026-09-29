@@ -11,7 +11,7 @@
   "legacy_id": "R_0122",
   "origin": "reference(supplementary)",
   "id": "R_0122",
-  "name": "416 stainless",
+  "name": "416 stainless — Q+T (982°C OQ + 593°C)",
   "category": "Metal",
   "subcategory": "Stainless Steel - Ferritic/Martensitic",
   "tier": "reference",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": null,
+  "heat_treatment": "Q+T (982°C OQ + 593°C, 1 h)",
   "ranges": {
     "density": {
       "min": 7.64,
@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 620,
-      "max": 760,
-      "typical": 690,
-      "n": 3,
-      "confidence": "measured"
+      "min": 689,
+      "typical": 689,
+      "max": 689,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 416 datasheet, Typical RT properties 1 in. round bar hardened 1800°F(982°C) OQ, tempered 1 h at 1100°F(593°C): 100/125 ksi (689/862 MPa) · El 17% · RA 53% · HB 262 / HRC 26 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/416.pdf · [경도 스케일] HRC 26 → HV (ASTM E140-12b Table 1)"
     },
     "uts": {
-      "min": 760,
-      "max": 900,
-      "typical": 825,
-      "n": 3,
-      "confidence": "measured"
+      "min": 862,
+      "typical": 862,
+      "max": 862,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 416 datasheet, Typical RT properties 1 in. round bar hardened 1800°F(982°C) OQ, tempered 1 h at 1100°F(593°C): 100/125 ksi (689/862 MPa) · El 17% · RA 53% · HB 262 / HRC 26 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/416.pdf · [경도 스케일] HRC 26 → HV (ASTM E140-12b Table 1)"
     },
     "elongation": {
-      "min": 10,
-      "max": 15,
-      "typical": 12,
-      "n": 3,
-      "confidence": "measured"
+      "min": 17,
+      "typical": 17,
+      "max": 17,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 416 datasheet, Typical RT properties 1 in. round bar hardened 1800°F(982°C) OQ, tempered 1 h at 1100°F(593°C): 100/125 ksi (689/862 MPa) · El 17% · RA 53% · HB 262 / HRC 26 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/416.pdf · [경도 스케일] HRC 26 → HV (ASTM E140-12b Table 1)"
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,15 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 250,
-      "max": 280,
-      "typical": 260,
-      "n": 3,
-      "confidence": "measured"
+      "min": 272,
+      "typical": 272,
+      "max": 272,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 416 datasheet, Typical RT properties 1 in. round bar hardened 1800°F(982°C) OQ, tempered 1 h at 1100°F(593°C): 100/125 ksi (689/862 MPa) · El 17% · RA 53% · HB 262 / HRC 26 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/416.pdf · [경도 스케일] HRC 26 → HV (ASTM E140-12b Table 1)",
+      "scale": "HV",
+      "source_scale": "HRC",
+      "source_value": 26,
+      "conversion": "ASTM E140-12b Table 1"
     },
     "thermal_conductivity": {
       "min": 25,
@@ -108,13 +112,11 @@
       "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
     },
     "max_service_temp": {
-      "min": 552.5,
-      "max": 747.5,
-      "typical": 650,
-      "n": 0,
-      "estimated": true,
-      "confidence": "subfamily",
-      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+      "min": 593,
+      "typical": 593,
+      "max": 593,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 416 datasheet, Typical RT properties 1 in. round bar hardened 1800°F(982°C) OQ, tempered 1 h at 1100°F(593°C): 100/125 ksi (689/862 MPa) · El 17% · RA 53% · HB 262 / HRC 26 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/416.pdf · [경도 스케일] HRC 26 → HV (ASTM E140-12b Table 1)"
     },
     "thermal_expansion": {
       "min": 8.67,
@@ -219,30 +221,12 @@
   ],
   "points": [
     [
-      7.7,
-      690,
-      825,
-      12,
+      7.8,
+      689,
+      862,
+      17,
       200,
-      260,
-      25
-    ],
-    [
-      7.7,
-      620,
-      760,
-      10,
-      200,
-      250,
-      25
-    ],
-    [
-      7.7,
-      760,
-      900,
-      15,
-      200,
-      280,
+      272,
       25
     ]
   ],
@@ -270,11 +254,11 @@
   "fracture_toughness": 65,
   "fatigue_strength": 345,
   "density": 7.7,
-  "yield_strength": 690,
-  "uts": 825,
-  "elongation": 12,
+  "yield_strength": 689,
+  "uts": 862,
+  "elongation": 17,
   "modulus": 200,
-  "hardness": 260,
+  "hardness": 272,
   "thermal_conductivity": 25,
   "impact_strength": 50,
   "manufacturer": "Reference data",
@@ -293,7 +277,7 @@
     "Stainless Steel"
   ],
   "electrical_conductivity": 3,
-  "max_service_temp": 650,
+  "max_service_temp": 593,
   "thermal_expansion": 10.2,
   "poisson_ratio": 0.28,
   "specific_heat": 460,
@@ -311,5 +295,114 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": null,
   "rohs_basis": "no_regulated_element_data",
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 620,
+        "max": 760,
+        "typical": 690,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 690
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 760,
+        "max": 900,
+        "typical": 825,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 825
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 10,
+        "max": 15,
+        "typical": 12,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 12
+    },
+    "max_service_temp": {
+      "had_range": true,
+      "val_range": {
+        "min": 552.5,
+        "max": 747.5,
+        "typical": 650,
+        "n": 0,
+        "estimated": true,
+        "confidence": "subfamily",
+        "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+      },
+      "had_scalar": true,
+      "val_scalar": 650
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 250,
+        "max": 280,
+        "typical": 260,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 260
+    },
+    "_basis": "조건 없이 690/825·12% 였다 — Carpenter 1 in. 봉 982°C 유냉 + 593°C 뜨임 행(689/862·17%·HRC 26)과 항복만 같다. 그 행으로 교정하고 조건을 이름에 적는다. 사용온도 상한은 뜨임온도(A11 규칙 — 넘으면 재뜨임으로 강도가 떨어진다).",
+    "_src": "Carpenter Technology — CarTech 416 datasheet, Typical RT properties 1 in. round bar hardened 1800°F(982°C) OQ, tempered 1 h at 1100°F(593°C): 100/125 ksi (689/862 MPa) · El 17% · RA 53% · HB 262 / HRC 26 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/416.pdf · [경도 스케일] HRC 26 → HV (ASTM E140-12b Table 1)",
+    "points": {
+      "from": [
+        [
+          7.7,
+          690,
+          825,
+          12,
+          200,
+          260,
+          25
+        ],
+        [
+          7.7,
+          620,
+          760,
+          10,
+          200,
+          250,
+          25
+        ],
+        [
+          7.7,
+          760,
+          900,
+          15,
+          200,
+          280,
+          25
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "416 stainless",
+        "had": true
+      },
+      "heat_treatment": {
+        "from": null,
+        "had": true
+      }
+    },
+    "_fbasis": "값을 원전의 982°C 유냉 + 593°C 뜨임 행으로 교정하면서 조건을 이름·열처리에 적었다.",
+    "_fsrc": "Carpenter 416 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/416.pdf"
+  }
 }

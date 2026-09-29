@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 205,
-      "max": 205,
-      "typical": 205,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 255,
+      "typical": 255,
+      "max": 255,
+      "confidence": "handbook",
+      "provenance": "교정: SFSA Steel Castings Handbook Supplement 8 (2004) High Alloy Data Sheets — Corrosion Series, Mechanical properties at room temperature, Representative values (water quench): CF8 77.0/37.0 ksi (531/255 MPa) · El 55% · HBW 140 · https://cdn.sfsa.org/wp-content/uploads/2021/10/s8.pdf · [경도 스케일] 주조 오스테나이트(δ페라이트 소량)라 원 스케일 표기"
     },
     "uts": {
-      "min": 485,
-      "max": 485,
-      "typical": 485,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 531,
+      "typical": 531,
+      "max": 531,
+      "confidence": "handbook",
+      "provenance": "교정: SFSA Steel Castings Handbook Supplement 8 (2004) High Alloy Data Sheets — Corrosion Series, Mechanical properties at room temperature, Representative values (water quench): CF8 77.0/37.0 ksi (531/255 MPa) · El 55% · HBW 140 · https://cdn.sfsa.org/wp-content/uploads/2021/10/s8.pdf · [경도 스케일] 주조 오스테나이트(δ페라이트 소량)라 원 스케일 표기"
     },
     "elongation": {
-      "min": 35,
-      "max": 35,
-      "typical": 35,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 55,
+      "typical": 55,
+      "max": 55,
+      "confidence": "handbook",
+      "provenance": "교정: SFSA Steel Castings Handbook Supplement 8 (2004) High Alloy Data Sheets — Corrosion Series, Mechanical properties at room temperature, Representative values (water quench): CF8 77.0/37.0 ksi (531/255 MPa) · El 55% · HBW 140 · https://cdn.sfsa.org/wp-content/uploads/2021/10/s8.pdf · [경도 스케일] 주조 오스테나이트(δ페라이트 소량)라 원 스케일 표기"
     },
     "modulus": {
       "min": 195,
@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 150,
-      "max": 150,
-      "typical": 150,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 140,
+      "typical": 140,
+      "max": 140,
+      "confidence": "handbook",
+      "provenance": "교정: SFSA Steel Castings Handbook Supplement 8 (2004) High Alloy Data Sheets — Corrosion Series, Mechanical properties at room temperature, Representative values (water quench): CF8 77.0/37.0 ksi (531/255 MPa) · El 55% · HBW 140 · https://cdn.sfsa.org/wp-content/uploads/2021/10/s8.pdf · [경도 스케일] 주조 오스테나이트(δ페라이트 소량)라 원 스케일 표기",
+      "scale": "HB",
+      "source_scale": "HB",
+      "source_value": 140,
+      "conversion": null,
+      "scale_note": "ASTM E140 표 밖(또는 해당 표 없음) — 환산하지 않고 원 스케일 그대로 표기"
     },
     "thermal_conductivity": {
       "min": 16.2,
@@ -208,11 +213,11 @@
   "points": [
     [
       7.75,
-      205,
-      485,
-      35,
+      255,
+      531,
+      55,
       195,
-      150,
+      140,
       16.2
     ]
   ],
@@ -242,11 +247,11 @@
   "fracture_toughness": 220,
   "fatigue_strength": 240,
   "density": 7.75,
-  "yield_strength": 205,
-  "uts": 485,
-  "elongation": 35,
+  "yield_strength": 255,
+  "uts": 531,
+  "elongation": 55,
   "modulus": 195,
-  "hardness": 150,
+  "hardness": 140,
   "thermal_conductivity": 16.2,
   "impact_strength": 160,
   "manufacturer": "Reference data",
@@ -307,5 +312,70 @@
   "svhc_concerns": [
     "Ni 11% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 205,
+        "max": 205,
+        "typical": 205,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 205
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 485,
+        "max": 485,
+        "typical": 485,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 485
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 35,
+        "max": 35,
+        "typical": 35,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 35
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 150,
+        "max": 150,
+        "typical": 150,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 150
+    },
+    "_basis": "저장값 205/485 MPa 는 ASTM A351/A743 CF8 의 **보증 최소값**이다(R226c 가 규격값으로 넣었다). 같은 합금의 대표값(SFSA 데이터시트)으로 — 최소값은 min_spec 축으로 병기된다.",
+    "_src": "SFSA Steel Castings Handbook Supplement 8 (2004) High Alloy Data Sheets — Corrosion Series, Mechanical properties at room temperature, Representative values (water quench): CF8 77.0/37.0 ksi (531/255 MPa) · El 55% · HBW 140 · https://cdn.sfsa.org/wp-content/uploads/2021/10/s8.pdf · [경도 스케일] 주조 오스테나이트(δ페라이트 소량)라 원 스케일 표기",
+    "points": {
+      "from": [
+        [
+          7.75,
+          205,
+          485,
+          35,
+          195,
+          150,
+          16.2
+        ]
+      ]
+    }
+  }
 }

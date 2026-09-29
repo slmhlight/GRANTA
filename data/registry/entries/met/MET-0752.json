@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 290,
-      "max": 340,
-      "typical": 310,
-      "n": 3,
-      "confidence": "measured"
+      "min": 393,
+      "typical": 393,
+      "max": 393,
+      "confidence": "handbook",
+      "provenance": "교정: ATI — AL-6XN alloy Technical Data Sheet V2, Table 19 Typical transverse tensile properties, sheet 0.026–0.139 in.: AL-6XN 57/112 ksi (393/770 MPa) · El 44% · HRB 89 · https://www.atimaterials.com/Products/Documents/datasheets/stainless-specialty-steel/superaustenitic/al-6xn_tds_en_V2.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "uts": {
-      "min": 655,
-      "max": 720,
-      "typical": 690,
-      "n": 3,
-      "confidence": "measured"
+      "min": 770,
+      "typical": 770,
+      "max": 770,
+      "confidence": "handbook",
+      "provenance": "교정: ATI — AL-6XN alloy Technical Data Sheet V2, Table 19 Typical transverse tensile properties, sheet 0.026–0.139 in.: AL-6XN 57/112 ksi (393/770 MPa) · El 44% · HRB 89 · https://www.atimaterials.com/Products/Documents/datasheets/stainless-specialty-steel/superaustenitic/al-6xn_tds_en_V2.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "elongation": {
-      "min": 35,
-      "max": 45,
-      "typical": 40,
-      "n": 3,
-      "confidence": "measured"
+      "min": 44,
+      "typical": 44,
+      "max": 44,
+      "confidence": "handbook",
+      "provenance": "교정: ATI — AL-6XN alloy Technical Data Sheet V2, Table 19 Typical transverse tensile properties, sheet 0.026–0.139 in.: AL-6XN 57/112 ksi (393/770 MPa) · El 44% · HRB 89 · https://www.atimaterials.com/Products/Documents/datasheets/stainless-specialty-steel/superaustenitic/al-6xn_tds_en_V2.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "modulus": {
       "min": 195,
@@ -60,11 +60,16 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 200,
-      "max": 230,
-      "typical": 210,
-      "n": 3,
-      "confidence": "measured"
+      "min": 89,
+      "typical": 89,
+      "max": 89,
+      "confidence": "handbook",
+      "provenance": "교정: ATI — AL-6XN alloy Technical Data Sheet V2, Table 19 Typical transverse tensile properties, sheet 0.026–0.139 in.: AL-6XN 57/112 ksi (393/770 MPa) · El 44% · HRB 89 · https://www.atimaterials.com/Products/Documents/datasheets/stainless-specialty-steel/superaustenitic/al-6xn_tds_en_V2.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기",
+      "scale": "HRB",
+      "source_scale": "HRB",
+      "source_value": 89,
+      "conversion": null,
+      "scale_note": "ASTM E140 표 밖(또는 해당 표 없음) — 환산하지 않고 원 스케일 그대로 표기"
     },
     "thermal_conductivity": {
       "min": 12,
@@ -199,9 +204,9 @@
       "verified": true
     },
     {
-      "label": "ATI — AL-6XN Alloy",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AL-6XN",
-      "verified": false
+      "label": "ATI — AL-6XN alloy Technical Data Sheet",
+      "url": "https://www.atimaterials.com/Products/Documents/datasheets/stainless-specialty-steel/superaustenitic/al-6xn_tds_en_V2.pdf",
+      "verified": true
     },
     {
       "label": "ATI — AL-6XN super-austenitic (UNS N08367)",
@@ -214,37 +219,19 @@
       "verified": false
     },
     {
-      "label": "AL6XN (UNS N08367) — Calico Metal Alloys (ASME SB-688 최소값)",
+      "label": "AL6XN (UNS N08367) — Calico Metal Alloys (ASME SB-688 최소값 — 표시값은 ATI 대표값)",
       "url": "https://www.calicometal.com/materials/al6xn.html",
-      "verified": true
+      "verified": false
     }
   ],
   "points": [
     [
       8.06,
-      310,
-      690,
-      40,
+      393,
+      770,
+      44,
       195,
-      210,
-      12
-    ],
-    [
-      8.06,
-      290,
-      655,
-      35,
-      195,
-      200,
-      12
-    ],
-    [
-      8.06,
-      340,
-      720,
-      45,
-      195,
-      230,
+      89,
       12
     ]
   ],
@@ -264,16 +251,16 @@
   "fracture_toughness": 140,
   "fatigue_strength": 130,
   "density": 8.06,
-  "yield_strength": 310,
-  "uts": 690,
-  "elongation": 40,
+  "yield_strength": 393,
+  "uts": 770,
+  "elongation": 44,
   "modulus": 195,
-  "hardness": 210,
+  "hardness": 89,
   "thermal_conductivity": 12,
   "impact_strength": 130,
   "manufacturer": "ATI (Allegheny Technologies)",
   "process": "Wrought",
-  "source": "ATI — AL-6XN Alloy",
+  "source": "ATI — AL-6XN alloy Technical Data Sheet",
   "aliases": [
     "UNS N08367",
     "EN 1.4529",
@@ -317,9 +304,9 @@
     "sources": {
       "from": [
         {
-          "label": "ATI — AL-6XN Alloy",
-          "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=AL-6XN",
-          "verified": false
+          "label": "ATI — AL-6XN alloy Technical Data Sheet",
+          "url": "https://www.atimaterials.com/Products/Documents/datasheets/stainless-specialty-steel/superaustenitic/al-6xn_tds_en_V2.pdf",
+          "verified": true
         },
         {
           "label": "ATI — AL-6XN super-austenitic (UNS N08367)",
@@ -332,10 +319,91 @@
           "verified": false
         },
         {
-          "label": "AL6XN (UNS N08367) — Calico Metal Alloys (ASME SB-688 최소값)",
+          "label": "AL6XN (UNS N08367) — Calico Metal Alloys (ASME SB-688 최소값 — 표시값은 ATI 대표값)",
           "url": "https://www.calicometal.com/materials/al6xn.html",
-          "verified": true
+          "verified": false
         }
+      ]
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 290,
+        "max": 340,
+        "typical": 310,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 310
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 655,
+        "max": 720,
+        "typical": 690,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 690
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 35,
+        "max": 45,
+        "typical": 40,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 40
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 200,
+        "max": 230,
+        "typical": 210,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 210
+    },
+    "_basis": "저장값 310/690·40% 는 판·시트 규격 최소(310/690·30%) 부근이었다. ATI Table 19 박판 대표값으로.",
+    "_src": "ATI — AL-6XN alloy Technical Data Sheet V2, Table 19 Typical transverse tensile properties, sheet 0.026–0.139 in.: AL-6XN 57/112 ksi (393/770 MPa) · El 44% · HRB 89 · https://www.atimaterials.com/Products/Documents/datasheets/stainless-specialty-steel/superaustenitic/al-6xn_tds_en_V2.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기",
+    "points": {
+      "from": [
+        [
+          8.06,
+          310,
+          690,
+          40,
+          195,
+          210,
+          12
+        ],
+        [
+          8.06,
+          290,
+          655,
+          35,
+          195,
+          200,
+          12
+        ],
+        [
+          8.06,
+          340,
+          720,
+          45,
+          195,
+          230,
+          12
+        ]
       ]
     }
   }

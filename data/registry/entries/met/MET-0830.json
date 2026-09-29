@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 760,
-      "max": 760,
-      "typical": 760,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 793,
+      "typical": 793,
+      "max": 793,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — Custom 455 datasheet, Typical RT mechanical properties, bar 1 in. section: A (115/145 ksi) → 793/1000 MPa · El 14% (4D) · HRC 31 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/Custom%20455.pdf · [경도 스케일] HRC 31 → HV (ASTM E140-12b Table 1)"
     },
     "uts": {
-      "min": 940,
-      "max": 940,
-      "typical": 940,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 1000,
+      "typical": 1000,
+      "max": 1000,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — Custom 455 datasheet, Typical RT mechanical properties, bar 1 in. section: A (115/145 ksi) → 793/1000 MPa · El 14% (4D) · HRC 31 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/Custom%20455.pdf · [경도 스케일] HRC 31 → HV (ASTM E140-12b Table 1)"
     },
     "elongation": {
       "min": 14,
-      "max": 14,
       "typical": 14,
-      "n": 1,
-      "confidence": "handbook"
+      "max": 14,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — Custom 455 datasheet, Typical RT mechanical properties, bar 1 in. section: A (115/145 ksi) → 793/1000 MPa · El 14% (4D) · HRC 31 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/Custom%20455.pdf · [경도 스케일] HRC 31 → HV (ASTM E140-12b Table 1)"
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,15 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 280,
-      "max": 280,
-      "typical": 280,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 310,
+      "typical": 310,
+      "max": 310,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — Custom 455 datasheet, Typical RT mechanical properties, bar 1 in. section: A (115/145 ksi) → 793/1000 MPa · El 14% (4D) · HRC 31 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/Custom%20455.pdf · [경도 스케일] HRC 31 → HV (ASTM E140-12b Table 1)",
+      "scale": "HV",
+      "source_scale": "HRC",
+      "source_value": 31,
+      "conversion": "ASTM E140-12b Table 1"
     },
     "thermal_conductivity": {
       "min": 17,
@@ -227,11 +231,11 @@
   "points": [
     [
       7.81,
-      760,
-      940,
+      793,
+      1000,
       14,
       200,
-      280,
+      310,
       17
     ]
   ],
@@ -245,11 +249,11 @@
   },
   "fracture_toughness": 120,
   "density": 7.81,
-  "yield_strength": 760,
-  "uts": 940,
+  "yield_strength": 793,
+  "uts": 1000,
   "elongation": 14,
   "modulus": 200,
-  "hardness": 280,
+  "hardness": 310,
   "thermal_conductivity": 17,
   "fatigue_strength": 423,
   "impact_strength": 105,
@@ -300,6 +304,69 @@
           "url": null,
           "verified": false
         }
+      ]
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 760,
+        "max": 760,
+        "typical": 760,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 760
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 940,
+        "max": 940,
+        "typical": 940,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 940
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 14,
+        "max": 14,
+        "typical": 14,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 14
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 280,
+        "max": 280,
+        "typical": 280,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 280
+    },
+    "_basis": "저장값의 항복이 Carpenter 1 in. 봉 대표값보다 4~6% 낮고(760/1620/1480 vs 793/1689/1551) 연신·경도도 같은 행과 달랐다 — 대표값 행으로 통일.",
+    "_src": "Carpenter Technology — Custom 455 datasheet, Typical RT mechanical properties, bar 1 in. section: A (115/145 ksi) → 793/1000 MPa · El 14% (4D) · HRC 31 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/Custom%20455.pdf · [경도 스케일] HRC 31 → HV (ASTM E140-12b Table 1)",
+    "points": {
+      "from": [
+        [
+          7.81,
+          760,
+          940,
+          14,
+          200,
+          280,
+          17
+        ]
       ]
     }
   }

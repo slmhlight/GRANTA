@@ -209,9 +209,9 @@
       "verified": true
     },
     {
-      "label": "Datasheet 1",
-      "url": "ANSYS Granta — Stainless steel, ferritic, AISI 446 annealed (UNS S44600, EN 1.4749)",
-      "verified": true
+      "label": "Rolled Alloys 446 Data Sheet (Bulletin 123USe) — 대표값 345/469 MPa·30%·HRB 83–93 (인장이 ASTM A240 판재 최소 485 에 못 미쳐 봉재 기준으로 보이며, 표시값 555 의 원전은 확인하지 못함)",
+      "url": "https://www.rolledalloys.com/wp-content/uploads/446_stainless-steel-data-sheet-rolled-alloys.pdf",
+      "verified": false
     },
     {
       "label": "Rolled Alloys — 446 Stainless (ATI 구 페이지 소실, 대조 전)",
@@ -243,6 +243,10 @@
     "reference": true,
     "condition": "Annealed (S44600, EN 1.4749, X18CrN28, SUH446)",
     "specs": [
+      {
+        "id": "ASTM A240",
+        "org": "ASTM"
+      },
       {
         "id": "EN 1.4749",
         "org": "EN"
@@ -298,9 +302,9 @@
     "sources": {
       "from": [
         {
-          "label": "Datasheet 1",
-          "url": "ANSYS Granta — Stainless steel, ferritic, AISI 446 annealed (UNS S44600, EN 1.4749)",
-          "verified": true
+          "label": "Rolled Alloys 446 Data Sheet (Bulletin 123USe) — 대표값 345/469 MPa·30%·HRB 83–93 (인장이 ASTM A240 판재 최소 485 에 못 미쳐 봉재 기준으로 보이며, 표시값 555 의 원전은 확인하지 못함)",
+          "url": "https://www.rolledalloys.com/wp-content/uploads/446_stainless-steel-data-sheet-rolled-alloys.pdf",
+          "verified": false
         },
         {
           "label": "Rolled Alloys — 446 Stainless (ATI 구 페이지 소실, 대조 전)",

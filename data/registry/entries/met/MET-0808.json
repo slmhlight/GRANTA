@@ -11,7 +11,7 @@
   "legacy_id": "R_0089",
   "origin": "reference(supplementary)",
   "id": "R_0089",
-  "name": "PH13-8 Mo",
+  "name": "PH13-8 Mo — H950",
   "category": "Metal",
   "subcategory": "Stainless Steel - Ferritic/Martensitic",
   "tier": "reference",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": null,
+  "heat_treatment": "H950 (510°C 4 h, AMS 5629)",
   "ranges": {
     "density": {
       "min": 7.76,
@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 1340,
-      "max": 1480,
-      "typical": 1410,
-      "n": 3,
-      "confidence": "measured"
+      "min": 1415,
+      "typical": 1415,
+      "max": 1415,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — 13-8Mo datasheet p.3 (AMS 5629 발췌, 0.625 in. 봉 종방향): H950 205/220 ksi (1415/1515 MPa) · El 10% · RA 45% · https://www.carpentertechnology.com/hubfs/Data%20Sheets/13-8Mo_Datasheet.pdf"
     },
     "uts": {
-      "min": 1450,
-      "max": 1590,
-      "typical": 1520,
-      "n": 3,
-      "confidence": "measured"
+      "min": 1515,
+      "typical": 1515,
+      "max": 1515,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — 13-8Mo datasheet p.3 (AMS 5629 발췌, 0.625 in. 봉 종방향): H950 205/220 ksi (1415/1515 MPa) · El 10% · RA 45% · https://www.carpentertechnology.com/hubfs/Data%20Sheets/13-8Mo_Datasheet.pdf"
     },
     "elongation": {
-      "min": 8,
-      "max": 12,
+      "min": 10,
       "typical": 10,
-      "n": 3,
-      "confidence": "measured"
+      "max": 10,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — 13-8Mo datasheet p.3 (AMS 5629 발췌, 0.625 in. 봉 종방향): H950 205/220 ksi (1415/1515 MPa) · El 10% · RA 45% · https://www.carpentertechnology.com/hubfs/Data%20Sheets/13-8Mo_Datasheet.pdf"
     },
     "modulus": {
       "min": 203,
@@ -190,7 +190,7 @@
   },
   "sources": [
     {
-      "label": "ASM — PH13-8Mo (UNS S13800, H1000)",
+      "label": "ASM — PH13-8Mo (UNS S13800)",
       "url": null,
       "verified": false
     },
@@ -213,29 +213,11 @@
   "points": [
     [
       7.76,
-      1410,
-      1520,
+      1415,
+      1515,
       10,
       203,
       470,
-      14
-    ],
-    [
-      7.76,
-      1340,
-      1450,
-      8,
-      203,
-      450,
-      14
-    ],
-    [
-      7.76,
-      1480,
-      1590,
-      12,
-      203,
-      490,
       14
     ]
   ],
@@ -261,8 +243,8 @@
   "fracture_toughness": 100,
   "fatigue_strength": 705,
   "density": 7.76,
-  "yield_strength": 1410,
-  "uts": 1520,
+  "yield_strength": 1415,
+  "uts": 1515,
   "elongation": 10,
   "modulus": 203,
   "hardness": 470,
@@ -270,7 +252,7 @@
   "impact_strength": 50,
   "manufacturer": "Reference data",
   "process": "Wrought",
-  "source": "ASM — PH13-8Mo (UNS S13800, H1000)",
+  "source": "ASM — PH13-8Mo (UNS S13800)",
   "aliases": [
     "UNS S13800",
     "EN 1.4534",
@@ -363,6 +345,87 @@
         "EN 1.4534",
         "PH13-8Mo"
       ]
-    }
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 1340,
+        "max": 1480,
+        "typical": 1410,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 1410
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 1450,
+        "max": 1590,
+        "typical": 1520,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 1520
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 8,
+        "max": 12,
+        "typical": 10,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 10
+    },
+    "_basis": "조건 표기 없이 1410/1520·10% 였다 — AMS 5629 H950 종방향 보증 최소(205/220 ksi = 1415/1515 MPa·10%)의 반올림이다(출처 라벨의 'H1000' 과도 맞지 않는다). 최소값으로 정확히 맞추고 H950 조건을 적은 뒤 규격 하한으로 선언.",
+    "_src": "Carpenter Technology — 13-8Mo datasheet p.3 (AMS 5629 발췌, 0.625 in. 봉 종방향): H950 205/220 ksi (1415/1515 MPa) · El 10% · RA 45% · https://www.carpentertechnology.com/hubfs/Data%20Sheets/13-8Mo_Datasheet.pdf",
+    "points": {
+      "from": [
+        [
+          7.76,
+          1410,
+          1520,
+          10,
+          203,
+          470,
+          14
+        ],
+        [
+          7.76,
+          1340,
+          1450,
+          8,
+          203,
+          450,
+          14
+        ],
+        [
+          7.76,
+          1480,
+          1590,
+          12,
+          203,
+          490,
+          14
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "PH13-8 Mo",
+        "had": true
+      },
+      "heat_treatment": {
+        "from": null,
+        "had": true
+      }
+    },
+    "_fbasis": "값이 H950 최소값이라 조건을 이름·열처리에 적었다(원래 조건 표기 없음).",
+    "_fsrc": "Carpenter 13-8Mo datasheet (AMS 5629) · https://www.carpentertechnology.com/hubfs/Data%20Sheets/13-8Mo_Datasheet.pdf"
   }
 }

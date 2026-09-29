@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 220,
-      "max": 270,
-      "typical": 240,
-      "n": 3,
-      "confidence": "measured"
+      "min": 260,
+      "typical": 260,
+      "max": 260,
+      "confidence": "handbook",
+      "provenance": "교정: AZoM — Stainless Steel Grade 317L (UNS S31703): Tensile 595 MPa · Yield 260 MPa · El 55% · HRB 85 · https://www.azom.com/article.aspx?ArticleID=8262 · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "uts": {
-      "min": 560,
-      "max": 620,
-      "typical": 585,
-      "n": 3,
-      "confidence": "measured"
+      "min": 595,
+      "typical": 595,
+      "max": 595,
+      "confidence": "handbook",
+      "provenance": "교정: AZoM — Stainless Steel Grade 317L (UNS S31703): Tensile 595 MPa · Yield 260 MPa · El 55% · HRB 85 · https://www.azom.com/article.aspx?ArticleID=8262 · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "elongation": {
-      "min": 40,
-      "max": 50,
-      "typical": 45,
-      "n": 3,
-      "confidence": "measured"
+      "min": 55,
+      "typical": 55,
+      "max": 55,
+      "confidence": "handbook",
+      "provenance": "교정: AZoM — Stainless Steel Grade 317L (UNS S31703): Tensile 595 MPa · Yield 260 MPa · El 55% · HRB 85 · https://www.azom.com/article.aspx?ArticleID=8262 · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "modulus": {
       "min": 193,
@@ -60,11 +60,16 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 160,
-      "max": 190,
-      "typical": 170,
-      "n": 3,
-      "confidence": "measured"
+      "min": 85,
+      "typical": 85,
+      "max": 85,
+      "confidence": "handbook",
+      "provenance": "교정: AZoM — Stainless Steel Grade 317L (UNS S31703): Tensile 595 MPa · Yield 260 MPa · El 55% · HRB 85 · https://www.azom.com/article.aspx?ArticleID=8262 · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기",
+      "scale": "HRB",
+      "source_scale": "HRB",
+      "source_value": 85,
+      "conversion": null,
+      "scale_note": "ASTM E140 표 밖(또는 해당 표 없음) — 환산하지 않고 원 스케일 그대로 표기"
     },
     "thermal_conductivity": {
       "min": 14,
@@ -211,29 +216,11 @@
   "points": [
     [
       8,
-      240,
-      585,
-      45,
+      260,
+      595,
+      55,
       193,
-      170,
-      14
-    ],
-    [
-      8,
-      220,
-      560,
-      40,
-      193,
-      160,
-      14
-    ],
-    [
-      8,
-      270,
-      620,
-      50,
-      193,
-      190,
+      85,
       14
     ]
   ],
@@ -253,11 +240,11 @@
   "fracture_toughness": 140,
   "fatigue_strength": 101,
   "density": 8,
-  "yield_strength": 240,
-  "uts": 585,
-  "elongation": 45,
+  "yield_strength": 260,
+  "uts": 595,
+  "elongation": 55,
   "modulus": 193,
-  "hardness": 170,
+  "hardness": 85,
   "thermal_conductivity": 14,
   "impact_strength": 130,
   "manufacturer": "Reference data",
@@ -303,6 +290,87 @@
     "industry_note": {
       "from": null,
       "had": true
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 220,
+        "max": 270,
+        "typical": 240,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 240
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 560,
+        "max": 620,
+        "typical": 585,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 585
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 40,
+        "max": 50,
+        "typical": 45,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 45
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 160,
+        "max": 190,
+        "typical": 170,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 170
+    },
+    "_basis": "저장값 240/585·45%·HV 170 은 인용된 유일한 원전(AZoM 317L: 260/595·55%·HRB 85)과 맞지 않았다 — 그 행으로.",
+    "_src": "AZoM — Stainless Steel Grade 317L (UNS S31703): Tensile 595 MPa · Yield 260 MPa · El 55% · HRB 85 · https://www.azom.com/article.aspx?ArticleID=8262 · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기",
+    "points": {
+      "from": [
+        [
+          8,
+          240,
+          585,
+          45,
+          193,
+          170,
+          14
+        ],
+        [
+          8,
+          220,
+          560,
+          40,
+          193,
+          160,
+          14
+        ],
+        [
+          8,
+          270,
+          620,
+          50,
+          193,
+          190,
+          14
+        ]
+      ]
     }
   }
 }

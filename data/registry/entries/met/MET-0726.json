@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 258,
-      "max": 258,
-      "typical": 258,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 276,
+      "typical": 276,
+      "max": 276,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 309, 1 in. round bar annealed 1950°F(1066°C) WQ: 40/90 ksi (276/620 MPa) · El 50% · RA 77% · HB 160 (HRB 83) · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/309.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "uts": {
-      "min": 568,
-      "max": 568,
-      "typical": 568,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 620,
+      "typical": 620,
+      "max": 620,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 309, 1 in. round bar annealed 1950°F(1066°C) WQ: 40/90 ksi (276/620 MPa) · El 50% · RA 77% · HB 160 (HRB 83) · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/309.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "elongation": {
-      "min": 40,
-      "max": 40,
-      "typical": 40,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 50,
+      "typical": 50,
+      "max": 50,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 309, 1 in. round bar annealed 1950°F(1066°C) WQ: 40/90 ksi (276/620 MPa) · El 50% · RA 77% · HB 160 (HRB 83) · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/309.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 184,
-      "max": 184,
-      "typical": 184,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 160,
+      "typical": 160,
+      "max": 160,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 309, 1 in. round bar annealed 1950°F(1066°C) WQ: 40/90 ksi (276/620 MPa) · El 50% · RA 77% · HB 160 (HRB 83) · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/309.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기",
+      "scale": "HB",
+      "source_scale": "HB",
+      "source_value": 160,
+      "conversion": null,
+      "scale_note": "ASTM E140 표 밖(또는 해당 표 없음) — 환산하지 않고 원 스케일 그대로 표기"
     },
     "thermal_conductivity": {
       "min": 14,
@@ -199,8 +204,8 @@
       "verified": true
     },
     {
-      "label": "Datasheet 1",
-      "url": "ANSYS Granta — Stainless steel, austenitic, AISI 309 annealed (UNS S30900)",
+      "label": "Carpenter — CarTech 309 datasheet (1 in. 봉 1066°C 소둔 대표값 276/620 MPa·50%·HB 160)",
+      "url": "https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/309.pdf",
       "verified": true
     },
     {
@@ -217,11 +222,11 @@
   "points": [
     [
       7.8,
-      258,
-      568,
-      40,
+      276,
+      620,
+      50,
       200,
-      184,
+      160,
       14
     ]
   ],
@@ -241,11 +246,11 @@
   },
   "fracture_toughness": 140,
   "density": 7.8,
-  "yield_strength": 258,
-  "uts": 568,
-  "elongation": 40,
+  "yield_strength": 276,
+  "uts": 620,
+  "elongation": 50,
   "modulus": 200,
-  "hardness": 184,
+  "hardness": 160,
   "thermal_conductivity": 14,
   "fatigue_strength": 220,
   "impact_strength": 70,
@@ -291,8 +296,8 @@
     "sources": {
       "from": [
         {
-          "label": "Datasheet 1",
-          "url": "ANSYS Granta — Stainless steel, austenitic, AISI 309 annealed (UNS S30900)",
+          "label": "Carpenter — CarTech 309 datasheet (1 in. 봉 1066°C 소둔 대표값 276/620 MPa·50%·HB 160)",
+          "url": "https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/309.pdf",
           "verified": true
         },
         {
@@ -305,6 +310,69 @@
           "url": null,
           "verified": false
         }
+      ]
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 258,
+        "max": 258,
+        "typical": 258,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 258
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 568,
+        "max": 568,
+        "typical": 568,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 568
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 40,
+        "max": 40,
+        "typical": 40,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 40
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 184,
+        "max": 184,
+        "typical": 184,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 184
+    },
+    "_basis": "저장값의 유일한 \"원전\"은 URL 자리에 설명문이 들어간 'ANSYS Granta' 가짜 출처였다. Carpenter 봉재 대표값 행으로 교정.",
+    "_src": "Carpenter Technology — CarTech 309, 1 in. round bar annealed 1950°F(1066°C) WQ: 40/90 ksi (276/620 MPa) · El 50% · RA 77% · HB 160 (HRB 83) · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/309.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기",
+    "points": {
+      "from": [
+        [
+          7.8,
+          258,
+          568,
+          40,
+          200,
+          184,
+          14
+        ]
       ]
     }
   }

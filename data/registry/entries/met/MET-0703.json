@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 200,
-      "max": 250,
-      "typical": 220,
-      "n": 3,
-      "confidence": "measured"
+      "min": 290,
+      "typical": 290,
+      "max": 290,
+      "confidence": "handbook",
+      "provenance": "교정: ATI — AL-6XN alloy Technical Data Sheet V2, Table 19 Typical transverse tensile properties, sheet 0.026–0.139 in.: 904L 42/86 ksi (290/593 MPa) · El 43% · HRB 79 · https://www.atimaterials.com/Products/Documents/datasheets/stainless-specialty-steel/superaustenitic/al-6xn_tds_en_V2.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "uts": {
-      "min": 490,
-      "max": 550,
-      "typical": 520,
-      "n": 3,
-      "confidence": "measured"
+      "min": 593,
+      "typical": 593,
+      "max": 593,
+      "confidence": "handbook",
+      "provenance": "교정: ATI — AL-6XN alloy Technical Data Sheet V2, Table 19 Typical transverse tensile properties, sheet 0.026–0.139 in.: 904L 42/86 ksi (290/593 MPa) · El 43% · HRB 79 · https://www.atimaterials.com/Products/Documents/datasheets/stainless-specialty-steel/superaustenitic/al-6xn_tds_en_V2.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "elongation": {
-      "min": 35,
-      "max": 45,
-      "typical": 40,
-      "n": 3,
-      "confidence": "measured"
+      "min": 43,
+      "typical": 43,
+      "max": 43,
+      "confidence": "handbook",
+      "provenance": "교정: ATI — AL-6XN alloy Technical Data Sheet V2, Table 19 Typical transverse tensile properties, sheet 0.026–0.139 in.: 904L 42/86 ksi (290/593 MPa) · El 43% · HRB 79 · https://www.atimaterials.com/Products/Documents/datasheets/stainless-specialty-steel/superaustenitic/al-6xn_tds_en_V2.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "modulus": {
       "min": 190,
@@ -60,11 +60,16 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 170,
-      "max": 200,
-      "typical": 180,
-      "n": 3,
-      "confidence": "measured"
+      "min": 79,
+      "typical": 79,
+      "max": 79,
+      "confidence": "handbook",
+      "provenance": "교정: ATI — AL-6XN alloy Technical Data Sheet V2, Table 19 Typical transverse tensile properties, sheet 0.026–0.139 in.: 904L 42/86 ksi (290/593 MPa) · El 43% · HRB 79 · https://www.atimaterials.com/Products/Documents/datasheets/stainless-specialty-steel/superaustenitic/al-6xn_tds_en_V2.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기",
+      "scale": "HRB",
+      "source_scale": "HRB",
+      "source_value": 79,
+      "conversion": null,
+      "scale_note": "ASTM E140 표 밖(또는 해당 표 없음) — 환산하지 않고 원 스케일 그대로 표기"
     },
     "thermal_conductivity": {
       "min": 12,
@@ -212,29 +217,11 @@
   "points": [
     [
       8,
-      220,
-      520,
-      40,
+      290,
+      593,
+      43,
       190,
-      180,
-      12
-    ],
-    [
-      8,
-      200,
-      490,
-      35,
-      190,
-      170,
-      12
-    ],
-    [
-      8,
-      250,
-      550,
-      45,
-      190,
-      200,
+      79,
       12
     ]
   ],
@@ -263,11 +250,11 @@
   "fracture_toughness": 250,
   "fatigue_strength": 270,
   "density": 8,
-  "yield_strength": 220,
-  "uts": 520,
-  "elongation": 40,
+  "yield_strength": 290,
+  "uts": 593,
+  "elongation": 43,
   "modulus": 190,
-  "hardness": 180,
+  "hardness": 79,
   "thermal_conductivity": 12,
   "impact_strength": 165,
   "manufacturer": "Reference data",
@@ -331,5 +318,88 @@
     }
   ],
   "elevated_temp_src": "핸드북 typical — 개별 인용 미기재",
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 200,
+        "max": 250,
+        "typical": 220,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 220
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 490,
+        "max": 550,
+        "typical": 520,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 520
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 35,
+        "max": 45,
+        "typical": 40,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 40
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 170,
+        "max": 200,
+        "typical": 180,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 180
+    },
+    "_basis": "저장값 220/520·40% 는 EN 10088-2 판 최소(220/520 MPa) 숫자다. ATI Table 19 의 904L 박판 대표값으로(같은 표의 316 행 310/607 이 CLF 316 과 같은 대역이라 교차 확인).",
+    "_src": "ATI — AL-6XN alloy Technical Data Sheet V2, Table 19 Typical transverse tensile properties, sheet 0.026–0.139 in.: 904L 42/86 ksi (290/593 MPa) · El 43% · HRB 79 · https://www.atimaterials.com/Products/Documents/datasheets/stainless-specialty-steel/superaustenitic/al-6xn_tds_en_V2.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기",
+    "points": {
+      "from": [
+        [
+          8,
+          220,
+          520,
+          40,
+          190,
+          180,
+          12
+        ],
+        [
+          8,
+          200,
+          490,
+          35,
+          190,
+          170,
+          12
+        ],
+        [
+          8,
+          250,
+          550,
+          45,
+          190,
+          200,
+          12
+        ]
+      ]
+    }
+  }
 }

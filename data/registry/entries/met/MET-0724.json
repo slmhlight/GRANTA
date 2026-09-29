@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 240,
-      "max": 240,
-      "typical": 240,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 241,
+      "typical": 241,
+      "max": 241,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) 305 Product Data Bulletin 2025-09, Table 1: 85/35 ksi (586/241 MPa) · El 55% · HRB 70 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10511/file/CLF_ProductData_305SS_092025.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "uts": {
-      "min": 580,
-      "max": 580,
-      "typical": 580,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 586,
+      "typical": 586,
+      "max": 586,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) 305 Product Data Bulletin 2025-09, Table 1: 85/35 ksi (586/241 MPa) · El 55% · HRB 70 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10511/file/CLF_ProductData_305SS_092025.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "elongation": {
-      "min": 50,
-      "max": 50,
-      "typical": 50,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 55,
+      "typical": 55,
+      "max": 55,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) 305 Product Data Bulletin 2025-09, Table 1: 85/35 ksi (586/241 MPa) · El 55% · HRB 70 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10511/file/CLF_ProductData_305SS_092025.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "modulus": {
       "min": 193,
@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 190,
-      "max": 190,
-      "typical": 190,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 70,
+      "typical": 70,
+      "max": 70,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) 305 Product Data Bulletin 2025-09, Table 1: 85/35 ksi (586/241 MPa) · El 55% · HRB 70 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10511/file/CLF_ProductData_305SS_092025.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기",
+      "scale": "HRB",
+      "source_scale": "HRB",
+      "source_value": 70,
+      "conversion": null,
+      "scale_note": "ASTM E140 표 밖(또는 해당 표 없음) — 환산하지 않고 원 스케일 그대로 표기"
     },
     "thermal_conductivity": {
       "min": 16,
@@ -199,14 +204,14 @@
       "verified": true
     },
     {
-      "label": "Datasheet 1",
-      "url": "ANSYS Granta — Stainless steel, austenitic, AISI 305 annealed (UNS S30500)",
+      "label": "Cleveland-Cliffs (구 AK Steel) 305 Product Data Bulletin 2025-09 — Table 1 대표값 241/586 MPa·55%·HRB 70",
+      "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10511/file/CLF_ProductData_305SS_092025.pdf",
       "verified": true
     },
     {
-      "label": "Datasheet 1",
+      "label": "Outokumpu — 오스테나이트 스테인리스 강종 개요 페이지 (강종별 수치 없음 — 값 대조 불가)",
       "url": "https://www.outokumpu.com/en/products/stainless-steel-types/austenitic-stainless-steel",
-      "verified": true
+      "verified": false
     },
     {
       "label": "KIC fallback: ASM Vol.1 Austenitic SS",
@@ -217,11 +222,11 @@
   "points": [
     [
       7.91,
-      240,
-      580,
-      50,
+      241,
+      586,
+      55,
       193,
-      190,
+      70,
       16
     ]
   ],
@@ -241,11 +246,11 @@
   },
   "fracture_toughness": 140,
   "density": 7.91,
-  "yield_strength": 240,
-  "uts": 580,
-  "elongation": 50,
+  "yield_strength": 241,
+  "uts": 586,
+  "elongation": 55,
   "modulus": 193,
-  "hardness": 190,
+  "hardness": 70,
   "thermal_conductivity": 16,
   "fatigue_strength": 185,
   "impact_strength": 60,
@@ -286,7 +291,7 @@
   "svhc_concerns": [
     "Ni 13% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high",
+  "confidence_tier": "medium",
   "_corrections": {
     "industry_note": {
       "from": null,
@@ -295,20 +300,83 @@
     "sources": {
       "from": [
         {
-          "label": "Datasheet 1",
-          "url": "ANSYS Granta — Stainless steel, austenitic, AISI 305 annealed (UNS S30500)",
+          "label": "Cleveland-Cliffs (구 AK Steel) 305 Product Data Bulletin 2025-09 — Table 1 대표값 241/586 MPa·55%·HRB 70",
+          "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10511/file/CLF_ProductData_305SS_092025.pdf",
           "verified": true
         },
         {
-          "label": "Datasheet 1",
+          "label": "Outokumpu — 오스테나이트 스테인리스 강종 개요 페이지 (강종별 수치 없음 — 값 대조 불가)",
           "url": "https://www.outokumpu.com/en/products/stainless-steel-types/austenitic-stainless-steel",
-          "verified": true
+          "verified": false
         },
         {
           "label": "KIC fallback: ASM Vol.1 Austenitic SS",
           "url": null,
           "verified": false
         }
+      ]
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 240,
+        "max": 240,
+        "typical": 240,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 240
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 580,
+        "max": 580,
+        "typical": 580,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 580
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 50,
+        "max": 50,
+        "typical": 50,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 50
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 190,
+        "max": 190,
+        "typical": 190,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 190
+    },
+    "_basis": "저장값의 유일한 \"원전\"은 'ANSYS Granta' 설명문(가짜 출처)이었다. CLF 305 판재 대표값으로 — Carpenter 305 빌렛(234/545·77%·HRB 75)과 같은 대역.",
+    "_src": "Cleveland-Cliffs (구 AK Steel) 305 Product Data Bulletin 2025-09, Table 1: 85/35 ksi (586/241 MPa) · El 55% · HRB 70 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10511/file/CLF_ProductData_305SS_092025.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기",
+    "points": {
+      "from": [
+        [
+          7.91,
+          240,
+          580,
+          50,
+          193,
+          190,
+          16
+        ]
       ]
     }
   }

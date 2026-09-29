@@ -109,7 +109,6 @@
    "_reI": true,
    "stableIds": [
     "MET-0713",
-    "MET-0716",
     "MET-1013",
     "MET-1014"
    ]
@@ -128,13 +127,12 @@
      "verified": true
     }
    ],
-   "industry_note": "R173 — UNS S30403 / SUS304L / 1.4307 — 304 의 ELC (C ≤ 0.030%) 변종. Sensitization 회피로 용접 후 PWHT 불필요. σy ≈ 170 / UTS ≈ 485 / El 40% (304 대비 5% 낮은 강도, 더 좋은 weldability). 식품·의약·반도체 super-clean piping (EP polish Ra<0.4) 표준. ⚠ 현재 entry composition 의 C=0.08 은 잘못 (정정값: ≤0.030).",
+   "industry_note": "R173 — UNS S30403 / SUS304L / 1.4307 — 304 의 저탄소(C ≤ 0.030%) 변종. 용접 후 예민화를 피해 PWHT 없이 쓴다. 규격 최소 σy 170 / UTS 485 MPa 로 304(205/515)보다 한 단계 낮지만 용접성이 좋다. 식품·의약·반도체 고청정 배관(EP 연마)의 표준.",
    "_namePattern_ref": "^AISI 304L\\b|^SUS304L\\b|^304L Stainless\\b",
    "_reI": true,
    "stableIds": [
     "MET-0717",
-    "MET-0720",
-    "MET-0721"
+    "MET-0720"
    ]
   },
   {
@@ -151,7 +149,7 @@
      "verified": true
     }
    ],
-   "industry_note": "R173 — UNS S31600 / SUS316 / 1.4401 — 304 + 2~3% Mo. Cl⁻ 환경 내식성 비약 향상 (MoO4²⁻ 가 Cl⁻ 차단). σy ≈ 240 / UTS ≈ 550 / El 50% / KIC 150-200 (handbook). max service 870°C. Marine grade / 해상 platform / 식품·의료·FPSO·반도체 piping. ⚠ 현재 entry σy/UTS 는 304 와 동일값 → handbook 정정 필요 (304 mock 가능성).",
+   "industry_note": "R173 — UNS S31600 / SUS316 / 1.4401 — 304 에 Mo 2~3% 를 넣어 염화물 내식성을 올린 등급. 판재 소둔 대표값 σy 290 / UTS 627 MPa / El 55% (Cleveland-Cliffs). max service 870°C. 해양·해상 플랫폼·식품·의료·반도체 배관.",
    "_namePattern_ref": "^AISI 316\\b(?!L)|^SUS316\\b(?!L)|^316 Stainless\\b",
    "_reI": true,
    "stableIds": [
@@ -178,17 +176,14 @@
      "verified": false
     }
    ],
-   "industry_note": "R173 — UNS S31603 / SUS316L / 1.4404 — 316 의 ELC (C ≤ 0.030%). Sensitization 회피 + Mo 보유 → 의료 임플란트 (ASTM F138 pacemaker / orthopedic), 반도체 super-clean, FPSO 표준. AM LPBF 의 가장 흔한 stainless. σy ≈ 170 / UTS ≈ 485 / El 40%.",
+   "industry_note": "R173 — UNS S31603 / SUS316L / 1.4404 — 316 의 저탄소(C ≤ 0.030%). 예민화 회피 + Mo → 의료 임플란트(ASTM F138), 반도체 고청정, FPSO 표준. AM LPBF 에서 가장 흔한 스테인리스. 규격 최소 σy 170 / UTS 485 MPa(ASTM A240).",
    "_namePattern_ref": "^AISI 316L\\b|^SUS316L\\b|^316L Stainless\\b|^Stainless Steel 316L\\b",
    "_reI": true,
    "stableIds": [
     "MET-0735",
     "MET-0736",
     "MET-0737",
-    "MET-0738",
-    "MET-0739",
-    "MET-0740",
-    "MET-0741"
+    "MET-0738"
    ]
   },
   {
@@ -376,7 +371,7 @@
      "verified": true
     }
    ],
-   "industry_note": "R173 — UNS S30200 / EN 1.4319 / X10CrNi18-8 / JIS SUS302 — general-purpose austenitic stainless (Cr 17-19, Ni 8-10, C ≤ 0.15 — 304 의 high-C 변종). Annealed: σy 215 / UTS 515 / El 40%. Spring temper (CW): σy 1280 / UTS 1480 (피아노선·스프링 와이어 표준). max service 870°C. ⚠ entry 의 Solution annealed σy 234 / UTS 565 는 304 와 동등 — 정상. Austenitic → Q+T 불가 (Ms ≈ -100°C).",
+   "industry_note": "R173 — UNS S30200 / EN 1.4319 / X10CrNi18-8 / JIS SUS302 — 304 의 고탄소(C ≤ 0.15) 변종. 스프링·와이어처럼 냉간인발해 쓰는 용도가 많다. max service 870°C. 오스테나이트라 담금질·뜨임으로는 경화되지 않는다(Ms ≈ −100°C).",
    "_namePattern_ref": "^AISI 302\\b|^SUS302\\b|^302 Stainless\\b",
    "_reI": true,
    "stableIds": [
@@ -1832,8 +1827,8 @@
    "_alloy": "Super 304H (Nb-Cu USC austenitic)",
    "sources": [
     {
-     "label": "Sumitomo Metals (Nippon Steel) Super304H Tube datasheet",
-     "url": "https://www.nipponsteel.com/",
+     "label": "Nippon Steel — Seamless Steel Tubes and Pipes for Boilers (P008en) — SUPER304H 규격 최소 TS 590 · YS 235 MPa · El 35%",
+     "url": "https://www.nipponsteel.com/product/catalog_download/pdf/P008en.pdf",
      "verified": true
     },
     {
@@ -1847,11 +1842,10 @@
      "verified": false
     }
    ],
-   "industry_note": "R173 — S30432 / Super 304H (Sumitomo / Nippon Steel) — Nb-Cu strengthened 18Cr-9Ni austenitic (C 0.07-0.13, Cr 17-19, Ni 7.5-10.5, Nb 0.30-0.60, Cu 2.5-3.5, N 0.05-0.12). Cu + NbC + γ' precipitation → creep rupture σf 100,000h @ 700°C ≈ 100 MPa (TP304H 의 1.5×, 18Cr-8Ni base 의 2×). Solution annealed: σy 235 / UTS 590 / El 40%. Tmax 750-870°C continuous (USC supercritical steam, 590-620°C steam standard). USC (Ultra-Supercritical) boiler superheater / reheater tube — 한국 신서천화력, 동서발전 EPC standard, 일본 J-POWER USC 표준.",
+   "industry_note": "R173 — S30432 / SUPER304H (Nippon Steel, KA-SUS304J1HTB · ASME Code Case 2328) — Nb·Cu·N 으로 강화한 18Cr-9Ni 오스테나이트 보일러관(C 0.07~0.13, Cu 2.5~3.5, Nb 0.30~0.60, N 0.05~0.12). 미세 석출물로 고온 크리프 강도를 올려 초초임계(USC) 보일러의 과열기·재열기 튜브에 쓴다. 규격 최소 인장 590 / 항복 235 MPa · El 35% (Nippon Steel P008en).",
    "_namePattern_ref": "^Super 304H\\b|^S30432\\b",
    "_reI": true,
    "stableIds": [
-    "MET-0762",
     "MET-0763"
    ]
   },
@@ -1911,7 +1905,7 @@
      "verified": true
     }
    ],
-   "industry_note": "R173 — UNS S30100 / EN 1.4310 / X10CrNi17-7 / JIS SUS301 — lower-Ni (6-8%) austenitic for cold-work strengthening. Annealed: σy 220 / UTS 530 / El 60%. CW 1/4 hard: σy 760 / UTS 860 / El 25%. CW Full Hard (H08): σy 1380 / UTS 1620 / El 10% (austenitic 중 가장 high-strength). 항공 vehicle / railroad railcar 외장 panel (CW 시트), 자동차 bumper, 304 보다 cheaper + harden 가능.",
+   "industry_note": "R173 — UNS S30100 / EN 1.4310 / X10CrNi17-7 / JIS SUS301 — Ni 를 6~8% 로 낮춰 냉간가공 경화가 큰 오스테나이트. 냉간압연 템퍼(¼·½·¾·Full Hard)는 ASTM A666 이 최소 인장성질로 정의한다(¼ Hard 인장 860 MPa 이상 ~ Full Hard 1275 MPa 이상). 철도 차량·항공기 외판, 스프링·클립 — 304 보다 싸고 냉간가공으로 강도를 올린다.",
    "_namePattern_ref": "^AISI 301\\b|^301 Stainless\\b|^SUS301\\b",
    "_reI": true,
    "stableIds": [
@@ -1931,7 +1925,7 @@
      "verified": true
     }
    ],
-   "industry_note": "R173 — UNS S30300 / EN 1.4305 / X8CrNiS18-9 / JIS SUS303 — sulfur-modified 304 (S 0.15-0.35) — machinability boost (rating ~80, vs 304 의 40%). σy 240 / UTS 580 / El 50%. Tmax 815°C. ⚠ S 함량으로 weldability 매우 poor (sulfide network 가 crack starter — 일반적으로 weld 가능, 단 S-free 304 filler + 낮은 heat input). Lathe-machined parts: shaft, valve stem, bushing, knob, fittings (high-volume turning). 304 의 ~10% premium.",
+   "industry_note": "R173 — UNS S30300 / EN 1.4305 / X8CrNiS18-9 / JIS SUS303 — 황(S 0.15~0.35)을 넣은 쾌삭 304. 1 in. 봉 소둔 대표값 σy 241 / UTS 621 MPa / El 50% (Carpenter). Tmax 815°C. 황화물 때문에 용접성은 나쁘다(S 없는 304 용가재·낮은 입열). 선반 가공 대량부품: 축·밸브 스템·부싱·피팅.",
    "_namePattern_ref": "^AISI 303\\b|^303 Stainless\\b|^SUS303\\b",
    "_reI": true,
    "stableIds": [
@@ -1957,7 +1951,6 @@
    "_reI": true,
    "stableIds": [
     "MET-0758",
-    "MET-0759",
     "MET-0760"
    ]
   },
@@ -2132,8 +2125,8 @@
    "_alloy": "A286 (Fe-Ni-Cr PH austenitic)",
    "sources": [
     {
-     "label": "Special Metals — A286 Technical Bulletin (SMC-058)",
-     "url": "https://www.carpentertechnology.com/alloy-finder/a-286",
+     "label": "Carpenter — CarTech A-286 datasheet (7/8 in. 봉 982°C 용체화 + 718°C 16 h 시효 대표값 655/1000 MPa·24%)",
+     "url": "https://www.carpentertechnology.com/hubfs/Data%20Sheets/A-286.pdf",
      "verified": true
     },
     {
@@ -2168,11 +2161,10 @@
      "verified": false
     }
    ],
-   "industry_note": "R173 — UNS S17700 / EN 1.4568 / X7CrNiAl17-7 / JIS SUS631 — semi-austenitic precipitation-hardening stainless (Cr 16-18, Ni 6.5-7.75, Al 0.75-1.5). 'Semi-austenitic' = solution annealed 시 austenite (formable), aging 후 martensite+intermetallics 변태 → very high strength. Condition A (annealed, austenitic): σy 380 / UTS 1030 / El 35%. RH 950 (Refrigeration treatment -78°C + Aging 510°C/1h): σy 1450 / UTS 1650 / El 6% (peak). TH 1050 (austenite-conditioned + tempered): σy 1300 / UTS 1380. Aerospace spring, sub-zero structural use, missile fin actuator.",
+   "industry_note": "R173 — UNS S17700 / EN 1.4568 / X7CrNiAl17-7 / JIS SUS631 — 준오스테나이트 석출경화 스테인리스(Cr 16~18, Ni 6.5~7.75, Al 0.75~1.5). 소둔(Condition A) 상태는 오스테나이트라 성형이 쉽고, TH 1050·RH 950 처리로 마르텐사이트+석출물이 되어 강해진다(RH 950 대표값 σy 1448 / UTS 1586 MPa, Cleveland-Cliffs). 항공 스프링·저온 구조물.",
    "_namePattern_ref": "^17-7 PH\\b|^17-?7PH\\b|^UNS S17700\\b",
    "_reI": true,
    "stableIds": [
-    "MET-0771",
     "MET-0827",
     "MET-0828",
     "MET-0829"
@@ -2182,8 +2174,8 @@
    "_alloy": "15-7 PH (Mo-enhanced)",
    "sources": [
     {
-     "label": "AK Steel — PH 15-7 Mo Stainless Datasheet",
-     "url": "https://www.aksteel.com/",
+     "label": "Cleveland-Cliffs (구 AK Steel) PH 15-7 Mo Product Data Bulletin 2021-05 — Table 2 대표값(RH 950 1482/1689 MPa·6%·HRC 49)",
+     "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10533/file/CLF_ProductData_15-7-PH+Stainless+Steel_052021.pdf",
      "verified": true
     },
     {
@@ -2192,7 +2184,7 @@
      "verified": false
     }
    ],
-   "industry_note": "R173 — UNS S15700 / EN 1.4532 / X8CrNiMoAl15-7-2 — 17-7 PH 의 Mo-enhanced 변종 (Mo 2-3% 추가 for higher service temp 650°C). RH 950: σy 1380 / UTS 1550 / El 6%. Tmax 650°C continuous (17-7 PH 의 315°C 대비 2× 향상). 항공 jet engine secondary structural / 미사일 actuator, high-T spring.",
+   "industry_note": "R173 — UNS S15700 / EN 1.4532 / X8CrNiMoAl15-7-2 — 17-7 PH 에 Mo 2~3% 를 더한 준오스테나이트 석출경화 스테인리스. RH 950 대표값 σy 1482 / UTS 1689 MPa / El 6% (Cleveland-Cliffs). 항공기 엔진 2차 구조·미사일 액추에이터·고온 스프링.",
    "_namePattern_ref": "^15-7 PH\\b|^15-?7PH\\b|^UNS S15700\\b",
    "_reI": true,
    "stableIds": [
@@ -3961,7 +3953,7 @@
      "verified": false
     }
    ],
-   "industry_note": "R173 — UNS S46500 / Carpenter Custom 465 — high-strength martensitic precipitation-hardening stainless (Cr 11-12, Ni 10.7-11.3, Mo 0.75-1.25, Ti 1.5-1.8). Stronger than 17-4 PH 또는 Custom 455. H 950 (peak strength, 510°C/4h): σy 1669 / UTS 1765 / El 8% / HRC 51. H 975: σy 1620 / UTS 1703 / HRC 50. H 1000: σy 1560 / UTS 1640 / HRC 47. Tmax 482°C. 항공기 landing gear (high-strength PH version of 17-4), missile component, sport firearm component.",
+   "industry_note": "R173 — UNS S46500 / Carpenter Custom 465 — 고강도 마르텐사이트계 석출경화 스테인리스(Cr 11~12, Ni 10.7~11.3, Mo 0.75~1.25, Ti 1.5~1.8). 17-4 PH·Custom 455 보다 강하다. H 950 대표값 σy 1669 / UTS 1765 MPa / El 13% / HRC 49.5 · H 1000 σy 1510 / UTS 1593 MPa / El 15% / HRC 47.5 (Carpenter 4.25 in. 봉 종방향). Tmax 482°C. 항공기 랜딩기어·미사일 부품.",
    "_namePattern_ref": "^Custom 465\\b|^UNS S46500\\b",
    "_reI": true,
    "stableIds": [
@@ -4280,7 +4272,7 @@
      "verified": false
     }
    ],
-   "industry_note": "R173 — UNS S17400 / EN 1.4542 / X5CrNiCuNb16-4 / AISI 630 / JIS SUS630 / KS STS630 — martensitic precipitation-hardening stainless. Cr 15-17, Ni 3-5, Cu 3-5, Nb 0.15-0.45. Aging conditions: H900 (480°C/1h, peak): σy 1170 / UTS 1310 / El 10% / HRC 40-44. H1025 (550°C/4h, balance): σy 1000 / UTS 1070 / El 12%. H1075 (580°C/4h, ductile): σy 860 / UTS 1000 / El 13%. H1150 (620°C/4h, soft): σy 720 / UTS 930. Tmax 315°C (over-aging 위쪽). 항공 landing gear, oil/gas valve, AM LPBF 표준 (가장 흔한 stainless steel for AM).",
+   "industry_note": "R173 — UNS S17400 / EN 1.4542 / X5CrNiCuNb16-4 / AISI 630 / JIS SUS630 — 마르텐사이트계 석출경화 스테인리스(Cr 15~17, Ni 3~5, Cu 3~5, Nb 0.15~0.45). 용체화(Condition A) 상태로 가공한 뒤 H900~H1150 시효 한 번으로 강도와 인성을 고른다 — H900 이 최고 강도, H1150 은 인성·응력부식 저항 쪽. 규격 최소값은 ASTM A564/AMS 5643 이 조건별로 정한다. 항공 랜딩기어·유정 밸브·AM LPBF 표준.",
    "_namePattern_ref": "^17-4 PH\\b|^17-?4PH\\b|^UNS S17400\\b",
    "_reI": true,
    "stableIds": [
@@ -4304,7 +4296,7 @@
      "verified": false
     }
    ],
-   "industry_note": "R173 — UNS S15500 / EN 1.4545 / XM-12 — 17-4 PH 의 'higher toughness' 변종 (Cr 14-15.5, Ni 3.5-5.5, Cu 2.5-4.5). 17-4 와 동등 강도 (H900 σy 1170 / UTS 1310) 이지만 fine-grained ESR melt 로 transverse ductility / KIC 개선. 항공 critical components (Cessna spar/wing fitting), 의료 instrument, AM LPBF (3D Systems LaserForm 15-5PH).",
+   "industry_note": "R173 — UNS S15500 / EN 1.4545 / XM-12 — 17-4 PH 의 인성 개선 변종(Cr 14~15.5, Ni 3.5~5.5, Cu 2.5~4.5). 17-4 와 비슷한 강도(H900 대표값 σy 1276 / UTS 1378 MPa, Carpenter 15Cr-5Ni)이지만 δ페라이트가 적어 횡방향 연성·파괴인성이 낫다. 항공 핵심 부품·의료 기구·AM LPBF.",
    "_namePattern_ref": "^15-5 PH\\b|^15-?5PH\\b|^UNS S15500\\b",
    "_reI": true,
    "stableIds": [
@@ -4326,13 +4318,12 @@
      "verified": true
     }
    ],
-   "industry_note": "R173 — UNS S41000 / EN 1.4006 / X12Cr13 / JIS SUS410 / KS STS410 — martensitic stainless (Cr 11.5-13.5, C 0.08-0.15). Annealed: σy 275 / UTS 480 / El 25%. Q+T 가능: 980°C oil Q + 540°C T: σy 760 / UTS 970 / El 18% / HRC 30. 200°C T: σy 1000 / UTS 1350 / HRC 41. ⚠ entry 의 'Aged / solution-treated' σy 280 은 사실상 Q+T condition (martensitic 은 strict-PH 가 아님). Tmax 600°C (over-tempering 위쪽). Cutlery, steam turbine blade, valve stem, oil/gas tubing.",
+   "industry_note": "R173 — UNS S41000 / EN 1.4006 / X12Cr13 / JIS SUS410 / KS STS410 — 마르텐사이트계 스테인리스(Cr 11.5~13.5, C 0.08~0.15). 담금질·뜨임으로 경화하며 뜨임온도로 강도와 인성을 고른다. Tmax 600°C(과뜨임 위쪽). 칼·증기터빈 블레이드·밸브 스템·유정 튜빙.",
    "_namePattern_ref": "^AISI 410\\b(?!S)|^410 Stainless\\b|^SUS410\\b",
    "_reI": true,
    "stableIds": [
     "MET-0780",
-    "MET-0783",
-    "MET-0784"
+    "MET-0783"
    ]
   },
   {
@@ -4349,12 +4340,11 @@
      "verified": true
     }
    ],
-   "industry_note": "R173 — UNS S43000 / EN 1.4016 / X6Cr17 / JIS SUS430 — ferritic stainless (Cr 16-18, C ≤ 0.12). Annealed: σy 205 / UTS 450 / El 22% (handbook 표준). ⚠ Aging/Q+T 불가 (single-phase α, no austenite to transform — R173 fake-variant 제거). Cold-worked (H/H2): σy 275-400. Tmax 815°C continuous (oxidation), 870°C intermittent. Automotive trim, kitchen appliance, dishwasher interior, deep-drawing (가공성은 304보다 우수).",
+   "industry_note": "R173 — UNS S43000 / EN 1.4016 / X6Cr17 / JIS SUS430 — 페라이트계 스테인리스(Cr 16~18, C ≤ 0.12). 규격 최소 σy 205 / UTS 450 MPa(ASTM A240). 단상 페라이트라 시효·담금질로 경화되지 않는다. Tmax 815°C 연속(산화), 870°C 간헐. 자동차 트림·주방가전·식기세척기 내장 — 딥드로잉.",
    "_namePattern_ref": "^AISI 430\\b(?!F)|^430 Stainless\\b|^SUS430\\b",
    "_reI": true,
    "stableIds": [
-    "MET-0785",
-    "MET-0788"
+    "MET-0785"
    ]
   },
   {
@@ -5149,7 +5139,6 @@
    "_namePattern_ref": "^AISI 440C(?!\\w)",
    "_reI": true,
    "stableIds": [
-    "MET-0798",
     "MET-0799",
     "MET-0802"
    ]
@@ -5528,9 +5517,9 @@
    "_matchedRecord": "316Ti (UNS S31635 / EN 1.4571 / X6CrNiMoTi17-12-2)",
    "sources": [
     {
-     "label": "316Ti / 1.4571 / S31635 Mechanical Properties — Abrams Industries",
+     "label": "316Ti / 1.4571 — Abrams Industries (UTS 약 100 ksi·YS 약 205 MPa·215 HB 이하 서술만 — 표시값은 미검증)",
      "url": "https://us.abrams-industries.com/steel/stainless-steel/316ti",
-     "verified": true
+     "verified": false
     }
    ],
    "_namePattern_ref": "^Stainless 316Ti(?!\\w)",
@@ -5579,8 +5568,13 @@
    "_matchedRecord": "AL-6XN (UNS N08367, super-austenitic 6Mo)",
    "sources": [
     {
-     "label": "AL6XN (UNS N08367) — Calico Metal Alloys (ASME SB-688 최소값)",
+     "label": "AL6XN (UNS N08367) — Calico Metal Alloys (ASME SB-688 최소값 — 표시값은 ATI 대표값)",
      "url": "https://www.calicometal.com/materials/al6xn.html",
+     "verified": false
+    },
+    {
+     "label": "ATI — AL-6XN alloy Technical Data Sheet V2 (Table 19 박판 대표값 393/770 MPa·44%·HRB 89)",
+     "url": "https://www.atimaterials.com/Products/Documents/datasheets/stainless-specialty-steel/superaustenitic/al-6xn_tds_en_V2.pdf",
      "verified": true
     }
    ],
@@ -5830,9 +5824,9 @@
    "_matchedRecord": "253 MA (UNS S30815 / EN 1.4835 / X9CrNiSiNCe21-11-2)",
    "sources": [
     {
-     "label": "Grade 253MA (UNS S30815) — AZoM",
+     "label": "Grade 253MA (UNS S30815) — AZoM (최소값 310/600·40% 만 — 표시값은 미검증)",
      "url": "https://www.azom.com/article.aspx?ArticleID=959",
-     "verified": true
+     "verified": false
     },
     {
      "label": "UNS S30815 (253 MA) — MakeItFrom (교차확인)",
@@ -6025,9 +6019,9 @@
    "_matchedRecord": "309S (UNS S30908 / EN 1.4833)",
    "sources": [
     {
-     "label": "Grade 309S (UNS S30908) — AZoM",
+     "label": "Grade 309S (UNS S30908) — AZoM (310/620 MPa·45%·HRB 85 — 표시값은 Cleveland-Cliffs 309/309S 판재 대표값)",
      "url": "https://www.azom.com/article.aspx?ArticleID=6797",
-     "verified": true
+     "verified": false
     }
    ],
    "_namePattern_ref": "^309S(?!\\w)",
@@ -6042,9 +6036,9 @@
    "_matchedRecord": "310S (UNS S31008 / EN 1.4845)",
    "sources": [
     {
-     "label": "Grade 310S (UNS S31008) — AZoM",
+     "label": "Grade 310S (UNS S31008) — AZoM (ASTM A240 최소값 205/515·40% 만 — 표시값은 미검증)",
      "url": "https://www.azom.com/article.aspx?ArticleID=6798",
-     "verified": true
+     "verified": false
     }
    ],
    "_namePattern_ref": "^310S(?!\\w)",
@@ -6059,9 +6053,9 @@
    "_matchedRecord": "347H (UNS S34709 / Nb(Cb) 안정화)",
    "sources": [
     {
-     "label": "Grade 347H (UNS S34709) — AZoM",
+     "label": "Grade 347H (UNS S34709) — AZoM (205/480·29% — 표시값과 맞지 않음, 미검증)",
      "url": "https://www.azom.com/article.aspx?ArticleID=6806",
-     "verified": true
+     "verified": false
     }
    ],
    "_namePattern_ref": "^347H(?!\\w)",
@@ -6086,9 +6080,9 @@
      "verified": true
     },
     {
-     "label": "AZoM — Stainless Steel Grade 410S (UNS S41008): 조성·ρ·E·CTE 제공(단 기계물성은 일반 410 템플릿값으로 추정 — 주의)",
+     "label": "AZoM — Stainless Steel Grade 410S (UNS S41008): 조성·물리물성(기계물성은 경화 410 값이 실려 있어 쓰지 않음)",
      "url": "https://www.azom.com/article.aspx?ArticleID=6811",
-     "verified": true
+     "verified": false
     }
    ],
    "_namePattern_ref": "^410S(?!\\w)",
@@ -6410,9 +6404,9 @@
    "_matchedRecord": "316H (UNS S31609)",
    "sources": [
     {
-     "label": "Type 316H for Elevated Temperature (UNS S31609) — AZoM",
+     "label": "Type 316H (UNS S31609) — AZoM (ASTM A240 최소값 205/515·40% 만 — 표시값은 미검증)",
      "url": "https://www.azom.com/article.aspx?ArticleID=5053",
-     "verified": true
+     "verified": false
     }
    ],
    "_namePattern_ref": "^316H(?!\\w)",
@@ -6523,9 +6517,9 @@
    "_matchedRecord": "316LN (UNS S31653 / EN 1.4406 또는 1.4429)",
    "sources": [
     {
-     "label": "Grade 316LN (UNS S31653) — AZoM",
+     "label": "Grade 316LN (UNS S31653) — AZoM (205/515·60% — 표시값과 맞지 않음, 미검증)",
      "url": "https://www.azom.com/article.aspx?ArticleID=8261",
-     "verified": true
+     "verified": false
     }
    ],
    "_namePattern_ref": "^316LN(?!\\w)",
@@ -6545,14 +6539,14 @@
      "verified": false
     },
     {
-     "label": "AZoM — Stainless Steel Grade 422 (UNS S42200): 조성·ρ 7.8·E 190-210 GPa·Poisson·CTE 11.2·k 풀 물리물성표",
+     "label": "AZoM — Stainless Steel Grade 422 (UNS S42200): 조성·물리물성만 (인장값 없음)",
      "url": "https://www.azom.com/article.aspx?ArticleID=6814",
-     "verified": true
+     "verified": false
     },
     {
-     "label": "Carpenter Technology — 422 Alloy Finder (Type Analysis 조성 텍스트 serve; 인장표는 미게재)",
+     "label": "Carpenter Technology — 422 Alloy Finder (조성만 — 인장표 없음)",
      "url": "https://www.carpentertechnology.com/alloy-finder/422",
-     "verified": true
+     "verified": false
     }
    ],
    "_namePattern_ref": "^422 stainless(?!\\w)",
@@ -7208,16 +7202,15 @@
    "_matchedRecord": "21-4N 밸브강 (X53CrMnNiN21-9 / 5Cr21Mn9Ni4N / EN 1.4871 계열)",
    "sources": [
     {
-     "label": "Super Alloy 21-4N Valve Steel (X53CrMnNiN21-9) — AZoM",
+     "label": "Super Alloy 21-4N Valve Steel — AZoM (시효재 UTS 950–1200 MPa·El 8% 범위만 — 표시값은 미검증)",
      "url": "https://www.azom.com/article.aspx?ArticleID=7648",
-     "verified": true
+     "verified": false
     }
    ],
    "_namePattern_ref": "^SAE 21-4N \\(NCF3\\)(?!\\w)",
    "_reI": true,
    "stableIds": [
     "MET-0758",
-    "MET-0759",
     "MET-0760"
    ]
   },

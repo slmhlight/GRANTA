@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 145,
-      "max": 240,
-      "typical": 170,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 276,
+      "typical": 276,
+      "max": 276,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) 304/304L Product Data Bulletin 2021-05, Table 1 Typical RT Mechanical Properties: Type 304L 95/40 ksi (655/276 MPa) · El 55% · HRB 82 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10510/file/CLF_ProductData_304-304LSS_052021.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "uts": {
-      "min": 450,
-      "max": 580,
-      "typical": 485,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 655,
+      "typical": 655,
+      "max": 655,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) 304/304L Product Data Bulletin 2021-05, Table 1 Typical RT Mechanical Properties: Type 304L 95/40 ksi (655/276 MPa) · El 55% · HRB 82 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10510/file/CLF_ProductData_304-304LSS_052021.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "elongation": {
-      "min": 30,
-      "max": 60,
-      "typical": 40,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 55,
+      "typical": 55,
+      "max": 55,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) 304/304L Product Data Bulletin 2021-05, Table 1 Typical RT Mechanical Properties: Type 304L 95/40 ksi (655/276 MPa) · El 55% · HRB 82 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10510/file/CLF_ProductData_304-304LSS_052021.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "modulus": {
       "min": 193,
@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 125,
-      "max": 195,
-      "typical": 145,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 82,
+      "typical": 82,
+      "max": 82,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) 304/304L Product Data Bulletin 2021-05, Table 1 Typical RT Mechanical Properties: Type 304L 95/40 ksi (655/276 MPa) · El 55% · HRB 82 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10510/file/CLF_ProductData_304-304LSS_052021.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기",
+      "scale": "HRB",
+      "source_scale": "HRB",
+      "source_value": 82,
+      "conversion": null,
+      "scale_note": "ASTM E140 표 밖(또는 해당 표 없음) — 환산하지 않고 원 스케일 그대로 표기"
     },
     "thermal_conductivity": {
       "min": 16.3,
@@ -195,9 +200,9 @@
       "verified": true
     },
     {
-      "label": "Outokumpu — Stainless Steel 304L (1.4307)",
+      "label": "Outokumpu — 오스테나이트 스테인리스 강종 개요 페이지 (강종별 수치 없음 — 값 대조 불가)",
       "url": "https://www.outokumpu.com/en/products/stainless-steel-types/austenitic-stainless-steel",
-      "verified": true
+      "verified": false
     },
     {
       "label": "ASM Handbook Vol.1 — Stainless Steel Type 304L (ELC)",
@@ -213,11 +218,11 @@
   "points": [
     [
       8,
-      170,
-      485,
-      40,
+      276,
+      655,
+      55,
       193,
-      145,
+      82,
       16.3
     ]
   ],
@@ -239,11 +244,11 @@
   "fracture_toughness": 220,
   "fatigue_strength": 240,
   "density": 8,
-  "yield_strength": 170,
-  "uts": 485,
-  "elongation": 40,
+  "yield_strength": 276,
+  "uts": 655,
+  "elongation": 55,
   "modulus": 193,
-  "hardness": 145,
+  "hardness": 82,
   "thermal_conductivity": 16.3,
   "impact_strength": 160,
   "manufacturer": "Generic",
@@ -336,15 +341,15 @@
       "hours": 1000
     }
   ],
-  "confidence_tier": "high",
-  "industry_note": "UNS S30403 / SUS304L / 1.4307 — 304 의 ELC (C ≤ 0.030%) 변종. Sensitization 회피로 용접 후 PWHT 불필요. σy ≈ 170 / UTS ≈ 485 / El 40% (304 대비 5% 낮은 강도, 더 좋은 weldability). 식품·의약·반도체 super-clean piping (EP polish Ra<0.4) 표준. 08 은 잘못 (정정값: ≤0.030).",
+  "confidence_tier": "medium",
+  "industry_note": "UNS S30403 / SUS304L / 1.4307 — 304 의 저탄소(C ≤ 0.030%) 변종. 용접 후 예민화를 피해 PWHT 없이 쓴다. 규격 최소 σy 170 / UTS 485 MPa 로 304(205/515)보다 한 단계 낮지만 용접성이 좋다. 식품·의약·반도체 고청정 배관(EP 연마)의 표준.",
   "_corrections": {
     "sources": {
       "from": [
         {
-          "label": "Outokumpu — Stainless Steel 304L (1.4307)",
+          "label": "Outokumpu — 오스테나이트 스테인리스 강종 개요 페이지 (강종별 수치 없음 — 값 대조 불가)",
           "url": "https://www.outokumpu.com/en/products/stainless-steel-types/austenitic-stainless-steel",
-          "verified": true
+          "verified": false
         },
         {
           "label": "ASM Handbook Vol. 2: Properties & Selection: Nonferrous Alloys",
@@ -368,6 +373,56 @@
         }
       ]
     },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 145,
+        "max": 240,
+        "typical": 170,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 170
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 450,
+        "max": 580,
+        "typical": 485,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 485
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 30,
+        "max": 60,
+        "typical": 40,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 40
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 125,
+        "max": 195,
+        "typical": 145,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 145
+    },
+    "_basis": "저장값 170/485·40% 는 ASTM A240 304L 보증 최소값(generic 합성). CLF Table 1 Type 304L 대표값으로.",
+    "_src": "Cleveland-Cliffs (구 AK Steel) 304/304L Product Data Bulletin 2021-05, Table 1 Typical RT Mechanical Properties: Type 304L 95/40 ksi (655/276 MPa) · El 55% · HRB 82 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10510/file/CLF_ProductData_304-304LSS_052021.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기",
     "points": {
       "from": [
         [
@@ -380,7 +435,6 @@
           16.3
         ]
       ]
-    },
-    "_points_resync": "points ⊄ ranges (상류 range override 후 stale 행) → typical 단일행 재생성"
+    }
   }
 }

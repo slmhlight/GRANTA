@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 1000,
-      "max": 1000,
-      "typical": 1000,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 1117,
+      "typical": 1117,
+      "max": 1117,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — Custom 630 (17-4) datasheet, Typical room temperature mechanical properties (봉재): H 1025 162/168 ksi (1117/1158 MPa) · El 16% · RA 58% · HRC 38 / HB 352 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/Custom%20630%20(17-4%20PH).pdf · [경도 스케일] HRC 38 → HV (ASTM E140-12b Table 1)"
     },
     "uts": {
-      "min": 1070,
-      "max": 1070,
-      "typical": 1070,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 1158,
+      "typical": 1158,
+      "max": 1158,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — Custom 630 (17-4) datasheet, Typical room temperature mechanical properties (봉재): H 1025 162/168 ksi (1117/1158 MPa) · El 16% · RA 58% · HRC 38 / HB 352 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/Custom%20630%20(17-4%20PH).pdf · [경도 스케일] HRC 38 → HV (ASTM E140-12b Table 1)"
     },
     "elongation": {
-      "min": 12,
-      "max": 12,
-      "typical": 12,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 16,
+      "typical": 16,
+      "max": 16,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — Custom 630 (17-4) datasheet, Typical room temperature mechanical properties (봉재): H 1025 162/168 ksi (1117/1158 MPa) · El 16% · RA 58% · HRC 38 / HB 352 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/Custom%20630%20(17-4%20PH).pdf · [경도 스케일] HRC 38 → HV (ASTM E140-12b Table 1)"
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,15 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 388,
-      "max": 388,
-      "typical": 388,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 372,
+      "typical": 372,
+      "max": 372,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — Custom 630 (17-4) datasheet, Typical room temperature mechanical properties (봉재): H 1025 162/168 ksi (1117/1158 MPa) · El 16% · RA 58% · HRC 38 / HB 352 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/Custom%20630%20(17-4%20PH).pdf · [경도 스케일] HRC 38 → HV (ASTM E140-12b Table 1)",
+      "scale": "HV",
+      "source_scale": "HRC",
+      "source_value": 38,
+      "conversion": "ASTM E140-12b Table 1"
     },
     "thermal_conductivity": {
       "min": 17.8,
@@ -216,14 +220,14 @@
   },
   "sources": [
     {
-      "label": "Carpenter Technology — Custom 630 (17-4 PH)",
-      "url": "https://www.carpentertechnology.com/alloy-finder/custom-630-17-4",
+      "label": "Carpenter Technology — Custom 630 (17-4 PH) datasheet",
+      "url": "https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/Custom%20630%20(17-4%20PH).pdf",
       "verified": true
     },
     {
-      "label": "Cleveland-Cliffs (구 AK Steel) 17-4 PH Product Data Bulletin 2021-05 — Table 3 규격 허용 최소값(H900 1310/1172 · H1025 1069/1000 · H1075 1000/862 · H1150 965 MPa)",
+      "label": "Cleveland-Cliffs (구 AK Steel) 17-4 PH Product Data Bulletin 2021-05 — Table 2 판재 대표값(H900 1275/1379 MPa·9%) · Table 3 규격 최소 — 표시값은 Carpenter 봉재 대표값",
       "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10503/file/CLF_ProductData_17-4-PHSS_052021.pdf",
-      "verified": true
+      "verified": false
     },
     {
       "label": "MatWeb 2",
@@ -231,9 +235,9 @@
       "verified": false
     },
     {
-      "label": "Cleveland-Cliffs (구 AK Steel) 17-4 PH Product Data Bulletin 2021-05 — Table 3 규격 허용 최소값(H900 1310/1172 · H1025 1069/1000 · H1075 1000/862 · H1150 965 MPa)",
+      "label": "Cleveland-Cliffs (구 AK Steel) 17-4 PH Product Data Bulletin 2021-05 — Table 2 판재 대표값(H900 1275/1379 MPa·9%) · Table 3 규격 최소 — 표시값은 Carpenter 봉재 대표값",
       "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10503/file/CLF_ProductData_17-4-PHSS_052021.pdf",
-      "verified": true
+      "verified": false
     },
     {
       "label": "AMS 5643 — 17-4 PH bar, wire, forging",
@@ -249,18 +253,18 @@
   "points": [
     [
       7.75,
-      1000,
-      1070,
-      12,
+      1117,
+      1158,
+      16,
       200,
-      388,
+      372,
       17.8
     ]
   ],
   "machinability": "Fair",
   "weldability": "Good",
   "corrosion_resistance": "Good",
-  "industry_note": "UNS S17400 / EN 1.4542 / X5CrNiCuNb16-4 / AISI 630 / JIS SUS630 / KS STS630 — martensitic precipitation-hardening stainless. Cr 15-17, Ni 3-5, Cu 3-5, Nb 0.15-0.",
+  "industry_note": "UNS S17400 / EN 1.4542 / X5CrNiCuNb16-4 / AISI 630 / JIS SUS630 — 마르텐사이트계 석출경화 스테인리스(Cr 15~17, Ni 3~5, Cu 3~5, Nb 0.15~0.45). 용체화(Condition A) 상태로 가공한 뒤 H900~H1150 시효 한 번으로 강도와 인성을 고른다 — H900 이 최고 강도, H1150 은 인성·응력부식 저항 쪽. 규격 최소값은 ASTM A564/AMS 5643 이 조건별로 정한다. 항공 랜딩기어·유정 밸브·AM LPBF 표준.",
   "meta": {
     "reference": true,
     "condition": "H1025",
@@ -285,16 +289,16 @@
   "fracture_toughness": 108,
   "fatigue_strength": 540,
   "density": 7.75,
-  "yield_strength": 1000,
-  "uts": 1070,
-  "elongation": 12,
+  "yield_strength": 1117,
+  "uts": 1158,
+  "elongation": 16,
   "modulus": 200,
-  "hardness": 388,
+  "hardness": 372,
   "thermal_conductivity": 17.8,
   "impact_strength": 42,
   "manufacturer": "Reference data",
   "process": "Wrought",
-  "source": "Carpenter Technology — Custom 630 (17-4 PH)",
+  "source": "Carpenter Technology — Custom 630 (17-4 PH) datasheet",
   "aliases": [
     "UNS S17400",
     "EN 1.4542",
@@ -352,5 +356,70 @@
   "svhc_concerns": [
     "Ni 5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "medium",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 1000,
+        "max": 1000,
+        "typical": 1000,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1000
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 1070,
+        "max": 1070,
+        "typical": 1070,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1070
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 12,
+        "max": 12,
+        "typical": 12,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 12
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 388,
+        "max": 388,
+        "typical": 388,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 388
+    },
+    "_basis": "저장값 1000/1070·12% 는 A564 H1025 보증 최소(145/155 ksi·12%)다. Carpenter H 1025 대표값 행으로 (ASTM A564/AMS 5643 최소값은 min_spec 축으로 병기).",
+    "_src": "Carpenter Technology — Custom 630 (17-4) datasheet, Typical room temperature mechanical properties (봉재): H 1025 162/168 ksi (1117/1158 MPa) · El 16% · RA 58% · HRC 38 / HB 352 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/Custom%20630%20(17-4%20PH).pdf · [경도 스케일] HRC 38 → HV (ASTM E140-12b Table 1)",
+    "points": {
+      "from": [
+        [
+          7.75,
+          1000,
+          1070,
+          12,
+          200,
+          388,
+          17.8
+        ]
+      ]
+    }
+  }
 }

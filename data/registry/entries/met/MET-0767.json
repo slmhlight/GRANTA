@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 450,
-      "max": 550,
-      "typical": 510,
-      "n": 3,
-      "confidence": "measured"
+      "min": 515,
+      "typical": 515,
+      "max": 515,
+      "confidence": "handbook",
+      "provenance": "교정: ATI — ATI 2205 Technical Data Sheet V4 (2015), Typical Room Temperature Properties: Typical Plate ≥3/16 in. 75/110 ksi (515/760 MPa) · El 35% · 235 HBN · https://www.atimaterials.com/Products/Documents/datasheets/stainless-specialty-steel/duplex/ati_2205_tds_en_v4.pdf · [경도 스케일] 페라이트+오스테나이트 2상이라 E140 비오스테나이트 표 대상이 아니어서 원 스케일 표기"
     },
     "uts": {
-      "min": 655,
-      "max": 770,
-      "typical": 700,
-      "n": 3,
-      "confidence": "measured"
+      "min": 760,
+      "typical": 760,
+      "max": 760,
+      "confidence": "handbook",
+      "provenance": "교정: ATI — ATI 2205 Technical Data Sheet V4 (2015), Typical Room Temperature Properties: Typical Plate ≥3/16 in. 75/110 ksi (515/760 MPa) · El 35% · 235 HBN · https://www.atimaterials.com/Products/Documents/datasheets/stainless-specialty-steel/duplex/ati_2205_tds_en_v4.pdf · [경도 스케일] 페라이트+오스테나이트 2상이라 E140 비오스테나이트 표 대상이 아니어서 원 스케일 표기"
     },
     "elongation": {
-      "min": 25,
+      "min": 35,
+      "typical": 35,
       "max": 35,
-      "typical": 30,
-      "n": 3,
-      "confidence": "measured"
+      "confidence": "handbook",
+      "provenance": "교정: ATI — ATI 2205 Technical Data Sheet V4 (2015), Typical Room Temperature Properties: Typical Plate ≥3/16 in. 75/110 ksi (515/760 MPa) · El 35% · 235 HBN · https://www.atimaterials.com/Products/Documents/datasheets/stainless-specialty-steel/duplex/ati_2205_tds_en_v4.pdf · [경도 스케일] 페라이트+오스테나이트 2상이라 E140 비오스테나이트 표 대상이 아니어서 원 스케일 표기"
     },
     "modulus": {
       "min": 190,
@@ -60,11 +60,16 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 250,
-      "max": 290,
-      "typical": 270,
-      "n": 3,
-      "confidence": "measured"
+      "min": 235,
+      "typical": 235,
+      "max": 235,
+      "confidence": "handbook",
+      "provenance": "교정: ATI — ATI 2205 Technical Data Sheet V4 (2015), Typical Room Temperature Properties: Typical Plate ≥3/16 in. 75/110 ksi (515/760 MPa) · El 35% · 235 HBN · https://www.atimaterials.com/Products/Documents/datasheets/stainless-specialty-steel/duplex/ati_2205_tds_en_v4.pdf · [경도 스케일] 페라이트+오스테나이트 2상이라 E140 비오스테나이트 표 대상이 아니어서 원 스케일 표기",
+      "scale": "HB",
+      "source_scale": "HB",
+      "source_value": 235,
+      "conversion": null,
+      "scale_note": "ASTM E140 표 밖(또는 해당 표 없음) — 환산하지 않고 원 스케일 그대로 표기"
     },
     "thermal_conductivity": {
       "min": 19,
@@ -219,29 +224,11 @@
   "points": [
     [
       7.8,
-      450,
-      655,
-      25,
-      190,
-      250,
-      19
-    ],
-    [
-      7.8,
-      550,
-      770,
-      30,
-      190,
-      290,
-      19
-    ],
-    [
-      7.8,
-      510,
-      700,
+      515,
+      760,
       35,
       190,
-      270,
+      235,
       19
     ]
   ],
@@ -260,11 +247,11 @@
   },
   "fracture_toughness": 110,
   "density": 7.8,
-  "yield_strength": 510,
-  "uts": 700,
-  "elongation": 30,
+  "yield_strength": 515,
+  "uts": 760,
+  "elongation": 35,
   "modulus": 190,
-  "hardness": 270,
+  "hardness": 235,
   "thermal_conductivity": 19,
   "fatigue_strength": 280,
   "impact_strength": 120,
@@ -356,6 +343,87 @@
     },
     "aliases": {
       "from": []
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 450,
+        "max": 550,
+        "typical": 510,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 510
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 655,
+        "max": 770,
+        "typical": 700,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 700
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 25,
+        "max": 35,
+        "typical": 30,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 30
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 250,
+        "max": 290,
+        "typical": 270,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 270
+    },
+    "_basis": "저장값 510/700·30%·HV 270 은 원전을 확인할 수 없었다. ATI 2205 의 두꺼운 판(≥4.75 mm) 대표값으로 — 같은 표의 박판 대표값(585/860·30%·27 HRC)은 CLF 2205 판재(621/862·28%·25 HRC)와 같은 대역. 듀플렉스는 비오스테나이트 단상 강이 아니라 경도는 HB 원 스케일.",
+    "_src": "ATI — ATI 2205 Technical Data Sheet V4 (2015), Typical Room Temperature Properties: Typical Plate ≥3/16 in. 75/110 ksi (515/760 MPa) · El 35% · 235 HBN · https://www.atimaterials.com/Products/Documents/datasheets/stainless-specialty-steel/duplex/ati_2205_tds_en_v4.pdf · [경도 스케일] 페라이트+오스테나이트 2상이라 E140 비오스테나이트 표 대상이 아니어서 원 스케일 표기",
+    "points": {
+      "from": [
+        [
+          7.8,
+          450,
+          655,
+          25,
+          190,
+          250,
+          19
+        ],
+        [
+          7.8,
+          550,
+          770,
+          30,
+          190,
+          290,
+          19
+        ],
+        [
+          7.8,
+          510,
+          700,
+          35,
+          190,
+          270,
+          19
+        ]
+      ]
     }
   }
 }

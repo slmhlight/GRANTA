@@ -36,21 +36,21 @@
       "typical": 345,
       "max": 345,
       "confidence": "handbook",
-      "provenance": "교정: ASTM A240 (Type 434: YS≥240 MPa / UTS≥450 MPa) · Combined Metals 434 strip datasheet (50 ksi YS / 80 ksi UTS / El 28% / 75 HRB) · eFunda AISI 434 annealed (415/545/33%) · AZoM Grade 434 (441/538/32%) · [경도 스케일] Combined Metals 434 소둔 strip 75 HRB → HV 137 (ASTM E140-12b Table 2). 기존 180 은 AZoM 상한 계열값이라 직접 측정치(75 HRB)로 교체 — ASTM A240 434 경도 상한(89 HRB ≈ HV 180)은 규격 최대치이지 typical 이 아님."
+      "provenance": "교정: Cleveland-Cliffs Ferritic Automotive Trim Product Data 2021-05, Table 2 Typical RT: Type 434 80/50 ksi (552/345 MPa) · El 28% · HRB 75 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10521/file/CLF_ProductData_FerriticAutoTrim_052021.pdf · [경도 스케일] HRB 75 → HV (ASTM E140-12b Table 2)"
     },
     "uts": {
-      "min": 540,
-      "typical": 540,
-      "max": 540,
+      "min": 552,
+      "typical": 552,
+      "max": 552,
       "confidence": "handbook",
-      "provenance": "교정: ASTM A240 (Type 434: YS≥240 MPa / UTS≥450 MPa) · Combined Metals 434 strip datasheet (50 ksi YS / 80 ksi UTS / El 28% / 75 HRB) · eFunda AISI 434 annealed (415/545/33%) · AZoM Grade 434 (441/538/32%) · [경도 스케일] Combined Metals 434 소둔 strip 75 HRB → HV 137 (ASTM E140-12b Table 2). 기존 180 은 AZoM 상한 계열값이라 직접 측정치(75 HRB)로 교체 — ASTM A240 434 경도 상한(89 HRB ≈ HV 180)은 규격 최대치이지 typical 이 아님."
+      "provenance": "교정: Cleveland-Cliffs Ferritic Automotive Trim Product Data 2021-05, Table 2 Typical RT: Type 434 80/50 ksi (552/345 MPa) · El 28% · HRB 75 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10521/file/CLF_ProductData_FerriticAutoTrim_052021.pdf · [경도 스케일] HRB 75 → HV (ASTM E140-12b Table 2)"
     },
     "elongation": {
       "min": 28,
       "typical": 28,
       "max": 28,
       "confidence": "handbook",
-      "provenance": "교정: ASTM A240 (Type 434: YS≥240 MPa / UTS≥450 MPa) · Combined Metals 434 strip datasheet (50 ksi YS / 80 ksi UTS / El 28% / 75 HRB) · eFunda AISI 434 annealed (415/545/33%) · AZoM Grade 434 (441/538/32%) · [경도 스케일] Combined Metals 434 소둔 strip 75 HRB → HV 137 (ASTM E140-12b Table 2). 기존 180 은 AZoM 상한 계열값이라 직접 측정치(75 HRB)로 교체 — ASTM A240 434 경도 상한(89 HRB ≈ HV 180)은 규격 최대치이지 typical 이 아님."
+      "provenance": "교정: Cleveland-Cliffs Ferritic Automotive Trim Product Data 2021-05, Table 2 Typical RT: Type 434 80/50 ksi (552/345 MPa) · El 28% · HRB 75 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10521/file/CLF_ProductData_FerriticAutoTrim_052021.pdf · [경도 스케일] HRB 75 → HV (ASTM E140-12b Table 2)"
     },
     "modulus": {
       "min": 200,
@@ -64,7 +64,7 @@
       "typical": 137,
       "max": 137,
       "confidence": "handbook",
-      "provenance": "교정: ASTM A240 (Type 434: YS≥240 MPa / UTS≥450 MPa) · Combined Metals 434 strip datasheet (50 ksi YS / 80 ksi UTS / El 28% / 75 HRB) · eFunda AISI 434 annealed (415/545/33%) · AZoM Grade 434 (441/538/32%) · [경도 스케일] Combined Metals 434 소둔 strip 75 HRB → HV 137 (ASTM E140-12b Table 2). 기존 180 은 AZoM 상한 계열값이라 직접 측정치(75 HRB)로 교체 — ASTM A240 434 경도 상한(89 HRB ≈ HV 180)은 규격 최대치이지 typical 이 아님.",
+      "provenance": "교정: Cleveland-Cliffs Ferritic Automotive Trim Product Data 2021-05, Table 2 Typical RT: Type 434 80/50 ksi (552/345 MPa) · El 28% · HRB 75 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10521/file/CLF_ProductData_FerriticAutoTrim_052021.pdf · [경도 스케일] HRB 75 → HV (ASTM E140-12b Table 2)",
       "scale": "HV",
       "source_scale": "HRB",
       "source_value": 75,
@@ -219,18 +219,13 @@
       "label": "ASTM A240/A240M — Stainless Steel Plate, Sheet & Strip",
       "url": "https://store.astm.org/a0240_a0240m-23.html",
       "verified": true
-    },
-    {
-      "label": "Outokumpu / Aperam — AISI 4xx ferritic stainless (ASTM A240)",
-      "url": "https://www.outokumpu.com/en/products/product-ranges/therma/therma-310s-4845",
-      "verified": true
     }
   ],
   "points": [
     [
       7.75,
       345,
-      540,
+      552,
       28,
       200,
       137,
@@ -247,19 +242,13 @@
     ],
     "conditions": [
       "Annealed"
-    ],
-    "specs": [
-      {
-        "id": "ASTM A240",
-        "org": "ASTM"
-      }
     ]
   },
   "fracture_toughness": 104,
   "fatigue_strength": 121,
   "density": 7.75,
   "yield_strength": 345,
-  "uts": 540,
+  "uts": 552,
   "elongation": 28,
   "modulus": 200,
   "hardness": 137,
@@ -294,15 +283,10 @@
   "tolerance_class": "IT10-12",
   "rohs_compliant": null,
   "rohs_basis": "no_regulated_element_data",
-  "confidence_tier": "medium",
+  "confidence_tier": "medium-low",
   "_corrections": {
     "sources": {
       "from": [
-        {
-          "label": "Outokumpu / Aperam — AISI 4xx ferritic stainless (ASTM A240)",
-          "url": "https://www.outokumpu.com/en/products/product-ranges/therma/therma-310s-4845",
-          "verified": true
-        },
         {
           "label": "ASM Handbook Vol. 1: Irons, Steels & High-Performance Alloys",
           "url": null,
@@ -368,8 +352,8 @@
       "had_scalar": true,
       "val_scalar": 164.6
     },
-    "_basis": "AISI 434 annealed — DB 242/365.2 는 **UTS 가 ASTM A240 최소 450 MPa 미달**(405·430 과 동일 오염값). typical 밴드(σy 345~441 · UTS 538~552 · El 28~33) 하한으로 보수 교정.",
-    "_src": "ASTM A240 (Type 434: YS≥240 MPa / UTS≥450 MPa) · Combined Metals 434 strip datasheet (50 ksi YS / 80 ksi UTS / El 28% / 75 HRB) · eFunda AISI 434 annealed (415/545/33%) · AZoM Grade 434 (441/538/32%) · [경도 스케일] Combined Metals 434 소둔 strip 75 HRB → HV 137 (ASTM E140-12b Table 2). 기존 180 은 AZoM 상한 계열값이라 직접 측정치(75 HRB)로 교체 — ASTM A240 434 경도 상한(89 HRB ≈ HV 180)은 규격 최대치이지 typical 이 아님.",
+    "_basis": "선행 교정의 UTS 540 은 80 ksi 의 환산 오기다(80 ksi = 552 MPa). CLF Ferritic Automotive Trim Table 2 의 Type 434 행(50/80 ksi·28%·HRB 75)과 선행 교정이 인용한 Combined Metals 434(50/80 ksi·28%·75 HRB)가 같은 숫자. 선행 교정 대체(경도 동일). [선행 교정 대체: {\"yield_strength\": 345, \"uts\": 540, \"elongation\": 28, \"hardness_src\": {\"scale\": \"HRB\", \"value\": 75, \"family\": \"steel\"}}]",
+    "_src": "Cleveland-Cliffs Ferritic Automotive Trim Product Data 2021-05, Table 2 Typical RT: Type 434 80/50 ksi (552/345 MPa) · El 28% · HRB 75 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10521/file/CLF_ProductData_FerriticAutoTrim_052021.pdf · [경도 스케일] HRB 75 → HV (ASTM E140-12b Table 2)",
     "points": {
       "from": [
         [

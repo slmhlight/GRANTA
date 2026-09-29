@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 380,
-      "max": 380,
-      "typical": 380,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 310,
+      "typical": 310,
+      "max": 310,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) 17-7 PH Product Data Bulletin 2024-07, Table 1 Typical Mechanical Properties: A 120/45 ksi (827/310 MPa) · El 35% · HRB 85 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10504/file/CLF_ProductData_17-7-PH+Stainless+Steel_72024.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "uts": {
-      "min": 1030,
-      "max": 1030,
-      "typical": 1030,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 827,
+      "typical": 827,
+      "max": 827,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) 17-7 PH Product Data Bulletin 2024-07, Table 1 Typical Mechanical Properties: A 120/45 ksi (827/310 MPa) · El 35% · HRB 85 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10504/file/CLF_ProductData_17-7-PH+Stainless+Steel_72024.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "elongation": {
       "min": 35,
-      "max": 35,
       "typical": 35,
-      "n": 1,
-      "confidence": "handbook"
+      "max": 35,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) 17-7 PH Product Data Bulletin 2024-07, Table 1 Typical Mechanical Properties: A 120/45 ksi (827/310 MPa) · El 35% · HRB 85 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10504/file/CLF_ProductData_17-7-PH+Stainless+Steel_72024.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "modulus": {
       "min": 204,
@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 200,
-      "max": 200,
-      "typical": 200,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 85,
+      "typical": 85,
+      "max": 85,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) 17-7 PH Product Data Bulletin 2024-07, Table 1 Typical Mechanical Properties: A 120/45 ksi (827/310 MPa) · El 35% · HRB 85 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10504/file/CLF_ProductData_17-7-PH+Stainless+Steel_72024.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기",
+      "scale": "HRB",
+      "source_scale": "HRB",
+      "source_value": 85,
+      "conversion": null,
+      "scale_note": "ASTM E140 표 밖(또는 해당 표 없음) — 환산하지 않고 원 스케일 그대로 표기"
     },
     "thermal_conductivity": {
       "min": 16.4,
@@ -215,14 +220,14 @@
   },
   "sources": [
     {
-      "label": "AK Steel/MatWeb — 17-7 PH Stainless",
-      "url": "https://www.matweb.com/search/QuickText.aspx?SearchText=17-7+PH",
-      "verified": false
+      "label": "Cleveland-Cliffs (구 AK Steel) — 17-7 PH Product Data Bulletin",
+      "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10504/file/CLF_ProductData_17-7-PH+Stainless+Steel_72024.pdf",
+      "verified": true
     },
     {
-      "label": "Cleveland-Cliffs (구 AK Steel) 17-7 PH Product Data Bulletin 2024-07 (후속 문서 — 저장값 대조 전)",
+      "label": "Cleveland-Cliffs (구 AK Steel) 17-7 PH Product Data Bulletin 2024-07 — Table 1 대표값(A 310/827 · TH1050 1276/1379 · RH950 1448/1586 MPa)",
       "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10504/file/CLF_ProductData_17-7-PH+Stainless+Steel_72024.pdf",
-      "verified": false
+      "verified": true
     },
     {
       "label": "MatWeb 1",
@@ -230,9 +235,9 @@
       "verified": false
     },
     {
-      "label": "Cleveland-Cliffs (구 AK Steel) 17-7 PH Product Data Bulletin 2024-07 (후속 문서 — 저장값 대조 전)",
+      "label": "Cleveland-Cliffs (구 AK Steel) 17-7 PH Product Data Bulletin 2024-07 — Table 1 대표값(A 310/827 · TH1050 1276/1379 · RH950 1448/1586 MPa)",
       "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10504/file/CLF_ProductData_17-7-PH+Stainless+Steel_72024.pdf",
-      "verified": false
+      "verified": true
     },
     {
       "label": "AMS 5528 — 17-7 PH sheet, strip (RH 950)",
@@ -243,18 +248,18 @@
   "points": [
     [
       7.81,
-      380,
-      1030,
+      310,
+      827,
       35,
       204,
-      200,
+      85,
       16.4
     ]
   ],
   "machinability": "Fair",
   "weldability": "Fair",
   "corrosion_resistance": "Good",
-  "industry_note": "UNS S17700 / EN 1.4568 / X7CrNiAl17-7 / JIS SUS631 — semi-austenitic precipitation-hardening stainless (Cr 16-18, Ni 6.5-7.75, Al 0.",
+  "industry_note": "UNS S17700 / EN 1.4568 / X7CrNiAl17-7 / JIS SUS631 — 준오스테나이트 석출경화 스테인리스(Cr 16~18, Ni 6.5~7.75, Al 0.75~1.5). 소둔(Condition A) 상태는 오스테나이트라 성형이 쉽고, TH 1050·RH 950 처리로 마르텐사이트+석출물이 되어 강해진다(RH 950 대표값 σy 1448 / UTS 1586 MPa, Cleveland-Cliffs). 항공 스프링·저온 구조물.",
   "meta": {
     "reference": true,
     "condition": "Condition A (annealed)",
@@ -273,16 +278,16 @@
   "fracture_toughness": 97.5,
   "fatigue_strength": 314,
   "density": 7.81,
-  "yield_strength": 380,
-  "uts": 1030,
+  "yield_strength": 310,
+  "uts": 827,
   "elongation": 35,
   "modulus": 204,
-  "hardness": 200,
+  "hardness": 85,
   "thermal_conductivity": 16.4,
   "impact_strength": 105,
   "manufacturer": "Reference data",
   "process": "Wrought",
-  "source": "AK Steel/MatWeb — 17-7 PH Stainless",
+  "source": "Cleveland-Cliffs (구 AK Steel) — 17-7 PH Product Data Bulletin",
   "aliases": [
     "UNS S17700",
     "EN 1.4568",
@@ -318,5 +323,70 @@
   "svhc_concerns": [
     "Ni 7.75% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium-low"
+  "confidence_tier": "high",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 380,
+        "max": 380,
+        "typical": 380,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 380
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 1030,
+        "max": 1030,
+        "typical": 1030,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 1030
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 35,
+        "max": 35,
+        "typical": 35,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 35
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 200,
+        "max": 200,
+        "typical": 200,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 200
+    },
+    "_basis": "저장값 380/1030 MPa 는 Condition A 의 **최대** 허용값(55/150 ksi max — 연질을 보증하는 상한, 같은 불리틴 Table 2)이 대표값 칸에 실린 것이다. Table 1 대표값(45/120 ksi·35%·HRB 85)으로. Condition A 는 준안정 오스테나이트라 경도는 HRB 원 스케일로 둔다.",
+    "_src": "Cleveland-Cliffs (구 AK Steel) 17-7 PH Product Data Bulletin 2024-07, Table 1 Typical Mechanical Properties: A 120/45 ksi (827/310 MPa) · El 35% · HRB 85 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10504/file/CLF_ProductData_17-7-PH+Stainless+Steel_72024.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기",
+    "points": {
+      "from": [
+        [
+          7.81,
+          380,
+          1030,
+          35,
+          204,
+          200,
+          16.4
+        ]
+      ]
+    }
+  }
 }

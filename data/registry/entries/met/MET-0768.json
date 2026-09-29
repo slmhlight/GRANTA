@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 485,
-      "max": 620,
-      "typical": 550,
-      "n": 3,
-      "confidence": "measured"
+      "min": 594,
+      "typical": 594,
+      "max": 594,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech Duplex 2507 datasheet, Typical room and elevated temperature tensile properties, 1.375 in. round bar annealed 2050°F-1h-WQ, 73°F: 86/126 ksi (594/869 MPa) · El 47% (1 in./4D) · RA 81% · 소둔 경도 HRC 25 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/2507.pdf · [경도 스케일] 2상 듀플렉스라 원 스케일 표기"
     },
     "uts": {
-      "min": 750,
-      "max": 880,
-      "typical": 800,
-      "n": 3,
-      "confidence": "measured"
+      "min": 869,
+      "typical": 869,
+      "max": 869,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech Duplex 2507 datasheet, Typical room and elevated temperature tensile properties, 1.375 in. round bar annealed 2050°F-1h-WQ, 73°F: 86/126 ksi (594/869 MPa) · El 47% (1 in./4D) · RA 81% · 소둔 경도 HRC 25 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/2507.pdf · [경도 스케일] 2상 듀플렉스라 원 스케일 표기"
     },
     "elongation": {
-      "min": 20,
-      "max": 35,
-      "typical": 25,
-      "n": 3,
-      "confidence": "measured"
+      "min": 47,
+      "typical": 47,
+      "max": 47,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech Duplex 2507 datasheet, Typical room and elevated temperature tensile properties, 1.375 in. round bar annealed 2050°F-1h-WQ, 73°F: 86/126 ksi (594/869 MPa) · El 47% (1 in./4D) · RA 81% · 소둔 경도 HRC 25 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/2507.pdf · [경도 스케일] 2상 듀플렉스라 원 스케일 표기"
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,16 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 280,
-      "max": 310,
-      "typical": 295,
-      "n": 3,
-      "confidence": "measured"
+      "min": 25,
+      "typical": 25,
+      "max": 25,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech Duplex 2507 datasheet, Typical room and elevated temperature tensile properties, 1.375 in. round bar annealed 2050°F-1h-WQ, 73°F: 86/126 ksi (594/869 MPa) · El 47% (1 in./4D) · RA 81% · 소둔 경도 HRC 25 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/2507.pdf · [경도 스케일] 2상 듀플렉스라 원 스케일 표기",
+      "scale": "HRC",
+      "source_scale": "HRC",
+      "source_value": 25,
+      "conversion": null,
+      "scale_note": "ASTM E140 표 밖(또는 해당 표 없음) — 환산하지 않고 원 스케일 그대로 표기"
     },
     "thermal_conductivity": {
       "min": 17,
@@ -213,29 +218,11 @@
   "points": [
     [
       7.85,
-      550,
-      800,
+      594,
+      869,
+      47,
+      200,
       25,
-      200,
-      295,
-      17
-    ],
-    [
-      7.85,
-      485,
-      750,
-      20,
-      200,
-      280,
-      17
-    ],
-    [
-      7.85,
-      620,
-      880,
-      35,
-      200,
-      310,
       17
     ]
   ],
@@ -254,11 +241,11 @@
   },
   "fracture_toughness": 110,
   "density": 7.85,
-  "yield_strength": 550,
-  "uts": 800,
-  "elongation": 25,
+  "yield_strength": 594,
+  "uts": 869,
+  "elongation": 47,
   "modulus": 200,
-  "hardness": 295,
+  "hardness": 25,
   "thermal_conductivity": 17,
   "fatigue_strength": 390,
   "impact_strength": 110,
@@ -323,6 +310,87 @@
         "EN 1.4410",
         "SAF 2507",
         "F53"
+      ]
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 485,
+        "max": 620,
+        "typical": 550,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 550
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 750,
+        "max": 880,
+        "typical": 800,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 800
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 20,
+        "max": 35,
+        "typical": 25,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 25
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 280,
+        "max": 310,
+        "typical": 295,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 295
+    },
+    "_basis": "저장값 550/800·25% 는 ASTM A240 S32750 최소(550/795·15%) 부근이었다. Carpenter Duplex 2507 1.375 in. 봉 소둔 대표값으로.",
+    "_src": "Carpenter Technology — CarTech Duplex 2507 datasheet, Typical room and elevated temperature tensile properties, 1.375 in. round bar annealed 2050°F-1h-WQ, 73°F: 86/126 ksi (594/869 MPa) · El 47% (1 in./4D) · RA 81% · 소둔 경도 HRC 25 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/2507.pdf · [경도 스케일] 2상 듀플렉스라 원 스케일 표기",
+    "points": {
+      "from": [
+        [
+          7.85,
+          550,
+          800,
+          25,
+          200,
+          295,
+          17
+        ],
+        [
+          7.85,
+          485,
+          750,
+          20,
+          200,
+          280,
+          17
+        ],
+        [
+          7.85,
+          620,
+          880,
+          35,
+          200,
+          310,
+          17
+        ]
       ]
     }
   }

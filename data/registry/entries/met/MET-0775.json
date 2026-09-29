@@ -11,7 +11,7 @@
   "legacy_id": "R_0123",
   "origin": "reference(supplementary)",
   "id": "R_0123",
-  "name": "431 stainless",
+  "name": "431 stainless — Q+T (982°C OQ + 593°C)",
   "category": "Metal",
   "subcategory": "Stainless Steel - Ferritic/Martensitic",
   "tier": "reference",
@@ -22,7 +22,7 @@
   "processes": [
     "Wrought"
   ],
-  "heat_treatment": null,
+  "heat_treatment": "Q+T (982°C OQ + 593°C)",
   "ranges": {
     "density": {
       "min": 7.7,
@@ -32,25 +32,25 @@
       "confidence": "measured"
     },
     "yield_strength": {
-      "min": 850,
-      "max": 980,
-      "typical": 900,
-      "n": 3,
-      "confidence": "measured"
+      "min": 793,
+      "typical": 793,
+      "max": 793,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 431 datasheet, Typical RT mechanical properties of bar: hardened 1800°F(982°C) OQ, tempered 1100°F(593°C): 115/140 ksi (793/965 MPa) · El 19% · RA 57% · HB 302 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/431.pdf · [경도 스케일] HB 302 → HV (ASTM E140-12b Table 1)"
     },
     "uts": {
-      "min": 1050,
-      "max": 1200,
-      "typical": 1100,
-      "n": 3,
-      "confidence": "measured"
+      "min": 965,
+      "typical": 965,
+      "max": 965,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 431 datasheet, Typical RT mechanical properties of bar: hardened 1800°F(982°C) OQ, tempered 1100°F(593°C): 115/140 ksi (793/965 MPa) · El 19% · RA 57% · HB 302 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/431.pdf · [경도 스케일] HB 302 → HV (ASTM E140-12b Table 1)"
     },
     "elongation": {
-      "min": 10,
-      "max": 16,
-      "typical": 13,
-      "n": 3,
-      "confidence": "measured"
+      "min": 19,
+      "typical": 19,
+      "max": 19,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 431 datasheet, Typical RT mechanical properties of bar: hardened 1800°F(982°C) OQ, tempered 1100°F(593°C): 115/140 ksi (793/965 MPa) · El 19% · RA 57% · HB 302 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/431.pdf · [경도 스케일] HB 302 → HV (ASTM E140-12b Table 1)"
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,15 @@
       "confidence": "measured"
     },
     "hardness": {
-      "min": 330,
-      "max": 380,
-      "typical": 350,
-      "n": 3,
-      "confidence": "measured"
+      "min": 319,
+      "typical": 319,
+      "max": 319,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 431 datasheet, Typical RT mechanical properties of bar: hardened 1800°F(982°C) OQ, tempered 1100°F(593°C): 115/140 ksi (793/965 MPa) · El 19% · RA 57% · HB 302 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/431.pdf · [경도 스케일] HB 302 → HV (ASTM E140-12b Table 1)",
+      "scale": "HV",
+      "source_scale": "HB",
+      "source_value": 302,
+      "conversion": "ASTM E140-12b Table 2"
     },
     "thermal_conductivity": {
       "min": 20,
@@ -108,13 +112,11 @@
       "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
     },
     "max_service_temp": {
-      "min": 552.5,
-      "max": 747.5,
-      "typical": 650,
-      "n": 0,
-      "estimated": true,
-      "confidence": "subfamily",
-      "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+      "min": 593,
+      "typical": 593,
+      "max": 593,
+      "confidence": "handbook",
+      "provenance": "교정: Carpenter Technology — CarTech 431 datasheet, Typical RT mechanical properties of bar: hardened 1800°F(982°C) OQ, tempered 1100°F(593°C): 115/140 ksi (793/965 MPa) · El 19% · RA 57% · HB 302 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/431.pdf · [경도 스케일] HB 302 → HV (ASTM E140-12b Table 1)"
     },
     "thermal_expansion": {
       "min": 8.67,
@@ -215,29 +217,11 @@
   "points": [
     [
       7.7,
-      900,
-      1100,
-      13,
+      793,
+      965,
+      19,
       200,
-      350,
-      20
-    ],
-    [
-      7.7,
-      850,
-      1050,
-      10,
-      200,
-      330,
-      20
-    ],
-    [
-      7.7,
-      980,
-      1200,
-      16,
-      200,
-      380,
+      319,
       20
     ]
   ],
@@ -265,11 +249,11 @@
   "fracture_toughness": 65,
   "fatigue_strength": 450,
   "density": 7.7,
-  "yield_strength": 900,
-  "uts": 1100,
-  "elongation": 13,
+  "yield_strength": 793,
+  "uts": 965,
+  "elongation": 19,
   "modulus": 200,
-  "hardness": 350,
+  "hardness": 319,
   "thermal_conductivity": 20,
   "impact_strength": 50,
   "manufacturer": "Reference data",
@@ -288,7 +272,7 @@
     "Stainless Steel"
   ],
   "electrical_conductivity": 3,
-  "max_service_temp": 650,
+  "max_service_temp": 593,
   "thermal_expansion": 10.2,
   "poisson_ratio": 0.28,
   "specific_heat": 460,
@@ -309,5 +293,114 @@
   "svhc_concerns": [
     "Ni 2.5% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 850,
+        "max": 980,
+        "typical": 900,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 900
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 1050,
+        "max": 1200,
+        "typical": 1100,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 1100
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 10,
+        "max": 16,
+        "typical": 13,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 13
+    },
+    "max_service_temp": {
+      "had_range": true,
+      "val_range": {
+        "min": 552.5,
+        "max": 747.5,
+        "typical": 650,
+        "n": 0,
+        "estimated": true,
+        "confidence": "subfamily",
+        "provenance": "3rd_family:Stainless Steel - Ferritic/Martensitic"
+      },
+      "had_scalar": true,
+      "val_scalar": 650
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 330,
+        "max": 380,
+        "typical": 350,
+        "n": 3,
+        "confidence": "measured"
+      },
+      "had_scalar": true,
+      "val_scalar": 350
+    },
+    "_basis": "조건 없이 900/1100·13%·HV 350 이었다 — Carpenter 431 표 어느 행과도 맞지 않는다. 431 은 371~565°C 뜨임에서 충격값·내식이 떨어져(원전 주의) 실사용은 593°C 이상 뜨임이 기본이고, 원전은 538°C 이상 뜨임에 낮은 경화온도를 권한다 — 그 조합(982°C 경화 + 593°C 뜨임)의 행으로. 사용온도 상한은 뜨임온도(A11 규칙 — 넘으면 재뜨임으로 강도가 떨어진다).",
+    "_src": "Carpenter Technology — CarTech 431 datasheet, Typical RT mechanical properties of bar: hardened 1800°F(982°C) OQ, tempered 1100°F(593°C): 115/140 ksi (793/965 MPa) · El 19% · RA 57% · HB 302 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/431.pdf · [경도 스케일] HB 302 → HV (ASTM E140-12b Table 1)",
+    "points": {
+      "from": [
+        [
+          7.7,
+          900,
+          1100,
+          13,
+          200,
+          350,
+          20
+        ],
+        [
+          7.7,
+          850,
+          1050,
+          10,
+          200,
+          330,
+          20
+        ],
+        [
+          7.7,
+          980,
+          1200,
+          16,
+          200,
+          380,
+          20
+        ]
+      ]
+    },
+    "fields": {
+      "name": {
+        "from": "431 stainless",
+        "had": true
+      },
+      "heat_treatment": {
+        "from": null,
+        "had": true
+      }
+    },
+    "_fbasis": "값을 원전의 982°C 유냉 + 593°C 뜨임 행으로 교정하면서 조건을 이름·열처리에 적었다.",
+    "_fsrc": "Carpenter 431 · https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/431.pdf"
+  }
 }

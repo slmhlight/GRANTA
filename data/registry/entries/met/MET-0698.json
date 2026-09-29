@@ -204,9 +204,9 @@
       "verified": false
     },
     {
-      "label": "Type 316H for Elevated Temperature (UNS S31609) — AZoM",
+      "label": "Type 316H (UNS S31609) — AZoM (ASTM A240 최소값 205/515·40% 만 — 표시값은 미검증)",
       "url": "https://www.azom.com/article.aspx?ArticleID=5053",
-      "verified": true
+      "verified": false
     }
   ],
   "points": [
@@ -236,6 +236,10 @@
   "meta": {
     "reference": true,
     "specs": [
+      {
+        "id": "ASTM A240",
+        "org": "ASTM"
+      },
       {
         "id": "UNS S31609",
         "org": "UNS"
@@ -288,7 +292,7 @@
   "svhc_concerns": [
     "Ni 14% — 피부 알레르겐 (직접 접촉 제품 EU 규제 EN 1811)"
   ],
-  "confidence_tier": "medium",
+  "confidence_tier": "medium-low",
   "_corrections": {
     "industry_note": {
       "from": null,

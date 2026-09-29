@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 240,
-      "max": 240,
-      "typical": 240,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 290,
+      "typical": 290,
+      "max": 290,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) 316/316L Product Data Bulletin 2021-05, Table 1 Typical RT Mechanical Properties (316/316L 한 행): 91/42 ksi (627/290 MPa) · El 55% · HRB 79 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10513/file/CLF_ProductData_316-316LSS_052021.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "uts": {
-      "min": 580,
-      "max": 580,
-      "typical": 580,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 627,
+      "typical": 627,
+      "max": 627,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) 316/316L Product Data Bulletin 2021-05, Table 1 Typical RT Mechanical Properties (316/316L 한 행): 91/42 ksi (627/290 MPa) · El 55% · HRB 79 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10513/file/CLF_ProductData_316-316LSS_052021.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "elongation": {
-      "min": 50,
-      "max": 50,
-      "typical": 50,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 55,
+      "typical": 55,
+      "max": 55,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) 316/316L Product Data Bulletin 2021-05, Table 1 Typical RT Mechanical Properties (316/316L 한 행): 91/42 ksi (627/290 MPa) · El 55% · HRB 79 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10513/file/CLF_ProductData_316-316LSS_052021.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기"
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,16 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 180,
-      "max": 180,
-      "typical": 180,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 79,
+      "typical": 79,
+      "max": 79,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs (구 AK Steel) 316/316L Product Data Bulletin 2021-05, Table 1 Typical RT Mechanical Properties (316/316L 한 행): 91/42 ksi (627/290 MPa) · El 55% · HRB 79 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10513/file/CLF_ProductData_316-316LSS_052021.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기",
+      "scale": "HRB",
+      "source_scale": "HRB",
+      "source_value": 79,
+      "conversion": null,
+      "scale_note": "ASTM E140 표 밖(또는 해당 표 없음) — 환산하지 않고 원 스케일 그대로 표기"
     },
     "thermal_conductivity": {
       "min": 16.3,
@@ -191,14 +196,14 @@
   },
   "sources": [
     {
-      "label": "Outokumpu — Stainless Steel 316L (1.4404)",
+      "label": "Outokumpu — 오스테나이트 스테인리스 강종 개요 페이지 (강종별 수치 없음 — 값 대조 불가)",
       "url": "https://www.outokumpu.com/en/products/stainless-steel-types/austenitic-stainless-steel",
-      "verified": true
+      "verified": false
     },
     {
-      "label": "Cleveland-Cliffs (구 AK Steel) 316/316L Product Data Bulletin 2021-05 (후속 문서 — 저장값과 불일치, 대조 전)",
+      "label": "Cleveland-Cliffs (구 AK Steel) 316/316L Product Data Bulletin 2021-05 — Table 1 대표값 290/627 MPa·55%·HRB 79 · Figure 1 냉간압하-인장 곡선",
       "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10513/file/CLF_ProductData_316-316LSS_052021.pdf",
-      "verified": false
+      "verified": true
     },
     {
       "label": "KIC fallback: ASM Vol.1 316/316L",
@@ -224,18 +229,18 @@
   "points": [
     [
       7.99,
-      240,
-      580,
-      50,
+      290,
+      627,
+      55,
       200,
-      180,
+      79,
       16.3
     ]
   ],
   "machinability": "Fair",
   "weldability": "Excellent",
   "corrosion_resistance": "Excellent",
-  "industry_note": "UNS S31603 / SUS316L / 1.4404 — 316 의 ELC (C ≤ 0.030%). Sensitization 회피 + Mo 보유 → 의료 임플란트 (ASTM F138 pacemaker / orthopedic), 반도체 super-clean, FPSO 표준. AM LPBF 의 가장 흔한 stainless. σy ≈ 170 / UTS ≈ 485 / El 40%.",
+  "industry_note": "UNS S31603 / SUS316L / 1.4404 — 316 의 저탄소(C ≤ 0.030%). 예민화 회피 + Mo → 의료 임플란트(ASTM F138), 반도체 고청정, FPSO 표준. AM LPBF 에서 가장 흔한 스테인리스. 규격 최소 σy 170 / UTS 485 MPa(ASTM A240).",
   "meta": {
     "reference": true,
     "condition": "Annealed (1050°C WQ)",
@@ -252,11 +257,11 @@
   "fracture_toughness": 200,
   "fatigue_strength": 255,
   "density": 7.99,
-  "yield_strength": 240,
-  "uts": 580,
-  "elongation": 50,
+  "yield_strength": 290,
+  "uts": 627,
+  "elongation": 55,
   "modulus": 200,
-  "hardness": 180,
+  "hardness": 79,
   "thermal_conductivity": 16.3,
   "impact_strength": 140,
   "manufacturer": "Reference data",
@@ -344,5 +349,70 @@
       "hours": 1000
     }
   ],
-  "confidence_tier": "high"
+  "confidence_tier": "high",
+  "_corrections": {
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 240,
+        "max": 240,
+        "typical": 240,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 240
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 580,
+        "max": 580,
+        "typical": 580,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 580
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 50,
+        "max": 50,
+        "typical": 50,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 50
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 180,
+        "max": 180,
+        "typical": 180,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 180
+    },
+    "_basis": "저장값 240/580·50%·HV 180 은 원전을 확인할 수 없었다. CLF 316/316L 불리틴은 이중인증 판재를 한 행(Table 1)으로 준다 — 그 대표값으로.",
+    "_src": "Cleveland-Cliffs (구 AK Steel) 316/316L Product Data Bulletin 2021-05, Table 1 Typical RT Mechanical Properties (316/316L 한 행): 91/42 ksi (627/290 MPa) · El 55% · HRB 79 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10513/file/CLF_ProductData_316-316LSS_052021.pdf · [경도 스케일] 오스테나이트계는 ASTM E140 비오스테나이트 환산표 대상이 아니라 환산하지 않고 원 스케일 표기",
+    "points": {
+      "from": [
+        [
+          7.99,
+          240,
+          580,
+          50,
+          200,
+          180,
+          16.3
+        ]
+      ]
+    }
+  }
 }

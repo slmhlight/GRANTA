@@ -32,25 +32,25 @@
       "confidence": "handbook"
     },
     "yield_strength": {
-      "min": 365,
-      "max": 365,
-      "typical": 365,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 310,
+      "typical": 310,
+      "max": 310,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs Ferritic Automotive Trim Product Data 2021-05, Table 2 Typical RT: Type 436 75/45 ksi (517/310 MPa) · El 28% · HRB 75 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10521/file/CLF_ProductData_FerriticAutoTrim_052021.pdf · [경도 스케일] HRB 75 → HV (ASTM E140-12b Table 2)"
     },
     "uts": {
-      "min": 530,
-      "max": 530,
-      "typical": 530,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 517,
+      "typical": 517,
+      "max": 517,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs Ferritic Automotive Trim Product Data 2021-05, Table 2 Typical RT: Type 436 75/45 ksi (517/310 MPa) · El 28% · HRB 75 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10521/file/CLF_ProductData_FerriticAutoTrim_052021.pdf · [경도 스케일] HRB 75 → HV (ASTM E140-12b Table 2)"
     },
     "elongation": {
-      "min": 23,
-      "max": 23,
-      "typical": 23,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 28,
+      "typical": 28,
+      "max": 28,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs Ferritic Automotive Trim Product Data 2021-05, Table 2 Typical RT: Type 436 75/45 ksi (517/310 MPa) · El 28% · HRB 75 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10521/file/CLF_ProductData_FerriticAutoTrim_052021.pdf · [경도 스케일] HRB 75 → HV (ASTM E140-12b Table 2)"
     },
     "modulus": {
       "min": 200,
@@ -60,11 +60,15 @@
       "confidence": "handbook"
     },
     "hardness": {
-      "min": 158,
-      "max": 158,
-      "typical": 158,
-      "n": 1,
-      "confidence": "handbook"
+      "min": 137,
+      "typical": 137,
+      "max": 137,
+      "confidence": "handbook",
+      "provenance": "교정: Cleveland-Cliffs Ferritic Automotive Trim Product Data 2021-05, Table 2 Typical RT: Type 436 75/45 ksi (517/310 MPa) · El 28% · HRB 75 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10521/file/CLF_ProductData_FerriticAutoTrim_052021.pdf · [경도 스케일] HRB 75 → HV (ASTM E140-12b Table 2)",
+      "scale": "HV",
+      "source_scale": "HRB",
+      "source_value": 75,
+      "conversion": "ASTM E140-12b Table 2"
     },
     "thermal_conductivity": {
       "min": 23,
@@ -209,8 +213,8 @@
       "verified": true
     },
     {
-      "label": "Datasheet 1",
-      "url": "ANSYS Granta — Stainless steel, ferritic, AISI 436 annealed (UNS S43600)",
+      "label": "Cleveland-Cliffs Ferritic Automotive Trim Product Data 2021-05 — Table 2 대표값(Type 436 310/517 MPa·28%·HRB 75)",
+      "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10521/file/CLF_ProductData_FerriticAutoTrim_052021.pdf",
       "verified": true
     },
     {
@@ -227,11 +231,11 @@
   "points": [
     [
       7.8,
-      365,
-      530,
-      23,
+      310,
+      517,
+      28,
       200,
-      158,
+      137,
       23
     ]
   ],
@@ -251,11 +255,11 @@
   },
   "fracture_toughness": 104,
   "density": 7.8,
-  "yield_strength": 365,
-  "uts": 530,
-  "elongation": 23,
+  "yield_strength": 310,
+  "uts": 517,
+  "elongation": 28,
   "modulus": 200,
-  "hardness": 158,
+  "hardness": 137,
   "thermal_conductivity": 23,
   "fatigue_strength": 200,
   "impact_strength": 30,
@@ -297,8 +301,8 @@
     "sources": {
       "from": [
         {
-          "label": "Datasheet 1",
-          "url": "ANSYS Granta — Stainless steel, ferritic, AISI 436 annealed (UNS S43600)",
+          "label": "Cleveland-Cliffs Ferritic Automotive Trim Product Data 2021-05 — Table 2 대표값(Type 436 310/517 MPa·28%·HRB 75)",
+          "url": "https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10521/file/CLF_ProductData_FerriticAutoTrim_052021.pdf",
           "verified": true
         },
         {
@@ -311,6 +315,69 @@
           "url": null,
           "verified": false
         }
+      ]
+    },
+    "yield_strength": {
+      "had_range": true,
+      "val_range": {
+        "min": 365,
+        "max": 365,
+        "typical": 365,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 365
+    },
+    "uts": {
+      "had_range": true,
+      "val_range": {
+        "min": 530,
+        "max": 530,
+        "typical": 530,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 530
+    },
+    "elongation": {
+      "had_range": true,
+      "val_range": {
+        "min": 23,
+        "max": 23,
+        "typical": 23,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 23
+    },
+    "hardness": {
+      "had_range": true,
+      "val_range": {
+        "min": 158,
+        "max": 158,
+        "typical": 158,
+        "n": 1,
+        "confidence": "handbook"
+      },
+      "had_scalar": true,
+      "val_scalar": 158
+    },
+    "_basis": "저장값 365/530·23%·HV 158 의 원전은 'ANSYS Granta' 설명문(가짜 출처)뿐이었다. CLF Ferritic Automotive Trim Table 2 의 Type 436 행으로.",
+    "_src": "Cleveland-Cliffs Ferritic Automotive Trim Product Data 2021-05, Table 2 Typical RT: Type 436 75/45 ksi (517/310 MPa) · El 28% · HRB 75 · https://www.clevelandcliffs.com/_assets/_e92903cf6b440037c11763de7babb6fa/clevelandcliffs/db/1190/10521/file/CLF_ProductData_FerriticAutoTrim_052021.pdf · [경도 스케일] HRB 75 → HV (ASTM E140-12b Table 2)",
+    "points": {
+      "from": [
+        [
+          7.8,
+          365,
+          530,
+          23,
+          200,
+          158,
+          23
+        ]
       ]
     }
   }
